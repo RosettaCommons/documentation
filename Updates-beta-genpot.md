@@ -14,9 +14,9 @@ An alternate atom typing scheme has been introduced.  An alternate param file ge
 * A generic torsional potential, _gen_bonded_ has been added using these new types. This potential is _undefined (returning 0) for non-ligand residues_. 
 * LK and LJ parameters have been fit for these new atom types using a combination of small molecule crystal data and ligand-bound protein structures.
 
-## Running mol2genparams.py
+#### Running mol2genparams.py
 
-```htm
+```html
 Usage: python mol2genparams.py [-s mol2file or -l mol2filelist] [options]
 
 Options:
