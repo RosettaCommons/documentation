@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-03-17
+Generated: 2019-03-19
 
 _Note that some application specific options may not be present in this list._
 
@@ -618,10 +618,6 @@ _Note that some application specific options may not be present in this list._
 <dd>run MPIMultiCommJobDistributor with n_replica processes per job<br/>Default: 1<br/></dd>
 <dt><b>-shuffle</b> \<Boolean\></dt>
 <dd>Shuffle job order<br/>Default: false<br/></dd>
-<dt><b>-msd_job_dist</b> \<Boolean\></dt>
-<dd>Use MSD Job Distributor<br/>Default: false<br/></dd>
-<dt><b>-msd_randomize</b> \<Boolean\></dt>
-<dd>Randomize order of input poses for MSD<br/>Default: false<br/></dd>
 <dt><b>-n_cycles</b> \<Integer\></dt>
 <dd>Option to control miscellaneous cycles within protocols.  This has no core meaning - it is meant to reduce option-bloat by having every protocol define separate cycles options.  Check your protocol's documentation to see if it is used.<br/>Range: 1-<br/>Default: 1<br/></dd>
 <dt><b>-repeat</b> \<Integer\></dt>
@@ -1495,6 +1491,13 @@ _Note that some application specific options may not be present in this list._
 <dd>use this 6D potential for all loop_close instead of database files (for testing only!)<br/>Default: ""<br/></dd>
 <dt><b>-use_cubic_interp</b> \<Boolean\></dt>
 <dd>cubic interpolation for 6D potential, instead of polylinear<br/>Default: true<br/></dd>
+</dl>
++ <h2>-recon</h2>
+<dl>
+<dt><b>-recon</b> \<Boolean\></dt>
+<dd>recon option group<br/></dd>
+<dt><b>-randomize</b> \<Boolean\></dt>
+<dd>Randomize order of input poses for RECON MSD<br/>Default: false<br/></dd>
 </dl>
 + <h2>-packing</h2>
 <dl>
