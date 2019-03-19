@@ -30,6 +30,8 @@ It also provides [[interface alanine scanning|interface analyzer]] and [[DNA int
 * [[FunHunt|http://funhunt.furmanlab.cs.huji.ac.il/]], short for funnel hunt, tries to distinguish correct protein-protein complex orientations from decoy orientations.
 It searches for [[energy landscape|Glossary#general-terms_energy-landscape]] funnels using Rosetta's docking code.
 
+* [[TCRmodel|https://tcrmodel.ibbr.umd.edu/]], is a web server that models T cell receptor (TCR) structures from sequence.
+
 ###Commercial/Private servers
 
 * [[Cyrus Biotechnology (external link)| https://cyrusbio.com]]'s Bench server is a web app GUI frontend to Rosetta that runs your requested computations on secure cloud servers.  This tool is meant to allow biophysicists to access the power of Rosetta without needing specific training in Rosetta, experience with the command line, or local supercomputing resources.  Bench offers tools for homology modeling (like Robetta), protein design (RosettaDesign), ddG calculation, and other modeling tools like relaxation and minimization.  <sub><sup>(Cyrus Biotechnology is a commercial Rosetta licensee offering a web-based graphical user interface for Rosetta to its customers.  Licensing fees paid by commercial Rosetta licensees to the University of Washington are used to support the RosettaCommons, investing in the maintenance and further development of Rosetta.)</sup></sub>
