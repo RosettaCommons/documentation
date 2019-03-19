@@ -30,7 +30,7 @@ It also provides [[interface alanine scanning|interface analyzer]] and [[DNA int
 * [[FunHunt|http://funhunt.furmanlab.cs.huji.ac.il/]], short for funnel hunt, tries to distinguish correct protein-protein complex orientations from decoy orientations.
 It searches for [[energy landscape|Glossary#general-terms_energy-landscape]] funnels using Rosetta's docking code.
 
-* [[TCRmodel|https://tcrmodel.ibbr.umd.edu/]], is a web server that models T cell receptor (TCR) structures from sequence.
+* The [[TCRmodel server|https://tcrmodel.ibbr.umd.edu/]] models T cell receptor (TCR) structures from sequence.
 
 ###Commercial/Private servers
 
