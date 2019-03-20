@@ -12,6 +12,7 @@ Application source code is located at src/apps/public/recon\_design/recon.cc. Th
 
 For more information on the purpose and scope of the RECON algorithm, please consult the following publications:
 * Sevy AM, Jacobs TM, Crowe JE, Meiler J. Design of Protein Multi-specificity Using an Independent Sequence Search Reduces the Barrier to Low Energy Sequences. PLoS Comput Biol. 2015;11(7):e1004300.
+
 *Sevy AM, Wu NC, Gilchuk IM, et al. Multistate design of influenza antibodies improves affinity and breadth against seasonal viruses. Proc Natl Acad Sci USA. 2019;116(5):1597-1602.
 
 ## Application purpose
