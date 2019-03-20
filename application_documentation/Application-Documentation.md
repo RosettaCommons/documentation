@@ -158,6 +158,8 @@ Component | Description
 
 - [[RosettaAntibodyDesign]] - Design Antibodies and Antibody-Antigen complexes
 
+- [[RECON multistate design]] - Multi-specificity design to optimize proteins for recognition of multiple targets.
+
 - [[revert-design-to-native]] - Get energetic contribution of designed residues to predicted binding energy
 
 - [[RosettaRemodel]] - Redesign backbone and sequence of protein loops and secondary structure elements. 
