@@ -22,7 +22,7 @@ The RECON algorithm performs multi-specificity design on a set of protein states
 The algorithm works by allowing each protein state to sample sequence space independently, then encouraging them to converge on a single sequence through the use of sequence constraints. In this way the large sequence space of a design problem can be minimized, by limiting the search space to that which is feasible in the context of any individual state. It is most useful for multi-specificity design, for example designing an antibody against a panel of desired targets to increase its affinity and/or breadth.
 
 ## RECON-specific Movers and Filters
-The RECON application is very similar to the RosettaScripts application. It takes in an XML script that defines the movers, filters, score functions, etc. to be used during the protocol. Any regular mover can be used in the RECON application. There are also two Movers and one Filter that are RECON-specific and can't be used in an XML through RosettaScripts. These Movers/Filters are described below:
+The RECON application is very similar to the [[RosettaScripts]] application. It takes in an XML script that defines the movers, filters, score functions, etc. to be used during the protocol. Any regular mover can be used in the RECON application. There are also two Movers and one Filter that are RECON-specific and can't be used in an XML through RosettaScripts. These Movers/Filters are described below:
 
 ### MSDMover
 
@@ -58,7 +58,7 @@ resfiles="(&strings_comma_separated)" task_operations="(&string)" debug="(false 
 Filter designed for use in RECON protocol. It measures the fitness of all input states, where fitness is defined as the sum of energy of all states. Fitness can then be used in a Monte Carlo cycle using the GenericMonteCarloMover or simply output to a scorefile.
 
 ```xml
-<FitnessFilter name="(&string)" scorefxn="(talaris2014 &string)" output\_to\_scorefile="(false &bool)" threshold="(&real)" />
+<FitnessFilter name="(&string)" scorefxn="(talaris2014 &string)" output_to_scorefile="(false &bool)" threshold="(&real)" />
 ```
 
 -   scorefxn: Score function to use when evaluating fitness
@@ -68,20 +68,21 @@ Filter designed for use in RECON protocol. It measures the fitness of all input 
 
 ## Example Command Line
 #### Non-MPI 
-recon.default.linuxgccrelease -database Rosetta/main/database/ -use_input_sc -ex1 -parser:protocol msd_brub.xml -nstruct 100 -out:suffix _msd_rlx -s state_A.pdb state_B.pdb state_C.pdb state_D.pdb state_E.pdb
+`recon.default.linuxgccrelease -database Rosetta/main/database/ -use_input_sc -ex1 -parser:protocol msd_brub.xml -nstruct 100 -out:suffix _msd_rlx -s state_A.pdb state_B.pdb state_C.pdb state_D.pdb state_E.pdb`
 
 #### MPI
-mpiexec -n 5 recon.mpi.linuxgccrelease -database Rosetta/main/database/ -use_input_sc -ex1 -parser:protocol msd_brub.xml -nstruct 100 -out:suffix _msd_rlx -s state_A.pdb state_B.pdb state_C.pdb state_D.pdb state_E.pdb
+`mpiexec -n 5 recon.mpi.linuxgccrelease -database Rosetta/main/database/ -use_input_sc -ex1 -parser:protocol msd_brub.xml -nstruct 100 -out:suffix _msd_rlx -s state_A.pdb state_B.pdb state_C.pdb state_D.pdb state_E.pdb`
 
 ## Tips
 * To run RECON with MPI you must have exactly as many processes as states. So if you want to run 5 states you need to run over 5 processes.
 * You can have each state use a different resfile during RECON - this makes the protocol a lot more flexible! However you have to make sure that the states and resfiles are matched up correctly. Each state is assigned a resfile element-wise (i.e. when you define resfiles in the MSDMover tag `resfiles`, make sure they're in the same order as the states as passed in on the command line). 
-* If you use multiple resfiles, and you see an error message "Error: all states must have the same number of designable residues", this means the resfiles are defining a different number of designable residues between the states. All input states must have exactly the same number of designable residues, or else you wouldn't be able to correspond between different states. Even if the number of `ALLAA` is the same in all your resfiles, you can get different number of designable residues if you're trying to design a disulfide-bonded cysteine, or a residue that doesn't exist. Double check that your resfiles are in the same order as your input PDBs.
+* If you use multiple resfiles, and you see an error message `"Error: all states must have the same number of designable residues"`, this means the resfiles are defining a different number of designable residues between the states. All input states must have exactly the same number of designable residues, or else you wouldn't be able to correspond between different states. Even if the number of `ALLAA` is the same in all your resfiles, you can get different number of designable residues if you're trying to design a disulfide-bonded cysteine, or a residue that doesn't exist. Double check that your resfiles are in the same order as your input PDBs.
 
 ## Limitations
 RECON is unable to perform negative design, i.e. designing a sequence that will maximize energy on a given conformation.
 
 ## See also
-* [[mpi-msd]]: Another protocol for performing multistate design over MPI. 
+* [[mpi-msd]]: Alternate protocol for performing multistate design over MPI. 
 * [[PackRotamersMover]]: Pack and design side chain rotamers. Useful as the design mover for MSDMover.
+* [[RosettaScripts]]: Reference for how XML and Movers/Filters work in Rosetta
 * [[I want to do x]]: Guide to choosing a mover
