@@ -6,7 +6,7 @@ The RECON algorithm was developed by Alex Sevy in Jens Meiler lab. Please contac
 
 ## Code and Demo
 
-Application source code is located at src/apps/public/recon\_design/recon.cc. The individual movers that control behavior of the RECON algorithm are found at src/protocols/recon\_design/. Protocol captures for published material using the method can be found at https://github.com/sevya/msd\_analysis\_scripts and https://github.com/sevya/parallelized\_RECON\_protocol\_capture.
+Application source code is located at src/apps/public/recon\_design/recon.cc. The individual movers that control behavior of the RECON algorithm are found at src/protocols/recon\_design/. Protocol captures for published material using the method can be found at https://github.com/sevya/msd_analysis_scripts and https://github.com/sevya/parallelized_RECON_protocol_capture.
 
 ## References
 
