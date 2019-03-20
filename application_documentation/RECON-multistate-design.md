@@ -11,9 +11,9 @@ Application source code is located at src/apps/public/recon\_design/recon.cc. Th
 ## References
 
 For more information on the purpose and scope of the RECON algorithm, please consult the following publications:
-* Sevy AM, Jacobs TM, Crowe JE, Meiler J. Design of Protein Multi-specificity Using an Independent Sequence Search Reduces the Barrier to Low Energy Sequences. PLoS Comput Biol. 2015;11(7):e1004300.
 
-*Sevy AM, Wu NC, Gilchuk IM, et al. Multistate design of influenza antibodies improves affinity and breadth against seasonal viruses. Proc Natl Acad Sci USA. 2019;116(5):1597-1602.
+* Sevy AM, Jacobs TM, Crowe JE, Meiler J. Design of Protein Multi-specificity Using an Independent Sequence Search Reduces the Barrier to Low Energy Sequences. PLoS Comput Biol. 2015;11(7):e1004300.
+* Sevy AM, Wu NC, Gilchuk IM, et al. Multistate design of influenza antibodies improves affinity and breadth against seasonal viruses. Proc Natl Acad Sci USA. 2019;116(5):1597-1602.
 
 ## Application purpose
 The RECON algorithm performs multi-specificity design on a set of protein states. It can be used to improve binding affinity to a variety of targets, or estimate sequence space available to different conformations. Other multistate design methods can be slow and limited in terms of the number of designed residues or number of input states. RECON uses a heuristic to cut down the amount of sequence space needed to find an optimal multistate solution. This means that you can incorporate other movements, such as backbone movements, during design. RECON can run in parallel on multiple processors using MPI to allow large number of states in multistate design simulations.
@@ -29,8 +29,8 @@ The RECON application is very similar to the RosettaScripts application. It take
 Multistate design mover used in the RECON protocol. MSDMover applies linking constraints to a pose based on the sequence of other input poses, then uses a predefined design mover to run design based on these sequence constraints. These constraints are then removed for the next step of the protocol.
 
 ```xml
-<MSDMover name="(&string)" design\_mover="(&string)" post\_mover="(&string)" resfiles="(&strings)" 
-constraint\_weight="(1.0 &real)" debug="(false &bool)" />
+<MSDMover name="(&string)" design_mover="(&string)" post_mover="(&string)" resfiles="(&strings)" 
+constraint_weight="(1.0 &real)" debug="(false &bool)" />
 
 ```
 
@@ -45,12 +45,12 @@ Multistate design mover used at the end of the RECON protocol. In the RECON prot
 
 ```xml
 <FindConsensusSequence name="(&string)" scorefxn="(talaris2014 &string)" 
-resfiles="(&strings\_comma\_separated)" task\_operations="(&string)" debug="(false &bool)" />
+resfiles="(&strings_comma_separated)" task_operations="(&string)" debug="(false &bool)" />
 
 ```
 
 -   scorefxn: Score function to use when evaluating best amino acids at each position
--   resfiles: A list of resfiles to define designable and repackable residues for all states in multistate design. Multiple resfiles can be used for multiple states - in this case the first resfile in the tag will be applied to the first structure, etc. One single resfile used for all states is also supported.
+-   resfiles: A list of resfiles to define designable and repackable residues for all states in multistate design. Multiple resfiles can be used for multiple states - in this case the first resfile in the tag will be applied to the first structure, etc. One single resfile used for all states is also supported. Comma-separated list of resfiles (i.e. resfiles=one.resfile,two.resfile,three.resfile).
 -   task\_operations: Specifies behavior of the packer when substituting different amino acids and repacking.
 -   debug: Output extra messages during the protocol
 
