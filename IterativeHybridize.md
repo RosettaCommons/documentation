@@ -120,7 +120,7 @@ Command line using Rosetta public app:
     -in:file:silent $1 \
     -in:file:template_pdb $2 \
     -in:file:template_silent $6 -similarity_cut $3 -cm:similarity_limit 0.2 \
-    -out:nstruct 0 -out:file:silent sel.out \
+    -out:nstruct $4 -out:file:silent sel.out \
     -out:prefix iter.$niter \
     -silent_read_through_errors -in:file:silent_struct_type binary -out:file:silent_struct_type binary -mute core basic
 
@@ -133,7 +133,6 @@ Command line using Rosetta public app:
 * $6: the newly generate structure pool in silent format
 * $7: update what structures in Parent pool have been served as Parents; should have column "poolid" in the silent parent file ($1) in order to invoke this option
 * $niter: next iteration index (e.g. iter2)
-* NOTE: -out:nstruct here means how many to furhter add to the original number of structures in template_silent; setting 0 preseves original number
 
 ### Post Processing
 
