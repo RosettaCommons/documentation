@@ -22,7 +22,7 @@ r_frag_quality.default.linuxgccrelease -in:file:native input.pdb -f  input.200.3
 r_frag_quality.default.linuxgccrelease -in:file:native input.pdb -f  input.200.9mers -out:qual frag_qual9.dat
 ```
 
-Then, the python script (lowrms_frag_topN.py) reads the previously generated frag_qual.dat files containing the fragments RMSDs and generates new 9- and 3-mer fragment files with the ntop closest RMSD fragments. 
+Then, the python script (lowrms_frag_topN.py, which can be downloaded from https://github.com/emarcos/biased_forward_folding/) reads the previously generated frag_qual.dat files containing the fragments RMSDs and generates new 9- and 3-mer fragment files with the ntop closest RMSD fragments. 
 
 ```
 python lowrms_frags_topN.py -frag_qual frag_qual3.dat -ntop 3 -fullmer input.200.3mers -out input.3t200.3mers
