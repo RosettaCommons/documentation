@@ -1,10 +1,10 @@
 This page provides how to preprocess your input for setting up GALigandDock runs.
 
-### Make a proper mol2 file
+### 1. Make a proper mol2 file
 Prepare a "proper" mol2 file starting from either SMILES string or a mol2 file.
 (see below "HOW-TO-MAKE-PROPER-MOL2" if you are not sure if yours is "legit")
 
-### Partial charge assignment
+### 2. Partial charge assignment
 Add AM1-BCC partial charge to your mol2file. You can skip this stage if you are going to 
 run partial charge calculation through stage3; this machinery in mol2genparams.py is still under progress
 and we recommend running external softwares listed below: 
@@ -16,7 +16,7 @@ and we recommend running external softwares listed below:
 #### Using antechamber from AMBER tools
 - 
 
-### Making generic-atom-type-version Rosetta params file
+### 3. Making a generic-atom-type-version Rosetta params file
 
 $ROSETTA/source/scripts/python/public/generic_potential/mol2genparams.py -s [your.mol2]
 will give you
@@ -54,7 +54,7 @@ Options:
 * Requires numpy and scipy installed in order to run the script.
 * Requires numba installation for --am1bcc option. This can be readily installed through Anaconda.
 
-### Make an input holo pdb file
+### 4.Making an input holo pdb file
 - HETATM lines of the ligand you want to dock is located at the last part of the file;
 - which also means HETATM lines for any cofactor(s) should locate above the ligand of your interest
 - your ligand position is at a reasonable 3-D location inside the pocket
