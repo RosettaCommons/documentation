@@ -10,7 +10,7 @@ Add AM1-BCC partial charge to your mol2file. You can skip this stage if you are 
 run partial charge calculation through mol2genparams.py in stage3 below, although it is still unstable and for now we recommend running external softwares listed below.
 
 #### Using UCSF chimera
-- open UCSF chimera (download it if you don't have it; its free)
+- open UCSF chimera (download if you don't have it; its free)
 - tools -> Add Charges -> Switch "other residues" to "AM1-BCC" -> click OK -> assign proper Net charge -> OK
 
 #### Using Antechamber from AMBERTOOLS
