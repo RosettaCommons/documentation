@@ -49,13 +49,15 @@ In its simplest form, you can use mhc_epitope by simply setting the mhc_epitope 
 Each ```.mhc``` file should begin with a ```method``` line.  The syntax is the keyword ```method```, followed by the prediction method, and then by the input filename.  There are two prediction methods currently supported:
 - ```method matrix``` uses a matrix to score each peptide.  For example, the propred matrices can be used to score any peptide without precomputing epitope scores.  ```method matrix propred8``` uses the propred8 scoring matrices (i.e., the 8 representative alleles mentioned above)
 - ```method external``` uses a pre-computed, sqlite database to score each peptide.  The filename should be that of the sqlite database.  For example, ```method external yfp_netmhcii.db```.
+- ```method preloaded``` also uses a pre-computed database, like ```method external```.  Unlike ```external```, ``preloaded``` loads the entire contents of the database into memory.  This will speed up your trajectories, at the cost of a larger memory footprint.  ```preloaded``` also accepts CSV files with the epitope information, so the filename must be preceded by the keywords ```db``` or ```csv``` to indicate a sqlite database or a CSV file.  The filename should be that of the database, in the appropriate format.  For example, ```method preloaded db yfp_netmhcii.db``` or ```method preloaded csv yfp_netmhcii.csv```.
 - Note that additional prediction methods can easily be implemented by writing new MHCEpitopePredictor derived classes.
 
 Subsequent lines in the ```.mhc``` file are optional, and control how scoring is performed.
 - ```alleles``` can be used to select a subset of alleles present in your matrix/database to use.  This option is not currently supported, except to select all alleles (the default).  To select all alleles, use ```alleles *```.
 - ```threshold``` applies to matrix-based predictors only.  This option sets the percentile cutoff for binding that is considered a hit.  For example, a threshold of 2 means that the top 2% of binders are hits.  Default is ```threshold 5.0```.  For Propred matrices (currently the only supported matrix type), threshold must be an integer from 1-10.
-- ```unseen``` applies to external predictors only.  As these predictors use an external database that does not necessarily include all possible peptides, this option sets the behavior for any peptide not found in the database (i.e. that is "unseen").  This option can take different handlers, which decide how to handle unseen peptides.  Currently, only ```penalize``` is implemented.   The default is ```unseen penalize 100```.
- - ```penalize``` adds a specific, constant penalty score for any peptide not found in the database, thereby discouraging Rosetta from designing to these sequences.  The default (```unseen penalize 100```) adds 100 to the score if an unknown peptide is encountered.
+- ```unseen``` applies to external or preloaded predictors only.  As these predictors use an external database that does not necessarily include all possible peptides, this option sets the behavior for any peptide not found in the database (i.e. that is "unseen").  This option can take different handlers, which decide how to handle unseen peptides.  The default is ```unseen score 100```.
+ - ```score``` or ```penalize``` (which are identical) adds a specific, constant penalty score for any peptide not found in the database, thereby discouraging Rosetta from designing to these sequences.  The default (```unseen score 100```) adds 100 to the score if an unknown peptide is encountered.
+ - ```ignore``` simply ignores any peptide that is not present in the database, and is a shorthand for ```unseen score 0```.  This is suited for databases of confirmed "bad" peptides.
 - ```xform``` transforms the score returned by the predictor.  In any case, if the transformed score is less than 0, a score of 0 is used.  It can run in one of three modes:
  - ```raw``` is the default.  This takes the raw score and subtracts an offset from it.  The default is ```xform raw 0```.
  - ```relative+``` is a score relative to the native sequence, in additive mode.  The score is calculated as (raw score - native score + offset).  For example, ```raw relative+ 5``` means that a score that is 5 units worse than native, or better, will get a score of 0.
@@ -74,7 +76,13 @@ threshold 5
 This is a ```.mhc``` file that uses an external database provided by the user.  Any peptide encountered by the packer that is not found in the database will be assigned a score penalty of 100.
 ```
 method external user_sql_database.db
-unseen penalize 100
+unseen score 100
+```
+
+This is a ```.mhc``` file that preloads a CSV-based database provided by the user.  Any peptide encountered by the packer that is not found in the database will be assigned a score penalty of 0.
+```
+method preloaded csv user_csv_database.csv
+unseen ignore
 ```
 
 ## MHCEpitope Constraints
@@ -161,9 +169,8 @@ Note that a database can also be used to provide experimentally known epitopes, 
 
 - The external databases are significantly slower than matrix-based predictors, as the database must be accessed from disk continuously during packing.
 - If you have multiple processes accessing the same database, this will create an additional slowdown, as the database will be accessed by multiple processes continuously during packing.  If storage constraints do not pose an issue, consider temporarily making a copy of the database for each process.
-- The database predictor is currently disabled in multithreading situations.  If you would like to use an external database in a multi-threaded Rosetta run, please contact Brahm (brahm.yachnin@rutgers.edu) and/or Chris (cbk@cs.dartmouth.edu), as we would be interested in figuring out how to make this possible.  (You can attempt this on your own by removing the `utility_exit_with_message()` line in `core/scoring/mhc_epitope_energy/MHCEpitopeEnergySetup.cc` (~line 229), but we have not tested this.)
-
-Note that we are considering implementing an option to load the entire database into RAM to avoid some of these issues.  This would only be reasonable with sufficiently small databases.
+- One solution to this is to use the preloaded predictor to load the entirety of the database into RAM.  The drawback here is that large databases must reside in memory, potentially greatly increasing Rosetta's memory footprint.
+- The database predictor is currently disabled in multithreading situations.  If you would like to use an external database in a multi-threaded Rosetta run, please contact Brahm (brahm.yachnin@rutgers.edu) and/or Chris (cbk@cs.dartmouth.edu), as we would be interested in figuring out how to make this possible.  (You can attempt this on your own by removing the `utility_exit_with_message()` line in `core/scoring/mhc_epitope_energy/MHCEpitopeEnergySetup.cc` (~line 229), but we have not tested this.)  Note that preloaded databases are usable in a multi-threading environment.
 
 ## Strategies/guidelines for deimmunization in Rosetta
 
