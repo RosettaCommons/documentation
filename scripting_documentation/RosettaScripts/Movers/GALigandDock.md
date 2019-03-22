@@ -11,16 +11,18 @@ The tag `<GALigandDock>` defines several options associated with the mover, most
 * **scorefxn_relax** - the scorefunction used in final relaxation.  _gen_bonded_ should be on with weight 1.0!
 * **runmode** - supports 4 runmodes each of which calls pre-defined parameters for own purpose:
 
-Example scripts using "runmode" argument are provided below.
-
-**Scorefunction setup**
+An example script:
 ```xml
     <ScoreFunction name="dockscore" weights="beta">
       <Reweight scoretype="fa_rep" weight="0.2"/>
       <Reweight scoretype="coordinate_constraint" weight="0.1"/>
     </ScoreFunction>
     <ScoreFunction name="relaxscore" weights="beta_cart"/>
+    <GALigandDock name="dock" runmode="%%runmode%%" scorefxn="dockscore" scorefxn_relax="relaxscore" />
+
 ```
+
+Example xml scripts using "runmode" argument are provided below.
 
 **Self docking**
 Self docking, when no change in receptor conformation is expected. 1~5 repeats recommended, each takes 3~10 minutes:
