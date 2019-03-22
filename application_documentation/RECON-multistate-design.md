@@ -74,6 +74,7 @@ Filter designed for use in RECON protocol. It measures the fitness of all input 
 `mpiexec -n 5 recon.mpi.linuxgccrelease -database Rosetta/main/database/ -use_input_sc -ex1 -parser:protocol msd_brub.xml -nstruct 100 -out:suffix _msd_rlx -s state_A.pdb state_B.pdb state_C.pdb state_D.pdb state_E.pdb`
 
 ## Tips
+* We recommend generating at least 100 design models to get good convergence
 * To run RECON with MPI you must have exactly as many processes as states. So if you want to run 5 states you need to run over 5 processes.
 * You can have each state use a different resfile during RECON - this makes the protocol a lot more flexible! However you have to make sure that the states and resfiles are matched up correctly. Each state is assigned a resfile element-wise (i.e. when you define resfiles in the MSDMover tag `resfiles`, make sure they're in the same order as the states as passed in on the command line). 
 * If you use multiple resfiles, and you see an error message `"Error: all states must have the same number of designable residues"`, this means the resfiles are defining a different number of designable residues between the states. All input states must have exactly the same number of designable residues, or else you wouldn't be able to correspond between different states. Even if the number of `ALLAA` is the same in all your resfiles, you can get different number of designable residues if you're trying to design a disulfide-bonded cysteine, or a residue that doesn't exist. Double check that your resfiles are in the same order as your input PDBs.
