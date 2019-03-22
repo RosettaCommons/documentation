@@ -5,17 +5,54 @@ The GALigandDock mover is meant to be used in combination with the [[generic-pot
 ### Mover
 
 The docking mover is exposed through the [[RosettaScripts]] application, and the XML format is quite flexible. 
- An example usage using "runmode" arguement is given below:
+The tag `<GALigandDock>` defines several options associated with the mover, mostly dealing with properties of the grid computation, but several "global" protocol options as well:
+
+* **scorefxn** - the scorefunction used in docking.  _gen_bonded_ should be on with weight 1.0!
+* **scorefxn_relax** - the scorefunction used in final relaxation.  _gen_bonded_ should be on with weight 1.0!
+* **runmode** - supports 4 runmodes each of which calls pre-defined parameters for own purpose:
+```html
+"dockflex" [default]: Run docking with flexible ligand and _receptor_ (upto backbone flexibilty)
+"dockrigid": Run docking with flexible ligand only 
+"VSH": High-accuracy virtual screening. Run docking with flexible ligand & receptor sidechains followed by entropy estimation.  
+"VSX": 
+```
+
+Example scripts using "runmode" argument are provided below.
+
+#### Scorefunction setup
 ```xml
     <ScoreFunction name="dockscore" weights="beta">
       <Reweight scoretype="fa_rep" weight="0.2"/>
       <Reweight scoretype="coordinate_constraint" weight="0.1"/>
     </ScoreFunction>
     <ScoreFunction name="relaxscore" weights="beta_cart"/>
-    <GALigandDock name="dock" scorefxn="dockscore" scorefxn_relax="relaxscore" runmode="dockflex" nativepdb="holo.pdb"/>
 ```
 
-or, an example with more detailed control:
+* **runmode="dockrigid" Self docking
+when no change in receptor conformation is expected. 1~5 repeats recommended, each takes 3~10 minutes:
+```xml
+    <GALigandDock name="dock" runmode="dockrigid" scorefxn="dockscore" scorefxn_relax="relaxscore" />
+```
+* **runmode="dockflex"** Cross docking
+When change in receptor conformation is expected. 5~10 repeats recommended, each takes 15~30 minutes:
+```xml
+    <GALigandDock name="dock" runmode="dockflex" scorefxn="dockscore" scorefxn_relax="relaxscore"/>
+```
+* **runmode="VSH"** Virtual screening, high accuracy
+Virtual screening with receptor flexibility and more rigorous entropy calculation. Single run recommended for efficiency. Each takes 10~15 minutes.
+```xml
+    <GALigandDock name="dock" runmode="VSH" scorefxn="dockscore" scorefxn_relax="relaxscore" nativepdb="holo.pdb"/>
+```
+
+* **runmode="VSX"** Virtual screening, fast versio
+Virtual screening without receptor flexibility and with simple entropy calculation. Single run recommended for efficiency. Don't use this mode now -- under development. 
+```xml
+    <GALigandDock name="dock" runmode="VSX" scorefxn="dockscore" scorefxn_relax="relaxscore" nativepdb="holo.pdb"/>
+```
+
+### More advanced options:
+
+An example shown below:
 ```xml    
     <ScoreFunction name="dockscore" weights="beta">
       <Reweight scoretype="fa_rep" weight="0.2"/>
@@ -27,19 +64,6 @@ or, an example with more detailed control:
     </GALigandDock>
 ```
 
-The tag `<GALigandDock>` defines several options associated with the mover, mostly dealing with properties of the grid computation, but several "global" protocol options as well:
-
-* **scorefxn** - the scorefunction used in docking.  _gen_bonded_ should be on with weight 1.0!
-* **scorefxn_relax** - the scorefunction used in final relaxation.  _gen_bonded_ should be on with weight 1.0!
-* **runmode** - supports 4 runmodes each of which calls pre-defined parameters for own purpose:
-```html
-"dockflex" [default]: Run docking with flexible ligand and _receptor_ (upto backbone flexibilty)
-"dockrigid": Run docking with flexible ligand only 
-"VSH": High-accuracy virtual screening. Run docking with flexible ligand & receptor sidechains followed by entropy estimation.  
-"VSX": Express virtual screening. Run docking with flexible ligand only & simple scheduling followed by faster entropy estimation.
-```
-
-### More advanced options:
 #### Grid setup
 * **grid_step**, **padding** - when building a grid covering the binding pocket, use this grid spacing, and pad the area by this amount.  **0.25** and **5** is recommended.
 * **hashsize**, **subhash** - Parameters controlling how the grid computation is handled.  At a grid_step of 0.25, **8** and **3**, respectively, lead to best performance
