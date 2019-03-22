@@ -50,3 +50,6 @@ Options:
 ## Ligand docking
 
 A new ligand docking protocol has been added, [[GALigandDock]], that takes advantage of this new generic potential. It combines fast scoring on a precomputed grid with a genetic algorithm to allow very accurate ligand docking in 3-10 CPU minutes total per target (fixed sidechain) or 10-30 CPU minutes total (flexible sidechain).
+
+### Ligand preparation
+Whole process preparing for GALigandDock runs starting from SMILES string or a mol2 file can be found [[here|GALigandDockpreprocessing]]
