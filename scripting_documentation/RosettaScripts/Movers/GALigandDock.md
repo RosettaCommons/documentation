@@ -60,6 +60,7 @@ An example shown below:
     </GALigandDock>
 ```
 
+#### General parameters
 Arguments called inside GALigandDock line:
 
 **Grid setup**
@@ -80,7 +81,7 @@ Arguments called inside GALigandDock line:
 * **favor_native** - bonus score to the input rotamer (only in grid stage), helps to preseve input sidechain rotamer
 * **optimize_input_H** - run optimize_H before/after docking.
 
-#### Final processing
+**Final processing**
 * **final_exact_minimize** - optionally perform a final off-grid optimization.  **none**: no optimization is performed. **sc**: sidechain optimization only is performed.  **bbsc**: cart-min of flexible residues is performed.  **bbscN**: cart-min of flexible residues *plus N residues up and downstream*
 * **cartmin_lig** - run quick cartmin on ligand-only before and after final_exact_relax
 * **min_neighbor** - also minimize neighbors while doing cartmin_lig
@@ -98,7 +99,7 @@ Arguments called inside GALigandDock line:
 * **use_pharmacophore** - Run pharmacophore-guided docking. Input arguments with reference_pool should be compatatible.
 A series of `<Stage>` tags defines the protocol.  These tags, when applied in order, define the flow of the genetic algorithm.  
 
-**Per-stage control**
+####Per-stage control
 Arguments called with separate "Stage" tags.
 * **repeats**, **npool** - the number of GA generations, and pool size for each generation.
 * **pmut** - mutation probability (1-pmut gives crossover prob).  **0.2** recommended.
