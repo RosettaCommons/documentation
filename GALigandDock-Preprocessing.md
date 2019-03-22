@@ -20,7 +20,8 @@ $AMBERHOME/bin/antechamber -i [input.mol2] -fi mol2 -o [output.mol2] -fo mol2 -c
 ### 3. Making a generic-atom-type-version Rosetta params file
 
 $ROSETTA/source/scripts/python/public/generic_potential/mol2genparams.py -s [your.mol2]
-will give you
+
+Expected outputs are:
 - [your].params and
 - [your]_0001.pdb; a ligand pdb file with coordinates copied from input mol2 file.
 
