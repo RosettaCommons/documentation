@@ -71,7 +71,7 @@ Requires installation of OpenBabel (http://openbabel.org/wiki/Main_Page). Strip 
 obabel -i pdb ligand.pdb -o mol2 -O ligand.mol2 
 ```
 
-Attaching missing hydrogens (visual inspection recommend because many times protonation by obabel is misleading):
+Attaching missing hydrogens (still careful visual inspection recommend afterwards):
 ```
 obabel -i mol2 ligand.mol2 -o mol2 -O ligandH.mol2 -p [pH of your interest; usually 7.0]
 ```
