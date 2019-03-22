@@ -57,7 +57,7 @@ Options:
 * Requires numba installation for --am1bcc option. This can be readily installed through Anaconda.
 
 ### 4.Making an input "holo.pdb" file
-- Translate coordinates in your ligand pdb file generated at stage 3 ([your]_0001.pdb) so that its center-of-mass locates at a proper position inside the pocket. We __Strongly__ recommend running this application when you know (at least approximate) location of the pocket. If not, you can get a "holo.pdb" by running PatchDock server (https://bioinfo3d.cs.tau.ac.il/PatchDock/); please follow instruction there.
+- Translate coordinates in your ligand pdb file generated at stage3 so that its center-of-mass locates at a proper position inside the pocket. We __Strongly__ recommend running this application when you know (at least approximate) location of the pocket. If not, you can get a "holo.pdb" by running PatchDock server (https://bioinfo3d.cs.tau.ac.il/PatchDock/); please follow instruction there.
 - Make sure your contents of your ligand of interest locate at the end of holo.pdb, which means HETATM lines for any cofactor(s) / metals / waters should locate above it.
 
 ### NOTES
