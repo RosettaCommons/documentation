@@ -66,11 +66,15 @@ Skip conformer generation! You don't need it anymore. Any single conformation is
 
 #### HOW TO MAKE A PROPER MOL2 FILE
 **If your input is in pdb format**
-Requires installation of OpenBabel (http://openbabel.org/wiki/Main_Page). Strip ligand part in your pdb file as "ligand.pdb", then run obable:
+Requires installation of OpenBabel (http://openbabel.org/wiki/Main_Page). Strip ligand part in your pdb file as "ligand.pdb", then run:
+```
 obabel -i pdb ligand.pdb -o mol2 -O ligand.mol2 
+```
 
 Attaching missing hydrogens (visual inspection recommend because many times protonation by obabel is misleading):
+```
 obabel -i mol2 ligand.mol2 -o mol2 -O ligandH.mol2 -p [pH of your interest; usually 7.0]
+```
 
 **If your input is in SMILES string**
 There are multiple ways of converting SMILES to mol2 file, you can use Openbable as well. We recommend online demo version of Corina:
