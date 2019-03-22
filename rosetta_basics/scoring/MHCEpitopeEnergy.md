@@ -46,10 +46,10 @@ In its simplest form, you can use mhc_epitope by simply setting the mhc_epitope 
 
 ## Setting up your .mhc files
 
-Each ```.mhc``` file should begin with a ```method``` line.  The syntax is the keyword ```method```, followed by the prediction method, and then by the input filename.  There are two prediction methods currently supported:
+Each ```.mhc``` file should begin with a ```method``` line.  The syntax is the keyword ```method```, followed by the prediction method, and then by the input filename.  There are three prediction methods currently supported:
 - ```method matrix``` uses a matrix to score each peptide.  For example, the propred matrices can be used to score any peptide without precomputing epitope scores.  ```method matrix propred8``` uses the propred8 scoring matrices (i.e., the 8 representative alleles mentioned above)
 - ```method external``` uses a pre-computed, sqlite database to score each peptide.  The filename should be that of the sqlite database.  For example, ```method external yfp_netmhcii.db```.
-- ```method preloaded``` also uses a pre-computed database, like ```method external```.  Unlike ```external```, ``preloaded``` loads the entire contents of the database into memory.  This will speed up your trajectories, at the cost of a larger memory footprint.  ```preloaded``` also accepts CSV files with the epitope information, so the filename must be preceded by the keywords ```db``` or ```csv``` to indicate a sqlite database or a CSV file.  The filename should be that of the database, in the appropriate format.  For example, ```method preloaded db yfp_netmhcii.db``` or ```method preloaded csv yfp_netmhcii.csv```.
+- ```method preloaded``` also uses a pre-computed database, like ```method external```.  Unlike ```external```, ```preloaded``` loads the entire contents of the database into memory.  This will speed up your trajectories, at the cost of a larger memory footprint.  ```preloaded``` also accepts CSV files with the epitope information, so the filename must be preceded by the keywords ```db``` or ```csv``` to indicate a sqlite database or a CSV file.  The filename should be that of the database, in the appropriate format.  For example, ```method preloaded db yfp_netmhcii.db``` or ```method preloaded csv yfp_netmhcii.csv```.
 - Note that additional prediction methods can easily be implemented by writing new MHCEpitopePredictor derived classes.
 
 Subsequent lines in the ```.mhc``` file are optional, and control how scoring is performed.
