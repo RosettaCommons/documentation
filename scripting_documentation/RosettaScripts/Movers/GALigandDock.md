@@ -10,12 +10,6 @@ The tag `<GALigandDock>` defines several options associated with the mover, most
 * **scorefxn** - the scorefunction used in docking.  _gen_bonded_ should be on with weight 1.0!
 * **scorefxn_relax** - the scorefunction used in final relaxation.  _gen_bonded_ should be on with weight 1.0!
 * **runmode** - supports 4 runmodes each of which calls pre-defined parameters for own purpose:
-```html
-"dockflex" [default]: Run docking with flexible ligand and _receptor_ (upto backbone flexibilty)
-"dockrigid": Run docking with flexible ligand only 
-"VSH": High-accuracy virtual screening. Run docking with flexible ligand & receptor sidechains followed by entropy estimation.  
-"VSX": 
-```
 
 Example scripts using "runmode" argument are provided below.
 
