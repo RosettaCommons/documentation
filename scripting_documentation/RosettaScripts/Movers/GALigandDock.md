@@ -19,7 +19,7 @@ The tag `<GALigandDock>` defines several options associated with the mover, most
 
 Example scripts using "runmode" argument are provided below.
 
-#### Scorefunction setup
+**Scorefunction setup**
 ```xml
     <ScoreFunction name="dockscore" weights="beta">
       <Reweight scoretype="fa_rep" weight="0.2"/>
