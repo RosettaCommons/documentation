@@ -60,6 +60,8 @@ An example shown below:
     </GALigandDock>
 ```
 
+Arguments called inside GALigandDock line:
+
 #### Grid setup
 * **grid_step**, **padding** - when building a grid covering the binding pocket, use this grid spacing, and pad the area by this amount.  **0.25** and **5** is recommended.
 * **hashsize**, **subhash** - Parameters controlling how the grid computation is handled.  At a grid_step of 0.25, **8** and **3**, respectively, lead to best performance
@@ -93,6 +95,7 @@ An example shown below:
 A series of `<Stage>` tags defines the protocol.  These tags, when applied in order, define the flow of the genetic algorithm.  
 
 #### Per-stage control
+Arguments called with separate "Stage" tags.
 * **repeats**, **npool** - the number of GA generations, and pool size for each generation.
 * **pmut** - mutation probability (1-pmut gives crossover prob).  **0.2** recommended.
 * **smoothing** - "soften" grid calculations by this value (in A).  For cross-docking, a value of 0.375 (with grid spacing of 0.25) gives notably better results.  Note this is distinct from the repulsive ramping option below.
