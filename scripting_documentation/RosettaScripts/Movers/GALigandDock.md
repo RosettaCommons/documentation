@@ -28,24 +28,24 @@ Example scripts using "runmode" argument are provided below.
     <ScoreFunction name="relaxscore" weights="beta_cart"/>
 ```
 
-* **runmode="dockrigid" Self docking
-when no change in receptor conformation is expected. 1~5 repeats recommended, each takes 3~10 minutes:
+**Self docking**
+Self docking, when no change in receptor conformation is expected. 1~5 repeats recommended, each takes 3~10 minutes:
 ```xml
     <GALigandDock name="dock" runmode="dockrigid" scorefxn="dockscore" scorefxn_relax="relaxscore" />
 ```
-* **runmode="dockflex"** Cross docking
+**Cross docking**
 When change in receptor conformation is expected. 5~10 repeats recommended, each takes 15~30 minutes:
 ```xml
     <GALigandDock name="dock" runmode="dockflex" scorefxn="dockscore" scorefxn_relax="relaxscore"/>
 ```
-* **runmode="VSH"** Virtual screening, high accuracy
-Virtual screening with receptor flexibility and more rigorous entropy calculation. Single run recommended for efficiency. Each takes 10~15 minutes.
+**Virtual screening-High accracy** 
+Allow receptor flexibility and more rigorous entropy calculation. Single run recommended for efficiency. Each takes 10~15 minutes.
 ```xml
     <GALigandDock name="dock" runmode="VSH" scorefxn="dockscore" scorefxn_relax="relaxscore" nativepdb="holo.pdb"/>
 ```
 
-* **runmode="VSX"** Virtual screening, fast versio
-Virtual screening without receptor flexibility and with simple entropy calculation. Single run recommended for efficiency. Don't use this mode now -- under development. 
+**Virtual screening, fast version** 
+Without receptor flexibility and simpler entropy calculation. Single run recommended for efficiency. Don't use this mode now -- under development. 
 ```xml
     <GALigandDock name="dock" runmode="VSX" scorefxn="dockscore" scorefxn_relax="relaxscore" nativepdb="holo.pdb"/>
 ```
