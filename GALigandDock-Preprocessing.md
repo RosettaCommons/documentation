@@ -1,5 +1,5 @@
 ## Overview
-This page provides how to preprocess your inputs for setting up GALigandDock runs. Note that many of current preprocessing stages require running external softwares, since GALigandDock is still a new application and not many effort has been made to improve its user interface. Many of preprocessing stages list below will be simplified or unified into our own script in the future so that users can easily setup docking runs.
+This page provides how to preprocess your inputs for setting up GALigandDock runs. Note that many of current preprocessing stages require running external softwares, since GALigandDock is still a new application and not many effort has been made to improve its user interface. Many of preprocessing stages listed below will be simplified or unified into our own script in the future so that users can easily setup docking runs.
 
 ### 1. Make a proper mol2 file
 Prepare a "proper" mol2 file starting from either SMILES string or a mol2 file.
