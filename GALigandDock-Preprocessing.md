@@ -7,8 +7,7 @@ Prepare a "proper" mol2 file starting from either SMILES string or a mol2 file.
 
 ### 2. Partial charge assignment
 Add AM1-BCC partial charge to your mol2file. You can skip this stage if you are going to 
-run partial charge calculation through stage3; this machinery in mol2genparams.py is still under progress
-and we recommend running external softwares listed below: 
+run partial charge calculation through mol2genparams.py in stage3, although it is still unstable and for now we recommend running external softwares listed below:
 
 #### Using UCSF chimera
 - open UCSF chimera (download it if you don't have it; its free)
