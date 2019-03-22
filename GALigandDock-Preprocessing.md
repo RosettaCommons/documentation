@@ -58,7 +58,7 @@ Options:
 
 ### 4.Making an input "holo.pdb" file
 - Translate coordinates in your ligand pdb file generated at stage3 so that its center-of-mass locates at a proper position inside the pocket. We __strongly__ recommend running this application __when you know (at least approximate) location of the pocket__. If not, you can get a "holo.pdb" by running PatchDock server (https://bioinfo3d.cs.tau.ac.il/PatchDock/); please follow instruction there.
-- Make sure your contents of your ligand of interest locate at the end of holo.pdb, which means HETATM lines for any cofactor(s) / metals / waters should locate above it.
+- Make sure contents of your ligand of interest locate at the end of holo.pdb, which means HETATM lines for any cofactor(s) / metals / waters should locate above it.
 
 ### NOTES
 #### Conformer generation is not necessary
