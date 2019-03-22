@@ -110,7 +110,7 @@ Arguments called with separate "Stage" tags.
 
 ### Inputs and outputs
 
-The input file should be a pdb with the ligand placed approximately in the pocket to be searched.  Only the _center-of-mass_ and _radius_ of this ligand is used by the protocol. More information can be found [[here|GALigandDockpreprocessing]].
+The input file should be a pdb with the ligand placed approximately in the pocket to be searched.  Only the _center-of-mass_ and _radius_ of this ligand is used by the protocol. More information can be found [[here|GALigandDockPreprocessing]].
 
 Outputs use the RosettaScripts multi-output framework, and thus recognize any RosettaScripts output flag for controlling output.  The entire ensemble is output by the mover (thus a single input will have many output structures).
 
