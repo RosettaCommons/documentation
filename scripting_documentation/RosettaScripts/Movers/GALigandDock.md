@@ -62,16 +62,19 @@ An example shown below:
 
 Arguments called inside GALigandDock line:
 
-#### Grid setup
+**Grid setup**
+
 * **grid_step**, **padding** - when building a grid covering the binding pocket, use this grid spacing, and pad the area by this amount.  **0.25** and **5** is recommended.
 * **hashsize**, **subhash** - Parameters controlling how the grid computation is handled.  At a grid_step of 0.25, **8** and **3**, respectively, lead to best performance
 
-#### General parameters
+**General parameters**
+
 * **random_oversample** - oversample the initial population by this factor (recommended 10)
 * **nativepdb** - if given, ligand RMS will be reported in the output
 * **multiple_ligands** - comma-separated, provides name of ligands (appears in params file) to dock sequentially
 
-#### Receptor flexibility setup
+**Receptor flexibility setup**
+
 * **sidechains** - sidechain optimization strategy. **none**: only dock ligands.  **auto**: auto-select all pocket sidechains.  **aniso**: autoselection logic accounting for the shape (not just center of mass) of ligand in input conformation **\<residue specifier\>** (e.g. "22A,25A"): explicit sidechain flexibility specification
 * **rotprob**, **rotEcut**, when generating rotamers to sample, use this cumulative probability and backround energy to trim set.  **0.9** and **100**, respectively, recommended
 * **favor_native** - bonus score to the input rotamer (only in grid stage), helps to preseve input sidechain rotamer
@@ -85,7 +88,8 @@ Arguments called inside GALigandDock line:
 * **fastrelax_script** - provide user-custom fast relax script for final exact_minimize.
 * **estimate_dG** - run entropy correction at the end of run.
 
-#### Reference-guided docking
+**Reference-guided docking**
+
 * **initial_pool** - manually specify a set of structures in the first generation.  A comma separated list of PDBs _or_ silent files.
 * **reference_pool** - either "input" or ligand pdbname(s) (separated by comma). Assigning "input" will invoke pharmacophore detection. Assigning ligand pdb(s) will allow to run reference-aligned docking.
 * **reference_oversample** - Sets how many times to sample over npool*reference_frac.
@@ -94,7 +98,7 @@ Arguments called inside GALigandDock line:
 * **use_pharmacophore** - Run pharmacophore-guided docking. Input arguments with reference_pool should be compatatible.
 A series of `<Stage>` tags defines the protocol.  These tags, when applied in order, define the flow of the genetic algorithm.  
 
-#### Per-stage control
+**Per-stage control**
 Arguments called with separate "Stage" tags.
 * **repeats**, **npool** - the number of GA generations, and pool size for each generation.
 * **pmut** - mutation probability (1-pmut gives crossover prob).  **0.2** recommended.
