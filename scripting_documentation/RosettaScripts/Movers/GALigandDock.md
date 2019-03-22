@@ -60,7 +60,7 @@ An example shown below:
     </GALigandDock>
 ```
 
-#### General parameters
+#### Global protocol parameters
 Arguments called inside GALigandDock line:
 
 **Grid setup**
