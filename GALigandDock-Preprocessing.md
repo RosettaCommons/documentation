@@ -2,7 +2,7 @@ This page provides how to preprocess your input for setting up GALigandDock runs
 
 ### 1. Make a proper mol2 file
 Prepare a "proper" mol2 file starting from either SMILES string or a mol2 file.
-(see below [[HOW-TO-MAKE-PROPER-MOL2|#notes_how-to-make-a-proper-mol2-file]] if you are not sure if yours is "legit")
+(see below [[HOW-TO-MAKE-PROPER-MOL2|GALigandDock-Preprocseeing#notes_how-to-make-a-proper-mol2-file]] if you are not sure if yours is "legit")
 
 ### 2. Partial charge assignment
 Add AM1-BCC partial charge to your mol2file. You can skip this stage if you are going to 
