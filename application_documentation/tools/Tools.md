@@ -1772,6 +1772,9 @@ main/source/src/python/packaged_bindings/*
 main/source/src/python/bindings/*    
 &#8195; - 
 
+tools/AmbRose/[[AmbRose.py|AmbRose]]   
+&#8195; - Python module for the interconversion between Rosetta and Amber poses
+
 tools/clang/clang.py    
 &#8195; - 
 
