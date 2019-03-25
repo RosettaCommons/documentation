@@ -27,6 +27,15 @@ The three `PackerPalette`s currently available are:
     * 4 canonical DNA residues
     * every _non-modified_ carbohydrate residue in the Rosetta database (if and only if the `-include_sugars` option is on)
 
+* [[NCAADefaultPackerPalette]]<br />
+  This `PackerPalette` enables design on common non-canonical backbone types that have a set of 'canonical-like' analogues. For example, beta-3-amino acids have a canonical set of (about) twenty, as do oligoureas and peptoids. It's natural to start with a universe of roughly that size when designing those scaffolds. Pass the flag `-packing:packer_palette:NCAA_expanded` to activate this palette. Note that property-matching will severely restrict the types available at particular positions. (For example, the `PackerPalette` behavior that only designs alpha amino acids at alpha AA positions would exclude all these crazy types by default.)
+  * Included Residues:
+    * The default palette residues
+	* All `BETA_AA` residues in the database (we haven't yet added anything ridiculous that we would seriously mind enabling by default)
+	* All `ARAMID` residues in the database (we haven't yet added anything ridiculous that we would seriously mind enabling by default)
+	* All `OLIGOUREA` residues in the database (we haven't yet added anything ridiculous that we would seriously mind enabling by default)
+	* A handful of peptoids 
+
 * [[NoDesignPackerPalette]]<br/>
   In situtations in which one wishes to repack a `Pose` without designing anything, it is always possible to use a `DefaultPackerPalette` with a [[PreventRepacking TaskOperation|PreventRepackingOperation]].  Under the hood, though, this is slightly inefficient: Rosetta populates a list of the 20 canonical amino acids, then discards all but the current amino acid at a given position.  Where efficiency is an issue (_e.g._ if packer setup is going to occur many thousands of times in rapid succession) you can instead restrict the palette of allowed residue types to the current residue type at each position in a `Pose` using a `NoDesignPackerPalette`.  This `PackerPalette` has no user-configurable options.
 
