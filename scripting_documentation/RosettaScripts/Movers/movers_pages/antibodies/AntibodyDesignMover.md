@@ -13,10 +13,21 @@ Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
 
 Runs the full Rosetta Antibody Design (RAbD) Protocol.  Requires an AHo numbered antibody. Note that only the top design will move on in RosettaScripts.  See the [[Rosetta Antibody Design (RAbD) Manual | RosettaAntibodyDesign ]] for more information.  Note that the [[AntibodyDesignProtocol]] has much less control and tweaks available. The default setting is to design all CDRs.  Any antibody design options discussed in the antibody design documentation but not set through the XML (as outlined in this document) can be set through the Command line.
 
+##Basic Options
+
+There are many tweaks available to RAbD.  
+
+### Sequence Design
+
+Generally, one would want to do a simple run that optimizes the interface energy and uses cluster-based profiles for sequence design:
 
 ```xml
-<AntibodyDesignMover design_cdrs="(&string (ex: L1,L1,L3))" instructions_file="(&real)" />
+<AntibodyDesignMover seq_design_cdrs="(&string (ex: L1,L1,L3))" />
 ```
+
+### Graft Design
+
+If you want to explore different loop conformations of different CDRs, you can use the `graft_design_cdrs` option to graft these on from the database and refine.  You may use any combination of sequence and graft design CDRs.  There are many more options, like being able to limit the length, or staying within the current cluster.  In order to control these, you would pass a `cdr_instruction_file`.  See the full RAbD manual for more: [[RosettaAntibodyDesign#antibody-design-cdr-instruction-file]]
 
 [[include:mover_AntibodyDesignMover_type]]
 
