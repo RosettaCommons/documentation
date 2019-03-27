@@ -11,11 +11,9 @@ Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
 
 ###Purpose
 
-Runs the full Rosetta Antibody Design (RAbD) Protocol.  Requires an AHo numbered antibody. Note that only the top design will move on in RosettaScripts.  See the [[Rosetta Antibody Design (RAbD) Manual | RosettaAntibodyDesign ]] for more information.  Note that the [[AntibodyDesignProtocol]] has much less control and tweaks available. The default setting is to design all CDRs.  Any antibody design options discussed in the antibody design documentation but not set through the XML (as outlined in this document) can be set through the Command line.
+Runs the full Rosetta Antibody Design (RAbD) mover.  Requires an AHo numbered antibody. Note that only the top design will move on in RosettaScripts.  See the [[Rosetta Antibody Design (RAbD) Manual | RosettaAntibodyDesign ]] for more information.  Note that the [[AntibodyDesignProtocol]] runs the `AntibodyDesignMover`, but has a simpler interface.  Any antibody design options discussed in the antibody design documentation but not set through the XML (as outlined in this document) can be set through the Command line.
 
 ##Basic Options
-
-There are many tweaks available to RAbD.  
 
 ### Sequence Design
 
