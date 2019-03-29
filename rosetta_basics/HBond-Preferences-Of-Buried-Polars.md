@@ -18,6 +18,7 @@ In order be considered buried, the following must be true of an atom:
 For the "entire group" graphs, every atom of the group must pass the above two criteria in order to be counted.
 
 In order to be considered h-bonding:
+
 1. Rosetta beta_nov16 must classify an h-bond having at least -0.25 kcal/mol energy*
 
 \*Note: the bb_donor_acceptor_check() was set to False
