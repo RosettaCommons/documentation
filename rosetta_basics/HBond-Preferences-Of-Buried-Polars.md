@@ -29,31 +29,31 @@ In order to be considered h-bonding:
 ## Arginine
 
 <<RawHtml(
-<img src="images/ARG-NE.png"  alt="ARG-NE">
-<img src="images/ARG-N.png"  alt="ARG-NH1 and ARG-NH2">
-<img src="images/G-ARG.png"  alt="Entire guanidino of ARG">
+<img src="images/buried_polars/ARG-NE.png"  alt="ARG-NE">
+<img src="images/buried_polars/ARG-N.png"  alt="ARG-NH1 and ARG-NH2">
+<img src="images/buried_polars/G-ARG.png"  alt="Entire guanidino of ARG">
 )>>
 
 ## Asparagine and Glutamine
 
 <<RawHtml(
-<img src="images/AMIDE-N.png"  alt="ASN-ND2 and GLN-NE2">
-<img src="images/AMIDE-O.png"  alt="ASN-OD1 and GLN-OE1">
-<img src="images/G-AMIDE.png"  alt="Entire carboxamide of ASN or GLN">
+<img src="images/buried_polars/AMIDE-N.png"  alt="ASN-ND2 and GLN-NE2">
+<img src="images/buried_polars/AMIDE-O.png"  alt="ASN-OD1 and GLN-OE1">
+<img src="images/buried_polars/G-AMIDE.png"  alt="Entire carboxamide of ASN or GLN">
 )>>
 
 ## Aspartate and Glutamate
 
 <<RawHtml(
-<img src="images/CARB-O.png"  alt="ASP-OD1 ASP-OD2 GLU-OD1 GLU-OD2">
-<img src="images/G-CARB.png"  alt="Entire carboxylate of ASP and GLU">
+<img src="images/buried_polars/CARB-O.png"  alt="ASP-OD1 ASP-OD2 GLU-OD1 GLU-OD2">
+<img src="images/buried_polars/G-CARB.png"  alt="Entire carboxylate of ASP and GLU">
 )>>
 
 ## Histidine
 
 <<RawHtml(
-<img src="images/HIS-N.png"  alt="HIS-ND1 and HIS-NE2">
-<img src="images/G-HIS.png"  alt="Entire imidazole of HIS">
+<img src="images/buried_polars/HIS-N.png"  alt="HIS-ND1 and HIS-NE2">
+<img src="images/buried_polars/G-HIS.png"  alt="Entire imidazole of HIS">
 )>>
 
 
@@ -62,32 +62,32 @@ In order to be considered h-bonding:
 The data for 0 h-bonds here is suspect. The code wasn't properly written to identify cross-linked lysines and often during the Rosetta-relax, rosetta decided to break lysine h-bonds.
 
 <<RawHtml(
-<img src="images/LYS-N.png"  alt="LYS-NZ">
+<img src="images/buried_polars/LYS-N.png"  alt="LYS-NZ">
 )>>
 
 
 ## Serine and Threonine
 
 <<RawHtml(
-<img src="images/SER-O.png"  alt="SER-OG and THR-OG1">
-<img src="images/SER-H.png"  alt="SER-HG and THR-HG1">
-<img src="images/G-SER.png"  alt="Entire hydroxyl of THR and SER">
+<img src="images/buried_polars/SER-O.png"  alt="SER-OG and THR-OG1">
+<img src="images/buried_polars/SER-H.png"  alt="SER-HG and THR-HG1">
+<img src="images/buried_polars/G-SER.png"  alt="Entire hydroxyl of THR and SER">
 )>>
 
 
 ## Tryptophan
 
 <<RawHtml(
-<img src="images/TRP-N.png"  alt="TRP-NE1">
+<img src="images/buried_polars/TRP-N.png"  alt="TRP-NE1">
 )>>
 
 
 ## Tyrosine
 
 <<RawHtml(
-<img src="images/TYR-O.png"  alt="TYR-OH">
-<img src="images/TYR-H.png"  alt="TYR-HH">
-<img src="images/G-TYR.png"  alt="Entire hydroxyl of TYR">
+<img src="images/buried_polars/TYR-O.png"  alt="TYR-OH">
+<img src="images/buried_polars/TYR-H.png"  alt="TYR-HH">
+<img src="images/buried_polars/G-TYR.png"  alt="Entire hydroxyl of TYR">
 )>>
 
 
