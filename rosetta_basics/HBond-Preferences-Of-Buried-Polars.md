@@ -30,8 +30,8 @@ In order to be considered h-bonding:
 
 ## Arginine
 
-<<RawHtml(
 [[/images/buried_polars/ARG-NE.png]]
+<<RawHtml(
 <img src="images/buried_polars/ARG-N.png"  alt="ARG-NH1 and ARG-NH2">
 <img src="images/buried_polars/G-ARG.png"  alt="Entire guanidino of ARG">
 )>>
