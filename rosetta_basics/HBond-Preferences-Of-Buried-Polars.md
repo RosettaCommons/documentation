@@ -23,6 +23,78 @@ In order to be considered h-bonding:
 \*Note: the bb_donor_acceptor_check() was set to False
 
 
+# HBond Preferences
+
+## Arginine
+
+<<RawHtml(
+<img src="images/ARG-NE.png"  alt="ARG-NE">
+<img src="images/ARG-N.png"  alt="ARG-NH1 and ARG-NH2">
+<img src="images/G-ARG.png"  alt="Entire guanidino of ARG">
+)>>
+
+## Asparagine and Glutamine
+
+<<RawHtml(
+<img src="images/AMIDE-N.png"  alt="ASN-ND2 and GLN-NE2">
+<img src="images/AMIDE-O.png"  alt="ASN-OD1 and GLN-OE1">
+<img src="images/G-AMIDE.png"  alt="Entire carboxamide of ASN or GLN">
+)>>
+
+## Aspartate and Glutamate
+
+<<RawHtml(
+<img src="images/CARB-O.png"  alt="ASP-OD1 ASP-OD2 GLU-OD1 GLU-OD2">
+<img src="images/G-CARB.png"  alt="Entire carboxylate of ASP and GLU">
+)>>
+
+## Histidine
+
+<<RawHtml(
+<img src="images/HIS-N.png"  alt="HIS-ND1 and HIS-NE2">
+<img src="images/G-HIS.png"  alt="Entire imidazole of HIS">
+)>>
+
+
+## Lysine
+
+The data for 0 h-bonds here is suspect. The code wasn't properly written to identify cross-linked lysines and often during the Rosetta-relax, rosetta decided to break lysine h-bonds.
+
+<<RawHtml(
+<img src="images/LYS-N.png"  alt="LYS-NZ">
+)>>
+
+
+## Serine and Threonine
+
+<<RawHtml(
+<img src="images/SER-O.png"  alt="SER-OG and THR-OG1">
+<img src="images/SER-H.png"  alt="SER-HG and THR-HG1">
+<img src="images/G-SER.png"  alt="Entire hydroxyl of THR and SER">
+)>>
+
+
+## Tryptophan
+
+<<RawHtml(
+<img src="images/TRP-N.png"  alt="TRP-NE1">
+)>>
+
+
+## Tyrosine
+
+<<RawHtml(
+<img src="images/TYR-O.png"  alt="TYR-OH">
+<img src="images/TYR-H.png"  alt="TYR-HH">
+<img src="images/G-TYR.png"  alt="Entire hydroxyl of TYR">
+)>>
+
+
+# Notes
+
+These numbers must be interpreted with care. While these show the number of h-bonds seen in nature, the maximum in these graphs does not necessarily coincide with the ideal number of h-bonds for "satisfaction". One must remember that adding another h-bond to a polar atom is a geometrically constrained problem, degrees of freedom are lost when setting up a protein to make another h-bond. For this reason, the number of h-bonds for "satisfaction" is likely higher than the numbers presented.
+
+For the reason noted above, one cannot calculate the energy of a "buried unsatisfied hydrogen bond donor/acceptor" directly. One must factor in the difficulty of making an h-bond to an atom. Which likely varies by side-chain type and number of h-bonds already present.
 
 
 # Citations 
