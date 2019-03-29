@@ -2,6 +2,8 @@ Note: Brian doesn't know where to put this data. At least here it will be public
 
 Author: Brian Coventry 2019
 
+[[TOC]]
+
 # Description
 This great site: [Atlas of Side-Chain and Main-Chain Hydrogen Bonding](http://prowl.rockefeller.edu/aainfo/hbonds.html), collected statistics on the h-bonding preferences of buried polar atoms. This information is incredibly useful, but unfortunately, it was created in 1993.
 
@@ -29,7 +31,7 @@ In order to be considered h-bonding:
 ## Arginine
 
 <<RawHtml(
-<img src="/images/buried_polars/ARG-NE.png"  alt="ARG-NE">
+[[/images/buried_polars/ARG-NE.png]]
 <img src="images/buried_polars/ARG-N.png"  alt="ARG-NH1 and ARG-NH2">
 <img src="images/buried_polars/G-ARG.png"  alt="Entire guanidino of ARG">
 )>>
