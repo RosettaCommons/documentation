@@ -93,9 +93,9 @@ The data for 0 h-bonds here is suspect. The code wasn't properly written to iden
 
 # Notes
 
-These numbers must be interpreted with care. While these show the number of h-bonds seen in nature, the maximum in these graphs does not necessarily coincide with the ideal number of h-bonds for "satisfaction". One must remember that adding another h-bond to a polar atom is a geometrically constrained problem, degrees of freedom are lost when setting up a protein to make another h-bond. For this reason, the number of h-bonds for "satisfaction" is likely higher than the numbers presented.
+These numbers must be interpreted with care. While these show the number of h-bonds seen in nature, the maximum in these graphs does not necessarily coincide with the ideal number of h-bonds for "satisfaction". One must remember that adding another h-bond to a polar atom is a geometrically constrained problem; degrees of freedom are lost when setting up a protein to make another h-bond. For this reason, the number of h-bonds for "satisfaction" is likely higher than the numbers presented.
 
-For the reason noted above, one cannot calculate the energy of a "buried unsatisfied hydrogen bond donor/acceptor" directly. One must factor in the difficulty of making an h-bond to an atom. Which likely varies by side-chain type and number of h-bonds already present.
+For the reason noted above, one cannot calculate the energy of a "buried unsatisfied hydrogen bond donor/acceptor" directly from this data. One must factor in the difficulty of making an h-bond to an atom. Which likely varies by side-chain type and number of h-bonds already present.
 
 
 # Citations 
