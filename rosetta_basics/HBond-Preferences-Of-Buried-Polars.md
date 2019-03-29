@@ -9,11 +9,11 @@ With the PDB much larger than it was in 1993, a similar analysis was performed o
 
 ## Criteria 
 
-In order be considered buried, the following must be true:
+In order be considered buried, the following must be true of an atom:
 
-1. With a 0.9Å probe radius, the group must have 0 SASA
+1. With a 0.9Å probe radius, the atom (and its attached Hs) must have 0 SASA
 
-2. Using molecular surface atomic depth[2][3], the group must be buried to at least 5.5Å
+2. Using molecular surface atomic depth[2][3], the atom must be buried to at least 5.5Å
 
 For the "entire group" graphs, every atom of the group must pass the above two criteria in order to be counted.
 
