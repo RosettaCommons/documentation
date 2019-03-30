@@ -1,6 +1,6 @@
 #What to do when you can't figure out how to model your problem
 
-You should be here if you weren't able to determine how to address your modeling problem with our pages on [[Solving a Biological Problem]] or [[I want to sample X|I want to do x]].
+You should be here if you weren't able to determine how to address your modeling problem with our pages on [[Solving a Biological Problem]] or [[I want to sample X|I want to do x]].  You might also have been sent here if we weren't able to help you on the Rosetta Forums.  (This may seem circular as this page implicitly directs users from either location to the other).  
 
 Sometimes, new graduate students in non-Rosetta labs are given vague problem statements.
 At least, they are vague with respect to the Rosetta worldview and documentation.
@@ -48,7 +48,16 @@ This is 100% Rosetta's fault.
 It may be within Rosetta's capability, but not using a preexisting protocol - perhaps it requires a long [[RosettaScript|RosettaScripts]].
 Perhaps it is just beyond what Rosetta can do, requiring a new [[Mover]] or two. 
 This sort of project is reasonable for a Rosetta developer graduate student, but perhaps not as a minor project for a cellular biology grad student in a non-Rosetta lab.
-We do see projects of this complexity fairly frequently on the [[Rosetta Forums]].
+We do see projects of this complexity fairly frequently on the [Rosetta Forums](https://www.rosettacommons.org/forum).
+
+Problems that we can't help with, and how to help us help you
+================================
+1. Problem #3 above is solvable by Rosetta in the broad sense, but outside of our resources to help you with. The Rosetta community is pretty responsive to specific questions like "I tried to use Mover Foo with these settings but ran into this problem", but not to broad and vague questions like "I need help writing my script".  We understand that learning to write PyRosetta / RosettaScripts, or just use Rosetta in general is hard - but we don't have the resources to train users individually, so we've created this wiki instead.  If this is an issue - be specific in your queries, especially from the programmer's point of view.  (Being highly specific about the protein you are interested in doesn't help us help you.)
+
+2. Like any large institution, we do suffer from "brain drain" and the loss of institutional knowledge.  If you are interested in a specific application used in a paper from 7 years ago that doesn't have much publication history after the initial paper - probably the author left the Rosetta community, moving on to some other job.  If they didn't leave good documentation behind, there's probably nothing we can do to help.  If this is an issue - do let us know exactly which paper you are trying to base your experiment on, so that we know who to attempt to contact.  Sometimes the PI will have a contact for a graduated student, or someone else in their lab will have picked up the project.
+
+3. Sometimes we just don't know!  Rosetta is huge and complex, and complex out of proportion to the number of people who've used it.  You may be the first person to ever ask how to combine Mover Foo with Filter Bar.  Congratulations!  You're at the cutting edge!  Let us know what you find on your adventure!  We haven't been there before, so we don't really know what you'll find.
+
 
 ##See Also
 * [[Resources for learning biophysics and computational modeling]]

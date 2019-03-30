@@ -81,6 +81,7 @@ One EnergyMethod can map to multiple ScoreTypes.  For example, the [[hydrogen bo
 * [[Units in Rosetta]]: Gives a description of Rosetta energy units
 * [[Score functions and score terms|score-types]]
 * [[Additional score terms|score-types-additional]]
+* [[Design-centric guidance terms|design-guidance-terms]]
 * [[Hydrogen bond energy term|hbonds]]
 * [[AACompositionEnergy]]
 * [[Scorefunctions for noncanonical residues and molecules|NC-scorefunction-info]]

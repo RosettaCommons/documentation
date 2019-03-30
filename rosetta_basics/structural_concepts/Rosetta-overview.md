@@ -91,7 +91,7 @@ The Energies object contains cached energy components for a Pose/Conformation. I
 [[ScoreFunction|score-types]] <a name="scorefunction" />
 -------------
 
-A ScoreFunction has a set of weights, each of which is for an individual energy component. Each energy component will be evaluated by a certain type of EnergyMethod, for example, LJ-attractive will be evaluated by a Context-independent-2-body method (ci\_2B\_method) and Dunbrack will be evaluated by a Context-independent-1-body method. The list of all supported EnergyMethods is also maintained by A ScoreFucntion object. When a ScoreFunction is applied to a Pose to evaluate its energy, all non-zero-weighted energy components will be calculated using their corresponding scoring methods. One can find more information about currently supported energy methods and their categories in src/core/scoring/methods/.
+A ScoreFunction has a set of weights, each of which is for an individual energy component. Each energy component will be evaluated by a certain type of EnergyMethod, for example, LJ-attractive will be evaluated by a Context-independent-2-body method (ci\_2B\_method) and Dunbrack will be evaluated by a Context-independent-1-body method. The list of all supported EnergyMethods is also maintained by A ScoreFunction object. When a ScoreFunction is applied to a Pose to evaluate its energy, all non-zero-weighted energy components will be calculated using their corresponding scoring methods. One can find more information about currently supported energy methods and their categories in src/core/scoring/methods/.
 
 ScoreFunctionFactory <a name="scorefunctionfactory />
 --------------------
@@ -111,7 +111,7 @@ This object is used to determine whether a change made to a pose will be accepte
 AtomTreeMinimizer <a name="minimizer" />
 -----------------
 
-Since the kinematic setup for a Pose is solely via AtomTree now, the optimization function is carried out by this AtomTreeMinimizer object. This object has a member function called "run" which takes a <a href="#pose">Pose</a>, a <a href="#movemap">MoveMap</a>, a <a href="scorefunction ">ScoreFunction</a> and a MinimizerOption wrapper object to perform the task of energy minimization. The object energy function to be minimized is obviously from ScoreFunction and the variables are those DOFs in the Pose/Conformation/AtomTree. Which subset of DOFs are to be minimized is specified by this MoveMap object and what type of minimization to be carried out is defined in the MinimizerOption object (it also has minimization tolerance value and other minimization-related parameters). For more information on minimization, see [[Minimization overview and concepts|minimization-overview]] .
+Since the kinematic setup for a Pose is solely via AtomTree now, the optimization function is carried out by this AtomTreeMinimizer object. This object has a member function called "run" which takes a <a href="#pose">Pose</a>, a <a href="#movemap">MoveMap</a>, a <a href="#scorefunction">ScoreFunction</a> and a MinimizerOption wrapper object to perform the task of energy minimization. The object energy function to be minimized is obviously from ScoreFunction and the variables are those DOFs in the Pose/Conformation/AtomTree. Which subset of DOFs are to be minimized is specified by this MoveMap object and what type of minimization to be carried out is defined in the MinimizerOption object (it also has minimization tolerance value and other minimization-related parameters). For more information on minimization, see [[Minimization overview and concepts|minimization-overview]] .
 
 MoveMap <a name="movemap" />
 -------
@@ -149,7 +149,7 @@ PackerPalette <a name="packerpalette" />
 
 PackerPalettes are used by the PackerTask to provide a starting list of available residues with which one can design at every position in a pose. For example, if one wants to design with non-canonical amino acids (NCAA), instead of being limited to the 20 naturally occurring ones, she or he would use a PackerPalette to add the desired NCAAs.
 
-For more information on PackerPalettes, see the [[PackerPalettes page|PackerPalettes]].
+For more information on PackerPalettes, see the [[PackerPalettes page|PackerPalette]].
 
 Mover <a name="mover" />
 -----

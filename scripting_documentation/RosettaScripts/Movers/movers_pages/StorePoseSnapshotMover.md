@@ -7,15 +7,15 @@ Rosetta's sequential residue numbering can create headaches in protocols in whic
 
 The syntax for the mover is very simple:
 
-```
-<StorePoseSnapshot name=(&string) reference_pose_name=(&string) />
+```xml
+<StorePoseSnapshot name="(&string)" reference_pose_name="(&string)" />
 ```
 
 -   reference_pose_name: The name of the snapshot or reference pose object.  Many different snapshots may be stored (by applying different StorePoseSnapshot movers at different points in the protocol), and may subsequently be referred to by different names.
 
 Here's an example of how the mover might be used with other movers that take advantage of reference poses.  In this script, we import a pose, store a snapshot, delete residues 5 through 8, then mutate a residue that would have been at position 10 in the original structure (but which will now be at position 6, since 4 residues were deleted).  We then delete residues 3 to 5, and mutate the residue <i>before</i> the residue that used to be at position 10 (but which is now at position 3, so the residue preceding it is position 2). 
 
-```
+```xml
 <ROSETTASCRIPTS>
 	<SCOREFXNS>
 	</SCOREFXNS>
@@ -24,21 +24,21 @@ Here's an example of how the mover might be used with other movers that take adv
 	<FILTERS>
 	</FILTERS>
 	<MOVERS>
-		<StorePoseSnapshot name=storesnapshot1 reference_pose_name="ref1" />
-		<DeleteRegionMover name=delete5to8 start_res_num=5 end_res_num=8 /> 
-		<MutateResidue name=mutate_old_10 target="refpose(ref1,10)" new_res="LEU" />
-		<DeleteRegionMover name=delete3to5 start_res_num=3 end_res_num=5 /> 
-		<MutateResidue name=mutate_res_before_old_10 target="refpose(ref1,10)-1" new_res="LYS" />
+		<StorePoseSnapshot name="storesnapshot1" reference_pose_name="ref1" />
+		<DeleteRegionMover name="delete5to8" start_res_num="5" end_res_num="8" /> 
+		<MutateResidue name="mutate_old_10" target="refpose(ref1,10)" new_res="LEU" />
+		<DeleteRegionMover name="delete3to5" start_res_num="3" end_res_num="5" /> 
+		<MutateResidue name="mutate_res_before_old_10" target="refpose(ref1,10)-1" new_res="LYS" />
 	</MOVERS>
 	<APPLY_TO_POSE>
 	</APPLY_TO_POSE>
 	<PROTOCOLS>
-		<Add mover=fullatom />
-		<Add mover=storesnapshot1 />
-		<Add mover=delete5to8 />
-		<Add mover=mutate_old_10 />
-		<Add mover=delete3to5 />
-		<Add mover=mutate_res_before_old_10 />
+		<Add mover="fullatom" />
+		<Add mover="storesnapshot1" />
+		<Add mover="delete5to8" />
+		<Add mover="mutate_old_10" />
+		<Add mover="delete3to5" />
+		<Add mover="mutate_res_before_old_10" />
 	</PROTOCOLS>
 </ROSETTASCRIPTS>
 ```

@@ -4,7 +4,7 @@
 
 Restrict a string of comma-delimited residues to repacking. No design.
 
-     <RestrictResiduesToRepacking name=(&string) residues=(0 &integer "," separated)/>
+     <RestrictResiduesToRepacking name="(&string)" residues="(0 &integer ',' separated)"/>
 
 <br/>
 *For a more flexible system, see the [[Index|ResidueSelectors#residueselectors_conformation-independent-residue-selectors_residueindexselector]] [[ResidueSelector|ResidueSelectors]], as well as [[OperateOnResidueSubset|OperateOnResidueSubsetOperation]] and [[RestrictToRepackingRLT|Residue Level TaskOperations]].*

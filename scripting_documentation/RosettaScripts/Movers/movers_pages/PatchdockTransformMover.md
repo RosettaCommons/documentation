@@ -4,8 +4,8 @@
 
 Uses the Patchdock output files to modify the configuration of the pose.
 
-```
-<PatchdockTransform name="&string" fname=(&string) from_entry=(&integer) to_entry=(&integer) random_entry=(&bool)/>
+```xml
+<PatchdockTransform name="&string" fname="(&string)" from_entry="(&integer)" to_entry="(&integer)" random_entry="(&bool)"/>
 ```
 
 Since Patchdock reading is also enabled on the commandline, the defaults for each of the parameters can be defined on the commandline. But, setting patchdock commandline options would provoke the JobDistributor to call the PatchDock JobInputter and that might conflict with the mover options defined here.

@@ -4,7 +4,7 @@
 
 Calculate the number of heavy atoms clashing between building blocks.
 
-    <ClashCheck name=(&string) sym_dof_names=(&string) clash_dist=(3.5 &Real) nsub_bblock=(1 &Size) cutoff=(0 &Size) verbose=(0 &bool) write2pdb=(0 &bool)/>
+    <ClashCheck name="(&string)" sym_dof_names="(&string)" clash_dist="(3.5 &Real)" nsub_bblock="(1 &Size)" cutoff="(0 &Size)" verbose="(0 &bool)" write2pdb="(0 &bool)"/>
 
 -   clash\_dist - Distance between heavy atoms below which they are considered to be clashing. Note: A hard-coded cutoff of 2.6 is set for contacts between backbone carbonyl oxygens and nitrogens for bb-bb hbonds.
 -   sym\_dof\_names - Only use with multicomponent systems. Name(s) of the sym\_dof(s) corresponding to the building block(s) between which to check for clashes.

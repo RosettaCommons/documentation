@@ -3,7 +3,7 @@
 Metadata
 ========
 
-This document was edited by Colin Smith on 12/4/2008. Yi Liu created the initial page. Thanks Oliver and Firas for providing information.  Last edited by Steven Lewis on 01 Aug 2016.
+This document was edited by Colin Smith on 12/4/2008. Yi Liu created the initial page. Thanks Oliver and Firas for providing information.  Last edited by Steven Lewis on 30 Aug 2016.
 
 [[_TOC_]]
 
@@ -14,7 +14,7 @@ Rosetta constraints are additions to the scorefunction. (This corresponds to "re
 
 Each constraint consists of two parts: A) what's being measured B) how that measured value is transformed into a scoring bonus/penalty. These two parts can be mixed and matched to derive the desired behavior.
 
-In order for constraints to be correctly recognized by Rosetta, two things must occur. First, the constraints themselves must be applied to the pose (structure). How this is done is somewhat protocol dependent, but most often takes the form of an option or parameter which specifies which file contains the constraint specification. (The format of this file is described below.)
+In order for constraints to be correctly recognized by Rosetta, two things must occur. First, the constraints themselves must be applied to the pose (structure). How this is done is somewhat protocol dependent, but most often takes the form of an option or parameter which specifies which file contains the constraint specification. (The format of this file is described below.) For example, by adding it in your xml script using the [[ ConstraintSetMover|ConstraintSetMover]].
 
 The second requirement is that the scorefunction being used needs to have a non-zero weight for the appropriate constraint scoreterm. The particular scoreterm depends on the type of constraint being used. The value of the penalty/bonus consists of the sum of the raw constraint scores (from the measured value and the specified transforming function of all the constraints) multiplied by the weight of the appropriate score term in the score function. Many protocols which use constraints will turn the constraint weights on for you, but others will require you to specify a scorefunction weights file which has non-zero constraint terms.
 
@@ -246,8 +246,9 @@ Functions are listed as "Func\_Type Func\_Def".
 
     [[/images/form_2.png]]
 
--   `GAUSSIANFUNC mean sd tag`
-    * Note: `tag` is NOT optional, as for BoundFunc/BOUNDED. If `tag = NOLOG, it triggers some undocumented behavior involving a logarithm of some sort.
+-   `GAUSSIANFUNC mean sd tag WEIGHT weight`
+    * Note: `tag` is NOT optional, as for BoundFunc/BOUNDED. If `tag` = NOLOG, it triggers some undocumented behavior involving a logarithm of some sort.
+    * Note: The string "WEIGHT" followed by a value is optional at the end.  If provided, it scales the gaussian function by a constant multiplier.  (For example, WEIGHT 2.5 scales the function by a factor of 2.5).
 
     [[/images/form_3.png]]
 

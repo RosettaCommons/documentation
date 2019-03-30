@@ -4,8 +4,8 @@
 
 Creates a disjointed foldtree where each selected residue has cuts N- and C-terminally to it.
 
-```
-<HotspotDisjointedFoldTree name=(&string) ddG_threshold=(1.0 &Real) resnums=("" comma-delimited list of residues &string) scorefxn=(score12 &string) chain=(2 &Integer) radius=(8.0 &Real)/>
+```xml
+<HotspotDisjointedFoldTree name="(&string)" ddG_threshold="(1.0 &Real)" resnums="('' comma-delimited list of residues &string)" scorefxn="(score12 &string)" chain="(2 &Integer)" radius="(8.0 &Real)"/>
 ```
 
 -   ddG\_threshold: The procedure can look for hot-spot residues automatically by using this threshold. If you want to shut it off, specify a number above 100R.e.u. and set the residues in resnums

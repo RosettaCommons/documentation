@@ -7,6 +7,7 @@ Jared Adolf-Bryfogle; jadolfbr@gmail.com;
 PI: Roland Dunbrack
 
 Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
+* [[Rosetta Antibody Design (RAbD) Manual | RosettaAntibodyDesign]]
 
 ### Brief
 Task Operation to restrict packing to specific CDRs and neighbors. Will disable packing AND design for all other residues. See the design options for further control. 
@@ -19,7 +20,7 @@ By default, restricts to all packing of all CDRs and neighbors.  Analogous to th
 See options for control of which CDRs, including whether to only restrict to design and control of whether we design 
 neighbor antigen and/or neighbor framework residues.
 
-     <RestrictToCDRsAndNeighbors name=restrict cdrs=(&string,&string) numbering_scheme=(&string) cdr_definition=(&string) />
+     <RestrictToCDRsAndNeighbors name="restrict" cdrs="(&string,&string)" numbering_scheme="(&string)" cdr_definition="(&string)" />
 
 ###Common Options 
 

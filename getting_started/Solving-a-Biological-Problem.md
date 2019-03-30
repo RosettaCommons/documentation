@@ -73,7 +73,7 @@ Docking can emulate several biophysical models of protein–protein interactions
 
 #### Docking According to the Lock and Key Model
 
-The lock and key model assumes that proteins interact in a rigid fashion; two proteins must have shape complemenetarity to interact.
+The lock and key model assumes that proteins interact in a rigid fashion; two proteins must have shape complementarity to interact.
 Assuming the two protein partners are not expected to have backbone motions upon binding, the problem can be approached with rigid-backbone docking.
 
 #### Docking According to the Conformer Selection Model
@@ -115,7 +115,7 @@ Success would be extremely unlikely due to the large amount of sampling needed t
 ## Protein–Peptide Docking
 
 Protein–peptide docking is useful for determining the structure of a short, flexible peptide in the context of a receptor.
-Rosetta has [protein–peptide docking](application_documentation/flex_pep_dock) methods that work best starting from an approximate model with a starting position near to the peptide–binding site; within five Angstroms backbone RMSD is ideal.
+Rosetta has [[protein–peptide docking|flex-pep-dock]] methods that work best starting from an approximate model with a starting position near to the peptide–binding site; within five Angstroms backbone RMSD is ideal.
 Thus, it is not generally tractable to concurrently sample peptide conformations and all the possible binding sites on the surface of the protein.
 Rosetta also has the capacity to sample conformations of peptidomimetic molecules, such as oligooxopiperazines, hydrogen bond surrogate helices, stapled peptides, peptoids, beta peptides, and more.
 
@@ -175,7 +175,7 @@ For an overview of loop modeling in Rosetta, please see [[this|loopmodel]].
 
 For explicit refinement of crystallography data, see [[here|density-map-scoring]].
 
-[loops from density](application_documentation/loops-from-density) is a script to take badly fit electron data and a cutoff suggesting how much of the pose you're willing to rebuild and to generate input "loops" files for loop modeling. 
+[[loops from density|loops-from-density]] is a script to take badly fit electron data and a cutoff suggesting how much of the pose you're willing to rebuild and to generate input "loops" files for loop modeling. 
 
 For modeling of missing loops on existent protein structures, you can use any of the methods in the section below.
 
@@ -205,22 +205,22 @@ Then you may begin to approach this question with [[FloppyTail|floppy-tail]].
 
 ## Nucleic Acids modeling
 
-* [ERRASER](application_documentation/erraser) refines RNA structures from electron density (crystallographic data); it constitutes a workflow of _erraser_minimize_, _swa_rna_analytical_closure_, and _swa_rna_main.
+* [[ERRASER]] refines RNA structures from electron density (crystallographic data); it constitutes a workflow of _erraser_minimize_, _swa_rna_analytical_closure_, and _swa_rna_main.
 It requires the use of the refinement program PHENIX.
 
 ## Solving Crystal Structures
 
 * For explicit refinement of crystallography data, see [[here|density-map-scoring]].
 
-* [mr_protocols](application_documentation/mr-protocols) is typically used _alongside_ Phaser / PHENIX; it uses Rosetta's comparative modeling to rebuild gaps and insertions in the template, as well as missing density, from fragments, followed by relaxation with constraints to experimental density.
+* [[mr_protocols|mr-protocols]] is typically used _alongside_ Phaser / PHENIX; it uses Rosetta's comparative modeling to rebuild gaps and insertions in the template, as well as missing density, from fragments, followed by relaxation with constraints to experimental density.
 You can then use Phaser / PHENIX again to re-score against crystallographic data.
 
-* [ERRASER](application_documentation/erraser) refines RNA structures from electron density (crystallographic data); it constitutes a workflow of _erraser_minimize_, _swa_rna_analytical_closure_, and _swa_rna_main.
+* [[ERRASER]] refines RNA structures from electron density (crystallographic data); it constitutes a workflow of _erraser_minimize_, _swa_rna_analytical_closure_, and _swa_rna_main.
 It requires the use of the refinement program PHENIX.
 
 ## Solving NMR structures
 
-* [Chemical shift files](rosetta_basics/chemical-shift-file) provide data to a variety of protocols often collectively referred to as [[CS-ROSETTA]] that incorporate NMR constraints to refine structures
+* [[Chemical shift files|chemical-shift-file]] provide data to a variety of protocols often collectively referred to as [[CS-ROSETTA]] that incorporate NMR constraints to refine structures
 
 ## What If My Question Is Unanswered? 
 

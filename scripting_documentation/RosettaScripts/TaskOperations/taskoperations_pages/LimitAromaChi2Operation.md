@@ -2,11 +2,15 @@
 *Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## LimitAromaChi2
 
-Prevent to use the rotamers of PHE, TYR and HIS that have chi2 far from 90.
+Prevents use the rotamers of PHE, TYR and HIS that have chi2 far from 90.  These rotamers are acceptable to the Dunbrack energy term due to smoothing of the energy landscape but not actually physically common without some other rearrangements Rosetta fails to capture.  For design purposes, it is simpler to just remove these rotamers from consideration when designing, since they are almost never realistic in the situations Rosetta chooses to use them.  
 
--   chi2max ( default 110.0 ) : max value of chi2 to be used
--   chi2min ( default 70.0 ): min value of chi2 to be used
--   include_trp ( default false ): also impose chi2 limits for tryptophans
+Note that this tool is INCLUSIVE rather than EXCLUSIVE - you are defining the rotamers to keep, not to remove.
+
+[[include:to_LimitAromaChi2_type]]
+
+This tool ignores TRP by default because TRP's energy landscape is more permissive for this particular problem: for some portions of the Ramachandran plot, these rotamers are fine. To also apply the limits to TRP, set `include_trp` to true.
+
+To understand the underlying rotamer distributions, see [the Dunbrack Lab's description](http://dunbrack.fccc.edu/bbdep2010/ImagesMovies.php).
 
 ##See Also
 

@@ -51,6 +51,7 @@ saxs_score                                 Centroid SAXS asessment
 saxs_cen_score
 saxs_fa_score                              Full-atom SAXS score
 pddf_score                                 Score based on pairwise distance distribution function
+cen_pair_motifs                            Motif score to determine packing in the protein core. Applied to each residue
 ```
 
 [1] [[Calculation of accurate small angle X-ray scattering curves from coarse-grained protein models |http://dx.doi.org/10.1186/1471-2105-11-429]], Stovgaard et al., BMC Bioinformatics. 2010; 11:429.
@@ -362,6 +363,7 @@ Centroid whole structure energies
 ```html
 cen_env_smooth                             fpd smooth centroid env
 cbeta_smooth                               fpd smooth cbeta
+cen_pair_motif_degree                      Determines packing in protein core. Only counts the best packed residue over a region. Whole-strucuture version of cen_pair_motifs
 cen_rot_env
 cen_rot_dun
 env
@@ -563,6 +565,7 @@ Menv_smooth
 
 * [[Scoring explained]]
 * [[Score functions and score terms|score-types]]
+* [[Design-centric guidance terms|design-guidance-terms]]
 * [[Hydrogen bond energy term|hbonds]]
 * [[Scorefunctions for noncanonical residues and molecules|NC-scorefunction-info]]
 * [[Adding new score terms|new-energy-method]]

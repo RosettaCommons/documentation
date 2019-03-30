@@ -54,6 +54,11 @@ main/source/scripts/python/public/batch_molfile_to_params.py
 main/source/src/apps/public/ligand_docking/[[assign_charges.py|ligand-dock]]    
 &#8195; - Assign AM1-BCC charges to ligands.
 
+tools/protein_tools/scripts/calculate_ligand_rmsd.py
+&#8195; - Pymol based script for calculating small molecule RMSDs
+
+tools/protein_tools/scripts/visualize_ligand.py
+&#8195; - Generate Pymol session for visualizing ligand binding pocket
 
 #### Symmetry
 
@@ -103,6 +108,9 @@ tools/membrane_tools/write_mp_xml.py
 tools/membrane_tools/mptest_ut.py    
 &#8195; - Run unit test for RosettaMembrane Framework code.
 
+tools/membrane_tools/check_spanfile_in_pymol.pl    
+&#8195; - Color PDB model by residue range regions as defined in membrane spanfile.
+
 
 #### Electron Density
 
@@ -138,6 +146,12 @@ tools/fragment_tools/update_revdat.pl
 
 tools/protein_tools/scripts/generate_atom_pair_constraint_file.py
 &#8195; - Generate a Rosetta constraint file to restrain atom pair distances based on a PDB file.
+
+tools/analysis/constraints/calc_exp_viol.pl    
+&#8195; - Creates a printout of the actual distance and violation for every atom pair constraint given a PDB file and constraint file.
+
+tools/analysis/constraints/calc_exp_viol_spline.pl    
+&#8195; - Creates a printout of the actual distances and violations for a set of EPR distance constraints given a PDB file and a constraint file. 
 
 ### Job Running
 
@@ -208,12 +222,20 @@ tools/protein_tools/scripts/score_vs_rmsd.py
 tools/protein_tools/scripts/score_scatter_plot.py    
 &#8195; - Create score term vs. score term scatter plots.
 
+tools/protein_tools/scripts/score_vs_rmsCore.R    
+&#8195; - Create a score vs. RMSD scatter plot from a score file. The RMSD is calculated for the protein core region and the scorefile must contain a 'rms_core' column.
+
+tools/protein_tools/scripts/score_vs_rmsTM.R    
+&#8195; - Create a score vs. RMSD scatter plot from a score file. The RMSD is calculated for the protein transmembrane region and the scorefile must contain a 'rms_TM' column.
+
 tools/analysis/numeric/MultiDimensionalHistogram.R    
 &#8195; - 
 
 tools/analysis/protocols/moves/DOFHistogramRecorder.R    
 &#8195; - 
 
+tools/analysis/constraints/score_vs_atom_pair_constraint.R    
+&#8195; - Make a total score vs. atom_pair_constraint scatter plot.
 
 #### Clustering Utilities
 
@@ -1221,53 +1243,6 @@ tools/SWA_RNA_python/SWA_dagman_python/utility/USER_PATHS.py
 &#8195; - 
 
 
-### ERRASER
-
-* See [[Erraser]] for more information.
-
-tools/ERRASER/erraser.py    
-&#8195; - 
-
-tools/ERRASER/erraser_analysis.py    
-&#8195; - 
-
-tools/ERRASER/erraser_option.py    
-&#8195; - 
-
-tools/ERRASER/erraser_single_res_analysis.py    
-&#8195; - 
-
-tools/ERRASER/erraser_single_res.py    
-&#8195; - 
-
-tools/ERRASER/erraser_util.py    
-&#8195; - 
-
-tools/ERRASER/erraser_wrapper.py    
-&#8195; - 
-
-tools/ERRASER/full_struct_minimize.py    
-&#8195; - 
-
-tools/ERRASER/measure_params.py    
-&#8195; - 
-
-tools/ERRASER/rna_decompose.py    
-&#8195; - 
-
-tools/ERRASER/rna_rosetta_ready_set.py    
-&#8195; - 
-
-tools/ERRASER/rna_rosetta_to_pdb.py    
-&#8195; - 
-
-tools/ERRASER/seq_rebuild.py    
-&#8195; - 
-
-tools/ERRASER/SWA_rebuild.py    
-&#8195; - 
-
-
 ### RECCES
 
 * See [[RECCES]] for more information.
@@ -1519,6 +1494,12 @@ tools/ann_tools/score_sdf.py
 tools/ann_tools/sort_sdfs.py    
 &#8195; - 
 
+### Epitope Prediction Tools
+
+We have provided tools to predict epitopes using Propred matrices or NetMHCII, and also to create databases to allow sequences to be evaluated quickly in Rosetta.  See [[MHCEpitopeEnergy]] for more details on immunogenicity scoring in Rosetta.  See [[the tools documentation|mhc-energy-tools]] for details on how to use the `mhc_energy_tools`.
+
+`tools/mhc_energy_tools/mhc_score.py` to perform epitope scoring on FASTA, PDB, or raw peptides, with basic reporting and plotting capabilities.
+`tools/mhc_energy_tools/mhc_gen_db.py` to generate SQL databases from FASTA or PDB files, with design space being specified from a CSV file or a PSSM.
 
 ### Unclassified
 
@@ -1790,6 +1771,9 @@ main/source/src/python/packaged_bindings/*
 
 main/source/src/python/bindings/*    
 &#8195; - 
+
+tools/AmbRose/[[AmbRose.py|AmbRose]]   
+&#8195; - Python module for the interconversion between Rosetta and Amber poses
 
 tools/clang/clang.py    
 &#8195; - 

@@ -1,7 +1,6 @@
 #Coding Conventions and Examples
 
-Rosetta 3 (formerly MiniRosetta) is an object-oriented implementation of Rosetta that has been rewritten in C++ from the ground up by a core team of developers. These guidelines are intended to help new (and to remind old/current) Rosetta developers to learn, maintain, and improve the reliability, clarity, and performance of the code while we continue its development and modernization. 
-
+Rosetta 3 (formerly MiniRosetta) is an object-oriented implementation of Rosetta that has been rewritten in C++ from the ground up by a core team of developers. These guidelines are intended to help new (andeveld to remind old/current) Rosetta developers to learn, maintain, and improve the reliability, clarity, and performance of the code while we continue its development and modernization. 
 
 
 ##Conventions
@@ -20,7 +19,7 @@ The Rosetta Commons copyright header is required for every source code *file* in
 
 ###Coding Guidelines
 ####General
-* [[Namespaces (media wiki link)|https://wiki.rosettacommons.org/index.php/Namespace_example]] are used to wrap associated classes that make up a conceptual component. **Namespaces in Rosetta are expected to match the directory hierarchy** (*i.e.*, code in namespace `core::scoring` can be found in the directory `src/core/scoring` &mdash; `src` is not part of the namespace heirarchy,) and *vice versa*. (All code in `src/core/scoring/Blah.[cc,.hh,.fwd.hh]` must live inside namespace `core::scoring`).
+* [[Namespaces (media wiki link)|https://wiki.rosettacommons.org/index.php/Namespace_example]] are used to wrap associated classes that make up a conceptual component. **Namespaces in Rosetta are expected to match the directory hierarchy** (*i.e.*, code in namespace `core::scoring` can be found in the directory `src/core/scoring` &mdash; `src` is not part of the namespace hierarchy,) and *vice versa*. (All code in `src/core/scoring/Blah.[cc,.hh,.fwd.hh]` must live inside namespace `core::scoring`).
 
 * **Avoid raw pointers.**
   * Raw pointers tend to produce overly complex data ownership rules that, when not followed, lead to memory leaks or dangling references. Smart pointers instead ensure that objects delete themselves if and only if all other objects have stopped pointing to them. A smart pointer exists as two components: an object with a reference count, and a pointer that modifies this reference count each time it is modified. When a smart pointer is pointed at an object, it increments that object's reference count. When it is set to point away from that object later, it decrements the reference count. When an object's reference count reaches 0, it deletes itself.
@@ -69,6 +68,8 @@ The Rosetta Commons copyright header is required for every source code *file* in
 * **Member functions should be "const correct"** (See [[`constant`|Coding-Conventions#const]] below). If they do not change their object, they should be declared const; if they do, leave off the `const` at the end of the function to implicitly declare them non-const.
 
 * **Any base class with virtual functions must have a virtual destructor.**
+
+* **Any derived class that overrides a virtual function from a base class must use the C++11 `override` identifier** to allow the compiler to catch unintended differences between the base class function signature and the derived class function signature.  Less important: the community stylistic convention is to omit the `virtual` identifier in the derived class function override when the `override` identifier is used.  The most important thing is to use the `override` keyword, though -- this is functional, not merely stylistic. (_New as of 6 April 2018_.  For more on what `override` does and why it's useful, see <a href="https://blog.smartbear.com/development/use-c11-inheritance-control-keywords-to-prevent-inconsistencies-in-class-hierarchies/">this blog post</a>.)
 
 * **Pass objects into methods by reference and not by value** &mdash; except when the intent is to make a copy of the object. If the object does not change, pass it as a const reference. Passing objects by value also requires additional, unwanted `#includes` in header files (See [[File Inclusion|Coding-Conventions#file-inclusion]] below).
 
@@ -146,13 +147,16 @@ Your \#includes should not appear in random order, or alphabetical order, or the
 * "// C++ headers" - things from the C++ standard library like <string> or <map>
 
 #####Library Dependencies 
-Cyclic inclusion complicates the code and build system and slows compiling.  The code is separated into discrete libraries, which compile independently (and more quickly than they would otherwise).  Code in any given library may only #include headers from the same library, or a lower-level library.  In order from lowest to highest, the libraries are (with examples of familiar code):
+Cyclic inclusion complicates the code and build system and slows compiling.  The code is separated into discrete libraries, which compile independently (and more quickly than they would otherwise).  Code in any given library may only #include headers from the same library, or a lower-level library.  
+[[flow-chart and overview of the different libraries | https://www.rosettacommons.org/docs/wiki/development_documentation/code_structure/src-index-page]] 
+
+In order from lowest to highest, the libraries are (with examples of familiar code):
 * Lowest-level: external libraries with little or no modification allowed (ObjexxFCL, zlib) (Boost, except being all headers it does not compile independently)
 * Lower-level: utility (vector1, [[owning pointers]], [[options system|namespace-utility-options]], utility_exit())
 * Low-level: [[numeric|namespace-numeric]] (random number generator, [[xyzVector]])
 * Mid-level: core ([[scoring|namespace-core-scoring]], pose, packer) (this is where most of the things we think of as Rosetta functionality are)
 * High-level: protocols ([[movers|Mover]], monte carlo, fully developed code)
-* Higher-level: devel (high-level stuff under development, which will move to protocols as it matures)
+* Higher-level: devel (high-level stuff under development, which will move to protocols as it matures; the use of this library for Rosetta development has been discontinued in favor of the GitHub Pull Request workflow)
 * Highest-level: apps (all executables, thus not really library) (as an aside, applications not in apps/pilot should not inherit from devel)
 
 ####Naming 
@@ -263,6 +267,10 @@ utility::down_cast< Bar * >( foo ); // returns a pointer to a Bar instance
 ```
 utility::pointer::down_pointer_cast< Bar >( foo ); // returns a BarOP
 ```
+
+#### C++11 Features
+* Use of `auto` is strongly encouraged in `for` loops.
+* Use of `auto` elsewhere is allowed, but it is strongly preferred that the type of the variable can be induced from code _within the same function_.
 
 #### Thread Safety
 * (See the discussion on global data [[ here |Global-Data-in-Rosetta]])

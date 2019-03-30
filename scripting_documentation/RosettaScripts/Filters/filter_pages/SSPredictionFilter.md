@@ -7,8 +7,8 @@ sum(i=1;N;e^(-p[i]/T)), where N is the number of residues, p[i] is the probabili
 If use\_probability is false, the filter returns the fraction of residues that match the desired secondary structure as a number between 0 and 1.
 If use\_probability is true AND mismatch\_probability is true, the score is the geometric average of the probability of picking the WRONG secondary structure type at all residue positions.  Minimizing this number will maximize the geometric average of the probability of picking the CORRECT secondary structure type at all residue positions.  This option should be the most correct method for comparing two sequences to determine their expected fragment quality based on their predicted secondary structure probabilities at each residue.
 
-```
-<SSPrediction name=(&string) threshold=(&real) use_probability=( false &bool) mismatch_probability=( false &bool) cmd=(&string) blueprint=( "" &string) use_svm=( true &bool ) />
+```xml
+<SSPrediction name="(&string)" threshold="(&real)" use_probability="( false &bool)" mismatch_probability="( false &bool)" cmd="(&string)" blueprint="( '' &string)" use_svm="( true &bool )" />
 ```
 
 -   threshold - If threshold is set and use_probability is true, the filter returns true only if the calculated value is less than this number. If use_probability is false, the filter returns true if the calculated value is greater than this number.

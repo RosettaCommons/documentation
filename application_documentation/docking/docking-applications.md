@@ -19,6 +19,7 @@
 ###Protein-Protein Docking
 - [[Protein-Protein docking|docking-protocol]] (RosettaDock): Determine the structures of protein-protein complexes by using rigid body perturbations.  
     * [[Docking prepack protocol]]: Prepare structures for protein-protein docking.  
+    * [[Motif Dock Score]]: Efficient low-resolution protein-protein docking.
 
 - [[Symmetric docking|sym-dock]]: Determine the structure of symmetric homooligomers.  
 

@@ -6,8 +6,8 @@ This filter checks whether a atom defined by residues through res\_num/pdb\_num 
 
 This filter was written in the context of protein interface design, so it may not work as expected with hydrogen bonds not across a single interface.
 
-```
-<HbondsToAtom name=(hbonds_filter &string) partners=(&integer) energy_cutoff=(-0.5 &float) backbone=(0 &bool) bb_bb=(0 &bool) sidechain=(1 &bool) atomname=(&string) res_num/pdb_num=(&string)>
+```xml
+<HbondsToAtom name="(hbonds_filter &string)" partners="(&integer)" energy_cutoff="(-0.5 &float)" backbone="(0 &bool)" bb_bb="(0 &bool)" sidechain="(1 &bool)" atomname="(&string)" res_num/pdb_num="(&string)">
 ```
 
 -   partners: how many hbonding partners are expected 

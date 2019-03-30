@@ -4,12 +4,12 @@
 
 Does centroid docking with long range hotspot constraints and interchain\_cen energy function.
 
-```
-<DockWithHotspotMover name="&string" hotspot_score_weight=(10 &Real) centroidscore_filter=(0 &Real) hotspotcst_filter="40 &Real">
-     <StubSets explosion=(0 &integer) stub_energy_threshold=(1.0 &Real)  max_cb_dist=(3.0 &Real) cb_force=(0.5 &Real)>
-        <Add file_name=(hotspot1 &string) cb_force="1.0 &Real"/>
-        <Add file_name=(hotspot2 &string) cb_force="1.0 &Real"/>
-     </StubSets>
+```xml
+<DockWithHotspotMover name="&string" hotspot_score_weight="(10 &Real)" centroidscore_filter="(0 &Real)" hotspotcst_filter="40 &Real">
+     <HotspotFiles explosion="(0 &integer)" stub_energy_threshold="(1.0 &Real)"  max_cb_dist="(3.0 &Real)" cb_force="(0.5 &Real)">
+        <HotspotFile file_name="(hotspot1 &string)" cb_force="1.0 &Real"/>
+        <HotspotFile file_name="(hotspot2 &string)" cb_force="1.0 &Real"/>
+     </HotspotFiles>
 </DockWithHotspotMover>
 ```
 

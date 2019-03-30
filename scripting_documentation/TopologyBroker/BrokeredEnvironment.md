@@ -181,7 +181,7 @@ An implementation of a similar protocol using this paradigm, along with a detail
 
 ## (Asymmetric) Fold and Dock Example
 
-[[Fold and Dock]] is a protocol that was designed to obligate symmetric multimers. While the broker does not currently support symmetry, the broker does furnish functionality that allows for all parts of that protocol *except* symmetric mirroring. To demonstrate this, we constructed an example script to demonstrate how this might be achieved to simultaneously fold and dock an obligate heterodimer.
+[[Fold and Dock]] is a protocol that was designed to predict the structure of obligate symmetric multimers. While the broker does not currently support symmetry, the broker does furnish functionality that allows for all parts of that protocol *except* symmetric mirroring. To demonstrate this, we constructed an example script to demonstrate how this might be achieved to simultaneously fold and dock an obligate heterodimer.
 
 ```
 <RESIDUE_SELECTORS>

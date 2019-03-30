@@ -6,8 +6,8 @@ Under development! All kudos to Andrew Ban of the Schief lab for making the Inse
 
 **IMPORTANT NOTE!!!!** : VLB uses its own internal tracking of ntrials! This allows VLB to cache fragments between ntrials, saving a very significant amount of time. But each ntrial trajectory will also get ntrials extra internal VLB apply calls. For example, "-jd2:ntrials 5" will cause a maximum of 25 VLB runs (5 for each ntrial). Success of a VLB move will break out of this internal loop, allowing the trajectory to proceed as normal.
 
-```
-<VLB name=(&string) scorefxn=(string)>
+```xml
+<VLB name="(&string)" scorefxn="(string)">
     <VLB TYPES GO HERE/>
 </VLB>
 Default scorefxn is score4L. If you use another scorefxn, make sure the chainbreak weight is > 0. Do not use a full atom scorefxn with VLB!
@@ -40,17 +40,17 @@ Very touchy. Watch out.
 <SegmentSwap left=(&integer) right=(&integer) pdb=(&string)/> instruction to swap a segment with an external pdb
 ```
 
-```
-<Bridge left=(&integer) right=(&integer) ss=(&string) aa=(&string)/> connect two contiguous but disjoint sections of a
+```xml
+<Bridge left="(&integer)" right="(&integer)" ss="(&string)" aa="(&string)"/> connect two contiguous but disjoint sections of a
                        Pose into one continuous section
 ```
 
-```
-<ConnectRight left=(&integer) right=(&integer) pdb=(&string)/> instruction to connect one PDB onto the right side of another
+```xml
+<ConnectRight left="(&integer)" right="(&integer)" pdb="(&string)"/> instruction to connect one PDB onto the right side of another
 ```
 
-```
-<GrowLeft pos=(&integer) ss=(&string) aa=(&string)/> Use this for n-side insertions, but typically not n-terminal
+```xml
+<GrowLeft pos="(&integer)" ss="(&string)" aa="(&string)"/> Use this for n-side insertions, but typically not n-terminal
             extensions unless necessary.  It does not automatically cover the
             additional residue on the right endpoint that needs to move during
             n-terminal extensions due to invalid phi torsion.  For that case,
@@ -58,8 +58,8 @@ Very touchy. Watch out.
             desired length+1.
 ```
 
-```
-<GrowRight pos=(&integer) ss=(&string) aa=(&string)/> instruction to create a c-side extension
+```xml
+<GrowRight pos="(&integer)" ss="(&string)" aa="(&string)"/> instruction to create a c-side extension
 ```
 
 For more information, see the various BuildInstructions in src/protocols/forge/build/

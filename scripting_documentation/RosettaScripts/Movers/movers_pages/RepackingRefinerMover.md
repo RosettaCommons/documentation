@@ -8,7 +8,7 @@ for the lowest scoring arrangement of sidechains on a fixed backbone scaffold.
 This mover is one of the default refiners in LoopModeler's fullatom step.
 
 ```xml
-<RepackingRefiner name=(&string) task_operations=(&string) scorefxn=(&string) loop_file=(&string)/>
+<RepackingRefiner name="(&string)" task_operations="(&string)" scorefxn="(&string)" loop_file="(&string)"/>
 ```
 
 Options:

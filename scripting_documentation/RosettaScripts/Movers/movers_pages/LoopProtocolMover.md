@@ -29,13 +29,13 @@ for fullatom mode.  It's more common to use LoopModeler than it is to use
 LoopProtocol directly.
 
 ```xml
-<LoopProtocol sfxn_cycles=(1 &int) temp_cycles=(1 &int ['x']) mover_cycles=(1 &int)
-ramp_rep=(no &bool) ramp_rama=(no &bool) ramp_temp=(yes &bool) initial_temp=(1.5 &real) final_temp=(0.5 &real)
-loop_file=(&string) scorefxn=(&string) auto_refine=(yes &bool) fast=(no &bool)>
+<LoopProtocol sfxn_cycles="(1 &int)" temp_cycles="(1 &int ['x'])" mover_cycles="(1 &int)"
+ramp_rep="(no &bool)" ramp_rama="(no &bool)" ramp_temp="(yes &bool)" initial_temp="(1.5 &real)" final_temp="(0.5 &real)"
+loop_file="(&string)" scorefxn="(&string)" auto_refine="(yes &bool)" fast="(no &bool)">
 
-    <Loop start=(&int) stop=(&int) cut=(&int) skip_rate=(0.0 &real) rebuild=(no &bool)/>
+    <Loop start="(&int)" stop="(&int)" cut="(&int)" skip_rate="(0.0 &real)" rebuild="(no &bool)"/>
 
-    <AcceptanceCheck/>
+    <AcceptanceCheck name="(loop_mover &string)"/>
 
     <(Any LoopMover tags)/>...
 

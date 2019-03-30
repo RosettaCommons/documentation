@@ -5,7 +5,7 @@ PdbDataFeatures
 
 The PdbDataFeatures records information that is stored in the protein databank structure format.
 
-        <feature name=PdbDataFeatures/>
+        <PdbDataFeatures/>
 
 -   **residue\_pdb\_identification** : Identify residues using the PDB nomenclature. Note, this numbering has biological relevance and therefore may be negative, skip numbers, etc. When using the *DatabaseInputer* or *DatabaseOutputter* with the Rosetta job distributor, this table is mapped to the PDBInfo object.
     -   *struct\_id* , *residue\_number* : References the primary key in the residues table

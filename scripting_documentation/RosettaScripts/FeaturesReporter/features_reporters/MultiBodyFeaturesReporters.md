@@ -20,6 +20,7 @@ Jared Adolf-Bryfogle; jadolfbr@gmail.com;
 PI: Roland Dunbrack
 
 Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
+* [[Rosetta Antibody Design (RAbD) Manual | RosettaAntibodyDesign]]
 
 Many of the metric functions were first coded by Brian Weitzner (brian.weitzner@gmail.com) and Jeff Gray ([[http://graylab.jhu.edu]]) at JHU as part of RosettaAntibody 3.0. 
 
@@ -29,8 +30,8 @@ The Antibody Features Reporter is a subclass of the [[InterfaceFeatures |MultiBo
 
 In order to use this Reporter, the antibody should be renumbered into a particular numbering scheme.  See [[General Antibody Tips | General-Antibody-Options-and-Tips]] for more information on how to renumber your antibody via different antibody servers.  If your antibody has come from RosettaAntibody 3.0, the antibody is already renumbered in the Chothia scheme, which is the default.  The numbering scheme can be specified through the command-line or via XML tag.
 
-```
-			<feature name=AntibodyFeatures scorefxn=(&string) interface=(&string) numbering_scheme=(&string, Chothia_Scheme) cdr_definition=(&string, Aroop) pack_separated=(&string, true) pack_together=(&string, false) />
+```xml
+			<AntibodyFeatures scorefxn="(&string)" interface="(&string)" numbering_scheme="(&string, Chothia_Scheme)" cdr_definition="(&string, Aroop)" pack_separated="(&string, true)" pack_together="(&string, false)" />
 ```
 
 **XML Options**
@@ -54,7 +55,7 @@ _ab_metrics_
 
 -   A set of antibody metrics.  Some repeated from the Interface metrics. Paratope is defined as all CDRs present in the antibody.
 
-```
+```sql
 CREATE TABLE ab_metrics(
 	struct_id INTEGER,
 	numbering_scheme TEXT,
@@ -80,7 +81,7 @@ _cdr_metrics_
 
 -   Analysis of the CDRS in the antibody pose.
 
-```
+```sql
 CREATE TABLE cdr_metrics(
 	struct_id INTEGER,
 	CDR TEXT,
@@ -109,7 +110,7 @@ _ab_h3_kink_metrics_
 
 -   Antibody H3 Kink Metrics
 
-```
+```sql
 CREATE TABLE ab_h3_kink_metrics(
 	struct_id INTEGER,
 	kink_type TEXT,
@@ -135,6 +136,7 @@ Jared Adolf-Bryfogle; jadolfbr@gmail.com;
 PI: Roland Dunbrack
 
 Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
+* [[Rosetta Antibody Design (RAbD) Manual | RosettaAntibodyDesign]]
 
 **References**
 
@@ -149,8 +151,8 @@ Reports information of the North/Dunbrack CDR Clusters of an antibody. (Uses Nor
 
 In order to use this Reporter, the antibody should be renumbered into a particular numbering scheme.  See [[General Antibody Tips | General-Antibody-Options-and-Tips]] for more information on how to renumber your antibody via different antibody servers.  If your antibody has come from RosettaAntibody 3.0, the antibody is already renumbered in the Chothia scheme, which is the default.  The numbering scheme can be specified through the command-line or via XML tag.
 
-```
-			<feature name=CDRClusterFeatures numbering_scheme=AHO_Scheme/>
+```xml
+			<CDRClusterFeatures numbering_scheme="AHO_Scheme"/>
 ```
 
 **XML Options**
@@ -161,7 +163,7 @@ In order to use this Reporter, the antibody should be renumbered into a particul
 
 _cdr_clusters_
 
-```
+```sql
 CREATE TABLE cdr_clusters(
 	struct_id INTEGER,
 	resnum_begin INTEGER,
@@ -297,8 +299,8 @@ The PI is Brian Kuhlman, bkuhlman@email.unc.edu .
 
 This Feature Reporter writes out three tables corresponding to interfaces of a given pose.  Behind the scenes, it uses an updated version of the [[InterfaceAnalyzerMover]], which is also used by the [[InterfaceAnalyzer application | interface-analyzer]].  Without options, it will detect all interfaces of a given pose and report on all of them, even if no residues are in them. 
 
-```
-			<feature name=InterfaceFeatures scorefxn=(& Scorefxn name) interface=(&string), pack_separated=(&bool, false) pack_together=(&bool, false) dSASA_cutoff=(&real, 100) compute_packstat=(&bool, true) pack_together=true/>
+```xml
+			<InterfaceFeatures scorefxn="(& Scorefxn name)" interface="(&string)", pack_separated="(&bool, false)" pack_together="(&bool, false)" dSASA_cutoff="(&real, 100)" compute_packstat="(&bool, true)" pack_together="true"/>
 ```
 
 
@@ -317,7 +319,7 @@ _interface_sides_
 
 -   Output data specific to each side in a given interface
 
-```
+```sql
 CREATE TABLE interface_sides(
 	struct_id INTEGER,
 	interface TEXT,
@@ -355,7 +357,7 @@ _interfaces_
 
 -   Output Overall Interface Data
 
-```
+```sql
 CREATE TABLE interfaces(
 	struct_id INTEGER,
 	interface TEXT,
@@ -385,7 +387,7 @@ _interface_residues_
 
 -   Output data specific to the residues in a given interface of a given pose.
 
-```
+```sql
 CREATE TABLE interface_residues(
 	struct_id INTEGER,
 	interface TEXT,

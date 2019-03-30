@@ -4,16 +4,15 @@
 
 Produces a set of rotamers from a given residue. Use after [AtomTree](#AtomTree) to generate inverse rotamers of a given residue.
 
-```
-<TryRotamers name=(&string) pdb_num/res_num=(&string) automatic_connection=(1 &bool) jump_num=(1, &Integer) scorefxn=(score12 &string) explosion=(0 &integer) shove=(&comma-separated residue identities)/>
-```
+[[include:mover_TryRotamers_type]]
+
 
 -   explosion: range from 0-4 for how much extra rotamer explosion to include. Extra explosion in this context means EX\_FOUR\_HALF\_STEP\_STDDEVS (+/- 0.5, 1.0, 1.5, 2.0 sd). (By default EX\_ONE\_STDDEV (+/- 1.0 sd) is included for all chi1,2,3,4.)
     -   1 = explode chi1
     -   2 = explode chi1,2
     -   3 = explode chi1,2,3
     -   4 = explode chi1,2,3,4
--   pdb\_num/res\_num: see [[RosettaScripts Documentation#Specifying Residues|RosettaScripts-Documentation#Specifying-Residues]]
+-   pdb\_num/res\_num: see the main [[RosettaScripts Documentation|RosettaScripts#rosettascripts-conventions_specifying-residues]] for more.
 -   shove: use the shove atom-type (reducing the repulsive potential on backbone atoms) for a comma-separated list of residue identities. e.g., shove=3A,40B.
 -   automatic\_connection: should TryRotamers set up the inverse-rotamer fold tree independently?
 

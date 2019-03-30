@@ -4,8 +4,8 @@
 
 Reroot the pose foldtree on a (new) virtual residue. Useful for minimization in the context of absolute frames (coordinate constraints, electron density information, etc.)
 
-```
-<VirtualRoot name=(&string) removable=(&bool false) remove=(&bool false) />
+```xml
+<VirtualRoot name="(&string)" removable="(&bool false)" remove="(&bool false)" />
 ```
 
 By default, the mover will add a virtual root residue to the pose if one does not already exist. If you wish to later remove the virtual root, add the root with a mover with removable set to true, and then later use a separate VirtualRoot mover with remove set to true to remove it.

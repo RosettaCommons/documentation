@@ -21,10 +21,18 @@ Rosetta/main/source/bin/mp_transform.macosclangrelease \
 -mp:setup:spanfiles 1AFO.span \
 ```
 
+## Flags / Options
+
+|**Flag**|**Description**|
+|:-------|:--------------|
+|`-mp::transform::optimize_embedding <bool>` | Use the scorefunction to optimize the embedding after an initial coarse grained setting.|
+
 ## Citation
 Rosetta Revision #57715
 
-Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press
+Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol; 11(9).
+
+Koehler Leman J, Mueller BK, Gray JJ (2017). Expanding the toolkit for membrane protein modeling in Rosetta. Bioinformatics; 33(5).
 
 ## Contact
 

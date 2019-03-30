@@ -48,7 +48,7 @@ Algorithm originally from pose_into_pose:
 -   It is intended, but not guaranteed, to produce a graft with good rama, omega, and chainbreak/peptide_bond scores.  All-atom minimization of graft or pose after insertion is recommended.
 
 ##XML Script
-     <CCDEndsGraftMover name=(&string) spm_reference_name=(&string) start_pdb_num (&string) end_pdb_num=(&string) nter_overhang=(&size, 0) cter_overhang=(&size, 0) stop_at_closure=(&bool, true), copy_pdbinfo=(&bool, false)/>
+     <CCDEndsGraftMover name="(&string)" spm_reference_name="(&string)" start_pdb_num (&string) end_pdb_num="(&string)" nter_overhang="(&size, 0)" cter_overhang="(&size, 0)" stop_at_closure="(&bool, true)", copy_pdbinfo="(&bool, false)"/>
 
 ###Required XML Options 
 
@@ -103,43 +103,43 @@ We use the KeepRegionMover to iteratively cut out a CDR from the PDB, save its s
 We are then left with a new antibody that has CDRs from a different antibody.  No chain breaks should be present in this new antibody.  Note that CCDEndsGraftMover does not always work to close regions.  The [[AnchoredGraftMover]] is better at closing non-loopy regions; however, it can result in strange structures and itself may require additional optimization for the structure.  The RAbD Antibody Design program uses a combination of both movers to close and optimize 100 percent of antibody CDR grafts. 
 
 
-```
+```xml
 <ROSETTASCRIPTS>
 	<MOVERS>
-		<SavePoseMover name=save_current reference_name=current/>
-		<SavePoseMover name=save_CDR reference_name=CDR/>
-		<SavePoseMover name=restore_current restore_pose=1 reference_name=current/>
-		<SavePoseMover name=restore_ab restore_pose=1 reference_name=ab pdb_file=graft_from.pdb/>
-		<ParsedProtocol name=save_cdr_restore >
-			<Add mover=save_CDR />
-			<Add mover=restore_current />
+		<SavePoseMover name="save_current" reference_name="current"/>
+		<SavePoseMover name="save_CDR" reference_name="CDR"/>
+		<SavePoseMover name="restore_current" restore_pose="1" reference_name="current"/>
+		<SavePoseMover name="restore_ab" restore_pose="1" reference_name="ab" pdb_file="graft_from.pdb"/>
+		<ParsedProtocol name="save_cdr_restore" >
+			<Add mover="save_CDR" />
+			<Add mover="restore_current" />
 		</ParsedProtocol>
-		<ParsedProtocol name=save_current_restore_ab >
-			<Add mover=save_current />
-			<Add mover=restore_ab />
+		<ParsedProtocol name="save_current_restore_ab" >
+			<Add mover="save_current" />
+			<Add mover="restore_ab" />
 		</ParsedProtocol>
-		<KeepRegionMover name=k_L1 start_pdb_num=24L end_pdb_num=42L nter_overhang=2 cter_overhang=2/>
-		<KeepRegionMover name=k_L2 start_pdb_num=57L end_pdb_num=72L nter_overhang=2 cter_overhang=2/>
-		<KeepRegionMover name=k_L3 start_pdb_num=107L end_pdb_num=138L nter_overhang=2 cter_overhang=2/>
-		<CCDEndsGraftMover name=graft_L1 start_pdb_num=23L end_pdb_num=43L spm_reference_name=CDR copy_pdbinfo=1/>
-		<CCDEndsGraftMover name=graft_L2 start_pdb_num=56L end_pdb_num=73L spm_reference_name=CDR copy_pdbinfo=1/>
-		<CCDEndsGraftMover name=graft_L3 start_pdb_num=106L end_pdb_num=139L spm_reference_name=CDR copy_pdbinfo=1/>
+		<KeepRegionMover name="k_L1" start_pdb_num="24L" end_pdb_num="42L" nter_overhang="2" cter_overhang="2"/>
+		<KeepRegionMover name="k_L2" start_pdb_num="57L" end_pdb_num="72L" nter_overhang="2" cter_overhang="2"/>
+		<KeepRegionMover name="k_L3" start_pdb_num="107L" end_pdb_num="138L" nter_overhang="2" cter_overhang="2"/>
+		<CCDEndsGraftMover name="graft_L1" start_pdb_num="23L" end_pdb_num="43L" spm_reference_name="CDR" copy_pdbinfo="1"/>
+		<CCDEndsGraftMover name="graft_L2" start_pdb_num="56L" end_pdb_num="73L" spm_reference_name="CDR" copy_pdbinfo="1"/>
+		<CCDEndsGraftMover name="graft_L3" start_pdb_num="106L" end_pdb_num="139L" spm_reference_name="CDR" copy_pdbinfo="1"/>
 	</MOVERS>
 	<PROTOCOLS>
-		<Add mover_name=save_current />
-		<Add mover_name=restore_ab/>
-    		<Add mover_name=k_L1 />
-		<Add mover_name=save_cdr_restore/>
-		<Add mover_name=graft_L1/>
-		<Add mover_name=save_current_restore_ab/>
-		<Add mover_name=k_L2/>
-		<Add mover_name=save_cdr_restore/>
-		<Add mover_name=graft_L2/>
-		<Add mover_name=save_current_restore_ab/>
-		<Add mover_name=k_L3/>
-		<Add mover_name=save_cdr_restore/>
-		<Add mover_name=graft_L3/>
-		<Add mover_name=save_current/>
+		<Add mover_name="save_current" />
+		<Add mover_name="restore_ab"/>
+    		<Add mover_name="k_L1" />
+		<Add mover_name="save_cdr_restore"/>
+		<Add mover_name="graft_L1"/>
+		<Add mover_name="save_current_restore_ab"/>
+		<Add mover_name="k_L2"/>
+		<Add mover_name="save_cdr_restore"/>
+		<Add mover_name="graft_L2"/>
+		<Add mover_name="save_current_restore_ab"/>
+		<Add mover_name="k_L3"/>
+		<Add mover_name="save_cdr_restore"/>
+		<Add mover_name="graft_L3"/>
+		<Add mover_name="save_current"/>
 	</PROTOCOLS>
 </ROSETTASCRIPTS>
 ```

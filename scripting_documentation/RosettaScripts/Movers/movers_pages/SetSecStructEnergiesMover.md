@@ -5,17 +5,17 @@
 Give a bonus to the secondary structures specified by the user. For example a sheet topology of "1-4.A.99" would specify an antiparallel relationship between strand 1 and strand 4; when this is present a bonus (negative) score is applied to the pose.
 
 
-```
-<SetSecStructEnergies name=(&string)
-    scorefxn=(&string, required)
-    secstruct=(&string, "")
-    use_dssp=(&bool, true)
-    hh_pair=(&string, "")
-    ss_pair=(&string, "")
-    hss_triplets=(&string, "")
-    blueprint=(&string "")
-    ss_from_blueprint=(&string, true)
-    natbias_ss=(&float)
+```xml
+<SetSecStructEnergies name="(&string)"
+    scorefxn="(&string, required)"
+    secstruct="(&string, '')"
+    use_dssp="(&bool, true)"
+    hh_pair="(&string, '')"
+    ss_pair="(&string, '')"
+    hss_triplets="(&string, '')"
+    blueprint="(&string '')"
+    ss_from_blueprint="(&string, true)"
+    natbias_ss="(&float)"
 /> 
 ```
 

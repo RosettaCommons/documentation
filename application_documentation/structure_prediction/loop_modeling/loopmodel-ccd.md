@@ -174,7 +174,9 @@ Expected Outputs
 
 For production runs, it is recommended to use the following flags. `       -loops::remodel quick_ccd -loops::refine refine_kic -loops::relax fastrelax -relax::fastrelax_repeats 8 -loops::extended      ` and to generate at least 1000 models using `       -nstruct 1000      ` .
 
-quick\_ccd can also remodel termini. To do this set the cutpoint in the loops file to be equal to the last residue in the chain. For example for a 80 residue protein, if you want to remodel the first 10 residues the loop file would have 1 10 10 0 0
+quick\_ccd can also remodel termini. To do this set the cutpoint in the loops file to be equal to the last residue in the chain. For example for a 80 residue protein, if you want to remodel the first 10 residues the loop file would have 1 10 10 0 0.
+
+For modeling a C-terminus, set the first residue as the residue BEFORE the loop to avoid chainbreaks. For example, if you want to model the C-terminus from residues 259 to 267, your loops file should look like this: 258 267 267 0 1.
 
 quick\_ccd does not require constraints, but using constraints from homologs or experimental data can produce more accurate results. Output consists of a pdb and a scorefile. The job concludes with the following command:
 

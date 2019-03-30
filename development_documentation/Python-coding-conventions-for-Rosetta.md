@@ -80,12 +80,12 @@ not
   3. Rosetta modules (by namespace)
   4. Your own custom Python modules
 
-* **<code>rosetta.init()</code> belongs in the main body of your script,** not in the imports section. (See [[Main Body|#main-body]] below.)
+* **<code>rosetta.init()</code> belongs in the main body of your script,** not in the imports section. (See [Main Body](#main-body) below.)
 
 ####Constants & Module-Wide Variables
 Module-wide constants and variables should be defined next, after the imports.
 
-* **Constants should be named in <code>ALL_CAPS_WITH_UNDERSCORES</code>.** (See [[Naming Conventions|#naming-conventions]] below.)
+* **Constants should be named in <code>ALL_CAPS_WITH_UNDERSCORES</code>.** (See [Naming Conventions](#naming-conventions) below.)
 
 * **Avoid using the <code>global</code> statement anywhere in your code.** All constants should be treated as read-only.
 
@@ -100,7 +100,7 @@ Classes and exposed methods should come next in the code.
 
 * **Docstrings for classes and methods are indented _below_ the class/method declaration as part of the definition.**
 
-* **Group non-public methods together, followed by shared methods.** Non-public methods should also be prefixed with (at least) a single underscore. (See [[Naming Conventions|#naming-conventions]] below.)
+* **Group non-public methods together, followed by shared methods.** Non-public methods should also be prefixed with (at least) a single underscore. (See [Naming Conventions](#naming-conventions) below.)
 
 * For methods, **if there are too many arguments in the declaration to fit on a single line, align the wrapped arguments with the first character of the first argument**:
 <code>def take_pose_and_apply_foo_to_its_bar_residue_n_times(pose, foo,</code>
@@ -180,7 +180,7 @@ where <code>my_method()</code> begins with
 ####Classes & Objects
 * **Avoid multiple inheritance.**
 
-* All custom exceptions should inherit from <code>Exception</code>. **Do not use string exceptions.** (They were removed in Python 2.6. See [[Exception Handling|#exception-handling]] below.)
+* All custom exceptions should inherit from <code>Exception</code>. **Do not use string exceptions.** (They were removed in Python 2.6. See [Exception Handling](#exception-handling) below.)
   * As with any class, include a docstring. (See [[Documentation|Python-coding-conventions-for-Rosetta#documentation]] below.)
 
 * **Check the type of arguments passed to a Python class method if it is possible that that method could be called from both Python and C++.**
@@ -218,7 +218,7 @@ where <code>my_method()</code> begins with
 
 ####Exception Handling
 * **Use <code>if</code> and <code>try/except</code> blocks to test for errors that could happen in normal program operation.** Errors should generate useful reports that include the values of relevant variables.
-  * Your errors should be classes that inherit from <code>Exception</code>. (See [[Classes|#classes]] above.)
+  * Your errors should be classes that inherit from <code>Exception</code>. (See [Classes](#classes) above.)
 
 * **Use <code>raise HugeF_ingError("Oh, crap!")</code>, instead of <code>raise HugeF_ingError, "Oh, crap!"</code>.** (This makes it easier to wrap long error messages. Plus, it's going away in Python 3.0.)
   * Never write <code>raise "Oh, crap!"</code>; that already went away in Python 2.6.

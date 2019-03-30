@@ -4,19 +4,19 @@
 
 CartesianMD calls Molecular Dynamics simulation in Rosetta with user-defined energy function. Runs NVT simulation (constant volume and temperature) with Berendsen thermostat. Integrator uses Velocity Verlet algorithm. Strongly recommended to use the Mover with Rosetta version since February 2016; there was certain issues with the Mover in previous versions.
 
-```
+```xml
 <CartesianMD name="&string"
-       rattle=(true &false)
-       scorefxn=("" &string)
-       scorefxn_obj=("" &string)
-       nstep=(100 &Size)
-       temp=(300.0 &Real)
-       premin=(50 &Size)
-       postmin=(200 &Size)
-       report=(100 &Size)
-       report_scorecomp=(false &bool)
-       selectmode=("final" &string)
-       schfile=("" &string) />
+       rattle="(true &false)"
+       scorefxn="('' &string)"
+       scorefxn_obj="('' &string)"
+       nstep="(100 &Size)"
+       temp="(300.0 &Real)"
+       premin="(50 &Size)"
+       postmin="(200 &Size)"
+       report="(100 &Size)"
+       report_scorecomp="(false &bool)"
+       selectmode="('final' &string)"
+       schfile="('' &string)" />
 ```
 
 -   rattle: Use Rattle algorithm to constraint hydrogen locations. This automatically sets integration step = 2fs. Otherwise uses integration step = 1fs.

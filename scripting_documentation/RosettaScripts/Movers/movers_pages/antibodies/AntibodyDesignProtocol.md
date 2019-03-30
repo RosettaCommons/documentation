@@ -8,35 +8,32 @@ PI: Roland Dunbrack
 
 Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
 
-Note: Full documentation for the RAbD protocol is not currently complete but will be by September, 2015.  Please email me if you wish to use the RAbD protocol or collaborate. 
+* [[Rosetta Antibody Design (RAbD) Manual | RosettaAntibodyDesign]] 
 
-<!--- BEGIN_INTERNAL -->
 ###Purpose
 
-Runs the full Rosetta Antibody Design (RAbD) Protocol.  Requires an AHo numbered antibody. Note that only the top design will move on in RosettaScripts.  See the [[Rosetta Antibody Design (RAbD) Manual | RosettaAntibodyDesign ]] for more information.  Note that the [[AntibodyDesignMover]] allows more control. The default setting is to design all CDRs.  Any antibody design options discussed in the antibody design documentation but not set through the XML (as outlined in this document) can be set through the Command line.
+Runs the full Rosetta Antibody Design (RAbD) Protocol.  Requires an AHo numbered antibody. Note that only the top design will move on in RosettaScripts.  See the [[Rosetta Antibody Design (RAbD) Manual | RosettaAntibodyDesign ]] for more information.  Note that the [[AntibodyDesignMover]] allows more control. The default setting is to design all CDRs.  Any antibody design options discussed in the antibody design documentation but not set through the XML (as outlined in this document) can be set through the Command line. More options are available to the [[AntibodyDesignMover]]
 
 
-```
-<AntibodyDesignProtocol design_cdrs=(&string (ex: L1,L1,L3)) instructions_file=(&real) />
+```xml
+<AntibodyDesignProtocol seq_design_cdrs="(&string (ex: L1,L1,L3))"  graft_design_cdrs="(&string (ex: L1,L1,L3))"/>
 ```
 
 ###Recommended Settings
 
--   design_cdrs (&string) (Default=All CDRs): Set the CDRs you wish to design.  This will both GraftDesign and SeqDesign the CDRs.  This can also be set in the CDR instruction file. Setting it in this option overrides the instruction file.
+-   seq_design_cdrs (&string): Set the CDRs you wish to design.  This will run sequence design during the protocol on these CDRs using cluster-based profiles by default if they are available for that particular CDR. The instruction_file can be used to tailer the design further. 
 
--   instruction_file (&string): Path to the CDR instruction file.  The default settings will probably not apply to your specific antibody design file.  Make sure to read about the syntax of this file in the application documentation and set one up accordingly.  The current defaults can be found in the rosetta database: database/sampling/antibodies/design/default_instructions.txt.
+-   graft_design_cdrs (&string): Set the CDRs you wish to design.  This will sample loops from the RAbD database.  An instruction file can be used to specify particular lengths, clusters, or to sample from the current cluster. 
+
+### Full Options
+
+[[include:mover_AntibodyDesignProtocol_type]]
 
 
-###Optional
-
--   remove_antigen (&bool) (Default=false): Remove the antigen before design.  Used for stability improvement of the antibody or library generation and computational benchmarking.
--   run_snugdock (&bool) (Default=false): Run snugdock on the top antibody after design.
--   run_relax (&bool) (Default=false): Run FastRelax on the top antibody after design.
-
-<!--- END_INTERNAL -->
 ##See Also
 
 * [[Rosetta Antibody Design (RAbD) Manual | RosettaAntibodyDesign]]
+* [[Main AntibodyDesign Mover | AntibodyDesignMover]]
 * [[General Antibody Tips | General-Antibody-Options-and-Tips]]
 * [[AntibodyDesignMover]]
 * [[Antibody Movers | Movers-RosettaScripts#antibody-modeling-and-design-movers]]

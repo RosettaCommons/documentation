@@ -35,10 +35,14 @@ To have effect, the atom_pair_constraint scoreterm must be turned on in the scor
     
 ### Example
 
-This example creates constraints to enforce a distance of 8.0 with flat-bottom harmonic function, with flat-bottom width of 1.0 and a standard deviation of 0.5 angstroms. Constraints will be generated for all residues in "H1" to the C-terminus (residue 99).  Only the best-scoring constraint will be included in the scores.
+This example creates constraints to enforce a distance of 8.0 with flat-bottom harmonic function, with flat-bottom width of 1.0 ((8-0.5)-(8+0.5)) and a standard deviation of 1.0 angstroms. Constraints will be generated for all residues in "H1" to the C-terminus (residue 99).  Only the best-scoring constraint will be included in the scores.
 
 ```
-
+<SCOREFXNS>
+    <ScoreFunction name="sfxn_beta" weights="beta_nov16_cst">
+        <Reweight scoretype="atom_pair_constraint" weight="1.0" />
+    </ScoreFunction>
+</SCOREFXNS>
 <RESIDUE_SELECTORS>
     <Index name="H1" resnums="2-20" />
     <Index name="cterm" resnums="99" />

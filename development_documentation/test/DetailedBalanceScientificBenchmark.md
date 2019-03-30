@@ -1,6 +1,8 @@
 DetailedBalanceScientificBenchmark
 ==================================
 
+# **THIS PAGE CONTAINS LEGACY INFORMATION ABOUT SCIENTIFIC TESTS BEFORE THEY WERE RE-IMPLEMENTED IN 2018**
+
 A Markov process preserves [detailed balance](http://en.wikipedia.org/wiki/Detailed_balance) if the ratio
 transition probability between any two states states is equal to the
 ratio of the probability of the states themselves. If it can be shown

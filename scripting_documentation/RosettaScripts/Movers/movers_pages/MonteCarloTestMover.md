@@ -4,8 +4,8 @@
 
 Associated with GenericMonteCarlo. Simply test the MC criterion of the specified GenericMonteCarloMover and save the current pose if accept.
 
-```
-<MonteCarloTest name=(&string) MC_name=(&string)/>
+```xml
+<MonteCarloTest name="(&string)" MC_name="(&string)"/>
 ```
 
 -   MC\_name: name of a previously defined GenericMonteCarloMover

@@ -6,8 +6,8 @@
 
 Restricts design to segments that are aligned to the segments in source pdb files. The pdbs should have been pre-aligned. The start and stop residues must be at most 3A from a residue on the input pose, or else the alignment fails (the segment will not be aligned). The segments that are not aligned will be turned to restrict to repacking.
 
-     <RestrictToAlignedSegments name=(&string) source_pdb=(&string) start_res=(&string) stop_res=(&string) repack_shell=(6.0 &real)>
-    <Add source_pdb=(&string) start_res=(&string) stop_res=(&string)/>
+     <RestrictToAlignedSegments name="(&string)" source_pdb="(&string)" start_res="(&string)" stop_res="(&string)" repack_shell="(6.0 &real)">
+    <Add source_pdb="(&string)" start_res="(&string)" stop_res="(&string)"/>
     .
     .
     .

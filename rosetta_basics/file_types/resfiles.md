@@ -2,7 +2,9 @@
 
 Author: Matthew O'Meara and Steven Lewis
 
-This page describes the resfile format, syntax, and conventions. The resfile contains information which is input into the [[PackerTask|Packer-Task]] and controls the Packer. Internal details for the commands can be found at the [[How to write new resfile commands|resfile-reader]] residue-level options how-to.
+This page describes the resfile format, syntax, and conventions. The resfile contains information which is input into the [[PackerTask|Packer-Task]] and controls the Packer. It is read by the TaskOperation [[ReadResfile|ReadResfileOperation]]. Internal details for the commands can be found at the [[How to write new resfile commands|resfile-reader]] residue-level options how-to.
+
+[[_TOC_]]
 
 Resfile Syntax and Semantics
 ====================
@@ -74,14 +76,14 @@ To specify commands for a single residue, use the following form
 <PDBNUM>[<ICODE>] <CHAIN> <COMMANDS>
 ```
 
-If the pose the resfile is has pdb information associated with it (eg it was read in from a pdb file) then \<PDBNUM\>[\<ICODE\>] corresponds to columns 22-26. If the pose does not have pdb information (eg if it was generated de novo or from a silent file), the \<PBDNUM\> is the residue index in the pose and the \<ICODE\> should not be specified. The \<PDBNUM\> can be positive, zero, or negative. The \<ICODE\> is an optional character [A-Z] (case insensitive) that occurs in some pdbs to represent insertion or deletions in the sequence to maintain a consistent numbering scheme or the remainder of the sequence.
+If the pose the resfile is has pdb information associated with it (eg it was read in from a pdb file) then \<PDBNUM\>[\<ICODE\>] corresponds to columns 22-26. If the pose does not have pdb information (eg if it was generated de novo or from a silent file), the \<PBDNUM\> is the residue index in the pose and the \<ICODE\> should not be specified. The \<PDBNUM\> can be positive, zero, or negative. The \<ICODE\> is an optional character [A-Z] \(case insensitive\) that occurs in some pdbs to represent insertion or deletions in the sequence to maintain a consistent numbering scheme or the remainder of the sequence.
 
 To accommodate structures with a large number of chains, following the PDB the, the chain can be any character [A-Za-z] where upper and lower case characters are treated as separate chains. For example
 
 ```
 10 _ PIKAA W # Allow only Trp at residue 10 in the unlabeled chain
-40 B EMPTY NC A20 NC B47 NC B48 # Disallow canonical residues (EMPTY), and then allow noncanonical types A20, B47, and B48
-40 B EMPTY NC DA20 NC DB47 NC DB48 # Disallow canonical residues (EMPTY), and then allow the D- stereoisomer of the noncanonical types A20, B47, and B48 (these were originally D20, E47, and E48)
+40 B PIKAA X[A20]X[B47]X[B48] # Disallow residues except for noncanonical types A20, B47, and B48.  Note that a PackerPalette must be specified that allows design with residue types A20, B47, and B48.
+40 B PIKAA X[DA20]X[DB47]X[DB48] # Disallow residues except for the D- stereoisomer of the noncanonical types A20, B47, and B48 (these were originally D20, E47, and E48).  Noted that the PackerPalette must also allow design with DA20, DB47, and DB48.
 40A Q ALLAA # Residue 40, insertion code A, on chain Q, use any residue type
 ```
 
@@ -152,19 +154,15 @@ NOTE: It should be remembered that resfile commands are restrictive, rather than
 
 - APOLAR ............... allow only canonical non polar amino acids (ACFGILMPVWY)
 
-- NOTAA \<list of AAs\> .. disallow only the specified amino acids ( use one letter codes, undelimited like ACFYRT )
+- PROPERTY \<property\> .. disallow any residue type that lacks the given property
 
-- PIKAA \<list of AAs\> .. allow only the specified amino acids ( use one letter codes, undelimited like ACFYRT )
+- NOTAA \<list of AAs\> .. disallow only the specified amino acids ( Use one letter codes, undelimited like ACFYRT.  For NCAAs, use X[\<full name\>]. )
+
+- PIKAA \<list of AAs\> .. allow only the specified amino acids ( Use one letter codes, undelimited like ACFYRT.  For NCAAs, use X[\<full name\>].)
 
 - NATAA ................ allow only the native amino acid (NATive Amino Acid) - repack without design
 
 - NATRO ................ preserve the input rotamer ( do not pack at all) (NATive ROtamer)
-
-- EMPTY ................ disallow all canonical amino acids (for use with non canonicals).  This throws away all previously applied task operations, and so will break the commutativity of task operations.  For this reason, its use is discouraged except when necessary, and it will be soon (as of March 2016) be deprecated.
-
-- RESET ................ resets the task to its default state of canonicals ON and non-canonicals OFF (for use with non canonicals)  This throws away all previously applied task operations, and so will break the commutativity of task operations.  For this reason, its use is discouraged except when necessary, and it will be soon (as of March 2016) be deprecated.
-
-- NC \<ResidueTypeName\> . allow the specific possibly non canonical residue type; one residue type per NC command
 
 ```
 NATRO # default command that applies to everything without a non- default setting; do not repack
@@ -180,19 +178,17 @@ start
 Commands for noncanonical residue types
 ---------------------------------------
 
-Noncanonical residue types do not obey the AND-commutativity in command order that the rest of the resfile displays; this is because they default to "off" position, and must perforce be activated instead of deactivated to use. The command to turn OFF the canonical types is EMPTY, and the command to turn ON a noncanonical type is "NC \<ResidueTypeName\>". To use a mixture of canonical residues and non-canonical residue at the same positions, RESET must be used. 
+Noncanonical residue types obey the same rules as canonical types: resfile commands and `TaskOperation`s can only turn types _off_.  By default, in the absence of any `TaskOperation`, the 20 canonical amino acids are allowed at any given position.  If you wish to design with noncanonical amino acids, you must therefore specify a [[PackerPalette|PackerPalette]] that includes additional residue types.  Please see the `PackerPalette` documentation for details.  Once the expanded palette has been specified, the residues in the palette are on by default (in the absence of any `TaskOperation`), and can be turned off by `TaskOperations` just like canonical residues.  The `PIKAA` command can be used for this purpose: to specify a noncanonical residue to keep, use `X[###]`, where `###` is the full name of the residue (e.g. `DALA` for D-alanine).
 
 ```
 NATRO # default command that applies to everything without a non- default setting; do not repack
 
 start
 
-10 A ALLAA NC ET1 # allow all 20 amino acids, plus noncanonical ET1
-11 A EMPTY NC R2 # disallow all 20 amino acids, allow only noncanonical R2
-15 A RESET PIKAA ATSG NC SM1 # allow only ATSG and noncanonical SM1
-56 A EMPTY NC R2 NC T6 NC OP5 #allow only noncanonicals R2, T6, and OP5 (notice separate NC commands)
-#45 B NC E4 EMPTY #MALFORMED COMMAND: this will give you no residue types at all, resulting in NATRO behavior (EMPTY supersedes NC)
-#65 B NC F1 S2 T3 #MALFORMED COMMAND: this will crash because you need one NC command per noncanonical you want
+10 A PIKAA ACDEFGHIKLMNPQRSTVWYX[ET1] # allow all 20 amino acids, plus noncanonical ET1
+11 A PIKAA X[R2] # disallow all 20 amino acids, allow only noncanonical R2
+15 A PIKAA ATSGX[SM1] # allow only ALA, THR, SER, GLY, and noncanonical SM1
+56 A PIKAA X[R2]X[T6]X[OP5] #allow only noncanonicals R2, T6, and OP5 (notice separate X statements within the same PIKAA command)
 ```
 
 Commands for controlling conformational freedom:
@@ -276,6 +272,21 @@ start
 88 B NOTAA C #loop
 #89 B NOTAA C #loop
 ```
+
+##Deprecated commands:
+
+When [[PackerPalettes|PackerPalette]] were introduced, previously-needed resfile commands that broke TaskOperation commutativity were no longer necessary.  As a result, the following commands are no longer recognized by the resfile reader:
+
+```
+- EMPTY ................ Disallow all canonical amino acids (for use with non canonicals).  This throws away all previously applied task operations, and so will break the commutativity of task operations.  DEPRECATED AND NO LONGER RECOGNIZED.
+
+- RESET ................ Resets the task to its default state of canonicals ON and non-canonicals OFF (for use with non canonicals)  This throws away all previously applied task operations, and so will break the commutativity of task operations.  DEPRECATED AND NO LONGER RECOGNIZED.
+
+- NC \<ResidueTypeName\> . Allow the specific possibly non canonical residue type; one residue type per NC command.  Note that "GLY:N_Methylation" is a special case that is entered as "SAR" (sarcosine) with this command.  DEPRECATED AND NO LONGER RECOGNIZED.
+```
+
+Instead, `PackerPalette`s allow users to define the "palette" of residue types that are allowed for design, and `TaskOperation`s are now restricted to pruning the allowed set at a given position.  Please see the [[PackerPalette|PackerPalette]] documentation for details.
+
 ##See Also
 
 * [[File types list]]: List of file types used in Rosetta

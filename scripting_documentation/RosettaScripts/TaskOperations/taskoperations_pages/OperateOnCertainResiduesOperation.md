@@ -8,9 +8,9 @@ Allows specification of [[Residue Level TaskOperations]] based on residue proper
 
 Example:
 
-    <OperateOnCertainResidues name=PROTEINnopack>
-      <PreventRepackingRLT/> //Only one Residue level task per OperateOnCertainResidues block
-      <ResidueHasProperty property=PROTEIN/> //Only one ResFilter per OperateOnCertainResidues block
+    <OperateOnCertainResidues name="PROTEINnopack">
+      <ResidueHasProperty property="PROTEIN"/> //Only one ResFilter per OperateOnCertainResidues block. The ResFilter comes first
+      <PreventRepackingRLT/>  //Only one Residue level task operation per OperateOnCertainResidues block. The RLTO comes second
     </OperateOnCertainResidues>
 
 [[include:Residue-Level-TaskOperations]]
@@ -27,17 +27,17 @@ AnyResFilter, AllResFilter, NoResFilter combine the results of specified subfilt
 e.g.
 
       <AnyResFilter>
-        <ChainIs chain=A/>
-        <ChainIs chain=B/>
+        <ChainIs chain="A"/>
+        <ChainIs chain="B"/>
       </AnyResFilter>
 
 As task operations produce restriction masks, and therefor only prevent targets from repacking/designing, the most effective way to specify a set of residues for design or repack is the use of a double-negative task operation:
 
-     <OperateOnCertainResidues name=aromatic_apolar>
-       <PreventRepackingRLT/>
+     <OperateOnCertainResidues name="aromatic_apolar">
        <NoResFilter>
-         <ResidueType aromatic=1 apolar=1/>
+         <ResidueType aromatic="1" apolar="1"/>
        </NoResFilter>
+       <PreventRepackingRLT/>
      </OperateOnCertainResidues>
 
 Restricts repacking to aromatic and apolar residues.
@@ -46,7 +46,7 @@ Restricts repacking to aromatic and apolar residues.
 
 Convenience filter selects residues by type.
 
-     <ResidueType aromatic=(0 &bool) apolar=(0 &bool) polar=(0 &bool) charged=(0 &bool)/>
+     <ResidueType aromatic="(0 &bool)" apolar="(0 &bool)" polar="(0 &bool)" charged="(0 &bool)"/>
 
 ### ResidueHasProperty
 

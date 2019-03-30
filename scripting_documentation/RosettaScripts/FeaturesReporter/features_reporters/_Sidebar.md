@@ -14,6 +14,10 @@
 
    * [[Filters|Filters-RosettaScripts]]
 
+   * [[Residue Selectors|ResidueSelectors]]
+
+   * [[PackerPalettes|PackerPalette]]
+
    * [[Task Operations|TaskOperations-RosettaScripts]]
 
    * [[FeaturesReporters|Features-reporter-overview]]

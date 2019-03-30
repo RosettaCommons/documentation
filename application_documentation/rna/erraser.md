@@ -10,9 +10,9 @@ Mar. 2012 by Fang-Chieh Chou (fcchou [at] stanford.edu).
 Code and Demo
 =============
 
-The full ERRASER pipeline is controlled by a set of python codes in `       rosetta_tools/ERRASER/      ` . The main applications being used are *erraser\_minimizer* , *swa\_rna\_analytical\_closure* and *swa\_rna\_main* . The central codes for SWA (StepWise Assembly) applications are in `       src/protocols/swa/rna/      ` . The electron density scoring function used in ERRASER is in `       /src/core/scoring/electron_density_atomwise/      ` .
+The full ERRASER pipeline is controlled by a set of python codes in `       src/apps/public/ERRASER/      ` . The main applications being used are *erraser\_minimizer* , *swa\_rna\_analytical\_closure* and *swa\_rna\_main* . The central codes for SWA (StepWise Assembly) applications are in `       src/protocols/stepwise/legacy/rna/      ` . The electron density scoring function used in ERRASER is in `       src/core/scoring/electron_density_atomwise/      ` .
 
-For a minimal demonstration of ERRASER, see: `       rosetta_demos/public/ERRASER/      `
+For a minimal demonstration of ERRASER, see: `       demos/public/ERRASER/      `
 
 References
 ==========

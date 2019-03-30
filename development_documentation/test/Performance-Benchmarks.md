@@ -14,6 +14,9 @@ None of these metrics have proven to be truly stable, even when average cumulati
 
 In general, as long as this assertion is in the documentation, do not panic if your code breaks a performance test that would appear unrelated. (For example, you add a pilot app and it looks like mm_lj_intra_rep takes longer to score.) Do, please, panic if that performance test continues to be broken for several commits to follow, or if it breaks many performance tests.)
 
+The tests themselves are located in apps/benchmark/performance.
+
+Each benchmark is defined in a .bench.hh and then this central class runs then as many times as it can in a fixed period of time (That is the cycles on the x axis).
 
 ##See Also
 

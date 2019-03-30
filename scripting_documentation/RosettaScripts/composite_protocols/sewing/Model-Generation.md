@@ -1,4 +1,7 @@
 #Model Generation
+This page describes how to generate model files for the old SEWING protocol. For the new SEWING protocol, visit the [[Segment File Generation|Segment File Generation]] page.
+
+
 First we need to generate a set of models. The only currently supported mechanism for model generation is through the use of a [[Features database|FeaturesTutorials]]. 
 
 ----------------------
@@ -9,13 +12,13 @@ The following set ReportToDB tag contains the minimal set of features.
 ```xml
 <MOVERS>
 <ReportToDB name=features database_name=scores.db3>
-    <feature name=ResidueFeatures />
-    <feature name=PoseConformationFeatures />
-    <feature name=ResidueConformationFeatures />
-    <feature name=ProteinResidueConformationFeatures />
-    <feature name=ResidueSecondaryStructureFeatures />
-    <feature name=SecondaryStructureSegmentFeatures />
-    <feature name=SmotifFeatures />
+    <ResidueFeatures />
+    <PoseConformationFeatures />
+    <ResidueConformationFeatures />
+    <ProteinResidueConformationFeatures />
+    <ResidueSecondaryStructureFeatures />
+    <SecondaryStructureSegmentFeatures />
+    <SmotifFeatures />
 </ReportToDB>
 </MOVERS>
 ```

@@ -4,8 +4,8 @@
 
 How many residues are within an interaction distance of target\_residue across the interface. When used with neighbors=1 this degenerates to just checking whether or not a residue is at the interface.
 
-```
-<ResidueBurial name=(&string) res_num/pdb_num=(&string) distance=(8.0 &Real) neighbors=(1 &Integer) task_operations=(&comma-delimited list of taskoperations) residue_fraction_buried=(0.0001 &Real)/>
+```xml
+<ResidueBurial name="(&string)" res_num/pdb_num="(&string)" distance="(8.0 &Real)" neighbors="(1 &Integer)" task_operations="(&comma-delimited list of taskoperations)" residue_fraction_buried="(0.0001 &Real)"/>
 ```
 
 -   task\_operations: the task factory will be used to determine what residues are designable. If any of these residues pass the burial threshold, the filter will return true; o/w false. Allows setting the burial filter dynamically at runtime.

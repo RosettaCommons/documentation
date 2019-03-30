@@ -1,6 +1,8 @@
 # Residue type composition energy (aa_composition)
 Documentation created by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory.
-Last edited 28 April 2016.
+Last edited 27 December 2017.
+
+[[_TOC_]]
 
 ## Purpose and algorithm
 
@@ -17,44 +19,44 @@ This scoring term is controlled by ```.comp``` files, which define the desired r
 - The user can provide one or more ```.comp``` files as input at the command line with the ```-aa_composition_setup_file <filename1> <filename2> <filename3> ...``` flag.
 - The user can provide one or more ```.comp``` files when setting up a particular scorefunction in RosettaScripts, using the ```<Set>``` tag to modify the scorefunction.  For example:
 
-```
+```xml
 <SCOREFXNS>
-	<tala weights="talaris2014.wts" >
-		<Reweight scoretype=aa_composition weight=1.0 />
+	<ScoreFunction name="tala" weights="talaris2014.wts" >
+		<Reweight scoretype="aa_composition" weight="1.0" />
 		<Set aa_composition_setup_file="inputs/disfavour_polyala.comp" />
-	</tala>
+	</ScoreFunction>
 </SCOREFXNS>
 ```
 - The user can attach ```.comp``` files to a Pose with the [[AddCompositionConstraintMover]].  These remain attached to the pose, like any other constraint, until all constraints are cleared with the [[ClearConstraintsMover]], or until only sequence composition constraints are cleared with the [[ClearCompositionConstraintsMover]].  Note that the composition constraints added with the AddCompositionConstraintMover can have a [[ResidueSelector|ResidueSelectors]] attached to them as well.  This allows the user to define sub-regions of the pose (e.g. a single helix, the protein core, an inter-subunit binding interface) to which an amino acid composition constraint will be applied.  The ResidueSelector is evaluated prior to scoring or packing (but not evaluated repeatedly during packing).  Here is an example RosettaScript in which a LayerSelector is used to select the core of the protein, and the AddCompositionConstraintMover is used to impose a sequence composition requirement on core residues only:
 
-```
+```xml
 <ROSETTASCRIPTS>
 	<SCOREFXNS>
-		<tala weights="talaris2014.wts" >
-			<Reweight scoretype=aa_composition weight=1.0 />
-		</tala>
+		<ScoreFunction name="tala" weights="talaris2014.wts" >
+			<Reweight scoretype="aa_composition" weight="1.0" />
+		</ScoreFunction>
 	</SCOREFXNS>
 	<RESIDUE_SELECTORS>
-		<Layer name=corelayer select_core=true core_cutoff=0.5 surface_cutoff=0.25 />
+		<Layer name="corelayer" select_core="true" core_cutoff="0.5" surface_cutoff="0.25" />
 	</RESIDUE_SELECTORS>
 	<TASKOPERATIONS>
 	</TASKOPERATIONS>
 	<FILTERS>
 	</FILTERS>
 	<MOVERS>
-		<AddCompositionConstraintMover name=addcomp1 filename="desired_core_composition.comp" selector=corelayer />
+		<AddCompositionConstraintMover name="addcomp1" filename="desired_core_composition.comp" selector="corelayer" />
 		
-		<FastDesign name=fdes1 scorefxn=tala repeats=3 >
-			<MoveMap name=fdes1_mm>
-				<Span begin=1 end=30 chi=1 bb=0 />
+		<FastDesign name=fdes1 scorefxn="tala" repeats="3" >
+			<MoveMap name="fdes1_mm">
+				<Span begin="1" end="30" chi="1" bb="0" />
 			</MoveMap>
 		</FastDesign>
 	</MOVERS>
 	<APPLY_TO_POSE>
 	</APPLY_TO_POSE>
 	<PROTOCOLS>
-		<Add mover=addcomp1 />
-		<Add mover=fdes1 />
+		<Add mover="addcomp1" />
+		<Add mover="fdes1" />
 	</PROTOCOLS>
 </ROSETTASCRIPTS>
 
@@ -165,3 +167,12 @@ As of 6 March 2016, the aa_composition score term should be fully compatible wit
 * [[Scoring explained]]
 * [[Score functions and score types |score-types]]
 * [[Adding a new energy method to Rosetta|new-energy-method]]
+* [[Design-centric guidance terms|design-guidance-terms]]
+* [[AddCompositionConstraintMover]]
+* [[ClearCompositionConstraintsMover]]
+* [[AddHelixSequenceConstraints mover|AddHelixSequenceConstraintsMover]]
+* [[AARepeatEnergy|Repeat-stretch-energy]]
+* [[HBNetEnergy]]
+* [[BuriedUnsatPenalty]]
+* [[NetChargeEnergy]]
+* [[VoidsPenaltyEnergy]]

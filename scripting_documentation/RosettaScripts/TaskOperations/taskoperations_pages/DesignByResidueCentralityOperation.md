@@ -6,7 +6,7 @@ Selects residues for design that have the highest value of residue centrality. C
 
 This task operation is stochastic to allow for variation in design regions. Residues are selected by this task operation as follows. First, all residues are ranked in order of network centrality. Next, the first residue is selected based on a random number generator. The first residue in the list (the one with highest centrality) has a 50% probability of being selected, the second residue has 25% probability, and so on. If regions\_to\_design is \> 1, additional residues are selected using the same process, except with previously chosen residues removed from consideration.
 
-    <DesignByResidueCentrality name=(&string) region_shell=(8.0 &real) regions_to_design=(1 &int) repack_non_selected=(0 &bool) />
+    <DesignByResidueCentrality name="(&string)" region_shell="(8.0 &real)" regions_to_design="(1 &int)" repack_non_selected="(0 &bool)" />
 
 -   region\_shell: The radius of a sphere that surrounds the residue selected for mutation. All residues within this sphere will be set to design, and all residues outside of it will not be designed.
 -   repack\_non\_selected: If set, residues outside of the design sphere will be repacked, otherwise they will be fixed.

@@ -93,7 +93,7 @@ At this scale, we can attempt to address any problem you can imagine.
 _ab initio_ [[structure prediction|abinitio-relax]] involves starting with no model at all, only a sequence, so its possible backbone conformational search space must be very well sampled.
 This is the ideal scale for [[docking|docking-protocol]].
 Fully atomic protocols at this scale are *very* expensive computationally, requiring serious use of national-scale supercomputing resources.
-Structure prediction is often less than fully atomic - most stages use [[centroid]]s instead.
+Structure prediction is often less than fully atomic - most stages use [[centroid|centroid-vs-fullatom]]s instead.
 This is much faster, so some experiments in this regime can be surprisingly fast, needing much less than an order of magnitude more time (or even less time in an absolute sense) than earlier tiers.
 
 ##See Also

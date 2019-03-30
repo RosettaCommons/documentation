@@ -1,6 +1,8 @@
 Scientific Benchmarks
 =====================
 
+Page added 22 October 2018 by Julia Koehler Leman.
+
 Scientific Benchmarks are tests that compare Rosetta generated structure
 predictions with experimental observations. Assessing the accuracy of
 Rosetta predictions will
@@ -13,269 +15,133 @@ Scientific benchmarks are meant to measure the physical realism of the
 energy function and how well a protocol is at sampling physically
 realistic structures.
 
-Scientific Benchmarks
-=====================
+[[_TOC_]]
 
-Types of Scientific Benchmarks
-------------------------------
+## How to set up a scientific benchmark test
+### Scientific test directory structure
+Several tests are located in the `Rosetta/main/tests directory`. The directory structure is the following:
 
-There are two types of scientific benchmarks:
+* `Rosetta/main/tests/integration` contains integration tests
+* `Rosetta/main/tests/benchmark` contains files required for the benchmark test server, i.e. the framework which runs the scientific tests, you might have to look them over when debugging
+* `Rosetta/main/tests/scientific` contains the scientific tests
+* `Rosetta/main/tests/scientific/tests` contains the implementations of the tests, one directory per test
+* `Rosetta/main/tests/scientific/data` submodule that contains the input data if >5 MB per test
+* `Rosetta/main/tests/scientific/tests/_template_` template directory with all necessary input files
 
--   **Biweekly Scientific Benchmarks**:
-    - *Note that in practice, biweekly benchmarks are run at best effort (repeatedly when they finish).
-    -   These are meant to be either:
-        -   unit tests that can catch bugs and unintended changes to the
-            energy function and protocols that cannot be detected by the
-            integration tests because of run to run variation.
-        -   fast tests of energy function / protocol predictive
-            accuracy.
-    -   These tests take less than 128 hours to run on a single CPU and are run on a regular basis.
-    -   Biweekly tests can be found in main/tests/scientific/biweekly/.  They are organized in a similar way to [[integration tests]].
+### Where and how to add your test
+1.	To set up a scientific benchmark, you will need to think about
+    * what your input data are
+        * you will want to have a diverse benchmark set that is realistic and not just structures that give you the best possible output
+    * the command line you are running
+        * make sure you are running either a baseline protocol (for instance de novo structure prediction, ddg_monomer, etc) that has been run by many people for many years or a state-of-the-art protocol: since these tests are computationally expensive, we need to ensure what we are testing makes sense
+    * what the output data look like
+        * in many cases we analyze score files but you might want to look at something different
+    * what your quality measures are
+        * are the quality measures you are using reasonable? Are there better measures in existence? 
+    * what cutoffs you want to define to make the test a pass/fail
+        * you should have a general idea when you run the test locally but if you don’t know the specific cutoffs yet, don’t worry; you can set them later (see below)
+        * however, you want to think about HOW you define a pass/fail. It is encouraged to define it with respect to cutoffs that you define, i.e. running a single, self-contained test defines the initial cutoffs. We don’t prohibit cutoffs that are defined over time, for example running it 10x and comparing to previous runs (similar to regression tests), but this behavior is not necessarily encouraged. 
+        * many tests evaluate the quality of folding funnels (plots of energy vs. RMSD to native), and can use already-developed tools for evaluating these that are insensitive to stochastic changes in the position of points, such as the PNear metric (see note below).
+    * the entire test should not run more than 1000-2000 CPU hours
+        * the runtime depends on the number of structures you run the benchmark on, the number of output models, and the protocol runtime per output model
+2.	`cd Rosetta/main/tests/scientific`
+3.	run `git submodule update --init --recursive` to get the submodule containing the input data. You will now see a ` Rosetta/main/tests/scientific/data` directory
+4.	if your input data are larger than 5 MB, create a directory in the data submodule directory where you drop your input files, otherwise you can keep them in the tests directory (see below)
+    * commit your changes in that submodule
+    * move out of the data directory (`cd ..`) and commit your changes again
+    * [during that process: if you use zsh or check for `git status` you will notice when git complains about uncommitted files]
+5.	`cd Rosetta/main/tests/scientific/tests`
+6.	copy the contents of the template directory to create your own scientific test directory via `cp -r Rosetta/main/tests/scientific/tests/_template_ <my_awesome_test>`
+7.	`cd <my_awesome_test>`: tests are set up by individual steps numbered sequentially so that they can be run individually without having to rerun the entire pipeline. Don’t run anything yet (we’ll get to that further below). 
+8.	Put together your test, don’t run anything yet: edit each file in this directory wherever you find the `==> EDIT HERE` tags. 
+    * if you are not running a RosettaScripts protocol, you can delete the fast_relax.xml file
+    * `0.compile.py`: this script is for compilation, likely you won’t need to edit this file
+    * `1.submit.py`: this contains the command line and the target proteins you are running. The debug option does not refer to the release vs debug run in Rosetta but rather to the debug version of running the scientific test for faster setup. 
+    * `2.analyze.py`: this script analyzes the results from the score files or whatever files you are interested in. It reads the cutoffs file and compares this run’s results against them. It will write the `result.txt` file for easy reading. A few basic functions for data analysis are at the bottom of this script. If you need your specialized function, please add it there. 
+    * `3.plot.py`: this script will plot the results via matplotlib into `plot_results.png` with subplots for each protein. It draws vertical and horizontal lines for the cutoffs. 
+    * `9.finalize.py`: this script gathers all the information from the readme, the results plot and the results and creates a html page `index.html` that displays everything
+    * add all relevant papers to the `citation` file
+    * edit the `cutoffs` file, header line starts with `#` and has one protein per row, different measures in columns 
+    * make sure you add your email to the `observers`
+    * fill out all the sections in the `readme.md` in as much detail as you can. Keep in mind that after you have left your lab, someone else in the community should be able to understand, run and maintain your test! This is automatically linked to the Gollum wiki. 
+    * add your test to the `run` function at the bottom of `Rosetta/main/tests/benchmark/tests/scientific/command.py` to hook it into the test server framework
+    * a couple of notes on the test:
+        * we aim for plots to show the data, not just tables. Please include tables and/or the data in `json` format, but plots are highly encouraged as digesting data visually is faster and easier for us for debugging. 
+        * we like `json` format because it’s easy to read the data directly into python dictionaries. 
+        * a test should ideally be self-contained to obtain the cutoffs. As described above, try to avoid regression-test-like behavior where you compare to previous results or gather results from multiple runs over time. 
+        * be consistent with the test name, keep a single name that is also the name of the test directory. It appears in multiple files and consistency makes debugging easier
+9.	Install python3.6 or later if you haven’t already, anything earlier won’t work. Make sure you have an alias set where you an specify the python version, for instance `python3`. Every python script in the scientific tests will need the `python3` prefix to run them properly!
+10.	Run your tests locally in debug mode:
+    * `cd Rosetta/main/tests/benchmark`
+    * `python3 benchmark.py --compiler <clang or else> --skip --debug scientific.<my_awesome_test>`
+        * the `--skip` flag is to skip compilation, only recommended if you have an up-to-date version of master compiled in release mode (Sergey advises against skipping)
+        * the `--debug` flag is to run in debug mode which is highly recommended for debugging (i.e. you create 2 decoys instead of 1000s)
+    * this creates a directory `Rosetta/main/tests/benchmark/results/<os>.scientific.<my_awesome_test>` where it creates softlinks to the files in `Rosetta/main/tests/scientific/tests/<my_awesome_test>` and then it will likely crash in one way or another
+    * for step-by-step debugging `cd Rosetta/main/tests/benchmark/results/<os>.scientific.<my_awesome_test>` and debug each script individually, starting from the lowest number, by running for instance `python3 1.submit.py`
+    * note that several other files and folders are created in the process: 
+        * `config.json` which contains the configuration settings
+        * an `output` directory is created that contains the subdirectories for each protein
+        * an `hpc-logs` directory is created that contains the Rosetta run logs. You might have to check them out to debug your run if it crashed in the Rosetta run step. 
+        * each numbered script will also have an associated `.json` file that contains the variables you want to carry over into the next step
+        * `9.finalize.output.json` contains all the variables and results saved
+        * `plot_results.png` with the results
+        * `index.html` with the gathered results, failures and details you have written up in the readme. While all the files are accessible on the test server later, this file is the results summary that people will look at
+        * `output.results.json` will tell you whether the tests passed or failed
+11.	Submit your branch for testing
+    * once you are finished debugging locally, commit all of your changes to your branch
+    * create a pull-request
+    * run the test on the test server
+        * since scientific tests require a huge amount of computational time, you might want to lower your `nstruct` for debugging your run on the test server. If you do that, don’t forget to increase it later once the tests run successfully
+    * once the tests run as you want, merge your branch into `master`
+        * The `scientific` branch is an extra branch that grabs the latest master version every few weeks to run all scientific tests on. **DO NOT MERGE YOUR BRANCH INTO THE SCIENTIFIC BRANCH!!!**
+        * tell Sergey Lyskov (sergey.lyskov@gmail.com) that your test is ready to be continuously run on the scientific branch
+12.	Celebrate! Congrats, you have added a new scientific test and contributed to Rosetta’s greatness. :D
 
-    -   ----------------------------
-    -   [[Detailed Balanced|DetailedBalanceScientificBenchmark]]
-    -   RNA de novo
-    -   RNA Design
-    -   [[Rotamer Recovery|RotamerRecoveryScientificBenchmark]]
-    -   Sequence Recovery
-    -   ab initio
-    -   [[Docking|DockingScientificBenchmark]]
-    -   DNA Interface Design
-    -   [[Features|FeaturesScientificBenchmark]]
-    -   Ligand Docking
-    -   Loop
-    -   Membrane
-    -   Relax
+#### A common problem: evaluating folding funnel quality ####
 
--   -   ----------------------------
+Frequently, a scientific test will aim to evaluate the quality of a folding funnel (a plot of Rosetta energy vs. RMSD to a native or designed structure).  Many of the simpler ways of doing this suffer from the effects of stochastic changes to the sampling: the motion of a single sample can drastically alter the goodness-of-funnel metric.  For example, one common approach is to divide the funnel into a "native" region (with an RMSD below some threshold value) and a "non-native" region (with an RMSD above the threshold), and to ask whether there is a large difference between the lowest energy in the "native" region and the lowest in the "non-native" region.  A single low-energy point that drifts across the threshold from the "native" region to the "non-native" region can convert a high-quality funnel into a low one, by this metric.
 
--   **Cluster Scientific Benchmarks** (Energy Function Scientific Benchmarks): These are meant to test
-    the quality of an energy function across a broad set of tests that
-    represent realistic scientific prediction protocols. They are
-    intended to be run by a researcher who wants to test a candidate
-    energy function for becoming the standard energy function in
-    Rosetta.
+To this end, the PNear metric was developed.  PNear is an estimate of the Boltzmann-weighted probability of finding a system in or near its native state, with "native-ness" being defined fuzzily rather than with a hard cutoff.  The expression for PNear is:
 
-    -   These tests are found in main/tests/scientific/cluster/.
-    -   Unlike biweekly tests, these tests must provide two bash scripts instead of one:
-    	- The "submit" script is called first and is expected to prepare and submit the 
-	appropriate number of jobs to run your test and then exit.
-	- The "analyze" script runs after these jobs are finished. It creates the proper log
-	file and yaml file and places them in the "/output" folder. Any additional files that you
-	want to save as "results" should also be saved there.
-    -   Each test should be able to run in less than 50,000 cpu hours
-    -   ----------------------------
-    -   LoopHash decoy discrimination
-    -   Ligand Docking
-    -   Relax into electron density
-    -   Flexible peptide docking
-    -   Flexible monomer design
-    -   Single mutant scan
-    -   Loop prediction
-    -   NMR
+![PNear = Sum_i(exp(-rmsd^2/lambda^2)*exp(Ei/kbt) / Sum_i(exp(Ei/kbt)) ](PNear_expression.gif "Expression for PNear")
 
-Usage
-=====
+Intuitively, the denominator is the partition function, while the numerator is the sum of the Boltzmann probability of individual samples multiplied by a weighting factor for the "native-ness" of each sample that falls off as a Gaussian with RMSD.  The expression takes two parameters: lambda (λ), which determines the breadth of the Gaussian for "native-ness" (with higher values allowing a more permissive notion what is close to native), and kB\*T, which determines how high energies translate into probabilities (with higher values allowing states with small energy gaps to be considered to be closer in probability).  Recommended values are lambda = 2 to 4, kB\*T = 1.0 (for ref2015) or 0.63 (for talaris2013).
 
-### How to Create a Local Scientific Benchmark
+For more information, see the Methods (online) of <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5161715/">Bhardwaj, Mulligan, Bahl _et al._ (2016). _Nature_ 538(7625):329-35</a>.
 
-*If your test requires you to create a new application, please commit it to this location: source/src/apps/benchmark/scientific/*
+### The science behind your test: Scientific test template
+Please use this template to describe your scientific test in the `readme.md` as described above. Also check out the `fast_relax` test for ideas of what we are looking for. 
 
-​1) Create a folder in main/test/scientific/tests/\<test\_name\>.  
-   Each individual test can have the following subdirectories:
--   /input : stores all input data. 
--   /output : stores important output data. Contents of this folder will stored along with log and yaml in the database and will be accessible from the web.
--   /tmp : place for temporary files (like \~1000 decoys, if you need it). Contents of this folder will be ignored by the testing daemon and not stored anywhere. (You can store temp files in /input too if you really need too, just make sure it is not overwriting any input files).
-   
-​2) Collect a small sample of experimental data such as crystal
-structures, NMR data for the new test.
+\## AUTHOR AND DATE
+\#### Who set up the benchmark? Please add name, email, PI, month and year
 
-​3) Write a script called 'command' that generates structure predictions
-and/or processes the input structures and experimental data to generates
-raw results.
+\## PURPOSE OF THE TEST
+\#### What does the benchmark test and why?
 
-​4) Write another script to analyze the results from step 3) to generate
-numerical statistics and/or plots. Have this analysis script write a
-file **.results.yaml**, which contains valid yaml text and have at least
-one boolean field, '\_isTestPass'. Here is an example
+\## BENCHMARK DATASET
+\#### How many proteins are in the set?
+\#### What dataset are you using? Is it published? If yes, please add a citation.
+\#### What are the input files? How were the they created?
 
-       { 'rotamer_recovery_rate_at_all_positions' : .37, '_isTestPass' : True }
+\## PROTOCOL
+\#### State and briefly describe the protocol.
+\#### Is there a publication that describes the protocol?
+\#### How many CPU hours does this benchmark take approximately?
 
-With this file, when tests are run on the Testing Server, the results
-can be processed and reported on the testing web page.
+\## PERFORMANCE METRICS
+\#### What are the performance metrics used and why were they chosen?
+\#### How do you define a pass/fail for this test?
+\#### How were any cutoffs defined?
 
-Also have the analyze script write a file **.results.log**, to contain human-readable text-based results. The contents
-of this file will be appended to the Nightly Tests email sent to the
-*Rosetta-logs* mailing list.
+\## KEY RESULTS
+\#### What is the baseline to compare things to - experimental data or a previous Rosetta protocol?
+\#### Describe outliers in the dataset. 
 
-### How To Run Local Scientific Benchmarks
+\## DEFINITIONS AND COMMENTS
+\#### State anything you think is important for someone else to replicate your results. 
 
-To run the local scientific benchmarks, go to test/scientific and
-execute
+\## LIMITATIONS
+\#### What are the limitations of the benchmark? Consider dataset, quality measures, protocol etc. 
+\#### How could the benchmark be improved?
+\#### What goals should be hit to make this a "good" benchmark?
 
-      scientific.py -d path/to/database -j<num_processors>
-
-This will generate for each test a directory
-test/scientific/statistics/\<test\_name\> containing protocol log
-information, statistics and plots. Each test should take about an hour
-to run. Additionally, each test is run regularly on the Testing Server
-with possibly more extensive input or a more extensive protocol.
-
-### How to Create a Cluster Scientific Benchmark
-
-​1) Put together a more extensive input dataset or put together
-parameters for more a extensive protocol that can be used when the test
-is run on the Testing Server cluster at JHU.
-
-​2) Add input data to
-[mini.data](https://svn.rosettacommons.org/trac/browser/trunk/mini.data#tests/scientific)
-as needed.
-
-​3) Tell sergey to create the symbolic link for the test so it will
-automatically run on the Testing Server
-
-​4) Monitor the results of the testing server and verify that the new
-test is running correctly.
-
-Scorefunction Benchmarking
-==========================
-
-Rotamer Recovery (ONE)
-----------------------
-
-**Creator Name:** Matthew O'Meara
-
-**Prediction Task / Description:** Given the native conformation of a
-whole structure except for a single sidechain, predict the conformation
-of the sidechain. [[Rotamer Recovery Benchmark|RotamerRecoveryScientificBenchmark]]
-
-**Experimental Data Used:** The input structures is a selection of the
-Richardson's Top5200 dataset. The Top5200 set was constructed as
-follows. Daniel Keedy and others the Richardson Lab clustered all
-structures in the PDB on April 5th 2007 into 70% sequence homology
-clusters. Each structure with resolution 2.2A or better and was not
-filtered by hand was run through MolProbity. Then from each group the
-structure with the best average resolution and MolProbity score was
-selected provided it had resolution at least 2.0A. All structures from
-the Top5200 having between 50 and 200 residues and resolution less than
-1.2A were selected for this benchmark. This leaves 152 structures with
-17463 residues.
-
-**How to interpret the results:** Using the
-[[ChiDiff|RotamerRecoveryScientificBenchmark#RRComparerChiDiff]]
-comparison, the score is the maximum over the angle differences for each
-of the torsional angles. A residue is considered recovered if all angles
-differences are less than 20. The reported scores include:
-
--   the average recovery over all residues
--   the average recovery for each amino acid type
--   the average recovery for buried (23 \< \#10A\_nbrs), intermediate(17
-    \<= \#10A\_nbrs \< 23) and exposed (\#10A\_nbrs \< 17)
--   the average recovery for each amino acids for each burial level
-
-Significance is determined by a permutation test or bootstrap analysis.
-
-**Preliminary Results:** See [Leaver-Fay et al., Methods in Enzymology
-2013](http://www.sciencedirect.com/science/article/pii/B9780123942920000060)
-
-**Caveats:** ...
-
-**Approximate computational cost:** ...
-
-**How to run:** ...
-
-Protein stability prediction (DDG)
-----------------------------------
-
-**Creator Name:** This will be a joint effort. Shane O'Connor, Kortemme
-Lab will admin the benchmarking system.
-
-**Prediction Task / Description:** Given experimental DDG measurements
-in protein stability assays, predict the DDG in Rosetta.
-
-**Experimental Data Used:** Our set of experimental data mainly comes
-from the extensive ProTherm database, Kyushu Institute of Technology,
-Japan. A smaller number of records come from [Guerois et
-al.](http://www.ncbi.nlm.nih.gov/pubmed/12079393) and [a paper on
-Rosetta DDG protocols](http://www.ncbi.nlm.nih.gov/pubmed/21287615) by
-Liz Kellogg, Andrew, and David Baker. At present, we have three curated
-sets which take different subsets (sometimes using average values over
-multiple experiments with the same protein/mutation) of the total set of
-DDG values. These curated sets were compiled by Guerois et al., Kellogg
-et al., and [Potapov et
-al.](http://www.ncbi.nlm.nih.gov/pubmed/19561092). Other curated sets
-exist in the literature which we hope to incorporate in time.
-
-We will define our own curated datasets for the shootout. Details will
-be posted when the sets are concretely defined although I expect there
-to be a large overlap with the datasets above. The Guerois set has just
-under 1,000 different point mutations, the Kellogg set has @1,200, the
-Potapov set has @2,100. The entire set of point mutations and associated
-DDG values stored in our database is around the order of 4,000.
-
-**How to interpret the results:**
-
-Analysis is run using a Python package. At present, we have basic
-analysis scripts which generate scatter plots of experimental vs
-predicted values and compute the Pearson correlation coefficient and
-mean absolute error values. More refined analysis (large-to-small
-mutations, mutations to x, etc.) as well as more statistical measures
-will be added.
-
-**Preliminary Results:** None as yet.
-
-**Caveats:** Currently requires an SGE cluster to run (see below).
-
-**Approximate computational cost:** No useful data at present. We
-currently run predictions using protocol 16 from the Kellogg et al.
-paper on a Sun Grid Engine cluster. We measure time from job start in
-our scheduler to job completion which includes the cluster wait time as
-well as computational time. This could be refined. As well as score
-function changes, we aim to test different protocols for the shootout so
-times may vary.
-
-**How to run:**
-
-We run the jobs using a Python scheduler which communicates with a MySQL
-database and submits jobs to the SGE cluster. The scheduler takes care
-of intermediate steps (file-passing and command-line argument values
-between steps in the protocol). This is not currently portable to labs
-who do not have access to an SGE cluster so this backend be abstracted
-in the future. Analysis is run using a simple API (in Python) to the
-database, calling R to generate PDF output.
-
-To avoid the necessity of using a MySQL database, one possibility is to
-dump the relevant data to an SQLite database which would be easier to
-set up. However, this would require adding a database abstraction layer
-into our code which is currently not present.
-
-Scientific benchmark fragmentset setup
-======================================
-
-Fragment sets, or infile sets, live in the BENCH\_HOME/fragments
-directory. Each fragment set has to be in a separate directory. A
-benchmark type specific directory structure is neccessary in these
-fragment set directories. See below for details. Once the directories
-are setup, the fragment set has to be imported into the database. This
-is (currently) done each time anybody loads the fragment overview page
-(accessible from the main menu) - only the fragment set is imported.
-Edit the newly imported fragment set - it needs a description and a
-benchmark type. Once the fragment set is setup, import the fragments by
-the command bench.pl -mode fragment -submode insert\_fragmentset -id
-\<id\> where \<id\> is the fragmentset id.
-
-Ab Initio
----------
-
-A fragment set, say abinitio\_set01
-(BENCH\_HOME/fragments/abinitio\_set01) has a 5-letter subdirectory for
-each target. In the CVS repository, there is an example, 1a32\_.tbz. To
-setup, create the directory BENCH\_HOME/fragments/abinitio\_set01 and
-untar the file (tar -xvjf 1a32\_.tbz) in that directory.
-
-##See Also
-
-* [[Testing home page|rosetta-tests]]
-* [[Development documentation home page|Development-Documentation]]
-* [[RosettaEncyclopedia]]
-* [[Glossary]]

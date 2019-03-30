@@ -4,8 +4,8 @@
 
 Computes the difference in a filter's value compared to the input structure
 
-```
-<Delta name=(&string) upper=(1 &bool) lower=(0 &bool) range=(0 &Real) filter=(&string) unbound=(0 &bool) jump=(see below &Int) relax_mover=(null &string)/>
+```xml
+<Delta name="(&string)" upper="(1 &bool)" lower="(0 &bool)" range="(0 &Real)" filter="(&string)" unbound="(0 &bool)" jump="(see below &Int)" relax_mover="(null &string)"/>
 ```
 
 -   upper/lower: the threshold is upper/lower? Use both if the threshold is an exact value.

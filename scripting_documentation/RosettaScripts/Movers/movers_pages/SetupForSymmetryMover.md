@@ -1,23 +1,21 @@
 # SetupForSymmetry
 *Back to [[Mover|Movers-RosettaScripts]] page.*
-Page last updated 19 August 2016.
+Page last updated 9 April 2018.
 
-## SetupForSymmetry
+[[include:mover_SetupForSymmetry_type]]
 
-Given a symmetry definition file that describes configuration and scoring of a symmetric system, this mover "symmetrizes" an asymmetric pose.
+####The `set_global_symmetry_at_parsetime` option
+For historical reasons, many protocols require symmetry to be set as a global option during script parsing.  This is potentially dangerous, because symmetry is set throughout the protocol regardless of when `SetupForSymmetry` mover is applied.
 
-####Usage
-```
-<SetupForSymmetry name=(&string) definition=(&string) preserve_datacache=(&bool, false) />
-```
+If your protocol is producing unexpected results or symmetry-related error messages, try setting `set_global_symmetry_at_parsetime=0`, which disables setting the global option.  If you have set `set_global_symmetry_at_parsetime=0` and Rosetta complains that you are dealing with an asymmetric pose or similar error, try setting `set_global_symmetry_at_parsetime=1` to enable setting the global option.
 
-####Options
-**definition** - The filename for a symmetry definition file.
-**preserve_datacache** - If true, the datacache from the input asymmetric pose will be copied into the new symmetric pose. If false, the pose datacache will be cleared.  Default is false for historical reasons.
+For backwards compatibility, `set_global_symmetry_at_parsetime=1` is currently the default.
+
+A best practice could be to `set_global_symmetry_at_parsetime=0` and see if your protocols runs as expected without errors.  If so, great.  If not, `set_global_symmetry_at_parsetime=1` and see if that fixes it (in which case something is relying on the global setting).
 
 ####Example
 Given the symmetry definition file 'C2.symm':
-```
+```xml
 <SetupForSymmetry name="setup_symm" definition="C2.symm" preserve_datacache="0" />
 ```
 

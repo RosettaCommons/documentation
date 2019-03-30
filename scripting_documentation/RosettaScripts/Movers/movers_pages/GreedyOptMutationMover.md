@@ -1,6 +1,13 @@
 # GreedyOptMutationMover
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## GreedyOptMutationMover
+### Publication
+
+King C, Garza EN, Mazor R, Linehan JL, Pastan I, Pepper M, Baker D. Removing T-cell epitopes with computational protein design. Proceedings of the National Academy of Sciences. 2014 Jun 10;111(23):8577-82.
+[[http://www.pnas.org/content/111/23/8577.long]]
+
+Nivón, L. G., Bjelic, S., King, C. and Baker, D. (2014), Automating human intuition for protein design. Proteins, 82: 858–866. doi:10.1002/prot.24463
+[[http://onlinelibrary.wiley.com/doi/10.1002/prot.24463/full]]
 
 This mover will first attempt isolated/independent mutations defined in the input task operation, score/filter them all, rank them by score, then attempt to combine them, starting with the best scoring single mutation, accepting the mutation only if the filter score decreases (see skip\_best\_check for optional exception), and working down the list to the end. Optionally test one of the top N mutations at each positions instead of just the best.
 
@@ -31,16 +38,16 @@ Optional:
 -   reset\_delta\_filters: comma-separated list of delta\_filters. Will reset the baseline value of each delta filter to match the "best pose" after each accepted mutation during the combining stage. Useful so that the mutations are still evaluated on an individual basis, in the context of the current best pose.
 -   rtmin: do rtmin following repack?
 -   parallel: run the point mutation calculator in parallel, use in conjunction with openMPI
--   pareto mode is performed whenever multiple filters are defined with branch tags (see below). pareto mode will first attempt isolated/independent mutations defined in the input task operation and score/filter them all using all defined filters. Then, the Pareto-optimal mutations are identified at each position (see: [http://en.wikipedia.org/wiki/Pareto\_efficiency\#Pareto\_frontier (http://en.wikipedia.org/wiki/Pareto_efficiency#Pareto_frontier) ), discarding the non-optimal mutations. Next, the mover attempts to combine the Pareto-optimal mutations at each position. **this is a multiple pose mover, so use nstruct >1. -nstruct 100 is safe. The number of poses cached in memory is limited by nstruct to prevent memory overload**.
+-   pareto mode is performed whenever multiple filters are defined with branch tags (see below). pareto mode will first attempt isolated/independent mutations defined in the input task operation and score/filter them all using all defined filters. Then, the Pareto-optimal mutations are identified at each position (see: [Wikipedia page on the Pareto frontier](http://en.wikipedia.org/wiki/Pareto_efficiency#Pareto_frontier)), discarding the non-optimal mutations. Next, the mover attempts to combine the Pareto-optimal mutations at each position. **this is a multiple pose mover, so use nstruct >1. -nstruct 100 is safe. The number of poses cached in memory is limited by nstruct to prevent memory overload**.
 
-```
-<GreedyOptMutationMover name=(&string) task_operations=(&string comma-separated taskoperations) filter=(&string) scorefxn=(score12 &string) relax_mover=(&string) sample_type=(low &string) diversify_lvl=(1 &int) dump_pdb=(0 &bool) dump_table=(0 &bool) rtmin=(0 &bool) stopping_condition=("" &string) stop_before_condition=(0 &bool) skip_best_check=(0 &bool) reset_delta_filters=(&string comma-separated deltafilters) design_shell=(-1, real) repack_shell=(8.0, &real)/>
+```xml
+<GreedyOptMutationMover name="(&string)" task_operations="(&string comma-separated taskoperations)" filter="(&string)" scorefxn="(score12 &string)" relax_mover="(&string)" sample_type="(low &string)" diversify_lvl="(1 &int)" dump_pdb="(0 &bool)" dump_table="(0 &bool)" rtmin="(0 &bool)" stopping_condition="('' &string)" stop_before_condition="(0 &bool)" skip_best_check="(0 &bool)" reset_delta_filters="(&string comma-separated deltafilters)" design_shell="(-1, real)" repack_shell="(8.0, &real)"/>
 
 #Pareto mode example, minimize filter 1 and maximize filter2 
-<GreedyOptMutationMover name=gopt task_operations=task relax_mover=min scorefxn=score12>
+<GreedyOptMutationMover name="gopt" task_operations="task" relax_mover="min" scorefxn="score12">
     <Filters>
-       <AND filter_name=filter1 sample_type=low/>
-       <AND filter_name=filter2 sample_type=high/>
+       <AND filter_name="filter1" sample_type="low"/>
+       <AND filter_name="filter2" sample_type="high"/>
     </Filters>
 </GreedyOptMutationMover>
 ```

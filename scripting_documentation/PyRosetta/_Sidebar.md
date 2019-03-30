@@ -16,7 +16,7 @@
 
   * [[PyRosetta Toolkit|PyRosetta-Toolkit]]
 
-  * [[GUI for PyRosettaToolkit|PyRosetta-Toolkit-GUI]]
+  * [[GUI for PyRosetta Toolkit|PyRosetta-Toolkit-GUI]]
 
   * [[PyRosetta website|http://www.pyrosetta.org]]
 

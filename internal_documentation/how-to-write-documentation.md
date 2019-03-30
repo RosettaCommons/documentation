@@ -19,7 +19,7 @@ want.
 
 There are two ways to write documentation that will only be visible to 
 developers and not to users who download weekly releases of Rosetta.  The first 
-is to put that documentation in the `internal_documents/` folder and the second 
+is to put that documentation in the `internal_documentation/` folder and the second 
 is to put that documentation inside the following comment tags:
 
     <!--- BEGIN_INTERNAL -->
@@ -218,7 +218,7 @@ demo should include:
 4. Scripts containing the exact commands needed to run the demo.
 
 Once you have written a demo, follow the instructions on [[this 
-page|https://www.rosettacommons.org/demos/latest/Home.html]] to see how to 
+page|https://www.rosettacommons.org/demos/wiki/How_To_Write_Demos_and_Tutorials]] to see how to 
 upload it into the Rosetta source repositories and to link it into the online 
 documentation.
 

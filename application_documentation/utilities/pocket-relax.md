@@ -8,7 +8,7 @@ This application in Rosetta3 was created and documented by David Johnson, et al.
 Purpose and Algorithm
 =====================
 
-This application is intended to automate the pocket optimization process, which previously had been done in two parts. [[Relax  | application_documentation/relax]] is performed and then the Pocket constraint is turned off an a full atom minimization is performed. If the pocket constraint is not used, it performs a simple relax and minimization, which is used to generate the unconstrained decoy comparison set.
+This application is intended to automate the pocket optimization process, which previously had been done in two parts. [[Relax]] is performed and then the Pocket constraint is turned off an a full atom minimization is performed. If the pocket constraint is not used, it performs a simple relax and minimization, which is used to generate the unconstrained decoy comparison set.
 
 References
 ==========

@@ -4,7 +4,7 @@
 
 Implementation of the Peptiderive protocol. Since all the options are equivalent (both in name and in meaning) to the command-line options of the app, it's best to see the [[PeptiDerive]] application documentation.
 
-```
+```xml
 <PeptideDeriver name="(&string)"
     pep_lengths="( 10 &int,...)"
     skip_zero_isc="( true &bool)"

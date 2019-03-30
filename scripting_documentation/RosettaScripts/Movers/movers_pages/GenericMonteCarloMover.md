@@ -7,10 +7,10 @@ Allows sampling structures by MonteCarlo with a mover. The score evaluation of p
 
 1) scoring by Filters
 
-```
-<GenericMonteCarlo name=(&string) mover_name=(&string) filter_name=(&string) trials=(10 &integer) sample_type=(low, &string) temperature=(0, &Real) drift=(1 &bool) recover_low=(1 &bool) boltz_rank=(0 &bool) stopping_condition=(FalseFilter &string) preapply=(1 &bool) adaptive_movers=(0 &bool) adaptation_period=(see below &integer) saved_accept_file_name=("" &string) saved_trial_file_name=("" &string) reset_baselines=(1 &bool) progress_file=("" &string)>
+```xml
+<GenericMonteCarlo name="(&string)" mover_name="(&string)" filter_name="(&string)" trials="(10 &integer)" sample_type="(low, &string)" temperature="(0, &Real)" drift="(1 &bool)" recover_low="(1 &bool)" boltz_rank="(0 &bool)" stopping_condition="(FalseFilter &string)" preapply="(1 &bool)" adaptive_movers="(0 &bool)" adaptation_period="(see below &integer)" saved_accept_file_name="('' &string)" saved_trial_file_name="('' &string)" reset_baselines="(1 &bool)" progress_file="('' &string)">
   <Filters>
-     <AND filter_name=(&string) temperature=(&Real) sample_type=(low, &string) rank=(0 &bool)/>
+     <AND filter_name="(&string)" temperature="(&Real)" sample_type="(low, &string)" rank="(0 &bool)"/>
      ...
   </Filters>
 </GenericMonteCarlo>
@@ -18,8 +18,8 @@ Allows sampling structures by MonteCarlo with a mover. The score evaluation of p
 
 2) scoring by ScoreFunction
 
-```
-<GenericMonteCarlo name=(&string) mover_name=(&string) scorefxn_name=(&string) trials=(10 &integer) sample_type=(low, &string) temperature=(0, &Real) drift=(1 &bool) recover_low=(1 &bool) stopping_condition=(FalseFilter &string) preapply=(1 &bool) saved_accept_file_name=("" &string) saved_trial_file_name=("" &string)/>
+```xml
+<GenericMonteCarlo name="(&string)" mover_name="(&string)" scorefxn_name="(&string)" trials="(10 &integer)" sample_type="(low, &string)" temperature="(0, &Real)" drift="(1 &bool)" recover_low="(1 &bool)" stopping_condition="(FalseFilter &string)" preapply="(1 &bool)" saved_accept_file_name="('' &string)" saved_trial_file_name="('' &string)"/>
 ```
 
 -   *stopping\_condition* : stops before trials are done if a filter evaluates to true.
@@ -42,8 +42,8 @@ In the multiple filter case, the filter to be used for the official score of the
 
 A task can optionally be included for automatic setting of the number of trials in a GenericMonteCarlo run. Without a task input the number of trials is set by the Trials integer input. If a task is included, the number of designable residues will be calculated and the number of trials will be automatically set as task\_scaling \* (number designable residues). For example, if there are 10 designable residues and task\_scaling is 5 (the default) the number of trials will be 50. The task\_scaling is set to 5 by default and can be adjusted in the xml with the task\_scaling flag. Giving an input task will override any value set by the Trials input. This allows for automation over a number of different input files. Input the task as for any other move, see example xml line below. Note that the input task does not alter the movers/filters contained within the GenericMonteCarlo, it is only used for calculating the number of designable residues.
 
-```
-<GenericMonteCarlo name=(&string) mover_name=(&string) filter_name=(&string) trials=(10 &integer) sample_type=(low, &string) temperature=(0, &Real) drift=(1 &bool) recover_low=(1 &bool) boltz_rank=(0 &bool) stopping_condition=(FalseFilter &string) preapply=(1 &bool) task_operations=(&string,&string,&string) task_scaling=(5 &integer)>
+```xml
+<GenericMonteCarlo name="(&string)" mover_name="(&string)" filter_name="(&string)" trials="(10 &integer)" sample_type="(low, &string)" temperature="(0, &Real)" drift="(1 &bool)" recover_low="(1 &bool)" boltz_rank="(0 &bool)" stopping_condition="(FalseFilter &string)" preapply="(1 &bool)" task_operations="(&string,&string,&string)" task_scaling="(5 &integer)">
 ```
 
 ##See Also

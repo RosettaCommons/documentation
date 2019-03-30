@@ -1,4 +1,6 @@
 #Assembly of models
+##NOTE: This page is for LegacySEWING.
+**This is an outdated page. For the current Assembly documentation visit the [[AssemblyMover]] page**
 
 Generating de novo backbones (or Assemblys) in the SEWING framework is accomplished by a simple graph traversal. The nodes in this graph, called the SewGraph, are the Models extracted in [[Step 1|model-generation]] of the protocol. The edges are the structural matches found in [[Step 2|model-comparison-with-geometric-hashing]] of SEWING.
 Assembly of backbones is implemented within a Mover, and thus can be accessed via the [[RosettaScripts]] interface. There are currently several Movers implemented, each designed to accomplish different design goals. The base AssemblyMover has a handful of core methods which are selectively implemented or overwritten by the various sub-movers.
@@ -19,11 +21,12 @@ The AssemblyMover is the abstract base class from which all other AssemblyMovers
 
 ----------------------
 ###RosettaScripts-Accessible SEWING Movers:
+**NOTE: This is a list of legacy SEWING movers. For documentation of refactored SEWING movers, see the [[AssemblyMover]] page.**
 
-* [[MonteCarloAssemblyMover]]
-* [[AppendAssemblyMover]]
-* [[RepeatAssemblyMover]]
-* [[EnumerateAssemblyMover]] (???)
+* [[LegacyMonteCarloAssemblyMover]]
+* [[LegacyAppendAssemblyMover]]
+* [[LegacyRepeatAssemblyMover]]
+* [[LegacyEnumerateAssemblyMover]] (???)
 
 
 ----------------------
@@ -36,8 +39,8 @@ The following flags apply to all SEWING movers (see below) except when noted. Mo
 ```
 -s                              The input PDB (ignored, but still required,
                                 for many SEWING Movers)
--sewing:model_file_name         The name of the SEWING model file
--sewing:score_file_name         The name of the SEWING edge file
+-legacy_sewing:model_file_name         The name of the SEWING model file
+-legacy_sewing:score_file_name         The name of the SEWING edge file
 
 ```
 
@@ -76,19 +79,19 @@ In the current implementation, the following flags are also required for scoring
 ###Optional flags
 
 ```
--sewing:assembly_type generate  The type of Assembly to generate 
+-legacy_sewing:assembly_type generate  The type of Assembly to generate 
                                 (allows 'continuous' and 'discontinuous')
                                 (Default=continuous)
--sewing:base_native_bonus       The bonus in Rosetta energy units to give 
+-legacy_sewing:base_native_bonus       The bonus in Rosetta energy units to give 
                                 'native' residues during design (default 1)
--sewing:neighbor_cutoff         The cutoff for favoring natives. Any residue
+-legacy_sewing:neighbor_cutoff         The cutoff for favoring natives. Any residue
                                 with fewer neighbors in the Assembly will not
                                 be favored (default: 16)
--sewing:skip_refinement         If true, no full-atom refinement will be run on the 
+-legacy_sewing:skip_refinement         If true, no full-atom refinement will be run on the 
                                 completed Assembly (Default = false)
--sewing:skip_filters            If true, all filters will be skipped during Assembly 
+-legacy_sewing:skip_filters            If true, all filters will be skipped during Assembly 
                                 generation (Default = false)
--sewing:dump_every_model        Dump all models regardless of whether they
+-legacy_sewing:dump_every_model        Dump all models regardless of whether they
                                 pass score filters; useful for debugging
                                 (Default false)
 ```
@@ -97,12 +100,12 @@ In the current implementation, the following flags are also required for scoring
 
 ```
 
--sewing:max_ss_num      Maximum number of secondary structure 
+-legacy_sewing:max_ss_num      Maximum number of secondary structure 
                         elements and loops that compose
                         a substructure. For instance, this
                         number would be 3 for a helix-turn-helix
                         motif. (still under development)
--sewing:num_edges_to_follow     The maximum number of edges from the SewGraph 
+-legacy_sewing:num_edges_to_follow     The maximum number of edges from the SewGraph 
                                 that will be followed. For instance, following  
                                 4 edges in a graph of helix-loop-helix motifs 
                                 will produce a 5-helix bundle. Currently not in  

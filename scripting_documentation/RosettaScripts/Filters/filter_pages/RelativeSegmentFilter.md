@@ -4,8 +4,8 @@
 
 Reports the numbers of residues that align with a segment on source pose.
 
-```
-<RelativeSegment name=(&string) source_pose=(&string) start_res=(&string) stop_res=(&string)/>
+```xml
+<RelativeSegment name="(&string)" source_pose="(&string)" start_res="(&string)" stop_res="(&string)"/>
 ```
 
 -   source\_pose: The pose to which to align. The two poses should be superimposed prior to running. This filter will not superimpose.

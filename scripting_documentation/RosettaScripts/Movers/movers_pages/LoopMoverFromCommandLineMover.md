@@ -4,8 +4,8 @@
 
 Perturbs and/or refines a set of loops from a loop file. Also takes in fragment libraries from command line (-loops:frag\_sizes , -loops:frag\_files). Has kinematic, ccd and automatic protocols.
 
-```
-<LoopMoverFromCommandLine name="&string" loop_file=("loop.loops" &string) protocol=(ccd &string) perturb_score=(score4L &string) refine_score=(score12 &string) perturb=(0 &bool) refine=(1 &bool)/>
+```xml
+<LoopMoverFromCommandLine name="&string" loop_file="('loop.loops' &string)" protocol="(ccd &string)" perturb_score="(score4L &string)" refine_score="(score12 &string)" perturb="(0 &bool)" refine="(1 &bool)"/>
 ```
 
 -   protocol: Only activated if hurry=0. Choose "automatic", "kinematic" or "ccd".If you set automatic, this mover becomes a wrapper around the 'modern' version of LoopRemodelMover which has all of the loop options defined within it. This is the recommended way of activating this mover. If you do that, then you get access to the following string options: relax (no,&string), refine (ccd is best), intermedrelax (no is default and is best), remodel (quick\_ccd is best).
@@ -17,8 +17,8 @@ Perturbs and/or refines a set of loops from a loop file. Also takes in fragment 
 
 For protocol="automatic" (Based on [[Loop Modeling Application|loopmodel]] and [[LoopRemodel|LoopRemodelMover]]):
 
-```
-<LoopMoverFromCommandLine name="&string" loop_file=("loop.loops" &string) protocol=automatic perturb_score=(score4L &string) refine_score=(score12 &string) perturb=(0 &bool) refine=(no &string) remodel=(quick_ccd &string) relax=(no, &string) intermedrelax=(no &string)/>
+```xml
+<LoopMoverFromCommandLine name="&string" loop_file="('loop.loops' &string)" protocol="automatic" perturb_score="(score4L &string)" refine_score="(score12 &string)" perturb="(0 &bool)" refine="(no &string)" remodel="(quick_ccd &string)" relax="(no, &string)" intermedrelax="(no &string)"/>
 ```
 
 -   refine:'no','refine\_ccd','refine\_kic'. This option controls the fullatom refinement stage of loop modeling.

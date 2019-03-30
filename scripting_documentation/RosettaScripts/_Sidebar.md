@@ -14,13 +14,19 @@
 
    * [[Movers|Movers-RosettaScripts]]
 
-   * [[Filters|Filters-RosettaScripts]]
+   * [[Residue Selectors|ResidueSelectors]]
+
+   * [[PackerPalettes|PackerPalette]]
 
    * [[Task Operations|TaskOperations-RosettaScripts]]
 
-   * [[Residue Selectors|ResidueSelectors]]
+   * [[Simple Metrics | SimpleMetrics]]
+
+   * [[Filters|Filters-RosettaScripts]]
 
    * [[FeaturesReporters|Features-reporter-overview]]
+
+   * [[Multistage|MultistageRosettaScripts]]
 
    * [[Composite Protocols|Composite-protocols]]
 

@@ -86,6 +86,13 @@ In general, the following centroid schemes are necessary:
 -	For an chi angle centered on a _symmetrical_ sp<sup>3</sup>-sp<sup>2</sup> bond (for example, chi2 of phenylalanine centers on the CB-CG bond), there are six centroids at 330, 300, 270, 240, 210, and 180 degrees.
 -	For an chi angle centered on an _asymmetrical_ sp<sup>3</sup>-sp<sup>2</sup> bond (for example, chi2 of phenylalanine centers on the CB-CG bond), there are six centroids at 330, 300, 270, 240, 210, and 180 degrees.
 
+ROTWELLS lines may be used instead of CENTROID designation, where you just have to give the rotwells legal for each chi. The above file would instead use:
+
+```
+ROTWELLS 1 3  60 180 300
+ROTWELLS 2 3  60 180 300
+```
+
 If you want to generate an approximate "density-style" rotamer library for semirotameric amino acids, add a SEMIROTAMERIC line to the above file and run it separately to create a file with a continuous representation of the terminal, nonrotameric chi.
 
 ## References

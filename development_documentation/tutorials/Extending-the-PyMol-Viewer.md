@@ -1,10 +1,12 @@
+#Extending the PyMol Viewer
+
 ## Metadata
 Authors: Rebecca Alford (rfalford12@gmail.com) & Evan Baugh (ehb250@nyu.edu)
 
 Last Updated: 7/10/14
 
 ##Overview
-Rosetta includes various tools for running interactive and visual simulations including Foldit, the PyRosetta toolkit and the PyMol viewer. All of these tools are discussed broadly [here](https://www.rosettacommons.org/docs/latest/graphics-and-guis.html), but this page will specifically focus on extending features in the PyMol viewer. 
+Rosetta includes various tools for running interactive and visual simulations including Foldit, the PyRosetta toolkit and the PyMol viewer. All of these tools are discussed broadly [[here|graphics-and-guis]], but this page will specifically focus on extending features in the PyMol viewer. 
 
 The PyMolViewer enables real-time and interactive visualization of Rosetta simulations. Both Rosetta3 (C++) and PyMol use the PyMolMover: A mover that extracts information from the pose and sends it over a network. This information is then received in an active session of PyMol by running a script `PyMolPyRosettaServer.py`. This server script will parse the message received and run the appropriate PyMol commands for visualization. 
 

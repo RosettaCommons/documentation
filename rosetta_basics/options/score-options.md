@@ -7,6 +7,9 @@ Here is a list of Score Function options
                                            Default="talaris2013". [String]
 -score:patch                               Name of patch file (without extension)
                                            Default="". [String]
+-score:set_weights                         Modification to weights via the command line. 
+                                           List of paired strings: -score::set_weights <score_type1> <setting1>         
+                                           <score_type2> <setting2> ...
 -score:empty                               Make an empty score - i.e. NO scoring. [Boolean]
 -score:fa_max_dis                          How far does the FA pair potential go out to.
                                            Default = '6.0'. [Real]
@@ -29,6 +32,9 @@ Here is a list of Score Function options
                                            during optH. [String]
 -score:optH_patch                          Name of weights file (without extension .wts) to use 
                                            during optH. [String]
+-score:hbond_bb_per_residue_energy         In score tables, separate backbone hydrogens bond energies per residue. 
+                                           (By default, bb hbonds are included in the total energy, but not per residue                    
+                                           energies. Note that this may lead to a slowdown in packing) [Boolean]
 ```
 
 ##See Also

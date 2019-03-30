@@ -9,7 +9,7 @@ given the present conformations of all its neighbors.  This mover is one of the
 default refiners in LoopModeler's fullatom step.
 
 ```xml
-<RotamerTrialsRefiner name=(&string) task_operations=(&string) scorefxn=(&string) loop_file=(&string)/>
+<RotamerTrialsRefiner name="(&string)" task_operations="(&string)" scorefxn="(&string)" loop_file="(&string)"/>
 ```
 
 Options:

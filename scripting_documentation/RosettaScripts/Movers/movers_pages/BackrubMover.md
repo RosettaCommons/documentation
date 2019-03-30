@@ -4,8 +4,8 @@
 
 Purely local moves using rotations around axes defined by two backbone atoms.
 
-```
-<Backrub name=(&string) pivot_residues=(all residues &string) pivot_atoms=(CA &string) min_atoms=(3 &Size) max_atoms=(34 &Size) max_angle_disp_4=(40/180*pi &Real) max_angle_disp_7=(20/180*pi &Real) max_angle_disp_slope=(-1/3/180*pi &Real) preserve_detailed_balance=(0 &bool) require_mm_bend=(1 &bool)/>
+```xml
+<Backrub name="(&string)" pivot_residues="(all residues &string)" pivot_atoms="(CA &string)" min_atoms="(3 &Size)" max_atoms="(34 &Size)" max_angle_disp_4="(40/180*pi &Real)" max_angle_disp_7="(20/180*pi &Real)" max_angle_disp_slope="(-1/3/180*pi &Real)" preserve_detailed_balance="(0 &bool)" require_mm_bend="(1 &bool)"/>
 ```
 
 -   pivot\_residues: residues for which contiguous stretches can contain segments (comma separated) can use PDB numbers (\<resnum\>\<chain\>) or absolute Rosetta numbers (integer)

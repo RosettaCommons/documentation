@@ -15,7 +15,7 @@ While most of these applications focus on prediction, many have options which wi
     * [[Prepare template for MR]]: Setup script for molecular replacement protocols.  
 - [[Relax]]: "Locally" optimize structures, including assigning sidechain positions.
 - [ RNA ](#RNA): see below for apps, including FARFAR & ERRASER (crystallographic refinement).  
-
+- [[RosettaNMR with Paramagnetic Restraints|RosettaNMR with Paramagnetic Restraints]]: Structure prediction in RosettaNMR using backbone chemical shifts and paramagnetic restraints derived from metal ion tags.
   
 
 ###Loop Modeling
@@ -47,6 +47,8 @@ While most of these applications focus on prediction, many have options which wi
     * [[Grafting CDR loops|antibody-assemble-cdrs]]: Graft antibody CDR templates on the framework template to create a rough antibody model.  
     * [[Modeling CDR H3|antibody-model-CDR-H3]]: Determine antibody structures by combining VL-VH docking and H3 loop modeling.
 
+###TCR Modeling
+- [[TCRmodel protocol|TCRmodel]]: Application for modeling T cell receptors from sequence.  
 
 ##See Also
 

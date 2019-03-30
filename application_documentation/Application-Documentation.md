@@ -16,6 +16,7 @@ A collection of example command lines can be found [[here|commands-collection]].
 - [Design](Application Documentation#Design)
 - [Membrane Proteins](Application Documentation#Membrane-Proteins)
 - [Analysis](Application Documentation#Analysis)
+- [UI](Application Documentation#UI)
 - [Utilities](Application Documentation#Utilities)
 - [Other](Application Documentation#Other)
 
@@ -33,7 +34,9 @@ While most of these applications focus on prediction, many have options which wi
 - [[Backrub]] - Create backbone ensembles using small, local backbone changes.  
 - Comparative modeling - Build structural models of proteins using one or more known structures as templates for modeling.  
     * [[Original protocol | minirosetta-comparative-modeling]]
-    * [[RosettaCM]]
+    * [[RosettaCM]]   
+    * [[IterativeHybridize]]
+
 - [[Floppy tail]] - Predict structures of long, flexible N-terminal or C-terminal regions.
 - [[Fold-and-dock]] - Predict 3-dimensional structures of symmetric homooligomers.  
 - [[Molecular replacement protocols|mr-protocols]] - Use Rosetta to build models for use in X-ray crystrallography molecular replacement.  
@@ -41,7 +44,39 @@ While most of these applications focus on prediction, many have options which wi
 - [[Relax]] - "Locally" optimize structures, including assigning sidechain positions.
 - [ RNA ](#RNA) - see below for apps, including FARFAR & ERRASER (crystallographic refinement).  
 - [[Simple Cyclic Peptide Prediction|simple_cycpep_predict]] - Prediction of structures of small (~5-20 residue) backbone-cyclized peptides consisting of any mixture of L- and D-amino acids.
+- [[RosettaNMR with Paramagnetic Restraints|RosettaNMR with Paramagnetic Restraints]] - Structure prediction in RosettaNMR using backbone chemical shifts and paramagnetic restraints derived from metal ion tags.
   
+--------------------------
+
+###Antibody Modeling
+- [[Antibody protocol]] (RosettaAntibody3) - Overview of the antibody modeling protocol.  
+    * [[Grafting CDR loops|antibody-assemble-cdrs]] - Graft antibody CDR templates on the framework template to create a rough antibody model.  
+    * [[Modeling CDR H3|antibody-model-CDR-H3]] - Determine antibody structures by combining VL-VH docking and H3 loop modeling.
+
+
+------------------------
+
+###Carbohydrate Modeling
+* [[WorkingWithGlycans]]
+
+#### Apps
+
+Application | Description
+------------ | -------------
+[[GlycanRelax]] | Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
+[[GlycanInfo]] | Get information on all glycan trees within a pose
+[[GlycanClashCheck]] | Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
+
+#### RosettaScript Components
+
+Component | Description
+------------ | -------------
+[[GlycanRelaxMover]] | Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
+[[SimpleGlycosylateMover]] | Glycosylate poses with glycan trees.  
+[[GlycanTreeSelector]] | Select individual glcyan trees or all of them
+[[GlycanResidueSelector]] | Select specific residues of each glycan tree of interest.
+
+---------------------------
 
 ###Loop Modeling
 -  [[Loop modeling overview|loopmodel]]
@@ -52,27 +87,7 @@ While most of these applications focus on prediction, many have options which wi
 -  [[Stepwise assembly of protein loops|swa-protein-main]] - Generate three-dimensional de novo models of protein segments     -  [[Stepwise assembly of long loops|swa-protein-long-loop]] - For loops greater than 4-5 residues. See also  [[Stepwise monte carlo|stepwise]].
 -  [[Stepwise monte carlo|stepwise]] - Generate 3D models of protein, RNA, and protein/RNA loops, motifs, and interfaces. Stochastic version of stepwise assembly. 
 
-###Antibody Modeling
-- [[Antibody protocol]] (RosettaAntibody3) - Overview of the antibody modeling protocol.  
-    * [[Antibody Python script]] - The setup script.  
-    * [[Grafting CDR loops|antibody-assemble-cdrs]] - Graft antibody CDR templates on the framework template to create a rough antibody model.  
-    * [[Modeling CDR H3|antibody-model-CDR-H3]] - Determine antibody structures by combining VL-VH docking and H3 loop modeling.
-    
-###Carbohydrate Modeling
-* [[WorkingWithGlycans]]
-
-- ###Apps
-* [[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
-* [[GlycanInfo]] - Get information on all glycan trees within a pose
-* [[GlcyanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
-
-- ###RosettaScript Components
-* [[GlycanRelaxMover]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
-* [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
-* [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
-* [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
-
-
+-----------------------------
 
 ###RNA and RNA/protein
 -  [[RNA structure prediction|rna-denovo-setup]] - Predict 3-dimensional structures of RNA from their nucleotide sequence. Read this first. 
@@ -84,11 +99,13 @@ While most of these applications focus on prediction, many have options which wi
 -  [[Stepwise monte carlo|stepwise]] - Generate 3D models of protein, RNA, and protein/RNA loops, motifs, and interfaces. Stochastic version of stepwise assembly. 
 -  [[RNA assembly with experimental constraints|rna-assembly]] - Predict 3-dimensional structures of large RNAs with the help of experimental constraints. Note – largely deprecated by newer pipeline (documentation coming soon).
 -  [[ERRASER]] - Refine an RNA structure given electron density constraints.  
+-  [[DRRAFTER]] - Build RNA coordinates into cryoEM maps of RNA-protein assemblies.
 -  [[Sample around nucleobase]] - Visualizing energy functions by scanning probe molecules around a nucleobase.
 -  [[RECCES]] - RNA free energy calculation with comprehensive sampling.
 -  [[RNA pharmacophore]] - Extract and cluster the key features present in RNA (rings, hbond donors & acceptors) from the structure of a protein-RNA complex.
 
 
+---------------------------------
 
 ##Docking <a name="Docking" />
 
@@ -108,6 +125,7 @@ While most of these applications focus on prediction, many have options which wi
 ###Protein-Protein Docking
 - [[Protein-Protein docking|docking-protocol]] (RosettaDock) - Determine the structures of protein-protein complexes by using rigid body perturbations.  
     * [[Docking prepack protocol]] - Prepare structures for protein-protein docking.  
+    * [[Motif Dock Score]] - Efficient low-resolution protein-protein docking.
 
 - [[Symmetric docking|sym-dock]] - Determine the structure of symmetric homooligomers.  
 
@@ -119,6 +137,8 @@ While most of these applications focus on prediction, many have options which wi
 ###Protein-Surface Docking
 - [[Surface Docking|surface-docking]] - Dock a protein to a metal or mineral surface.
  
+------------------------------
+
 ##Design <a name="Design" />
 
 ### General 
@@ -126,20 +146,34 @@ While most of these applications focus on prediction, many have options which wi
 - [[Fixed backbone design|fixbb]] - Optimize sidechain-rotamer placement and identity on fixed backbones.  
    * [[Fixed backbone design with hpatch|fixbb-with-hpatch]] - Fixed backbone design with a penalty for hydrophobic surface patches.  
 
-- [[Sequence tolerance]] - Optimize proteins for library applications (e.g. phage or yeast display).  
-
 - [[Multistate design|mpi-msd]] - Optimize proteins for multiple desired and undesired contexts.
+
+-------------------------------------------
 
 - [[Anchored design]] - Design interfaces using an "anchor" of known interactions.  
     * [[Anchored pdb creator]] - Prepare starting files for AnchoredDesign.  
     * [[Anchor finder]] - Find interactions which can serve as "anchors" for AnchoredDesign. 
 
+- [[Create clash-based repack shell]] -- Supplement a design resfile with residues which may clash. 
+
+- [[RosettaAntibodyDesign]] - Design Antibodies and Antibody-Antigen complexes
+
+- [[RECON multistate design]] - Multi-specificity design to optimize proteins for recognition of multiple targets.
+
+- [[revert-design-to-native]] - Get energetic contribution of designed residues to predicted binding energy
+
 - [[RosettaRemodel]] - Redesign backbone and sequence of protein loops and secondary structure elements. 
     * [[Remodel]] - Additional remodel documentation
+
+- [[curvedsheetdesign]] - Design backbones for curved beta sheets
+
+- [[Sequence tolerance]] - Optimize proteins for library applications (e.g. phage or yeast display).  
 
 -  [[Stepwise design|stepwise]] - Simultaneously optimize sequence and structure for small RNA and protein segments. Part of the stepwise application.
 
 - [[Zinc heterodimer design]] - Design zinc-mediated heterodimers.  
+
+- [[Biased forward folding]] - Select de novo designed proteins for ab initio structure prediction.
 
 ### Stability Improvement
 
@@ -183,6 +217,8 @@ While most of these applications focus on prediction, many have options which wi
 
 - [[Beta strand homodimer design]] - Find proteins with surface exposed beta-strands, then design a homodimer that will form via that beta-strand.  
 
+--------------------------------
+
 ##Membrane Proteins <a name="Membrane-Proteins" />
 
 ### Getting Started
@@ -212,6 +248,20 @@ While most of these applications focus on prediction, many have options which wi
     * [[score_jd2|RosettaMP-App-MPScoring]] - Settings for using score_jd2 with the RosettaMP scoring functions. 
     * [[mp_span_from_pdb|RosettaMP-App-MPSpanFromPDB]] - Calculate trans-membrane spans from the PDB structure
     * [[mp_transform|RosettaMP-App-MPTransform]] - Transforming the protein into membrane coordinates.
+ - Structure prediction:
+    * [[helix_from_sequence|RosettaMP-App-HelixFromSequence]] - Build a single helix (soluble or transmembrane) from sequence
+ - Homology modeling:
+    * [[RosettaCM membrane|RosettaCM-membrane]] - Multi-template homology modeling based on RosettaCM and RosettaMembrane
+ - Lipid accessibility:
+    * [[mp_lipid_acc|RosettaMP-LipidAcc]] - Compute per-residue lipid accessibility from structure
+ - Domain assembly:
+    * [[mp_domain_assembly|RosettaMP-DomainAssembly]] - Create full-length model of a membrane protein from known domain structures
+
+##Utilities
+
+- [[mp_utilities | RosettaMP-Utilities]] - Various utilities with membrane options.
+
+----------------------------------
 
 ##Analysis <a name="Analysis" />
 
@@ -223,7 +273,25 @@ While most of these applications focus on prediction, many have options which wi
 
 - [[ddG monomer]] - Predict the change in stability (the ddG) of a monomeric protein induced by a point mutation.
 
+- [[flex ddG]] - Predict change in interaction energy at a protein-protein interface post-mutation. Benchmarked to work for single point mutations or sets of multiple mutations. Slower than some other protocols since more sampling is included, but is particularly useful for multiple mutations or small-to-large mutations in interfaces.
+
+- [[cartesian-ddg]] - A different version of ddg calculation, using Cartesian space sampling
+
 - [[Density map scoring]] - Score structures with electron density information.  
+
+### Clustering 
+
+- [[calibur|calibur-clustering]] - (Preferred application) Cluster structures using a port of [calibur](http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-11-25) into Rosetta .   
+
+- [[cluster |Cluster]] - Original Rosetta++ app. Fails (_i.e_ silently produces meaningless results) at large number of decoys.
+
+- [[energy_based_clustering|energy_based_clustering_application]] - A fast energy-based clustering approach optimized for large numbers of structures.
+
+ 
+
+### Constraints
+
+- [[Constraint Info]] - Get information about how a structure matches Rosetta constraints.
 
 ### Feature Reporter Framework
  - [[FeatureReporters]] - Framework for the analysis, and comparison of various features of PDB structures
@@ -243,6 +311,19 @@ While most of these applications focus on prediction, many have options which wi
 ### Surface pockets
 - [[Pocket measure|pocket-measure]] - Measure the "deep volume" of a surface pocket.
 
+### Buried unsatisfied polar atoms
+- [[shobuns|shobuns]] - Identifies polar atoms that are buried unsatisfied for the SHO model of polar solvation
+
+### Residue disorder prediction
+- [[ResidueDisorder|ResidueDisorder]] - Predict order/disorder of each residue in a protein.
+
+### Residue Solvent Exposure
+- [[PerResidueSolventExposure|PerResidueSolventExposure]] - Calculate the per residue solvent exposure in the form of a neighbor count
+
+##UI <a name="UI" />
+
+[[Workbench|/internal_documentation/ui/workbench]] - UI front end to submit Rosetta jobs from desktop client
+
 ##Utilities <a name="Utilities" />
 
 These applications serve mainly to support other Rosetta applications, or to assist in setting up or analyzing Rosetta runs.
@@ -250,9 +331,9 @@ These applications serve mainly to support other Rosetta applications, or to ass
 ### General
 - [[Build peptide]] - Build extended peptides or protein structures from sequences. 
 
-- [[CA to allatom]] - Build fullatom models from C-alpha-only traces.  
+- [[Dump a capped residue|dump-capped-residue]] - Output a PDB file containing a residue (specifiable by name), with options that can control polymeric patch state
 
-- [[Cluster]] - Cluster structures by structural similarity.  
+- [[CA to allatom]] - Build fullatom models from C-alpha-only traces.  
 
 - [[Create symmetry definition|make-symmdef-file-denovo]] - Create Rosetta symmetry definition files for a point group.  
     * [[Create symmetry definition from structure|make-symmdef-file]] - Create Rosetta symmetry definition files from template PDBs. 

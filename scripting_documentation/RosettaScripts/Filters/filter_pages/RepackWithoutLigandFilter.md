@@ -4,8 +4,8 @@
 
 Calculates delta\_energy or RMSD of protein residues in a protein-ligand interface when the ligand is removed and the interface repacked. RMSD of a subset of these repacked residues (such as catalytic residues) can be accessed by setting the appropriate tags.
 
-```
-<RepackWithoutLigand name=(&string)  scorefxn=(&string, score12) target_res = (&string) target_cstids =  (&string) energy_threshold=(0.0 &float) rms_threshold=(0.5 &float)/>
+```xml
+<RepackWithoutLigand name="(&string)"  scorefxn="(&string, score12)" target_res="(&string)" target_cstids="(&string)" energy_threshold="(0.0 &float)" rms_threshold="(0.5 &float)"/>
 ```
 
 -   target\_cstids: comma-separated list corresponding to cstids (see EnzScore for cstid format)

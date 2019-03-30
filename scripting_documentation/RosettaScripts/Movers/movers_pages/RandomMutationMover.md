@@ -6,8 +6,8 @@ Introduce a random mutation in a position allowed to redesign to an allowed resi
 
 This can be used in conjunction with GenericMonteCarlo to generate trajectories of affinity maturation.
 
-```
-<RandomMutation name=(&string) task_operations=(&string comma-separated taskoperations) scorefxn=(score12 &string)/>
+```xml
+<RandomMutation name="(&string)" task_operations="(&string comma-separated taskoperations)" scorefxn="(score12 &string)"/>
 ```
 
 

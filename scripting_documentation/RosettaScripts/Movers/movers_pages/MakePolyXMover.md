@@ -4,7 +4,7 @@
 
 Convert pose into poly XXX ( XXX can be any amino acid )
 
-    <MakePolyX name="&string" aa="&string" keep_pro=(0 &bool)  keep_gly=(1 &bool) keep_disulfide_cys=(0 &bool) />
+    <MakePolyX name="&string" aa="&string" keep_pro="(0 &bool)"  keep_gly="(1 &bool)" keep_disulfide_cys="(0 &bool)" />
 
 Options include:
 

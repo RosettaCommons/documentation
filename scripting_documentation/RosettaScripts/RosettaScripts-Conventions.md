@@ -36,7 +36,7 @@ Use the attribute *mover\_name* or *filter\_name* within your protocol tag.
 
 use the \<Add mover\_name=.../\> or \<Add filter\_name=.../\> tags. for example:
 
-    <Your_Mover some_attr=...>
+    <Your_Mover some_attr="...">
         <Add mover_name="looper"/>
         <Add filter_name="minimizer"/>
     </Your_Mover>
@@ -46,7 +46,7 @@ use the \<Add mover\_name=.../\> or \<Add filter\_name=.../\> tags. for example:
 Please refrain from using logical operations within your tag, as it will only overpopulate the schema. If you want to enable logical operations that contain filters, please use the CompoundStatement Filter. For example, the following Code:
 
     <SomeMover ... >
-        <AND filter_name ="filter1"/>
+        <AND filter_name="filter1"/>
         <AND filter_name="filter2"/>
     </SomeMover>
 

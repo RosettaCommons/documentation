@@ -20,7 +20,7 @@
 
   * [[Centroid vs Fullatom]]
 
-  * [[VariantTypes and ResidueProperties]]
+  * [[Variant Types and Residue Properties|VariantTypes and ResidueProperties]]
 
   * [[Atom Tree|atomtree-overview]]
 
