@@ -122,7 +122,7 @@ located at source/scripts/python/public/generic_potential/
 
 python mol2genparams.py [-s mol2file or -l list-of-mol2files]
 
-more information about preprocessing inputs can be found [[here|GALigandDock-Preprocessing]]
+more information about mol2genparams.py and preprocessing inputs can be found [[here|GALigandDock-Preprocessing]]
 
 ### Limitations
 - Currently does not support elements other than H,C,N,O,S,P,and halogens; **will fail to generate params file when the molecule includes Si,Be,B,or any metals or ions**
