@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-03-19
+Generated: 2019-03-31
 
 _Note that some application specific options may not be present in this list._
 
@@ -910,6 +910,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Revert to old style etables<br/></dd>
 <dt><b>-count_pair_hybrid</b> \<Boolean\></dt>
 <dd>Use standard count-pair for non-ligands and cp3 w/ full-weight 1-4 for ligands<br/>Default: false<br/></dd>
+<dt><b>-count_pair_full</b> \<Boolean\></dt>
+<dd>Use cp3 w/ full-weight 1-4 for everything<br/>Default: false<br/></dd>
 <dt><b>-no_lk_polar_desolvation</b> \<Boolean\></dt>
 <dd>Disable the polar-desolvation component of the LK solvation model; effectively set dGfree for polar atoms to 0<br/></dd>
 <dt><b>-lk_polar_without_proline_N</b> \<Boolean\></dt>
@@ -1018,6 +1020,10 @@ _Note that some application specific options may not be present in this list._
 <dd>Spring constants for bonded parameters [length,angle,torsion,proton-torsion,improper-torsion]<br/>Default: "scoring/score_functions/bondlength_bondangle"<br/></dd>
 <dt><b>-gen_bonded_params_file</b> \<String\></dt>
 <dd>Parameters for [length,angle,torsion,improper-torsion]<br/>Default: "scoring/score_functions/generic_potential/generic_bonded.round6p.txt"<br/></dd>
+<dt><b>-gen_bonded_exclude_def_file</b> \<String\></dt>
+<dd>Definitions for double-counting params with other energy terms<br/>Default: "scoring/score_functions/generic_potential/params_exclude.txt"<br/></dd>
+<dt><b>-genbonded_score_canonical_aas</b> \<Boolean\></dt>
+<dd>Turn on gen_bonded term for canonical amino acids<br/>Default: false<br/></dd>
 <dt><b>-extra_improper_file</b> \<String\></dt>
 <dd>Add extra parameters for improper torsions<br/></dd>
 <dt><b>-pro_close_planar_constraint</b> \<Real\></dt>
@@ -1651,6 +1657,8 @@ _Note that some application specific options may not be present in this list._
 <dd>packer_palette option group<br/></dd>
 <dt><b>-extra_base_type_file</b> \<File\></dt>
 <dd>PackerPalettes define the set of residue types with which one is designing, and TaskOperations allow types to be turned off at specific positinos.  The default PackerPalette includes the twenty canonical amino acids.  If this option is used to provide a file containing a whitespace-separated list of residue type names, the default PackerPalette will include these additional residue types.<br/></dd>
+<dt><b>-NCAA_expanded</b> \<Boolean\></dt>
+<dd>Design positions like beta-AAs, oligoureas, and polyaramids with a default set of options<br/></dd>
 </dl>
 + <h2>-archive</h2>
 <dl>
@@ -1722,6 +1730,8 @@ _Note that some application specific options may not be present in this list._
 <dl>
 <dt><b>-rings</b> \<Boolean\></dt>
 <dd>rings option group<br/></dd>
+<dt><b>-ring_conformer_dbpath</b> \<File\></dt>
+<dd>Path to ring conformers in the Rosetta DB<br/>Default: "chemical/ring_conformer_sets"<br/></dd>
 <dt><b>-lock_rings</b> \<Boolean\></dt>
 <dd>Sets whether or not alternative ring conformations will be sampled by the protocol, (e.g, ring flips or puckering).  Only low-energy conformers will be sampled, if known.  Otherwise, all ideal ring conformers will be sampled.  The default value is false.<br/>Default: false<br/></dd>
 <dt><b>-idealize_rings</b> \<Boolean\></dt>
