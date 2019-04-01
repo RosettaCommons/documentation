@@ -234,13 +234,9 @@ These Residue selectors use the underlying RosettaCarbohydrate Framework.
 
 ##### [[GlycanResidueSelector]]
 
-##### [[GlycanTreeSelector]]
-
 ##### [[GlycanLayerSelector]]
 
-##### [[GlycanPositionSelector]]
-
-##### [[RandomGlycanFoliageSelector]]
+##### [[RandomGlycanFoliageSelector | rs_RandomGlycanFoliageSelector_type]]
 
 
 
