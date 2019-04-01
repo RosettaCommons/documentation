@@ -126,8 +126,6 @@ RosettaScript Components
 
 [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
 
-[[GlycanTreeSelector]] - Select individual glcyan trees or all of them
-
 [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
 
 [[LinkageConformerMover|mover_LinkageConformerMover_type]]
