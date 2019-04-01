@@ -5,11 +5,13 @@ Working With Glycans
 MetaData
 ========
 
-The RosettaCarbohydrate Framework was created by Dr. Jason W Labonte (JWLabonte@jhu.edu), in collaboration with Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com) and Dr. Sebastian Rämisch (raemisch@scripps.edu).  
+The RosettaCarbohydrate Framework was created by Dr. Jason W Labonte (JWLabonte@jhu.edu), in collaboration with Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 
 PIs are: Dr. Jeff Gray of JHU (jgray@jhu.edu) and Dr. William Schief of Scripps (schief@scripps.edu).
 
+References
+==========
 
 **Residue‐centric modeling and design of saccharide and glycoconjugate structures**
 Jason W. Labonte  Jared Adolf‐Bryfogle  William R. Schief  Jeffrey J. Gray
