@@ -11,8 +11,6 @@ Description
 ===========
 The app prints out information for each glycan tree, including rosetta numbering, pdb numbering, internal-glycan numbering, and the connections of every residue in the tree.  It is very useful when dealing with more than one glycan tree, or when one needs to work with particular components of the glycan.
 
-<!--- BEGIN_INTERNAL -->
-
 Use
 ===
 
@@ -41,24 +39,12 @@ Options
 
 
 
-
-
-
-
-<!--- END_INTERNAL -->
-
-
 ## See Also
 * [[WorkingWithGlycans]]
 
-- ### Apps
-* [[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
-* [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
-
 - ### RosettaScript Components
-* [[GlycanRelaxMover]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
+* [[GlycanTreeModeler]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 * [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
-* [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
 * [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
 
 - ### Other
