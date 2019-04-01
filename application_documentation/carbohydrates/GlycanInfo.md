@@ -41,12 +41,12 @@ Options
 ## See Also
 * [[WorkingWithGlycans]]
 
-- ### RosettaScript Components
+### RosettaScript Components
 * [[GlycanTreeModeler]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 * [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
 * [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
 
-- ### Other
+### Other
 * [[Application Documentation]]: List of Rosetta applications
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
 * [[Comparing structures]]: Essay on comparing structures
