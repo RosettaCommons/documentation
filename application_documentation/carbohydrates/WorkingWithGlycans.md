@@ -90,7 +90,7 @@ In order to write out structures correctly pdb link records must be output.  Thi
 Tips
 ====
 It is recommended to use the Rosetta Common Configurations to easily work with glycan structures in Rosetta:
-[[running-rosetta-with-options#common-options-and-default-user-configuration]]
+[[RosettaRC | running-rosetta-with-options#common-options-and-default-user-configuration]]
 
 Nomenclature
 ============
