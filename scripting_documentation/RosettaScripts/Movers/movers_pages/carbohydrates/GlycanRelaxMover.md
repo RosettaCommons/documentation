@@ -26,16 +26,17 @@ The `GlycanSampler` is the main sampling component of the [[GlycanTreeModeler]]
 - [[WorkingWithGlycans]]
 
 - ### RosettaCarbohydrate Apps and Components
- - ### Movers
+
+ - #### Movers
  - [[GlycanTreeModeler]] - The optimal way to model glycan trees.  Uses GlycanRelax internally.
  - [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees such as man5, man9, or other complex trees.  
 
-- ### Residue Selectors
+- #### Residue Selectors
  - [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest or specific trees/branches
  - [[GlycanLayerSelector]] - Select glycan layers
  - [[RandomGlycanFoliageSelector | rs_RandomGlycanFoliageSelector_type]] - Randomly select a set of glycan residues 
 
-- ### Applications
+- #### Applications
  - [[GlycanInfo]] - Get information on all glycan trees within a pose
  - [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
