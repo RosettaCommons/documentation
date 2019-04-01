@@ -107,7 +107,7 @@ Sampling
  - [[ShearMover]] - Make a shearing motion, by making opposite small changes to a pair of near-parallel glycosidic torsions.
 
  - [[RingConformationMover]] - Make a change to a cyclic residue's ring conformation. (Note that this is not normally an energetically favorable thing to do!)
- - [[LinkageConformerMover]] - Make a change to all of the glycosidic torsion angles by using angles from a statistically favorable conformation.
+ - [[LinkageConformerMover | mover_LinkageConformerMover_type]] - Make a change to all of the glycosidic torsion angles by using angles from a statistically favorable conformation.
  - [[RingPlaneFlipMover]] - Make a 180-degree shearing move to a residue with opposite, equatorial linkages, effectively flipping over the plane of its ring.
  - [[TautomerizeAnomerMover]] - Replace a reducing-end sugar residue with its anomer.
 
@@ -219,11 +219,11 @@ Glycans can be built by themselves (IE NOT attached to a protein) using PyRosett
 Glycans are creating using their IUPAC names. 
 
 To properly build an oligosaccharide, Rosetta must know the following details about each sugar residue being created in the following order:
-•	Main-chain connectivity — →2) (->2)), →4) (->4)), →6) (->6)), etc.; default value is ->4)-
-•	Anomeric form — α (a or alpha) or β (b or beta); default value is alpha
-•	Enantiomeric form — l (L) or d (D); default value is D
-•	3-Letter code — required; uses sentence case
-•	Ring form code — f (for a furanose/5-membered ring), p (for a pyranose/6-membered ring); required
+-	Main-chain connectivity — →2) (->2)), →4) (->4)), →6) (->6)), etc.; default value is ->4)-
+-	Anomeric form — α (a or alpha) or β (b or beta); default value is alpha
+-	Enantiomeric form — l (L) or d (D); default value is D
+-	3-Letter code — required; uses sentence case
+-	Ring form code — f (for a furanose/5-membered ring), p (for a pyranose/6-membered ring); required
 Residues must be separated by hyphens. Glycosidic linkages can be specified with full IUPAC notation, e.g., -(1->4)- for “-(1→4)-”. Rosetta will assume -(1-> for aldoses and -(2-> for ketoses. Note that the standard is to write the IUPAC sequence of a saccharide chain in reverse order from how they are numbered.
 
 
