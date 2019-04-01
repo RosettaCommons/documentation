@@ -34,11 +34,11 @@ Details
 - #### Residue Selectors
  - [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest or whole trees/branches.
  - [[GlycanLayerSelector]] - Select glycan layers
- - [[RandomGlycanFoliageSelector | rs_RandomGlycanFoliage_type]] - Randomly select a set of glycan residues 
+ - [[RandomGlycanFoliageSelector | rs_RandomGlycanFoliageSelector_type]] - Randomly select a set of glycan residues 
 
 - #### Applications
  - [[GlycanInfo]] - Get information on all glycan trees within a pose
- - [[GlcyanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
+ - [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
 
 - #### Other
