@@ -36,12 +36,14 @@ PDBs from the RCSB should be able to be read in by default.  However, in order t
 * When loading a file from the PDB, the order of HETATM and LINK records is important for reading it into Rosetta. Since pdb files are usually not formatted for Rosetta-compatibility, connections can be determined internally, ignoring the order of records. Instead atom distances are used to determine protein-sugar and sugar-sugar connections.  
 
         -auto_detect_glycan_connections
+        -maintain_links
 
     * the maximum and minimum bond lengths for a conection to be found are at a default of 1.15 and 1.65 A. Since many structures are chemically incorrect, these parameters can be changed to detect unphysical bonds, too:
 
              -min_bond_length < Real >
              -max_bond_length < Real >
     * if automatic detection fails, all bond calculations and connections can be monitored with ```-out::level 999``` 
+    * Maintain links option should generally be used for loading pdbs.  If you are having issues, try turning it off. 
 
 ### GLYCAM
 In order to load GLYCAM structures, one can pass the option ```-glycam_pdb_format``` in order to load in this type of file.
@@ -70,15 +72,15 @@ Nomenclature
 Most of the time we deal with glycans, we use IUPAC names.  The glycan 'root' as referred to in Rosetta, is the residue that the glycan is attached to protein.  Some components, such as the GlycanResidueSelector, use 'glycan positions' to easily specify residues of glycans.
 These numbers go from 1 -> N, where 1 is the first glycan residue and N is the last residue.  In order to find out the glycan position of the residue you are interested in, use the [[GlycanInfo]] application. 
 
-Further Carbohydrate Information
-================================
-Jason, fill this out!!!
-
 
 Sampling
 ========
+ - [[GlycanSampler | GlycanRelaxMover ]] - Combination of sampling strategies for general use.
+ - [[GlycanTreeModeler]] - Full protocol for modeling Carbohydrates.  This is preferred.
+
  - [[SmallMover]] - Make small changes to all of the torsion angles in a random glycosidic bond.
  - [[ShearMover]] - Make a shearing motion, by making opposite small changes to a pair of near-parallel glycosidic torsions.
+
  - [[RingConformationMover]] - Make a change to a cyclic residue's ring conformation. (Note that this is not normally an energetically favorable thing to do!)
  - [[LinkageConformerMover]] - Make a change to all of the glycosidic torsion angles by using angles from a statistically favorable conformation.
  - [[RingPlaneFlipMover]] - Make a 180-degree shearing move to a residue with opposite, equatorial linkages, effectively flipping over the plane of its ring.
@@ -88,7 +90,7 @@ Sampling
 Applications
 ============
 [[GlycanTreeRelax]] - Model glycan trees from the roots out to the foliage.  Works for full denovo modeling or refinement.
-[[GlycanRelax]] - Basic sampling for glycan residues. 
+[[GlycanSampler | GlycanRelaxMover]] - Basic sampling for glycan residues. 
 [[GlycanInfo]] - Get information on all glycan trees within a pose
 
 [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
@@ -229,14 +231,12 @@ print lactose.chain_sequence()
 ## See Also
 
 ### Apps
-* [[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 * [[GlycanInfo]] - Get information on all glycan trees within a pose
 * [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
 ### RosettaScript Components
-* [[GlycanRelaxMover]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
+* [[GlycanTreeModeler]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 * [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
-* [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
 * [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
 * [[LinkageConformerMover|mover_LinkageConformerMover_type]]
 
