@@ -10,8 +10,19 @@ The RosettaCarbohydrate Framework was created by Dr. Jason W Labonte (JWLabonte@
 
 PIs are: Dr. Jeff Gray of JHU (jgray@jhu.edu) and Dr. William Schief of Scripps (schief@scripps.edu).
 
+References
+==========
 
-Currently, it is still in development. Here are tips for use.  More will come.   
+
+**Residue‐centric modeling and design of saccharide and glycoconjugate structures**
+_Jason W. Labonte  Jared Adolf‐Bryfogle  William R. Schief  Jeffrey J. Gray_
+Journal of Computational Chemistry, 11/30/2016, https://doi.org/10.1002/jcc.24679
+
+**Automatically Fixing Errors in Glycoprotein Structures with Rosetta**
+_Brandon Frenz, Sebastian Rämisch, Andrew J. Borst, Alexandra C. Walls
+Jared Adolf-Bryfogle, William R. Schief, David Veesler, Frank DiMaio_
+Structure, 1/2/2019, https://doi.org/10.1016/j.str.2018.09.006
+
 
 [[_TOC_]]
 
