@@ -32,7 +32,7 @@ This is still an in-development, unnpublished selector.  If you use this in your
 
 - ### Applications
  - [[GlycanInfo]] - Get information on all glycan trees within a pose
- - [[GlcyanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
+ - [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
 
 - ### Other
