@@ -18,7 +18,6 @@ Journal of Computational Chemistry, 11/30/2016
 
 
 **Automatically Fixing Errors in Glycoprotein Structures with Rosetta**
-
 _Brandon Frenz, Sebastian Rämisch, Andrew J. Borst, Alexandra C. Walls
 Jared Adolf-Bryfogle, William R. Schief, David Veesler, Frank DiMaio_
 Structure, 1/2/2019
