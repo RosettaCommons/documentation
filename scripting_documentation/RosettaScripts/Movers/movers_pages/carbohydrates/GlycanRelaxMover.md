@@ -13,12 +13,13 @@ PIs: Dr. William Schief (schief@scripps.edu) and Dr. Jeffrey Gray (jgray@jhu.edu
 
 This is still an in-development, unnpublished application.  If you use this in your publication, please email the authors!
 
+The `GlycanSampler` is the main sampling component of the [[GlycanTreeModeler]]
+
+##Details
+
+
 [[include:mover_GlycanSampler_type]]
 
-Details
-=======
-
-[[include:mover_GlycanTreeSampler_type]]
 
 
 ## See Also
@@ -28,8 +29,6 @@ Details
  - ### Movers
  - [[GlycanTreeModeler]] - The optimal way to model glycan trees.  Uses GlycanRelax internally.
  - [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees such as man5, man9, or other complex trees.  
- - [[GlycanRelaxMover]] - Component used in GlycanTreeRelax to do the torsional and side-chain sampling.
- - [[GlycanTreeMinMover]] - A version of the MinMover that randomly optimizes glycan foliage used in GlycanRelax.
 
 - ### Residue Selectors
  - [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest or specific trees/branches
