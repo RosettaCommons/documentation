@@ -27,7 +27,7 @@ The `GlycanSampler` is the main sampling component of the [[GlycanTreeModeler]]
 
 - ### RosettaCarbohydrate Apps and Components
 
- - #### Movers
+- #### Movers
  - [[GlycanTreeModeler]] - The optimal way to model glycan trees.  Uses GlycanRelax internally.
  - [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees such as man5, man9, or other complex trees.  
 
