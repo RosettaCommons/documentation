@@ -114,15 +114,13 @@ Sampling
 
 Applications
 ============
-[[GlycanTreeRelax]] - Model glycan trees from the roots out to the foliage.  Works for full denovo modeling or refinement.
-[[GlycanSampler | GlycanRelaxMover]] - Basic sampling for glycan residues. 
 [[GlycanInfo]] - Get information on all glycan trees within a pose
 
 [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
 RosettaScript Components
 ========================
-[[GlycanRelaxMover]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
+[[GlycanTreeModeler ]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 
 [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
 
