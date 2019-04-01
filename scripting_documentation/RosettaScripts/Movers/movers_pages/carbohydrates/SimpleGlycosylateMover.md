@@ -48,7 +48,7 @@ Details
 
 - ### Residue Selectors
  - [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest or specific trees/branches.
- - [[GlycanLayerSelecotr]] - Select glycan layers
+ - [[GlycanLayerSelector]] - Select glycan layers
  - [[RandomGlycanFoliageSelector | rs_RandomGlycanFoliageSelector_type]] - Randomly select a set of glycan residues 
 
 - ### Applications
