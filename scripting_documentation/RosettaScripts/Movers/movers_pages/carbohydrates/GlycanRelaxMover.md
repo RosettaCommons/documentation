@@ -1,6 +1,6 @@
-# GlycanRelaxMover
+# GlycanSampler
 *Back to [[Mover|Movers-RosettaScripts]] page.*
-## GlycanRelaxMover
+## GlycanSampler
 
 [[_TOC_]]
 
@@ -13,19 +13,7 @@ PIs: Dr. William Schief (schief@scripps.edu) and Dr. Jeffrey Gray (jgray@jhu.edu
 
 This is still an in-development, unnpublished application.  If you use this in your publication, please email the authors!
 
-Description
-===========
-
-Glycan Relax aims to sample potential conformational states of carbohydrates, either attached to a protein or free.  It uses a few strategies to do so, using statistics from various papers, the CHI (CarboHydrate Intrinsic) energy term, and a new framework for backbone dihedral sampling. Conformer statistics adapted from Schief lab Glycan Relax app, originally used/written by Yih-En Andrew Ban.
-
-It can model glycans from ideal geometry, or refine already-modeling glycans.  
-
-See [[Working With Glycans | WorkingWithGlycans ]] for more.
-
-
-Algorithm
-=======
-See [[GlycanRelax]] (application documentation) for the current algorithm.
+[[include:mover_GlycanSampler_type]]
 
 Details
 =======
