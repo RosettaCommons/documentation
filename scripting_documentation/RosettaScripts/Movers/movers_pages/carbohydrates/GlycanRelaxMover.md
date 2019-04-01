@@ -32,7 +32,7 @@ The `GlycanSampler` is the main sampling component of the [[GlycanTreeModeler]]
 
 - ### Residue Selectors
  - [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest or specific trees/branches
- - [[GlycanLayerSelecotr]] - Select glycan layers
+ - [[GlycanLayerSelector]] - Select glycan layers
  - [[GlycanPositionSelector]] - Select specific glycan postions, independant of PDB or Rosetta numbering.
  - [[RandomGlycanFoliageSelector]] - Randomly select a set of glycan residues 
 
