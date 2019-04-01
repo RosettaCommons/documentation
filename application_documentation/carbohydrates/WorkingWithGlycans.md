@@ -58,6 +58,8 @@ PDBs from the RCSB should be able to be read in by default.  However, in order t
     * if automatic detection fails, all bond calculations and connections can be monitored with ```-out::level 999``` 
     * Maintain links option should generally be used for loading pdbs.  If you are having issues, try turning it off. 
 
+    * You may also need to add the option, `-load_PDB_components false`.  
+
 ### GLYCAM
 In order to load GLYCAM structures, one can pass the option ```-glycam_pdb_format``` in order to load in this type of file.
 
@@ -68,17 +70,27 @@ In order to write out structures correctly pdb link records must be output.  Thi
     -write_pdb_link_records
 
 ## Full example
-    score.default.macosclangrelease \\
-    -include_sugars \\
-    -alternate_3_letter_codes pdb_sugar \\
-    -auto_detect_glycan_connections \\
-    -min_bond_length 1.1 \\
-    -max_bond_length 1.7 \\
 
-    -ignore_zero_occupancy false \\
-    -ignore_unrecognized_res \\
-    -out:output \\
+```
+    score.default.macosclangrelease \
+    -include_sugars \
+    -alternate_3_letter_codes pdb_sugar \
+    -load_PDB_components false \
+    -auto_detect_glycan_connections \
+    -min_bond_length 1.1 \
+    -max_bond_length 1.7 \
+
+    -ignore_zero_occupancy false \
+    -ignore_unrecognized_res \
+    -out:output \
     -s 5t3x.pdb
+
+```
+
+Tips
+====
+It is recommended to use the Rosetta Common Configurations to easily work with glycan structures in Rosetta:
+[[running-rosetta-with-options#common-options-and-default-user-configuration]]
 
 Nomenclature
 ============
