@@ -19,18 +19,18 @@ This is still an in-development, unnpublished selector.  If you use this in your
 ## See Also
 - [[WorkingWithGlycans]]
 
-## RosettaCarbohydrate Apps and Components
-- ### Movers
+### RosettaCarbohydrate Apps and Components
+- #### Movers
  - [[GlycanTreeModeler]] - The optimal way to model glycan trees.  Uses GlycanRelax internally.
  - [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees such as man5, man9, or other complex trees.  
  - [[GlycanSampler | GlycanRelaxMover]] - Component used in GlycanTreeRelax to do the torsional and side-chain sampling.
 
-- ### Residue Selectors
+- #### Residue Selectors
  - [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
  - [[GlycanLayerSelector]] - Select glycan layers
  - [[RandomGlycanFoliageSelector | rs_RandomGlycanFoliageSelector_type]] - Randomly select a set of glycan residues 
 
-- ### Applications
+- #### Applications
  - [[GlycanInfo]] - Get information on all glycan trees within a pose
  - [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
