@@ -41,7 +41,7 @@ Details
 ## See Also
 - [[WorkingWithGlycans]]
 
-- ### RosettaCarbohydrate Apps and Components
+### RosettaCarbohydrate Apps and Components
 - #### Movers
  - [[GlycanTreeModeler]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
  - [[GlycanSampler | GlycanRelaxMover]] - Used in GlycanTreeRelax for sampling carbohydrate torsions and side-chains from structural data.
