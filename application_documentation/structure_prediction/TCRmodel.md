@@ -32,6 +32,19 @@ The database of template TCR structures is updated from the Protein Data Bank on
 
 TCR sequences for modeling can be submitted as amino acid sequences for alpha and beta chains, encompassing at minimum the TCR variable domains. The program will automatically identify germline genes in the input sequences, if there is an exact match in the database.
 
+**Template Database**
+
+The user need to provide the path for the template database. The template database is not available in Rosetta/database by default. The TCR template database directory is located at "Rosetta/database/additional_protocol_data/tcr". You may have to clone or download the template database separately within the "Rosetta/database/additional_protocol_data" directory. 
+For Ex:
+git clone git@github.com:RosettaCommons/additional_protocol_data.git
+or
+git clone https://github.com/RosettaCommons/additional_protocol_data.git
+
+The template database can also be dowloaded from TCRmodel webserver from this link. https://tcrmodel.ibbr.umd.edu/links
+The dafault location for the database path is "Rosetta/database/additional_protocol_data/tcr"
+If placed in different location use the flag "-tcr_template_db_path" to provide the path to the template database.
+
+
 ### Output Files
 
 After submission of TCR sequences, the results will provide the parsed CDR loop sequences and identified templates to the user along with the modeled protein as PDB file.
