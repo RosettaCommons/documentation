@@ -1,7 +1,7 @@
 # TCR modeling
 
 # Metadata
-This document was last updated Feb 04, 2018, by Ragul Gowthaman (ragul@umd.edu).
+This document was last updated April 2, 2019, by Ragul Gowthaman (ragul@umd.edu).
 The corresponding principal investigator is Brian Pierce (pierce@umd.edu).
 [[_TOC_]]
 
@@ -34,9 +34,9 @@ TCR sequences for modeling can be submitted as amino acid sequences for alpha an
 
 **Template Database**
 
-The user need to provide the path for the template database. The template database is not available in Rosetta/database by default. The TCR template database directory is located at "Rosetta/database/additional_protocol_data/tcr". You may have to clone or download the template database separately within the "Rosetta/database/additional_protocol_data" directory. 
+The TCR template database, which is required for running the application, is not available by default for weekly Rosetta releases. The TCR template database directory is located at "Rosetta/database/additional_protocol_data/tcr" in the code base. Users can clone or download the template database as part of the "Rosetta/database/additional_protocol_data" directory. 
 
-For Ex:
+For example:
 
 git clone git@github.com:RosettaCommons/additional_protocol_data.git
 
@@ -44,9 +44,9 @@ or
 
 git clone https://github.com/RosettaCommons/additional_protocol_data.git
 
-The template database can also be dowloaded from TCRmodel webserver from this link. https://tcrmodel.ibbr.umd.edu/links
+The template database can also be dowloaded from TCRmodel web server from this page: https://tcrmodel.ibbr.umd.edu/links
 
-The dafault location for the database path is "Rosetta/database/additional_protocol_data/tcr". If placed in different location use the flag "-tcr_template_db_path" to provide the path to the template database.
+The default location for the database path is "Rosetta/database/additional_protocol_data/tcr". If placed in a different location, use the flag "-tcr_template_db_path" to provide the path to the template database.
 
 
 ### Output Files
