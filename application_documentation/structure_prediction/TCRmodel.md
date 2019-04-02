@@ -37,6 +37,7 @@ TCR sequences for modeling can be submitted as amino acid sequences for alpha an
 The user need to provide the path for the template database. The template database is not available in Rosetta/database by default. The TCR template database directory is located at "Rosetta/database/additional_protocol_data/tcr". You may have to clone or download the template database separately within the "Rosetta/database/additional_protocol_data" directory. 
 
 For Ex:
+
 git clone git@github.com:RosettaCommons/additional_protocol_data.git
 
 or
