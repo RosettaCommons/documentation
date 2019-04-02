@@ -35,13 +35,17 @@ TCR sequences for modeling can be submitted as amino acid sequences for alpha an
 **Template Database**
 
 The user need to provide the path for the template database. The template database is not available in Rosetta/database by default. The TCR template database directory is located at "Rosetta/database/additional_protocol_data/tcr". You may have to clone or download the template database separately within the "Rosetta/database/additional_protocol_data" directory. 
+
 For Ex:
 git clone git@github.com:RosettaCommons/additional_protocol_data.git
+
 or
+
 git clone https://github.com/RosettaCommons/additional_protocol_data.git
 
 The template database can also be dowloaded from TCRmodel webserver from this link. https://tcrmodel.ibbr.umd.edu/links
 The dafault location for the database path is "Rosetta/database/additional_protocol_data/tcr"
+
 If placed in different location use the flag "-tcr_template_db_path" to provide the path to the template database.
 
 
@@ -72,8 +76,8 @@ After submission of TCR sequences, the results will provide the parsed CDR loop 
 |:-------|:--------------|:-------|
 |-include_ab_templates|Include antibody templates for modelling.  Default false.|Boolean|
 |-ab_template_db_path|Antibody template database path.|String|
-|dump_templates|Dump all template pdb files, Default:False|Boolean|
-|tcr_template_db_path|tcr template database path, Default:Use the tcr template databasse located in '$Rosetta/database/additional_protocol_data/tcr'|String|
+|-dump_templates|Dump all template pdb files, Default:False|Boolean|
+|-tcr_template_db_path|tcr template database path, Default:Use the tcr template databasse located in '$Rosetta/database/additional_protocol_data/tcr'|String|
 |-template_similarity_cutoff|Similarity cutoff to ignore similar template sequences from template database. Default:100|Real|
 |-template_identity_cutoff|Identity cutoff to ignore similar template sequences from template database.Default:100|Real|
 |-blastp_identity_cutoff|Identity cutoff to ignore similar template sequences from template database.Default:100|Real|
