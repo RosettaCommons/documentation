@@ -45,9 +45,8 @@ or
 git clone https://github.com/RosettaCommons/additional_protocol_data.git
 
 The template database can also be dowloaded from TCRmodel webserver from this link. https://tcrmodel.ibbr.umd.edu/links
-The dafault location for the database path is "Rosetta/database/additional_protocol_data/tcr"
 
-If placed in different location use the flag "-tcr_template_db_path" to provide the path to the template database.
+The dafault location for the database path is "Rosetta/database/additional_protocol_data/tcr". If placed in different location use the flag "-tcr_template_db_path" to provide the path to the template database.
 
 
 ### Output Files
