@@ -58,8 +58,8 @@ After submission of TCR sequences, the results will provide the parsed CDR loop 
 
 |**Flag**|**Description**|**Type**|
 |:-------|:--------------|:-------|
-|-alpha|Amino acid squence of the Sequence of TCR alpha chain.|String|
-|-beta|Amino acid squence of the Sequence of TCR beta chain.|String|
+|-alpha|Amino acid sequence of TCR alpha chain.|String|
+|-beta|Amino acid sequence of TCR beta chain.|String|
 |-minimize_model|Minimize the output model.Default:True|Boolean|
 |-relax_model|Minimize the output model.Default:False|Boolean|
 |-refine_tcr_cdr3_loops|Refine the CDR3 loops of Alpha and Beta chain.Default:False|Boolean|
