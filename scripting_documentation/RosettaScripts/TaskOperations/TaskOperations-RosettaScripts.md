@@ -73,7 +73,7 @@ TaskOp  | Description
 ------------ | -------------
 **[[ReadResfile|ReadResfileOperation]]** | Read a [[resfile|resfiles]] and apply the specified behavior.
 **[[ReadResfileFromDB|ReadResfileFromDBOperation]]** | Apply a [[resfile|resfiles]] stored in a relational database.
-**[[ResfileCommandOperation]]** | Apply a resfile command to a set of residues from a residue selector. 
+**[[ResfileCommandOperation]]** | Apply a [[resfile|resfiles]] command to a set of residues from a residue selector. 
 **[[SequenceMotifTaskOperation]]** | Create a Sequence Motif using motif syntax and a residue selector. For example, N[^P][S/T], which would design N, anything not proline, and then Serine or Threonine
 **[[RestrictAbsentCanonicalAAS|RestrictAbsentCanonicalAASOperation]]** | Limit design to specified amino acids.
 **[[DisallowIfNonnative|DisallowIfNonnativeOperation]]** | Do not design to certain residues, but allow them if they already exist.
