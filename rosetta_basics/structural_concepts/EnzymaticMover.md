@@ -8,6 +8,11 @@ Documentation created 5 April 2019 by Jason W. Labonte <JWLabonte@jhu.edu>.
 the action of a virtual enzyme on a substrate, the `Pose`. The enzyme may be a 
 biologically real enzyme or entirely hypothetical or constructed.
 
+When the `Mover` is "applied", it will search the `Pose`'s sequence for a
+particular sequence site at which to make its modification, based on enzyme
+data. For each site found, it will either make the modification or not, based
+upon its set "efficiency".
+
 The main difference between most `Mover`s and an `EnzymaticMover` is that a
 standard `Mover` makes a change to the 3D conformation of a `Pose`, but the 
 identity of that `Pose`'s `Residue`s remain unchanged. An `EnzymaticMover`, on
@@ -57,106 +62,91 @@ added to the Rosetta code base.
 
 ## Usage
 
-For the most part, `EnzymaticMover`s work like any other `Mover` and any of the
+For the most part, `EnzymaticMover`s work like any other `Mover`, and any of the
 three main Rosetta interfaces can be used. The major difference is that an
 `EnzymaticMover` relies on the presence of enzyme data in the database. **If you
 wish to use an `EnzymaticMover` for a particular enzyme ensure that the data for
 that enzyme is presence in the database!** (See below for example enzyme data
 files.)
 
+### C++ & PyRosetta Code
 
+After instantiating an `EnzymaticMover`, the methods `set_species()` and
+`set_enzyme()` can be used to set the specific enzyme species and enzyme name,
+respectively.
 
-### PyRosetta Code
+`set_efficiency()` can be used to override the efficiency of the
+enzyme as provided by the enzyme file in the database. A value of 1.00
+corresponds to 100%. If set to 0.5 for example, the `Mover` will only make a
+change to any positions
 
+`exclude_site()` and `set_excluded_sites()` can be used to pass the sequence
+position(s) of (a) site(s) that cannot be modified. Perhaps there is a known
+interface with another protein, for example. `ensure_site()` and
+`set_ensured_sites()` work in the opposite manner, forcing a modification.
+(Note that `ResidueSelector`s do not currently work with `EnzymaticMover`s, but
+this will be changed in the future.)
 
-The main method used for interacting with `CustomBaseTypePackerPalette` is `add_type( <ResidueType name> )`, which takes the full `ResidueType` name, (not necessarily its three-letter code,) as a string.
-
-Once the palette is established, it can either be given to a `TaskFactory` (preferred) or used directly in the construction of a `PackerTask` (not recommended).
+`perform_major_reaction_only` and `perform_all_reactions` toggle the behavior of
+promiscuous enzymes.
 
 #### PyRosetta Example
 
 ```python
-from pyrosetta.rosetta.core.pack.palette import CustomBaseTypePackerPalette
+from pyrosetta.rosetta.protocols.enzymatic_movers import KinaseMover
 
-## (Create pose here.)
+general_enzyme = KinaseMover()
+general_enzyme.set_efficiency(0.25)
+general_enzyme.apply(pose1)
 
-##### Designing with one extra noncanonical (adamantine): #####
-# 1. Create the PackerPalette and add an extra noncanonical type to the allowed types:
-pp = CustomBaseTypePackerPalette() ## Only needed for noncanonical design
-pp.add_type( "adamantine" ) ## Only needed for noncanonical design
-
-# 2.  Create the task factory and set its PackerPalette:
-tf = TaskFactory()
-tf.set_packer_palette(pp) ## Only needed for noncanonical design
-
-# 3.  Pass the task factory to the PackRotamersMover, and pack normally:
-packer = PackRotamersMover()
-packer.task_factory(tf)
-packer.apply(pose)
+specific_enzyme = KinaseMover()
+specific_enzyme.set_species("h_sapiens")
+specific_enzyme.set_enzyme("CLK1")
+specific_enzyme.apply(pose2)
 ```
-
-### C++ Code
-
-The Python example above translates almost directly into C++.
 
 #### C++ Example
 
 ```c++
-#include <core/pack/palette/CustomBaseTypePackerPalette.hh>
-#include <core/pack/task/TaskFactory.hh>
-#include <protocols/minimization_packing/PackRotamersMover.hh>
+#include <protocols/enzymatic_movers/GlcyosyltransferaseMover.hh>
 
-using namespace core::pack::palette;
-using namespace core::pack::task;
-using namespace protocols::minimization_packing;
-
-// (Create pose here).
-
-/***** Designing with one extra noncanonical (adamantine): *****/
-// 1. Create the PackerPalette and add an extra noncanonical type to the allowed types:
-CustomBaseTypePackerPaletteOP pp( utility::pointer::make_shared< CustomBaseTypePackerPalette > ); // Only needed for noncanonical design
-pp->add_type( "adamantine" ) // Only needed for noncanonical design
-
-// 2.  Create the task factory and set its PackerPalette:
-TaskFactory OP tf( utility::pointer::make_shared< TaskFactory > );
-tf->set_packer_palette(pp) // Only needed for noncanonical design
-
-// 3.  Pass the task factory to the PackRotamersMover, and pack normally:
-PackRotamersMover packer;
-packer.task_factory(tf)
-packer.apply(pose)
-
+glycosyltransferase =
+	enzymatic_movers::GlycosyltransferaseMoverOP( utility::pointer::make_shared< enzymatic_movers::GlycosyltransferaseMover >() );
+glycosyltransferase->set_species( "c_jejuni" );
+glycosyltransferase->set_enzyme( "PglB" );
+glycosyltransferase->set_efficiency( 1.0 );
+glycosyltransferase.apply( pose );
 ```
 
 ### RosettaScripts
 
-In RosettaScripts, the interface with `PackerPalette` is through the `<PACKER_PALETTES>` XML tag.
+In RosettaScripts, the interface with any `EnzymaticMover` is through the
+`<MOVERS>` XML tag.
 
-* The `name` parameter of a `PackerPalette` is for providing a unique name to represent a given palette elsewhere in the script.
-* The `additional_residue_types` is for providing the full `ResidueType` name, (not necessarily its three-letter code,) as a string.
-
-The `PackerPalette` can be directly passed to a `PackRotamersMover`, or to any other RosettaScripts-scriptable object that takes `TaskOperation`s, by using its `packer_palette` parameter.
+* The `name` parameter of a `EnzymaticMover` is for providing a unique name to
+represent a given `EnzymaticMover` elsewhere in the script.
+* The `species` parameter is for setting the species name of the simulated
+enzyme.
+* The `enzyme_name` parameter is for setting the specific name of the simulated
+enzyme.
+* The `efficiency` parameter is to directly set the efficiency of the enzyme,
+ignoring whatever is in the database.
+* The `perform_major_reaction_only` parameter is to set the `EnzymaticMover` to
+perform only its major reaction, using only the first cosubstrate listed in its
+enzyme data file.
+* The `perform_all_reactions` parameter is for allowing the `EnzymaticMover` to
+be promiscuous, performing a random transfer from among its possible
+co-substrates. This is the default behavior.
 
 #### Example RosettaScripts XML
 
 ```xml
 <ROSETTASCRIPTS>
-	<SCOREFXNS>
-	</SCOREFXNS>
-	<RESIDUE_SELECTORS>
-	</RESIDUE_SELECTORS>
-	<PACKER_PALETTES>
-		<CustomBaseTypePackerPalette name="custom_palette" additional_residue_types="adamantine" />
-	</PACKER_PALETTES>
-	<TASKOPERATIONS>
-	</TASKOPERATIONS>
-	<FILTERS>
-	</FILTERS>
 	<MOVERS>
-		<PackRotamersMover name="design_test" packer_palette="custom_palette" />
+		<KinaseMover name="kinase" species="h_sapiens" perform_major_reaction_only="true" />
 	</MOVERS>
 	<PROTOCOLS>
-		<Add mover="design_test" />
+		<Add mover="kinase" />
 	</PROTOCOLS>
 	<OUTPUT />
 </ROSETTASCRIPTS>
@@ -164,11 +154,14 @@ The `PackerPalette` can be directly passed to a `PackRotamersMover`, or to any o
 
 ### Command-Line Applications
 
-By default, if a user does not specify a PackerPalette, Rosetta creates a `DefaultPackerPalette` for all packing tasks.  The global default `PackerPalette` can be changed to a `CustomBaseTypePackerPalette`, however, using the `-packer_palette:extra_base_type_file <filename>` command-line flag.  The provided file should be an ASCII text file containing a whitespace-separated list of residue type names (not 3-letter codes) that will be appended to the canonical 20 amino acids to form the palette of residue types with which to design.  For example, when using the Rosetta `fixbb` application to design, one can specify design with the 20 canonical amino acids _plus_ the 19 mirror-image D-amino acid counterparts of the L-amino acids using the following command at the commandline:
+Two Rosetta options flags are used specifically for interfacing with
+`EnzymaticMover`s used in any protocols.
 
-```
-<path to rosetta>/Rosetta/main/source/src/fixbb.default.linuxgccrelease -packer_palette:extra_base_type_file d_amino_acids.txt <...other flags...>
-```
+* `-enzymes:species` is used to set the species name of any simulated enzymes
+used by the protocol.
+* `-enzymes:enzyme` is used to set the specific name of any simulated enzymes
+used by the protocol.
+
 ## Enzyme Date Files
 
 `EnzymaticMover`s rely on the database to function properly. All enzyme data
