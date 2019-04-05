@@ -9,3 +9,6 @@ This `Mover` simulates the activity of a virtual glycosyltransferase (GT) or oli
 
 ##RosettaScripts Details
 [[include:mover_GlycosyltransferaseMover_type]]
+
+## See Also
+- [[SimpleGlycosylateMover]]

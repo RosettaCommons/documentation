@@ -43,6 +43,7 @@ Details
 
 - ### RosettaCarbohydrate Apps and Components
  - ### Movers
+ - [[GlycosyltransferaseMover]] - An alternative method for glycosylating a `Pose` that uses sequons and cosubstrates for specific biological enzymes.
  - [[GlycanTreeModeler]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
  - [[GlycanRelaxMover]] - Used in GlycanTreeRelax for sampling carbohydrate torsions and side-chains from structural data.
  - [[GlycanTreeMinMover]] - A version of the MinMover that randomly optimizes glycan foliage.
