@@ -210,15 +210,7 @@ Mover  | Description
 **[[RepeatProteinRelax]]** | Performs FastRelax all-atom refinement on repeat proteins
 
 
-### Insertion and Deletion; Grafting
-
-Mover  | Description
------------- | -------------
-**[[ReplaceRegionMover]]** | Replace a region of a pose with another of the same length.
-**[[InsertPoseIntoPoseMover]] ** | Insert one pose into another.  Does not do any optimization
-**[[CCDEndsGraftMover]] ** | Graft a region of one pose into another, using CCD at each end to optimize the graft.
-**[[AnchoredGraftMover]] ** | Graft a region of one pose into another, using the AchoredDesign graft algorithm
-**[[AntibodyCDRGrafter]] ** | Graft a CDR from one pose/file into another, using optimized graft algorithms. This is the grafting class used by both RosettaAntibody and RosettaAntibodyDesign
+### Insertion, Deletion , and Grafting
 
 #### Insertion
 
@@ -239,8 +231,18 @@ Mover  | Description
 ------------ | -------------
 **[[CutOutDomain|CutOutDomainMover]]** | Uses a template to remove specified residues
 **[[DeleteRegionMover]]** | Delete a region/chain of a pose.
+**[[DeleteChainsMover]]** | Delete specific chains of a pose.
 **[[KeepRegionMover]]** | Keep a region of the current pose, delete the rest.
 **[[SwitchChainOrder|SwitchChainOrderMover]]** | Reorders (or removes) the chains in a pose 
+
+#### Grafting
+Mover  | Description
+------------ | -------------
+**[[ReplaceRegionMover]]** | Replace a region of a pose with another of the same length.
+**[[InsertPoseIntoPoseMover]] ** | Insert one pose into another.  Does not do any optimization
+**[[CCDEndsGraftMover]] ** | Graft a region of one pose into another, using CCD at each end to optimize the graft.
+**[[AnchoredGraftMover]] ** | Graft a region of one pose into another, using the AchoredDesign graft algorithm
+**[[AntibodyCDRGrafter]] ** | Graft a CDR from one pose/file into another, using optimized graft algorithms. This is the grafting class used by both RosettaAntibody and RosettaAntibodyDesign
 
 
 ### Kinematic Closure Movers
