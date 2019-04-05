@@ -112,10 +112,11 @@ Mover  | Description
 
 Mover  | Description
 ------------ | -------------
+**[[PackRotamersMover]]** | Repacks sidechains, designing using a resfile or set [[TaskOperations-RosettaScripts]]
 **[[FixBB|FixBBMockMover]]** | Sequence design on a fixed backbone
 **[[FlexibleBBdesign|FlexibleBBdesignMockMover]]** | Sequence design with backbone minimization
 **[[FastDesign|FastDesignMover]]** | Performs FastRelax all-atom refinement, but adds design-related features
-**[[PackRotamersMover]]** | Repacks sidechains, designing using a resfile or set [[TaskOperations-RosettaScripts]]
+**[[SimpleThreadingMover]]** | Thread sequences onto structures. Nothing fancy here.
 
 ### Sequence Motifs
 
