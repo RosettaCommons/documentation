@@ -66,7 +66,7 @@ added to the Rosetta code base.
 For the most part, `EnzymaticMover`s work like any other `Mover`, and any of the
 three main Rosetta interfaces can be used. The major difference is that an
 `EnzymaticMover` relies on the presence of enzyme data in the database. **If you
-wish to use an `EnzymaticMover` for a particular enzyme ensure that the data for
+wish to use an `EnzymaticMover` for a particular enzyme, ensure that the data for
 that enzyme is presence in the database!** (See below for example enzyme data
 files.)
 
@@ -183,7 +183,7 @@ PROTONTORPEDO
 The first line is assumed to contain a whitespace-delimited list of the
 following, all of which are required:
 * Consensus sequence &mdash; This may be a 1-letter-code AA or NA sequence or an
-IUPAC carbohydrate sequence.
+IUPAC carbohydrate sequence. Use the format "(X/Y)" to specify alternatives.
 * Sequence type &mdash; This value must be `AA`, `NA`, or `SACCHARIDE`, for the 
 three types of sequences accepted.
 * Residue of CS to modify &mdash; An integer representing the sequence position
