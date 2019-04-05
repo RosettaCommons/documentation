@@ -210,7 +210,7 @@ Mover  | Description
 **[[RepeatProteinRelax]]** | Performs FastRelax all-atom refinement on repeat proteins
 
 
-### Insertion, Deletion , and Grafting
+### Insertion, Deletion, and Grafting
 
 #### Insertion
 
