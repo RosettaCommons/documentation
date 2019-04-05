@@ -7,7 +7,7 @@ MetaData
 Author: Sebastian Raemisch (raemisch@scripps.edu and Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 
-[[include:rs_ResiduePropertySelector_type]]
+[[include:rs_ResidueInSequenceMotifSelector_type]]
 
 
 
