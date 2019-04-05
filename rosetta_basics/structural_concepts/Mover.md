@@ -16,7 +16,7 @@ virtual void apply(core::pose::Pose & pose);
 ## Movers within Rosetta
 The Mover is the second most important class in Rosetta, next to the [[Pose]].
 The Pose contains a structure, and Movers are the best way to remodel that structure.
-Most Movers fit into one of five categories (these are descriptive but not reflected in the code):
+Most Movers fit into one of six  categories (these are descriptive but not reflected in the code):
 -	Whole protocols. Very complex, these Movers follow a sequence of heavily input dependent logic and do quite a lot of work.
 Frequently, an entire application consists of performing a protocol a specified number of times.
 An example would be DockingProtocol.
@@ -24,6 +24,7 @@ These being Movers is key to their use with the [[job distributor|JD2]]
 -	Whole Pose Movers. Generally apply one extensive operation to the whole Pose, but is nonetheless atomic with respect to the operation performed.
 A good example would be [[MinMover]] or [[PackRotamersMover]].
 -	Residue Movers. Manipulate single residues (for example, the backbone dihedrals in SmallMover) or a vector of residues or a subset of a Pose. 
+-	[[EnzymaticMover]]s. Replace, add, or remove residues to a Pose, simulating enzymatic reactions, such as post-translational modifications.
 -	Analysis Movers. Do not change the Pose; only report geometric and energetic properties about it. They are Movers nonetheless because it is useful to take advantage of the frameworks in which Movers play a natural part.
 -	Container Movers. These movers, like [[SequenceMover]], do nothing but arrange other Movers in a generic fashion.
 

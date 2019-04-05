@@ -106,16 +106,25 @@ Mover  | Description
 **[[ScoreMover]]** | Scores the pose
 **[[LoopAnalyzerMover]]** | Computes protein loop-specific metrics
 **[[InterfaceAnalyzerMover]]** | Computes protein-protein interface metrics
-
+**[[RunSimpleMetrics]]** | Mover to run a set of [[SimpleMetrics]], which enables robust analysis in Rosetta.
 
 ### Simple Sequence Design
 
 Mover  | Description
 ------------ | -------------
+**[[PackRotamersMover]]** | Repacks sidechains, designing using a resfile or set [[TaskOperations-RosettaScripts]]
 **[[FixBB|FixBBMockMover]]** | Sequence design on a fixed backbone
 **[[FlexibleBBdesign|FlexibleBBdesignMockMover]]** | Sequence design with backbone minimization
 **[[FastDesign|FastDesignMover]]** | Performs FastRelax all-atom refinement, but adds design-related features
+**[[SimpleThreadingMover]]** | Thread sequences onto structures. Nothing fancy here.
 
+### Sequence Motifs
+
+Mover  | Description
+------------ | -------------
+**[[CreateSequenceMotifMover]]** | Create a Sequence Motif using motif syntax and a residue selector.  For example, N[^P][S/T], which would design N, anything not proline, and then Serine or Threonine.
+**[[CreateGlycanSequonMover]]** | Create a glycan-specific sequence motif called a sequon, into a protein at specified residues.
+  
 ### Backbone Movement
 
 Mover  | Description
@@ -201,11 +210,7 @@ Mover  | Description
 **[[RepeatProteinRelax]]** | Performs FastRelax all-atom refinement on repeat proteins
 
 
-### Insertion and Deletion; Grafting
-
-Mover  | Description
------------- | -------------
-**[[ReplaceRegionMover]]** | Replace a region of a pose with another of the same length.
+### Insertion, Deletion, and Grafting
 
 #### Insertion
 
@@ -226,8 +231,18 @@ Mover  | Description
 ------------ | -------------
 **[[CutOutDomain|CutOutDomainMover]]** | Uses a template to remove specified residues
 **[[DeleteRegionMover]]** | Delete a region/chain of a pose.
+**[[DeleteChainsMover]]** | Delete specific chains of a pose.
 **[[KeepRegionMover]]** | Keep a region of the current pose, delete the rest.
 **[[SwitchChainOrder|SwitchChainOrderMover]]** | Reorders (or removes) the chains in a pose 
+
+#### Grafting
+Mover  | Description
+------------ | -------------
+**[[ReplaceRegionMover]]** | Replace a region of a pose with another of the same length.
+**[[InsertPoseIntoPoseMover]] ** | Insert one pose into another.  Does not do any optimization
+**[[CCDEndsGraftMover]] ** | Graft a region of one pose into another, using CCD at each end to optimize the graft.
+**[[AnchoredGraftMover]] ** | Graft a region of one pose into another, using the AchoredDesign graft algorithm
+**[[AntibodyCDRGrafter]] ** | Graft a CDR from one pose/file into another, using optimized graft algorithms. This is the grafting class used by both RosettaAntibody and RosettaAntibodyDesign
 
 
 ### Kinematic Closure Movers
@@ -243,7 +258,7 @@ Mover  | Description
 ------------ | -------------
 **[[ConsensusDesignMover]]** | Mutates residues to create a consensus of multiple sequences, while considering the scores of the residues
 **[[ExternalPackerResultLoader]]** | Given files defining a packing problem (as produced with the [[InteractionGraphSummaryMetric]] and a packing solution (as might be produced with an external optimizer or annealer), rebuilds the pose and threads the packing solution onto it.
-**[[ForceDisulfides|ForceDisulfidesMover]]** | Specify that certain cysteine pairs should be disulfide bonded. Can also remove existing disulfide bonds.
+**[[ForceDisulfides|ForceDisulfidesMover]]** | Ensures that unrecognized disulfides are formed and bond geometry is correct
 **[[MinMover]]** | Minimizes sidechains and/or backbone
 **[[MinPackMover]]** | Packs and minimizes a side chain, calls Monte Carlo
 **[[PackRotamersMover]]** | Repacks sidechains
@@ -281,7 +296,6 @@ Mover  | Description
 **[[SymDofMover]]** | Sets up symmetric systems of aligned structures.
 **[[SymmetricCycpepAlign|SymmetricCycpepAlignMover]]** | For the special case of cyclic peptides with internal quasi-symmetry, this aligns the peptide's symmetry axis to the Z-axis and prunes all but one symmetry repeat to create an input suitable for the [[SetupForSymmetry|SetupForSymmetryMover]] mover.
 **[[SymPackRotamersMover]]** and SymRotamerTrialsMover | Symmetric versions of PackRotamers and RotamerTrials
-**[[SymMinMover]]** | Symmetric version of MinMover
 **[[TaskAwareSymMinMover]]** | (developer release only) Similar to SymMinMover, but allows minimization of only certain residues
 **[[PeriodicBoxMover]]** | Mover that allows to run MC simulation in a periodic box, for instance liquid simulation.  
 
@@ -371,6 +385,7 @@ Mover  | Description
 **[[GlycanTreeModeler]]** | Model Glycans using a tree-based algorithm for denovo structure prediction or refinement.
 **[[GlycanSampler | GlycanRelaxMover]]** | Simple algorithm to sample glycan torsions using structural data and optimize structures via minimization and packing.
 **[[SimpleGlycosylateMover]]** | Glycosylate poses with glycan trees, such as man5 or man9 or other complex trees. 
+**[[GlycosyltransferaseMover]]** | Simulates the activity of specific biological glycosyltransferases and oligosaccharyltrasferases by glycosylating a Pose.
 
 
 ## Computational 'affinity maturation' movers
@@ -540,6 +555,14 @@ Mover  | Description
 **[[SymFoldandDockMoveRbJumpMover]]** | Reset the anchor residues for the subunit transforms
 **[[SymFoldandDockRbTrialMover]]** | Randomly perturb the subunit rigid body transform
 **[[SymFoldandDockSlideTrialMover]]** | Slide symmetric subunits together
+
+## EnzmaticMovers
+These Movers share a common interface and simulate the activity of enzymes on a `Pose`, such as virtual post-translational modifications.
+
+Mover  | Description
+------------ | -------------
+**[[GlycosyltransferaseMover]]** | Simulates the activity of specific biological glycosyltransferases and oligosaccharyltrasferases by glycosylating a `Pose`.
+**[[KinaseMover]]** | Simulates the activity of specific biological kinase by phosphorylating a `Pose`.
 
 ##See Also
 

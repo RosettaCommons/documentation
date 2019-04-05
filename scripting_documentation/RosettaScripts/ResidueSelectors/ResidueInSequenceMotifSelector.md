@@ -4,7 +4,7 @@ ResidueInSequenceMotifSelector
 MetaData
 ========
 
-Author: Sebastian Raemisch (raemisch@scripps.edu and Jared Adolf-Bryfogle (jadolfbr@gmail.com)
+Author: Sebastian Raemisch (raemisch@scripps.edu) and Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 
 [[include:rs_ResidueInSequenceMotifSelector_type]]
