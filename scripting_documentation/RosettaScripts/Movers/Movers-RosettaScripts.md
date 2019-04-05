@@ -371,6 +371,7 @@ Mover  | Description
 **[[GlycanTreeRelax]]** | Model Glycans using a tree-based algorithm for denovo structure prediction or refinement.
 **[[GlycanRelaxMover]]** | Simple algorithm to sample glycan torsions using structural data and optimize structures via minimization and packing.
 **[[SimpleGlycosylateMover]]** | Glycosylate poses with glycan trees, such as man5 or man9 or other complex trees. 
+**[[GlycosyltransferaseMover]] ** | Simulates the activity of specific biological glycosyltransferases and oligosaccharyltrasferases by glycosylating a Pose.
 
 
 ## Computational 'affinity maturation' movers
@@ -540,6 +541,14 @@ Mover  | Description
 **[[SymFoldandDockMoveRbJumpMover]]** | Reset the anchor residues for the subunit transforms
 **[[SymFoldandDockRbTrialMover]]** | Randomly perturb the subunit rigid body transform
 **[[SymFoldandDockSlideTrialMover]]** | Slide symmetric subunits together
+
+## EnzmaticMovers
+These Movers share a common interface and simulate the activity of enzymes on a Pose, such as virtual post-translational modifications.
+
+Mover  | Description
+------------ | -------------
+**[[GlycosyltransferaseMover]] ** | Simulates the activity of specific biological glycosyltransferases and oligosaccharyltrasferases by glycosylating a Pose.
+**[[KinaseMover]] ** | Simulates the activity of specific biological kinase by phosphorylating a Pose.
 
 ##See Also
 
