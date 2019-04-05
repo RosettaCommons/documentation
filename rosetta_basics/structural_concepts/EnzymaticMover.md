@@ -56,7 +56,8 @@ Currently, only two `EnzymaticMover`s are written, but many more can and will be
 added to the Rosetta code base.
 
 * [[GlycosyltransferaseMover]]<br />
-  Simulates the activity of specific biological glycosyltransferases and oligosaccharyltrasferases by glycosylating a Pose.
+  Simulates the activity of specific biological glycosyltransferases and
+  oligosaccharyltrasferases by glycosylating a Pose.
 * [[KinaseMover]]<br />
   Simulates the activity of specific biological kinase by phosphorylating a Pose.
 
@@ -227,6 +228,23 @@ KinaseMover::KinaseMover(): EnzymaticMover( "kinases" )
 	type( "KinaseMover" );
 }
 ```
+
+* ...use `EnzymaticMover`'s `xml_schema_complex_type_generator()` method to 
+  provide the XML schema for RosettaScripts.
+  For example:
+```c++
+void
+DNALigaseMover::provide_xml_schema( utility::tag::XMLSchemaDefinition & xsd )
+{
+	using namespace utility::tag;
+
+	EnzymaticMover::xml_schema_complex_type_generator()->element_name( mover_name() )
+		.complex_type_naming_func( & moves::complex_type_name_for_mover )
+		.description( "Enzymatic mover to connect two DNA Poses together." )
+		.write_complex_type_to_schema( xsd );
+}
+```
+
 * ...must implement the protected `perform_reaction()` method, which modifies, adds, or
   removes (a) Residue(s).<br />
   For example:
@@ -245,21 +263,9 @@ GlycosyltransferaseMover::perform_reaction(
 }
 ```
 
-* ...use `EnzymaticMover`'s `xml_schema_complex_type_generator()` method to 
-  provide the XML schema for RosettaScripts.
-  For example:
-```c++
-void
-DNALigaseMover::provide_xml_schema( utility::tag::XMLSchemaDefinition & xsd )
-{
-	using namespace utility::tag;
-
-	EnzymaticMover::xml_schema_complex_type_generator()->element_name( mover_name() )
-		.complex_type_naming_func( & moves::complex_type_name_for_mover )
-		.description( "Enzymatic mover to connect two DNA Poses together." )
-		.write_complex_type_to_schema( xsd );
-}
-```
+Two `EnzymaticMover` methods are very helpful for performing the actual
+reaction, as shown in the example above: `get_reactive_site_sequence_position`
+and `get_reactive_site_atom_name`.
 
 The rest of the code for any `EnzymaticMover` should be simple "boiler plate"
 code. The core machinery of the base class uses enzymatic data found in the 
