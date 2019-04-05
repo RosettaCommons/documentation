@@ -57,7 +57,7 @@ The main method used for interacting with `CustomBaseTypePackerPalette` is `add_
 
 Once the palette is established, it can either be given to a `TaskFactory` (preferred) or used directly in the construction of a `PackerTask` (not recommended).
 
-#### Pyrosetta Example
+#### PyRosetta Example
 
 ```python
 from pyrosetta.rosetta.core.pack.palette import CustomBaseTypePackerPalette

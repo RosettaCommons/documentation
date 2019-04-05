@@ -24,7 +24,7 @@ These being Movers is key to their use with the [[job distributor|JD2]]
 -	Whole Pose Movers. Generally apply one extensive operation to the whole Pose, but is nonetheless atomic with respect to the operation performed.
 A good example would be [[MinMover]] or [[PackRotamersMover]].
 -	Residue Movers. Manipulate single residues (for example, the backbone dihedrals in SmallMover) or a vector of residues or a subset of a Pose. 
-- Enzymatic Movers. Replace, add, or remove residues to a Pose, simulating enzymatic reactions, such as post-translational modifications.
+-	[[EnzymaticMover]]s. Replace, add, or remove residues to a Pose, simulating enzymatic reactions, such as post-translational modifications.
 -	Analysis Movers. Do not change the Pose; only report geometric and energetic properties about it. They are Movers nonetheless because it is useful to take advantage of the frameworks in which Movers play a natural part.
 -	Container Movers. These movers, like [[SequenceMover]], do nothing but arrange other Movers in a generic fashion.
 
