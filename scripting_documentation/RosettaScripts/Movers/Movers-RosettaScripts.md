@@ -106,7 +106,7 @@ Mover  | Description
 **[[ScoreMover]]** | Scores the pose
 **[[LoopAnalyzerMover]]** | Computes protein loop-specific metrics
 **[[InterfaceAnalyzerMover]]** | Computes protein-protein interface metrics
-
+**[[RunSimpleMetrics]]** | Mover to run a set of [[SimpleMetrics]], which enables robust analysis in Rosetta.
 
 ### Simple Sequence Design
 
@@ -115,7 +115,12 @@ Mover  | Description
 **[[FixBB|FixBBMockMover]]** | Sequence design on a fixed backbone
 **[[FlexibleBBdesign|FlexibleBBdesignMockMover]]** | Sequence design with backbone minimization
 **[[FastDesign|FastDesignMover]]** | Performs FastRelax all-atom refinement, but adds design-related features
+**[[PackRotamersMover]]** | Repacks sidechains, designing using a resfile or set [[TaskOperations]]
 
+### Sequence Motifs
+**[[CreateSequenceMotifMover]]** | Create a Sequence Motif using motif syntax and a residue selector.  For example, N[^P][S/T], which would design N, anything not proline, and then Serine or Threonine.
+**[[CreateGlycanSequonMover]]** | Create a glycan-specific sequence motif called a sequon, into a protein at specified residues.
+  
 ### Backbone Movement
 
 Mover  | Description
@@ -243,7 +248,7 @@ Mover  | Description
 ------------ | -------------
 **[[ConsensusDesignMover]]** | Mutates residues to create a consensus of multiple sequences, while considering the scores of the residues
 **[[ExternalPackerResultLoader]]** | Given files defining a packing problem (as produced with the [[InteractionGraphSummaryMetric]] and a packing solution (as might be produced with an external optimizer or annealer), rebuilds the pose and threads the packing solution onto it.
-**[[ForceDisulfides|ForceDisulfidesMover]]** | Specify that certain cysteine pairs should be disulfide bonded. Can also remove existing disulfide bonds.
+**[[ForceDisulfides|ForceDisulfidesMover]]** | Ensures that unrecognized disulfides are formed and bond geometry is correct
 **[[MinMover]]** | Minimizes sidechains and/or backbone
 **[[MinPackMover]]** | Packs and minimizes a side chain, calls Monte Carlo
 **[[PackRotamersMover]]** | Repacks sidechains
@@ -281,7 +286,6 @@ Mover  | Description
 **[[SymDofMover]]** | Sets up symmetric systems of aligned structures.
 **[[SymmetricCycpepAlign|SymmetricCycpepAlignMover]]** | For the special case of cyclic peptides with internal quasi-symmetry, this aligns the peptide's symmetry axis to the Z-axis and prunes all but one symmetry repeat to create an input suitable for the [[SetupForSymmetry|SetupForSymmetryMover]] mover.
 **[[SymPackRotamersMover]]** and SymRotamerTrialsMover | Symmetric versions of PackRotamers and RotamerTrials
-**[[SymMinMover]]** | Symmetric version of MinMover
 **[[TaskAwareSymMinMover]]** | (developer release only) Similar to SymMinMover, but allows minimization of only certain residues
 **[[PeriodicBoxMover]]** | Mover that allows to run MC simulation in a periodic box, for instance liquid simulation.  
 
