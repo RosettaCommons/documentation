@@ -180,6 +180,9 @@ This example will select all variants of ALA, C-terminal ASN residues, and disul
     <ResidueName name="change" residue_names="ASN:CtermProteinFull,CYD" residue_name3="ALA" />
 
 
+#### [[ResidueInSequenceMotifSelector]]
+
+Find sequence motifs in a protein
 
 #### Antibody Residue Selectors
 
@@ -234,13 +237,9 @@ These Residue selectors use the underlying RosettaCarbohydrate Framework.
 
 ##### [[GlycanResidueSelector]]
 
-##### [[GlycanTreeSelector]]
-
 ##### [[GlycanLayerSelector]]
 
-##### [[GlycanPositionSelector]]
-
-##### [[RandomGlycanFoliageSelector]]
+##### [[RandomGlycanFoliageSelector | rs_RandomGlycanFoliageSelector_type]]
 
 
 

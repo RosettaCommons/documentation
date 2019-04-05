@@ -106,16 +106,25 @@ Mover  | Description
 **[[ScoreMover]]** | Scores the pose
 **[[LoopAnalyzerMover]]** | Computes protein loop-specific metrics
 **[[InterfaceAnalyzerMover]]** | Computes protein-protein interface metrics
-
+**[[RunSimpleMetrics]]** | Mover to run a set of [[SimpleMetrics]], which enables robust analysis in Rosetta.
 
 ### Simple Sequence Design
 
 Mover  | Description
 ------------ | -------------
+**[[PackRotamersMover]]** | Repacks sidechains, designing using a resfile or set [[TaskOperations-RosettaScripts]]
 **[[FixBB|FixBBMockMover]]** | Sequence design on a fixed backbone
 **[[FlexibleBBdesign|FlexibleBBdesignMockMover]]** | Sequence design with backbone minimization
 **[[FastDesign|FastDesignMover]]** | Performs FastRelax all-atom refinement, but adds design-related features
+**[[SimpleThreadingMover]]** | Thread sequences onto structures. Nothing fancy here.
 
+### Sequence Motifs
+
+Mover  | Description
+------------ | -------------
+**[[CreateSequenceMotifMover]]** | Create a Sequence Motif using motif syntax and a residue selector.  For example, N[^P][S/T], which would design N, anything not proline, and then Serine or Threonine.
+**[[CreateGlycanSequonMover]]** | Create a glycan-specific sequence motif called a sequon, into a protein at specified residues.
+  
 ### Backbone Movement
 
 Mover  | Description
@@ -281,7 +290,6 @@ Mover  | Description
 **[[SymDofMover]]** | Sets up symmetric systems of aligned structures.
 **[[SymmetricCycpepAlign|SymmetricCycpepAlignMover]]** | For the special case of cyclic peptides with internal quasi-symmetry, this aligns the peptide's symmetry axis to the Z-axis and prunes all but one symmetry repeat to create an input suitable for the [[SetupForSymmetry|SetupForSymmetryMover]] mover.
 **[[SymPackRotamersMover]]** and SymRotamerTrialsMover | Symmetric versions of PackRotamers and RotamerTrials
-**[[SymMinMover]]** | Symmetric version of MinMover
 **[[TaskAwareSymMinMover]]** | (developer release only) Similar to SymMinMover, but allows minimization of only certain residues
 **[[PeriodicBoxMover]]** | Mover that allows to run MC simulation in a periodic box, for instance liquid simulation.  
 
@@ -365,11 +373,11 @@ Mover  | Description
 
 Mover  | Description
 ------------ | -------------
-**[[LinkageConformerMover]]** | Sample glycosidic bond torsions from statistically favorable conformations.
+**[[LinkageConformerMover | mover_LinkageConformerMover_type]]** | Sample glycosidic bond torsions from statistically favorable conformations.
 **[[RingPlaneFlipMover]]** | Flip pyranose rings with opposite and equatorial linkages.
 **[[TautomerizeAnomerMover]]** | Replace reducing-end sugar with its anomer.
-**[[GlycanTreeRelax]]** | Model Glycans using a tree-based algorithm for denovo structure prediction or refinement.
-**[[GlycanRelaxMover]]** | Simple algorithm to sample glycan torsions using structural data and optimize structures via minimization and packing.
+**[[GlycanTreeModeler]]** | Model Glycans using a tree-based algorithm for denovo structure prediction or refinement.
+**[[GlycanSampler | GlycanRelaxMover]]** | Simple algorithm to sample glycan torsions using structural data and optimize structures via minimization and packing.
 **[[SimpleGlycosylateMover]]** | Glycosylate poses with glycan trees, such as man5 or man9 or other complex trees. 
 **[[GlycosyltransferaseMover]] ** | Simulates the activity of specific biological glycosyltransferases and oligosaccharyltrasferases by glycosylating a Pose.
 

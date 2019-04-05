@@ -1,7 +1,7 @@
 # TCR modeling
 
 # Metadata
-This document was last updated Feb 04, 2018, by Ragul Gowthaman (ragul@umd.edu).
+This document was last updated April 2, 2019, by Ragul Gowthaman (ragul@umd.edu).
 The corresponding principal investigator is Brian Pierce (pierce@umd.edu).
 [[_TOC_]]
 
@@ -32,6 +32,23 @@ The database of template TCR structures is updated from the Protein Data Bank on
 
 TCR sequences for modeling can be submitted as amino acid sequences for alpha and beta chains, encompassing at minimum the TCR variable domains. The program will automatically identify germline genes in the input sequences, if there is an exact match in the database.
 
+**Template Database**
+
+The TCR template database, which is required for running the application, is not available by default for weekly Rosetta releases. The TCR template database directory is located at "Rosetta/database/additional_protocol_data/tcr" in the code base. Users can clone or download the template database as part of the "Rosetta/database/additional_protocol_data" directory. 
+
+For example:
+
+git clone git@github.com:RosettaCommons/additional_protocol_data.git
+
+or
+
+git clone https://github.com/RosettaCommons/additional_protocol_data.git
+
+The template database can also be dowloaded from TCRmodel web server from this page: https://tcrmodel.ibbr.umd.edu/links
+
+The default location for the database path is "Rosetta/database/additional_protocol_data/tcr". If placed in a different location, use the flag "-tcr_template_db_path" to provide the path to the template database.
+
+
 ### Output Files
 
 After submission of TCR sequences, the results will provide the parsed CDR loop sequences and identified templates to the user along with the modeled protein as PDB file.
@@ -41,8 +58,8 @@ After submission of TCR sequences, the results will provide the parsed CDR loop 
 
 |**Flag**|**Description**|**Type**|
 |:-------|:--------------|:-------|
-|-alpha|Amino acid squence of the Sequence of TCR alpha chain.|String|
-|-beta|Amino acid squence of the Sequence of TCR beta chain.|String|
+|-alpha|Amino acid sequence of TCR alpha chain.|String|
+|-beta|Amino acid sequence of TCR beta chain.|String|
 |-minimize_model|Minimize the output model.Default:True|Boolean|
 |-relax_model|Minimize the output model.Default:False|Boolean|
 |-refine_tcr_cdr3_loops|Refine the CDR3 loops of Alpha and Beta chain.Default:False|Boolean|
@@ -59,8 +76,8 @@ After submission of TCR sequences, the results will provide the parsed CDR loop 
 |:-------|:--------------|:-------|
 |-include_ab_templates|Include antibody templates for modelling.  Default false.|Boolean|
 |-ab_template_db_path|Antibody template database path.|String|
-|dump_templates|Dump all template pdb files, Default:False|Boolean|
-|tcr_template_db_path|tcr template database path, Default:Use the tcr template databasse located in '$Rosetta/database/additional_protocol_data/tcr'|String|
+|-dump_templates|Dump all template pdb files, Default:False|Boolean|
+|-tcr_template_db_path|tcr template database path, Default:Use the tcr template databasse located in '$Rosetta/database/additional_protocol_data/tcr'|String|
 |-template_similarity_cutoff|Similarity cutoff to ignore similar template sequences from template database. Default:100|Real|
 |-template_identity_cutoff|Identity cutoff to ignore similar template sequences from template database.Default:100|Real|
 |-blastp_identity_cutoff|Identity cutoff to ignore similar template sequences from template database.Default:100|Real|

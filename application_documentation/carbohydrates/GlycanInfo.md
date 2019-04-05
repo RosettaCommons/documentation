@@ -5,13 +5,10 @@ GlycanInfo
 MetaData
 ========
 App created by Dr. Jared-Adolf-Bryfogle (jadolfbr@gmail.com); Lab of Dr. William Schief (schief@scripps.edu), in collaboration with Dr. Sebastian Raemisch (raemisch@scripps.edu) and Dr. Jason W. Labonte (JWLabonte@JHU.edu); Lab of Dr. Jeff Gray (jgray@jhu.edu) 
-The app is currently in development and only accessible to developers.  July 2016
 
 Description
 ===========
 The app prints out information for each glycan tree, including rosetta numbering, pdb numbering, internal-glycan numbering, and the connections of every residue in the tree.  It is very useful when dealing with more than one glycan tree, or when one needs to work with particular components of the glycan.
-
-<!--- BEGIN_INTERNAL -->
 
 Use
 ===
@@ -41,27 +38,15 @@ Options
 
 
 
-
-
-
-
-<!--- END_INTERNAL -->
-
-
 ## See Also
 * [[WorkingWithGlycans]]
 
-- ### Apps
-* [[GlycanRelax]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
-* [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
-
-- ### RosettaScript Components
-* [[GlycanRelaxMover]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
+### RosettaScript Components
+* [[GlycanTreeModeler]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
 * [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
-* [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
 * [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
 
-- ### Other
+### Other
 * [[Application Documentation]]: List of Rosetta applications
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
 * [[Comparing structures]]: Essay on comparing structures
