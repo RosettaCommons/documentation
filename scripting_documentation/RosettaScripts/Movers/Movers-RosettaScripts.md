@@ -118,6 +118,9 @@ Mover  | Description
 **[[PackRotamersMover]]** | Repacks sidechains, designing using a resfile or set [[TaskOperations]]
 
 ### Sequence Motifs
+
+Mover  | Description
+------------ | -------------
 **[[CreateSequenceMotifMover]]** | Create a Sequence Motif using motif syntax and a residue selector.  For example, N[^P][S/T], which would design N, anything not proline, and then Serine or Threonine.
 **[[CreateGlycanSequonMover]]** | Create a glycan-specific sequence motif called a sequon, into a protein at specified residues.
   
