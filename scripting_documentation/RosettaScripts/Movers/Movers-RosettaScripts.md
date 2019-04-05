@@ -215,6 +215,10 @@ Mover  | Description
 Mover  | Description
 ------------ | -------------
 **[[ReplaceRegionMover]]** | Replace a region of a pose with another of the same length.
+**[[InsertPoseIntoPoseMover]] ** | Insert one pose into another.  Does not do any optimization
+**[[CCDEndsGraftMover]] ** | Graft a region of one pose into another, using CCD at each end to optimize the graft.
+**[[AnchoredGraftMover]] ** | Graft a region of one pose into another, using the AchoredDesign graft algorithm
+**[[AntibodyCDRGrafter]] ** | Graft a CDR from one pose/file into another, using optimized graft algorithms. This is the grafting class used by both RosettaAntibody and RosettaAntibodyDesign
 
 #### Insertion
 
