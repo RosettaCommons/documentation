@@ -243,7 +243,7 @@ Mover  | Description
 ------------ | -------------
 **[[ConsensusDesignMover]]** | Mutates residues to create a consensus of multiple sequences, while considering the scores of the residues
 **[[ExternalPackerResultLoader]]** | Given files defining a packing problem (as produced with the [[InteractionGraphSummaryMetric]] and a packing solution (as might be produced with an external optimizer or annealer), rebuilds the pose and threads the packing solution onto it.
-**[[ForceDisulfides|ForceDisulfidesMover]]** | Ensures that unrecognized disulfides are formed and bond geometry is correct
+**[[ForceDisulfides|ForceDisulfidesMover]]** | Specify that certain cysteine pairs should be disulfide bonded. Can also remove existing disulfide bonds.
 **[[MinMover]]** | Minimizes sidechains and/or backbone
 **[[MinPackMover]]** | Packs and minimizes a side chain, calls Monte Carlo
 **[[PackRotamersMover]]** | Repacks sidechains
