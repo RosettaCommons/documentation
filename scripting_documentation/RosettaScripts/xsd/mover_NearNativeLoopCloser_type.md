@@ -13,7 +13,7 @@ XSD_XRW: TO DO
         idealExtension="(true &bool;)" max_vdw_change="(8.0 &real;)"
         ideal="(false &bool;)" resBeforeLoop="(&non_negative_integer;)"
         resAfterLoop="(&non_negative_integer;)" output_all="(false &bool;)"
-        closure_type="(lookback &string;)" allowed_loop_abegos="(&string;)" />
+        closure_type="(lookback &string;)" />
 ```
 
 -   **loopLengthRange**: XSD_XRW: TO DO
@@ -30,6 +30,5 @@ XSD_XRW: TO DO
 -   **resAfterLoop**: XSD_XRW: TO DO
 -   **output_all**: XSD_XRW: TO DO
 -   **closure_type**: type of closure, either kic or lookback
--   **allowed_loop_abegos**: comma seperated string of allowed abegos, default=empty all abegos
 
 ---
