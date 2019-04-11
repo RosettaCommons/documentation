@@ -12,7 +12,7 @@ Purely local moves using rotations around axes defined by two backbone atoms
         max_angle_disp_4="(0.698132 &real;)"
         max_angle_disp_7="(0.349066 &real;)"
         max_angle_disp_slope="(-0.005818 &real;)"
-        perserve_detailed_balance="(false &bool;)"
+        preserve_detailed_balance="(false &bool;)"
         require_mm_bend="(true &bool;)" />
 ```
 
@@ -23,7 +23,7 @@ Purely local moves using rotations around axes defined by two backbone atoms
 -   **max_angle_disp_4**: maximum angular displacement for 4 atom segments (radians)
 -   **max_angle_disp_7**: maximum angular displacement for 7 atom segments (radians)
 -   **max_angle_disp_slope**: maximum angular displacement slope for other atom segments (radians)
--   **perserve_detailed_balance**: if set to true, does not change branching atom angles during apply and sets ideal branch angles during initialization if used with MetropolisHastings
+-   **preserve_detailed_balance**: if set to true, does not change branching atom angles during apply and sets ideal branch angles during initialization if used with MetropolisHastings
 -   **require_mm_bend**: if true and used with MetropolisHastings, will exit if mm_bend is not in the score function
 
 ---
