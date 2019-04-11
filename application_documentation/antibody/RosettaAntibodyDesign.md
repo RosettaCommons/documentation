@@ -75,7 +75,7 @@ The command-line can be as simple as:
 
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
--graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -nstruct 1
 ```
 
 This makes the H3 loop the primary CDR chosen in the outer cycle, running graft-based design on H3, while simultaneously sequence designing H1 and H2. 
@@ -88,7 +88,7 @@ Here, we want to do a denovo-run, starting with random CDRs grafted in instead o
 
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
--graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -random_start
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -random_start -nstruct 1
 ```
 
 ----------------
@@ -101,7 +101,7 @@ Here, we want to set the protocol to optimize the interface energy during Monte 
 
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
--graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -mc_optimize_dG
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -mc_optimize_dG -nstruct 1
 ```
 
 ----------------
@@ -114,7 +114,7 @@ Here, we want to set the protocol to optimize the interface energy during Monte 
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -mc_optimize_dG \
--mc_total_weight .001 -mc_interface_weight .999
+-mc_total_weight .001 -mc_interface_weight .999 -nstruct 1
 
 ```
 
@@ -129,7 +129,7 @@ In this example, we use integrated RosettaDock (with sequence design during the 
 
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
--graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -do_dock
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -do_dock -nstruct 1
 ```
 
 ------------------------
@@ -140,7 +140,7 @@ Allow Dock-Design, incorporating auto-generated SiteConstraints to keep the anti
 
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
--graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -do_dock -use_epitope_constraints
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -do_dock -use_epitope_constraints -nstruct 1
 ```
 
 ----------------
@@ -152,7 +152,7 @@ Allow Dock-Design, as above, but specify the Epitope Residues and Paratope CDRs 
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -do_dock -use_epitope_constraints \
--paratope_cdrs H3 -epitope 63A 63A:A 64
+-paratope_cdrs H3 -epitope 63A 63A:A 64 -nstruct 1
 ```
 
 -----------------------
@@ -173,7 +173,7 @@ More complicated design runs can be created by using the Antibody Design Instruc
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda \
--cdr_instructions my_instruction_file.txt
+-cdr_instructions my_instruction_file.txt -nstruct 1
 ```
 
 ## Advanced Settings
@@ -185,7 +185,7 @@ Here, we will disallow ANY sequence design into Proline residues and Cysteine re
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda \
--resfile my_resfile.resfile -dissallow_aa PRO CYS
+-resfile my_resfile.resfile -dissallow_aa PRO CYS -nstruct 1
 ```
 
 ------------------------
@@ -197,7 +197,7 @@ Here, we will change the mintype to relax.  This mintype enables Flexible-Backbo
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda \
--resfile my_resfile.resfile -dissallow_aa PRO CYS -mintype relax
+-resfile my_resfile.resfile -dissallow_aa PRO CYS -mintype relax -nstruct 1
 ```
 
 -------------------------
@@ -210,7 +210,7 @@ Finally, we want to allow the framework residues AROUND the CDRs we will be desi
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda \
 -resfile my_resfile.resfile -dissallow_aa PRO CYS -mintype relax \
--design_antigen -design_framework -conservative_framework_design false
+-design_antigen -design_framework -conservative_framework_design false -nstruct 1
 ```
 
 ## Expert Settings
@@ -223,7 +223,7 @@ We will enable H3 Stem design here, which can cause a flipping of the H3 stem ty
 
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
--graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -design_H3_stem
+-graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -design_H3_stem -nstruct 1
 ```
 
 Cool.  That should make some interesting antibodies for our experiment.  
@@ -236,7 +236,7 @@ Now, we will change around the KT to get more interesting samplings (from our 1.
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda \
--design_H3_stem -inner_KT 2.0 -outer_KT 2.0
+-design_H3_stem -inner_KT 2.0 -outer_KT 2.0 -nstruct 1
 ```
 
 ----------------
@@ -250,7 +250,7 @@ Description of the option (default 1): "If designing using profiles, this is the
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda \
--design_H3_stem -inner_KT 2.0 -outer_KT 2.0 -seq_design_profile_samples 5
+-design_H3_stem -inner_KT 2.0 -outer_KT 2.0 -seq_design_profile_samples 5 -nstruct 1
 ```
 
 # Antibody Design CDR Instruction File
