@@ -8,15 +8,16 @@ Gives a bonus to user-specified secondary structures
 ```xml
 <SetSecStructEnergies name="(&string;)" blueprint="(&string;)"
         ss_from_blueprint="(true &string;)" secstruct="(&dssp_string;)"
-        use_dssp="(&bool;)" hh_pair="(&string;)" ss_pair="(&string;)"
-        hss_triplets="(&string;)" scorefxn="(&string;)" add_symmetry="(&bool;)"
-        natbias_ss="(&real;)" natbias_hh="(&real;)" natbias_hs="(&real;)"
-        natbias_stwist="(&real;)" hs_pair="(&real;)" rsigma="(&real;)"
-        hh_dist_wts="(&real;)" hh_dist="(&real;)" hh_dist_s2="(&real;)"
-        hh_cross_angle_wts="(&real;)" hh_cross_angle="(&real;)"
-        hh_cross_angle_s2="(&real;)" hs_atr_dist_wts="(&real;)"
-        hs_atr_dist="(&real;)" hs_atr_dist_s2="(&real;)" hs_angle_wts="(&real;)"
-        hs_angle="(&real;)" hs_angle_s2="(&real;)" hsheet_repl_dist="(&real;)"
+        use_dssp="(&bool;)" hh_pair="(&string;)" hh_pair_weight="(&real;)"
+        ss_pair="(&string;)" ss_pair_weight="(&real;)" hss_triplets="(&string;)"
+        scorefxn="(&string;)" add_symmetry="(&bool;)" natbias_ss="(&real;)"
+        natbias_hh="(&real;)" natbias_hs="(&real;)" natbias_stwist="(&real;)"
+        hs_pair="(&real;)" rsigma="(&real;)" hh_dist_wts="(&real;)"
+        hh_dist="(&real;)" hh_dist_s2="(&real;)" hh_cross_angle_wts="(&real;)"
+        hh_cross_angle="(&real;)" hh_cross_angle_s2="(&real;)"
+        hs_atr_dist_wts="(&real;)" hs_atr_dist="(&real;)"
+        hs_atr_dist_s2="(&real;)" hs_angle_wts="(&real;)" hs_angle="(&real;)"
+        hs_angle_s2="(&real;)" hsheet_repl_dist="(&real;)"
         hh_align_angle_wts="(&real;)" hh_align_angle="(&real;)"
         hh_align_angle_s2="(&real;)" />
 ```
@@ -26,7 +27,9 @@ Gives a bonus to user-specified secondary structures
 -   **secstruct**: String specifying desired pose secondary structure
 -   **use_dssp**: Use DSSP to determine ideal secondary structure (if not provided )? If false, pose secondary structure will be used
 -   **hh_pair**: String specifying helix pairings
+-   **hh_pair_weight**: Weight for helix pairings
 -   **ss_pair**: String specifying strand pairings
+-   **ss_pair_weight**: Weight for strand pairings
 -   **hss_triplets**: String specifying helix-strand-strand triplets
 -   **scorefxn**: (REQUIRED) Score function to use when scoring pose
 -   **add_symmetry**: Add symmetry definition to pose
