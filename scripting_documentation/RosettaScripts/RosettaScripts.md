@@ -125,7 +125,7 @@ The metrics will all be output to the scorefile with the given prefix/suffix and
 
 Rosetta will carry out the order of operations specified in PROTOCOLS.  An important point is that SimpleMetrics and Filters never change the sequence or conformation of the structure.
 
-The movers do change the pose, and the output file will be the result of sequentially applying the movers in the protocols section. The standard scores of the output (either in the pdb, silent or score file) will be from the commandline-specified scorefunction, unless the OUTPUT tag is specified, in which case the corresponding score function from the SCOREFXNS block will be used.
+The movers do change the pose, and the output file will be the result of sequentially applying the movers in the protocols section. The standard scores of the output will be carried over from any protocol doing scoring, unless the OUTPUT tag is specified, in which case the corresponding score function from the SCOREFXNS block will be used.  You may use the name "commandline" as a score function in the OUPUT tag.  Note that this means if your pose is not scored during the protocol, your output will not have scoring information in it!
 
 Additional example xml scripts, including examples for docking, protein interface design, and prepacking a protein complex, amongst others, can be found in the Rosetta/demos/public/rosetta\_scripts/ directory. 
 
@@ -817,9 +817,9 @@ The OUTPUT tag must be the very last tag before the closing `</ROSETTASCRIPTS>` 
 ```xml
 <OUTPUT scorefxn="(name &string)"/>
 ```
-The scorefunction specified by the OUTPUT tag will be used to score the pose prior to output. It is the score function which will be represented in the scores reported in the scorefile and the output PDB of the run.
+The scorefunction specified by the OUTPUT tag will be used to score the pose prior to output. It is the score function which will be represented in the scores reported in the scorefile and the output PDB of the run.  You may use the name "commandline", which will instruct RosettaScripts to use whatever command line scoring function was set or the DEFAULT Rosetta scorefunction.
 
-If not specified, the "commandline" scorefunction (the scorefunction specified by commandline options) is used.
+Note that as of April, 2019, the `OUTPUT` tag is required for RosettaScripts to re-score your pose. If you are missing the OUTPUT tag, whatever scoring information is present from your protocol will be output.  This is because many movers do their own scoring and may add scoring terms that are useful to have in the output pose. This means that if you use MinMover, PackMinMover, or any other mover that uses a scorefunction, your scoring information will be left in-tact.  This brings RosettaScripts in-line with how the rest of Rosetta behaves.   
 
 
 APPLY\_TO\_POSE (Deprecated)
