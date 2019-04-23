@@ -1,128 +1,123 @@
 ## Metadata
 
-The AmbRose python module was developed by Kristin Blacklock (Khare Lab) and Hai Nguyen (Case Lab) at Rutgers University.
+The AMBRose python module was developed by mszegedy (Khare Lab), Kristin Blacklock (Khare Lab), and Hai Nguyen (Case Lab) at Rutgers University.
 
-Last updated Aug 18, 2016. 
+Last updated April 23, 2019. 
 
 For questions please contact: 
-- Kristin Blacklock ([kristin.blacklock@gmail.com](kristin.blacklock@gmail.com))
+- mszegedy ([mszegedy2@gmail.com](mszegedy2@gmail.com))
 - Corresponding PI: Sagar D. Khare ([khare@chem.rutgers.edu](khare@chem.rutgers.edu))
 
 ## Description
-This module enables the interconverstion of a Rosetta pose to an Amber trajectory, and can perform minimization of poses using the Amber FF or Amber minimization engine (sander).
+This module provides several functions for intercompatibility between AMBER and Rosetta, with major functions being:
+- The conversion of a pose to starting coordinates for sander/PMEMD
+- The dumping of LEaP-safe PDB files from poses
+- The minimization and simulation of poses in sander/PMEMD without having to explicitly work with AMBER constructs
+- The conversion of trajectories to series of poses
+For the full API, see the docstrings of AMBRose's modules and objects. These will be turned into readthedocs.io documentation eventually.
 
 ## System Requirements
 AmberTools (version >= 16) with pytraj (python module), sander (command-line executable), and tLeap (command-line executable)
 
-Python 2.7
+Python 3.5+
 
 [[PyRosetta|http://www.pyrosetta.org/]]
 
-The [[mmpi4py|https://mpi4py.readthedocs.io/en/stable/install.html]] Python module
+### For legacy only (but also planned for future versions):
 
+The [[mpi4py|https://mpi4py.readthedocs.io/en/stable/install.html]] Python module
 
-## How to Use AmbRose
+## The limitations of AMBRose
 
-Preliminary import statements:
+AMBRose can work with (i.e. convert from one medium to another) any of three things:
+- Canonical proteins
+- Canonical RNAs
+- Canonical DNAs
+Anything beyond this (ligands, noncanonical residues, most post-translational modifications) will almost certainly fail to be converted.
+
+AMBRose also currently only runs on one core, including any of its sander/PMEMD calls. This issue is currently priority number one in AMBRose development, because MD is very slow when it's only running on one core.
+
+## How to install AMBRose
+### Automatically
+Currently, you can install AMBRose with anything capable of handling a `setup.py` script, such as `pip`. If you are taking this route, you must be in the directory [`tools/AmbRose`](https://github.com/RosettaCommons/tools/tree/master/AmbRose). Here, run
+
 ```
->>> import AmbRose
->>> from glob import glob
->>> import os
+$ pip install . --user
+```
+
+which will copy the folder `ambrose` to the correct place in your `PYTHONPATH`.
+
+### Manually
+
+If you know where in your `PYTHONPATH` you want to keep AMBRose, you can copy the directory [`tools/AmbRose/ambrose`](https://github.com/RosettaCommons/tools/tree/master/AmbRose/ambrose) directly to wherever you need it to be. Just make sure it's somewhere in one of the folders in your `PYTHONPATH`.
+
+## How to use AMBRose
+
+First, import PyRosetta and AMBRose:
+
+```
+>>> import pyrosetta as pr; pr.init()
+>>> import ambrose
+```
+
+### Explore the AMBRose API
+
+AMBRose's API is currently best explored through its docstrings. These are accessible through the `help()` function:
+
+```
+>>> help(ambrose)
+```
+
+If you want to read the docstrings in a specific submodule or pertaining to a specific object, that can be `help()`ed too:
+
+```
+>>> help(ambrose.pose_selectors)
+>>> help(ambrose.AMBERSimulateMover)
+```
+
+### Turning poses into input files
+
+AMBRose can turn a pose into input files for sander/PMEMD. To do this, use the function `pose_to_amber_params`:
+
+```
+>>> pose = pr.pose_from_file('my-protein.pdb')
+>>> ambrose.pose_to_amber_params(pose,
+...                              crd_path='my-protein.rst7',
+...                              top_path='my-protein.parm7')
+```
+
+This will create the files `my-protein.rst7` and `my-protein.parm7`, which can be used as starting coordinates for sander/PMEMD. Additional arguments may be given to control the solvation of the pose; see the output of the command `help(ambrose.pose_to_amber_params)`.
+
+### Turning trajectories into poses
+
+AMBRose can read a trajectory and output the frames as poses. To do this, you must first import the AmberTools module pytraj, and read in your trajectory as a `Trajectory` object. Then, you can use AMBRose's `TrajToPoses` object to turn it into a sequence of poses:
+
+```
 >>> import pytraj as pt
+>>> traj = pt.iterload('my-protein.rst7', 'my-protein.parm7')
+>>> poses = ambrose.TrajToPoses(traj)
 ```
 
-### If starting from a pose object
+`TrajToPoses` objects can be indexed and sliced like any sequence. Their elements are poses corresponding to each successive frame of the trajectory that they were made from. For example, to get a pose corresponding to the last frame of a trajectory, you can run the previous code, and then:
 
-Use the following method to convert a Rosetta pose to an Amber trajectory for the first time:
 ```
->>> amber_trajectory, coordinate_map = AmbRose.initial_pose_to_traj(pose)
-```
-Under the hood, this command has generated an rst7 (coordinates) file and a parm7 (parameter/topology) file, which have been output as "pose.{date/time}.rst7" and "pose.{date/time}.parm7" files, respectively. The filename for the parm7 file has also been stored in the pose object's `pdb_info().modeltag()` property.
-
-To retrieve the parm7 file name for later, retrieve the pose's modeltag information:
-```
->>> pose_parm7file = pose.pdb_info().modeltag()
+>>> pose = poses[-1]
 ```
 
-To retrieve the initial total energy for this Amber trajectory before minimization, use the following method:
+### Simulating a pose without touching AMBER
+
+AMBRose's "movers" (which aren't real movers, but are built to function like them) are intended to abstract away the entire process of converting to AMBER, simulating a pose, converting the frames back, and selecting a frame. `AMBERSimulateMover` does exactly this. When its `apply()` is called on a pose, it creates and runs a simulation with the parameters you have specified, and replaces the pose with the last frame of the simulation's trajectory. Here is an example where we simulate a pose for 10 ps at 303 K (but starting from 273 K), with an explicit solvent, and replace it with the last frame of the simulation:
+
 ```
->>> total_energy = AmbRose.get_energy_term(amber_trajectory, 'TOTAL_ENERGY')
+>>> pose = pr.pose_from_file('my-protein.pdb')
+>>> mover = ambrose.AMBERSimulateMover()
+>>> mover.duration = 10.     # 10 picoseconds
+>>> mover.temperature = 303. # 303 kelvin
+>>> mover.starting_temperature = 273.
+>>> mover.solvent = ambrose.Solvents.SPCE_WATER
+>>> mover.working_dir = 'my-simulation-dir'
+>>> mover.prefix = 'my-simulation'
+>>> mover.apply(pose) # overwrites pose and creates many files in my-simulation-dir
 ```
 
-To see all of the Amber energies available, use the `get_energies` method, where the first argument is the Amber trajectory to analyze, and the second argument is a description of that state:
-```
->>> energy_data = AmbRose.get_energies(amber_trajectory, "Rosetta Pose -> Amber Traj, No Minimization")
->>> AmbRose.print_energies(energy_data)
-```
-
-It is also possible to write these energies to a file:
-```
->>> AmbRose.write_energies(energy_data, "name_of_ouputfile")
-```
-
-Next, perform minimization on the trajectory made from the initial Rosetta pose:
-```
->>> AmbRose.batch_minimization_with_sander(pose_parmfile, [pose_parmfile.replace('.parm7','.rst7')], 1, 0)
-```
-* The first argument is the parm7 filename.
-* The second argument is a list of the rst7files to be minimized.
-* The third argument is the number of cores to use for minimization.
-* The fourth argument is whether or not overwriting is allowed (if ==1, previously generated files with the same names will be overwritten).
-
-Once finished, make an Amber trajectory object from the minimized trajectory: 
-```
->>> minimized_amber_trajectory = pt.iterload("min_"+pose_parmfile.replace('.parm7','.rst7'), pose.parmfile)
-```
-
-And get the new energies:
-```
->>> minimized_energy_data = AmbRose.get_energies(minimized_amber_trajectory, "Amber-Minimized Trajectory")
->>> AmbRose.print_energies(minimized_energy_data)
-```
-
-To convert the minimized trajectory back to a Rosetta pose, use:
-```
->>> AmbRose.traj_to_pose_version1(pose, minimized_amber_trajectory, coordinate_map)
-```
-This command sets the coordinates of the original pose to the new coordinates of the minimized amber trajectory.
-
-### If starting from PDBs:
-
-Make a list of input PDB files:
-```
->>> pdbfiles = glob("*.pdb")
-```
-
-And create the rst7 and parm7 files using the following command:
-```
->>> rst7files, parmfiles = AmbRose.convert_pdbs_to_rst7_parm7_files( pdbfiles, 1 )
-```
-* The first argument is the list of pdbfile names. 
-* The second argument can be set to `0` (where a parm7 file will be made for each rst7 file) or `1` (where one parm7 file will be made/used for all rst7 files). In this example, let's assume both input PDBs have the same amino acid sequence so the same parm7 file can be used for both rst7s.
-
-
-Next, use AmbRose to minimize the rst7/parm7 files with sander:
-```
->>> AmbRose.batch_minimize_with_sander(parmfiles[0], rst7files, 1, 0)
-```
-* The first argument is the parmfile to use for this minimization. Currently, only one parmfile can be specified. 
-* The second argument is a list of rst7files. 
-* The third argument is the number of cores to use for the batch minimization. 
-* The fourth argument is the overwrite option. If set to `1`, previously generated data with the same output names will be overwritten.
-
-Once this command has run, you can gather your minimized Amber rst7 files and create the new minimized Amber trajectories:
-```
->>> minimized_rst7s = glob("min*.rst7")
->>> minimized_traj = pt.iterload(minimized_rst7s, parmfiles[0])
-```
-
-And perform energy analysis on the minimized structures:
-```
->>> energy_data = AmbRose.get_energies(minimized_traj, minimized_rst7s)
->>> AmbRose.print_energies(energy_data)
->>> AmbRose.write(energies(energy_data, "amber_energies.sc")
-```
-
-## Example
-
-An example of how to use the AmbRose Python module with input files and expected outputs can be found in the Rosetta/tools/AmbRose/ directory.
+You can change which pose is selected by overwriting the mover's `pose_selector`. See the submodule `ambrose.pose_selectors` for what pose selector functions should look like.
