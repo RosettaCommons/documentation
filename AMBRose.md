@@ -17,8 +17,9 @@ This module provides several functions for intercompatibility between AMBER and 
 For the full API, see the docstrings of AMBRose's modules and objects. These will be turned into readthedocs.io documentation eventually.
 
 ## System Requirements
-AmberTools (version >= 16) with pytraj (python module), sander (command-line executable), and tLeap (command-line executable)
+AMBER16+
 
+AmberTools (version >= 16) with pytraj (python module)
 Python 3.5+
 
 [[PyRosetta|http://www.pyrosetta.org/]]
