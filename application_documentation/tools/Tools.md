@@ -1501,6 +1501,10 @@ We have provided tools to predict epitopes using Propred matrices or NetMHCII, a
 `tools/mhc_energy_tools/mhc_score.py` to perform epitope scoring on FASTA, PDB, or raw peptides, with basic reporting and plotting capabilities.
 `tools/mhc_energy_tools/mhc_gen_db.py` to generate SQL databases from FASTA or PDB files, with design space being specified from a CSV file or a PSSM.
 
+### AMBRose (AMBER molecular dynamics intercompatibility)
+
+AMBRose is a PyRosetta package for easily working with AMBER. Its documentation can be found [here,](https://www.rosettacommons.org/docs/wiki/AMBRose) and the package itself is found at `tools/AmbRose/ambrose`.
+
 ### Unclassified
 
 main/source/external/R/BranchAngleOptimizer.R    
