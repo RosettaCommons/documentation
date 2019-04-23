@@ -60,7 +60,7 @@ First, import PyRosetta and AMBRose:
 >>> import ambrose
 ```
 
-### Explore the AMBRose API
+### Exploring the AMBRose API
 
 AMBRose's API is currently best explored through its docstrings. These are accessible through the `help()` function:
 
