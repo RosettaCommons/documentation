@@ -5,7 +5,7 @@ The AMBRose python module was developed by mszegedy (Khare Lab), Kristin Blacklo
 Last updated April 23, 2019. 
 
 For questions please contact: 
-- mszegedy ([mszegedy2@gmail.com](mszegedy2@gmail.com))
+- [mszegedy](https://github.com/mszegedy) ([mszegedy2@gmail.com](mszegedy2@gmail.com))
 - Corresponding PI: Sagar D. Khare ([khare@chem.rutgers.edu](khare@chem.rutgers.edu))
 
 ## Description
