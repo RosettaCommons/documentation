@@ -24,7 +24,7 @@ Computes the difference in a filter's value compared to the input structure
 -   **changing_baseline**: reset baseline value to current value after every accept
 -   **scorefxn**: Name of score function to use
 -   **jump**: if unbound is set, this can be used to set the jump along which to translate.
--   **reference_name**: Name of reference pose to use
+-   **reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
 -   **reference_pdb**: use reference pose from disk
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 

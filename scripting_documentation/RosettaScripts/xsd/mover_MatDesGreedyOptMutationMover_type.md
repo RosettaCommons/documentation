@@ -56,7 +56,7 @@ This mover will first attempt isolated/independent mutations defined in the inpu
 -   **use_native**: Use input native protein as reference pose.
 -   **reference_pdb**: Input alternative reference pdb.
 -   **filter_thresholds**: This is a string describing a pattern of comma-separated descriptors. Each filter is related to a pair of either 'upper' or 'lower', then a comma, then a decimal describing the filter threshold the greedyopt can tolerate. An example for one filter that has an upper limit of a change of 0.3 is 'upper,0.3'. I could combined then with a second filter that can tolerate up to 0.05 lower than the original value: 'upper,0.3,lower,0.05'.
--   **reference_name**: Name of reference pose to use
+-   **reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
 
 
 Subtag **Filters**:   These are the names of the filters being input into GreedyOptMutationMover.

@@ -11,7 +11,7 @@ Filter on the proportion of residues with a secondary structure assignment (i.e.
         discard_lonely_SS="(&non_negative_integer;)" confidence="(1.0 &real;)" />
 ```
 
--   **reference_name**: Name of reference pose to use
+-   **reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
 -   **chain**: Chain over which to calculate the filter
 -   **upper_threshold**: Upper threshold above which the filter would return false
 -   **lower_threshold**: Lower threshold above which the filter would return false

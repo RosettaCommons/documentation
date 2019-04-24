@@ -34,7 +34,7 @@ For PSSM metrics, it's assumed that the Pose numbering of both the main and refe
 -   **use_native**: Use the native if present on the cmd-line.
 -   **pssm**: a filename of a blast formatted pssm file containing the sequence profile to use
 -   **use_ave_pssm**: Use an average value metric for PSSM, rather than a pass/fail
--   **reference_name**: Name of reference pose to use
+-   **reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
 -   **residue_selector**: Calculate the sequence recovery for these residues
 -   **residue_selector_ref**: Selector for the reference pose. If not specified, assume there's a 1-to-1 correspondence between the active pose and the reference pose.
 -   **task_operations**: As a convenience, instead of a residue_selector for selecting which residues to count, you can pass task operations and the design residues will be used. The use of the residue_selector attribute is prefered.

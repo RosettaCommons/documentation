@@ -25,7 +25,7 @@ Filter based on the C-alpha RMSD to a reference structure.
 </Rmsd>
 ```
 
--   **reference_name**: Name of reference pose to use
+-   **reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
 -   **symmetry**: Should we be symmetry-aware?
 -   **chains**: Chain characters without separation
 -   **superimpose_on_all**: Do we want to superimpose on all residues?

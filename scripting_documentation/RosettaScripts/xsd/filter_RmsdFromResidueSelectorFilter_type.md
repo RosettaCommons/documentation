@@ -18,7 +18,7 @@ Filter based on the C-alpha RMSD to a reference structure. ResiduesSelectors can
 -   **superimpose**: Superimpose before evaluation
 -   **count_residues**: When true (default; recomended) enforce the same number of residues for both query and reference.
 -   **threshold**: Threshold in RMSD above which the filter fails
--   **reference_name**: Name of reference pose to use
+-   **reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
 -   **reference_selector**: (REQUIRED) Selector specifying residues to take into account in the reference pose
 -   **query_selector**: (REQUIRED) Selector specifying residues to take into account in the query pose
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter

@@ -10,6 +10,6 @@ Record RMSD, the reference ID to which RMSD was computed as well as dummy variab
         reference_name="(&string;)" />
 ```
 
--   **reference_name**: Name of reference pose to use
+-   **reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
 
 ---

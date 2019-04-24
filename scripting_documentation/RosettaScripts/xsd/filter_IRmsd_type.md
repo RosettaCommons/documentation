@@ -11,7 +11,7 @@ Calculates an interface rmsd. Rmsd is calculated over all backbone atoms for tho
         confidence="(1.0 &real;)" />
 ```
 
--   **reference_name**: Name of reference pose to use
+-   **reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
 -   **threshold**: RMSD threshold above which we would fail the filter
 -   **jump**: Jump for calculating docking RMSD, numbered sequentially from 1
 -   **scorefxn**: Name of score function to use

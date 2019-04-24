@@ -12,6 +12,6 @@ XRW TO DO
 
 -   **pdb_file**: PDB file to be read in as a reference pose.
 -   **restore_pose**: Restore the specified reference pose INTO the current pose rather than saving the current pose INTO the reference pose.
--   **reference_name**: Name of reference pose to use
+-   **reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
 
 ---

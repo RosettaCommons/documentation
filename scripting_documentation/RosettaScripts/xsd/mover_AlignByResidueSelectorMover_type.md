@@ -10,7 +10,7 @@ Aligns two poses through the selected residues
         reference_selector="(&string;)" query_selector="(&string;)" />
 ```
 
--   **reference_name**: Name of reference pose to use
+-   **reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
 -   **reference_selector**: (REQUIRED) Selector specifying residues to take into account in the reference pose
 -   **query_selector**: (REQUIRED) Selector specifying residues to take into account in the query pose
 

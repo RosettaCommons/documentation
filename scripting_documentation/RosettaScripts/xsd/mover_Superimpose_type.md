@@ -19,6 +19,6 @@ XRW TO DO
 -   **target_end**: Ending residue for superposition
 -   **CA_only**: Superimpose by CA coordinates only
 -   **ref_pose**: Reference pose file name
--   **spm_reference_name**: Name of reference pose to use
+-   **spm_reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
 
 ---

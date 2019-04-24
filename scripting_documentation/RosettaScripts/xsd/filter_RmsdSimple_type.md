@@ -10,7 +10,7 @@ Simple RMSD filter for the whole pose, or at least a single chain
         threshold="(&real;)" align="(&bool;)" confidence="(1.0 &real;)" />
 ```
 
--   **reference_name**: Name of reference pose to use
+-   **reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
 -   **chain**: Chain for RMSD calculation
 -   **threshold**: Threshold of RMSD above which the filter fails
 -   **align**: If align is true, we do RMSD; if it is false, we don't actually do any alignment, just calculating the distance between pose and reference.

@@ -11,7 +11,7 @@ Filter for poor values of Fnat, a docking metric
         confidence="(1.0 &real;)" />
 ```
 
--   **reference_name**: Name of reference pose to use
+-   **reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
 -   **threshold**: Threshold for Fnat, a docking metric above which the filter fails
 -   **jump**: Jump across which the computation is carried out, numbered sequentially from 1
 -   **scorefxn**: Name of score function to use

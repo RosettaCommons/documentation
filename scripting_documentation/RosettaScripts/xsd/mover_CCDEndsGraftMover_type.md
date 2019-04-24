@@ -45,7 +45,7 @@ AnchoredGraftMover that uses CCD to close loops
 -   **end**: (REQUIRED) Graft ends before this residue in the scaffold.  Will delete residues between start and end in the scaffold.
 -   **cen_scorefxn**: Centroid score function to use
 -   **fa_scorefxn**: Full atom score function to use
--   **spm_reference_name**: Name of reference pose to use
+-   **spm_reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
 
 
 Subtag **MoveMap**:   MoveMap specification
