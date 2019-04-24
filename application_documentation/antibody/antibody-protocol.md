@@ -1,7 +1,8 @@
-#RosettaAntibody3: Protocol Workflow
+RosettaAntibody3: Protocol Workflow
+====================================
 
 Metadata
-========
+--------
 
 Author: Jianqing Xu (xubest@gmail.com), Daisuke Kuroda (dkuroda1981@gmail.com), Oana Lungu (olungu@utexas.edu), Jeffrey Gray (jgray@jhu.edu)
 
@@ -11,7 +12,7 @@ Last edited 5/23/2017 by Jeliazko Jeliazkov (jeliazkov@jhu.edu).
 
 
 References
-==========
+----------
 
 We recommend the following articles for further studies of RosettaAntibody methodology and applications:
 
@@ -23,7 +24,7 @@ We recommend the following articles for further studies of RosettaAntibody metho
 -   A. Sivasubramanian,\* A. Sircar,\* S. Chaudhury & J. J. Gray, "Toward high-resolution homology modeling of antibody Fv regions and application to antibody-antigen docking," Proteins 74(2), 497&ndash;514 (2009)
 
 Overview
-========
+--------
 
 **Please realize this the overview is to speed you up to run the protocol asap with minimum knowledge. For details of each steps, please check:**
 
@@ -33,7 +34,7 @@ Overview
 Rosetta Antibody can model both antibodies (consisting of the heavy and light chain variable region) and nanobodies (consisting of only the heavy chain variable region). To run the protocol, one needs:
 
 1. The sequence of interest in FASTA format, with a description lines preceding the sequence and indicating either ">heavy" or ">light".
-2. BLAST+ (version 2.2.28 or later).
+2. NCBI BLAST+ (version 2.2.28 or later).
 3. Rosetta (the latest if possible, officially supported in 3.7).
 4. The antibody database contained in the Rosetta/tools repository (as up-to-date as possible).
 
@@ -123,8 +124,9 @@ The typical runtime varies, based on CDR H3 length (due to KIC). In our benchmar
 Additionally, models should be validated for a reasonable VH&ndash;VL orientation. This can be done with following command: `python $ROSETTA/main/source/scripts/python/public/plot_VL_VH_orientational_coordinates/plot_LHOC.py`.
 
 Deprecated Python-Based Grafting Approach
-=========================================
+-----------------------------------------
 
+This section describes how antibody strutures were determined from sequence prior to the re-implementation of this code in C++ that produced the binaries described in the section above. Please skip this section and continue with 'post-processing'. 
 
 * [[RosettaAntibody3 application: the Python Pre-Processing Script|antibody-python-script]]
 * [[RosettaAntibody3 application: Antibody CDR Grafting Protocol|antibody-assemble-CDRs]]
@@ -218,7 +220,7 @@ Outputs:
 1.  Set of modeled and refined Fv pdbs with loop modeled CDH3 loops: \<grafted.relaxed\_000X.pdb\> We recommend generating at least 2000 decoys during this step
 
 Post Processing
-===============
+---------------
 
 You can use a set of decoys simultaneously for antibody-antigen docking simulations, such as SnugDock and EnsembleDock.
 
