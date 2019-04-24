@@ -9,7 +9,7 @@ To begin any current Rosetta Antibody protocol, one must first renumber their in
 - Chothia + Kabat: [AbNum](http://www.bioinf.org.uk/abs/abnum/)
 - AHo (Required for Antibody Design protocols): [PyIgClassify](http://dunbrack2.fccc.edu/PyIgClassify/)
 
-##Relavent Options
+##Relevant Options
 
 ```
 (antibody group - can be used like: antibody:numbering_scheme)
