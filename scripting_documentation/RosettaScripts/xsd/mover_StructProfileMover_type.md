@@ -13,7 +13,8 @@ Quickly generates a structure profile
         allowed_deviation_loops="(0.10 &real;)"
         eliminate_background="(true &bool;)"
         cenType="(6 &non_negative_integer;)" outputProfile="(false &bool;)"
-        add_csts_to_pose="(true &bool;)" ignore_terminal_residue="(true &bool;)" />
+        add_csts_to_pose="(true &bool;)" ignore_terminal_residue="(true &bool;)"
+        residue_selector="(&string;)" />
 ```
 
 -   **RMSthreshold**: XRW TO DO
@@ -27,5 +28,6 @@ Quickly generates a structure profile
 -   **outputProfile**: XRW TO DO
 -   **add_csts_to_pose**: XRW TO DO
 -   **ignore_terminal_residue**: XRW TO DO
+-   **residue_selector**: Only compute structure profile for residues within residue selector
 
 ---

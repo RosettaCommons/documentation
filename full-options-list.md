@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-03-31
+Generated: 2019-04-24
 
 _Note that some application specific options may not be present in this list._
 
@@ -2051,6 +2051,15 @@ _Note that some application specific options may not be present in this list._
 <dd>Stepsize (in degrees) of rotatable waters when wat_axis_sampling is used<br/>Default: 15.0<br/></dd>
 <dt><b>-include_vrt</b> \<Boolean\></dt>
 <dd>allow for water virtualization<br/>Default: true<br/></dd>
+</dl>
++ <h2>-enzymes</h2>
+<dl>
+<dt><b>-enzymes</b> \<Boolean\></dt>
+<dd>enzymes option group<br/></dd>
+<dt><b>-species</b> \<String\></dt>
+<dd>Setting the species name limits the behavior of the simulated enzyme(s) used in this protocol to reactions known to occur in the given species.  A species name must be in the format \"e_coli\" or \"h_sapiens\", (note the underscores,) which must also correspond to a directory in the Rosetta database, e.g., \"database/virtual_enzymes/<enzyme_family>/h_sapiens/\".<br/>Default: "h_sapiens"<br/></dd>
+<dt><b>-enzyme</b> \<String\></dt>
+<dd>If set, the simulated enzyme used in this protocol will use specific enzymatic details for this reaction from the database.  If the species name has not been set, a \"generic\" enzyme from general family used in this protocol is assumed.  An enzyme name must be as listed in an appropriate enzyme file in \"database/virtual_enzymes/<enzyme_family>/<species_name_>/\".<br/>Default: "generic"<br/></dd>
 </dl>
 + <h2>-evaluation</h2>
 <dl>
