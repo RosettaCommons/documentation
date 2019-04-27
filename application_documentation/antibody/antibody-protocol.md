@@ -55,6 +55,8 @@ DVVMTQTPLSLPVSLGNQASISCRSSQSLVHSNGNTYLHWYLQKPGQSPKLLIYKVSNRFSGVPDRFSGSGSGTDFTLKI
 
 The typical runtime, with FastRelax, is ~20 mins per model or ~3 hours for 10 models.
 
+As of April 27th, 2019, there is a **new database** in `additional_protocol_data`, which has some slight formatting changes from the old one. Switching over to the new database is easy and can be done by running `git submodule update --init --recursive` for the git-tracked version of Rosetta. Presumably, the additional data repository should be downloadable for general users as well.
+
 **Executable: antibody_h3**
 
 Next, for each grafted model, the CDR H3 is de novo modeled and the relative VH&ndash;VL orientation is refined via local docking. Flags are split into a simulation set and a loop-modeling set. Both sets of flags are shown below (the loop modeling flags can also be found in tools/antibody/abH3.flags). If loop modeling is slow, it can be expedited by decreasing KIC sampling via the flags `-loops:refine_outer_cycles 2` and `-loops:max_inner_cycles 20`, however these flags have not been benchmarked. If using multiple VH&ndash;VL orientations, we recommend 1000 structures be generated for the top grafted model (typically, model-0.relaxed.pdb) and 200 structures be generated for the other orientations.
