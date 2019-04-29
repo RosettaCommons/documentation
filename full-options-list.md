@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-04-24
+Generated: 2019-04-28
 
 _Note that some application specific options may not be present in this list._
 
@@ -3319,6 +3319,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Sequence identity cutoff for framework regions (80 percent is default).<br/>Default: 80.0<br/></dd>
 <dt><b>-ocd_cutoff</b> \<Real\></dt>
 <dd>Orientational coordinate distance cutoff for templates. Introduces diversity when using multi-template grafting (0.5 is default).<br/>Default: 0.5<br/></dd>
+<dt><b>-bfactor_cutoff</b> \<Real\></dt>
+<dd>Exclude templates regions with an average bfactor above the cutoff (80 is default).<br/>Default: 80.0<br/></dd>
 <dt><b>-n_multi_templates</b> \<Integer\></dt>
 <dd>Number of multiple templates to use during grafting. Default is 10.<br/>Default: 10<br/></dd>
 <dt><b>-json_cdr</b> \<String\></dt>
