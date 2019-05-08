@@ -1,7 +1,7 @@
 ## MHC Epitope energy (mhc_epitope)
 
 Documentation created by Brahm Yachnin (brahm.yachnin@rutgers.edu), Khare laboratory, and Chris Bailey-Kellogg (cbk@cs.dartmouth.edu).  Parts of this documentation are copied/adapted from Vikram K. Mulligan's (vmullig@uw.edu) design-centric guidance documentation.
-Last edited March 22, 2019.
+Last edited May 8, 2019.
 
 [[_TOC_]]
 
@@ -16,6 +16,45 @@ Rosetta readily supports epitope deletion by incorporating into its scoring an e
 An epitope predictor takes as input a peptide and returns an evaluation of its relative risk to bind MHC, typically as some form of predicted binding affinity or as a relative rank with respect to a distribution (see e.g., [Wang+2008](https://www.ncbi.nlm.nih.gov/pubmed/18389056)). The predictions are specific to the MHC allele, and while there are thousands of different alleles, due to their degeneracy in peptide binding, a relatively small representative set can be used to capture population diversity (e.g., [Southwood+1998](http://www.ncbi.nlm.nih.gov/pubmed/9531296), [Greenbaum+2011](https://www.ncbi.nlm.nih.gov/pubmed/21305276), [Paul+2015](https://www.ncbi.nlm.nih.gov/pubmed/25862607)). The core unit of MHC-II binding is 9 amino acids, defined by the MHC-II groove and the pockets in which is accommodates peptide side chains. The overhanging amino acids can also contribute. Some epitope predictors focus on just the core 9mer, while others use longer peptides (15mers) in order to capture overhangs as well as capture the combined effect of multiple binding frames/registers as the core 9mer slides up and down the groove.
 
 Since epitope content is repeatedly evaluated during the course of design (for multiple peptides for each proposed mutation), mhc_epitope must be efficient in its use of epitope prediction. One way to do this is with a position-specific scoring matrix, e.g., the pocket profile method Propred ([Singh+2001](http://www.ncbi.nlm.nih.gov/pubmed/11751237)) which was based on TEPITOPE ([Sturniolo+1999](https://www.ncbi.nlm.nih.gov/pubmed/10385319)). The current implementation includes the [Southwood+1998](http://www.ncbi.nlm.nih.gov/pubmed/9531296) representative set of Propred matrices, downloaded from the [Propred site](http://crdd.osdd.net/raghava/propred/) courtesy of Dr. Raghava. Another way to enable efficient epitope prediction within the design loop, even when an external stand-alone program must be invoked, is to precompute and cache predictions. The current implementation supports this by using a sqlite database of predicted epitopes, which can be precomputed (e.g., using NetMHCII ([Jensen+2018](https://www.ncbi.nlm.nih.gov/pubmed/29315598))) using python scripts described below. There are also plans to incorporate the SVM method previously developed by ([King+2014](https://www.ncbi.nlm.nih.gov/pubmed/24843166)) for Rosetta-based deimmunization.
+
+## Citation information
+
+The mhc_epitope scoreterm itself is unpublished for the time being.  If you make use of it, please check back here to see if the paper has been published.
+
+In addition to the Rosetta functionality, mhc_epitope makes use of several de-immunization resources developed outside of the Rosetta community.  As a condition for using this code, it is imperative that the resources that you use are appropriately cited in any resulting publication.
+
+### ProPred
+
+The ProPred matrices are provided in the Rosetta database (`/main/database/scoring/score_functions/mhc_epitope/propred8.txt`) and are used by the "default" configuration file, `propred8_5.mhc`.
+
+The matrices are obtained from http://crdd.osdd.net/raghava/propred/  If you use results based on these predictions, please cite Singh, H. and Raghava, G.P.S. (2001) ProPred: Prediction of DR binding sites. Bioinformatics, 17(12):1236-37.  http://www.ncbi.nlm.nih.gov/pubmed/11751237
+
+### NetMHCII
+
+NetMHCII can be incorporated into external databases using the [[mhc-energy-tools]].  If you use NetMHCII, please cite Improved methods for predicting peptide binding affinity to MHC class II molecules.  Jensen KK, Andreatta M, Marcatili P, Buus S, Greenbaum JA, Yan Z, Sette A, Peters B, Nielsen M. Immunology. 2018 Jan 6. doi: 10.1111/imm.12889
+
+### NMer
+<!--- BEGIN_INTERNAL -->
+nmer is an existing epitope predictor that runs within Rosetta.  Unlike mhc_epitope, it is not packer-compatible in its original form.  mhc_epitope can now use nmer as a predictor.
+
+If you use nmer within mhc_epitope, please cite the original paper:
+King C, Garza EN, Mazor R, Linehan JL, Pastan I, Pepper M, Baker D. Removing T-cell epitopes with computational protein design. Proc Natl Acad Sci U S A 2014;111:8577–82. https://doi.org/10.1073/pnas.1321126111
+
+NOTE: This feature is still in development, and requires checking out the relevant GitHub branches.
+<!--- END_INTERNAL -->
+
+### IEDB
+<!--- BEGIN_INTERNAL -->
+IEDB is a public database of experimentally-validated immune epitopes.  The `iedb_data.mhc` file references the database file `iedb_data.db` that contains data derived from the IEDB.  If you use either of these files, you must cite the IEDB.  In addition, the [[mhc-energy-tools]] provides resources to update and build custom database files based on IEDB data.
+
+Please see the following instructions from the IEDB related to using any of these resources:
+
+Users are requested to cite the IEDB when they present information obtained from the IEDB: http://www.iedb.org. The journal reference for the IEDB was updated in 2018 and should be cited as: Vita R, Mahajan S, Overton JA, Dhanda SK, Martini S, Cantrell JR, Wheeler DK, Sette A, Peters B. The Immune Epitope Database (IEDB): 2018 update. Nucleic Acids Res. 2019 Jan 8;47(D1):D339-D343. doi: 10.1093/nar/gky1006. PMID: 30357391
+
+All publications or presentations referring to data generated by use of the IEDB Resource Analysis tools should include citations to the relevant reference(s), found at http://tools.iedb.org/main/references/
+
+NOTE: This feature is still in development, and requires checking out the relevant GitHub branches.
+<!--- END_INTERNAL -->
 
 ## User control
 
