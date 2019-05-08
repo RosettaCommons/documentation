@@ -23,9 +23,9 @@ Clustering is the process of taking a large group of structures and sorting them
      * Support for exotic cross-linkers like 1,3,5-tris(bromomethyl)benzene.
      * Support for cyclic permutations during clustering.
      * Filtering for symmetry prior to clustering.
+     * Optional Ramachandran bin analysis, carried out concurrently with clustering (only for alpha-amino acids and peptoids).
   * Homo-oligomers:
      * Support for considering all permutations of oligomers during clustering.
-     * Optional Ramachandran bin analysis, carried out concurrently with clustering.
 
 # The algorithm
 
