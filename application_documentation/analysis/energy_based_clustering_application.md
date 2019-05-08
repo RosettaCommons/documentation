@@ -1,6 +1,6 @@
 # energy_based_clustering
 
-This page was created 23 October 2017 by Vikram K. Mulligan (vmullig@uw.edu).
+This page was created 23 October 2017 by Vikram K. Mulligan (vmullig@uw.edu).  It was last modified on 8 May 2019 by Vikram K. Mulligan (vmulligan@flatironinstitute.org).
 
 Back to [[Application Documentation]].
 
@@ -25,6 +25,7 @@ Clustering is the process of taking a large group of structures and sorting them
      * Filtering for symmetry prior to clustering.
   * Homo-oligomers:
      * Support for considering all permutations of oligomers during clustering.
+     * Optional Ramachandran bin analysis, carried out concurrently with clustering.
 
 # The algorithm
 
@@ -64,6 +65,7 @@ The output is, by default, a set of PDB files with names of format `c.<cluster #
 | cluster:<br/>energy_based_clustering:<br/>cyclic_symmetry_threshold | (real) The angle threshold, in degrees, for determining whether a cyclic peptide is symmetric.  Can only be used with the -cyclic and -cyclic_symmetry flags. | 10.0 |
 | cluster:<br/>energy_based_clustering:<br/>cluster_cyclic_permutations | (boolean) If true, all cyclic permutations are tried when comparing two structures for clustering.  Requires -cyclic. | false |
 | cluster:<br/>energy_based_clustering:<br/>cyclic_permutation_offset | (integer) 1 by default, meaning that every cyclic permutation is clustered if -cluster_cyclic_permutations is true.  Values X > 1 mean that cyclic permutations shifted by X residues will be clustered. | 1 |
+| cluster:<br/>energy_based_clustering:<br/>perform_ABOXYZ_bin_analysis | (boolean) If true, Ramachandran bin analysis is performed on all clusters using the A, B, X, Y, and O bins as defined in Hosseinzadeh, Bhardwaj, Mulligan et al. (2018).  Inputs must be all-alpha amino acid or peptoid structures. | false |
 | cluster:<br/>energy_based_clustering:<br/>mutate_to_ala | (boolean) If true, the input structures will be converted to a chain of alanines (L- or D-) before scoring. | false |
 | cluster:<br/>energy_based_clustering:<br/>disulfide_positions | (integer vector) A space-separated list of positions that are disulfide-bonded.  For example, -disulfide_positions 3 8 6 23 would mean that residues 3 and 8 are disulfide-bonded, as are residues 6 and 23.  Defaults to an empty list of the option is not specified, in which case disulfides are auto-detected. | \<empty vector\> |
 | cluster:<br/>energy_based_clustering:<br/>homooligomer_swap | (boolean) If the structures contain multiple chains with identical sequence, setting this to true will test all permutations of chains when clustering. | false |
@@ -106,7 +108,7 @@ The contents of `inputs/rosetta.flags` is as follows:
 
 # Notes on development history
 
-This application began life as `vmullig/bettercluster.cc`, a pilot application created on 6 May 2013.  Many features have been added since then, including cyclic permutations, support for internal peptide symmetry, and support for non-canonicals.  A few features have also been removed, such as principal component analysis (PCA) on each cluster.  On 23 October 2017, a heavily cleaned-up version was added to the Rosetta public applications repository for general use.
+This application began life as `vmullig/bettercluster.cc`, a pilot application created on 6 May 2013.  Many features have been added since then, including cyclic permutations, support for internal peptide symmetry, and support for non-canonicals.  A few features have also been removed, such as principal component analysis (PCA) on each cluster.  On 23 October 2017, a heavily cleaned-up version was added to the Rosetta public applications repository for general use.  On 8 May 2019, an option was added to allow Ramachandran bin analysis to be performed on-the-fly, during clustering.  (Previously, this analysis was performed after the fact with a Python script.)
 
 # References
 
