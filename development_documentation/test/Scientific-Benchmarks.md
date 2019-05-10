@@ -76,6 +76,7 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
     * `python3 benchmark.py --compiler <clang or else> --skip --debug scientific.<my_awesome_test>`
         * the `--skip` flag is to skip compilation, only recommended if you have an up-to-date version of master compiled in release mode (Sergey advises against skipping)
         * the `--debug` flag is to run in debug mode which is highly recommended for debugging (i.e. you create 2 decoys instead of 1000s)
+        * If you want to run using multiple cores, copy `main/tests/benchmark/benchmark.ini.template` to `benchmark.linux.ini` (or whatever your architecture is).  Adjust the settings (i.e. cpu_count and memory) as appropriate for your environment.  If `hpc_driver = MultiCore`, this will submit jobs up to `cpu_count` without using an HPC job distributor.
     * this creates a directory `Rosetta/main/tests/benchmark/results/<os>.scientific.<my_awesome_test>` where it creates softlinks to the files in `Rosetta/main/tests/scientific/tests/<my_awesome_test>` and then it will likely crash in one way or another
     * for step-by-step debugging `cd Rosetta/main/tests/benchmark/results/<os>.scientific.<my_awesome_test>` and debug each script individually, starting from the lowest number, by running for instance `python3 1.submit.py`
     * note that several other files and folders are created in the process: 
