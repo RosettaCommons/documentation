@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-05-09
+Generated: 2019-05-11
 
 _Note that some application specific options may not be present in this list._
 
@@ -2538,6 +2538,8 @@ _Note that some application specific options may not be present in this list._
 <dl>
 <dt><b>-mp</b> \<Boolean\></dt>
 <dd>mp option group<br/></dd>
+<dt><b>-restore_lazaridis_imm_behavior</b> \<Boolean\></dt>
+<dd>Restore energy function behavior to Lazaridis IMM1<br/>Default: false<br/></dd>
 <dt><b>-thickness</b> \<Real\></dt>
 <dd>Thickness of the membrane used by the high resolution scoring function. Overwrites default thickness of 30A.<br/></dd>
 <dt><b>-membrane_core</b> \<Real\></dt>
@@ -2587,6 +2589,17 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-wt_spanning</b> \<Real\></dt>
 <dd>Weight for spanning penalty.<br/></dd>
 </dl>
++ <h3>-mp:lipids</h3>
+<dl>
+<dt><b>-lipids</b> \<Boolean\></dt>
+<dd>lipids option group<br/></dd>
+<dt><b>-composition</b> \<String\></dt>
+<dd>Type of lipids to use in implicit model representation.<br/>Default: "DLPC"<br/></dd>
+<dt><b>-temperature</b> \<Real\></dt>
+<dd>Temperature at which the lipid composition parameters were measured<br/>Default: 37.0<br/></dd>
+<dt><b>-has_pore</b> \<Boolean\></dt>
+<dd>Manual override don't use pore estimation<br/></dd>
+</dl>
 + <h3>-mp:viewer</h3>
 <dl>
 <dt><b>-viewer</b> \<Boolean\></dt>
@@ -2616,7 +2629,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-scoring</b> \<Boolean\></dt>
 <dd>scoring option group<br/></dd>
 <dt><b>-hbond</b> \<Boolean\></dt>
-<dd>Hydrogen bonding energy correction for membrane proteins<br/></dd>
+<dd>Hydrogen bonding energy correction for membrane proteins<br/>Default: false<br/></dd>
 </dl>
 + <h3>-mp:setup</h3>
 <dl>
@@ -3862,6 +3875,8 @@ _Note that some application specific options may not be present in this list._
 <dd>If true, all cyclic permutations are tried when comparing two structures for clustering.  Requires -cluster:energy_based_clustering:cyclic true.  Default false.<br/>Default: false<br/></dd>
 <dt><b>-cyclic_permutation_offset</b> \<Integer\></dt>
 <dd>1 by default, meaning that every cyclic permutation is clustered if -cluster:energy_based_clustering:cluster_cyclic_permutations is true.  Values X > 1 mean that cyclic permutations shifted by X residues will be clustered.<br/>Default: 1<br/></dd>
+<dt><b>-perform_ABOXYZ_bin_analysis</b> \<Boolean\></dt>
+<dd>If true, Ramachandran bin analysis is performed on all clusters using the A, B, X, Y, and O bins as defined in Hosseinzadeh, Bhardwaj, Mulligan et al. (2018).  Inputs must be all-alpha amino acid or peptoid structures.  False by default.<br/>Default: false<br/></dd>
 <dt><b>-mutate_to_ala</b> \<Boolean\></dt>
 <dd>If true, the input structures will be converted to a chain of alanines (L- or D-) before scoring.  Default false.<br/>Default: false<br/></dd>
 <dt><b>-disulfide_positions</b> \<IntegerVector\></dt>
