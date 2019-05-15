@@ -13,7 +13,7 @@ One can use the `glycosyltransfer` application to quickly glycosylate a protein 
 ## Options
 **General Options**
 
-|**Froup**|**Flag**|**Description**|**Type**|
+|**Group**|**Flag**|**Description**|**Type**|
 |:-------|:-------|:--------------|:-------|
 |in:path|s|Name of the `.pdb` file to process.|String|
 |in|include_sugars|Set whether or not carbohydrate residues will be loaded into Rosetta. _The default value is false._|Boolean|
