@@ -164,8 +164,8 @@ used by the protocol.
 used by the protocol.
 
 #### Current Apps
-* `[[glycosyltransfer]]`
-* `[[phosphorylation]]`
+* [[glycosyltransfer]]
+* [[phosphorylation]]
 
 #### Example Command Lines
 ```
