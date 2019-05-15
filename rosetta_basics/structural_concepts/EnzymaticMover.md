@@ -1,9 +1,5 @@
 # EnzymaticMovers
 
-Documentation created 5 April 2019 by Jason W. Labonte <JWLabonte@jhu.edu>.
-
-## Description
-
 `EnzymaticMover`s are a subclass of `Mover` specifically designed to simulate 
 the action of a virtual enzyme on a substrate, the `Pose`. The enzyme may be a 
 biologically real enzyme or entirely hypothetical or constructed.
@@ -13,6 +9,9 @@ particular sequence site at which to make its modification, based on enzyme
 data. For each site found, it will either make the modification or not, based
 upon its set "efficiency".
 
+[[_TOC_]]
+
+## Description
 The main difference between most `Mover`s and an `EnzymaticMover` is that a
 standard `Mover` makes a change to the 3D conformation of a `Pose`, but the 
 identity of that `Pose`'s `Residue`s remain unchanged. An `EnzymaticMover`, on
@@ -48,10 +47,7 @@ say, _E. coli_.
 The `EnzymaticMover` framework was conceived of and implemented by Jason W.
 Labonte <JWLabonte@jhu.edu>. Please contact him with any questions or criticism.
 
-[[_TOC_]]
-
 ## Types
-
 Currently, only two `EnzymaticMover`s are written, but many more can and will be
 added to the Rosetta code base.
 
@@ -302,3 +298,6 @@ non-human sources.
 Every species subdirectory must include a `generic` enzyme data file as a
 default example of this this family of enzymes. Generally, this data will
 provide a minimal sequon, have 100% efficiency, and not be promiscuous.
+
+----------
+Documentation created 5 April 2019 by Jason W. Labonte <JWLabonte@jhu.edu>.
