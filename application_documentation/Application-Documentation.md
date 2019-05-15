@@ -367,7 +367,18 @@ These applications serve mainly to support other Rosetta applications, or to ass
  - [[Make rotamer library|make-rot-lib]] - Generate rotamer libraries for non-canonical amino acids.  
  - [[Unfolded state energy calculator]] - Determine the baseline energy of non-canonical amino acids in the unfolded state.  
 
+### Post-Translational Modifications
+#### Apps
+Application | Description
+------------ | -------------
+[[glycosyltransfer]] | Simulate the action of a virtual glycosyltransferase (GT) or oligosacharyltransferase (OST) enzyme on a `.pdb` file.
+[[phosphorylation]] | Simulate the action of a virtual kinase enzyme on a `.pdb` file.
+
+#### Mover Components
+ - [[EnzymaticMovers]] - Documentation about the underlying code used for post-translational modifications in Rosetta.
   
+----------------------------------
+
 ## Other <a name="Other" />
 
 - [[Collection of example commandlines|commands-collection]]
@@ -375,6 +386,8 @@ These applications serve mainly to support other Rosetta applications, or to ass
 - [[minirosetta]] - The "minirosetta" boinc wrapper application.
 
 * [[Tools]]: List of useful accessory scripts included with Rosetta
+
+----------------------------------
 
 ##See Also
 
