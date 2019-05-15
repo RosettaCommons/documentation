@@ -375,7 +375,7 @@ Application | Description
 [[phosphorylation]] | Simulate the action of a virtual kinase enzyme on a `.pdb` file.
 
 #### Mover Components
- - [[EnzymaticMovers]] - Documentation about the underlying code used for post-translational modifications in Rosetta.
+ - [[EnzymaticMover]] - Documentation about the underlying code used for post-translational modifications in Rosetta.
   
 ----------------------------------
 
