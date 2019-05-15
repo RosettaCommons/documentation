@@ -163,7 +163,18 @@ used by the protocol.
 * `-enzymes:enzyme` is used to set the specific name of any simulated enzymes
 used by the protocol.
 
-## Enzyme Date Files
+#### Current Apps
+* `[[glycosyltransfer]]``
+* `[[phosphorylation]]`
+
+#### Example Command Lines
+```
+glycosyltransfer -s input/1ABC.pdb -include_sugars -enzymes:species h_sapiens -enzymes:enzyme OGT -nstruct 5
+
+phosphorylation -s input/2DEF.pdb -enzymes:species h_sapiens -nstruct 1
+```
+
+## Enzyme Data Files
 
 `EnzymaticMover`s rely on the database to function properly. All enzyme data
 files have the following format:
