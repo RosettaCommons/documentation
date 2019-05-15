@@ -165,9 +165,9 @@ used by the protocol.
 
 #### Example Command Lines
 ```
-glycosyltransfer -s input/1ABC.pdb -include_sugars -enzymes:species h_sapiens -enzymes:enzyme OGT -nstruct 5
+$ glycosyltransfer -s input/1ABC.pdb -include_sugars -enzymes:species h_sapiens -enzymes:enzyme OGT -nstruct 5
 
-phosphorylation -s input/2DEF.pdb -enzymes:species h_sapiens -nstruct 1
+$ phosphorylation -s input/2DEF.pdb -enzymes:species h_sapiens -nstruct 1
 ```
 
 ## Enzyme Data Files
