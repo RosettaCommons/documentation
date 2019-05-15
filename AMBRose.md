@@ -1,11 +1,11 @@
 ## Metadata
 
-The AMBRose python module was developed by mszegedy (Khare Lab), Kristin Blacklock (Khare Lab), and Hai Nguyen (Case Lab) at Rutgers University.
+The AMBRose python module was developed by Maria Szegedy (Khare Lab), Kristin Blacklock (Khare Lab), and Hai Nguyen (Case Lab) at Rutgers University.
 
 Last updated April 23, 2019. 
 
 For questions please contact: 
-- [mszegedy](https://github.com/mszegedy) ([mszegedy2@gmail.com](mszegedy2@gmail.com))
+- [Maria Szegedy](https://github.com/mszegedy) ([mszegedy2@gmail.com](mszegedy2@gmail.com))
 - Corresponding PI: Sagar D. Khare ([khare@chem.rutgers.edu](khare@chem.rutgers.edu))
 
 ## Description
@@ -17,17 +17,19 @@ This module provides several functions for intercompatibility between AMBER and 
 For the full API, see the docstrings of AMBRose's modules and objects. These will be turned into readthedocs.io documentation eventually.
 
 ## System Requirements
+- Python 3.5+
+- [[PyRosetta|http://www.pyrosetta.org/]] (Python module)
+- AmberTools (version >= 16) with pytraj (Python module)
 - AMBER16+ executables, particularly:
   - sander
   - PMEMD
   - tleap
-- AmberTools (version >= 16) with pytraj (Python module)
-- Python 3.5+
-- [[PyRosetta|http://www.pyrosetta.org/]]
 
 ### For legacy only (but also planned for future versions):
-
+- AmberTools (version >= 16) with pytraj and sander (Python module)
 - [[mpi4py|https://mpi4py.readthedocs.io/en/stable/install.html]] (Python module)
+
+Involving mpi4py is a top priority in AMBRose development. Involving the sander module less so.
 
 ## The limitations of AMBRose
 
