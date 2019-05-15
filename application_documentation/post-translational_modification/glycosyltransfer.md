@@ -31,7 +31,7 @@ If set, the simulated enzyme used in this application will use specific enzymati
 
 The generic _H. sapiens_ glycosylatransferase is an OST that transfers α-D-Manp-(1→3)-[α-D-Manp-(1→6)]-β-D-Manp-(1→4)-β-D-GlcpNAc-(1→4)-β-D-GlcpNAc- (man3) to the Asn residue of any NX(S/T) sequons on a struture with 100% efficiency.
 
-See [[EnzymaticMovers#Enzyme Data Files]] for information on how to format your own enzymatic data for other glycosyltransferases.
+See [[EnzymaticMover#Enzyme Data Files]] for information on how to format your own enzymatic data for other glycosyltransferases.
 
 ## Sample Command Line
 `glycosyltransfer -s input/1ABC.pdb -include_sugars -enzymes:species h_sapiens -enzymes:enzyme OGT -nstruct 5`
@@ -45,4 +45,4 @@ A demo for the `glycosyltransfer` application can be found in `/Rosetta/main/tes
 Labonte <JWLabonte@jhu.edu>
 
 ## See Also
-- [[EnzymaticMovers]]
+- [[EnzymaticMover]]
