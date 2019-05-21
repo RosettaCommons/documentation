@@ -8,7 +8,7 @@ This application is currently a simple command-line wrapper for the [[Glycosyltr
 Many proteins in nature are post-translationally modified, yet deposited structures often have their PTMs absent or removed. Glycosylation is the most prevalent of all PTMs. The `glycosyltransfer` application allows a user to simulate the action of a virtual glycosyltransferase (GT) or oligosacharyltransferase (OST) enzyme on a "substrate" — the loaded `.pdb` structure. The virtual transferase may be a biologically real transferase or entirely hypothetical or constructed.
 
 ## Description
-One can use the `glycosyltransfer` application to quickly glycosylate a protein at biologically relevant N, O, or C positions or extend a current glycan tree, depending on the virtual enzyme selected for the application. Further applications can be used to refine the output structure(s) in preparation for other protocols.
+One can use the `glycosyltransfer` application to quickly glycosylate a protein at biologically relevant N, O, or C positions or extend a current glycan tree, depending on the virtual enzyme selected for the application. Further applications, such as the [[GlycanTreeModeler]], can be used to refine the output structure(s) in preparation for other protocols.
 
 ## Options
 **General Options**
