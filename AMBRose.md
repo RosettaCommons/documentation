@@ -37,6 +37,7 @@ AMBRose can work with (i.e. convert from one medium to another) any of three thi
 - Canonical proteins
 - Canonical RNAs
 - Canonical DNAs
+
 Anything beyond this (ligands, noncanonical residues, most post-translational modifications) will almost certainly fail to be converted.
 
 AMBRose also currently only runs on one core, including any of its sander/PMEMD calls. This issue is currently priority number one in AMBRose development, because MD is very slow when it's only running on one core.
