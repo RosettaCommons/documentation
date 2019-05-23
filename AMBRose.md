@@ -2,7 +2,7 @@
 
 The AMBRose python module was developed by Maria Szegedy (Khare Lab), Kristin Blacklock (Khare Lab), and Hai Nguyen (Case Lab) at Rutgers University.
 
-Last updated April 23, 2019. 
+Last updated May 23, 2019. 
 
 For questions please contact: 
 - [Maria Szegedy](https://github.com/mszegedy) ([mszegedy2@gmail.com](mszegedy2@gmail.com))
@@ -46,7 +46,7 @@ AMBRose also currently only runs on one core, including any of its sander/PMEMD 
 Currently, you can install AMBRose with anything capable of handling a `setup.py` script, such as `pip`. If you are taking this route, you must be in the directory [`tools/AmbRose`](https://github.com/RosettaCommons/tools/tree/master/AmbRose). Here, run
 
 ```
-$ pip install . --user
+$ pip install --user .
 ```
 
 which will copy the folder `ambrose` to the correct place in your `PYTHONPATH`.
