@@ -17,12 +17,11 @@ This module provides several functions for intercompatibility between AMBER and 
 For the full API, see the docstrings of AMBRose's modules and objects. These will be turned into readthedocs.io documentation eventually.
 
 ## System Requirements
-- Python 3.5+
+- Python 3.6+
 - [[PyRosetta|http://www.pyrosetta.org/]] (Python module)
 - AmberTools (version >= 16) with pytraj (Python module)
-- AMBER16+ executables, particularly:
-  - sander
-  - PMEMD
+- Working versions of some AMBER16+ executables, particularly:
+  - pmemd.cuda
   - tleap
 
 ### For legacy only (but also planned for future versions):
