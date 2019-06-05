@@ -154,6 +154,7 @@ Additional output options:
 - `--res_out RESFILE.RES` will generate a resfile based on the design space specified.  Only positions with more than one allowed amino acid will be listed in the resfile, using PIKAA to list them.  Recall that wild-type is always allowed, so this is listing PIKAA lines for all positions that allow at least one non-native amino acid to be sampled.
  - `--chain X`, in addition to specifying what chain to use when a PDB file is used as input, will decide what chain ID to use in the resfile if a FASTA file is used as input.  If input is using `--fa`, `--chain` is mandatory.
  - `--res_header COMMAND` applies `COMMAND` to the resfile header, above the `start` keyword, which will apply that command to all unspecified residues.  By default, no header is included.
+ - If you are using a PSSM to specify amino acid diversity and this PSSM was generated from a PDB file sequence (instead of from the sequence as translated), it is possible that the PSSM incorrectly assumes that the first residue is residue 1.  If this is NOT the case, the `--firstres` parameters can be used to specify the real number of the first residue, allowing the PSSM and PDB sequence numbering to match up.
 
 ### Multiprocessing
 
