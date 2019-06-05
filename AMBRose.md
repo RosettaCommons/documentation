@@ -9,7 +9,7 @@ For questions please contact:
 - Corresponding PI: Sagar D. Khare ([khare@chem.rutgers.edu](khare@chem.rutgers.edu))
 
 ## Why AMBRose?
-Have you ever wanted Rosetta to seamlessly make an MD simulation of your structure and use frames from it in your protocol? Or just wished you could automate the creation of MD input files? If so, AMBRose is the PyRosetta companion module for you. With AMBRose, obtaining MD data can be as easy as setting up a mover! Download AMBRose today and see what MD can do for ''your'' project. (No actual movers were harmed in the making of this software.>
+Have you ever wanted Rosetta to seamlessly make an MD simulation of your structure and use frames from it in your protocol? Or just wished you could automate the creation of MD input files? If so, AMBRose is the PyRosetta companion module for you. With AMBRose, obtaining MD data can be as easy as setting up a mover! Download AMBRose today and see what MD can do for ''your'' project. (No actual movers were harmed in the making of this software.)
 
 ## Description
 This module provides several functions for intercompatibility between AMBER and Rosetta, with major functions being:
@@ -27,11 +27,10 @@ For the full API, see the docstrings of AMBRose's modules and objects. These wil
   - pmemd.cuda
   - tleap
 
-### For legacy only (but also planned for future versions):
+### For legacy only:
 - AmberTools (version >= 16) with pytraj and sander (Python module)
 - [[mpi4py|https://mpi4py.readthedocs.io/en/stable/install.html]] (Python module)
 
-Involving mpi4py is a top priority in AMBRose development. Involving the sander module less so.
 
 ## The limitations of AMBRose
 
