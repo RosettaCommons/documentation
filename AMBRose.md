@@ -2,7 +2,7 @@
 
 The AMBRose python module was developed by Maria Szegedy (Khare Lab), Kristin Blacklock (Khare Lab), and Hai Nguyen (Case Lab) at Rutgers University.
 
-Last updated May 23, 2019. 
+Last updated June 5, 2019. 
 
 For questions please contact: 
 - [Maria Szegedy](https://github.com/mszegedy) ([mszegedy2@gmail.com](mszegedy2@gmail.com))
@@ -39,7 +39,7 @@ AMBRose can work with (i.e. convert from one medium to another) any of three thi
 
 Anything beyond this (ligands, noncanonical residues, most post-translational modifications) will almost certainly fail to be converted.
 
-AMBRose also currently only runs on one core, including any of its sander/PMEMD calls. This issue is currently priority number one in AMBRose development, because MD is very slow when it's only running on one core.
+AMBRose's movers currently only run minimizations and simulations on the GPU, with pmemd.cuda. This is not a huge problem, because GPU computation is the state of the art for AMBER, and all the AMBER devs are currently focused on it. However, if for whatever reason you need CPU computation instead, they can be set to do that, but they will only be able to run on one core in most cases. This issue is not likely to be solved.
 
 ## How to install AMBRose
 ### Automatically
