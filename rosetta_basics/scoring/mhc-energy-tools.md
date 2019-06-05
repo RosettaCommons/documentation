@@ -112,7 +112,7 @@ Note that regardless of these options, the entire input sequence will be scored 
 
 ####Amino acid diversity
 
-You may use one (AND ONLY ONE?) of the following ways of specifying what amino acids to try at each position.
+You may use one (and only one) of the following ways of specifying what amino acids to try at each position.
 
 - `--aa_csv CSV_FILE` specifies a CSV file where each line includes a position number followed by all allowed amino acids (one-letter code) at each position, each separated by commas.  (Wild-type is automatically added in if missing.)  See `tools/mhc_energy_tools/demo/in/2sak_A.region_muts.csv` for an example.
 - `--pssm PSSM_FILE` specifies a PSSM to use.  Two PSSM formats are officially supported, though the script will try to parse unsupported formats as well.  The two formats are the output from the web and command line versions of PSIBLAST.  For more details on how to make a PSSM, see [[here|MHCEpitopeEnergy#how-to-generate-an-external-database_how-to-make-a-pssm]].  For examples of supported PSSMs, see `tools/mhc_energy_tools/pssm_examples`.
@@ -124,7 +124,7 @@ There are two options to limit which positions to sample.  This is useful if, fo
 
 - `--positions` allows you to specify which regions to allow to mutate.  Anything not included will not be scores (except the wild-type sequence).  It should be formatted as follows: `--positions 3-30` to target a single region (residues 3-30, inclusive) and `--positions 3-30,113-142` to target multiple regions (residues 3-30 and 113-142, inclusive).
 - `--lock` prevents regions from mutating.  It is specified in the same format as `--positions`.
-- WHAT HAPPENS IF A RESIDUE IS SPECIFIED IN BOTH --POSITIONS AND --LOCK?
+- If both `--positions` and `--lock` are specified, `--lock` overrides `--positions`.  A `lock` position will not be mutated even if specified by `--positions`.
 
 ### Predictors
 
