@@ -8,6 +8,9 @@ For questions please contact:
 - [Maria Szegedy](https://github.com/mszegedy) ([mszegedy2@gmail.com](mszegedy2@gmail.com))
 - Corresponding PI: Sagar D. Khare ([khare@chem.rutgers.edu](khare@chem.rutgers.edu))
 
+## Why AMBRose?
+Have you ever wanted Rosetta to seamlessly make an MD simulation of your structure and use frames from it in your protocol? Or just wished you could automate the creation of MD input files? If so, AMBRose is the PyRosetta companion module for you. With AMBRose, obtaining MD data can be as easy as setting up a mover! Download AMBRose today and see what MD can do for ''your'' project. (No actual movers were harmed in the making of this software.>
+
 ## Description
 This module provides several functions for intercompatibility between AMBER and Rosetta, with major functions being:
 - The conversion of a pose to starting coordinates for sander/PMEMD
