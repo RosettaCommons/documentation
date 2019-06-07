@@ -293,7 +293,7 @@ All enzyme data for `EnzymaticMovers` should be located in the
 `database/virtual_enzymes/` folder.
 
 Every child `EnzymaticMover` should have a subdirectory corresponding to the 
-enzyme family of that `Mover`, which much match the family provided to the 
+enzyme family of that `Mover`, which must match the family provided to the 
 `EnzymaticMover` constructor. (See above.) For example, data for the 
 `MethylaseMover` should be stored in `database/virtual_enzymes/methylases/`.
 
