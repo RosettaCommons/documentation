@@ -108,6 +108,20 @@ Simply removing a line while giving build assignments to the positions before an
 
 Build off of a 2 amino acid stub (residue 1 + 2) any secondary structure desired. In the blueprint above, a 4 residue helix is created and its sidechains are automatically designed. Although the second columns has alanines, it will not affect the final design. In the blueprint file, the second column is only used for extensions ("x") or if sequence-biased fragments are desired (using the flag -remodel:use\_blueprint\_sequence). In this case, all positions will be automatically designed because no resfile manual assignments were made for the positions. If a single manual resfile assignment is made, RosettaRemodel switches to manual design mode and all positions which are being rebuilt should be given resfile specifications.
 
+#### N-terminal extension
+N-termini can be prepended, but "1" should be given as the residue number as "0" results in an error. I am not sure if this approach is 100% condoned by the remodel developers, but it works. The original N terminus is permitted to be flexible, here but this may also work without that setting (1 V . instead of 1 V L PIKAA V).
+
+```
+1 x L PIKAA A
+1 x L PIKAA P
+1 x L PIKAA Q
+1 x L PIKAA V
+1 V L PIKAA V
+2 D .
+3 K .
+4 V .
+```
+
 Disulfide design
 ----------------
 
