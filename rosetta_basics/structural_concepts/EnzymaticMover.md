@@ -75,7 +75,7 @@ respectively.
 `set_efficiency()` can be used to override the efficiency of the
 enzyme as provided by the enzyme file in the database. A value of 1.00
 corresponds to 100%. If set to 0.5 for example, the `Mover` will only make a
-change to any positions
+change to any positions 50% of the time.
 
 `exclude_site()` and `set_excluded_sites()` can be used to pass the sequence
 position(s) of (a) site(s) that cannot be modified. Perhaps there is a known
