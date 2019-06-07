@@ -1,7 +1,7 @@
 ## MHC Epitope energy (mhc_epitope)
 
 Documentation created by Brahm Yachnin (brahm.yachnin@rutgers.edu), Khare laboratory, and Chris Bailey-Kellogg (cbk@cs.dartmouth.edu).  Parts of this documentation are copied/adapted from Vikram K. Mulligan's (vmullig@uw.edu) design-centric guidance documentation.
-Last edited May 8, 2019.
+Last edited June 7, 2019.
 
 [[_TOC_]]
 
@@ -85,6 +85,8 @@ In its simplest form, you can use mhc_epitope by simply setting the mhc_epitope 
 
 ## Setting up your .mhc files
 
+If you would like to start using ```mhc_epitope``` right away, take a look at the example ```.mhc``` files below and then consult the relevant options here to understand how they work.  You can then customize your configuration as needed.
+
 Each ```.mhc``` file should begin with a ```method``` line.  The syntax is the keyword ```method```, followed by the prediction method, and then by the input filename.  There are three prediction methods currently supported:
 - ```method matrix``` uses a matrix to score each peptide.  For example, the propred matrices can be used to score any peptide without precomputing epitope scores.  ```method matrix propred8``` uses the propred8 scoring matrices (i.e., the 8 representative alleles mentioned above)
 - ```method external``` uses a pre-computed, sqlite database to score each peptide.  The filename should be that of the sqlite database.  For example, ```method external yfp_netmhcii.db```.
@@ -108,11 +110,11 @@ Subsequent lines in the ```.mhc``` file are optional, and control how scoring is
 An additional Predictor, based off of the NMerSVMEnergy terms introduced in the [King+2014](https://www.ncbi.nlm.nih.gov/pubmed/24843166) paper, can also be used in the context of the `mhc_epitope` scoreterm.  It's configuration is slightly different from the other Predictors, so will be described separately here.
 
  - Two method-level configurations are available: ```method svm``` and ```method svm_rank```.  The latter uses ranked SVM scores, while the former does not.  All other configuration settings are optional.
- - ```svm_file``` allows the user to specify a whitespace-delimited list of SVM files to use.  See below for the default settings.
- - ```svm_rank``` allows the user to specify a whitespace-delimited list of rank files to use.  See below for the default settings.
- - ```svm_pssm_features``` allows the user to specify a whitespace-delimited list of PSSM files to use.  See below for the default settings.  If you do not want to use PSSMs, the configuration should be set to ```svm_pssm_features off```.
- - ```svm_sequence_length``` allows the user to specify the length of the core peptide and overhang peptides.  The first number is the core length, and the second is the overhang length.  The default is ```svm_sequence_length 9 3```, which indicates a core 9mer with a 3mer overhang on both sides totally 15 residues: OOOCCCCCCCCCOOO (O = overhang, C = core).  Don't change this unless you know what you're doing.
- - ```svm_aa_matrix``` allows to specify an amino acid encoding matrix.  The default is ```svm_aa_matrix sequence/substitution_matrix/BLOSUM62.prob.rescale```.
+ - ```svm_file``` allows the user to specify a whitespace-delimited list of SVM files to use.  See below for the default settings (equivalent to -nmer_svm_list command line option).
+ - ```svm_rank``` allows the user to specify a whitespace-delimited list of rank files to use.  See below for the default settings (equivalent to -nmer_svm_rank_list command line option).
+ - ```svm_pssm_features``` allows the user to specify a whitespace-delimited list of PSSM files to use.  See below for the default settings.  If you do not want to use PSSMs, the configuration should be set to ```svm_pssm_features off```  (equivalent to -nmer_pssm_list command line option).
+ - ```svm_sequence_length``` allows the user to specify the length of the core peptide and overhang peptides.  The first number is the core length, and the second is the overhang length.  The default is ```svm_sequence_length 9 3```, which indicates a core 9mer with a 3mer overhang on both sides totally 15 residues: OOOCCCCCCCCCOOO (O = overhang, C = core).  Don't change this unless you know what you're doing  (equivalent to -nmer_ref_seq_length and -nmer_svm_term_length command line options).
+ - ```svm_aa_matrix``` allows to specify an amino acid encoding matrix.  The default is ```svm_aa_matrix sequence/substitution_matrix/BLOSUM62.prob.rescale``` (equivalent to -nmer_svm_aa_matrix command line option).
  - ```xform``` can be used exactly as described above.  For this reason, nmer options ```nmer_svm_scorecut``` and ```nmer_gate_svm_scores``` are disabled in this context.
  - Default ```svm_file```:
   - sequence/mhc_svms/HLA-DRB10101_nooverlap.libsvm.dat.noscale.nu0.5.min_mse.model
