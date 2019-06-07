@@ -260,7 +260,7 @@ DNALigaseMover::provide_xml_schema( utility::tag::XMLSchemaDefinition & xsd )
 }
 ```
 
-* ...must implement the protected `perform_reaction()` method, which modifies, adds, or
+* ...implement the protected `perform_reaction()` method, which modifies, adds, or
   removes (a) Residue(s).<br />
   For example:
 ```c++
