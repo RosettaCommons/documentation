@@ -89,6 +89,7 @@ Each ```.mhc``` file should begin with a ```method``` line.  The syntax is the k
 - ```method matrix``` uses a matrix to score each peptide.  For example, the propred matrices can be used to score any peptide without precomputing epitope scores.  ```method matrix propred8``` uses the propred8 scoring matrices (i.e., the 8 representative alleles mentioned above)
 - ```method external``` uses a pre-computed, sqlite database to score each peptide.  The filename should be that of the sqlite database.  For example, ```method external yfp_netmhcii.db```.
 - ```method preloaded``` also uses a pre-computed database, like ```method external```.  Unlike ```external```, ```preloaded``` loads the entire contents of the database into memory.  This will speed up your trajectories, at the cost of a larger memory footprint.  ```preloaded``` also accepts CSV files with the epitope information, so the filename must be preceded by the keywords ```db``` or ```csv``` to indicate a sqlite database or a CSV file.  The filename should be that of the database, in the appropriate format.  For example, ```method preloaded db yfp_netmhcii.db``` or ```method preloaded csv yfp_netmhcii.csv```.
+- See below for ```method svm``` and ```method svm_rank```.
 - Note that additional prediction methods can easily be implemented by writing new MHCEpitopePredictor derived classes.
 
 Subsequent lines in the ```.mhc``` file are optional, and control how scoring is performed.
@@ -102,6 +103,46 @@ Subsequent lines in the ```.mhc``` file are optional, and control how scoring is
  - ```relative+``` is a score relative to the native sequence, in additive mode.  The score is calculated as (raw score - native score + offset).  For example, ```raw relative+ 5``` means that a score that is 5 units worse than native, or better, will get a score of 0.
  - ```relative*``` is a score relative to the native sequence, in multiplicative mode.  The score is calculated as (raw score - native score * factor).  For example, ```raw relative* 1.2``` means that any score that is at most 20% higher than native will get a score of 0.
  - Note that the "native" sequence is the sequence when the packer first starts, not the sequence as read in.  A protocol that uses multiple movers will see its "native" sequence change throughout the protocol.
+
+<!--- BEGIN_INTERNAL -->
+An additional Predictor, based off of the NMerSVMEnergy terms introduced in the [King+2014](https://www.ncbi.nlm.nih.gov/pubmed/24843166) paper, can also be used in the context of the `mhc_epitope` scoreterm.  It's configuration is slightly different from the other Predictors, so will be described separately here.
+
+ - Two method-level configurations are available: ```method svm``` and ```method svm_rank```.  The latter uses ranked SVM scores, while the former does not.  All other configuration settings are optional.
+ - ```svm_file``` allows the user to specify a whitespace-delimited list of SVM files to use.  See below for the default settings.
+ - ```svm_rank``` allows the user to specify a whitespace-delimited list of rank files to use.  See below for the default settings.
+ - ```svm_pssm_features``` allows the user to specify a whitespace-delimited list of PSSM files to use.  See below for the default settings.  If you do not want to use PSSMs, the configuration should be set to ```svm_pssm_features off```.
+ - ```svm_sequence_length``` allows the user to specify the length of the core peptide and overhang peptides.  The first number is the core length, and the second is the overhang length.  The default is ```svm_sequence_length 9 3```, which indicates a core 9mer with a 3mer overhang on both sides totally 15 residues: OOOCCCCCCCCCOOO (O = overhang, C = core).  Don't change this unless you know what you're doing.
+ - ```svm_aa_matrix``` allows to specify an amino acid encoding matrix.  The default is ```svm_aa_matrix sequence/substitution_matrix/BLOSUM62.prob.rescale```.
+ - ```xform``` can be used exactly as described above.  For this reason, nmer options ```nmer_svm_scorecut``` and ```nmer_gate_svm_scores``` are disabled in this context.
+ - Default ```svm_file```:
+  - sequence/mhc_svms/HLA-DRB10101_nooverlap.libsvm.dat.noscale.nu0.5.min_mse.model
+  - sequence/mhc_svms/HLA-DRB10301_nooverlap.libsvm.dat.noscale.nu0.5.min_mse.model
+  - sequence/mhc_svms/HLA-DRB10401_nooverlap.libsvm.dat.noscale.nu0.5.min_mse.model
+  - sequence/mhc_svms/HLA-DRB10701_nooverlap.libsvm.dat.noscale.nu0.5.min_mse.model
+  - sequence/mhc_svms/HLA-DRB10802_nooverlap.libsvm.dat.noscale.nu0.5.min_mse.model
+  - sequence/mhc_svms/HLA-DRB11101_nooverlap.libsvm.dat.noscale.nu0.5.min_mse.model
+  - sequence/mhc_svms/HLA-DRB11302_nooverlap.libsvm.dat.noscale.nu0.5.min_mse.model
+  - sequence/mhc_svms/HLA-DRB11501_nooverlap.libsvm.dat.noscale.nu0.5.min_mse.model
+ - Default ```svm_rank``` (or empty if using ```method svm```):
+  - sequence/mhc_rank_svm_scores/HLA-DRB10101.libsvm.test.out.sort.gz
+  - sequence/mhc_rank_svm_scores/HLA-DRB10301.libsvm.test.out.sort.gz
+  - sequence/mhc_rank_svm_scores/HLA-DRB10401.libsvm.test.out.sort.gz
+  - sequence/mhc_rank_svm_scores/HLA-DRB10701.libsvm.test.out.sort.gz
+  - sequence/mhc_rank_svm_scores/HLA-DRB10802.libsvm.test.out.sort.gz
+  - sequence/mhc_rank_svm_scores/HLA-DRB11101.libsvm.test.out.sort.gz
+  - sequence/mhc_rank_svm_scores/HLA-DRB11302.libsvm.test.out.sort.gz
+  - sequence/mhc_rank_svm_scores/HLA-DRB11501.libsvm.test.out.sort.gz
+ - Default ```svm_pssm_features```:
+  - sequence/mhc_pssms/HLA-DRB10101_nooverlap.9mer.norm.pssm
+  - sequence/mhc_pssms/HLA-DRB10301_nooverlap.9mer.norm.pssm
+  - sequence/mhc_pssms/HLA-DRB10401_nooverlap.9mer.norm.pssm
+  - sequence/mhc_pssms/HLA-DRB10701_nooverlap.9mer.norm.pssm
+  - sequence/mhc_pssms/HLA-DRB10802_nooverlap.9mer.norm.pssm
+  - sequence/mhc_pssms/HLA-DRB11101_nooverlap.9mer.norm.pssm
+  - sequence/mhc_pssms/HLA-DRB11302_nooverlap.9mer.norm.pssm
+  - sequence/mhc_pssms/HLA-DRB11501_nooverlap.9mer.norm.pssm
+
+<!--- END_INTERNAL -->
 
 ### Examples of ```.mhc``` files
 
