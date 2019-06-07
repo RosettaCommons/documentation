@@ -63,7 +63,7 @@ For the most part, `EnzymaticMover`s work like any other `Mover`, and any of the
 three main Rosetta interfaces can be used. The major difference is that an
 `EnzymaticMover` relies on the presence of enzyme data in the database. **If you
 wish to use an `EnzymaticMover` for a particular enzyme, ensure that the data for
-that enzyme is presence in the database!** (See below for example enzyme data
+that enzyme is present in the database!** (See below for example enzyme data
 files.)
 
 ### C++ & PyRosetta Code
