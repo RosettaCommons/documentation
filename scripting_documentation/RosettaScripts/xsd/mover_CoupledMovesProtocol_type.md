@@ -9,12 +9,14 @@ Small backbone and side chain movements
 <CoupledMovesProtocol name="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
         packer_palette="(&named_packer_palette;)"
-        main_task_factory_="(&string;)" score_fxn_="(&string;)" />
+        main_task_factory_="(&string;)" score_fxn_="(&string;)"
+        backbone_mover="(0 &bool;)" />
 ```
 
 -   **task_operations**: A comma-separated list of TaskOperations to use.
 -   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **main_task_factory_**: packer task
 -   **score_fxn_**: score function
+-   **backbone_mover**: make mover lisen to the coupled_moves related command line flags
 
 ---
