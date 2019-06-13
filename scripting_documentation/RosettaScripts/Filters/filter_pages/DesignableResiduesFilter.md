@@ -10,7 +10,7 @@ Filters based on minimum and maximum number of designable residues allowed, but 
 
 -   task\_operations: define what residues are designable or repackable.
 -   designable: whether or not to report the number of designable positions
--   repackable: whether or not to report the number of repackable positions
+-   packable: whether or not to report the number of repackable positions
 -   lower\_cutoff: minimum number of designable positions
 -   upper\_cutoff: maximun number of designable positions
 
