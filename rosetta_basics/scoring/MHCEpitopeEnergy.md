@@ -256,10 +256,45 @@ Note that a database can also be used to provide experimentally known epitopes, 
 
 ## Strategies/guidelines for deimmunization in Rosetta
 
-Work is ongoing to benchmark the scoreterm to assess reasonable configuration options for practical use.  We can make a few suggestions:
+We have developed a scientific benchmark and have tested various configurations of MHCEpitopeEnergy trajectories in order to build a recommended starting point for de-immunization.  Ultimately, de-immunization is a trade-off between getting native-like, fully active proteins and elimination of sequences predicted to be immunogenic.  Our recommended configuration aims to balance these two orthogonal objectives.
+
+We can make a few suggestions:
+- Using Propred as a Predictor is fast, and has been previously shown to be fairly effective, if not as comprehensive as other Predictors.  The default Propred Predictor is a good starting point for de-immunization.
+- For Propred, mhc_epitope weights of 0.5-1.5 yield a good balance of de-immunization and good Rosetta scores.  This weight can be tweaked to determine how "aggressively" you would like to de-immunize.  Note that mhc_epitope scores scale with the number of alleles being considered.  While Propred uses up to 8 alleles, NetMHCII can use as many as 27, which can significantly inflate the scores.  If a large number of alleles are being considered, lower mhc_epitope weights should be used.
 - You almost certainly should use [[FavorNativeResidue|FavorNativeResidueMover]] or similar constraints to avoid spurious mutations.
-- A common issue with de-immunization is the strong tendency to introduce acidic residues.  The total charge of the protein should be monitored.  You should consider using [[NetChargeEnergy]] as a means to prevent large swings in total net charge.
+- Design should be turned off for any residue known to be important for structure and function.  Provided that this is a relatively small number of residues, de-immunization should not be greatly influenced by these restrictions.
+- A PSI-BLAST generated PSSM can be used to restrain design space to amino acid substitutions that are conserved in evolution.  We have found that allowing residues with a PSSM score of 1 or greater from a PSI-BLAST PSSM generates similar results with respect to structure quality and degree of de-immunization, while preserving native-like characteristics and greatly decreasing runtime.  The documentation above describes how to make a PSI-BLAST PSSM.  The database tools can be used to generate a resfile that limits design space to that specified by the PSSM.
+- A common issue with de-immunization is the strong tendency to introduce acidic residues.  The total charge of the protein should be monitored.  We recommend using [[AACompositionEnergy]] as a means to restrain positive (Arg+Lys) and negative (Glu+Asp) charges separately.  The following configuration of a AAComposition file, with an aa_composition weight of 0.5, is a reasonable starting point:
+```
+PENALTY_DEFINITION
+PROPERTIES POSITIVE_CHARGE
+ABSOLUTE <enter the number of arg+lys residues in the native structure here>
+PENALTIES 3 2 1 0 1 2 3
+DELTA_START -3
+DELTA_END 3
+END_PENALTY_DEFINITION
+
+PENALTY_DEFINITION
+PROPERTIES NEGATIVE_CHARGE
+ABSOLUTE <enter the number of asp+glu residues in the native structure here>
+PENALTIES 3 2 1 0 1 2 3
+DELTA_START -3
+DELTA_END 3
+END_PENALTY_DEFINITION
+```
+- Alternatively, [[NetChargeEnergy]] can be used to monitor the global netcharge, rather than managing the positive and negative charges separately.  While this is very effective, note that the tendency is to increase the number of positive and negative charges while maintaining global net charge.
+- Initial testing shows that de-immunizing with Propred does not necessarily effectively remove all epitopes predicted by, for example, NetMHCII.  For complex de-immunization problems, we recommend targeting hotspot regions using a constraint-based approach with a NetMHCII database for those regions.
 - The most effective way of de-immunizing proteins is to target the strongest hotspots (i.e. hits on the largest number of alleles) while leaving regions that only hit one or two alleles alone.  This can be accomplished either by using an xform offset, or by using constraints.
+
+These details are discussed at length in our manuscript.  The scientific test, available on the [[benchmark server|https://benchmark.graylab.jhu.edu/]], also provides access to our current recommended approach, as run on the bleeding edge version of Rosetta, and the corresponding results.
+
+To assess whether your trajectories are successful, we recommend monitoring the following parameters:
+- The immunogenicity scores, compared to native.  You should re-score with Propred and NetMHCII (use the [[tools|mhc-energy-tools]] to do so) and evaluate both, regardless of which Predictors were used during design.
+- Rosetta total_score, relative to native, removing contributions from mhc_epitope and other constraints.
+- packstat, relative to native, as an additional metric for structure quality.
+- Sequence recovery and/or sequence similarity, as a metric for "native-ness" of your protein.
+- Buried unsatisfied hydrogen bonds, relative to native.  Because de-immunization tends to replace hydrophobic residues with charged residues, this can increase.
+- Netcharge and number of positive and negative charges, relative to native.
 
 ## Use with symmetry
 The ```mhc_energy``` score term should be fully compatible with symmetry.  Each subunit will contribute to the ```mhc_energy``` (though for efficiency, the calculation is performed only on the asymmetric units and scaled appropriately).
