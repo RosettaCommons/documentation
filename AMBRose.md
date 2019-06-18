@@ -17,6 +17,7 @@ This module provides several functions for intercompatibility between AMBER and 
 - The dumping of LEaP-safe PDB files from poses
 - The minimization and simulation of poses in sander/PMEMD without having to explicitly work with AMBER constructs
 - The conversion of trajectories to series of poses
+
 For the full API, see the docstrings of AMBRose's modules and objects. These will be turned into readthedocs.io documentation eventually.
 
 ## System Requirements
