@@ -45,7 +45,7 @@ AMBRose's movers currently only run minimizations and simulations on the GPU, wi
 
 ## How to install AMBRose
 ### Automatically
-Currently, you can install AMBRose with anything capable of handling a `setup.py` script, such as `pip`. If you are taking this route, you must be in the directory [`tools/AmbRose`](https://github.com/RosettaCommons/tools/tree/master/AmbRose). Here, run
+Currently, you can install AMBRose with anything capable of handling a `setup.py` script, such as `pip`. If you are taking this route, you must first clone [RosettaCommons/tools,](https://github.com/RosettaCommons/tools) and then navigate to the directory [`tools/AmbRose`](https://github.com/RosettaCommons/tools/tree/master/AmbRose). Here, run
 
 ```
 $ pip install --user .
