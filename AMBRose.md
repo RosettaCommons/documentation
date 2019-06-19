@@ -23,8 +23,8 @@ For the full API, see the docstrings of AMBRose's modules and objects. These wil
 ## System Requirements
 - Python 3.6+
 - [[PyRosetta|http://www.pyrosetta.org/]] (Python module)
-- AmberTools (version >= 16) with pytraj (Python module)
-- Working versions of some AMBER16+ executables, particularly:
+- AmberTools (version >= 16) with [[pytraj|https://amber-md.github.io/pytraj/latest/installation.html#install]] (Python module)
+- Working versions of some [[AMBER16+|http://ambermd.org/GetAmber.php]] executables, particularly:
   - pmemd.cuda
   - tleap
 
