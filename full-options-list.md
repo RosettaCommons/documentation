@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-05-11
+Generated: 2019-06-22
 
 _Note that some application specific options may not be present in this list._
 
@@ -431,6 +431,10 @@ _Note that some application specific options may not be present in this list._
 <dd>output mmCIF files (broadly, as opposed to PDB files)<br/>Default: false<br/></dd>
 <dt><b>-mmCIF_gz</b> \<Boolean\></dt>
 <dd>if outputting mmCIF files, gzip them<br/>Default: false<br/></dd>
+<dt><b>-mmtf</b> \<Boolean\></dt>
+<dd>output mmtf files (broadly, as opposed to PDB files)<br/>Default: false<br/></dd>
+<dt><b>-mmtf_gz</b> \<Boolean\></dt>
+<dd>if outputting mmtf files, gzip them<br/>Default: false<br/></dd>
 <dt><b>-use_database</b> \<Boolean\></dt>
 <dd>Write out structures to database.  Specify database via -inout:dbms:database_name and wanted structures with -in:file:tags<br/></dd>
 <dt><b>-database_protocol_id</b> \<Integer\></dt>
@@ -603,6 +607,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Put silent-output files in individual directory as determined by mpi-rank<br/>Default: false<br/></dd>
 <dt><b>-mmCIF</b> \<Path\></dt>
 <dd>if outputting mmCIF, mmCIF file output path<br/></dd>
+<dt><b>-mmtf</b> \<Path\></dt>
+<dd>mmtf file output path<br/></dd>
 </dl>
 + <h2>-run</h2>
 <dl>
@@ -2074,6 +2080,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Setting the species name limits the behavior of the simulated enzyme(s) used in this protocol to reactions known to occur in the given species.  A species name must be in the format \"e_coli\" or \"h_sapiens\", (note the underscores,) which must also correspond to a directory in the Rosetta database, e.g., \"database/virtual_enzymes/<enzyme_family>/h_sapiens/\".<br/>Default: "h_sapiens"<br/></dd>
 <dt><b>-enzyme</b> \<String\></dt>
 <dd>If set, the simulated enzyme used in this protocol will use specific enzymatic details for this reaction from the database.  If the species name has not been set, a \"generic\" enzyme from general family used in this protocol is assumed.  An enzyme name must be as listed in an appropriate enzyme file in \"database/virtual_enzymes/<enzyme_family>/<species_name_>/\".<br/>Default: "generic"<br/></dd>
+<dt><b>-efficiency</b> \<Real\></dt>
+<dd>If set, the simulated enzyme used in this protocol will have the efficiency indicated, where 1.00 is 100%.  A virtual enzyme with an efficiency of 0.50 will perform its reaction  any given site 50% of the time.  If not set, the value given in the database for this enzyme will be used.  Enzyme efficiency data are found in \"database/virtual_enzymes/<enzyme_family>/<species_name_>/\".<br/></dd>
 </dl>
 + <h2>-evaluation</h2>
 <dl>
@@ -3282,24 +3290,12 @@ _Note that some application specific options may not be present in this list._
 <dd>filter decoys having neither kink nor extend form<br/>Default: true<br/></dd>
 <dt><b>-h3_filter_tolerance</b> \<Real\></dt>
 <dd>maximum number of tries for the filter<br/>Default: 5<br/></dd>
-<dt><b>-cter_insert</b> \<Boolean\></dt>
-<dd>insert kind or extend Ab fragments to CDR H3<br/>Default: true<br/></dd>
-<dt><b>-flank_residue_min</b> \<Boolean\></dt>
-<dd>minimize flank residues of CDR H3 during high-reso refinement<br/>Default: true<br/></dd>
 <dt><b>-sc_min</b> \<Boolean\></dt>
 <dd>minimize the side chain after finishing the rotamer packing<br/>Default: false<br/></dd>
 <dt><b>-rt_min</b> \<Boolean\></dt>
 <dd>minimize the rotamer each packing<br/>Default: false<br/></dd>
-<dt><b>-bad_nter</b> \<Boolean\></dt>
-<dd>the n-terminal is bad because of bad H3 grafting<br/>Default: true<br/></dd>
 <dt><b>-extend_h3_before_modeling</b> \<Boolean\></dt>
 <dd>extend the H3 to forget the intial H3 configuration<br/>Default: true<br/></dd>
-<dt><b>-idealize_h3_stems_before_modeling</b> \<Boolean\></dt>
-<dd>idealize the H3 stem, H3 grafting does not copy the coordinates which makes the grafting bad <br/>Default: true<br/></dd>
-<dt><b>-remodel</b> \<String\></dt>
-<dd>Choose a perturb method to model H3 in centroid mode<br/>Default: "legacy_perturb_ccd"<br/></dd>
-<dt><b>-refine</b> \<String\></dt>
-<dd>Choose a refine method to model H3 in high-resol model<br/>Default: "legacy_perturb_ccd"<br/></dd>
 <dt><b>-centroid_refine</b> \<String\></dt>
 <dd>Choose a refine method to refine a loop in centroid mode<br/>Default: "refine_kic"<br/></dd>
 <dt><b>-constrain_cter</b> \<Boolean\></dt>
