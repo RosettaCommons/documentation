@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-06-22
+Generated: 2019-06-27
 
 _Note that some application specific options may not be present in this list._
 
@@ -1548,7 +1548,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-use_electrostatic_repulsion</b> \<Boolean\></dt>
 <dd>Use electrostatic repulsion<br/></dd>
 <dt><b>-dump_rotamer_sets</b> \<Boolean\></dt>
-<dd>Output NMR-style PDB's with the rotamer sets used during packing<br/></dd>
+<dd>Output NMR-style PDB's with the rotamer sets used during packing<br/>Default: false<br/></dd>
 <dt><b>-dunbrack_prob_buried</b> \<Real\></dt>
 <dd>fraction of possible dunbrack rotamers to include in each single residue rotamer set, for 'buried' residues<br/>Range: 0-1<br/>Default: 0.98<br/></dd>
 <dt><b>-dunbrack_prob_nonburied</b> \<Real\></dt>
