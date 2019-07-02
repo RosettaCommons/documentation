@@ -349,6 +349,10 @@ These applications serve mainly to support other Rosetta applications, or to ass
     * [[Old fragment picker|fragment-picking-old]] - The older version of the fragment picker.  
     * [[Structure Set Fragment Picker|Structure-Set-Fragment-Picker]] - Pick fragments from a provided set of pdb files
 
+<!--- BEGIN_INTERNAL -->
+- [[Ligand Converter|ligand_converter]] - Convert Rosetta residue type specifications between each other.
+<!--- END_INTERNAL -->
+
 - [[Make exemplars|make-exemplar]] - Create an exemplar for surface pockets on a protein that touch a target residue.
 
 - [[OptE|opt-e-parallel-doc]] - Refit reference weights in a scorefunction to optimize given metrics.  
