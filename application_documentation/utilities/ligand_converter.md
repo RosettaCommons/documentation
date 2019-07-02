@@ -19,8 +19,8 @@ Limitations and Caveats
 =======================
 
 Rosetta's residue type outputting isn't necessarily comprehensive at this point. 
-There's no gurantee that you're able to round-trip a given residue with the ligand_converter application.
-(There's not even a gurantee that Rosetta will be able read the files which it output.)
+There's no guarantee that you're able to round-trip a given residue with the ligand_converter application.
+(There's not even a guarantee that Rosetta will be able read the files which it output.)
 
 It should suffice for getting something like a PyMol-readable PDB or SDF file from a residue type, though.
 
@@ -58,7 +58,7 @@ Output format is controlled by the following boolean flags. (Multiple flags can 
 |**Option**|**Description**|**Extension used**|
 |:-------|:--------------|:------------------|
 |-out:pdb| PDB format, single residue | .pdb |
-|-ligand_convert:params_out| Rosetta [[Residue Params file]]s | .params |
+|-ligand_convert:params_out| Rosetta [[Residue Params file]] | .params |
 |-ligand_convert:sdf_out| SDF | .sdf |
 
 (There's currently no mmCIF output availible.)
@@ -75,7 +75,7 @@ ligand_convert.linuxgccrelease -ligand_convert:types TRP:NtermProteinFull  -liga
 Example
 =======
 
-See the integration test at rosetta/main/tests/integration/tests/ligand_convert for an example.
+See the integration test at `rosetta/main/tests/integration/tests/ligand_convert` for an example.
 
 
 ##See Also
