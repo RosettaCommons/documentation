@@ -20,7 +20,7 @@ One can use the `DNA_methylation` application to quickly methylate DNA at biolog
 |in:path|s|Name of the `.pdb` file to process.|String|
 |enzymes|species|Set the species name of this simulated enzyme. The default value is `h_sapiens`.|String|
 |enzymes|enzyme|Set the specific enzyme name of this simulated enzyme. The default value is `generic`.|String|
-|enzymes|efficiency|Set the efficiency of the this simulated enzyme, where 1.0 is 100%. The default value is read from the database.
+|enzymes|efficiency|Set the efficiency of the this simulated enzyme, where 1.0 is 100%. The default value is read from the database.|Real|
 |out|nstruct|Number of times to process each input `.pdb` file.|Integer|
 
 **Details**
