@@ -19,6 +19,7 @@ One can use the `glycosyltransfer` application to quickly glycosylate a protein 
 |in|include_sugars|Set whether or not carbohydrate residues will be loaded into Rosetta. _The default value is false._|Boolean|
 |enzymes|species|Set the species name of this simulated enzyme. The default value is `h_sapiens`.|String|
 |enzymes|enzyme|Set the specific enzyme name of this simulated enzyme. The default value is `generic`.|String|
+|enzymes|efficiency|Set the efficiency of the this simulated enzyme, where 1.0 is 100%. The default value is read from the database.|Real|
 |out|nstruct|Number of times to process each input `.pdb` file.|Integer|
 
 **Details**
