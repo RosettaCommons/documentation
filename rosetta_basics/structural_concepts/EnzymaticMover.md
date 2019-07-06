@@ -48,14 +48,16 @@ The `EnzymaticMover` framework was conceived of and implemented by Jason W.
 Labonte <JWLabonte@jhu.edu>. Please contact him with any questions or criticism.
 
 ## Types
-Currently, only two `EnzymaticMover`s are written, but many more can and will be
+Currently, three `EnzymaticMover`s are written, but many more can and will be
 added to the Rosetta code base.
-
+* [[DNAMethyltransferaseMover]]<br />
+  Simulates the activity of specific biological DNA methyltransferases by
+  methylating a DNA-containing Pose.
 * [[GlycosyltransferaseMover]]<br />
   Simulates the activity of specific biological glycosyltransferases and
   oligosaccharyltrasferases by glycosylating a Pose.
 * [[KinaseMover]]<br />
-  Simulates the activity of specific biological kinase by phosphorylating a Pose.
+  Simulates the activity of specific biological kinases by phosphorylating a Pose.
 
 ## Usage
 
@@ -151,12 +153,14 @@ co-substrates. This is the default behavior.
 
 ### Command-Line Applications
 
-Two Rosetta options flags are used specifically for interfacing with
+Three Rosetta options flags are used specifically for interfacing with
 `EnzymaticMover`s used in any protocols.
 
 * `-enzymes:species` is used to set the species name of any simulated enzymes
 used by the protocol.
 * `-enzymes:enzyme` is used to set the specific name of any simulated enzymes
+used by the protocol.
+* `-enzymes:efficiencty` is used to override the efficiency of any simulated enzymes
 used by the protocol.
 
 #### Current Apps
