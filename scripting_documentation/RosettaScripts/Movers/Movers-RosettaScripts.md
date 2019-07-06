@@ -561,8 +561,9 @@ These Movers share a common interface and simulate the activity of enzymes on a 
 
 Mover  | Description
 ------------ | -------------
+**[[DNAMethyltransferaseMover]]** | Simulates the activity of specific biological DNA methyltransferases by methylating a DNA-containing `Pose`.
 **[[GlycosyltransferaseMover]]** | Simulates the activity of specific biological glycosyltransferases and oligosaccharyltrasferases by glycosylating a `Pose`.
-**[[KinaseMover]]** | Simulates the activity of specific biological kinase by phosphorylating a `Pose`.
+**[[KinaseMover]]** | Simulates the activity of specific biological kinases by phosphorylating a `Pose`.
 
 ##See Also
 
