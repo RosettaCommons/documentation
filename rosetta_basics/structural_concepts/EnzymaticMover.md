@@ -321,4 +321,4 @@ default example of this this family of enzymes. Generally, this data will
 provide a minimal sequon, have 100% efficiency, and not be promiscuous.
 
 ----------
-Documentation created 5 April 2019 by Jason W. Labonte <JWLabonte@jhu.edu>.
+Documentation updated 5 July 2019 by Jason W. Labonte <JWLabonte@jhu.edu>.
