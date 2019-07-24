@@ -6,7 +6,7 @@ Gideon Lapidoth; glapidoth@gmail.com; Christopher Norn; ch.norn@gmail.com ;PI: S
 ##Overview
 ###Brief 
 
-This mover is used to sample different variable light and variable heavy chains orientations for antibody modeling [ABpredict](https://www.ncbi.nlm.nih.gov/pubmed/27717001)) and antibody design ([ABdesign](https://onlinelibrary.wiley.com/doi/full/10.1002/prot.24779)). The database is created using the [RBOut](https://www.rosettacommons.org/docs/wiki/edit/scripting_documentation/RosettaScripts/Movers/RBOutMover) mover.
+This mover is used to sample different variable light and variable heavy chains orientations for antibody modeling [ABpredict](https://www.ncbi.nlm.nih.gov/pubmed/27717001)) and antibody design ([ABdesign](https://onlinelibrary.wiley.com/doi/full/10.1002/prot.24779)). The database is created using the [RBOut](https://www.rosettacommons.org/docs/wiki/scripting_documentation/RosettaScripts/Movers/RBOutMover) mover.
 
 ```xml
 <RBIn name="(&string;)" rigid_body_dbase="(&string;)"
