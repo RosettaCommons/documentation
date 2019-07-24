@@ -12,14 +12,14 @@ DETAILS:
 
 ```xml
 <PerResidueClashMetric name="(&string;)" custom_type="(&string;)"
-        output_as_pdb_nums="(&string;)" residue_selector="(&string;)"
+        output_as_pdb_nums="(false &bool;)" residue_selector="(&string;)"
         use_hydrogens="(false &bool;)" soft_clash="(true &bool;)"
         dampening_percent="(.33 &real;)" residue_selector2="(&string;)" />
 ```
 
 -   **custom_type**: Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
  The custom_type name will be added to the data tag in the scorefile or features database.
--   **output_as_pdb_nums**: If outputting to scorefile use PDB numbering instead of Rosetta (default)
+-   **output_as_pdb_nums**: If outputting to scorefile use PDB numbering+chain instead of Rosetta (1 - N numbering)
 -   **residue_selector**: If a residue selector is present, we only calculate and output metrics for the subset of residues selected.
 -   **use_hydrogens**: Use Hydrogens OR calculate only heavy atom clashes
 -   **soft_clash**: IF TRUE, soften the clashing by a percent (dampening_percent).  When we calculate atom-atom distances using LJ distances, clash if distance less_than (atomI_LJ + atomJ_LJ)*(1 - dampening_percent)

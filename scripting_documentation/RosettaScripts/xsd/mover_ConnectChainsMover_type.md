@@ -22,6 +22,6 @@ only allow loops from the most frequent abegos
 -   **resAdjustmentRangeSide1_sheet**: residue adjustment applied before the loop if sheet
 -   **resAdjustmentRangeSide2_sheet**: residue adjustment applied after the loop if sheet
 -   **allowed_loop_abegos**: comma seperated string of allowed abegos, default=empty all abegos
--   **chain_connections**: (REQUIRED) what chains to connect. Format chain_connections="[A+B]"
+-   **chain_connections**: (REQUIRED) what chains to connect
 
 ---

@@ -12,7 +12,7 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 ```xml
 <PerResidueRMSDMetric name="(&string;)" custom_type="(&string;)"
-        output_as_pdb_nums="(&string;)" residue_selector="(&string;)"
+        output_as_pdb_nums="(false &bool;)" residue_selector="(&string;)"
         residue_selector_ref="(&string;)" robust="(true &bool;)"
         use_native="(false &bool;)" super="(false &bool;)"
         rmsd_type="(&rmsd_types;)" desymmetrize_selector="(true &bool;)" />
@@ -20,7 +20,7 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 -   **custom_type**: Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
  The custom_type name will be added to the data tag in the scorefile or features database.
--   **output_as_pdb_nums**: If outputting to scorefile use PDB numbering instead of Rosetta (default)
+-   **output_as_pdb_nums**: If outputting to scorefile use PDB numbering+chain instead of Rosetta (1 - N numbering)
 -   **residue_selector**: If a residue selector is present, we only calculate and output metrics for the subset of residues selected.
 -   **residue_selector_ref**: Selector for the reference pose (input native or passed reference pose. ).  Residues selected must be same number of residues selected for the main selector.
 -   **robust**: Set whether we are robust to atom mismatches for selected residues.  By default we only match atoms that are corresponding. (True).

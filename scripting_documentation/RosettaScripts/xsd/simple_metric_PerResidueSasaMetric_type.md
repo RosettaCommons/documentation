@@ -8,12 +8,12 @@ A metric for measuring per-residue SASA and adding it to the resulting score fil
 
 ```xml
 <PerResidueSasaMetric name="(&string;)" custom_type="(&string;)"
-        output_as_pdb_nums="(&string;)" residue_selector="(&string;)" />
+        output_as_pdb_nums="(false &bool;)" residue_selector="(&string;)" />
 ```
 
 -   **custom_type**: Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
  The custom_type name will be added to the data tag in the scorefile or features database.
--   **output_as_pdb_nums**: If outputting to scorefile use PDB numbering instead of Rosetta (default)
+-   **output_as_pdb_nums**: If outputting to scorefile use PDB numbering+chain instead of Rosetta (1 - N numbering)
 -   **residue_selector**: If a residue selector is present, we only calculate and output metrics for the subset of residues selected.
 
 ---
