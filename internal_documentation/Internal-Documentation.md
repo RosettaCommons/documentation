@@ -27,14 +27,6 @@ comment tags will be stripped from the documentation prior to being provided as 
 
 See [[how to write documentation|how-to-write-documentation]] for more details.
 
-## Development Overview
-- [[RosettaAcademy (or "Rosetta for Newbies")|RosettaAcademy]] - An intro guide for new RosettaCommons users and developers.
-- [[Code Template Generation | code_templates ]] - How to use the template generator scripts to generate code templates of common Rosetta classes/apps/unit tests to save development time
-- [[A guide to developing in Rosetta]] - Outdated, RosettaCommons centric developer overview.
-- [[Before commit check]] - Things to check before submission.
-- [[App name]] - Template for Rosetta application documentation.
-    - [[Template app documentation page]] - Alternative application documentation template.
-- [[ReviewerTemplate]] - A template for reviewers of application documentation.
 
 ## Rosetta Build System 
 
@@ -60,6 +52,24 @@ If you change the API for a core class (particularly if you *remove*, *rename*, 
 
 
 ## Rosetta Code-Writing Documentation
+
+### Overview
+#### RosettaAcademy
+ - [[RosettaAcademy (or "Rosetta for Newbies")|RosettaAcademy]] - An intro guide for new RosettaCommons users and developers.
+
+#### Code Template Generation
+- [[Code Template Generation | code_templates ]] - How to use the template generator scripts to generate code templates of common Rosetta classes/apps/unit tests to save development time
+
+#### Before Commit Check
+- [[Before commit check]] - Things to check before submission.
+
+#### Code Review Guide
+- [[ReviewerTemplate]] - A template for reviewers of application documentation.
+
+#### Documentation Template
+- [[App name]] - Template for Rosetta application documentation.
+- [[Template app documentation page]] - Alternative application documentation template.
+
 
 ### - [[Code Template Generation | code_templates ]] 
  - How to use the template generator scripts to generate code templates of common Rosetta classes/apps/unit tests to save development time
