@@ -20,6 +20,8 @@ To compile Rosetta with support for multi-thraeding, append the `extras=cxx11thr
 
 ###The RosettaThreadManager class
 
+The [[RosettaThreadManager]] is a global singleton that maintains a pool of threads which persist for the entire Rosetta session, to which work can be assigned.  This avoids the overhead of repeatedly launching and destroying threads.  All multithreaded code should assign work to threads by passing it to the RosettaThreadManager.  For more information, see the [[documentation page|RosettaThreadManager]] for this class.
+
 ###Threadsafe infrastructure
 
 ####The ScoringManager
