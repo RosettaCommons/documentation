@@ -46,7 +46,7 @@ Note that most developers will never need to concern themselves with the interna
 
 **TODO**
 
-### RosettaThreadManager class
+#### RosettaThreadManager class
 
 **TODO**
 
