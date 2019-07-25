@@ -215,19 +215,9 @@ Design:
 - [[Antibody Design Benchmark Analysis]]
   * Methods for analyzing various antibody design benchmarks
 
-### Carbohydrates
-
-- [[ GlycanRelax ]]
-- [[ GlycanClashCheck ]]
-- [[ GlycanInfo ]]
 
 ## Pilot RosettaScript Movers/Filters/etc.
 
-### Carbohydrates
-- [[ SimpleGlycsylateMover ]]
-- [[ GlycanRelaxMover ]]
-- [[ GlycanTreeSelector]]
-- [[ GlycanResidueSelector]]
 
 ### Antibody Design
 - [[Generalized Antibody Design Framework RS]]
