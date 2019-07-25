@@ -59,14 +59,18 @@ If you change the API for a core class (particularly if you *remove*, *rename*, 
 1. Since r59466 xyzMatrix now have .xy properties bound as 'data' instead of set/get functions. So if your code accessed this methods directly you will need to refactor it as m.xx( m.xy() ) --> m.xx = m.xy
 
 
+## Rosetta Code-Writing Documentation
+
+### [[Global Objects-Singletons in Rosetta | internal_documentation/singletons]]
+ - Creating singletons that are threadsafe. Andrew
+
+### [[Writing a New Simple Metric]]
+ - Creating a SimpleMetric instead of Filter or for general analysis
 
 ## Rosetta Method Documentation
 
 ### [[Computing SASA in Rosetta]]
  - Method for computing SASA in Rosetta written by Jared
-
-### [[Global Objects-Singletons in Rosetta | internal_documentation/singletons]]
- - Creating singletons that are threadsafe. Andrew
 
 ### Chemical XRW 2016 ##
 #### - [[Overview of File I/O Code | FileIOOverview ]]
