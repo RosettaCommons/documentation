@@ -64,7 +64,7 @@ If you change the API for a core class (particularly if you *remove*, *rename*, 
 ### [[Global Objects-Singletons in Rosetta | internal_documentation/singletons]]
  - Creating singletons that are threadsafe. Andrew
 
-### [[Writing a New Simple Metric]]
+### [[Writing a New SimpleMetric]]
  - Creating a SimpleMetric instead of Filter or for general analysis
 
 ## Rosetta Method Documentation
