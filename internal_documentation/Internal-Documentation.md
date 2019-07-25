@@ -61,11 +61,15 @@ If you change the API for a core class (particularly if you *remove*, *rename*, 
 
 ## Rosetta Code-Writing Documentation
 
-### [[Global Objects-Singletons in Rosetta | internal_documentation/singletons]]
- - Creating singletons that are threadsafe. Andrew
+### - [[Code Template Generation | code_templates ]] 
+ - How to use the template generator scripts to generate code templates of common Rosetta classes/apps/unit tests to save development time
 
 ### [[Writing a New SimpleMetric]]
  - Creating a SimpleMetric instead of Filter or for general analysis
+
+### [[Global Objects-Singletons in Rosetta | internal_documentation/singletons]]
+ - Creating singletons that are threadsafe. Andrew
+
 
 ## Rosetta Method Documentation
 
