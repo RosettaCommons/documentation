@@ -1,8 +1,10 @@
 #Writing a New SimpleMetric
 
+<!--- BEGIN_INTERNAL -->
+
 As of RosettaCon 2019, no new filters should be added to Rosetta (with few exceptions)
 
-So - what is replacing them?  SimpleMetrics.  SimpleMetrics are a tool that allows you to calculate some property of a pose, store it, and output the data into a scorefile.  These SimpleMetrics can also be used for filters and FeaturesReporters, greatly expanding their use across Rosetta. 
+So - what is replacing them?  SimpleMetrics.  SimpleMetrics are a tool that allows you to calculate some property of a pose, store it, and output the data into a scorefile.  These SimpleMetrics can also be used for Filters and FeaturesReporters, greatly expanding their use across Rosetta. 
 
 For a good description of their use, see the [[SimpleMetric | SimpleMetrics ]] documentation.  Here, we will focus on the RealMetric for writing, but any metric can be used as a filter through the [[SimpleMetricFilter]].
 
@@ -74,3 +76,5 @@ Follow other metrics and add your metric to the table for your appropriate metri
 By now, this should have shown you everything you need to write a new SimpleMetric and use it within Rosetta.  You'll also want to write a unit test for your new metric. You can write a new unit test file using the code generator, or add your simple metric test as a new function within `source/test/protocols/analysis/simple_metrics/SimpleMetricProtocols.cxxtest.hh`  Your code will need a unit test for review - so its a great way to test to make sure your code works properly. 
 
 With that - you should be good to go to use your new SimpleMetric in whatever way you desire.  Cheers!
+
+<!--- END_INTERNAL -->
