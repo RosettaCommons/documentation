@@ -58,55 +58,6 @@ If you change the API for a core class (particularly if you *remove*, *rename*, 
 ## PyRosetta API changes
 1. Since r59466 xyzMatrix now have .xy properties bound as 'data' instead of set/get functions. So if your code accessed this methods directly you will need to refactor it as m.xx( m.xy() ) --> m.xx = m.xy
 
-## Pilot Apps
-
-This is documentation for not-yet-released applications
-
-### General 
-
-- [[multi-residue-ligand-dock]] - Docking of multiple ligand residues
-
-- [[hotspot-hash]] - Documentation for Hotspot hashing
-    * [[hshash-utils]] - Utilities for Hotspot hashing
-
-- [[multistate-design-ga]] - DNA interface multistate design  
-
-- [[RosettaPCS]] - Protein folding using Pseudo-Contact-Shift NMR restraints
-
-### Antibodies
-
-[[General Antibody Options and Tips]]
-
-Utilities:
-- [[CDR Cluster Identification]]
-   * Application to Identify North/Dunbrack CDR Clusters 
-- [[CDR Cluster Constrained Relax]]
-   * Application to Relax CDRs using cluster-based dihedral constraints 
-
-Design:
-- [[Rosetta Antibody Designer (RAbD) | RosettaAntibodyDesign]]
-  * Application for knowledge-based Antibody Design based on CDR clusters and cellular mimicry
-- [[Antibody Design Strategy Analysis]]
-  * Methods for analyzing various antibody design strategies
-- [[Antibody Design Benchmark Analysis]]
-  * Methods for analyzing various antibody design benchmarks
-
-### Carbohydrates
-
-- [[ GlycanRelax ]]
-- [[ GlycanClashCheck ]]
-- [[ GlycanInfo ]]
-
-## Pilot RosettaScript Movers/Filters/etc.
-
-### Carbohydrates
-- [[ SimpleGlycsylateMover ]]
-- [[ GlycanRelaxMover ]]
-- [[ GlycanTreeSelector]]
-- [[ GlycanResidueSelector]]
-
-### Antibody Design
-- [[Generalized Antibody Design Framework RS]]
 
 
 ## Rosetta Method Documentation
@@ -226,6 +177,56 @@ Input Files:
  * [[Assembly of models]] 
 - [[Sidechain Design aided by Sewing]]
 - [[SEWING Dictionary]]
+
+## Pilot Apps
+
+This is documentation for not-yet-released applications
+
+### General 
+
+- [[multi-residue-ligand-dock]] - Docking of multiple ligand residues
+
+- [[hotspot-hash]] - Documentation for Hotspot hashing
+    * [[hshash-utils]] - Utilities for Hotspot hashing
+
+- [[multistate-design-ga]] - DNA interface multistate design  
+
+- [[RosettaPCS]] - Protein folding using Pseudo-Contact-Shift NMR restraints
+
+### Antibodies
+
+[[General Antibody Options and Tips]]
+
+Utilities:
+- [[CDR Cluster Identification]]
+   * Application to Identify North/Dunbrack CDR Clusters 
+- [[CDR Cluster Constrained Relax]]
+   * Application to Relax CDRs using cluster-based dihedral constraints 
+
+Design:
+- [[Rosetta Antibody Designer (RAbD) | RosettaAntibodyDesign]]
+  * Application for knowledge-based Antibody Design based on CDR clusters and cellular mimicry
+- [[Antibody Design Strategy Analysis]]
+  * Methods for analyzing various antibody design strategies
+- [[Antibody Design Benchmark Analysis]]
+  * Methods for analyzing various antibody design benchmarks
+
+### Carbohydrates
+
+- [[ GlycanRelax ]]
+- [[ GlycanClashCheck ]]
+- [[ GlycanInfo ]]
+
+## Pilot RosettaScript Movers/Filters/etc.
+
+### Carbohydrates
+- [[ SimpleGlycsylateMover ]]
+- [[ GlycanRelaxMover ]]
+- [[ GlycanTreeSelector]]
+- [[ GlycanResidueSelector]]
+
+### Antibody Design
+- [[Generalized Antibody Design Framework RS]]
 
 # Rosetta (not on) GPU
 [[internal_documentation/Rosetta-GPU-conversation-transcription]]
