@@ -145,34 +145,6 @@ If you change the API for a core class (particularly if you *remove*, *rename*, 
 ### Fragment assembly of RNA (FARNA) renovation, unification with stepwise
 - [[FARNA|farna-refactor]] is Rosetta's original RNA de novo modeling code (dating back to Rosetta++). It is undergoing some updates in 2015-2016.
 
-### Antibodies
-[[General Antibody Options and Tips]]
-
-Utilities:
-- [[CDR Cluster Identification]]
-   * Application to Identify North/Dunbrack CDR Clusters 
-- [[CDR Cluster Constrained Relax]]
-   * Application to Relax CDRs using cluster-based dihedral constraints 
-
-Design:
-- [[Rosetta Antibody Designer (RAbD) | RosettaAntibodyDesign]]
-  * Application for knowledge-based Antibody Design based on CDR clusters and cellular mimicry
-- [[Antibody Design Strategy Analysis]]
-  * Methods for analyzing various antibody design strategies
-- [[Antibody Design Benchmark Analysis]]
-  * Methods for analyzing various antibody design benchmarks
-
-Features Reporters:
-- [[Antibody Features]]
-- [[CDR Cluster Features]]
-- [[Interface Features]]
-
-RosettaScripts Documentation:
-- [[Generalized Antibody Design Framework RS]]
-
-Input Files:
-- [[CDR Instruction File]]
- * CDR Level control of Antibody Design and CDRSets used for Antibody modeling
 
 ### S.E.W.I.N.G. Protocol
 - [[SEWING]]
@@ -197,30 +169,6 @@ This is documentation for not-yet-released applications
 
 - [[RosettaPCS]] - Protein folding using Pseudo-Contact-Shift NMR restraints
 
-### Antibodies
-
-[[General Antibody Options and Tips]]
-
-Utilities:
-- [[CDR Cluster Identification]]
-   * Application to Identify North/Dunbrack CDR Clusters 
-- [[CDR Cluster Constrained Relax]]
-   * Application to Relax CDRs using cluster-based dihedral constraints 
-
-Design:
-- [[Rosetta Antibody Designer (RAbD) | RosettaAntibodyDesign]]
-  * Application for knowledge-based Antibody Design based on CDR clusters and cellular mimicry
-- [[Antibody Design Strategy Analysis]]
-  * Methods for analyzing various antibody design strategies
-- [[Antibody Design Benchmark Analysis]]
-  * Methods for analyzing various antibody design benchmarks
-
-
-## Pilot RosettaScript Movers/Filters/etc.
-
-
-### Antibody Design
-- [[Generalized Antibody Design Framework RS]]
 
 # Rosetta (not on) GPU
 [[internal_documentation/Rosetta-GPU-conversation-transcription]]
