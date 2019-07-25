@@ -8,7 +8,7 @@ This page was created on 25 July 2019 by Vikram K. Mulligan, Flatiron Institute 
 
 The RosettaThreadManager is a global singleton that manages a pool of threads, and allows modules at many different levels in the Rosetta hierarchy to assign work to threads, while avoidng deadlock, thread explosions, or other problems as described below.
 
-##The problem
+##The problems that the RosettaThreadManager aims to address
 
 Historically, Rosetta has been built around a single-threaded paradigm: a given instance of Rosetta would run on one CPU, and would execute a series of instructions in linear sequence, producing an output.  Multiple CPUs could only be harnessed by running entirely separate, parallel instances of Rosetta.  This creates several problems.
 
