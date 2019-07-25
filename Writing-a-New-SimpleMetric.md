@@ -1,6 +1,4 @@
 #Writing a New SimpleMetric
-Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com), 7/25/19
-
 
 As of RosettaCon 2019, no new filters should be added to Rosetta (with few exceptions)
 
