@@ -54,7 +54,7 @@ The basic (preferred) interface for the RosettaThreadManager ****TODO CONTINUE H
 
 ##Example of work distribution over threads in a typical Rosetta session
 
-![Example of work distribution over threads in a typical Rosetta session](Multithreading_Example.png)
+![Example of work distribution over threads in a typical Rosetta session](RosettaThreadManagerExample.png)
 
 **TODO**
 
