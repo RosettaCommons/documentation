@@ -34,6 +34,7 @@ Certain capping schemes can create their own problems.  Let's suppose that ***TO
 
 ##Structure of the RosettaThreadManager
 
+<img src="RosettaThreadManager_Diagram.png" alt="Rosetta's threading infrastructure" />
 
 
 ### API
