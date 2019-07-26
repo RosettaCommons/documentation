@@ -36,7 +36,7 @@ Certain capping schemes can create their own problems.  Let's suppose that ***TO
 
 The RosettaThreadManager contains a RosettaThreadPool object, which in turn contains a vector of RosettaThread objects.  The RosettaThreadPool is initialized (and launches its threads) the first time that anything asks the RosettaThreadManager to run code in threads.  The thread pool, and its associated threads, persist for the duration of the Rosetta session.  The container structure is shown in the figure below.
 
-<img src="development_documentation/RosettaThreadManager.png" alt="Rosetta's threading infrastructure" />
+!["Rosetta's threading infrastructure"](RosettaThreadManager.png")
 
 The RosettaThreadManager accepts requests that work run in threads (from any Rosetta module).  It receives information along with the request about where in the Rosetta code the request originated (_e.g._ from the job distributor, from a mover or filter, from the packer, _etc._).  At this point, there is the opportunity to make decisions about the extent to which requests will be honoured -- for example, rules like, "requests from core modules never get more than half the threads," or, "limit movers to two threads," could be imposed.  Currently, the RosettaThreadManager imposes a much simpler rule: the requesting module gets as many threads as have been requested, or the number available (whichever is less).  Since the requesting thread is always assigned to the task, at least one thread is always available.
 
