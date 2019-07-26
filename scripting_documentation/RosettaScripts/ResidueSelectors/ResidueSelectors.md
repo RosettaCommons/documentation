@@ -214,11 +214,11 @@ Selects CDR residues in an antibody or camelid antibody.
 - PIs: Dr. Roland Dunbrack and Dr. William Schief
 
 ```xml
-    <CDR name="(&string)" cdrs="(&string,&string)" numbering_scheme="(&string)" cdr_definition="(&string)" />
+    <CDR name="(&string)" cdrs="(&string,&string)" input_ab_scheme="(&string)" cdr_definition="(&string)" />
 ```
 
 -   _cdrs (&string,&string)_ (default=all cdrs):  Select the set of CDRs you wish to restrict to (ex: H1 or h1) 
--   _numbering_scheme (&string)_:  Set the antibody numbering scheme.  Must also set the cdr_definition XML option. Both options can also be set through the command line (recommended).  See [[General Antibody Tips | General-Antibody-Options-and-Tips]] for more info.
+-   _input_ab_scheme (&string)_:  Set the antibody numbering scheme.  Must also set the cdr_definition XML option. Both options can also be set through the command line (recommended).  See [[General Antibody Tips | General-Antibody-Options-and-Tips]] for more info.
 -   _cdr_definition (&string)_: Set the cdr definition you want to use.  Must also set the numbering_scheme XML option. 
 
 -  See Also:
