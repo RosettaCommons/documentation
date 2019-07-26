@@ -28,9 +28,7 @@ Let's suppose that a high-level Rosetta module launches 16 threads to carry out 
 
 ### The problem of avoiding deadlock
 
-Certain capping schemes can create their own problems.  Let's suppose that ***TODO CONTINUE HERE***
-
-**CONTINUE HERE**
+Certain capping schemes can create their own problems.  Let's suppose that ****TODO CONTINUE HERE****
 
 ##Structure of the RosettaThreadManager
 
@@ -46,31 +44,17 @@ If the basic RosettaThreadManager API is used (as is preferred), the RosettaThre
 
 #### Basic work vector interface
 
-The basic (preferred) interface for the RosettaThreadManager
+The basic (preferred) interface for the RosettaThreadManager ****TODO CONTINUE HERE****
 
 #### Advanced parallel function interface
 
-**TODO**
+****TODO****
 
 ##### RosettaThreadManagerAdvancedAPIKey class
 
-### Internal workings
-
-Note that most developers will never need to concern themselves with the internal workings of the RosettaThreadManager.  They are documented here only for completeness.
-
-#### RosettaThread class
-
-**TODO**
-
-#### RosettaThreadPool class
-
-**TODO**
-
-#### RosettaThreadManager class
-
-**TODO**
-
 ##Example of work distribution over threads in a typical Rosetta session
+
+![Example of work distribution over threads in a typical Rosetta session](Multithreading_Example.png)
 
 **TODO**
 
