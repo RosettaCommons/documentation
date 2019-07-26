@@ -34,14 +34,19 @@ Certain capping schemes can create their own problems.  Let's suppose that ***TO
 
 ##Structure of the RosettaThreadManager
 
-<img src="RosettaThreadManager_Diagram.png" alt="Rosetta's threading infrastructure" />
+The RosettaThreadManager contains a RosettaThreadPool object, which in turn contains a vector of RosettaThread objects.  The RosettaThreadPool is initialized (and launches its threads) the first time that anything asks the RosettaThreadManager to run code in threads.  The thread pool, and its associated threads, persist for the duration of the Rosetta session.  The container structure is shown in the figure below.
 
+<img src="development_documentation/RosettaThreadManager.png" alt="Rosetta's threading infrastructure" />
+
+The RosettaThreadManager accepts requests that work run in threads (from any Rosetta module).  It receives information along with the request about where in the Rosetta code the request originated (_e.g._ from the job distributor, from a mover or filter, from the packer, _etc._).  At this point, there is the opportunity to make decisions about the extent to which requests will be honoured -- for example, rules like, "requests from core modules never get more than half the threads," or, "limit movers to two threads," could be imposed.  Currently, the RosettaThreadManager imposes a much simpler rule: the requesting module gets as many threads as have been requested, or the number available (whichever is less).  Since the requesting thread is always assigned to the task, at least one thread is always available.
+
+If the basic RosettaThreadManager API is used (as is preferred), the RosettaThreadManager has been handed a vector of work.  It constructs a vector of mutexes equal in length to the work vector, then bundles both vectors with a work function to be executed in parallel.  This function is passed to the RosettaThreadPool which runs it in many threads.  The thread copies of the function draw work from the work vector while using the corresponding mutex vector to ensure that other thread copies of the function don't attempt to do the same blocks of work.  Since each thread claims the next piece of available work as it finished the work that it was doing, the function automatically load-balances itself.  When no more work is available, it blocks until all copies of itself have terminated, then returns control to the RosettaThreadManager, which returns control to the calling module.
 
 ### API
 
 #### Basic work vector interface
 
-**TODO**
+The basic (preferred) interface for the RosettaThreadManager
 
 #### Advanced parallel function interface
 
