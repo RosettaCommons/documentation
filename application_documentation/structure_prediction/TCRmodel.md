@@ -81,7 +81,7 @@ After submission of TCR sequences, the results will provide the parsed CDR loop 
 |-template_similarity_cutoff|Similarity cutoff to ignore similar template sequences from template database. Default:100|Real|
 |-template_identity_cutoff|Identity cutoff to ignore similar template sequences from template database.Default:100|Real|
 |-blastp_identity_cutoff|Identity cutoff to ignore similar template sequences from template database.Default:100|Real|
-|-ignore_list|List of PDB id's to ignore as templates.Default:None|Boolean|
+|-ignore_list|List of PDB id's to ignore as templates.Default:None|File|
 |-use_alpha_germline_templates|use germline templates for alpha chain, by default germline or framework templates choosen by sequence match. Default=False|Boolean|
 |-use_beta_germline_templates|use germline templates for beta chain, by default germline or framework templates choosen by sequence match. Default:False|Boolean|
 |-use_user_templates|use user provided templates for TCR segments, useful for testing and integrations tests. Default:false|Boolean|
