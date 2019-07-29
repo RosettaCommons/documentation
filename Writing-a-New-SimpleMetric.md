@@ -2,7 +2,7 @@
 
 <!--- BEGIN_INTERNAL -->
 
-As of RosettaCon 2019, no new filters should be added to Rosetta (with few exceptions)
+As of RosettaCon 2019, no new filters should be added to Rosetta*  
 
 So - what is replacing them?  SimpleMetrics.  SimpleMetrics are a tool that allows you to calculate some property of a pose, store it, and output the data into a scorefile.  These SimpleMetrics can also be used for Filters and FeaturesReporters, greatly expanding their use across Rosetta. 
 
@@ -10,6 +10,7 @@ For a good description of their use, see the [[SimpleMetric | SimpleMetrics ]] d
 
 [[_TOC_]]
 
+`*`Exception: A Filter wrapper that calls on the core SimpleMetric to do its calculation, and parse it's XML interface. This thin wrapper should only have additional code for cutoffs, nothing more.
 ##Template Generation
 
 In order to write a SimpleMetric, the easiest way to start off is to use the [[code template generators | code_templates]].  For each SimpleMetric, there is a type associated with it.  For now, we use a real metric and have the generator place the files in the main SimpleMetric directory: `core/simple_metrics/metrics`.
