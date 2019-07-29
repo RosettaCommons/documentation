@@ -8,9 +8,12 @@ So - what is replacing them?  SimpleMetrics.  SimpleMetrics are a tool that allo
 
 For a good description of their use, see the [[SimpleMetric | SimpleMetrics ]] documentation.  Here, we will focus on the RealMetric for writing, but any metric can be used as a filter through the [[SimpleMetricFilter]].
 
+--------
+`*`Exception: A Filter wrapper that calls on the core SimpleMetric to do its calculation, and parse it's XML interface. This thin wrapper should only have additional code for cutoffs, nothing more.
+
 [[_TOC_]]
 
-`*`Exception: A Filter wrapper that calls on the core SimpleMetric to do its calculation, and parse it's XML interface. This thin wrapper should only have additional code for cutoffs, nothing more.
+
 ##Template Generation
 
 In order to write a SimpleMetric, the easiest way to start off is to use the [[code template generators | code_templates]].  For each SimpleMetric, there is a type associated with it.  For now, we use a real metric and have the generator place the files in the main SimpleMetric directory: `core/simple_metrics/metrics`.
