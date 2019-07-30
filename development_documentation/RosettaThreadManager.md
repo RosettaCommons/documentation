@@ -38,13 +38,13 @@ The RosettaThreadManager contains a RosettaThreadPool object, which in turn cont
 
 The RosettaThreadManager accepts requests that work run in threads (from any Rosetta module).  It receives information along with the request about where in the Rosetta code the request originated (_e.g._ from the job distributor, from a mover or filter, from the packer, _etc._).  At this point, there is the opportunity to make decisions about the extent to which requests will be honoured -- for example, rules like, "requests from core modules never get more than half the threads," or, "limit movers to two threads," could be imposed.  Currently, the RosettaThreadManager imposes a much simpler rule: the requesting module gets as many threads as have been requested, or the number available (whichever is less).  Since the requesting thread is always assigned to the task, at least one thread is always available.
 
-If the basic RosettaThreadManager API is used (as is preferred), the RosettaThreadManager has been handed a vector of work.  It constructs a vector of mutexes equal in length to the work vector, then bundles both vectors with a work function to be executed in parallel.  This function is passed to the RosettaThreadPool which runs it in many threads.  The thread copies of the function draw work from the work vector while using the corresponding mutex vector to ensure that other thread copies of the function don't attempt to do the same blocks of work.  Since each thread claims the next piece of available work as it finished the work that it was doing, the function automatically load-balances itself.  When no more work is available, it blocks until all copies of itself have terminated, then returns control to the RosettaThreadManager, which returns control to the calling module.
-
 ### API
 
 #### Basic work vector interface
 
-The basic (preferred) interface for the RosettaThreadManager ****TODO CONTINUE HERE****
+If the basic RosettaThreadManager API is used (as is preferred), a module sends a request to the RosettaThreadManager for work to run in threads.  The requesting module passes to the RosettaThreadManager a vector of pieces of work, each of which is a function bundled with its arguments using `std::bind`.  These functions must be able to run in any order, concurrently or in sequence, and must all return nothing (`void`).  The requesting function also specifies a requested number of threads.  Optionally, it may pass an owning pointer to a ***TODO CONTINUE HERE***
+
+On receiving a request, the RosettaThreadManager constructs a vector of mutexes equal in length to the work vector, then bundles both vectors with a work function to be executed in parallel.  This function is passed to the RosettaThreadPool which runs it in many threads.  The thread copies of the function draw work from the work vector while using the corresponding mutex vector to ensure that other thread copies of the function don't attempt to do the same blocks of work.  Since each thread claims the next piece of available work as it finished the work that it was doing, the function automatically load-balances itself.  When no more work is available, it blocks until all copies of itself have terminated, then returns control to the RosettaThreadManager, which returns control to the calling module.
 
 #### Advanced parallel function interface
 
