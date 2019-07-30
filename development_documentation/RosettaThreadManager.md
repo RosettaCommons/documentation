@@ -28,7 +28,7 @@ Let's suppose that a high-level Rosetta module launches 16 threads to carry out 
 
 ### The problem of avoiding deadlock
 
-Certain capping schemes can create their own problems.  Let's suppose that ****TODO CONTINUE HERE****
+Certain capping schemes can create their own problems, in that they can result in threads that are waiting for other threads to complete their work before scheduling their own work.  In the worst case, these can create deadlock: thread A could be waiting for thread B, while thread B waits for thread A, resulting in both threads waiting permanently.  This too is avoided by the RosettaThreadManager.
 
 ##Structure of the RosettaThreadManager
 
