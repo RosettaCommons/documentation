@@ -45,19 +45,37 @@ task_operations="(&string)" scorefxn="(&string)"/>
 
 There are three ways to define the threadable residues.  If you do nothing, the C-terminal will be selected along with the loop preceding it.  Setting <b>n_term</b> to true will use the N-terminal helix and loop instead.  Setting <b>graft_on_latch_loop</b> to false will just use the corresponding helix.
 
-\\Put example here
+```xml
+<GraftSwitchMover name="lockr_des" graft_on_latch_loop="false" 
+sequence="LPMSCAQES" important_residues="5,6" />
+```
 
 If you define start and end it will thread on all residues between the defined positions.  Both must be defined if one is, otherwise mover will throw an error.
 
-\\Put example here
+```xml
+<GraftSwitchMover name="lockr_des" start="240" end="260"
+sequence="LPMSCAQES" important_residues="5,6" />
+```
 
 A residue selector can be used to define a discontinuous set of residues.  The mover will programmatically determine where in that discontinuous set your sequence(s) fit.
 
 \\Put example here
+<RESIDUE_SELECTORS>
+    #Select both terminal helices but not HBNet residues
+    <ResiduePDBInfoHasLabel name="hbnet_residues" property="HBNet" />
+    <Not name="not_HBnet" selector="hbnet_residues"/>
+    <SSElement name="n_helix" selection="1,H" />
+    <SSElement name="c_helix" selection="-1,H" />
+    <Or name="terminal_helices" selectors="n_helix,c_helix"/>
+
+    <And name="threadable_residues" selectors="not_HBnet,terminal_helices"/>
+</RESIDUE_SELECTORS>
+<MOVERS>
+    <GraftSwitchMover name="lockr_des" selector="threadable_residues"
+    sequence="LPMSCAQES" important_residues="5,6" />
+</MOVERS>
 
 Using MultiplePoseMover for downstream design and filtering is necessary to capture all the output from this mover.
-
-\\Put example here
 
 ##See Also
 
