@@ -10,7 +10,7 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 It does the threading by allowing the task to only enable these residues and then does a repacking. Optionally repack neighbors so we save one more step.
 
 A sequence is just a string, additional '-' charactors denote to skip this position in the thread.
-Default is 5 rounds of packing.  If the sequence would be threaded past the C-terminus, the returned pose will have just the sequence threaded up to the end of the pose - additional residues will not be added or modeled.
+Default is 5 rounds of packing.  If the sequence would be threaded past the C-terminus, the returned pose will have the sequence threaded up to the end of the pose - additional residues will not be added or modeled.
 
 SimpleThreadingMover supports symmetric poses.
 
