@@ -59,7 +59,7 @@ sequence="LPMSCAQES" important_residues="5,6" />
 
 A residue selector can be used to define a discontinuous set of residues.  The mover will programmatically determine where in that discontinuous set your sequence(s) fit.
 
-\\Put example here
+```xml
 <RESIDUE_SELECTORS>
     #Select both terminal helices but not HBNet residues
     <ResiduePDBInfoHasLabel name="hbnet_residues" property="HBNet" />
@@ -74,6 +74,7 @@ A residue selector can be used to define a discontinuous set of residues.  The m
     <GraftSwitchMover name="lockr_des" selector="threadable_residues"
     sequence="LPMSCAQES" important_residues="5,6" />
 </MOVERS>
+```
 
 Using MultiplePoseMover for downstream design and filtering is necessary to capture all the output from this mover.
 
