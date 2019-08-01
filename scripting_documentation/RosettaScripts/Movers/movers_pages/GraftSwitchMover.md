@@ -47,14 +47,14 @@ There are three ways to define the threadable residues.  If you do nothing, the 
 
 ```xml
 <GraftSwitchMover name="lockr_des" graft_on_latch_loop="false" 
-sequence="LPMSCAQES" important_residues="5,6" />
+sequence="L-MSCAQES" important_residues="5,6" />
 ```
 
 If you define start and end it will thread on all residues between the defined positions.  Both must be defined if one is, otherwise mover will throw an error.
 
 ```xml
 <GraftSwitchMover name="lockr_des" start="240" end="260"
-sequence="LPMSCAQES" important_residues="5,6" />
+sequence="L-MSCAQES" important_residues="5,6" />
 ```
 
 A residue selector can be used to define a discontinuous set of residues.  The mover will programmatically determine where in that discontinuous set your sequence(s) fit.
@@ -72,7 +72,7 @@ A residue selector can be used to define a discontinuous set of residues.  The m
 </RESIDUE_SELECTORS>
 <MOVERS>
     <GraftSwitchMover name="lockr_des" selector="threadable_residues"
-    sequence="LPMSCAQES" important_residues="5,6" />
+    sequence="L-MSCAQES" important_residues="5,6" />
 </MOVERS>
 ```
 
