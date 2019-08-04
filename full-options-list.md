@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-06-27
+Generated: 2019-08-04
 
 _Note that some application specific options may not be present in this list._
 
@@ -184,7 +184,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-PDB_components_overrides</b> \<StringVector\></dt>
 <dd>Any supplementary CIF file from which to load the PDB component definitions. These take first priority and can be used to correct the directory.<br/>Default: []<br/></dd>
 <dt><b>-check_all_PDB_components</b> \<Boolean\></dt>
-<dd>Check all PDB components even if they have a name3 that overlaps with a Rosetta type.<br/>Default: false<br/></dd>
+<dd>When set false, ignore PDB components with a name3 matching a Rosetta database type, even if they're chemically different.<br/>Default: true<br/></dd>
 <dt><b>-extra_res_database</b> \<String\></dt>
 <dd>the name of a database containing fullatom residue types (e.g. ligands)<br/></dd>
 <dt><b>-extra_res_pq_schema</b> \<String\></dt>
@@ -742,6 +742,8 @@ _Note that some application specific options may not be present in this list._
 <dd>run idealize first, before running whatever.<br/></dd>
 <dt><b>-interactive</b> \<Boolean\></dt>
 <dd>Signal Rosetta is to be run as a library in an interactive application. In particular, favor throwing exceptions on bad inputs rather than exiting.<br/>Default: false<br/></dd>
+<dt><b>-nosignal</b> \<Boolean\></dt>
+<dd>Don't install the signal handler to catch segfaults, etc. in the crash reporter. Useful for running under a debugger.<br/>Default: false<br/></dd>
 <dt><b>-condor</b> \<Boolean\></dt>
 <dd>if condor say yes -- proc_id counting starts at 0<br/>Default: false<br/></dd>
 <dt><b>-nproc</b> \<Integer\></dt>
@@ -1517,6 +1519,13 @@ _Note that some application specific options may not be present in this list._
 <dd>use this 6D potential for all loop_close instead of database files (for testing only!)<br/>Default: ""<br/></dd>
 <dt><b>-use_cubic_interp</b> \<Boolean\></dt>
 <dd>cubic interpolation for 6D potential, instead of polylinear<br/>Default: true<br/></dd>
+</dl>
++ <h2>-multithreading</h2>
+<dl>
+<dt><b>-multithreading</b> \<Boolean\></dt>
+<dd>multithreading option group<br/></dd>
+<dt><b>-total_threads</b> \<Integer\></dt>
+<dd>The number of threads to launch in the global thread pool.  All thread-parallelized work will be distributed over these threads.<br/>Default: 1<br/></dd>
 </dl>
 + <h2>-recon</h2>
 <dl>
