@@ -3,7 +3,7 @@ Page created by Bobby Langan (robert.langan@gmail.com).  Last updated 26 Februar
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## GraftSwitchMover
 
-Grafts a sequence onto the latch of a LOCKR type protein [Langan RA, Ng AH, Boyken SE, et. al Nature 2019](https://www.rosettacommons.org/docs/wiki/Home). Returns all threads where average degree of defined "important residues" is greater than the cutoff (defualt=6). "Important residues" are user defined as the residues that must be buried in the cage/latch interface. User defines the set of threadable residues either by start/end positions or by residue selector and the mover determines where in that set the defined sequence(s) can fit.  If set of residues not defined in those ways, the mover selects the C-terminal helix.  Mover will select the N-terminal helix and/or the loop adjacent to the terminal helix as defined by user parameters.
+Grafts a sequence onto the latch of a LOCKR type protein ([Langan RA, Ng AH, Boyken SE, et. al Nature 2019])(https://www.nature.com/articles/s41586-019-1432-8). Returns all threads where average degree of defined "important residues" is greater than the cutoff (defualt=6). "Important residues" are user defined as the residues that must be buried in the cage/latch interface. User defines the set of threadable residues either by start/end positions or by residue selector and the mover determines where in that set the defined sequence(s) can fit.  If set of residues not defined in those ways, the mover selects the C-terminal helix.  Mover will select the N-terminal helix and/or the loop adjacent to the terminal helix as defined by user parameters.
 
 Mover returns several poses - MultiplePoseMover must be used for downstream design and filtering.
 
