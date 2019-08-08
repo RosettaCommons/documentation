@@ -451,9 +451,16 @@ See [[RosettaScriptsLoopModeling]] for an overview.
 
 Mover  | Description
 ------------ | -------------
-**[[LoopModeler|LoopModelerMover]]** | Performs a standard loop modeling simulation
+**[[RemodelMover]]** | Remodel and rebuild a protein chain
+**[[LoopRemodelMover]]** | Perturbs and/or refines a set of user-defined loops. Useful to sample a variety of loop conformations.
+**[[ConnectChainsMover|mover_ConnectChainsMover_type]]** |  Best for helix-helix loops?
+**[[LoopHashLoopClosureMover|mover_LoopHashLoopClosureMover_type]]** |
+**[[LoopHash|mover_LoopHash_type]]** |
+**[[LoopCreationMover]]** | not available in released versions
+**[[LoopModeler|LoopModelerMover]]** | Performs a standard loop modeling simulation (KIC or LoopHash)
 **[[LoopBuilder|LoopBuilderMover]]** | Builds backbone atoms for loops with missing residues
 **[[LoopProtocol|LoopProtocolMover]]** | Optimizes the backbone of a loop region via a Monte Carlo simulation
+**[[CCDLoopClosureMover|mover_CCDLoopClosureMover_type]]** | Performs loops closure using the CCD algorithm.
 **[[KicMover]]** | Generates backbone conformations using the kinematic closure algorithm 
 **[[RepackingRefiner|RepackingRefinerMover]]** | Refines the sidechains around a loop using the standard repacker
 **[[RotamerTrialsRefiner|RotamerTrialsRefinerMover]]** | Refines the sidechains in and around a loop using rotamer trials
