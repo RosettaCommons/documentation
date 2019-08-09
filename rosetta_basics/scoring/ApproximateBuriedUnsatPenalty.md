@@ -39,7 +39,7 @@ This is the full option list: (Options not listed above were set to default valu
 <SCOREFXNS>
     <ScoreFunction name="sfxn" weights="beta_nov16" >
         <Reweight scoretype="approximate_buried_unsat_penalty" weight="5.0" />
-        <Set approximate_buried_unsat_penalty_hbond_energy_threshold="-0.25" />
+        <Set approximate_buried_unsat_penalty_hbond_energy_threshold="-0.5" />
         <Set approximate_buried_unsat_penalty_burial_atomic_depth="4.0" />
         <Set approximate_buried_unsat_penalty_burial_probe_radius="2.3" />
         <Set approximate_buried_unsat_penalty_burial_resolution="0.5" />
@@ -66,7 +66,7 @@ Additionally, if one is using this term with the intention of eliminating <b>all
 ## Justification for suggested usage parameters
 This is pretty hand-wavy. But I think more information is better than less information!
 
-* approximate_buried_unsat_penalty_hbond_energy_threshold - suggested -0.25 - Below this cutoff, Rosetta will allow hbonds that really stretch the definition of an hbond. One would prefer the method return good hbonds
+* approximate_buried_unsat_penalty_hbond_energy_threshold - suggested -0.5 - Below this cutoff, Rosetta will allow hbonds that really stretch the definition of an hbond. One would prefer the method return good hbonds
 * approximate_buried_unsat_penalty_burial_atomic_depth - suggested 4.0 - With the new VBUNS definition set to 5.5 (see BuriedUnsatFilter), one needs a buffer region such that if the pose moves during minimization, new unsats to not appear
 * approximate_buried_unsat_penalty_burial_probe_radius - suggested 2.3 - Found through trial and error. With the poly-leucine pose, this is the number that still enters shallow pockets but doesn't infiltrate the core
 * approximate_buried_unsat_penalty_burial_resolution - suggested 0.5 - The atomic depth gets recalculated for every scorefunction invocation. Give up a bit of resolution (compared to 0.25) for speed.
