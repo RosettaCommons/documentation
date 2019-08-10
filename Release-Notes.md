@@ -2,9 +2,138 @@
 
 <!--- BEGIN_INTERNAL -->
 ## _Rosetta 3.11 (draft notes)_
-**NOTE: As of September 2018, <u>Rosetta 3.10</u> is the currently-contemplated new version.  If you contributed something to it, put it in the release notes BELOW.  I'm starting Rosetta 3.11 release notes for features that were added after the Rosetta 3.10 release. -VKM**
 
+## Rosetta 3.11
+
+### New applications
+* A simple restype conversion utility which allows you to specify certain residue types from the database (including patched types), CCD or command line, and output them in PDB, sdf or params file output.
+* shotgun glycomutagenesis, using the [[GlycosyltransferaseMover]].
+* [[PackerPalette]] is not an application per-se but totally rewires design with noncanonicals to work in a more intuitive and straightforward fashion
+* [[TCRmodel]] (T Cell Receptor)
+* support for peptoid macrocycle structure prediction
+* create_clash-based_repack_shell (Ahem)
+* application to generate mainchain potentials for noncanonicals
+* [[ERRASER2]]
+* [[MultistageRosettaScripts]]
+* [[cartesian_ddg]]
+
+### Improvements to applications:
+* [[GALigandDock]]: density scoring
+* [[AntibodyModelerProtocol]]: [[LoopModeler]] compatibility
+* [[energy_based_clustering_application]]: bin strings mode
+* [[RosettaScripts]]: Output poses are only rescored automatically if the OUTPUT block says to; otherwise the last scoring data is left intact and reported.  Improved behavior in both cases.
+* Silent files now work with [[hbnet]] and [[PyRosetta]]
+* FARFAR#
+* [[RAbD]] nanobody compatibility
+* [[mp_domain_assembly]]
+
+###New tools and scorefunctions
+* [[pHVariantTaskOperation]] for -pH_mode
+* [[franklin2019]], for implicit membranes (https://www.biorxiv.org/content/10.1101/630715v1)
+* [[TautomerizeAnomerMover]]
+* [[EnzymaticMover]] (tools that make PTMs based on local sequence): better grammar for identifying what sequences should be acted upon
+** [[GlycosyltransferaseMover]]
+** There's a kinase
+* silent files compatible with [[PDBInfoLabels]]
+* [[RingConformerSet]] now allows aromatic ring conformers
+* [[GraftSwitchMover]]
+* [[mmTF]] support
+* [[RosettaThreadManager]] is online.  Few protocols use it as of yet, but multithreading is on the way.
+* [[NMerSVMEnergy]] and [[MHCEpitopeEnergy]]
+* PDB output now has header sections and options for author cards and further details
+** SEQRES lines in PDB file IO available
+* [[ResiduePropertySelector]]
+* [[ElectrostaticComplementarityMetric]]
+* Tools to export [[InteractionGraph]] to external code, so that the packing step can be done with QUANTUM COMPUTERS OH MY GOD IT'S THE FUTURE
+* [[ResidueSummaryMetric]]
+* [[InteractionEnergyMetric]]
+* [[PerResidueClashMetric]]
+* [[SequenceRecoveryMetric]]
+* A disulfide optimization mover
+* [[mhc_epitope]] scoreterm
+* [[RelaxScriptManager]]
+* Serialized Poses as a more formal serialization than the silent file
+* [[RotamerSetsObjects]] framework
+** [[PruneBuriedUnsatsOperation]]
+* [[PerResidueGlycanLayerMetric]]
+* [[MasterSubunitSelector]]
+* [[ProtocolSettingsMetric]]
+
+Improvements/bugfixes to classes:
+* [[JD3]] and its ecosystem
+* [[RingPlaneFlipMover]]
+* [[NubInitioMover]]
+* [[CoupledMoves]]: [[RosettaScripts]] compatibility and new features
+* [[AtomicContactCount]]
+* [[AntibodyDesignMover]]
+* [[BuriedUnsatisfiedHBonds]] or [[BuriedUnsatHbondFilter]]
+* [[approximate_buried_unsat_penalty]] or [[approximate_buried_unsat_energy]]
+* [[SetSecStructEnergies]]
+* [[NearNativeLoopClosure]]
+* [[StructureProfile]]
+* [[ForceDisulfidesMover]]
+* [[RandomMutationMover]]
+* [[CovalentLabelingEnergy]]
+* [[MotifGraft]]
+* Bugfix to loading residues from the PDB Chemical Components Database
+* [[SimpleMetrics]] work in PyRosetta
+* [[ForceDisulfideMover]]
+* [[ShapeGrid]]
+* [[RamaPrePro]] (efficiency)
+* [[InterfaceAnalyzerMover]]
+* [[HBnet]]
+* [[ReadResfileFromDB]]
+* [[ProteinProteinInterfaceUpweighter]]
+* [[MathVectors]]
+* [[LinearMemoryInteractionGraph]]
+* [[GlycanTreeModeler]]
+* [[PrimarySequenceNeighborhoodSelector]]
+* [[SSPredictionFilter]]
+* [[SequenceMetric]]
+* [[BoltzmannRotamerMover]]
+* [[CoupledMovesProtocol]]
+* [[SnugDock]]
+* [[DDGMover]]
+* [[DDGFilter]]
+* [[RandomTorsionMover]]
+* [[xyzStripeHash]]
+* [[SugarBBEnergy]]
+* Interface hydrogen bonds and salt bridges filter
+* [[structure_store]]
+* [[SwitchChainOrderMover]]
+* [[BackboneMover]] (so venerable)
+* [[DisulfideInsertionMover]]
+* [[ShapeComplementarityFilter]]
+* [[ConservativeDesignOperation]]
+* [[SymmetricEnergies]]
+* [[SymmetricConformation]]
+* [[MinMover]]
+* [[MoveMapFactory]]
+* [[DensityFitMetric]]
+* [[DensityFitSelector]]
+* [[PerResidueEnergyMetric]]
+* [[TotalEnergyMetric]]
+* [[RMSDMetric]]
+* [[HolesFilter]]
+* [[ReplaceRegionMover]]
+* [[InsertPoseIntoPoseMover]]
+* [[AtomLevelHBondGraph]]
+* [[AtomicDepth]]
+* [[ResidueIndexDescription]]
+
+Miscellaneous:
+* Scientific tests revivification drive
+* General improvements to centralize disk use and remove repeat access, especially w/r/t scoring.  This makes Rosetta more usable on ultra-high-processor-count supercomputers without disk hammering when all threads try to grab scorefunction data at once.
+* Jack Maguire did some serious profiling to hunt for inner-loop slowdowns and garnered several a-few-percent performance gains.
+* Threadsafety improvements, especially for the options system
+* Moving towards Python3 everywhere
+* The Npro atom type was incorrectly listed as a hydrogen bond donor
+
+General bugfixes:
+* We know "Cannot normalize xyzVector of length() zero" is cryptic, it annoys us too.  There has been work to catch and re-throw this error with extra data so we can better track down the cause.  (The best understood cause is 3 colinear atoms, whose incalculable dihedral causes this error).
+* Rosetta's error handling and reporting system has matured to print debugging backtraces less aggressively for better understood crashes, and dump them to disk when appropriate instead of to terminal.
 * Dunbrack sidechain potentials now properly interpolate well locations as angles (eliminating problems at the -180/180 wraparound point).  This is still polylinear interpolation, but could easily be switched to Catmull-Rom splines in the future.
+
 
 <!--- END_INTERNAL -->
 
