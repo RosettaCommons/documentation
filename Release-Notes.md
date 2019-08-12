@@ -22,7 +22,7 @@
 * [[AntibodyModelerProtocol]]: [[LoopModeler]] compatibility
 * [[energy_based_clustering_application]]: bin strings mode
 * [[RosettaScripts]]: Output poses are only rescored automatically if the OUTPUT block says to; otherwise the last scoring data is left intact and reported.  Improved behavior in both cases.
-* Silent files now work with [[hbnet]] and [[PyRosetta]]
+* Silent files now work with [[hbnet]] , [[PyRosetta]], and [[SimpleMetrics]]
 * FARFAR#
 * [[RAbD]] nanobody compatibility
 * [[mp_domain_assembly]]
