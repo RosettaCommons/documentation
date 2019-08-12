@@ -24,7 +24,7 @@
 * [[RosettaScripts]]: Output poses are only rescored automatically if the OUTPUT block says to; otherwise the last scoring data is left intact and reported.  Improved behavior in both cases.
 * Silent files now work with [[hbnet]] , [[PyRosetta]], and [[SimpleMetrics]]
 * FARFAR#
-* [[RAbD]] nanobody compatibility
+* [[RosettaAntibodyDesign]] nanobody compatibility
 * [[mp_domain_assembly]]
 
 ###New tools and scorefunctions
