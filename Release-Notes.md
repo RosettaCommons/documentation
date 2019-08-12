@@ -52,10 +52,10 @@
 * [[RotamerSetsObjects]] framework
 ** [[PruneBuriedUnsatsOperation]]
 
-#### New [[ResidueSelectors]]
+* New [[ResidueSelectors]]
  * [[ResiduePropertySelector]]
 
-#### New [[SimpleMetrics]]
+* New [[SimpleMetrics]]
  * [[ElectrostaticComplementarityMetric | simple_metric_ElectrostaticComplementarityMetric_type ]]
  * [[ResidueSummaryMetric]]
  * [[InteractionEnergyMetric]]
