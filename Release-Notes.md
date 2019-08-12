@@ -32,8 +32,8 @@
 * [[franklin2019]], for implicit membranes (https://www.biorxiv.org/content/10.1101/630715v1)
 * [[TautomerizeAnomerMover]]
 * [[EnzymaticMover]] (tools that make PTMs based on local sequence): better grammar for identifying what sequences should be acted upon
-** [[GlycosyltransferaseMover]]
-** There's a kinase
+ * [[GlycosyltransferaseMover]]
+ * There's a kinase
 * silent files compatible with [[PDBInfoLabels]]
 * [[RingConformerSet]] now allows aromatic ring conformers
 * [[GraftSwitchMover]]
@@ -41,7 +41,7 @@
 * [[RosettaThreadManager]] is online.  Few protocols use it as of yet, but multithreading is on the way.
 * [[NMerSVMEnergy]] and [[MHCEpitopeEnergy]]
 * PDB output now has header sections and options for author cards and further details
-** SEQRES lines in PDB file IO available
+ * SEQRES lines in PDB file IO available
 * [[ResiduePropertySelector]]
 * [[ElectrostaticComplementarityMetric]]
 * Tools to export [[InteractionGraph]] to external code, so that the packing step can be done with QUANTUM COMPUTERS OH MY GOD IT'S THE FUTURE
