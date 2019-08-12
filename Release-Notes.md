@@ -53,16 +53,16 @@
 ** [[PruneBuriedUnsatsOperation]]
 
 #### New [[ResidueSelectors]]
-** [[ResiduePropertySelector]]
+ * [[ResiduePropertySelector]]
 
 #### New [[SimpleMetrics]]
-** [[ElectrostaticComplementarityMetric]]
-** [[ResidueSummaryMetric]]
-** [[InteractionEnergyMetric]]
-** [[PerResidueClashMetric]]
-** [[SequenceRecoveryMetric]]
-** [[PerResidueGlycanLayerMetric| simple_metric_PerResidueGlycanLayerMetric_type]]
-** [[ProtocolSettingsMetric]]
+ * [[ElectrostaticComplementarityMetric | simple_metric_ElectrostaticComplementarityMetric_type ]]
+ * [[ResidueSummaryMetric]]
+ * [[InteractionEnergyMetric]]
+ * [[PerResidueClashMetric]]
+ * [[SequenceRecoveryMetric]]
+ * [[PerResidueGlycanLayerMetric| simple_metric_PerResidueGlycanLayerMetric_type]]
+ * [[ProtocolSettingsMetric]]
 
 Improvements/bugfixes to classes:
 * [[JD3]] and its ecosystem
