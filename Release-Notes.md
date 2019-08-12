@@ -42,21 +42,27 @@
 * [[NMerSVMEnergy]] and [[MHCEpitopeEnergy]]
 * PDB output now has header sections and options for author cards and further details
  * SEQRES lines in PDB file IO available
-* [[ResiduePropertySelector]]
-* [[ElectrostaticComplementarityMetric]]
 * Tools to export [[InteractionGraph]] to external code, so that the packing step can be done with QUANTUM COMPUTERS OH MY GOD IT'S THE FUTURE
-* [[ResidueSummaryMetric]]
-* [[InteractionEnergyMetric]]
-* [[PerResidueClashMetric]]
-* [[SequenceRecoveryMetric]]
+
+
 * A disulfide optimization mover
 * [[mhc_epitope]] scoreterm
 * [[RelaxScriptManager]]
 * Serialized Poses as a more formal serialization than the silent file
 * [[RotamerSetsObjects]] framework
 ** [[PruneBuriedUnsatsOperation]]
-* [[PerResidueGlycanLayerMetric]]
+
+#### New [[ResidueSelectors]]
 * [[MasterSubunitSelector]]
+* [[ResiduePropertySelector]]
+
+#### New [[SimpleMetrics]]
+* [[ElectrostaticComplementarityMetric]]
+* [[ResidueSummaryMetric]]
+* [[InteractionEnergyMetric]]
+* [[PerResidueClashMetric]]
+* [[SequenceRecoveryMetric]]
+* [[PerResidueGlycanLayerMetric]]
 * [[ProtocolSettingsMetric]]
 
 Improvements/bugfixes to classes:
