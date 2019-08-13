@@ -48,7 +48,7 @@ Acceptable options are:
 composite_action  | Description 
 ------------ | ------------- 
 `any` | Filter on ANY metric in the composite.  For example, if we have lt, and cutoff as 5, than if ANY metric is less than 5, we return True.
-`all` | Filter on ALL metrics.  For examle, if we use the same example as above with ALL, then ALL metrics in the composite must be less than 5 to pass the filter
+`all` | Filter on ALL metrics.  For example, if we use the same example as above with ALL, then ALL metrics in the composite must be less than 5 to pass the filter
 `metric_name` | This can be any composite name.  See the individual composite for more.  For the case of the [[CompositeEnergyMetric]] this can be any scoreterm name.  This allows us to filter on any metric name calculated by the composite metric. 
 
 
