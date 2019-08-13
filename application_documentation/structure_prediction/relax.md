@@ -67,7 +67,7 @@ Options specific to relax
    -relax:thorough           Do a preset, large cycle number (15) fast relax
 
    Advanced Options:
-   -relax:script <file>      Do custom script relax (you can supply a custom script file)
+   -relax:script <file>      Do custom script relax (you can supply a custom script file or a filename from database)
      -relax:jump_move false    Set all jumps to unmovable during minimization. 
      -relax:bb_move false      Set all backbone torsion angles to unmovable during minimization. 
      -relax:chi_move false     Set all chi torsion angles to unmovable during minimization. 
@@ -250,7 +250,7 @@ exit
 
 will quit with immediate effect
 
-A typical FastRelax script is: (this in fact is the default command script)
+A typical FastRelax script is:
 
 ```
 repeat 5
@@ -261,6 +261,13 @@ ramp_repack_min 1     0.00001  0.0
 accept_to_best
 endrepeat
 ```
+
+Relax Scripts In Rosetta's Database
+===================================
+
+For a list of relax scripts in the database,
+[[click here|../../scripting_documentation/RosettaScripts/Movers/movers_pages/RelaxScript.md]].
+
 
 Special Notes on BatchRelax
 ===========================
