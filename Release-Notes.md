@@ -39,14 +39,14 @@
 * [[GraftSwitchMover]]
 * [[mmTF]] support
 * [[RosettaThreadManager]] is online.  Few protocols use it as of yet, but multithreading is on the way.
-* [[NMerSVMEnergy]] and [[MHCEpitopeEnergy]]
+* The `mhc_epitope` scoreterm, implemented using [[MHCEpitopeEnergy]], allows packer-compatible de-immunization of proteins using ProPred or pre-computed database epitope predictors.  The latter can be generated for IEDB and NetMHCII databases using [[mhc-energy-tools]].  Local de-immunization can be performed with [[AddMHCEpitopeConstraintMover]].  Integration with nmer/NMerSVMEnergy will be implemented in the next release.
+* [[NMerSVMEnergy]]
 * PDB output now has header sections and options for author cards and further details
  * SEQRES lines in PDB file IO available
 * Tools to export [[InteractionGraph]] to external code, so that the packing step can be done with QUANTUM COMPUTERS OH MY GOD IT'S THE FUTURE
 
 
 * A disulfide optimization mover
-* [[mhc_epitope]] scoreterm
 * [[RelaxScriptManager]]
 * Serialized Poses as a more formal serialization than the silent file
 * [[RotamerSetsObjects]] framework
