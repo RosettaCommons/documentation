@@ -6,7 +6,7 @@
 ## Rosetta 3.11
 
 ### New applications
-* A simple restype conversion utility which allows you to specify certain residue types from the database (including patched types), CCD or command line, and output them in PDB, sdf or params file output.
+<!-- * A simple restype conversion utility which allows you to specify certain residue types from the database (including patched types), CCD or command line, and output them in PDB, sdf or params file output. [currently pilot app.] -->
 * shotgun glycomutagenesis, using the [[GlycosyltransferaseMover]].
 * [[PackerPalette]] is not an application per-se but totally rewires design with noncanonicals to work in a more intuitive and straightforward fashion
 * [[TCRmodel]] (T Cell Receptor)
