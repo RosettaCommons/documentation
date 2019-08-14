@@ -294,7 +294,7 @@ Relax Scripts In Rosetta's Database
 ===================================
 
 For a list of relax scripts in the database,
-[[click here|../../scripting_documentation/RosettaScripts/Movers/movers_pages/RelaxScript.md]].
+[click here](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/RelaxScript).
 
 
 Special Notes on BatchRelax
