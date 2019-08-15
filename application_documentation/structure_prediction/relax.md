@@ -161,6 +161,14 @@ endrepeat
 
 NOTE: It should virtually never be necessary to mess with the preset script or parameters! Dont touch unless you know what you're doing!
 
+You can run non-default relax scripts using the `-relax:script` option:
+
+```sh
+relax.linuxgccrelease -relax:script ./my_relax_script # local file
+
+relax.linuxgccrelease -relax:script KillA2019 # database file (see below)
+```
+
 Relax Script Format description:
 ================================
 
