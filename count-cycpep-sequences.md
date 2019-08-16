@@ -18,7 +18,19 @@ This application provides a convenient means of computing the number of possible
 
 ### Analytic algorithm for cyclic symmetries (including the asymmetric case)
 
-Given a peptide with CN symmetry (where **N** = 1 in the asymmetric case), the number of possible sequences is given by the following expression, derived from application of [Burnside's lemma](https://en.wikipedia.org/wiki/Burnside%27s_lemma).
+Given a peptide with CN symmetry (where **N** = 1 in the asymmetric case), the number of possible sequences is given by the following expression, derived from application of [Burnside's lemma](https://en.wikipedia.org/wiki/Burnside%27s_lemma):
+
+![Expression for number of unique CN-symmetric sequences, U, given an n-residue macrocycle with p possibilities per position.](CN_expression.png)
+
+In the above, **U** is the number of unique CN-symmetric sequences (where cyclic permutations of a sequence are considered to be the same sequence), **N** is the fold symmetry, **n** is the number of residues in the peptide, and **p** is the number of possibilities at each position.  Note that the expression is ultimately a function of **n/N**, the number of residues in the asymmetric unit, meaning that a C2-symmetric 10-mer (with 5 residues in the asymmetric unit) has the same number of possibilities as a C3-symmetric 15-mer (also with 5 residues in the asymmetric unit).  The expression **gcf(j,N/n)** represents the greatest common factor of **j** and **N/n**.
+
+### Analytic algorithm for improper rotational symmetries:
+
+Given a peptide with SN symmetry (where **N** = 2, 4, 6...) and a sequence that can be divided into symmetric unit "lobes" that repeat with sequence inversion (so that L-amino acids become D-amino acids from one lobe to the next and vice versa), the number of possible sequences is given by the following expression:
+
+![Expression for number of unique SN-symmetric sequences, U, given an n-residue macrocycle with p possibilities per position.](SN_expression.png)
+
+In the above, **U** is the number of unique SN-symmetric sequences (where once again cyclic permutations of a sequence are considered to be the same sequence), xxxxxCONTINUE HERExxxxx
 
 ## See also
 
