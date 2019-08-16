@@ -16,6 +16,12 @@ This application provides a convenient means of computing the number of possible
 
 ## Algorithms
 
+### Brute-force algorithm
+
+The brute-force approach, given an **n**-residue peptide with **N**-fold symmetry (CN or SN) and **p** possibilities at each position is to iterate through every linear sequence permutation (updating in a manner that preserves symmetry, if **N** > 1).  For each sequence considered, we generate the cyclic permutation of lowest rank (given an arbitrary comparison operator) then consult a sorted list of sequences already encountered.  If the sequence is absent from the list, we add it to the list, then continue to the next sequence.  At the end, we count the sequences encountered.
+
+This approach obviously works poorly for large numbers of sequence possibilities (millions or more).  It scales poorly both in CPU-time and in memory usage.  Its one advantage is conceptual simplicity.  It is useful only for checking the validity of analytic approaches, and is therefore not enabled by default.
+
 ### Analytic algorithm for cyclic symmetries (including the asymmetric case)
 
 Given a peptide with CN symmetry (where **N** = 1 in the asymmetric case), the number of possible sequences is given by the following expression, derived from application of [Burnside's lemma](https://en.wikipedia.org/wiki/Burnside%27s_lemma):
