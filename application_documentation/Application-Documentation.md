@@ -194,6 +194,7 @@ Component | Description
 
 ### Peptides
 - [[Pepspec]] - Evaluate and design peptide-protein interactions.
+- [[Count Cycpep Sequences|count_cycpep_sequences]] - Counts the number of unique sequences possible for a macrocycle given **P** possible building blocks and **n** residues, with options for CN and SN symmetry.  Evaluates the number using analytic expressions derived from [Burnside's lemma](https://en.wikipedia.org/wiki/Burnside%27s_lemma), and optionally compares to counts performed by brute-force enumeration.
 
 ### Small Molecules
 
