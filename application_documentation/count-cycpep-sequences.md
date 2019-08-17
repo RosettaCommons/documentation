@@ -36,7 +36,7 @@ Given a peptide with SN symmetry (where **N** = 2, 4, 6...) and a sequence that 
 
 ![Expression for number of unique SN-symmetric sequences, U, given an n-residue macrocycle with p possibilities per position.](SN_expression.png)
 
-In the above, **U** is the number of unique SN-symmetric sequences (where once again cyclic permutations of a sequence are considered to be the same sequence), xxxxxCONTINUE HERExxxxx
+In the above, **U** is the number of unique SN-symmetric sequences (where once again cyclic permutations of a sequence are considered to be the same sequence), 
 
 ## See also
 
