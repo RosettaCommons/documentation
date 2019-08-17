@@ -40,8 +40,16 @@ In the above, **U** is the number of unique SN-symmetric sequences (where once a
 
 ## Options
 
-TODO TODO TODO TODO
-
+|                        Option |                  Default  |Type|  Description            |    
+|-------------------------------|---------------------------|----|-------------------------|
+|               symmetry_number |                         1 |   Int| The fold symmetry.  Set to 3 for C3 symmetry, for example.  The default, 1, is for the asymmetric case. |
+|               mirror_symmetry |                     false |   Bool| If true, the symmetry type is SN (S2, S4, S6, etc.). If false, we consider simple cyclic symmetry (C2, C3, C4, etc.).  False by default. |
+|            do_numerical_count |                     false |   Bool| If true, we try to do the enumeration manually, rather than by using the expressions derived from Burnside's lemma.  Note that this scales poorly for longer peptides. False by default. |
+|                peptide_length |                         8 |   Int| The number of residues in the peptide.  Defaults arbitrarily to 8. |
+|          options_per_position |                        20 |   Int| The number of options allowed at each position. For example, if we were considering ABEGO bins, there would be five options; if we were considering the 20 canonical amino acids, there would be 20 options. Default 20. |
+|               achiral_options |                         0 |   Int| The number of options that are their own mirror image (e.g. GLY, AIB), if we're considering mirror symmetry.  Note that the total number of options per position minus the number of asymmetric options must be an even number, if symmetry is enabled.  Default 0. |
+|           write_out_sequences |                     false |   Bool| If true, sequences enumerated numerically will be written out. False by default, since this can produce astronomical numbers of sequences. |
+|            SN_semi_analytical |                     false |   Bool| If true, we use a semi-analytical method for SN (improper rotational) symmetry.  If false, we use a fully analytical method.  False by default. |
 ## See also
 
 * [Burnside's lemma](https://en.wikipedia.org/wiki/Burnside%27s_lemma) on Wikipedia.
