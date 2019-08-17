@@ -76,7 +76,48 @@ apps.public.cyclic_peptide.count_cycpep_sequences: Completed count_cycpep_sequen
 The following shows the calculation of all possible sequences for an asymmetric cyclic 4-mer, with 3 possibilities per position.  Both the analytic and brute-force evaluation are performed in this case, and all sequences from the brute-force evaluation are written out.  (Note that each amino acid possibility is assigned a number, starting at 1, since no assumptions about the amino acid identities being considered are imposed.  Thus, we see sequences like "1 3 2 2" instead of "A F L L")
 
 ```
+> ./bin/count_cycpep_sequences.default.macosclangrelease -peptide_length 4 -do_numerical_count -write_out_sequences -options_per_position 3
 
+core.init: Checking for fconfig files in pwd and ./rosetta/flags 
+core.init: Rosetta version: 2019.33.post.dev+165.vmullig.countcycpepuniquesequences.3882a1ebab6 3882a1ebab6b3ce70c53178fe277899db8a79e8c git@github.com:RosettaCommons/main.git 2019-08-16T18:42:45
+core.init: command: ./bin/count_cycpep_sequences.default.macosclangrelease -peptide_length 4 -do_numerical_count -write_out_sequences -options_per_position 3
+basic.random.init_random_generator: 'RNG device' seed mode, using '/dev/urandom', seed=-646956502 seed_offset=0 real_seed=-646956502
+basic.random.init_random_generator: RandomGenerator:init: Normal mode, seed=-646956502 RG_type=mt19937
+core.init: Resolved executable path: /Users/vmulligan/rosetta_devcopy/Rosetta/main/source/./bin/count_cycpep_sequences.default.macosclangrelease
+core.init: Looking for database based on location of executable: /Users/vmulligan/rosetta_devcopy/Rosetta/main/database/
+apps.public.cyclic_peptide.count_cycpep_sequences: Starting count_cycpep_sequences application.
+apps.public.cyclic_peptide.count_cycpep_sequences: Application created 13 August 2019 by Vikram K. Mulligan, Flatiron Institute (vmulligan@flatironinstitute.org).
+apps.public.cyclic_peptide.count_cycpep_sequences: The associated manuscript is in prepration, and may be cited as "Mulligan VK, Kang CS, Sawaya MR, Rettie S, Li X, Antselovich I, Craven T, Watkins A, Labonte JW, DiMaio F, Yeates TO, and Baker D. (2019).  Computational design of internally-symmetric peptide macrocycles with switchable folds.  Manuscript in prepration.".
+apps.public.cyclic_peptide.count_cycpep_sequences: U = 1/4 * ( 3^1 + 3^2 + 3^1 + 3^4 )
+apps.public.cyclic_peptide.count_cycpep_sequences: Analytically, counted 24 unique sequences for a 4 residue cyclic peptide with no symmetry, with 3 possibilities at each position.
+apps.public.cyclic_peptide.count_cycpep_sequences: Iterating through all sequences to count.  (Note that this can be extremely slow for large peptides.)
+apps.public.cyclic_peptide.count_cycpep_sequences: Observed sequences:
+apps.public.cyclic_peptide.count_cycpep_sequences: 1 1 1 1
+apps.public.cyclic_peptide.count_cycpep_sequences: 1 1 1 2
+apps.public.cyclic_peptide.count_cycpep_sequences: 1 1 1 3
+apps.public.cyclic_peptide.count_cycpep_sequences: 1 1 2 2
+apps.public.cyclic_peptide.count_cycpep_sequences: 1 1 2 3
+apps.public.cyclic_peptide.count_cycpep_sequences: 1 1 3 2
+apps.public.cyclic_peptide.count_cycpep_sequences: 1 1 3 3
+apps.public.cyclic_peptide.count_cycpep_sequences: 1 2 1 2
+apps.public.cyclic_peptide.count_cycpep_sequences: 1 2 1 3
+apps.public.cyclic_peptide.count_cycpep_sequences: 1 2 2 2
+apps.public.cyclic_peptide.count_cycpep_sequences: 1 2 2 3
+apps.public.cyclic_peptide.count_cycpep_sequences: 1 2 3 2
+apps.public.cyclic_peptide.count_cycpep_sequences: 1 2 3 3
+apps.public.cyclic_peptide.count_cycpep_sequences: 1 3 1 3
+apps.public.cyclic_peptide.count_cycpep_sequences: 1 3 2 2
+apps.public.cyclic_peptide.count_cycpep_sequences: 1 3 2 3
+apps.public.cyclic_peptide.count_cycpep_sequences: 1 3 3 2
+apps.public.cyclic_peptide.count_cycpep_sequences: 1 3 3 3
+apps.public.cyclic_peptide.count_cycpep_sequences: 2 2 2 2
+apps.public.cyclic_peptide.count_cycpep_sequences: 2 2 2 3
+apps.public.cyclic_peptide.count_cycpep_sequences: 2 2 3 3
+apps.public.cyclic_peptide.count_cycpep_sequences: 2 3 2 3
+apps.public.cyclic_peptide.count_cycpep_sequences: 2 3 3 3
+apps.public.cyclic_peptide.count_cycpep_sequences: 3 3 3 3
+apps.public.cyclic_peptide.count_cycpep_sequences: Numerically, counted 24 unique sequences for a 4 residue cyclic peptide with no symmetry, with 3 possibilities at each position.
+apps.public.cyclic_peptide.count_cycpep_sequences: Completed count_cycpep_sequences application.  Exiting with no errors (status zero).
 ```
 
 Note that, in the above, "default.macosclangrelease" may need to be replaced with your build, operating system, and compiler (_e.g._ "cxx11thread.linuxgccrelease").
