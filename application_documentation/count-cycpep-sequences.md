@@ -50,6 +50,35 @@ In the above, **U** is the number of unique SN-symmetric sequences (where once a
 |               achiral_options |                         0 |   Int| The number of options that are their own mirror image (e.g. GLY, AIB), if we're considering mirror symmetry.  Note that the total number of options per position minus the number of asymmetric options must be an even number, if symmetry is enabled.  Default 0. |
 |           write_out_sequences |                     false |   Bool| If true, sequences enumerated numerically will be written out. False by default, since this can produce astronomical numbers of sequences. |
 |            SN_semi_analytical |                     false |   Bool| If true, we use a semi-analytical method for SN (improper rotational) symmetry.  If false, we use a fully analytical method.  False by default. |
+
+## Example output
+
+The following example shows the commandline and example output for computing the number of sequences of an S6-symmetric 36-mer given the 19 canoncal L-amino acids and their 19 mirror-image D-amino acid counterparts as possibilities at each position (38 possibilities total):
+
+```
+> ./bin/count_cycpep_sequences.default.macosclangrelease -symmetry_number 6 -mirror_symmetry true -peptide_length 36 -options_per_position 38
+
+core.init: Checking for fconfig files in pwd and ./rosetta/flags 
+core.init: Rosetta version: 2019.33.post.dev+163.vmullig.countcycpepuniquesequences.d88e8403005 d88e8403005550a82389b56fbe33bb4950896124 git@github.com:RosettaCommons/main.git 2019-08-16T17:53:01
+core.init: command: ./bin/count_cycpep_sequences.default.macosclangrelease -symmetry_number 6 -mirror_symmetry true -peptide_length 36 -options_per_position 38
+basic.random.init_random_generator: 'RNG device' seed mode, using '/dev/urandom', seed=1766054521 seed_offset=0 real_seed=1766054521
+basic.random.init_random_generator: RandomGenerator:init: Normal mode, seed=1766054521 RG_type=mt19937
+core.init: Resolved executable path: /Users/vmulligan/rosetta_devcopy/Rosetta/main/source/./bin/count_cycpep_sequences.default.macosclangrelease
+core.init: Looking for database based on location of executable: /Users/vmulligan/rosetta_devcopy/Rosetta/main/database/
+apps.public.cyclic_peptide.count_cycpep_sequences: Starting count_cycpep_sequences application.
+apps.public.cyclic_peptide.count_cycpep_sequences: Application created 13 August 2019 by Vikram K. Mulligan, Flatiron Institute (vmulligan@flatironinstitute.org).
+apps.public.cyclic_peptide.count_cycpep_sequences: The associated manuscript is in prepration, and may be cited as "Mulligan VK, Kang CS, Sawaya MR, Rettie S, Li X, Antselovich I, Craven T, Watkins A, Labonte JW, DiMaio F, Yeates TO, and Baker D. (2019).  Computational design of internally-symmetric peptide macrocycles with switchable folds.  Manuscript in prepration.".
+apps.public.cyclic_peptide.count_cycpep_sequences: 1/12 * ( 38^2 + 38^2 + 38^6 )
+apps.public.cyclic_peptide.count_cycpep_sequences: Analytically, counted 250911606 unique sequences for a 36 residue cyclic peptide with S6 symmetry, with 38 possibilities at each position, 0 of which are achiral.
+apps.public.cyclic_peptide.count_cycpep_sequences: Completed count_cycpep_sequences application.  Exiting with no errors (status zero).
+```
+
+The following shows the calculation of all possible sequences for an asymmetric cyclic 4-mer, with 3 possibilities per position.  Both the analytic and brute-force evaluation are performed in this case, and all sequences from the brute-force evaluation are written out.  (Note that each amino acid possibility is assigned a number, starting at 1, since no assumptions about the amino acid identities being considered are imposed.  Thus, we see sequences like "1 3 2 2" instead of "A F L L")
+
+```
+
+```
+
 ## See also
 
 * [Burnside's lemma](https://en.wikipedia.org/wiki/Burnside%27s_lemma) on Wikipedia.
