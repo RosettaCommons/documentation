@@ -79,6 +79,8 @@ The following shows the calculation of all possible sequences for an asymmetric 
 
 ```
 
+Note that, in the above, "default.macosclangrelease" may need to be replaced with your build, operating system, and compiler (_e.g._ "cxx11thread.linuxgccrelease").
+
 ## Known limitations
 
 Currently, analytical evaluation does not work for improper rotational symmetry with positional possibilities that are achiral (_i.e._ which do not change their identity from one symmetry lobe to a mirrored lobe, such as glycine or 2-aminoisobutyric acid).  For these, the analytical evaluator will return 0, and only the brute-force evaluator will return a meaningful answer at the present time.  In the future, we will likely add support for this case.
