@@ -173,6 +173,7 @@ Packer Behavior Modification
 
 TaskOp  | Description
 ------------ | -------------
+**[[SetIGType|SetIGType]]** | Set the type of interaction graph to use
 **[[ModifyAnnealer|ModifyAnnealerOperation]]** | Change the behavior of the packer.
 **[[ProteinLigandInterfaceUpweighter|ProteinLigandInterfaceUpweighterOperation]]** | Increase the contribution of protein/ligand interactions during design.
 

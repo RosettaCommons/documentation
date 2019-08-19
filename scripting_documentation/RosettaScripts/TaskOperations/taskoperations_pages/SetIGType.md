@@ -2,15 +2,16 @@
 *Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## SetIGType
 
-Includes current rotamers in the rotamer set.
-
-**Notes:**
-* The first packing call will include the rotamers from the input PDB. These input PDB rotamers will be lost after the first packing run, so they are only effective upon initial loading of a pdb.
-* Successive packer calls will include the current rotamer of the pose at initialization (as the name implies).
+Task operation to set interaction graph type linmem, lazy, or double lazy
 
 ```xml
 <SetIGType name=(string) lin_mem_ig=(bool,"false") lazy_ig=(bool,"false") double_lazy_ig=(bool,"false")/>
 ```
+
+name (string):  The name given to this instance.
+lin_mem_ig (bool,"false"):  Interaction graph type lin_mem_ig.
+lazy_ig (bool,"false"):  Interaction graph type lazy_ig.
+double_lazy_ig (bool,"false"):  Interaction graph type double_lazy_ig.
 
 ##See Also
 
