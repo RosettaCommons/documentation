@@ -15,8 +15,10 @@ Like traditional symmetry, this assumes that all chains are part of the same sym
 It is impossible to have, say, chains A+B+C where A+B are symmetric and C is separate.
 
 ```xml
-<KeepSequenceSymmetry name="(&string)" />
+<KeepSequenceSymmetry name="(&string)" setting="true(&bool)"/>
 ```
+
+*setting:* If true, Rosetta will activate the SequenceSymmetricAnnealer. Use this when you give Rosetta a multimer to design and you want the sequences of the chains to be the same but you don't need strict physical symmetry.
 
 Please report bugs to jack@med.unc.edu
 
