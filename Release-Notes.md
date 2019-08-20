@@ -46,7 +46,6 @@
  * SEQRES lines in PDB file IO available
 * Tools to export [[InteractionGraph]] to external code, so that the packing step can be done with QUANTUM COMPUTERS OH MY GOD IT'S THE FUTURE
 
-
 * A disulfide optimization mover
 * Serialized Poses as a more formal serialization than the silent file
 * [[RotamerSetsObjects]] framework
@@ -94,7 +93,7 @@
 * [[GlycanTreeModeler]]
 * [[PrimarySequenceNeighborhoodSelector]]
 * [[SSPredictionFilter]]
-* [[SequenceMetric]]
+* The [[SequenceMetric]] has been added to report amino acid sequences.  Options were added to allow one-letter (_e.g._ `S`), three-letter (_e.g._ `DSE`), basename (_e.g._ `DSER`), or full name (_e.g._ `DSER:phosphorylation`) output.
 * [[BoltzmannRotamerMover]]
 * [[CoupledMovesProtocol]]
 * [[SnugDock]]
@@ -112,7 +111,6 @@
 * [[ConservativeDesignOperation]]
 * [[SymmetricEnergies]]
 * [[SymmetricConformation]]
-* [[MinMover]]
 * [[MoveMapFactory]]
 * [[DensityFitMetric]]
 * [[DensityFitSelector]]
@@ -135,12 +133,14 @@
 * Moving towards Python3 everywhere
 * The Npro atom type was incorrectly listed as a hydrogen bond donor
 * Cadmium has been added to the Rosetta database.
+* Added support for linking Rosetta against Tensorflow (`extras=tensorflow` option during compilation) to facilitate development of machine learning-based protocols.
 
 ###General bugfixes:
 * We know "Cannot normalize xyzVector of length() zero" is cryptic, it annoys us too.  There has been work to catch and re-throw this error with extra data so we can better track down the cause.  (The best understood cause is 3 colinear atoms, whose incalculable dihedral causes this error).
 * Rosetta's error handling and reporting system has matured to print debugging backtraces less aggressively for better understood crashes, and dump them to disk when appropriate instead of to terminal.
 * Dunbrack sidechain potentials now properly interpolate well locations as angles (eliminating problems at the -180/180 wraparound point).  This is still polylinear interpolation, but could easily be switched to Catmull-Rom splines in the future.
 * Rosetta's option system has been refactored for better thread-safety.
+* Bugfixes for N-methyl amino acids.  Support that had been temporarily removed for this modification has now been restored.
 
 
 <!--- END_INTERNAL -->
