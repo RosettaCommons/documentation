@@ -83,7 +83,7 @@
 * [[SimpleMetrics]] work in PyRosetta
 * [[ForceDisulfideMover]]
 * [[ShapeGrid]]
-* [[RamaPrePro]] (efficiency)
+* The [[RamaPrePro]] energy term received some efficiency tweaks.
 * [[InterfaceAnalyzerMover]]
 * [[HBnet]]
 * [[ReadResfileFromDB]]
@@ -93,7 +93,7 @@
 * [[GlycanTreeModeler]]
 * [[PrimarySequenceNeighborhoodSelector]]
 * [[SSPredictionFilter]]
-* The [[SequenceMetric]] has been added to report amino acid sequences.  Options were added to allow one-letter (_e.g._ `S`), three-letter (_e.g._ `DSE`), basename (_e.g._ `DSER`), or full name (_e.g._ `DSER:phosphorylation`) output.
+* The [[SequenceMetric]] now has options to allow one-letter (_e.g._ `S`), three-letter (_e.g._ `DSE`), basename (_e.g._ `DSER`), or full name (_e.g._ `DSER:phosphorylation`) output.
 * [[BoltzmannRotamerMover]]
 * [[CoupledMovesProtocol]]
 * [[SnugDock]]
@@ -111,6 +111,7 @@
 * [[ConservativeDesignOperation]]
 * [[SymmetricEnergies]]
 * [[SymmetricConformation]]
+* [[MinMover]]
 * [[MoveMapFactory]]
 * [[DensityFitMetric]]
 * [[DensityFitSelector]]
@@ -134,6 +135,7 @@
 * The Npro atom type was incorrectly listed as a hydrogen bond donor
 * Cadmium has been added to the Rosetta database.
 * Added support for linking Rosetta against Tensorflow (`extras=tensorflow` option during compilation) to facilitate development of machine learning-based protocols.
+* Considerable refactoring of polycubic interpolation code to fix bugs and permit greater generality.
 
 ###General bugfixes:
 * We know "Cannot normalize xyzVector of length() zero" is cryptic, it annoys us too.  There has been work to catch and re-throw this error with extra data so we can better track down the cause.  (The best understood cause is 3 colinear atoms, whose incalculable dihedral causes this error).
