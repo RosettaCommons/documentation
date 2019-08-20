@@ -8,7 +8,7 @@
 ### New applications
 <!-- * A simple restype conversion utility which allows you to specify certain residue types from the database (including patched types), CCD or command line, and output them in PDB, sdf or params file output. [currently pilot app.] -->
 * shotgun glycomutagenesis, using the [[GlycosyltransferaseMover]].
-* [[PackerPalette]] is not an application per-se but totally rewires design with noncanonicals to work in a more intuitive and straightforward fashion
+* Non-canonical design conventions have been made consistent with canonical design conventions: task operations can only be used to _disable_ residue types, not to _enable_ them.  [[PackerPalettes|PackerPalette]] have been introduced as an interface element to define the default set of residue types with which to design in the absence of any task operation, allowing non-canonical designers to specify an expanded set of building blocks with which to work.
 * [[TCRmodel]] (T Cell Receptor)
 * support for peptoid macrocycle structure prediction
 * create_clash-based_repack_shell (Ahem)
