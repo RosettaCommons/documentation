@@ -40,7 +40,6 @@
 * [[RingConformerSet]] now allows aromatic ring conformers
 * [[GraftSwitchMover]]
 * [[mmTF]] support
-* [[RosettaThreadManager]] is online.  Few protocols use it as of yet, but multithreading is on the way.
 * The `mhc_epitope` scoreterm, implemented using [[MHCEpitopeEnergy]], allows packer-compatible de-immunization of proteins using ProPred or pre-computed database epitope predictors.  The latter can be generated for IEDB and NetMHCII databases using [[mhc-energy-tools]].  Local de-immunization can be performed with [[AddMHCEpitopeConstraintMover]].  Integration with nmer/NMerSVMEnergy will be implemented in the next release.
 * [[NMerSVMEnergy]]
 * PDB output now has header sections and options for author cards and further details
@@ -49,7 +48,6 @@
 
 
 * A disulfide optimization mover
-* [[RelaxScriptManager]]
 * Serialized Poses as a more formal serialization than the silent file
 * [[RotamerSetsObjects]] framework
 ** [[PruneBuriedUnsatsOperation]]
@@ -127,6 +125,7 @@
 * [[AtomLevelHBondGraph]]
 * [[AtomicDepth]]
 * [[ResidueIndexDescription]]
+* The [[FastRelax|FastRelaxMover]] and [[FastDesign|FastDesignMovers]] now have a `RelaxScriptManager`, to ensure that relax scripts are read from disk once and once only, on first demand, and in a threadsafe manner.  (The `RelaxScriptManager` has no user-facing interface.)
 
 ###Miscellaneous:
 * Scientific tests revivification drive
