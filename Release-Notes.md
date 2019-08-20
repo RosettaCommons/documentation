@@ -13,6 +13,7 @@
 * An experimental application to generate mainchain potentials for noncanonicals has been added (called make_mainchain_potential).
 * [[ERRASER2]]
 * [[MultistageRosettaScripts]]
+* Added [[count_cycpep_sequences|count-cycpep-sequences]] application, to compute the number of unique sequences there are for a cyclic peptide with a given symmetry, accounting for cyclic permutations.
 * [[cartesian_ddg]]
 
 ### Improvements to applications:
@@ -26,6 +27,7 @@
 * FARFAR#
 * [[RosettaAntibodyDesign]] nanobody compatibility
 * [[mp_domain_assembly]]
+* Implemented a [[Rosetta thread manager|RosettaThreadManager]] to facilitate multithreaded protocol development and to avoid thread explosions when nested requests for multithreaded code execution are made.  (Note that this only affects the threaded builds of Rosetta, built with the `extras=cxx11thread` option.)
 
 ###New tools and scorefunctions
 * [[pHVariantTaskOperation]] for -pH_mode
@@ -64,7 +66,7 @@
  * [[PerResidueGlycanLayerMetric| simple_metric_PerResidueGlycanLayerMetric_type]]
  * [[ProtocolSettingsMetric]]
 
-Improvements/bugfixes to classes:
+###Improvements/bugfixes to classes:
 * [[JD3]] and its ecosystem
 * [[RingPlaneFlipMover]]
 * [[NubInitioMover]]
@@ -126,7 +128,7 @@ Improvements/bugfixes to classes:
 * [[AtomicDepth]]
 * [[ResidueIndexDescription]]
 
-Miscellaneous:
+###Miscellaneous:
 * Scientific tests revivification drive
 * General improvements to centralize disk use and remove repeat access, especially w/r/t scoring.  This makes Rosetta more usable on ultra-high-processor-count supercomputers without disk hammering when all threads try to grab scorefunction data at once.
 * Jack Maguire did some serious profiling to hunt for inner-loop slowdowns and garnered several a-few-percent performance gains.
@@ -134,10 +136,11 @@ Miscellaneous:
 * Moving towards Python3 everywhere
 * The Npro atom type was incorrectly listed as a hydrogen bond donor
 
-General bugfixes:
+###General bugfixes:
 * We know "Cannot normalize xyzVector of length() zero" is cryptic, it annoys us too.  There has been work to catch and re-throw this error with extra data so we can better track down the cause.  (The best understood cause is 3 colinear atoms, whose incalculable dihedral causes this error).
 * Rosetta's error handling and reporting system has matured to print debugging backtraces less aggressively for better understood crashes, and dump them to disk when appropriate instead of to terminal.
 * Dunbrack sidechain potentials now properly interpolate well locations as angles (eliminating problems at the -180/180 wraparound point).  This is still polylinear interpolation, but could easily be switched to Catmull-Rom splines in the future.
+* Rosetta's option system has been refactored for better thread-safety.
 
 
 <!--- END_INTERNAL -->
