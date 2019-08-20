@@ -21,7 +21,7 @@
 * Support for peptoid macrocycle structure prediction in the [[simple_cycpep_predict]] application.
 * [[GALigandDock]]: density scoring
 * [[AntibodyModelerProtocol]]: [[LoopModeler]] compatibility
-* [[energy_based_clustering_application]]: bin strings mode
+* The [[energy_based_clustering_application]] can now report the number of unique Ramachandran bin strings observed in the clusters produced.
 * [[RosettaScripts]]: Output poses are only rescored automatically if the OUTPUT block says to; otherwise the last scoring data is left intact and reported.  Improved behavior in both cases.
 * Silent files now work with [[hbnet]] , [[PyRosetta]], and [[SimpleMetrics]]
 * FARFAR#
