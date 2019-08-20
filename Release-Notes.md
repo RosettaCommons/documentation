@@ -134,6 +134,7 @@
 * Threadsafety improvements, especially for the options system
 * Moving towards Python3 everywhere
 * The Npro atom type was incorrectly listed as a hydrogen bond donor
+* Cadmium has been added to the Rosetta database.
 
 ###General bugfixes:
 * We know "Cannot normalize xyzVector of length() zero" is cryptic, it annoys us too.  There has been work to catch and re-throw this error with extra data so we can better track down the cause.  (The best understood cause is 3 colinear atoms, whose incalculable dihedral causes this error).
