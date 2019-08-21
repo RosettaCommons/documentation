@@ -31,8 +31,8 @@ Note that, because strands are special cases of helices in which the turn per re
 |                    in:file:native |                           |   File | Native PDB filename. |
 |                       out:nstruct |                         1 |   Int | Number of structures to generate.  (Number of structure prediction attempts) |
 |     helical_bundle_predict:helix_assignment_file |                           |   File | A file containing information about the helix types and helical regions within a helical bundle. |
-| helical_bundle_predict:num_steps_per_simulated_annealing_round_centroid |    1000 |   Int| Number of steps in each round of simulated annealing in centroid mode.|
-| helical_bundle_predict:num_simulated_annealing_rounds_centroid |                3 |   Int | Number of rounds of simulated annealing in centroid mode. |
+| helical_bundle_predict:<br\>num_steps_per_simulated_annealing_round_centroid |    1000 |   Int| Number of steps in each round of simulated annealing in centroid mode.|
+| helical_bundle_predict:<br\>num_simulated_annealing_rounds_centroid |                3 |   Int | Number of rounds of simulated annealing in centroid mode. |
 |helical_bundle_predict:centroid_max_temperature |                        50 |   Real| The maximum temperature during simulated annealing rounds in centroid mode. |
 |helical_bundle_predict:centroid_min_temperature |                      0.62 |   Real| The minimum temperature during simulated annealing rounds in centroid mode. |
 |helical_bundle_predict:do_final_fullatom_refinement | true |   Bool | If true, the initial centroid model is converted to a full-atom model and relaxed with the FastRelax protocol.  Other refinement steps, such as finding disulfides, may also be carried out.  True by default. |
