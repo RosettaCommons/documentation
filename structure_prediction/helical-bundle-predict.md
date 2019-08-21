@@ -23,7 +23,58 @@ The helical_bundle_predict application was created to fill this niche.  Based on
 
 Note that, because strands are special cases of helices in which the turn per residue is about 180 degrees, this approach should be sufficiently general for any protein or heteropolymer secondary structure.
 
-## Full options list
+## Inputs
+
+### Helix assignment file
+
+Helix locations and Crick parameter sampling options must be provided with an ASCII-formatted helix assignment file.
+
+#### Helix assignment file format
+
+#### Helix assignment file example
+
+```
+BEGIN_GLOBALS
+        COMMON_OMEGA0 TRUE
+        COMMON_R0 FALSE
+        COMMON_DELTA_OMEGA1 FALSE
+        CONFINE_TO_USER_DEFINED_HELICES TRUE
+        OMEGA0_MIN -3
+        OMEGA0_MAX 3
+        R0_MIN 5
+        R0_MAX 8
+        DELTA_OMEGA1_MIN 0
+        DELTA_OMEGA1_MAX 180
+        CRICK_PARAMS_FILE alpha_helix_100.crick_params
+        NUCLEATION_PROB 0.01
+        EXTENSION_PROB 0.05
+        RETRACTION_PROB 0.03
+END_GLOBALS
+
+BEGIN_HELIX
+        START_RES 3
+        END_RES 13
+END_HELIX
+
+BEGIN_HELIX
+        START_RES 17
+        END_RES 30
+        R0_MIN 6
+        R0_MAX 7
+        DELTA_OMEGA1_MIN 45
+        DELTA_OMEGA1_MAX 135
+END_HELIX
+
+BEGIN_HELIX
+        START_RES 32
+        END_RES 43
+        NUCLEATION_PROB 0.02
+        EXTENSION_PROB 0.03
+        RETRACTION_PROB 0.01
+END_HELIX
+```
+
+### Full options list
 
 |                        Option |          Default Setting  |Type|  Description            |      
 |-------------------------------|---------------------------|----|------------------------|
