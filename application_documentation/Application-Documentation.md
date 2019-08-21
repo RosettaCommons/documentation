@@ -39,7 +39,7 @@ While most of these applications focus on prediction, many have options which wi
 
 - [[Floppy tail]] - Predict structures of long, flexible N-terminal or C-terminal regions.
 - [[Fold-and-dock]] - Predict 3-dimensional structures of symmetric homooligomers.
-- [[Helical bundle structure prediction|helical_bundle_predict]] - Predict structures of predominantly helical heteropolymers from sequence.  Uses a fragment-free approach that is good for proteins and non-natural heterpolymers with no close relatives of known structure.  Experimental.
+- [[Helical bundle structure prediction|helical-bundle-predict]] - Predict structures of predominantly helical heteropolymers from sequence.  Uses a fragment-free approach that is good for proteins and non-natural heterpolymers with no close relatives of known structure.  Experimental.
 - [[Molecular replacement protocols|mr-protocols]] - Use Rosetta to build models for use in X-ray crystrallography molecular replacement.  
     * [[Prepare template for MR]] - Setup script for molecular replacement protocols.  
 - [[Relax]] - "Locally" optimize structures, including assigning sidechain positions.
