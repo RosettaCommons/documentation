@@ -41,50 +41,13 @@ Note that, because strands are special cases of helices in which the turn per re
 |     helical_bundle_predict:helix_assignment_file |                           |   File | A file containing information about the helix types and helical regions within a helical bundle. |
 | helical_bundle_predict:num_steps_per_simulated_annealing_round_centroid |    1000 |   Int| Number of steps in each round of simulated annealing in centroid mode.|
 | helical_bundle_predict:num_simulated_annealing_rounds_centroid |                3 |   Int | Number of rounds of simulated annealing in centroid mode. |
-      centroid_max_temperature |                        50 |   R| The maximum temperature 
-                               |                           |    |  during simulated annealing 
-                               |                           |    |  rounds in centroid mode.
-      centroid_min_temperature |                      0.62 |   R| The minimum temperature 
-                               |                           |    |  during simulated annealing 
-                               |                           |    |  rounds in centroid mode.
-  do_final_fullatom_refinement |                           |   B| If true, the initial 
-                               |                           |    |  centroid model is 
-                               |                           |    |  converted to a full-atom 
-                               |                           |    |  model and relaxed with the 
-                               |                           |    |  FastRelax protocol.  Other 
-                               |                           |    |  refinement steps, such as 
-                               |                           |    |  finding disulfides, may 
-                               |                           |    |  also be carried out.  True 
-                               |                           |    |  by default.
-             fast_relax_rounds |                         3 |   I| The number of rounds of 
-                               |                           |    |  FastRelax that will be 
-                               |                           |    |  applied.  Does nothing if d
-                               |                           |    |  o
-                               |                           |    |  _final_fullatom_refinement 
-                               |                           |    |  is false.  Set to 3 by 
-                               |                           |    |  default.
-               find_disulfides |                           |   B| If true, the full-atom 
-                               |                           |    |  refinement steps include 
-                               |                           |    |  trying disulfide 
-                               |                           |    |  permutations.  Does 
-                               |                           |    |  nothing if d
-                               |                           |    |  o
-                               |                           |    |  _final_fullatom_refinement 
-                               |                           |    |  is false.  True by 
-                               |                           |    |  default.
-                               |                           |    |
-             cyclic_peptide:   |                           |    | 
-        MPI_processes_by_level |                           | (I)| The number of processes at 
-                               |                           |    |  each level of the parallel 
-                               |                           |    |  communications hierarchy, 
-                               |                           |    |  used only by the MPI 
-                               |                           |    |  version.  For example, '1 
-                               |                           |    |  10 100' would mean that 
-                               |                           |    |  one emperor would talk to 
-                               |                           |    |  10 masters, which would 
-                               |                           |    |  talk to 100 slaves 
-                               |                           |    |  (implying that each master 
-                               |                           |    |  is assigned 100 slaves).  
+|helical_bundle_predict:centroid_max_temperature |                        50 |   Real| The maximum temperature during simulated annealing rounds in centroid mode. |
+|helical_bundle_predict:centroid_min_temperature |                      0.62 |   Real| The minimum temperature during simulated annealing rounds in centroid mode. |
+|helical_bundle_predict:do_final_fullatom_refinement | true |   Bool | If true, the initial centroid model is converted to a full-atom model and relaxed with the FastRelax protocol.  Other refinement steps, such as finding disulfides, may also be carried out.  True by default. |
+|helical_bundle_predict:fast_relax_rounds | 3 |   Int | The number of rounds of FastRelax that will be applied.  Does nothing if do_final_fullatom_refinement is false.  Set to 3 by default. |
+|helical_bundle_predict:find_disulfides | true |   Bool | If true, the full-atom refinement steps include trying disulfide permutations.  Does nothing if do_final_fullatom_refinement is false.  True by default. |
+| cyclic_peptide:   |                           |    | 
+        MPI_processes_by_level |                           | Int vect | The number of processes at each level of the parallel communications hierarchy, used only by the MPI version.  For example, '1 10 100' would mean that one emperor would talk to 10 masters, which would talk to 100 slaves (implying that each master is assigned 10 slaves).  
                                |                           |    |  Similarly, '1 100' would 
                                |                           |    |  mean that one master would 
                                |                           |    |  talk directly to 100 
