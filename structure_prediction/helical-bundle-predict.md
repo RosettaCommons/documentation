@@ -30,3 +30,180 @@ Note that, because strands are special cases of helices in which the turn per re
 - [[MakeBundle mover|MakeBundleMover]] -- A mover that generates a coiled-coil protein or heteropolymer parametrically, using the Crick equations.
 - [[PerturbBundle mover|PerturbBundle]] -- A mover that alters Crick parameter values to perturb the conformation of a coiled-coil.
 - [[BundleGridSampler mover|BundleGridSampler]] -- A mover that grid-samples Crick parameter space to identify favourable coiled-coil conformations.
+
+## Full options list
+
+|                        Option |          Default Setting  |Type|  Description            |      
+|-------------------------------|---------------------------|----|------------------------|
+|                    in:file:fasta |                           | File | Fasta-formatted sequence file. |
+|                    in:file:native |                           |   File | Native PDB filename. |
+|                       out:nstruct |                         1 |   I| Number of structures to generate.  (Number of structure prediction attempts) |
+                               |                           |    |
+     helical_bundle_predict:   |                           |    | 
+         helix_assignment_file |                           |   F| A file containing 
+                               |                           |    |  information about the 
+                               |                           |    |  helix types and helical 
+                               |                           |    |  regions within a helical 
+                               |                           |    |  bundle.
+num_steps_per_simulated_annealing_round_centroid |    1000 |   I| Number of steps in each 
+                               |                           |    |  round of simulated 
+                               |                           |    |  annealing in centroid 
+                               |                           |    |  mode.
+num_simulated_annealing_rounds_centroid |                3 |   I| Number of rounds of 
+                               |                           |    |  simulated annealing in 
+                               |                           |    |  centroid mode.
+      centroid_max_temperature |                        50 |   R| The maximum temperature 
+                               |                           |    |  during simulated annealing 
+                               |                           |    |  rounds in centroid mode.
+      centroid_min_temperature |                      0.62 |   R| The minimum temperature 
+                               |                           |    |  during simulated annealing 
+                               |                           |    |  rounds in centroid mode.
+  do_final_fullatom_refinement |                           |   B| If true, the initial 
+                               |                           |    |  centroid model is 
+                               |                           |    |  converted to a full-atom 
+                               |                           |    |  model and relaxed with the 
+                               |                           |    |  FastRelax protocol.  Other 
+                               |                           |    |  refinement steps, such as 
+                               |                           |    |  finding disulfides, may 
+                               |                           |    |  also be carried out.  True 
+                               |                           |    |  by default.
+             fast_relax_rounds |                         3 |   I| The number of rounds of 
+                               |                           |    |  FastRelax that will be 
+                               |                           |    |  applied.  Does nothing if d
+                               |                           |    |  o
+                               |                           |    |  _final_fullatom_refinement 
+                               |                           |    |  is false.  Set to 3 by 
+                               |                           |    |  default.
+               find_disulfides |                           |   B| If true, the full-atom 
+                               |                           |    |  refinement steps include 
+                               |                           |    |  trying disulfide 
+                               |                           |    |  permutations.  Does 
+                               |                           |    |  nothing if d
+                               |                           |    |  o
+                               |                           |    |  _final_fullatom_refinement 
+                               |                           |    |  is false.  True by 
+                               |                           |    |  default.
+                               |                           |    |
+             cyclic_peptide:   |                           |    | 
+        MPI_processes_by_level |                           | (I)| The number of processes at 
+                               |                           |    |  each level of the parallel 
+                               |                           |    |  communications hierarchy, 
+                               |                           |    |  used only by the MPI 
+                               |                           |    |  version.  For example, '1 
+                               |                           |    |  10 100' would mean that 
+                               |                           |    |  one emperor would talk to 
+                               |                           |    |  10 masters, which would 
+                               |                           |    |  talk to 100 slaves 
+                               |                           |    |  (implying that each master 
+                               |                           |    |  is assigned 100 slaves).  
+                               |                           |    |  Similarly, '1 100' would 
+                               |                           |    |  mean that one master would 
+                               |                           |    |  talk directly to 100 
+                               |                           |    |  slaves.  Required for the 
+                               |                           |    |  MPI version.
+        MPI_batchsize_by_level |                           | (I)| The number of jobs sent at a 
+                               |                           |    |  time by each communication 
+                               |                           |    |  level to its children.  
+                               |                           |    |  Given N levels, N-1 values 
+                               |                           |    |  must be specified.  For 
+                               |                           |    |  example, given 3 
+                               |                           |    |  communications levels, 
+                               |                           |    |  '100 10' would mean that 
+                               |                           |    |  the emperor sends 100 jobs 
+                               |                           |    |  at a time to each master, 
+                               |                           |    |  which sends 10 jobs at a 
+                               |                           |    |  time to each slave.  Must 
+                               |                           |    |  be specified for the 
+                               |                           |    |  simple_cycpep_predict 
+                               |                           |    |  application in MPI mode.
+                   MPI_sort_by |                    energy |   S| The MPI version of the 
+                               |                           |    |  simple_cycpep_predict app 
+                               |                           |    |  has the option of writing 
+                               |                           |    |  out the top N% of 
+                               |                           |    |  solutions.  This 
+                               |                           |    |  determines the sort 
+                               |                           |    |  metric.
+            MPI_choose_highest |                     false |   B| When outputing the top N% of 
+                               |                           |    |  solutions, should I choose 
+                               |                           |    |  the ones with the higest 
+                               |                           |    |  score for the metric 
+                               |                           |    |  chosen (energy, rmsd, 
+                               |                           |    |  hbonds, etc.) or lowest?  
+                               |                           |    |  Default false (chose 
+                               |                           |    |  lowest).
+           MPI_output_fraction |                         1 |   R| The fraction of total 
+                               |                           |    |  structures that will be 
+                               |                           |    |  written out.  This is used 
+                               |                           |    |  in conjunction with 
+                               |                           |    |  'MPI_sort_by' to output 
+                               |                           |    |  the top N% of job outputs. 
+                               |                           |    |  For example, 
+                               |                           |    |  '-MPI_output_fraction 0.05 
+                               |                           |    |  -MPI_sort_by rmsd' means 
+                               |                           |    |  that the 5% of structures 
+                               |                           |    |  with the lowest RMSD 
+                               |                           |    |  values will be written 
+                               |                           |    |  out.
+           MPI_stop_after_time |                           |   I| If this option is used, the 
+                               |                           |    |  emperor node will send a 
+                               |                           |    |  stop signal after an 
+                               |                           |    |  elapsed period of time, 
+                               |                           |    |  given in seconds.  Slaves 
+                               |                           |    |  jobs currently running 
+                               |                           |    |  will continue, but 
+                               |                           |    |  intermediate masters will 
+                               |                           |    |  not assign any more work.  
+                               |                           |    |  Useful on HPC clusters 
+                               |                           |    |  with time limits, to 
+                               |                           |    |  ensure that jobs completed 
+                               |                           |    |  are collected at the end.  
+                               |                           |    |  Unused if not specified.
+              MPI_pnear_lambda |                       0.5 |   R| In MPI mode a 
+                               |                           |    |  goodness-of-funnel metric 
+                               |                           |    |  is automatically 
+                               |                           |    |  calculated at the end 
+                               |                           |    |  (PNear).  This value may 
+                               |                           |    |  be thought of as the 
+                               |                           |    |  probability, from 0 to 1, 
+                               |                           |    |  of the peptide being in 
+                               |                           |    |  the target conformation at 
+                               |                           |    |  any given time.  The 
+                               |                           |    |  parameter lambda controls 
+                               |                           |    |  the bredth of the Gaussian 
+                               |                           |    |  (in RMSD units -- 
+                               |                           |    |  Angstroms) that is used to 
+                               |                           |    |  determine whether a state 
+                               |                           |    |  is native-like or not.  
+                               |                           |    |  Default 0.5 A.
+                 MPI_pnear_kbt |                         1 |   R| In MPI mode a 
+                               |                           |    |  goodness-of-funnel metric 
+                               |                           |    |  is automatically 
+                               |                           |    |  calculated at the end 
+                               |                           |    |  (PNear).  This value may 
+                               |                           |    |  be thought of as the 
+                               |                           |    |  probability, from 0 to 1, 
+                               |                           |    |  of the peptide being in 
+                               |                           |    |  the target conformation at 
+                               |                           |    |  any given time.  The 
+                               |                           |    |  parameter kbt is the 
+                               |                           |    |  Boltzmann temperature that 
+                               |                           |    |  determines the extent to 
+                               |                           |    |  which higher energy states 
+                               |                           |    |  are likely to be sampled.  
+                               |                           |    |  Default 1.0 Rosetta energy 
+                               |                           |    |  units.
+             threads_per_slave |                         1 |   I| In the multi-threaded MPI 
+                               |                           |    |  compilation, this is the 
+                               |                           |    |  number of threads to 
+                               |                           |    |  launch per slave process.  
+                               |                           |    |  Note that emperor and 
+                               |                           |    |  master-layer processes do 
+                               |                           |    |  not launch threads.  A 
+                               |                           |    |  value of 1 (the default) 
+                               |                           |    |  means that only standard 
+                               |                           |    |  hierarchical process-based 
+                               |                           |    |  parallelism will be used.  
+                               |                           |    |  In non-MPI or non-threaded 
+                               |                           |    |  compilations, this option 
+                               |                           |    |  is unused.
+--------------------------------------------------------------------------
