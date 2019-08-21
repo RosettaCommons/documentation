@@ -37,21 +37,10 @@ Note that, because strands are special cases of helices in which the turn per re
 |-------------------------------|---------------------------|----|------------------------|
 |                    in:file:fasta |                           | File | Fasta-formatted sequence file. |
 |                    in:file:native |                           |   File | Native PDB filename. |
-|                       out:nstruct |                         1 |   I| Number of structures to generate.  (Number of structure prediction attempts) |
-                               |                           |    |
-     helical_bundle_predict:   |                           |    | 
-         helix_assignment_file |                           |   F| A file containing 
-                               |                           |    |  information about the 
-                               |                           |    |  helix types and helical 
-                               |                           |    |  regions within a helical 
-                               |                           |    |  bundle.
-num_steps_per_simulated_annealing_round_centroid |    1000 |   I| Number of steps in each 
-                               |                           |    |  round of simulated 
-                               |                           |    |  annealing in centroid 
-                               |                           |    |  mode.
-num_simulated_annealing_rounds_centroid |                3 |   I| Number of rounds of 
-                               |                           |    |  simulated annealing in 
-                               |                           |    |  centroid mode.
+|                       out:nstruct |                         1 |   Int | Number of structures to generate.  (Number of structure prediction attempts) |
+|     helical_bundle_predict:helix_assignment_file |                           |   File | A file containing information about the helix types and helical regions within a helical bundle. |
+| helical_bundle_predict:num_steps_per_simulated_annealing_round_centroid |    1000 |   Int| Number of steps in each round of simulated annealing in centroid mode.|
+| helical_bundle_predict:num_simulated_annealing_rounds_centroid |                3 |   Int | Number of rounds of simulated annealing in centroid mode. |
       centroid_max_temperature |                        50 |   R| The maximum temperature 
                                |                           |    |  during simulated annealing 
                                |                           |    |  rounds in centroid mode.
