@@ -186,6 +186,12 @@ A number of support classes are also defined in the `protocols::helical_bundle_p
 * `HBP_TemperatureScheduleGenerator` -- An abstract base class for classes that generate the temperature schedule for a Simulated Annealing trajectory.
 * `HBP_SigmoidalTemperatureScheduleGenerator` -- A class for generating a sigmoidal temperature schedule for a simulated annealing trajectory, derived from `HBP_TemperatureScheduleGenerator`.
 
+## Current limitations
+
+This application was developed to allow non-canonical heteropolymer structure prediction.  At the present time, it has only been tested on proteins.  A current limitation is that initial sampling is carried out in centroid mode, requiring a centroid-mode scoring function that is compatible with the polymer building blocks used.  Since Rosetta's current centroid scoring functions are hard-coded to be specific for canonical amino acids, they cannot be used for non-canonical heteropolymers.
+
+Development of a new, general centroid scoring function is ongoing.
+
 ## See also
 - [[Rosetta ab initio application|abinitio-relax]] -- Fragment-based protein structure prediction.
 - [[Rosetta simple_cycpep_predict application|simple_cycpep_predict]] -- Structure prediction of macrocycles built from canonical or non-canonical building-blocks.
