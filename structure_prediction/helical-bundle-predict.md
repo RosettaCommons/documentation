@@ -23,6 +23,16 @@ The helical_bundle_predict application was created to fill this niche.  Based on
 
 Note that, because strands are special cases of helices in which the turn per residue is about 180 degrees, this approach should be sufficiently general for any protein or heteropolymer secondary structure.
 
+## Examples
+
+### Predicting a helical bundle structure on a single core
+
+TODO TODO TODO
+
+### Predicting a helical bundle structure on a cluster, process- and thread-based parallelism
+
+TODO TODO TODO
+
 ## Inputs
 
 ### Helix assignment file
