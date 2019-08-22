@@ -25,11 +25,13 @@ Note that, because strands are special cases of helices in which the turn per re
 
 ## Examples
 
-### Predicting a helical bundle structure on a single core
+### Predictions using a single core
+
+The default build of Rosetta allows the user to launch an instance of the helical_bundle_predict application which will use one CPU core to compute a trajectory (or, if many trajectories are requested with the `-nstruct` option, many trajectories will be run in sequence).
 
 TODO TODO TODO
 
-### Predicting a helical bundle structure in parallel on a cluster
+### Predictions in parallel on a cluster
 
 #### Parallelism using MPI processes
 
