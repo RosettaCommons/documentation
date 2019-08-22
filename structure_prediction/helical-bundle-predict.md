@@ -111,6 +111,18 @@ Settings for individual helices are specified in blocks that begin with `BEGIN_H
 
 | Setting | Description | Example |
 | ------- | ----------- | ------- |
+|START_RES| The first residue of the region in which this helix might exist, based on Rosetta numbering (starting at 1). | START_RES 5 #This helix starts somewhere on or after residue 5. |
+|END_RES| The last residue of the region in which this helix might exist, based on Rosetta numbering (starting at 1). | END_RES 15 #This helix ends somewhere before or on residue 15. |
+| R0_MIN | Minimum value for radius from supercoiling axis.  Overrides any global setting.  Cannot be used with COMMON_R0. | R0_MIN 3.65 # This helix has a minimum radius from the supercoiling axis of 3.65 Angstroms. |
+| R0_MAX | Maximum value for radius from supercoiling axis.  Overrides any global setting.  Cannot be used with COMMON_R0. | R0_MAX 8.0 # This helix has a maximum radius from the supercoiling axis of 8.0 Angstroms. |
+| OMEGA0_MIN | Minimum value for supercoiling twist.  Overrides any global setting.  Cannot be used with COMMON_OMEGA0. | OMEGA0_MIN -1.0 # This helix has a minimum supercoil of -1.0 degrees. |
+| OMEGA0_MAX | Maximum value for supercoiling twist.  Overrides any global setting.  Cannot be used with COMMON_OMEGA0. | OMEGA0_MAX +1.0 # This helix has a maximum supercoil of +1.0 degrees. |
+| DELTA_OMEGA1_MIN | Minimum value for the rotation of a helix about its own axis.  Overrides any global setting.  Cannot be used with COMMON_DELTA_OMEGA1. | DELTA_OMEGA1_MIN 45 # This helix has a minimum rotation about its own axis of 45 degrees. |
+| DELTA_OMEGA1_MAX | Maximum value for the rotation of a helix about its own axis.  Overrides any global setting.  Cannot be used with COMMON_DELTA_OMEGA1. | DELTA_OMEGA1_MAX 135 # This helix has a minimum rotation about its own axis of 135 degrees. |
+| NUCLEATION_PROB | Probability of nucleating a helix in this region on any given Monte Carlo move.  Overrides any global setting. | NUCLEATION_PROB 0.08 # This region has a nucleation probability of 8%.|
+| EXTENSION_PROB | Probability of extending a helix in this region on any given Monte Carlo move.  Overrides any global setting. | EXTENSION_PROB 0.02 # This region has a helix-growing probability of 2%.|
+| RETRACTION_PROB | Probability of retracting a helix in this region on any given Monte Carlo move.  Overrides any global setting. | RETRACTION_PROB 0.02 # This region has a helix-shrinking probability of 2%.|
+| CRICK_PARAMS_FILE | The helix type.  Overrides any global setting. | CRICK_PARAMS_FILE beta_strand.crick_params #This is a beta strand. |
 
 ### Full options list
 
