@@ -4,7 +4,7 @@
 
 Author: Vikram K. Mulligan (vmulligan@flatironinstitute.org)
 
-[[include:mover_RandomizeBBByRamaPrePro_type.md]]
+[[include:mover_RandomizeBBByRamaPrePro_type]]
 
 ##See Also
 
