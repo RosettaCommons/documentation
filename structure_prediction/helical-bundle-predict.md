@@ -29,7 +29,13 @@ Note that, because strands are special cases of helices in which the turn per re
 
 TODO TODO TODO
 
-### Predicting a helical bundle structure on a cluster, process- and thread-based parallelism
+### Predicting a helical bundle structure in parallel on a cluster
+
+#### Parallelism using MPI processes
+
+TODO TODO TODO
+
+#### Parallelism using MPI processes plus threads
 
 TODO TODO TODO
 
