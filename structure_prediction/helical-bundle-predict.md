@@ -91,8 +91,23 @@ Global settings are defined in a block that begins with `BEGIN_GLOBALS` and ends
 | COMMMON_R0 | Is the value of r0 (the radius of a helix from the bundle axis) shared by all helices, or independent? Note that this cannot be overridden on a helix-by-helix basis. | COMMON_R0 FALSE #Helices have independent r0 |
 | COMMMON_OMEGA0 | Is the value of omega0 (the major helical twist) shared by all helices, or independent? Note that this cannot be overridden on a helix-by-helix basis. | COMMON_OMEGA0 TRUE #Helices share omega0 |
 | COMMON_DELTA_OMEGA1 | Is the value of delta_omega1 (the rotation of a helix about its own axis) shared by all helices, or independent? (This affects helices with nonzero omega0 values, which follow a corkscrew path through space and for which different faces of the helix could point towards the center of the corkscrew.) Note that this cannot be overridden on a helix-by-helix basis. | COMMON_DELTA_OMEGA1 FALSE #Helices have independent delta_omega1 |
+| CONFINE_TO_USER_DEFINED_HELICES | If true, helices cannot extend beyond user-defined helix limits.  Note that this cannot be overridden on a helix-by-helix basis. | CONFINE_TO_USER_DEFINED_HELICES TRUE #User-defined limits are enforced |
+| R0_MIN | The minimum radius for a helix from the superhelix axis.  Can be overridden on a helix-by-helix basis. | R0_MIN 3.5 #Minimum radius of 3.5 Angstroms |
+| R0_MAX | The maximum radius for a helix from the superhelix axis.  Can be overridden on a helix-by-helix basis. | R0_MAX 7.5 #Maximum radius of 7.5 Angstroms |
+| OMEGA0_MIN | The minimum superhelical twist.  Can be overridden on a helix-by-helix basis. | OMEGA0_MIN -3.5 #Minimum superhelical twist of -3.5 degrees |
+| OMEGA0_MAX | The maximum superhelical twist.  Can be overridden on a helix-by-helix basis. | OMEGA0_MAX 2.5 #Maximum superhelical twist of +2.5 degrees |
+| DELTA_OMEGA1_MIN | The minimum rotation of a helix about its own axis.  Can be overridden on a helix-by-helix basis. | DELTA_OMEGA1_MIN 0 #Minimum axial rotation of 0 degrees |
+| DELTA_OMEGA1_MAX | The maximum rotation of a helix about its own axis.  Can be overridden on a helix-by-helix basis. | DELTA_OMEGA1_MAX 360 #Maximum axial rotation of 360 degrees |
+| NUCLEATION_PROB | The fractional probability of nucleating a helix as a Monte Carlo move.  Can be overridden on a helix-by-helix basis. | NUCLEATION_PROB 0.01 # 1% chance of nucleating a helix on any given move |
+| EXTENSION_PROB | The fractional probability of extending a helix as a Monte Carlo move.  Can be overridden on a helix-by-helix basis. | EXTENSION_PROB 0.05 # 5% chance of growing a helix on any given move |
+| RETRACTION_PROB | The fractional probability of retracting a helix as a Monte Carlo move.  Can be overridden on a helix-by-helix basis. | RETRACTION_PROB 0.03 # 3% chance of shrinking a helix on any given move |
+| GLOBAL_PERTURBATION_PROB | The fractional probability of doing a global Crick parameter perturbation as a Monte Carlo move.  Cannot be overridden on a helix-by-helix basis. | GLOBAL_PERTURBATION_PROB 0.02 # 2% chance of global Crick parameter perturbations |
+| FRACTIONAL_PERTURBATION_MAGNITUDE | The size of perturbations to the global Crick parameters.  Cannot be overridden on a helix-by-helix basis. | FRACTIONAL_PERTURBATION_MAGNITUDE 0.1 # Crick parameters are perturbed by up to 10%. |
+| CRICK_PARAMS_FILE | The Crick parameters file defining the type of helix (or strand).  Can be overridden on a helix-by-helix basis. | CRICK_PARAMS_FILE 14_helix.crick_params #A beta-amino acid 14-helix |
 
 ##### Individal helix blocks
+
+TODO TODO TODO TODO
 
 ### Full options list
 
