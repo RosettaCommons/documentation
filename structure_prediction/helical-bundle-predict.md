@@ -47,13 +47,29 @@ The lowest-energy sample (shown in orange, below) had topology closely resemblin
 
 ### Predictions in parallel on a cluster
 
-#### Parallelism using MPI processes
+Typically, one has many cores available for prediction.  The common way to take advantage of this is to run many independent, parallel instances of Rosetta -- in this case, launching as many copies of the helical_bundle_predict application as one has cores.  This isn't ideal, however, for several reasons:
+- Independent instances do not necessarily balance their loads well.  (If the first instance finishes its work in five minutes, and the second instance still has a long list of jobs to carry out, it cannot transfer some of its work to the first.  One core sits idle while another does a lot of work.)
+- Independent instances have no ability to carry out analysis on the ensemble of structures generated.  Any analysis must be done after-the-fact.
+- Independent instances each load a separate copy of the Rosetta database into memory, potentially preventing all cores from being used on memory-limited systems.
+- Independent instances all read from and write to disk independently, potentially resulting in bottlenecks as shared hardware is accessed by many independent processes on large clusters.
 
-TODO TODO TODO
+The MPI and multi-threaded builds address these problems.
+
+#### Parallelism using Message Passing Interface (MPI) processes
+
+With the MPI build of Rosetta (built by adding `extras=mpi` to the `scons` command during compilation), one can launch many parallel helical_bundle_predict processes.  These processes can then talk to one another, allowing load-balancing, data distribution (reducing disk reads), dedicated output by one process (reducing disk writes), and data analysis over the whole pool of samples.  In MPI mode, the helical_bundle_predict application establishes a hierarchy of MPI processes, in which one emperor processes distributes work to, and collects results from, any number of layers of intermediate master processes, which in turn distribute work to, and collect results from, a large number of slave processes.  The slaves run the same structure prediction algorithm that is run by the single-process version of the application.  During results collection, data analysis is also performed to (a) compute metrics like <b><i>PNear</b></i>, which serves as an estimate of the fraction of time a molecule spends in or near the native state (see Bhardwaj, Mulligan, Bahl _et al_. (2016) _Nature_ 538(7625):329-335 and Hosseinzadeh, Bhardwaj, Mulligan _et al_. (2017) _Science_ 358(6369):1461-1466), and (b) rank the samples by some metric so that only a subset might be written to disk.
+
+To run the MPI version, follow the instructions for your cluster.  Often, the `mpirun` command is used:
+
+```sh
+mpirun -np <# of processes> <path_to_Rosetta>/Rosetta/main/source/bin/helical_bundle_predict.mpi.linuxgccrelease @flags.txt`
+```
+
+In the above, run options are in the `flags.txt` file.  The `-MPI_batchsize_by_level` and `-MPI_processes_by_level`, documented in the full options list, below, must be included.
 
 #### Parallelism using MPI processes plus threads
 
-TODO TODO TODO
+Multi-threaded job distribution is also supported.  To enable hybrid process/thread-based parallelism, compile with `extras=cxx11threads,mpi,serialization`.  In the MPI/threaded build, the helical_bundle_predict application sends jobs down an emperor/master/slave hierarchy, as before.  Each slave may launch a number of threads with which to carry out samples in parallel, however (so it is important that each slave receive a batch of jobs larger than the number of worker threads that it has launched).  The number of threads is controlled with the `-threads_per_slave` flag.  Note that one thread will be used for MPI communication and job control, so launching, for example, 8 threads results in 7 worker threads.
 
 ## Inputs
 
