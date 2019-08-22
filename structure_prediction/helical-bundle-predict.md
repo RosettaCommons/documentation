@@ -159,6 +159,12 @@ Settings for individual helices are specified in blocks that begin with `BEGIN_H
 | cyclic_peptide:MPI_pnear_kbt | 1 |   Real | In MPI mode, a goodness-of-funnel metric  is automatically calculated at the end (PNear).  This value may  be thought of as the probability, from 0 to 1, of the peptide being in the native conformation at any given time.  The parameter kbt is the Boltzmann temperature that determines the extent to which higher energy states are likely to be sampled.  Default 1.0 kcal/mol. |
 | cyclic_peptide:threads_per_slave | 1 |   I| In the multi-threaded MPI compilation, this is the number of threads to launch per slave process.  Note that emperor and master-layer processes do not launch threads.  A value of 1 (the default) means that only standard hierarchical process-based parallelism will be used.  In non-MPI or non-threaded compilations, this option is unused. |
 
+## Code organization
+
+The application is located in `src/apps/pilot/vmullig/helical_bundle_predict` for now, and will be migrated to public apps when fully functional.  The protocol that it runs is located in `src/protocols/helical_bundle_predict`, with classes defined in the `protocols::helical_bundle_predict` namespace.
+
+The main protocol is defined in the `protocols::helical_bundle_predict::HelicalBundlePredictApplication` class, in `src/protocols/helical_bundle_predict/HelicalBundlePredictApplication.hh`.  The MPI/multi-threaded variant (which calls the `HelicalBundlePredictApplication` for individual prediction trajectories) is defined in the `protocols::helical_bundle_predict::HelicalBundlePredictApplication_MPI` class, which derives from the `protocols::cyclic_peptide_predict::HierarchicalHybridJDApplication` base class and uses the same hierarchical MPI/multi-threaded job distribution and results collection system as the [[simple_cycpep_predict application|simple_cycpep_predict]].
+
 ## See also
 - [[Rosetta ab initio application|abinitio-relax]] -- Fragment-based protein structure prediction.
 - [[Rosetta simple_cycpep_predict application|simple_cycpep_predict]] -- Structure prediction of macrocycles built from canonical or non-canonical building-blocks.
