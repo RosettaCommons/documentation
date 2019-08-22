@@ -78,9 +78,9 @@ END_HELIX
 
 #### Helix assignment file format
 
-##### Comments
+##### Comments and whitespace
 
-Comment lines may be included using a pound sign (#).  Anything following a pound sign is ignored.
+Comment lines may be included using a pound sign (#).  Anything following a pound sign is ignored.  All whitespace is treated equally within a line (_i.e._ preceding or trailing spaces or tabs have no significance beyond human readability).
 
 ##### Globals block
 
@@ -105,9 +105,12 @@ Global settings are defined in a block that begins with `BEGIN_GLOBALS` and ends
 | FRACTIONAL_PERTURBATION_MAGNITUDE | The size of perturbations to the global Crick parameters.  Cannot be overridden on a helix-by-helix basis. | FRACTIONAL_PERTURBATION_MAGNITUDE 0.1 # Crick parameters are perturbed by up to 10%. |
 | CRICK_PARAMS_FILE | The Crick parameters file defining the type of helix (or strand).  Can be overridden on a helix-by-helix basis. | CRICK_PARAMS_FILE 14_helix.crick_params #A beta-amino acid 14-helix |
 
-##### Individal helix blocks
+##### Individual helix blocks
 
-TODO TODO TODO TODO
+Settings for individual helices are specified in blocks that begin with `BEGIN_HELIX` and end with `END_HELIX`.
+
+| Setting | Description | Example |
+| ------- | ----------- | ------- |
 
 ### Full options list
 
