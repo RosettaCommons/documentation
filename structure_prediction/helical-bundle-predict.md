@@ -1,4 +1,4 @@
-# Helical Bundle Structure Prediction (helical_bundle_predict) Application
+# Fragment-free helical bundle structure prediction Using the helical_bundle_predict application
 
 Back to [[Application Documentation]].
 
