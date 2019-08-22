@@ -29,7 +29,22 @@ Note that, because strands are special cases of helices in which the turn per re
 
 The default build of Rosetta allows the user to launch an instance of the helical_bundle_predict application which will use one CPU core to compute a trajectory (or, if many trajectories are requested with the `-nstruct` option, many trajectories will be run in sequence).
 
-TODO TODO TODO
+Let's say that we wanted to predict the structure of a small _de novo_-designed 3-helix bundle miniprotein, such as [PDB ID 2ND2](https://www.rcsb.org/structure/2ND2) (designed by Chris Bahl).  The following commandline would generate 500 sampled structures:
+
+```sh
+<path_to_rosetta>/Rosetta/main/source/bin/helical_bundle_predict.default.linuxgccrelease -in:file:fasta inputs/seq.txt -nstruct 500 -in:file:native inputs/2nd2.cif -in:file:fullatom -helical_bundle_predict:helix_assignment_file inputs/2nd2.helix_assignments -helical_bundle_predict:num_steps_per_simulated_annealing_round_centroid 1000
+-helical_bundle_predict:num_simulated_annealing_rounds_centroid 5 -out:file:silent output.silent
+```
+
+This assumes that in an `inputs/` subdirectory of your working directory, you have a FASTA-formatted sequence file `seq.txt` that contains the sequence of 2ND2, the 2ND2 native structure (`2nd2.cif`), and a helix assignments file (`2nd2.helix_assignments`) specifying the expected helical regions of the structure.  See the *Inputs* section, below, for an example of this file for 2ND2.  Note that the native structure is optional.  Without it, RMSD values to the native will not be calculated.  All sampled structures will be written out to output.silent.
+
+When we tested this protocol, 500 samples produced a lowest-energy sample 2.4 Angstroms from the native, with a clear funnel towards the native state:
+
+![Energy funnel from 500 samples](2ND2_helical_bundle_predict_energy_funnel.png)
+
+The lowest-energy sample (shown in orange, below) had topology closely resembling the native structure (shown in cyan):
+
+![Prediction in orange, design in cyan.  Lowest-energy sample shown.](2ND2_helical_bundle_predict_structure.png)
 
 ### Predictions in parallel on a cluster
 
