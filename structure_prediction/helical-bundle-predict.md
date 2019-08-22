@@ -41,7 +41,7 @@ When we tested this protocol, 500 samples produced a lowest-energy sample 2.4 An
 
 ![Energy funnel from 500 samples](2ND2_helical_bundle_predict_energy_funnel.png)
 
-The lowest-energy sample (shown in orange, below) had topology closely resembling the native structure (shown in cyan):
+The lowest-energy sample (shown in orange, below) had topology closely resembling the native structure (shown in cyan), and the correct disulphide connectivity was found:
 
 ![Prediction in orange, design in cyan.  Lowest-energy sample shown.](2ND2_helical_bundle_predict_structure.png)
 
