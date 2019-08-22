@@ -27,7 +27,7 @@ Note that, because strands are special cases of helices in which the turn per re
 
 ### Helix assignment file
 
-Helix locations and Crick parameter sampling options must be provided with an ASCII-formatted helix assignment file.  This is passed to the application with the `helical_bundle_predict:helix_assignment_file` input flag.
+Helix locations and Crick parameter sampling options must be provided with an ASCII-formatted helix assignment file.  This is passed to the application with the `helical_bundle_predict:helix_assignment_file` input flag.  Since there are many ways of predicting secondary structure from primary sequence, and of predicting possible helix types given a polymer building block set, it is assumed that some estimates of helix locations and types will be possible to produce and provide as input.  Since the algorithm stochastically nucleates, extends, and retracts helices, the helix types and ranges serve only as a guide; final helix placements may be different.  Also note that strands may be specified, since as noted before they are special cases of helices.  (They are still referred to as "helices" in helix assignment files.)
 
 #### Helix assignment file example
 
@@ -77,6 +77,22 @@ END_HELIX
 ```
 
 #### Helix assignment file format
+
+##### Comments
+
+Comment lines may be included using a pound sign (#).  Anything following a pound sign is ignored.
+
+##### Globals block
+
+Global settings are defined in a block that begins with `BEGIN_GLOBALS` and ends with `END_GLOBALS`.  Settings defined in the global settings may be overridden on a helix-by-helix basis in the individual helix blocks.
+
+| Setting | Description | Example |
+| ------- | ----------- | ------- |
+| COMMMON_R0 | Is the value of r0 (the radius of a helix from the bundle axis) shared by all helices, or independent? Note that this cannot be overridden on a helix-by-helix basis. | COMMON_R0 FALSE #Helices have independent r0 |
+| COMMMON_OMEGA0 | Is the value of omega0 (the major helical twist) shared by all helices, or independent? Note that this cannot be overridden on a helix-by-helix basis. | COMMON_OMEGA0 TRUE #Helices share omega0 |
+| COMMON_DELTA_OMEGA1 | Is the value of delta_omega1 (the rotation of a helix about its own axis) shared by all helices, or independent? (This affects helices with nonzero omega0 values, which follow a corkscrew path through space and for which different faces of the helix could point towards the center of the corkscrew.) Note that this cannot be overridden on a helix-by-helix basis. | COMMON_DELTA_OMEGA1 FALSE #Helices have independent delta_omega1 |
+
+##### Individal helix blocks
 
 ### Full options list
 
