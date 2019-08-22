@@ -168,9 +168,9 @@ The main protocol is defined in the `protocols::helical_bundle_predict::HelicalB
 A number of support classes are also defined in the `protocols::helical_bundle_predict` namespace, in header files corresponding to the class name.  These include:
 
 * `HBPHelixAssignments` -- Stores the helix assignments for a structure prediction task.  Separate instances of this class are used _both_ for the user-defined helix assignments _and_ for the current helix assignments at a given stage of a trajectory.  Functions to read assignments from disk are included in this class.
-* `HBP_MoveGenerator` -- An abstract base class for generating [[ParsedProtocols|ParsedProtocol]] representing moves in a Monte Carlo trajectory.
-* `HBP_HelixCoilMoveGenerator` -- Generates a [[ParsedProtocol]] for a single move in the centroid-mode Monte Carlo trajectory, based on the current state of the pose.  The move is composed of a random mix of loop perturbations, helix nucleations, helix elongations, helix contractions, and helix parameter perturbations (helix bending moves) with probabilities set by the user.  Derived from `HBP_MoveGenerator`.
-* `HBP_FinalFullatomRefinementMoveGenerator` -- Generates a [[ParsedProtocol]] for final full-atom refinement of a structure, at the end of a centroid-mode conformational sampling trajectory.  Derived from `HBP_MoveGenerator`.
+* `HBP_MoveGenerator` -- An abstract base class for generating [[ParsedProtocols|ParsedProtocolMover]] representing moves in a Monte Carlo trajectory.
+* `HBP_HelixCoilMoveGenerator` -- Generates a [[ParsedProtocol|ParsedProtocolMover]] for a single move in the centroid-mode Monte Carlo trajectory, based on the current state of the pose.  The move is composed of a random mix of loop perturbations, helix nucleations, helix elongations, helix contractions, and helix parameter perturbations (helix bending moves) with probabilities set by the user.  Derived from `HBP_MoveGenerator`.
+* `HBP_FinalFullatomRefinementMoveGenerator` -- Generates a [[ParsedProtocol|ParsedProtocolMover]] for final full-atom refinement of a structure, at the end of a centroid-mode conformational sampling trajectory.  Derived from `HBP_MoveGenerator`.
 * `HBP_TemperatureScheduleGenerator` -- An abstract base class for classes that generate the temperature schedule for a Simulated Annealing trajectory.
 * `HBP_SigmoidalTemperatureScheduleGenerator` -- A class for generating a sigmoidal temperature schedule for a simulated annealing trajectory, derived from `HBP_TemperatureScheduleGenerator`.
 
