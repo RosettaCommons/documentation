@@ -228,4 +228,4 @@ Development of a new, general centroid scoring function is ongoing.
 - [[Generalized kinematic closure|GeneralizedKIC]] -- A mover to sample conformations of a closed chain of atoms, without fragments.
 - [[MakeBundle mover|MakeBundleMover]] -- A mover that generates a coiled-coil protein or heteropolymer parametrically, using the Crick equations.
 - [[PerturbBundle mover|PerturbBundleMover]] -- A mover that alters Crick parameter values to perturb the conformation of a coiled-coil.
-- [[BundleGridSampler mover|BundleGridSampler]] -- A mover that grid-samples Crick parameter space to identify favourable coiled-coil conformations.
+- [[BundleGridSampler mover|BundleGridSamplerMover]] -- A mover that grid-samples Crick parameter space to identify favourable coiled-coil conformations.
