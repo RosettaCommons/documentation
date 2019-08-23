@@ -17,7 +17,7 @@ The helical_bundle_predict application was created to fill this niche.  Based on
 - Nucleation of a turn of helix (using the [[MakeBundle mover|MakeBundleMover]]).
 - Elongation of a helical region (with possible merger of two helical regions).
 - Contraction of a helical region.
-- Small random perturbation of the Crick parameters describing a given helix (using the [[PerturbBundle mover|PerturbBundle]]), to allow helices to bend and supercoil.
+- Small random perturbation of the Crick parameters describing a given helix (using the [[PerturbBundle mover|PerturbBundleMover]]), to allow helices to bend and supercoil.
 
 ![Allowed moves in the Monte Carlo search performed by the helical_bundle_predict application.](helical_bundle_predict_allowed_moves.png)
 
@@ -227,5 +227,5 @@ Development of a new, general centroid scoring function is ongoing.
 - [[Rosetta simple_cycpep_predict application|simple_cycpep_predict]] -- Structure prediction of macrocycles built from canonical or non-canonical building-blocks.
 - [[Generalized kinematic closure|GeneralizedKIC]] -- A mover to sample conformations of a closed chain of atoms, without fragments.
 - [[MakeBundle mover|MakeBundleMover]] -- A mover that generates a coiled-coil protein or heteropolymer parametrically, using the Crick equations.
-- [[PerturbBundle mover|PerturbBundle]] -- A mover that alters Crick parameter values to perturb the conformation of a coiled-coil.
+- [[PerturbBundle mover|PerturbBundleMover]] -- A mover that alters Crick parameter values to perturb the conformation of a coiled-coil.
 - [[BundleGridSampler mover|BundleGridSampler]] -- A mover that grid-samples Crick parameter space to identify favourable coiled-coil conformations.
