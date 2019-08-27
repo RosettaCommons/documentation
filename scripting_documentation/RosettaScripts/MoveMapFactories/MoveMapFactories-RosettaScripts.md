@@ -6,8 +6,7 @@ The packer can be controlled using TaskOperations, the equivalent for the minimi
 
 [[_TOC_]]
 
-Example
-=======
+### Example
     ...
     <RESIDUE_SELECTORS>
         <CDR name="L1" cdrs="L1"/>
