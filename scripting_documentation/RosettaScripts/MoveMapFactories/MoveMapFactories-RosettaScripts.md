@@ -35,14 +35,38 @@ Attributes for MoveMapFactory
 -   cartesian (bool) Set the MoveMapFactor for specific cartesian overrides.  Currently only used for glycans in order to maintain IUPAC nomenclature during moves
 
 
-Operations
-========
+### Operations
 
-Backbone
-Chi
-Nu
-Branches
-Jumps
+#### Backbone
+    <Backbone enable=(&bool true) residue_selector=(&string) bb_tor_index=(&int)/>
+
+Enable (or optionally disable) the backbone torsions for the residues identified by a given residue selector. If bb_tor_index is provided, then only a particular torsion for the selected residues are enabled. E.g., for amino acid residues, phi is 1, psi is 2, and omega is 3.
+
+#### Chi
+
+    <Chi enable=(&bool true) residue_selector=(&string)/>
+
+Enable (or optionally disable) the side-chain torsions for the residues identified by a given residue selector.
+
+#### Nu
+
+    <Nu enable=(&bool true) residue_selector=(&string)/>
+
+Enable (or optionally disable) the "nu" torsions for the carbohydrate residues identified by a given residue selector.
+
+
+#### Branches
+
+    <Branches enable=(&bool true) residue_selector=(&string)/>
+
+Enable (or optionally disable) the "branch" torsions for the carbohydrate residues identified by a given residue selector.
+
+
+#### Jumps
+
+    <Jumps enable=(&bool true) jump_selector=(&string)/>
+
+Enable (or optionally disable) the Jumps identified by a given jump selector.
 
 
 See Also
