@@ -15,6 +15,7 @@ Fleishman SJ, Leaver-Fay A, Corn JE, Strauch EM, Khare SD, et al. (2011) Rosetta
 -   [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
 -   [[MoveMapFactories (RosettaScripts)|MoveMapFactories-RosettaScripts]]
 -   [[ResidueSelectors (RosettaScripts)|ResidueSelectors]]
+-   [[JumpSelectors |JumpSelectors]]
 -   [[PackerPalettes|PackerPalette]]
 -   [[SimpleMetrics]]
 
