@@ -25,6 +25,16 @@ Example
     </MOVERS>
     ...
 
+Attributes for MoveMapFactory
+=======
+-   bb (bool) Enable or disable movement for all backbone torsions
+-   chi (bool) "Enable or disable movement for all chi torsions
+-   nu (bool) "Enable or disable movement for all nu torsions
+-   branches (bool) "Enable or disable movement for all branch torsions
+-   jumps (bool) "Enable or disable movement for all jump DOFs
+-   cartesian (bool) Set the MoveMapFactor for specific cartesian overrides.  Currently only used for glycans in order to maintain IUPAC nomenclature during moves
+
+
 Operations
 ========
 
