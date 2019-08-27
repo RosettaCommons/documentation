@@ -25,8 +25,9 @@ Example
     </MOVERS>
     ...
 
-Attributes for MoveMapFactory
-=======
+### Attributes for MoveMapFactory
+The MoveMap created by a MoveMapFactory starts off with no DOFs enabled. If you want to enable all DOFs of a particular type, that can be done with the following attributes. These attributes are processed before the operations in the subtags.
+
 -   bb (bool) Enable or disable movement for all backbone torsions
 -   chi (bool) "Enable or disable movement for all chi torsions
 -   nu (bool) "Enable or disable movement for all nu torsions
@@ -36,6 +37,8 @@ Attributes for MoveMapFactory
 
 
 ### Operations
+
+Operations are performed after the attributes in the MoveMapFactory tag are processed. Operations are performed in the order they are listed. The different kinds of operations may be listed in any order (presumably, in the order that you want them to be performed). Furthermore, each kind of operation may be listed multiple times.
 
 #### Backbone
     <Backbone enable=(&bool true) residue_selector=(&string) bb_tor_index=(&int)/>
