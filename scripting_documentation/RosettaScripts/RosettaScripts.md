@@ -569,7 +569,7 @@ Example use in `FastRelax`:
 		<Glycan name="glycans"/>
 	</RESIDUE_SELECTORS>
 	<MOVE_MAP_FACTORIES>
-		<MoveMapFactory name="fr_mm_factory" enable="0">
+		<MoveMapFactory name="fr_mm_factory">
 			<Backbone residue_selector="glycans" />
 			<Chi residue_selector="glycans" />
 		</MoveMapFactory>
@@ -587,18 +587,18 @@ Example use in `FastRelax`:
 
 
 Here, we use the MoveMapFactory to only run fast relax on all of the glycans in a pose.  
-By default, the movemap is constructed with all kinematics turned on (bb, chi, jump).  The option `enable="0"` makes everything off in the movemap first. `bb="0"`, `chi="0"`, `jump="0"` can optionally turn off specific components first when constructing the factory.  
+By default, the movemap is constructed with all kinematics turned on (bb, chi, jump).  By default, everything is off in the MoveMap first. The attributes `bb="0"`, `chi="0"`, `jump="0"` can optionally turn on specific components first when constructing the MoveMap.  
 
-### Subsections
+### MoveMapFactory Operations
 
-Subsections are used to turn on specific kinematic sections of the pose.  They optionally take a `residue_selector`
+Sub-tags of the MoveMapFactory tag are used to enable specific DOFs of the pose.  They require a `residue_selector`
 
 ```
 	<MOVE_MAP_FACTORIES>
 		<MoveMapFactory name="fr_mm_factory" enable="0">
-			<Backbone />
-			<Chi residue_selector="my_selecotor" />
-			<Jumps />
+			<Backbone residue_selector="my_first_residue_selector"/>
+			<Chi residue_selector="my_second_residue_selecotor" />
+			<Jump jump_selector="my_jump_selector"/>
 		</MoveMapFactory>
 	</MOVE_MAP_FACTORIES>
 
@@ -621,6 +621,8 @@ Subsections are used to turn on specific kinematic sections of the pose.  They o
 * `<Branches/>`
 
  These are specific torsions coming off the mainchain.  Typically, you do not need to worry about this unless you are using a complicated non-cannonical or modification.  Glycan branch torsions are treated as IUPAC BB torsions within the MoveMapFactory machinery.
+
+See [[MoveMapFactories |MoveMapFactories-RosettaScripts]]
 
 ##SIMPLE_METRICS
 
