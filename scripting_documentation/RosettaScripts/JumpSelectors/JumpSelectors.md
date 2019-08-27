@@ -2,7 +2,7 @@
 
 *Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 
-JumpSelectors
+# JumpSelectors
 ----------------
 
 JumpSelectors select a subset of Jumps from the FoldTree of a Pose. Their apply() method takes a Pose and returns a JumpSubset (a utility::vector1\< bool \>). This vector1 will be as large as there are jumps in the input Pose, and its ith entry will be "true" if jump i has been selected. 
@@ -27,7 +27,7 @@ Some JumpSelectors can nest other JumpSelectors in their definition; e.g.
 ```
 In this case, the documented structure of the Or JumpSelector will be stated as
 ```xml
-    <Or name=(%string) >
+    <Or name=(%string)>
         <(Selector)>
     </Or>
 ```
@@ -35,7 +35,7 @@ With the <(Selector)> subtag designating that any JumpSelector can be nested ins
 including an Or selector (if you so desired).
 
 
-[[_TOC_]]
+### [[_TOC_]]
 
 ### Logical JumpSelectors
 
@@ -105,7 +105,7 @@ any JumpSelector can be defined as a subtag of the Not selector.  You cannot, ho
 
 ####See Also
 
-* [[MoveMapFactory]]
+* [[MoveMapFactory |MoveMapFactories-RosettaScripts]]
 
 ##See Also
 
