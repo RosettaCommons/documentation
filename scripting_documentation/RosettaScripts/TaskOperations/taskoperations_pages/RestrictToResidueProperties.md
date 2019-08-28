@@ -29,7 +29,7 @@ PackerTaskOP task( tf.create_task_and_apply_taskoperations( pose ) );
 ```
 
 `RestrictToResidueProperties::set_properties()` &mdash; Pass a vector of `ResidueProperty`s with which to restrict design.
-`RestrictToResidueProperties::set_selector()` &mdash; Pass a `ResidueSelector` to specificy to which residue(s) the list of allowed `ResidueType`s applies. If no `ResidueSelector` is specified, Rosetta assumes that this `TaskOperation` applies to all residues in the `Pose`.
+`RestrictToResidueProperties::set_selector()` &mdash; Pass a `ResidueSelector` to specificy to which residue(s) the list of allowed `ResidueProperty`s applies. If no `ResidueSelector` is specified, Rosetta assumes that this `TaskOperation` applies to all residues in the `Pose`.
 
 ##See Also
 * [[ProhibitResidueProperties]]
