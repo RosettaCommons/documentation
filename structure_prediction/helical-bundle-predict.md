@@ -65,7 +65,7 @@ To run the MPI version, follow the instructions for your cluster.  Often, the `m
 mpirun -np <# of processes> <path_to_Rosetta>/Rosetta/main/source/bin/helical_bundle_predict.mpi.linuxgccrelease @flags.txt`
 ```
 
-In the above, run options are in the `flags.txt` file.  The `-MPI_batchsize_by_level` and `-MPI_processes_by_level`, documented in the full options list, below, must be included.
+In the above, run options are in the `flags.txt` file.  The `-MPI_batchsize_by_level` and `-MPI_processes_by_level`, documented in the full options list, below, must be included.  As an alternative to `-MPI_processes_by_level`, the flag `-MPI_auto_2level_distribution` allows automatic setup of a two-level distribution scheme in which, given N total processes, 1 emperor process talks to N-1 slave processes.  This flag takes no options.
 
 #### Parallelism using MPI processes plus threads
 
@@ -188,6 +188,7 @@ Settings for individual helices are specified in blocks that begin with `BEGIN_H
 |helical_bundle_predict:fast_relax_rounds | 3 |   Int | The number of rounds of FastRelax that will be applied.  Does nothing if do_final_fullatom_refinement is false.  Set to 3 by default. |
 |helical_bundle_predict:find_disulfides | true |   Bool | If true, the full-atom refinement steps include trying disulfide permutations.  Does nothing if do_final_fullatom_refinement is false.  True by default. |
 | cyclic_peptide:MPI_processes_by_level |                           | Int vect | The number of processes at each level of the parallel communications hierarchy, used only by the MPI version.  For example, '1 10 100' would mean that one emperor would talk to 10 masters, which would talk to 100 slaves (implying that each master is assigned 10 slaves).  Similarly, '1 100' would mean that one master would talk directly to 100 slaves.  Required for the MPI version. |
+| cyclic_peptide:MPI_auto_2level_distribution | Bool | If true, will automatically set up job distribution with one emperor talking to N-1 slaves, where N is the total number of processes.  Cannot be used with -MPI_processes_by_level.  Default false. |
 | cyclic_peptide:MPI_batchsize_by_level | | Int vect | The number of jobs sent at a time by each communication level to its children.  Given N levels, N-1 values must be specified.  For example, given 3 communications levels, '100 10' would mean that the emperor sends 100 jobs at a time to each master, which sends 10 jobs at a time to each slave.  Must be specified for the helical_bundle_predict application in MPI mode. |
 |cyclic_peptide:MPI_sort_by | "energy" |   String| The MPI version of the helical_bundle_predict app has the option of writing out the top N% of solutions.  This determines the sort metric. |
 | cyclic_peptide:MPI_choose_highest | false |   Bool | When outputing the top N% of solutions, should I choose the ones with the highest score for the metric chosen (energy, rmsd, hbonds, etc.), or the ones with the lowest?  False by default (chooses lowest). |
