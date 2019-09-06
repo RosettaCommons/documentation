@@ -73,7 +73,7 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
 9.	Install python3.6 or later if you haven’t already, anything earlier won’t work. Make sure you have an alias set where you an specify the python version, for instance `python3`. Every python script in the scientific tests will need the `python3` prefix to run them properly!
 
 
-## Run your tests locally:
+## Run your tests locally
 
 1.  Setup a run on Multiple Cores
     * If you want to run locally using multiple cores, copy `main/tests/benchmark/benchmark.ini.template` to `benchmark.linux.ini` (or whatever your architecture is).  Adjust the settings in this file (i.e. `cpu_count` and `memory`) as appropriate for your environment.  If `hpc_driver = MultiCore`, this will submit jobs up to `cpu_count` without using an HPC job distributor.
