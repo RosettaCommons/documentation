@@ -77,7 +77,7 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
 
 1.  Setup the run
     * `cd Rosetta/main/tests/benchmark`
-    * `python3 benchmark.py --compiler <clang or else> --skip --debug scientific.<my_awesome_test>`
+`python3 benchmark.py --compiler <clang or else> --skip --debug scientific.<my_awesome_test>`
         * the `--skip` flag is to skip compilation, only recommended if you have an up-to-date version of master compiled in release mode (Sergey advises against skipping)
         * the `--debug` flag is to run in debug mode which is highly recommended for debugging (i.e. you create 2 decoys instead of 1000s)
 
