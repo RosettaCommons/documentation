@@ -73,7 +73,7 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
 9.	Install python3.6 or later if you haven’t already, anything earlier won’t work. Make sure you have an alias set where you an specify the python version, for instance `python3`. Every python script in the scientific tests will need the `python3` prefix to run them properly!
 
 
-### Run your tests locally in debug mode:
+## Run your tests locally in debug mode:
     * `cd Rosetta/main/tests/benchmark`
     * `python3 benchmark.py --compiler <clang or else> --skip --debug scientific.<my_awesome_test>`
         * the `--skip` flag is to skip compilation, only recommended if you have an up-to-date version of master compiled in release mode (Sergey advises against skipping)
@@ -104,7 +104,7 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
   Celebrate! Congrats, you have added a new scientific test and contributed to Rosetta’s greatness. :D
 
 
-#### A common problem: evaluating folding funnel quality ####
+## A common problem: evaluating folding funnel quality ####
 
 Frequently, a scientific test will aim to evaluate the quality of a folding funnel (a plot of Rosetta energy vs. RMSD to a native or designed structure).  Many of the simpler ways of doing this suffer from the effects of stochastic changes to the sampling: the motion of a single sample can drastically alter the goodness-of-funnel metric.  For example, one common approach is to divide the funnel into a "native" region (with an RMSD below some threshold value) and a "non-native" region (with an RMSD above the threshold), and to ask whether there is a large difference between the lowest energy in the "native" region and the lowest in the "non-native" region.  A single low-energy point that drifts across the threshold from the "native" region to the "non-native" region can convert a high-quality funnel into a low one, by this metric.
 
@@ -116,7 +116,7 @@ Intuitively, the denominator is the partition function, while the numerator is t
 
 For more information, see the Methods (online) of <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5161715/">Bhardwaj, Mulligan, Bahl _et al._ (2016). _Nature_ 538(7625):329-35</a>.
 
-### The science behind your test: Scientific test template
+## The science behind your test: Scientific test template
 Please use this template to describe your scientific test in the `readme.md` as described above. Also check out the `fast_relax` test for ideas of what we are looking for. 
 
 \## AUTHOR AND DATE
