@@ -82,7 +82,7 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
         * the `--debug` flag is to run in debug mode which is highly recommended for debugging (i.e. you create 2 decoys instead of 1000s)
 
 2.  Setup a run on Multiple Cores
-        * If you want to run locally using multiple cores, copy `main/tests/benchmark/benchmark.ini.template` to `benchmark.linux.ini` (or whatever your architecture is).  Adjust the settings in this file (i.e. `cpu_count` and `memory`) as appropriate for your environment.  If `hpc_driver = MultiCore`, this will submit jobs up to `cpu_count` without using an HPC job distributor.
+    * If you want to run locally using multiple cores, copy `main/tests/benchmark/benchmark.ini.template` to `benchmark.linux.ini` (or whatever your architecture is).  Adjust the settings in this file (i.e. `cpu_count` and `memory`) as appropriate for your environment.  If `hpc_driver = MultiCore`, this will submit jobs up to `cpu_count` without using an HPC job distributor.
     * this creates a directory `Rosetta/main/tests/benchmark/results/<os>.scientific.<my_awesome_test>` where it creates softlinks to the files in `Rosetta/main/tests/scientific/tests/<my_awesome_test>` and then it will likely crash in one way or another
 
 3.  Start Debugging
@@ -106,8 +106,8 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
         * since scientific tests require a huge amount of computational time, you might want to lower your `nstruct` for debugging your run on the test server. If you do that, don’t forget to increase it later once the tests run successfully
 
 2.  Once the tests run as you want, merge your branch into `master`
-        * The `scientific` branch is an extra branch that grabs the latest master version every few weeks to run all scientific tests on. **DO NOT MERGE YOUR BRANCH INTO THE SCIENTIFIC BRANCH!!!**
-        * tell Sergey Lyskov (sergey.lyskov@gmail.com) that your test is ready to be continuously run on the scientific branch
+    * The `scientific` branch is an extra branch that grabs the latest master version every few weeks to run all scientific tests on. **DO NOT MERGE YOUR BRANCH INTO THE SCIENTIFIC BRANCH!!!**
+    * tell Sergey Lyskov (sergey.lyskov@gmail.com) that your test is ready to be continuously run on the scientific branch
 
   Celebrate! Congrats, you have added a new scientific test and contributed to Rosetta’s greatness. :D
 
