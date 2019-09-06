@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-08-31
+Generated: 2019-09-06
 
 _Note that some application specific options may not be present in this list._
 
@@ -4361,10 +4361,12 @@ _Note that some application specific options may not be present in this list._
 <dd>The cutoff, in degrees, to use when comparing mainchain torsion values to determine whether symmetry repeats are truely symmetric.  Defaults to 10 degrees.<br/>Default: 10.0<br/></dd>
 <dt><b>-require_symmetry_perturbation</b> \<Real\></dt>
 <dd>If provided, this is the magnitude of the perturbation to apply when copying mainchain dihedrals for symmetric sampling.  Allows slightly asymmetric conformations to be sampled.  Default is 0.0 (no perturbation).<br/>Default: 0.0<br/></dd>
+<dt><b>-MPI_auto_2level_distribution</b> \<Boolean\></dt>
+<dd>If true, will automatically set up job distribution with one emperor talking to N-1 slaves, where N is the total number of processes.  Cannot be used with -MPI_processes_by_level.  Default false.<br/>Default: false<br/></dd>
 <dt><b>-MPI_processes_by_level</b> \<IntegerVector\></dt>
 <dd>The number of processes at each level of the parallel communications hierarchy, used only by the MPI version.  For example, '1 10 100' would mean that one emperor would talk to 10 masters, which would talk to 100 slaves (implying that each master is assigned 10 slaves).  Similarly, '1 100' would mean that one master would talk directly to 100 slaves.  Required for the MPI version.<br/></dd>
 <dt><b>-MPI_batchsize_by_level</b> \<IntegerVector\></dt>
-<dd>The number of jobs sent at a time by each communication level to its children.  Given N levels, N-1 values must be specified.  For example, given 3 communications levels, '100 10' would mean that the emperor sends 100 jobs at a time to each master, which sends 10 jobs at a time to each slave.  Must be specified for the helical_bundle_preidct and simple_cycpep_predict applications in MPI mode.<br/></dd>
+<dd>The number of jobs sent at a time by each communication level to its children.  Given N levels, N-1 values must be specified.  For example, given 3 communications levels, '100 10' would mean that the emperor sends 100 jobs at a time to each master, which sends 10 jobs at a time to each slave.  Must be specified for the helical_bundle_predict and simple_cycpep_predict applications in MPI mode.<br/></dd>
 <dt><b>-MPI_sort_by</b> \<String\></dt>
 <dd>The MPI versions of the helical_bundle_predict and simple_cycpep_predict applictions have the option of writing out the top N% of solutions.  This determines the sort metric.<br/>Default: "energy"<br/></dd>
 <dt><b>-MPI_choose_highest</b> \<Boolean\></dt>
