@@ -75,16 +75,17 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
 
 ## Run your tests locally:
 
-1.  Setup the run
+1.  Setup a run on Multiple Cores
+    * If you want to run locally using multiple cores, copy `main/tests/benchmark/benchmark.ini.template` to `benchmark.linux.ini` (or whatever your architecture is).  Adjust the settings in this file (i.e. `cpu_count` and `memory`) as appropriate for your environment.  If `hpc_driver = MultiCore`, this will submit jobs up to `cpu_count` without using an HPC job distributor.
+
+2.  Setup the run
     * `cd Rosetta/main/tests/benchmark`
     *`python3 benchmark.py --compiler <clang or else> --skip \`
      `--debug scientific.<my_awesome_test>`
         * the `--skip` flag is to skip compilation, only recommended if you have an up-to-date version of master compiled in release mode (Sergey advises against skipping)
         * the `--debug` flag is to run in debug mode which is highly recommended for debugging (i.e. you create 2 decoys instead of 1000s)
-
-2.  Setup a run on Multiple Cores
-    * If you want to run locally using multiple cores, copy `main/tests/benchmark/benchmark.ini.template` to `benchmark.linux.ini` (or whatever your architecture is).  Adjust the settings in this file (i.e. `cpu_count` and `memory`) as appropriate for your environment.  If `hpc_driver = MultiCore`, this will submit jobs up to `cpu_count` without using an HPC job distributor.
     * this creates a directory `Rosetta/main/tests/benchmark/results/<os>.scientific.<my_awesome_test>` where it creates softlinks to the files in `Rosetta/main/tests/scientific/tests/<my_awesome_test>` and then it will likely crash in one way or another
+
 
 3.  Start Debugging
     * for step-by-step debugging `cd Rosetta/main/tests/benchmark/results/<os>.scientific.<my_awesome_test>` and debug each script individually, starting from the lowest number, by running for instance `python3 1.submit.py`
@@ -160,4 +161,3 @@ Please use this template to describe your scientific test in the `readme.md` as 
 \#### What are the limitations of the benchmark? Consider dataset, quality measures, protocol etc. 
 \#### How could the benchmark be improved?
 \#### What goals should be hit to make this a "good" benchmark?
-
