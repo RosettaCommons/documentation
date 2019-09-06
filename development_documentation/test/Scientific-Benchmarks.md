@@ -71,7 +71,9 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
         * a test should ideally be self-contained to obtain the cutoffs. As described above, try to avoid regression-test-like behavior where you compare to previous results or gather results from multiple runs over time. 
         * be consistent with the test name, keep a single name that is also the name of the test directory. It appears in multiple files and consistency makes debugging easier
 9.	Install python3.6 or later if you haven’t already, anything earlier won’t work. Make sure you have an alias set where you an specify the python version, for instance `python3`. Every python script in the scientific tests will need the `python3` prefix to run them properly!
-10.	Run your tests locally in debug mode:
+
+
+### Run your tests locally in debug mode:
     * `cd Rosetta/main/tests/benchmark`
     * `python3 benchmark.py --compiler <clang or else> --skip --debug scientific.<my_awesome_test>`
         * the `--skip` flag is to skip compilation, only recommended if you have an up-to-date version of master compiled in release mode (Sergey advises against skipping)
@@ -88,7 +90,9 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
         * `plot_results.png` with the results
         * `index.html` with the gathered results, failures and details you have written up in the readme. While all the files are accessible on the test server later, this file is the results summary that people will look at
         * `output.results.json` will tell you whether the tests passed or failed
-11.	Submit your branch for testing
+
+
+## Submit your branch for testing
     * once you are finished debugging locally, commit all of your changes to your branch
     * create a pull-request
     * run the test on the test server
@@ -96,7 +100,9 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
     * once the tests run as you want, merge your branch into `master`
         * The `scientific` branch is an extra branch that grabs the latest master version every few weeks to run all scientific tests on. **DO NOT MERGE YOUR BRANCH INTO THE SCIENTIFIC BRANCH!!!**
         * tell Sergey Lyskov (sergey.lyskov@gmail.com) that your test is ready to be continuously run on the scientific branch
-12.	Celebrate! Congrats, you have added a new scientific test and contributed to Rosetta’s greatness. :D
+
+  Celebrate! Congrats, you have added a new scientific test and contributed to Rosetta’s greatness. :D
+
 
 #### A common problem: evaluating folding funnel quality ####
 
