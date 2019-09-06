@@ -73,8 +73,9 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
 9.	Install python3.6 or later if you haven’t already, anything earlier won’t work. Make sure you have an alias set where you an specify the python version, for instance `python3`. Every python script in the scientific tests will need the `python3` prefix to run them properly!
 
 
-## Run your tests locally in debug mode:
+## Run your tests locally:
 
+1.  Run in Debug Mode
     * `cd Rosetta/main/tests/benchmark`
     * `python3 benchmark.py --compiler <clang or else> --skip --debug scientific.<my_awesome_test>`
         * the `--skip` flag is to skip compilation, only recommended if you have an up-to-date version of master compiled in release mode (Sergey advises against skipping)
@@ -93,9 +94,9 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
         * `output.results.json` will tell you whether the tests passed or failed
 
 
-## Submit your branch for testing
+## Submit your branch
 
-    * once you are finished debugging locally, commit all of your changes to your branch
+1.  Once you are finished debugging locally, commit all of your changes to your branch
     * create a pull-request
     * run the test on the test server
         * since scientific tests require a huge amount of computational time, you might want to lower your `nstruct` for debugging your run on the test server. If you do that, don’t forget to increase it later once the tests run successfully
