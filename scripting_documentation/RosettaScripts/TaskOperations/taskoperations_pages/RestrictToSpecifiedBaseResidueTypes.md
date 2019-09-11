@@ -5,7 +5,7 @@
  
  ## Usage
  ### XML
- ```xml
+ ```
 <RestrictToSpecifiedBaseResidueTypes name="(string)" base_types="(string)" selector="(string)" />
 ```
 
