@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-09-06
+Generated: 2019-09-14
 
 _Note that some application specific options may not be present in this list._
 
@@ -875,7 +875,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-buffer_flush_frequency</b> \<Real\></dt>
 <dd>when N structures (buffer_silent_output) are collected dump to file with probability X<br/>Default: 1.0<br/></dd>
 <dt><b>-delete_old_poses</b> \<Boolean\></dt>
-<dd>Delete poses after they have been processed.  For jobs that process a large number of structures, the memory consumed by old poses is wasteful.<br/>Default: false<br/></dd>
+<dd>Delete poses after they have been processed.  For jobs that process a large number of structures, the memory consumed by old poses is wasteful.  True by default, since there is no good reason to effectively leak memory.<br/>Default: true<br/></dd>
 <dt><b>-checkpoint_file</b> \<File\></dt>
 <dd>write/read nstruct-based checkpoint files to the desired filename.<br/></dd>
 <dt><b>-failed_job_exception</b> \<Boolean\></dt>
