@@ -1,12 +1,14 @@
 # Release Notes
 
 <!--- BEGIN_INTERNAL -->
-## _Rosetta 3.11 (draft notes)_
+## _Rosetta 3.12 (draft notes)_
+* <!-- * A simple restype conversion utility which allows you to specify certain residue types from the database (including patched types), CCD or command line, and output them in PDB, sdf or params file output. [currently pilot app.] -->
+<!--- END_INTERNAL -->
 
 ## Rosetta 3.11
 
 ### New applications
-<!-- * A simple restype conversion utility which allows you to specify certain residue types from the database (including patched types), CCD or command line, and output them in PDB, sdf or params file output. [currently pilot app.] -->
+
 * shotgun glycomutagenesis, using the [[GlycosyltransferaseMover]].
 * [[TCRmodel]] (T Cell Receptor)
 * create_clash-based_repack_shell (Ahem)
@@ -143,9 +145,6 @@
 * Dunbrack sidechain potentials now properly interpolate well locations as angles (eliminating problems at the -180/180 wraparound point).  This is still polylinear interpolation, but could easily be switched to Catmull-Rom splines in the future.
 * Rosetta's option system has been refactored for better thread-safety.
 * Bugfixes for N-methyl amino acids.  Support that had been temporarily removed for this modification has now been restored.
-
-
-<!--- END_INTERNAL -->
 
 ## Rosetta 3.10
 
