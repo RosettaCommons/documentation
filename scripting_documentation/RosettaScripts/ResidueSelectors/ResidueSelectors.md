@@ -429,11 +429,11 @@ or
 ```xml
      <Phi name="(&string)" select_positive_phi="(true &bool)" ignore_unconnected_upper="(true &bool)" />
 ```
-- select_positive_phi: If true (the default), alpha-amino acids with phi values greater than or equal to zero are selected.  If false, alpha-amino acids with phi values less than zero are selected.
+- select_positive_phi: If true (the default), alpha- and beta-amino acids with phi values greater than or equal to zero are selected.  If false, alpha- and beta-amino acids with phi values less than zero are selected.
 - ignore_unconnected_upper: If true (the default) then C-terminal residues and other residues with nothing connected at the upper connection are not selected.  If false, then these residues can be selected, depending on their phi values.  Note that anything lacking a lower connection is <i>never</i> selected.
 
 
-     The PhiSelector selects alpha-amino acids that are in either the positive phi or negative phi region of Ramachandran space.  Ligands and polymeric residues that are not alpha-amion acids are never selected.  Alpha-amino acids with no lower connection (or nothing connected at the lower connection) are also never selected.  By default, alpha-amino acids with no upper connection are not selected, though this can be disabled.
+     The PhiSelector selects alpha- and beta-amino acids that are in either the positive phi or negative phi region of Ramachandran space.  Ligands and polymeric residues that are not alpha- or beta-amino acids are never selected.  Alpha- or beta-amino acids with no lower connection (or nothing connected at the lower connection) are also never selected.  By default, alpha- or beta-amino acids with no upper connection are not selected, though this can be disabled.
 
      The PhiSelector is convenient for:
 
@@ -441,6 +441,14 @@ or
 - Restricting positive-phi positions to be glycine, and negative-phi positions to be L-amino acids, when doing canonical design of conventional proteins.
 - Limiting the number of L-amino acids in the positive-phi region of Ramachandran space, in conjunction with the aa_composition score term.
 - Restricting residues in the positive-phi region to be D-amino acids and residues in the negative-phi region to be L-amino acids when doing mixed D/L design of synthetic peptides.
+
+The following example uses ResiduePropertySelectors and And selectors in combination with the PhiSelector to  select only alpha-amino acids with positive phis:
+
+```xml
+<Phi name="posPhi" select_positive_phi="true" />
+<ResiduePropertySelector name="all_alphas" properties="ALPHA_AA"/>
+<And name="alphas_posPhi" selectors="posPhi,all_alphas" />
+```
 
 #### PairedSheetResidueSelector
 
