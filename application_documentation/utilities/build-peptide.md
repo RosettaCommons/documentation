@@ -22,7 +22,7 @@ Input Files
 ===========
 
 BuildPeptide requires a fasta file in standard format as input.
-/Users/amw579/Rosetta/documentation/application_documentation/utilities/ca-to-allatom.md
+
 Options
 =======
 
