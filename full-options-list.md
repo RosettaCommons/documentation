@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-09-14
+Generated: 2019-09-28
 
 _Note that some application specific options may not be present in this list._
 
@@ -4381,6 +4381,10 @@ _Note that some application specific options may not be present in this list._
 <dd>In MPI mode a goodness-of-funnel metric is automatically calculated at the end (PNear).  This value may be thought of as the probability, from 0 to 1, of the peptide being in the native conformation at any given time.  The parameter kbt is the Boltzmann temperature that determines the extent to which higher energy states are likely to be sampled.  Default 1.0 kcal/mol.<br/>Default: 1.0<br/></dd>
 <dt><b>-threads_per_slave</b> \<Integer\></dt>
 <dd>In the multi-threaded MPI compilation, this is the number of threads to launch per slave process.  Note that emperor and master-layer processes do not launch threads.  A value of 1 (the default) means that only standard hierarchical process-based parallelism will be used.  In non-MPI or non-threaded compilations, this option is unused.<br/>Default: 1<br/></dd>
+<dt><b>-compute_rmsd_to_lowest</b> \<Boolean\></dt>
+<dd>If true the RMSD to the top structure (by whatever ranking) is computed in addition to the RMSD to a user-supplied native (if a native structure is provided).  False by default.  Only used in MPI version of Rosetta.<br/>Default: false<br/></dd>
+<dt><b>-compute_ensemble_sasa_metrics</b> \<Boolean\></dt>
+<dd>If true, the Boltzmann-weighted SASA, polar SASA, hydrophobic SASA, and number of unsatisfied polar groups is computed (ensemble average).  False by default.  Only used in MPI version of Rosetta.<br/>Default: false<br/></dd>
 </dl>
 + <h2>-dc</h2>
 <dl>
