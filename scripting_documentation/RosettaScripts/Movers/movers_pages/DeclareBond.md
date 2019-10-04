@@ -17,7 +17,7 @@ If the mover crashes with a "doesn't have connection" error, this is because you
 ```xml
 <DeclareBond res1=(int) res2=(int) atom1=(string) atom2=(string)
      add_termini=(bool,"true") rebuild_fold_tree=(bool,"false")
-     run_kic=(bool,"false") KIC_res1=(int,"0") KIC_res2=(int,"0") name=(string)
+     run_KIC=(bool,"false") KIC_res1=(int,"0") KIC_res2=(int,"0") name=(string)
 />
 ```
 
@@ -37,9 +37,9 @@ If the mover crashes with a "doesn't have connection" error, this is because you
 
 **run\_kic (bool,"false")**:  Run KIC to close any chainbreak caused by the declared chemical bond?  This is not recommended.  The [[GeneralizedKIC mover|GeneralizedKICMover]] offers far more control over kinematic closure.
 
-**KIC\_res1 (int,"0")**:  First residue to use in KIC if **run_kic="true"** is set.
+**KIC\_res1 (int,"0")**:  First residue to use in KIC if **run_KIC="true"** is set.
 
-**KIC\_res2 (int,"0")**:  Second residue to use in KIC if **run_kic="true"** is set.
+**KIC\_res2 (int,"0")**:  Second residue to use in KIC if **run_KIC="true"** is set.
 
 **name (string)**:  The name given to this instance.
 
