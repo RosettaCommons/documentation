@@ -17,7 +17,7 @@ If the mover crashes with a "doesn't have connection" error, this is because you
 ```xml
 <DeclareBond res1=(int) res2=(int) atom1=(string) atom2=(string)
      add_termini=(bool,"true") rebuild_fold_tree=(bool,"false")
-     run_KIC=(bool,"false") KIC_res1=(int,"0") KIC_res2=(int,"0") name=(string)
+     run_kic=(bool,"false") KIC_res1=(int,"0") KIC_res2=(int,"0") name=(string)
 />
 ```
 
