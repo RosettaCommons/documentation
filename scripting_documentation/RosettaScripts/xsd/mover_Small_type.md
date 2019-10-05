@@ -15,6 +15,8 @@ Small-move style backbone-torsion moves that, unlike shear, do not minimize down
         <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />
         <Span begin="(&non_negative_integer;)" end="(&non_negative_integer;)"
                 chi="(&bool;)" bb="(&bool;)" bondangle="(&bool;)" bondlength="(&bool;)" />
+        <ResidueSelector selector="(&string;)" chi="(&bool;)" bb="(&bool;)"
+                bondangle="(&bool;)" bondlength="(&bool;)" />
     </MoveMap>
 </Small>
 ```
@@ -49,6 +51,14 @@ Subtag **Span**:   XRW TO DO, probably a user-defined region of the Pose
 
 -   **begin**: (REQUIRED) beginning of span
 -   **end**: (REQUIRED) end of span
+-   **chi**: (REQUIRED) move sidechain chi torsions?
+-   **bb**: (REQUIRED) move backbone torsions?
+-   **bondangle**: move 3-body angles?
+-   **bondlength**: move 2-body lengths?
+
+Subtag **ResidueSelector**:   Residue selector defined region of the Pose.
+
+-   **selector**: (REQUIRED) Residue selector
 -   **chi**: (REQUIRED) move sidechain chi torsions?
 -   **bb**: (REQUIRED) move backbone torsions?
 -   **bondangle**: move 3-body angles?

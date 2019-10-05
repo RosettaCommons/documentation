@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-09-28
+Generated: 2019-10-05
 
 _Note that some application specific options may not be present in this list._
 
@@ -28,6 +28,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Do not abort if unknown residues are found in PDB file;  instead, ignore them. Note this implies -in:ignore_waters<br/>Default: false<br/></dd>
 <dt><b>-ignore_waters</b> \<Boolean\></dt>
 <dd>Ignore HOH residues found in PDB file. Note: HOH residues, and waters in general, are incompatible with the default solvation model (LK).<br/>Default: true<br/></dd>
+<dt><b>-water_type_if_unspecified</b> \<String\></dt>
+<dd>The name of the water residue type to use if the specific water type is not specified in the input file.<br/>Default: ""<br/></dd>
 <dt><b>-guarantee_no_DNA</b> \<Boolean\></dt>
 <dd>Do not rename A/C/G to DA/DC/DG even if missing their 2' hydroxyl; expert knowledge says this structure has no DNA.<br/>Default: false<br/></dd>
 <dt><b>-add_orbitals</b> \<Boolean\></dt>

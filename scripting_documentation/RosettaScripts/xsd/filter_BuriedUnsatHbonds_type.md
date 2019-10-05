@@ -19,6 +19,7 @@ XRW TO DO
         residue_surface_cutoff="(45.0 &real;)"
         atomic_depth_selection="(-1 &real;)"
         atomic_depth_probe_radius="(2.3 &real;)"
+        atomic_depth_resolution="(0.25 &real;)"
         use_reporter_behavior="(true &bool;)"
         use_hbnet_behavior="(false &bool;)" report_all_unsats="(false &bool;)"
         report_all_heavy_atom_unsats="(false &bool;)"
@@ -50,6 +51,7 @@ XRW TO DO
 -   **residue_surface_cutoff**: cutoff to determine which residues are surface if ignore_surface_res=true; default is 45.0 for SASA, 20.0 for VSASA and 2.0 if use_sc_neighbors=true
 -   **atomic_depth_selection**: Include only atoms past a certain depth. Depth is from edge of SASA surface to center of atom. Pose converted to poly-LEU before SASA surface calculation. -1 to disable.
 -   **atomic_depth_probe_radius**: Probe radius for atomic_depth_selection. Set this high to exclude pores. Set this low to allow the SASA surface to enter pores.
+-   **atomic_depth_resolution**: Resolution for atomic depth calculations.
 -   **use_reporter_behavior**: report as filter score the type of unsat turned on; this is now TRUE by default
 -   **use_hbnet_behavior**: no heavy unstas allowed (will return 9999); if no heavy unstas, will count Hpol unsats; FALSE by default; if set to true, will NOT use reporter behavior
 -   **report_all_unsats**: report all unsats

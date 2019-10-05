@@ -8,13 +8,14 @@ Convert pose into poly XXX ( XXX can be any amino acid )
 ```xml
 <MakePolyX name="(&string;)" aa="(ALA &string;)" keep_pro="(false &bool;)"
         keep_gly="(true &bool;)" keep_disulfide_cys="(false &bool;)"
-        residue_selector="(&string;)" />
+        set_chis="(&string;)" residue_selector="(&string;)" />
 ```
 
 -   **aa**: using amino acid type for converting
 -   **keep_pro**: Pro is not converted to XXX
 -   **keep_gly**: Gly is not converted to XXX
 -   **keep_disulfide_cys**: disulfide CYS is not converted to XXX
+-   **set_chis**: Set these chis for every residue placed. Must specify same number of chis as in rotamer
 -   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
 
 ---
