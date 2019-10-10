@@ -126,7 +126,7 @@ Intuitively, the denominator is the partition function, while the numerator is t
 
 For more information, see the Methods (online) of <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5161715/">Bhardwaj, Mulligan, Bahl _et al._ (2016). _Nature_ 538(7625):329-35</a>.
 
-<b>Update:</b> As of 10 October 2019, a Python script is available in the `tools` repository (in `tools/analysis`) to compute PNear.  Instructions for its use are in the comments at the start of the script.
+<b>Update:</b> As of 10 October 2019, a Python script is available in the `tools` repository (in `tools/analysis`) to compute PNear.  Instructions for its use are in the comments at the start of the script.  In addition, the function `calculate_pnear()`, in `Rosetta/main/tests/benchmark/util/quality_measures.py`, can be used to compute PNear.
 
 ## The science behind your test: Scientific test template
 Please use this template to describe your scientific test in the `readme.md` as described above. Also check out the `fast_relax` test for ideas of what we are looking for. 
