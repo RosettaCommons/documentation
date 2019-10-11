@@ -53,6 +53,8 @@ Copy, paste, fill in, and enjoy
     </RESIDUE_SELECTORS>
     <TASKOPERATIONS>
     </TASKOPERATIONS>
+    <SIMPLE_METRICS>
+    </SIMPLE_METRICS>
     <FILTERS>
     </FILTERS>
     <MOVERS>
