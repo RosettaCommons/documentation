@@ -53,6 +53,8 @@ Copy, paste, fill in, and enjoy
     </RESIDUE_SELECTORS>
     <TASKOPERATIONS>
     </TASKOPERATIONS>
+    <SIMPLE_METRICS>
+    </SIMPLE_METRICS>
     <FILTERS>
     </FILTERS>
     <MOVERS>
@@ -114,7 +116,7 @@ The metrics will all be output to the scorefile with the given prefix/suffix and
 	</SIMPLE_METRICS>
 	<MOVERS>
 		<MinMover name="min_mover" movemap_factory="movemap_L1" tolerance=".1" /> 
-		<RunSimpleMetrics name="run_metrics1" metrics="pymol_selection,sequence,ss,total_energy,rosetta_sele" prefix="m1_" />
+		<RunSimpleMetrics name="run_metrics1" metrics="pymol_selection,sequence,ss,rosetta_sele" prefix="m1_" />
 		<RunSimpleMetrics name="run_metrics2" metrics="rmsd,timing,ss" prefix="m2_" />
 	</MOVERS>
 	<PROTOCOLS>
