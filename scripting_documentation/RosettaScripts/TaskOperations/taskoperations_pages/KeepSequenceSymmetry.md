@@ -13,7 +13,7 @@ A residue will not be allowed to mutate unless it has a partner on every chain i
 
 Like traditional symmetry, this assumes that all chains are part of the same symmetric system.
 It is impossible to have by default, say, chains A+B+C where A+B are symmetric and C is separate.
-If this is not the case for you, check out the [[SetupForSequenceSymmetry]] mover.
+If this is not the case for you, check out the SetupForSequenceSymmetry mover.
 
 
 ```xml
