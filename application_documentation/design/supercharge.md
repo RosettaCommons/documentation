@@ -20,7 +20,7 @@ References
 ==========
 
 * AvNAPSA-mode: Lawrence MS, Phillips KJ, Liu DR. Supercharging proteins can impart unusual resilience. J Am Chem Soc. 2007 Aug 22;129(33):10110-2. 
-* Rosetta-mode: Der BS1, Kluwe C, Miklos AE, Jacak R, Lyskov S, Gray JJ, Georgiou G, Ellington AD, Kuhlman B. Alternative computational protocols for supercharging protein surfaces for reversible unfolding and retention of stability. PLoS One. 2013 May 31;8(5):e64363.
+* Rosetta-mode: Der BS, Kluwe C, Miklos AE, Jacak R, Lyskov S, Gray JJ, Georgiou G, Ellington AD, Kuhlman B. Alternative computational protocols for supercharging protein surfaces for reversible unfolding and retention of stability. PLoS One. 2013 May 31;8(5):e64363.
 
 Purpose
 ===========================================
