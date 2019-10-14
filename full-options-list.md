@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-10-05
+Generated: 2019-10-14
 
 _Note that some application specific options may not be present in this list._
 
@@ -7166,7 +7166,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-pocket_ntrials</b> \<Integer\></dt>
 <dd>Number of trials to use for backrub<br/>Default: 100000<br/></dd>
 <dt><b>-pocket_num_angles</b> \<Integer\></dt>
-<dd>Number of different pose angles to measure pocket score at<br/>Default: 1<br/></dd>
+<dd>Number of different pose angles to measure pocket score at<br/>Default: 100<br/></dd>
 <dt><b>-pocket_side</b> \<Boolean\></dt>
 <dd>Include only side chain residues for target surface<br/>Default: false<br/></dd>
 <dt><b>-pocket_dump_pdbs</b> \<Boolean\></dt>
