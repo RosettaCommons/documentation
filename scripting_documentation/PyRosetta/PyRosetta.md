@@ -76,7 +76,7 @@ __Binding complex data-types to PyRosetta__
 
 If you are running a PyRosetta script and encounter this error or similar, "TypeError: Unable to convert value to a Python type!" - it means that the PyRosetta build did not bind the specific type of variable you're trying to access.  This happens with complex data-structures that can hold other data-structures (such as a std::map, std::vector, std::list, utility::vector1, etc...).  The solution is to declare a `struct` that inherits from this complex data type within the namespace and header file they're used.  
 
-For example, in `class FragmentStore` we have member variables of type `std::map<std::string, std::vector<numeric::Size>> int64_groups`, `std::map<std::string, std::vector<numeric::Real>> real_groups`, and `std::map<std::string, std::vector< std::vector<numeric::Real>>> realVector_groups`.  When accessing these variables using fragment_store.int64_groups["Key"] in PyRosetta we receive the above error. The fix is declaring the following outside the class, but within the `protocols::indexed_structure_store` namespace:
+For example, in `class FragmentStore` we have member variables of type `std::map<std::string, std::vector<numeric::Size>> int64_groups`, `std::map<std::string, std::vector<numeric::Real>> real_groups`, and `std::map<std::string, std::vector< std::vector<numeric::Real>>> realVector_groups`.  When accessing these variables using `fragment_store.int64_groups["Key"]` in PyRosetta we receive the above error. The fix is declaring the following outside the class, but within the `protocols::indexed_structure_store` namespace:
 
 ```
 struct map_std_string_std_vector_unsigned_long_std_allocator_unsigned_long_t : public std::map<std::string, std::vector<numeric::Size> > {};
