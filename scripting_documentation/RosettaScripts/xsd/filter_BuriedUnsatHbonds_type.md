@@ -7,8 +7,8 @@ XRW TO DO
 
 ```xml
 <BuriedUnsatHbonds name="(&string;)" use_legacy_options="(false &bool;)"
-        generous_hbonds="(true &bool;)" use_vsasa="(true &bool;)"
-        ignore_surface_res="(false &bool;)"
+        generous_hbonds="(true &bool;)" max_hbond_energy="(0 &real;)"
+        use_vsasa="(true &bool;)" ignore_surface_res="(false &bool;)"
         ignore_bb_heavy_unsats="(false &bool;)"
         use_sc_neighbors="(false &bool;)" use_ddG_style="(false &bool;)"
         only_interface="(false &bool;)" print_out_info_to_pdb="(false &bool;)"
@@ -20,13 +20,15 @@ XRW TO DO
         atomic_depth_selection="(-1 &real;)"
         atomic_depth_probe_radius="(2.3 &real;)"
         atomic_depth_resolution="(0.25 &real;)"
+        atomic_depth_apo_surface="(-1.0 &real;)"
         use_reporter_behavior="(true &bool;)"
         use_hbnet_behavior="(false &bool;)" report_all_unsats="(false &bool;)"
         report_all_heavy_atom_unsats="(false &bool;)"
         report_sc_heavy_atom_unsats="(false &bool;)"
         report_bb_heavy_atom_unsats="(false &bool;)"
         report_nonheavy_unsats="(false &bool;)"
-        atomic_depth_deeper_than="(true &bool;)" sym_dof_names="(&string;)"
+        atomic_depth_deeper_than="(true &bool;)"
+        atomic_depth_poly_leu="(true &bool;)" sym_dof_names="(&string;)"
         residue_selector="(&string;)" scorefxn="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
         packer_palette="(&named_packer_palette;)" confidence="(1.0 &real;)" />
@@ -34,6 +36,7 @@ XRW TO DO
 
 -   **use_legacy_options**: revert to legacy options (equivalent to old, original BuriedUnsat Filter; WARNING! If this is true, will overwrite all other options
 -   **generous_hbonds**: count all h-bonds (not just those scored by the default scorefxn in rosetta
+-   **max_hbond_energy**: Max energy for an hbond to be accepted as making an hbond. This can go positive!!! Defaults to -score::hb_max_energy (which defaults to 0).
 -   **use_vsasa**: use vsasa insteady of legacy sasa for burial calculation
 -   **ignore_surface_res**: many polar atoms on surface atoms get flagged as buried unsat becuause they are occluded by a long sidechina (e.g. Lys or Arg) that could easily move out of the way; this option ignores surface residues, as deinfed by SASA (default) or sc_neighbors if use_sc_neighbors=true
 -   **ignore_bb_heavy_unsats**: ignore bb heayy atom unsats when using hbnet-style behavior
@@ -52,6 +55,7 @@ XRW TO DO
 -   **atomic_depth_selection**: Include only atoms past a certain depth. Depth is from edge of SASA surface to center of atom. Pose converted to poly-LEU before SASA surface calculation. -1 to disable.
 -   **atomic_depth_probe_radius**: Probe radius for atomic_depth_selection. Set this high to exclude pores. Set this low to allow the SASA surface to enter pores.
 -   **atomic_depth_resolution**: Resolution for atomic depth calculations.
+-   **atomic_depth_apo_surface**: If set greater than 0, atoms must be less deep than this to be considered buried during ddG calculations.
 -   **use_reporter_behavior**: report as filter score the type of unsat turned on; this is now TRUE by default
 -   **use_hbnet_behavior**: no heavy unstas allowed (will return 9999); if no heavy unstas, will count Hpol unsats; FALSE by default; if set to true, will NOT use reporter behavior
 -   **report_all_unsats**: report all unsats
@@ -60,6 +64,7 @@ XRW TO DO
 -   **report_bb_heavy_atom_unsats**: report back bone heavy atom unsats
 -   **report_nonheavy_unsats**: report non heavy atom unsats
 -   **atomic_depth_deeper_than**: If true, only atoms deeper than atomic_depth_selection are included. If false, only atoms less deep than atomic_depth_selection are included.
+-   **atomic_depth_poly_leu**: Convert pose to poly-leu before calculating depth? Gives stable, sequence independent values that align with approximate_buried_unsat_penalty.
 -   **sym_dof_names**: For multicomponent symmetry: what jump(s) used for ddG-like separation. (From Dr. Bale: For multicomponent systems, one can simply pass the names of the sym_dofs that control the master jumps. For one component systems, jump can still be used.)  IF YOU DEFIN THIS OPTION, Will use ddG-style separation for the calulation; if you do not want this, pass a residue selector instead of defining symdofs.
 -   **residue_selector**: residue selector that tells the filter to restrict the Unsat search to only those residues
 -   **scorefxn**: Name of score function to use

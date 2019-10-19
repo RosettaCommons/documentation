@@ -12,6 +12,7 @@ XRW TO DO
     <Set exclude_DNA_DNA_hbond="(&bool;)" use_hb_env_dep_DNA="(&bool;)"
             use_hb_env_dep="(&bool;)" smooth_hb_env_dep="(&bool;)"
             decompose_bb_hb_into_pair_energies="(&bool;)"
+            hbonds__hb_max_energy="(&real;)"
             hbonds__exclude_DNA_DNA_hbond="(&bool;)"
             hbonds__use_hb_env_dep_DNA="(&bool;)"
             hbonds__put_intra_into_total="(&bool;)"
@@ -83,6 +84,7 @@ Subtag **Set**:
 -   **use_hb_env_dep**: Enable environmental dependent weighting of hydrogen bond terms
 -   **smooth_hb_env_dep**: Smooth environmental dependence of hbond term
 -   **decompose_bb_hb_into_pair_energies**: Should backbone-backbone hydrogen bonds be split between the two participating residues?
+-   **hbonds__hb_max_energy**: Max possible hbond energy. Under nearly all circumstances this should be set to 0.0.
 -   **hbonds__exclude_DNA_DNA_hbond**: Same as exclude_DNA_DNA_hbond
 -   **hbonds__use_hb_env_dep_DNA**: Same as use_hb_env_dep_DNA
 -   **hbonds__put_intra_into_total**: Include intra-res hbond score in total

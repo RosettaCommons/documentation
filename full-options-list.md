@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-10-14
+Generated: 2019-10-19
 
 _Note that some application specific options may not be present in this list._
 
@@ -986,6 +986,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Modification of hbond acceptor-atom strengths, over-rides any database file settings. Format is -hb_acc_strength <atm1>:<wt1> <atm2>:<wt2> ...   For example -hb_acc_strength hbacc_CXA:1.5 hbdon_HXL:0.5<br/></dd>
 <dt><b>-hbe_for_dH2O_aGEN_SP3SC_ssother</b> \<String\></dt>
 <dd>HBEvalType for HBEvalTuple(hbdon_H2O, hbacc_GENERIC_SP3SC, seq_sep_other)<br/>Default: "hbe_dH2OaHXL"<br/></dd>
+<dt><b>-hb_max_energy</b> \<Real\></dt>
+<dd>Max possible hbond energy. Under nearly all circumstances this should be set to 0.0.<br/>Default: 0.0<br/></dd>
 <dt><b>-hbond_params</b> \<String\></dt>
 <dd>Directory name in the database for which hydrogen bond parameters to use.<br/>Default: "ref2015_params"<br/></dd>
 <dt><b>-hbond_bb_per_residue_energy</b> \<Boolean\></dt>
