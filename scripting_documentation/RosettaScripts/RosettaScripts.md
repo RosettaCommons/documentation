@@ -516,6 +516,16 @@ For example, symmetric score12:
 <ScoreFunction name="score12_symm" weights="score12_full" symmetric="1"/>
 ```
 
+> **segmentation fault**
+>
+> If you run into a segfault, you might need to add a \<OUTPUT\> section with a symmetric scorefunction.
+
+```
+    ...
+    </PROTOCOLS>
+    <OUTPUT scorefxn="my_sym_scorefxn"/>
+</ROSETTASCRIPTS>
+```
 ## RESIDUE_SELECTORS
 
 [[ResidueSelectors|ResidueSelectors]] are used by movers, filters and task operations to dynamically select residues at run-time. They are used to specify sets of residues based on multiple different properties.
