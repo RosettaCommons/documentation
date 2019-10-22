@@ -425,6 +425,9 @@ main/source/src/apps/public/relax_w_allatom_cst/amino_acids.py
 tools/protein_tools/scripts/setup_RosettaCM.py    
 &#8195; - 
 
+tools/protein_tools/scripts/RosettaEnzCM.py    
+&#8195; - Generates atomic distance constraints for predicted catalytic residues from known template residues.
+
 
 ### RNA
 
