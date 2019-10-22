@@ -151,7 +151,7 @@ Within the tools/protein_tools/scripts/ directory is the RosettaEnzCM.py script 
 
 To run the the script type:
 
-    python RosettaEnzCM.py -c "Catalytic Residue Fie" -a "Aligned.fasta" -n "Output-Name (Optional)"
+    python RosettaEnzCM.py -c "Cat. Res. File" -a "Aligned.fasta" -n "Output-Name (Optional)"
 
 ### Post Processing
 
