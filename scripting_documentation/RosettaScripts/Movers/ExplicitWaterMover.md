@@ -45,4 +45,5 @@ Several "expert" options control these five steps:
 ## Notes
 
 If no task operation is provided, waters will only be generated against the fixed input pose (gen_fixed will always be assumed true)
+
 This mover was previously called WaterBoxMover -- this was changed to ExplicitWaterMover on 10/23/2019 to be more descriptive
