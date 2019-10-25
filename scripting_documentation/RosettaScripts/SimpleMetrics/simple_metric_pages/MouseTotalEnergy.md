@@ -9,7 +9,9 @@ There is also a score type `mouse` that wraps this simple metric to be easier to
 
 USAGE:
 
+```xml
 <MouseTotalEnergy custom_type=(string) surface_only=(bool,"true") add_interface_size_bonus=(bool,"false") interfaces_residues=(string) residue_selector=(string) name=(string)/>
+```
 
 OPTIONS:
 
