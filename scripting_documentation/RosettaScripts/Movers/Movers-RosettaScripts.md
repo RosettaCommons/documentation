@@ -193,6 +193,13 @@ Mover  | Description
 **[[DockingProtocol|DockingProtocolMover]]** | Performs full docking protocol with current defaults
 **[[FlexPepDock|FlexPepDockMover]]** | Performs ab initio or refinement peptide docking
 
+##### Docking with Mouse
+
+Mover  | Description
+------------ | -------------
+**[[MouseSetupMover]]** | Setup Rosetta for Mouse calculations
+**[[MouseSpyDockingProtocol|MouseSpyDockingProtocolMover]]** | Drop-in replacement for [[DockingProtocol|DockingProtocolMover]], but gives larger interfaces that are slightly more stable per residue.
+**[[MouseFinalizeMover]]** | Spin down after Mouse calculations
 
 ### Fragment Insertion
 
