@@ -84,4 +84,3 @@ OPTIONS:
 * [[MouseSetupMover]]
 * [[MouseTotalEnergy]]
 * [[MousePerResidueEnergy]]
-* [[MouseEnergy]]

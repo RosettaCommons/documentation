@@ -85,5 +85,4 @@ OPTIONS:
 * [[MouseSpyDockingProtocolMover]]
 * [[MouseSetupMover]]
 * [[MouseFinalizeMover]]
-* [[MousePerResidueEnergy]]
-* [[MouseEnergy]]
+* [[MouseTotalEnergy]]

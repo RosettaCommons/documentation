@@ -101,5 +101,3 @@ DockingProtocol OPTIONS:
 * [[MouseFinalizeMover]]
 * [[MouseTotalEnergy]]
 * [[MousePerResidueEnergy]]
-* [[MousePerResidueEnergy]]
-* [[MouseEnergy]]

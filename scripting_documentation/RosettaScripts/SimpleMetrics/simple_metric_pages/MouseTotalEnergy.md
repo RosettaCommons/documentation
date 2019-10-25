@@ -5,6 +5,8 @@ DESCRIPTION:
 Evaluate an interface using Mouse.
 We also find that Mouse performs better when given a bias towards large interfaces, so we built that in using the `add_interface_size_bonus` and `interfaces_residues` options.
 
+There is also a score type `mouse` that wraps this simple metric to be easier to use with a score function.
+
 USAGE:
 
 <MouseTotalEnergy custom_type=(string) surface_only=(bool,"true") add_interface_size_bonus=(bool,"false") interfaces_residues=(string) residue_selector=(string) name=(string)/>
@@ -91,4 +93,3 @@ OPTIONS:
 * [[MouseSetupMover]]
 * [[MouseFinalizeMover]]
 * [[MousePerResidueEnergy]]
-* [[MouseEnergy]]
