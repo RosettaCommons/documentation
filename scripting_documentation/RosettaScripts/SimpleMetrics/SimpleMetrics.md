@@ -121,6 +121,7 @@ SimpleMetric  | Description | ResidueSelector Compatability?
 ------------ | ------------- | -------------
 **[[DihedralDistanceMetric]]** | Calculates the normalized dihedral angle distance in degrees from directional statistics on a set of dihedrals/residues of two poses or two regions of a pose.  | Yes
 **[[InteractionEnergyMetric]]** | Calculates the (long range and short range) interaction energy between a selection and all other residues or another selection. Can be set to only calculate short or long or only use certain score terms such as fa_rep. | Yes
+**[[MouseTotalEnergy]]** | Evaluate your interface using Mouse. | Yes
 **[[ResidueSummaryMetric]]** | A metric that takes a _PerResidueRealMetric_ and summarized the data in different ways, such means or the number of residues that match a certain criteria. | Yes
 **[[RMSDMetric]]** | Calculates the RMSD between two poses or on a subset of residues.  Many options for RMSD including bb, heavy, all, etc. | Yes 
 **[[SasaMetric]]** | Calculates the Solvent Accessible Surface Area (sasa). | Yes
@@ -152,6 +153,7 @@ All accept ResidueSelectors.  Output can be in Rosetta or PDB Numbering.
 
 SimpleMetric  | Description 
 ------------ | -------------
+**[[MousePerResidueEnergy]]** | Evaluate your interface using Mouse. | Yes
 **[[PerResidueDensityFitMetric]]** | Calculate the Fit of a  model to the loaded density either by Correlation or a Zscore.
 **[[PerResidueClashMetric]]** | Calculates the number of atomic clashes per residue using two residue selectors. Clashes are calculated through the leonard jones radius of each atom type.
 **[[PerResidueEnergyMetric]]** | Calculate any energy term for each residue.  Total energy is default.  If a native or repose is given, can calculate the energy delta for each residue.
