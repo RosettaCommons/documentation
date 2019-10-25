@@ -61,7 +61,7 @@ OPTIONS:
       <RunSimpleMetrics name="run_sm" prefix="after_docking_">
        <MousePerResidueEnergy custom_type="per_res" />
        <MouseTotalEnergy custom_type="total" />
-       <MouseTotalEnergy custom_type="total_with_interface_bias" interface_residues="interface" />
+       <MouseTotalEnergy custom_type="total_with_interface_bias" interface_residues="interface" add_interface_size_bonus="true"/>
      </RunSimpleMetrics>
    </MOVERS>
 

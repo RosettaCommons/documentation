@@ -1,23 +1,30 @@
-# MouseFinalizeMover
-*Back to [[Mover|Movers-RosettaScripts]] page.*
-## MouseFinalizeMover
+# MouseTotalEnergy
 
-This mover undos everything done by the MouseSetupMover.
-At the end of this mover, you will be back in full atom mode with your original sidechain conformations.
-The only structural thing that will be different about your pose is the jump (assuming you ran a docking protocol).
+DESCRIPTION:
+
+Evaluate an interface using Mouse.
+We also find that Mouse performs better when given a bias towards large interfaces, so we built that in using the `add_interface_size_bonus` and `interfaces_residues` options.
 
 USAGE:
 
-```xml
-<MouseFinalizeMover name=(string)/>
-```
+<MouseTotalEnergy custom_type=(string) surface_only=(bool,"true") add_interface_size_bonus=(bool,"false") interfaces_residues=(string) residue_selector=(string) name=(string)/>
 
 OPTIONS:
 
-"MouseFinalizeMover" tag:
+"MouseTotalEnergy" tag:
+
+-	custom\_type (string):  Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
+ The custom\_type name will be added to the data tag in the scorefile or features database.
+
+-	surface\_only (bool,"true"):  Only score residues at each chain's surface (including interfaces). This is highly recommended because it is what MOUSE was trained to do.
+
+-	add\_interface\_size\_bonus (bool,"false"):  Subtract the number of interface residues from the final score (-1 REU bonus per interface residue). This is highly recommended because MOUSE does not inherently bias itself towards large interfaces but we see a hugh advantage when adding this bonus. Requires the interfaces\_residues option to be supplied.
+
+-	interfaces\_residues (string):  This needs to be the name of a residue selector. These are the residues that are given a bonus by the add\_interface\_size\_bonus option. This is ENTIRELY orthogonal to the residue\_selector option. You still need to pass add\_interface\_size\_bonus="true" when you use this feature.
+
+-	residue\_selector (string):  If a residue selector is present, we calculate the total energy of only these residues. If surface\_only=true, we will only use a subset of the residues provided by the residue selector.
 
 -	name (string):  The name given to this instance.
-
 
 ## Example in action:
 
@@ -82,6 +89,6 @@ OPTIONS:
 * [[DockingProtocolMover]]
 * [[MouseSpyDockingProtocolMover]]
 * [[MouseSetupMover]]
-* [[MouseTotalEnergy]]
+* [[MouseFinalizeMover]]
 * [[MousePerResidueEnergy]]
 * [[MouseEnergy]]
