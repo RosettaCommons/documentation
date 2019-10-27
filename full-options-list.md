@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-10-19
+Generated: 2019-10-26
 
 _Note that some application specific options may not be present in this list._
 
@@ -1096,6 +1096,12 @@ _Note that some application specific options may not be present in this list._
 <dd>The penalty between atoms that both satisfy the same atom. If we let X = weight_of_approximate_buried_unsat_penalty. Then in general, a buried unsat is worth X, a satisfied unsat is worth 0, a doubly satisfied unsat is worth X * ( setting-1.0 ), a triply satisfied unsat is worth X * ( -2 + 3 * setting ), a N-ly satisfied unsat is worth X * ( 1 - N + 0.5 * N * (N - 1) ).<br/>Default: 1.0<br/></dd>
 <dt><b>-approximate_buried_unsat_penalty_assume_const_backbone</b> \<Boolean\></dt>
 <dd>Should we assume that the backbone atoms will not change during a packing trajectory? (i.e. no positions that include normal aa and proline or n-methyl) If set to false, this energy method takes longer to compute. (~ 2X as long)<br/>Default: true<br/></dd>
+<dt><b>-approximate_buried_unsat_penalty_natural_corrections1</b> \<Boolean\></dt>
+<dd>Apply the following corrections to buried unsat penalty: nh2_wants_2, nh1_wants_1, hydroxyl_wants_h, carboxyl_wants_2<br/>Default: false<br/></dd>
+<dt><b>-approximate_buried_unsat_penalty_hbond_bonus_cross_chain</b> \<Real\></dt>
+<dd>Apply a bonus factor to hydrogen bonds accross chains. Remember to set this negative.<br/>Default: 0<br/></dd>
+<dt><b>-approximate_buried_unsat_penalty_hbond_bonus_ser_to_helix_bb</b> \<Real\></dt>
+<dd>Apply a bonus factor to the classic SER/THR i - i-4 h-bond. OG/OG1 - O. Set this positive to penalize.<br/>Default: 0<br/></dd>
 <dt><b>-aspartimide_penalty_value</b> \<Real\></dt>
 <dd>The penalty for each aspartimide-forming two-residue sequence found, when the aspartimide_penalty score term weight is set to 1.0.  Default is 25.0.<br/>Default: 25.0<br/></dd>
 <dt><b>-buried_unsatisfied_penalty_cone_angle_exponent</b> \<Real\></dt>
@@ -1569,9 +1575,13 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-dump_rotamer_sets</b> \<Boolean\></dt>
 <dd>Output NMR-style PDB's with the rotamer sets used during packing<br/>Default: false<br/></dd>
 <dt><b>-dunbrack_prob_buried</b> \<Real\></dt>
-<dd>fraction of possible dunbrack rotamers to include in each single residue rotamer set, for 'buried' residues<br/>Range: 0-1<br/>Default: 0.98<br/></dd>
+<dd>fraction of possible dunbrack rotamers to include in each single residue rotamer set, for 'buried' residues RotamericSingleResidueDunbrackLibrary<br/>Range: 0-1<br/>Default: 0.98<br/></dd>
 <dt><b>-dunbrack_prob_nonburied</b> \<Real\></dt>
-<dd>fraction of possible dunbrack rotamers to include in each single residue rotamer set, for 'nonburied' residues<br/>Range: 0-1<br/>Default: 0.95<br/></dd>
+<dd>fraction of possible dunbrack rotamers to include in each single residue rotamer set, for 'nonburied' residues RotamericSingleResidueDunbrackLibrary<br/>Range: 0-1<br/>Default: 0.95<br/></dd>
+<dt><b>-dunbrack_prob_buried_semi</b> \<Real\></dt>
+<dd>fraction of possible dunbrack rotamers to include in each single residue rotamer set, for 'buried' residues in SemiRotamericSingleResidueDunbrackLibrary<br/>Range: 0-1<br/>Default: 0.95<br/></dd>
+<dt><b>-dunbrack_prob_nonburied_semi</b> \<Real\></dt>
+<dd>fraction of possible dunbrack rotamers to include in each single residue rotamer set, for 'nonburied' residues in SemiRotamericSingleResidueDunbrackLibrary<br/>Range: 0-1<br/>Default: 0.87<br/></dd>
 <dt><b>-no_optH</b> \<Boolean\></dt>
 <dd>Do not optimize hydrogen placement at the time of a PDB load<br/>Default: true<br/></dd>
 <dt><b>-optH_MCA</b> \<Boolean\></dt>

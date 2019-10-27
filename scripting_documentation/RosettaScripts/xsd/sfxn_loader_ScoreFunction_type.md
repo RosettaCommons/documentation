@@ -49,6 +49,9 @@ XRW TO DO
             approximate_buried_unsat_penalty_burial_resolution="(&real;)"
             approximate_buried_unsat_penalty_oversat_penalty="(&real;)"
             approximate_buried_unsat_penalty_assume_const_backbone="(&bool;)"
+            approximate_buried_unsat_penalty_natural_corrections1="(&bool;)"
+            approximate_buried_unsat_penalty_hbond_bonus_cross_chain="(&real;)"
+            approximate_buried_unsat_penalty_hbond_bonus_ser_to_helix_bb="(&real;)"
             buried_unsatisfied_penalty_cone_angle_exponent="(&real;)"
             buried_unsatisfied_penalty_cone_angle_shift_factor="(&real;)"
             buried_unsatisfied_penalty_cone_dist_exponent="(&real;)"
@@ -137,6 +140,9 @@ Subtag **Set**:
 -   **approximate_buried_unsat_penalty_burial_resolution**: The resolution for the atomic depth calculation.
 -   **approximate_buried_unsat_penalty_oversat_penalty**: The penalty between atoms that both satisfy the same atom. If we let X = weight_of_approximate_buried_unsat_penalty. Then in general, a buried unsat is worth X, a satisfied unsat is worth 0, a doubly satisfied unsat is worth X * ( setting-1.0 ), a triply satisfied unsat is worth X * ( -2 + 3 * setting ), a N-ly satisfied unsat is worth X * ( 1 - N + 0.5 * N * (N - 1) ).
 -   **approximate_buried_unsat_penalty_assume_const_backbone**: Should we assume that the backbone atoms will not change during a packing trajectory? (i.e. no positions that include normal aa and proline or n-methyl) If set to false, this energy method takes longer to compute. (~ 2X as long)
+-   **approximate_buried_unsat_penalty_natural_corrections1**: Apply the following corrections to buried unsat penalty: nh2_wants_2, nh1_wants_1, hydroxyl_wants_h, carboxyl_wants_2
+-   **approximate_buried_unsat_penalty_hbond_bonus_cross_chain**: Apply a bonus factor to hydrogen bonds accross chains.
+-   **approximate_buried_unsat_penalty_hbond_bonus_ser_to_helix_bb**: Apply a bonus factor to the classic SER/THR i - i-4 h-bond. OG/OG1 - O. Set this positive to penalize.
 -   **buried_unsatisfied_penalty_cone_angle_exponent**: The angle exponent for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
 -   **buried_unsatisfied_penalty_cone_angle_shift_factor**: The angle shift factor for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
 -   **buried_unsatisfied_penalty_cone_dist_exponent**: The distance exponent for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.

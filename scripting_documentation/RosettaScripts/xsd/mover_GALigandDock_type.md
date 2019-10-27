@@ -60,7 +60,7 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 -   **premin_ligand**: Cartmin ligand-only at the beginning
 -   **min_neighbor**: If cartmin is enabled, also cartmin SCs before and after final relax.
 -   **full_repack_before_finalmin**: Full repack before final relax.
--   **final_solvate**: Solvate pose (via WaterBoxMover) in final optimize. Default: false
+-   **final_solvate**: Solvate pose (via ExplicitWaterMover) in final optimize. Default: false
 -   **fastrelax_script**: FastRelax script file for exact minimize.
 -   **move_water**: Move water at final relaxation.
 -   **redefine_flexscs_at_relax**: Redefine movable residues at final relaxation.
