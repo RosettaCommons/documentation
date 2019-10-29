@@ -10,7 +10,7 @@ This document was mostly written by Jason Fell (jsfell@ucdavis.edu), last update
 Code and Demo
 =============
 
-This script is in rosetta/ools/protein_tools/scripts/RosettaEnzCM.py
+This script is in rosetta/tools/protein_tools/scripts/RosettaEnzCM.py
 
 Input Files
 ===========
