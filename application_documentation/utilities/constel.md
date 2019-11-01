@@ -13,7 +13,9 @@ The application's code lives in `src/apps/public/constel.cc`.
 
 Application's purpose
 ===================
-Extracts "constellations" of atoms from a protein structure. A constellation is defined as the set of atoms that are lost by a group of spatially contiguous residues upon mutation to a smaller residue.
+Extracts "constellations" of atoms from a protein structure. A constellation is defined as the arrangement of atoms that are lost by a group of spatially contiguous residues upon mutation to a smaller residue.
+
+Once extracted, constellations are meant to serve as templates for matching compounds that can ...
 Usage
 =====
 to be written
