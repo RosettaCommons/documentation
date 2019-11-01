@@ -1,4 +1,4 @@
-#constel: "Constellations" of atoms from spatially contiguous residues
+#constel: "Constellations" of atoms from large-to-small mutations of spatially contiguous residues
 Metadata
 ========
 
@@ -13,7 +13,7 @@ The application's code lives in `src/apps/public/constel.cc`.
 
 Application's purpose
 ===================
-to be written
+Extracts "constellations" of atoms from a spatially contiguous residues in a protein structure. 
 Usage
 =====
 to be written
