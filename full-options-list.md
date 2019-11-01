@@ -4929,6 +4929,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Prefix to use when dumping trajectories with dump_trajectory ScoreType.<br/>Default: "traj"<br/></dd>
 <dt><b>-gz</b> \<Boolean\></dt>
 <dd>Dump trajectories in .pdb.gz format.<br/>Default: false<br/></dd>
+<dt><b>-stride</b> \<Integer\></dt>
+<dd>If this option is used, every Nth call to the dump_trajectory scoreterm results in a structure being written.  Defaults to 1.<br/></dd>
 </dl>
 + <h2>-edensity</h2>
 <dl>
