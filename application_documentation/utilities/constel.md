@@ -13,7 +13,7 @@ The application's code lives in `src/apps/public/constel.cc`.
 
 Application's purpose
 ===================
-Extracts "constellations" of atoms from a spatially contiguous residues in a protein structure. 
+Extracts "constellations" of atoms from a protein structure. 
 Usage
 =====
 to be written
