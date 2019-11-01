@@ -124,6 +124,8 @@ Component | Description
    * [[Extract atomtree diffs]] - Extract structures from the AtomTreeDiff file format.
 
 - [[Docking Approach using Ray-Casting|DARC]] (DARC) - Docking method to specifically target protein interaction sites.
+
+- [[Terpene docking]] - Terdockin: Docking protocol for terpene synthases.
  
 ###Peptide Docking
 - [[Flexible peptide docking|flex-pep-dock]] - Dock a flexible peptide to a protein.
