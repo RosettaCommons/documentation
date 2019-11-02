@@ -19,7 +19,7 @@ Once extracted, constellations may serve as templates for compounds that rescue 
 
 Usage
 =====
-to be written
+constel -s protein.pdb -
 Output 
 ======
 to be written
