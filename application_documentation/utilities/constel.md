@@ -55,7 +55,7 @@ Application-specific options are divided into "search" options and "filtering" o
 * **Search option #5** extracts all 2-residue constellations that can be obtained from a target type of 2-residue large-to-small mutation: 
 ````
 -constel:pair_target_mutations <A><B>_<C><D>
-<A>, <B>, <C>, and <D> are 1-letter amino acid type codes. <A><B> indicates a mutation from amino acid type <A> (larger) to amino acid type <B> (smaller). <C><D> indicates a mutation from amino acid type <C> (larger) to amino acid type <D> (smaller)
+<A>, <B>, <C>, and <D> are 1-letter amino acid type codes. <A><B>_<C><D> denotes the target 2-residue mutation type, where <A><B> denotes mutation from amino acid type <A> (larger) to amino acid type <B> (smaller), and <C><D> denotes mutation from amino acid type <C> (larger) to amino acid type <D> (smaller)
 ````
 
 Output 
