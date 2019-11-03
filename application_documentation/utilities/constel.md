@@ -52,6 +52,11 @@ Application-specific options are divided into "search" options and "filtering" o
 -constel:triple_all_res
 ````
 
+* **Search option combination #5** extracts all 2-residue constellations that can be obtained from a target type of 2-residue mutation: 
+````
+-constel:pair_target_mutations <A><B>_<C><D>
+````
+
 Output 
 ======
 to be written
