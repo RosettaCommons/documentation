@@ -32,6 +32,16 @@ Application-specific options are divided into "search" options and "filtering" o
 -constel:target_chain <PDB_CHAIN>
 <PDB_CHAIN> is the target residue's chain ID in the PDB file.
 ````
+
+* **Search option combination #3:** extracts all 3-residue constellations formed by a target residue
+````
+-constel:triple_target_resnum <PDB_NUM>
+<PDB_NUM> is the target residue's number in the PDB file.
+
+-constel:target_chain <PDB_CHAIN>
+<PDB_CHAIN> is the target residue's chain ID in the PDB file.
+````
+
 Output 
 ======
 to be written
