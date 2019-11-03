@@ -130,19 +130,19 @@ Rosetta/Path/main/source/bin/rosetta_scripts.default.linuxgccrelease @flags  -pa
 
 References
 ========
-1. Methodology paper:
+Methodology paper:
 
 [Predicting Productive Binding Modes for Substrates and Carbocation Intermediates in Terpene Synthases—Bornyl Diphosphate Synthase As a Representative Case](https://pubs.acs.org/doi/abs/10.1021/acscatal.8b00342)
 
 Terrence E. O’Brien, Steven J. Bertolani, Yue Zhang, Justin B. Siegel Dean J. Tantillo
 
-2. Docking with three ligands:
+Docking with three ligands:
 
 [Switching on a Nontraditional Enzymatic Base—Deprotonation by Serine in the ent-Kaurene Synthase from Bradyrhizobium japonicum](https://pubs.acs.org/doi/abs/10.1021/acscatal.9b02783)
 
 Meirong Jia, Yue Zhang, Justin B. Siegel, Dean J. Tantillo, Reuben J. Peters
 
-3. Other examples:
+Other examples:
 
 [Mechanistically informed predictions of binding modes for carbocation intermediates of a sesquiterpene synthase reaction](https://pubs.rsc.org/en/content/articlehtml/2016/sc/c6sc00635c)
 
