@@ -32,7 +32,7 @@ Calculation Setup
 ========
 Here is an example file setup for a typical terpene synthase docking protocol. 
 
-1. PDB file of the protein. 
+### PDB file of the protein. 
 
 It's recommanded to relax the protein with Rosetta first. Add all ligands to the end of the PDB file. Label Protein as chain A and all ligands as chain B, C, D...
 Make sure the header of the PDB file agrees with the constraint file. Example file format:
@@ -49,12 +49,14 @@ HETATM    2  P2  X00 B   1      29.144 -11.943   6.478  1.00 20.00           P
 ...
 TER
 ```
-2. Params file for all ligands. 
+### Params file for all ligands. 
 
 This can be generated from mol2 file. 
 
 See instruction here: [Preparing Ligands](https://www.rosettacommons.org/demos/latest/tutorials/prepare_ligand/prepare_ligand_tutorial)
-3. Constraint file 
+
+### Constraint file 
+
 See [Matching and enzyme design geometric constraint file format](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/match-cstfile-format) for details.
 Example file format (Note lines start with # are commented out, you can add them back in as needed. Multiple blocks are needed if you can more than one constraint):
 ```
@@ -73,7 +75,7 @@ CST::BEGIN
 # CONSTRAINT::  torsion_B:  141.0  15.0    50  360. 2
 ```
 
-4. Flags file
+### Flags file
 
 See [This link](https://www.rosettacommons.org/docs/latest/development_documentation/code_structure/namespaces/namespace-utility-options#flagsfile) for details about how to write flags file.
 An example file looks like this:
@@ -115,7 +117,7 @@ An example file looks like this:
 -mute core.io.database
 ```
 
-5. XML file
+### XML file
 
 XML Script can be found here: https://github.com/RosettaCommons/rosetta_scripts_scripts/blob/master/scripts/public/docking/terpeneSynthase_docking.xml.
 
