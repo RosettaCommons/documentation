@@ -526,6 +526,10 @@ For example, symmetric score12:
     <OUTPUT scorefxn="my_sym_scorefxn"/>
 </ROSETTASCRIPTS>
 ```
+### Design-centric guidance scoreterms
+
+Certain specialized scoreterms exist that can be appended to the default energy function to guide design.  These can be useful to impose prior information (e.g. lots of prolines help to stabilize loop conformations; too many alanines in a core hinder folding), to add features desired for function (e.g. I want my protein to have a net negative charge but my binding interface to have a net positive charge), or to add features needed for protein production (I want to avoid too many methionines since extra AUG sequences result in alternative start sites, hindering expression) or experimental characterization (e.g. I want exactly one tryptophan in the core for fluorescence experimeents).  For more information about these scoreterms, see the page on [[design-centric guidance scoreterms|design-guidance-terms]].
+
 ## RESIDUE_SELECTORS
 
 [[ResidueSelectors|ResidueSelectors]] are used by movers, filters and task operations to dynamically select residues at run-time. They are used to specify sets of residues based on multiple different properties.
