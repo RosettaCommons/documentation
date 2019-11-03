@@ -31,7 +31,9 @@ Examples of these files can be found in ligand docking protocol. XML file can be
 Calculation Setup
 ========
 Here is an example file setup for a typical terpene synthase docking protocol. 
+
 1. PDB file of the protein. 
+
 It's recommanded to relax the protein with Rosetta first. Add all ligands to the end of the PDB file. Label Protein as chain A and all ligands as chain B, C, D...
 Make sure the header of the PDB file agrees with the constraint file. Example file format:
 ```
@@ -48,7 +50,9 @@ HETATM    2  P2  X00 B   1      29.144 -11.943   6.478  1.00 20.00           P
 TER
 ```
 2. Params file for all ligands. 
+
 This can be generated from mol2 file. 
+
 See instruction here: [Preparing Ligands](https://www.rosettacommons.org/demos/latest/tutorials/prepare_ligand/prepare_ligand_tutorial)
 3. Constraint file 
 See [Matching and enzyme design geometric constraint file format](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/match-cstfile-format) for details.
@@ -68,7 +72,9 @@ CST::BEGIN
   CONSTRAINT:: torsion_AB:  128.7  20.0    50  360. 2
 # CONSTRAINT::  torsion_B:  141.0  15.0    50  360. 2
 ```
+
 4. Flags file
+
 See [This link](https://www.rosettacommons.org/docs/latest/development_documentation/code_structure/namespaces/namespace-utility-options#flagsfile) for details about how to write flags file.
 An example file looks like this:
 ```
@@ -108,24 +114,31 @@ An example file looks like this:
 -mute core.util.prof ## dont show timing info
 -mute core.io.database
 ```
+
 5. XML file
 
 XML Script can be found here: https://github.com/RosettaCommons/rosetta_scripts_scripts/blob/master/scripts/public/docking/terpeneSynthase_docking.xml.
 
 Run Calculation 
 ========
-To run the docking calculation, do ` Rosetta/Path/main/source/bin/rosetta_scripts.default.linuxgccrelease @flags  -parser:protocol XMLfile.xml -nstruct nstruct_number`
+To run the docking calculation, do 
+```
+Rosetta/Path/main/source/bin/rosetta_scripts.default.linuxgccrelease @flags  -parser:protocol XMLfile.xml -nstruct nstruct_number
+```
 
 References
 ========
 1. Methodology paper:
 [Predicting Productive Binding Modes for Substrates and Carbocation Intermediates in Terpene Synthases—Bornyl Diphosphate Synthase As a Representative Case](https://pubs.acs.org/doi/abs/10.1021/acscatal.8b00342)
+
 Terrence E. O’Brien, Steven J. Bertolani, Yue Zhang, Justin B. Siegel Dean J. Tantillo
 2. Docking with three ligands:
 [Switching on a Nontraditional Enzymatic Base—Deprotonation by Serine in the ent-Kaurene Synthase from Bradyrhizobium japonicum](https://pubs.acs.org/doi/abs/10.1021/acscatal.9b02783)
+
 Meirong Jia, Yue Zhang, Justin B. Siegel, Dean J. Tantillo, Reuben J. Peters
 3. Other examples:
 [Mechanistically informed predictions of binding modes for carbocation intermediates of a sesquiterpene synthase reaction](https://pubs.rsc.org/en/content/articlehtml/2016/sc/c6sc00635c)
+
 T. E. O'Brien, S. J. Bertolani, D. J. Tantillo and J. B. Siegel
 
 ##See Also
