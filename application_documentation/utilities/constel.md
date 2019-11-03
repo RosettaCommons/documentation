@@ -33,6 +33,11 @@ Application-specific options are divided into "search" options and "filtering" o
 <PDB_CHAIN> is the target residue's chain ID in the PDB file.
 ````
 
+* **Search option combination #2:** extracts all 2-residue constellations in the protein structure
+````
+-constel:pair_all_res
+````
+
 * **Search option combination #3:** extracts all 3-residue constellations formed by a target residue
 ````
 -constel:triple_target_resnum <PDB_NUM>
