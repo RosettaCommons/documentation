@@ -19,7 +19,19 @@ Once extracted, constellations may serve as templates for compounds that rescue 
 
 Usage
 =====
-constel -s protein.pdb -
+Application-specific options are divided into "search" options and "filtering" options.
+
+### "Search" options: accepted combinations
+
+
+* **Search option combination #1** extracts all 2-residue constellations formed by a target residue
+````
+-constel:pair_target_resnum <PDB_NUM>
+<PDB_NUM> is the target residue's number in the PDB file.
+
+-constel:target_chain <PDB_CHAIN>
+<PDB_CHAIN> is the target residue's chain ID in the PDB file.
+````
 Output 
 ======
 to be written
