@@ -530,6 +530,30 @@ For example, symmetric score12:
 
 Certain specialized scoreterms exist that can be appended to the default energy function to guide design.  These can be useful to impose prior information (e.g. lots of prolines help to stabilize loop conformations; too many alanines in a core hinder folding), to add features desired for function (e.g. I want my protein to have a net negative charge but my binding interface to have a net positive charge), or to add features needed for protein production (I want to avoid too many methionines since extra AUG sequences result in alternative start sites, hindering expression) or experimental characterization (e.g. I want exactly one tryptophan in the core for fluorescence experimeents).  For more information about these scoreterms, see the page on [[design-centric guidance scoreterms|design-guidance-terms]].
 
+### A utility scoreterm for trajectory visualization
+
+When debugging a protocol, or when preparing an animation for a presentation, it is highly desirable to have a means of visualizing a series of steps in a trajectory.  One way to do this is to dump a structure to disk whenever a pose is scored.  In order to do this, a sepecial scoreterm called `dump_trajectory` was added.  This scoreterm contributes nothing to the score, but writes a structure out to disk whenever it is invoked.  (This of course comes with a major performance cost, and should not be done routinely).  It can be used when a structure is scored, at each step in a minimization trajectory, or at each step in a packing trajectory.  To use this scoreterm, simply add it to the scorefunction used for the steps that one wishes to visualize.  The following options can be set to alter the output filename, output format, or frequency with which structures are written:
+
+```xml
+	<ScoreFunction name="scorefxn" weights="ref2015" >
+
+		# Turns on the dump_trajectory scoreterm:
+		<Reweight scoretype="dump_trajectory" weight="1" />
+
+		# Sets the prefix for the file written to "my_prefix":
+		<Set dump_trajectory_prefix="my_prefix" />
+
+		# Sets the output format to gzipped PDB.  "False" by default (no compression):
+		<Set dump_trajectory_gz="true" />
+
+		# Sets the scorefunction to dump a structure on every SECOND scoring attempt, or every SECOND
+		# step in a minimization or packing trajectory.  Default is 1 (dumps on EVERY scoring attempt,
+		# or EVERY step in a minimization or packing trajectory):
+		<Set dump_trajectory_stride="2" />
+
+	</ScoreFunction>
+```
+
 ## RESIDUE_SELECTORS
 
 [[ResidueSelectors|ResidueSelectors]] are used by movers, filters and task operations to dynamically select residues at run-time. They are used to specify sets of residues based on multiple different properties.
