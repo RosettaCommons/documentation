@@ -153,6 +153,8 @@ $flag -mpi_tracer_to_file $HOME/rosetta_run_logs/debug/$debug_log
 
 Note that MPI-based job distribution can be used in conjunction with multi-threading if both options are specified during compilation (`extras=cxx11thread,mpi`).  In this case, it is important to limit the product of the number of processes per node and the number of threads per process to equal the number of cores per node: the default behaviour of the multi-threaded build is to launch one thread per node core per process, which would result in oversubscription if more than one process per node is launched.  See the multi-threading section, above, for information on limiting the total threads per process.
 
+As a final note, it is highly recommended to enable the `serialization` extra any time that Rosetta is built with MPI support (`extras=mpi,cxx11thread,serialization` or `extras=mpi,serialization`).  This is needed for certain types of inter-process communication.
+
 Option Groups and Layers
 =========================
 
