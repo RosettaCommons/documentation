@@ -126,7 +126,9 @@ Historically, each instance of Rosetta took advantage of only a single processor
 
 | Module | Commandline control | RosettaScripts control | PyRosetta control |
 | ------ | ------------------- | ---------------------- | ----------------- |
-| Packer | -multithreading:interaction_graph_threads <number> | RestrictInteractionGraphThreadsOperation task operation | RestrictInteractionGraphThreadsOperation task operation |
+| Packer | -multithreading:interaction_graph_threads <number> | [[RestrictInteractionGraphThreadsOperation]] task operation | [[RestrictInteractionGraphThreadsOperation]] task operation |
+
+For developers, please see the page on the [[RosettaThreadManager]] for information about how to multi-thread your favourite Rosetta module.
 
 Running Rosetta via MPI <a name="mpi" />
 ========================
