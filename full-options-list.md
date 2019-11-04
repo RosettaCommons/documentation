@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-10-26
+Generated: 2019-11-04
 
 _Note that some application specific options may not be present in this list._
 
@@ -2800,6 +2800,8 @@ _Note that some application specific options may not be present in this list._
 <dd>output option group<br/></dd>
 <dt><b>-normalize_to_thk</b> \<Boolean\></dt>
 <dd>Output an additional MEM resdiue data in the PDB where the membrane normal is scaled to match the current membrane thickness (Makes sense for IMM Models<br/></dd>
+<dt><b>-output_mem_to_pdb</b> \<Boolean\></dt>
+<dd>Do not output a MEM residue in the output PDB<br/></dd>
 </dl>
 + <h2>-membrane</h2>
 <dl>
@@ -4930,7 +4932,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-gz</b> \<Boolean\></dt>
 <dd>Dump trajectories in .pdb.gz format.<br/>Default: false<br/></dd>
 <dt><b>-stride</b> \<Integer\></dt>
-<dd>If this option is used, every Nth call to the dump_trajectory scoreterm results in a structure being written.  Defaults to 1.<br/></dd>
+<dd>The stride for trajectory dumping.  This defaults to 1, meaning that a pose is dumped for every function call.  Higher values dump a pose after every Nth function call, allowing sparser sampling of trajectories.<br/>Default: 1<br/></dd>
 </dl>
 + <h2>-edensity</h2>
 <dl>

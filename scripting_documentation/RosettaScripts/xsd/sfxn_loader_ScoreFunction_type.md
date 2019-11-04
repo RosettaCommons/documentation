@@ -58,6 +58,8 @@ XRW TO DO
             buried_unsatisfied_penalty_cone_dist_midpoint="(&real;)"
             buried_unsatisfied_penalty_burial_threshold="(&real;)"
             buried_unsatisfied_penalty_hbond_energy_threshold="(&real;)"
+            dump_trajectory_prefix="(&string;)" dump_trajectory_gz="(&bool;)"
+            dump_trajectory_stride="(&positive_integer;)"
             voids_penalty_energy_containing_cones_cutoff="(&non_negative_integer;)"
             voids_penalty_energy_voxel_size="(&real;)"
             voids_penalty_energy_voxel_grid_padding="(&real;)"
@@ -149,6 +151,9 @@ Subtag **Set**:
 -   **buried_unsatisfied_penalty_cone_dist_midpoint**: The distance midpoint for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
 -   **buried_unsatisfied_penalty_burial_threshold**: The number of cones in which a point must lie to be considered buried by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
 -   **buried_unsatisfied_penalty_hbond_energy_threshold**: The energy threshold above which a hydrogen bond is not counted, used by the BuriedUnsatPenalty energy.
+-   **dump_trajectory_prefix**: If the dump_trajectory scoreterm is used, this is the prefix for the filename to which we're dumping.
+-   **dump_trajectory_gz**: If the dump_trajectory scoreterm is used, this determines whether we write to gzipped files.  False by defualt.
+-   **dump_trajectory_stride**: If the dump_trajectory scoreterm is used, this is the frequency with which we write.  Every Nth evaluation of the score term, a pose will be written.  Default 1.
 -   **voids_penalty_energy_containing_cones_cutoff**: The minimum number of sidechain cones in which a voxel must lie in order for that voxel to be considered to be buried.  Defaults to 6 cones.
 -   **voids_penalty_energy_voxel_size**: The voxel size (in Angstroms) used in the voids_penalty score term's calculation.  Default 0.5 Angstroms.
 -   **voids_penalty_energy_voxel_grid_padding**: The voxel grid padding (in Angstroms) used in the voids_penalty score term's calculation.  The bounding box for the pose is enlarged on every side by this amount.  Default 1.0 Angstroms.
