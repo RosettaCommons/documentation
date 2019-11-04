@@ -29,10 +29,10 @@ Application-specific options are divided into "search" options and "filtering" o
 -constel:pair_target_resnum <PDB_NUM>
 -constel:target_chain <PDB_CHAIN>
 ````
-* <PDB_NUM> is the target residue's number in the PDB file.
-* <PDB_CHAIN> is the target residue's chain ID in the PDB file.
+* \<PDB_NUM\> is the target residue's number in the PDB file.
+* \<PDB_CHAIN\> is the target residue's chain ID in the PDB file.
 
-* **Search option combination #2** extracts all 2-residue constellations formed by all residues:
+**Search option combination #2** extracts all 2-residue constellations formed by all residues:
 ````
 -constel:pair_all_res
 ````
