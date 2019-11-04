@@ -177,10 +177,11 @@ Packer Behavior Modification
 
 TaskOp  | Description
 ------------ | -------------
-**[[SetIGType|SetIGType]]** | Set the type of interaction graph to use
 **[[KeepSequenceSymmetry|KeepSequenceSymmetry]]** | Prevent chains from differing in sequence
 **[[ModifyAnnealer|ModifyAnnealerOperation]]** | Change the behavior of the packer.
 **[[ProteinLigandInterfaceUpweighter|ProteinLigandInterfaceUpweighterOperation]]** | Increase the contribution of protein/ligand interactions during design.
+**[[RestrictInteractionGraphThreadsOperation]]** | Limit the number of threads that the packer may use for interaction graph pre-calculation.  (Only affects behaviour of multi-threaded build.)
+**[[SetIGType|SetIGType]]** | Set the type of interaction graph to use
 
 Development/Testing
 -------------------
