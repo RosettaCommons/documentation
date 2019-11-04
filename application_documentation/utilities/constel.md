@@ -21,7 +21,7 @@ Usage
 =====
 Application-specific options are divided into "search" options and "filtering" options.
 
-### Accepted search options / option combinations
+### Search options: accepted combinations
 
 
 * **Search option combination #1** extracts all 2-residue constellations formed by a target residue:
@@ -33,7 +33,7 @@ Application-specific options are divided into "search" options and "filtering" o
 <PDB_CHAIN> is the target residue's chain ID in the PDB file.
 ````
 
-* **Search option #2** extracts all 2-residue constellations formed by all residues:
+* **Search option combination #2** extracts all 2-residue constellations formed by all residues:
 ````
 -constel:pair_all_res
 ````
@@ -47,15 +47,19 @@ Application-specific options are divided into "search" options and "filtering" o
 <PDB_CHAIN> is the target residue's chain ID in the PDB file.
 ````
 
-* **Search option #4** extracts all 3-residue constellations formed by all residues:
+* **Search option combination #4** extracts all 3-residue constellations formed by all residues:
 ````
 -constel:triple_all_res
 ````
 
-* **Search option #5** extracts all 2-residue constellations that can be obtained from a target type of 2-residue large-to-small mutation: 
+* **Search option combination #5** extracts all 2-residue constellations that can be obtained from a target type of 2-residue large-to-small mutation: 
 ````
 -constel:pair_target_mutations <A><B>_<C><D>
-<A>, <B>, <C>, and <D> are 1-letter amino acid type codes. <A><B>_<C><D> denotes the target 2-residue mutation type, where <A><B> denotes mutation from amino acid type <A> (larger) to amino acid type <B> (smaller), and <C><D> denotes mutation from amino acid type <C> (larger) to amino acid type <D> (smaller)
+* <A>, <B>, <C>, and <D> are 1-letter amino acid type codes.
+* <A><B>_<C><D> denotes the target 2-residue mutation type where <A><B> denotes
+mutation from amino acid type <A> (larger) to amino acid type <B> (smaller), and
+<C><D> denotes mutation from amino acid type <C> (larger) to amino acid type <D>
+(smaller)
 ````
 
 Output 
