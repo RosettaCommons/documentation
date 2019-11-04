@@ -151,7 +151,7 @@ $ROSETTA3/database -nstruct $nstruct -ex1 -add_orbitals -ex2 -use_input_sc -igno
 $flag -mpi_tracer_to_file $HOME/rosetta_run_logs/debug/$debug_log
 </pre>
 
-Note that MPI-based job distribution can be used in conjunction with multi-threading if both options are specified during compilation (`extras=cxx11thread,mpi`).  In this case, it is important to limit the product of the number of processes per node and the number of threads per process to equal the number of cores per node.  See the multi-threading section, above, for information on limiting the total threads per process.
+Note that MPI-based job distribution can be used in conjunction with multi-threading if both options are specified during compilation (`extras=cxx11thread,mpi`).  In this case, it is important to limit the product of the number of processes per node and the number of threads per process to equal the number of cores per node: the default behaviour of the multi-threaded build is to launch one thread per node core per process, which would result in oversubscription if more than one process per node is launched.  See the multi-threading section, above, for information on limiting the total threads per process.
 
 Option Groups and Layers
 =========================
