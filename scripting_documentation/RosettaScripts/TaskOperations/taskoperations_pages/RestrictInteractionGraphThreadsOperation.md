@@ -18,7 +18,7 @@ The default number of threads requested for interaction graph setup can also be 
 
 In single-threaded builds, this `TaskOperation` can have no effect.  The number of threads to request can only be set to 1 or to 0, where 0 means "request all available" (which, in a single-threaded build, is 1).
 
-## Effect of multiple RestrictInteractionGraphThreadsOperations
+## Effect of multiple application of this TaskOperation
 
 The `RestrictInteractionGraphThreadsOperation` can only _reduce_ the number of threads requested.  If more than one is applied, the _lesser_ number of threads will be requested.  (Note that it is difficult to imagine a situation in which it would make sense to apply multiple `RestrictInteractionGraphThreadsOperation`s.)
  
