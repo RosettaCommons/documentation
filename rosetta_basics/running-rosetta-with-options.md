@@ -130,7 +130,7 @@ Historically, each instance of Rosetta took advantage of only a single processor
 
 For developers, please see the page on the [[RosettaThreadManager]] for information about how to multi-thread your favourite Rosetta module.
 
-### Known multi-threading issues
+## Known multi-threading issues
 
 - The `score12` scoring function is not currently threadsafe.  At some point, we will fix whichever score term is currently creating problems.
 
