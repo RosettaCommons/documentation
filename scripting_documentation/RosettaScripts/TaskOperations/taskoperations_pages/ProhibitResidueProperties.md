@@ -4,7 +4,7 @@
  `TaskOperation` to prohibit the [[palette|PackerPalette]] of `ResidueType`s from using those with any of the given properties.
  
 ## Usage
-### XML
+### RosettaScripts
 
 [[include:to_ProhibitResidueProperties_type]]
 
