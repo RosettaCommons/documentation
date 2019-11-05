@@ -5,13 +5,14 @@
  
 ## Usage
 
-### XML
+### RosettaScripts
 
 [[include:to_RestrictToResidueProperties_type]]
 
 ### C++
 The following code is used to create a [[PackerTask]] in which residue 2 is limited to only hydrophobic residues.
-```C++
+
+```c++
 ResidueIndexSelectorOP selector( make_shared< ResidueIndexSelector >() );
 selector->set_index( "2" );
 
