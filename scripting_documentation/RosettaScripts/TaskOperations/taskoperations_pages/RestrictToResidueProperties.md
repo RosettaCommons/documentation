@@ -3,14 +3,11 @@
 
  `TaskOperation` to restrict the [[palette|PackerPalette]] of `ResidueType`s to those with the given properties.
  
- ## Usage
- ### XML
- ```xml
-<RestrictToResidueProperties name="(string)" properties="(string)" selector="(string)" />
-```
+## Usage
 
-**properties** &mdash; A comma-separated list of `ResidueProperty`s, all of which must be present in a `ResidueType` to design with it.
-**selector** &mdash; If provided, the `TaskOperation` will apply to the subset of residues specified. If not provided, the `TaskOperation` will apply to all residues in the `Pose`.
+### XML
+
+[[include:to_RestrictToResidueProperties_type]]
 
 ### C++
 The following code is used to create a [[PackerTask]] in which residue 2 is limited to only hydrophobic residues.
