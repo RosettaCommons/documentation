@@ -24,4 +24,3 @@ The default number of threads requested for interaction graph setup can also be 
 * [[Building and running multi-threaded Rosetta|running-rosetta-with-options#running-rosetta-with-multiple-threads]]
 * [[RosettaScripts|RosettaScripts]]: Using RosettaScripts
 * [[Task Operations | TaskOperations-RosettaScripts]]: Other TaskOperations in RosettaScripts
-* [[Conventions in RosettaScripts|RosettaScripts-Coventions]]
