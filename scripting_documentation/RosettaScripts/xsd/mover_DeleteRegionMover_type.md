@@ -7,12 +7,16 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 Deletes a region from a pose
 
 ```xml
-<DeleteRegionMover name="(&string;)" rechain="(&bool;)" start="(&string;)"
-        end="(&string;)" nter_overhang="(&non_negative_integer;)"
+<DeleteRegionMover name="(&string;)" rechain="(&bool;)"
+        add_terminal_types_on_rechain="(&bool;)" add_jump_on_rechain="(&bool;)"
+        start="(&string;)" end="(&string;)"
+        nter_overhang="(&non_negative_integer;)"
         cter_overhang="(&non_negative_integer;)" residue_selector="(&string;)" />
 ```
 
 -   **rechain**: Add terminus variants and recompute chains after deleting
+-   **add_terminal_types_on_rechain**: Add terminal types when rechaining
+-   **add_jump_on_rechain**: Add jump when rechaining
 -   **start**: First residue in region to delete (PDBNum (24A) or RosettaNum
 -   **end**: Last residue in region to delete
 -   **nter_overhang**: Number of additional residues to delete on the N terminal side

@@ -19,13 +19,15 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
         fastrelax_script="(&string;)" move_water="(&bool;)"
         redefine_flexscs_at_relax="(&bool;)" exact="(&bool;)" debug="(&bool;)"
         use_pharmacophore="(&bool;)" initial_pool="(&string;)"
-        multiple_ligands="(&string;)" random_oversample="(&real;)"
-        reference_oversample="(&real;)" reference_pool="(&string;)"
-        reference_frac="(&real;)" reference_frac_auto="(&bool;)"
-        sidechains="(&string;)" sc_edge_buffer="(&real;)" fa_rep_grid="(&real;)"
-        grid_bound_penalty="(&real;)" estimate_dG="(&bool;)" ngen="(&integer;)"
-        npool="(&non_negative_integer;)" pmut="(&real;)" smoothing="(&real;)"
-        rmsdthreshold="(&real;)" ramp_schedule="(&string;)"
+        multiple_ligands="(&string;)" multiple_ligands_file="(&string;)"
+        random_oversample="(&real;)" reference_oversample="(&real;)"
+        reference_pool="(&string;)" reference_frac="(&real;)"
+        reference_frac_auto="(&bool;)" sidechains="(&string;)"
+        sc_edge_buffer="(&real;)" fa_rep_grid="(&real;)"
+        grid_bound_penalty="(&real;)" estimate_dG="(&bool;)"
+        use_mean_maxRad="(&bool;)" stdev_multiplier="(&real;)"
+        ngen="(&integer;)" npool="(&non_negative_integer;)" pmut="(&real;)"
+        smoothing="(&real;)" rmsdthreshold="(&real;)" ramp_schedule="(&string;)"
         maxiter="(&non_negative_integer;)"
         pack_cycles="(&non_negative_integer;)" >
     <Stage repeats="(&integer;)" npool="(&non_negative_integer;)"
@@ -58,7 +60,7 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 -   **premin_ligand**: Cartmin ligand-only at the beginning
 -   **min_neighbor**: If cartmin is enabled, also cartmin SCs before and after final relax.
 -   **full_repack_before_finalmin**: Full repack before final relax.
--   **final_solvate**: Solvate pose (via WaterBoxMover) in final optimize. Default: false
+-   **final_solvate**: Solvate pose (via ExplicitWaterMover) in final optimize. Default: false
 -   **fastrelax_script**: FastRelax script file for exact minimize.
 -   **move_water**: Move water at final relaxation.
 -   **redefine_flexscs_at_relax**: Redefine movable residues at final relaxation.
@@ -67,6 +69,7 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 -   **use_pharmacophore**: Use pharmacophore info at initial pool generation.
 -   **initial_pool**: Include these structures in the initial pool.
 -   **multiple_ligands**: Scan ligands with these residue types.
+-   **multiple_ligands_file**: Scan ligands with these residue types in a text file.
 -   **random_oversample**: scale factor to ntrial of initial random pool generation
 -   **reference_oversample**: scale factor to ntrial of initial reference pool generation
 -   **reference_pool**: Use this structures as _references_ to generate the initial pool.
@@ -77,6 +80,8 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 -   **fa_rep_grid**: Repulsion weight at grid scoring stage
 -   **grid_bound_penalty**: Penalty factor when ligand atm gets out of boundary
 -   **estimate_dG**: Estimate dG of binding on lowest-energy docked pose. Default: false
+-   **use_mean_maxRad**: Use mean maxRad for multi ligands? Default: false
+-   **stdev_multiplier**: Standard deviation multiplier for mean_maxRad. Default: 1.0
 -   **ngen**: number of generations
 -   **npool**: (default) pool size
 -   **pmut**: (default) probability of mutation
