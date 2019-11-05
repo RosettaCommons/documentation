@@ -130,6 +130,10 @@ Historically, each instance of Rosetta took advantage of only a single processor
 
 For developers, please see the page on the [[RosettaThreadManager]] for information about how to multi-thread your favourite Rosetta module.
 
+### Known multi-threading issues
+
+- The `score12` scoring function is not currently threadsafe.  At some point, we will fix whichever score term is currently creating problems.
+
 Running Rosetta via MPI <a name="mpi" />
 ========================
 Where threads are a useful means of parallelizing the execution of blocks of code involving many small tasks that share memory, across a limited number of cores on a single node, process-level cross-communication can also be useful for job-level parallelism.  Most Rosetta applications support job-level parallelism using MPI (the Message Passing Interface).  MPI allows many processes to communicate with one another by passing messages.  This is advantageous over entirely independent processes, since it allows load-balancing (processes that finish their work sooner can do the work that would otherwise be waiting in the queue of a slower process) and, in some cases, data reduction and analysis prior to output (see, for example, the [[simple_cycpep_predict]] application).  If the Rosetta MPI executables were compiled (using the `extras=mpi` option with `scons`, for example), then in the executable directory there will be an extra set of executables specifically for MPI, for example <code>fixbb.mpi.linuxgccrelease </code>.  If these have not yet been compiled, please refer to the [[Setting Up Rosetta 3| Build-Documentation#MPI]] page for more information. To run these executables, simply run them via mpiexec (or mpirun for older mpi implementations): 
