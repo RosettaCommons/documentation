@@ -3,14 +3,11 @@
 
  `TaskOperation` to prohibit `ResidueType`s with the given properties from the [[palette|PackerPalette]].
  
- ## Usage
- ### XML
- ```xml
-<ProhibitSpecifiedBaseResidueTypes name="(string)" base_types="(string)" selector="(string)" />
-```
+## Usage
 
-**base_types** &mdash; A comma-separated list of `ResidueType`s (by full base name).
-**selector** &mdash; If provided, the `TaskOperation` will apply to the subset of residues specified. If not provided, the `TaskOperation` will apply to all residues in the `Pose`.
+### XML
+
+[[include:to_ProhibitSpecifiedBaseResidueTypes_type]]
 
 ### C++
 The following code is used to create a [[PackerTask]] in which residue 2 is prohibited from designing to a histidine residue.
