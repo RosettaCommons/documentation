@@ -3,18 +3,16 @@
 
  `TaskOperation` to prohibit the [[palette|PackerPalette]] of `ResidueType`s from using those with any of the given properties.
  
- ## Usage
- ### XML
- ```xml
-<ProhibitResidueProperties name="(string)" properties="(string)" selector="(string)" />
-```
+## Usage
+### XML
 
-**properties** &mdash; A comma-separated list of `ResidueProperty`s, none of which may be present in a `ResidueType` to design with it.
-**selector** &mdash; If provided, the `TaskOperation` will apply to the subset of residues specified. If not provided, the `TaskOperation` will apply to all residues in the `Pose`.
+[[include:to_ProhibitResidueProperties_type]]
 
 ### C++
+
 The following code is used to create a [[PackerTask]] in which residue 2 is prohibited from using residues with a side-chain thiol functionality.
-```C++
+
+```c++
 ResidueIndexSelectorOP selector( make_shared< ResidueIndexSelector >() );
 selector->set_index( "2" );
 
