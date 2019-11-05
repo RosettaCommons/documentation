@@ -58,7 +58,7 @@ The [[StepWise|stepwise]] protocol is able to parallelize its work.  Currently, 
 
 ##Code that will support multithreading in the near future
 
-### The ScoreFunctino
+### The ScoreFunction
 
 Work is underway to parallelize the `ScoreFunction::operator()`.  This will also parallelize the minimizer's line search.
 
