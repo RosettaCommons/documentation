@@ -32,6 +32,10 @@ PackerTaskOP task( tf.create_task_and_apply_taskoperations( pose ) );
 `RestrictToSpecifiedBaseResidueTypes::set_base_types()` &mdash; Pass a vector of strings to set the list of base `ResidueType`s allowed (by full base name).
 `RestrictToSpecifiedBaseResidueTypes::set_selector()` &mdash; Pass a `ResidueSelector` to specificy to which residue(s) the list of allowed `ResidueType`s applies. If no `ResidueSelector` is specified, Rosetta assumes that this `TaskOperation` applies to all residues in the `Pose`.
 
+### RosettaScripts
+
+[[include:to_RestrictToSpecifiedBaseResidueTypes_type]]
+
 ##See Also
 * [[ProhibitSpecifiedBaseResidueTypes]]
 * [[RosettaScripts|RosettaScripts]]: Using RosettaScripts
