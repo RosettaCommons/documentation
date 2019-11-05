@@ -13,7 +13,9 @@ Fleishman SJ, Leaver-Fay A, Corn JE, Strauch EM, Khare SD, et al. (2011) Rosetta
 -   [[Movers (RosettaScripts)|Movers-RosettaScripts]]
 -   [[Filters|Filters-RosettaScripts]]
 -   [[TaskOperations (RosettaScripts)|TaskOperations-RosettaScripts]]
+-   [[MoveMapFactories (RosettaScripts)|MoveMapFactories-RosettaScripts]]
 -   [[ResidueSelectors (RosettaScripts)|ResidueSelectors]]
+-   [[JumpSelectors |JumpSelectors]]
 -   [[PackerPalettes|PackerPalette]]
 -   [[SimpleMetrics]]
 
@@ -51,6 +53,8 @@ Copy, paste, fill in, and enjoy
     </RESIDUE_SELECTORS>
     <TASKOPERATIONS>
     </TASKOPERATIONS>
+    <SIMPLE_METRICS>
+    </SIMPLE_METRICS>
     <FILTERS>
     </FILTERS>
     <MOVERS>
@@ -112,7 +116,7 @@ The metrics will all be output to the scorefile with the given prefix/suffix and
 	</SIMPLE_METRICS>
 	<MOVERS>
 		<MinMover name="min_mover" movemap_factory="movemap_L1" tolerance=".1" /> 
-		<RunSimpleMetrics name="run_metrics1" metrics="pymol_selection,sequence,ss,total_energy,rosetta_sele" prefix="m1_" />
+		<RunSimpleMetrics name="run_metrics1" metrics="pymol_selection,sequence,ss,rosetta_sele" prefix="m1_" />
 		<RunSimpleMetrics name="run_metrics2" metrics="rmsd,timing,ss" prefix="m2_" />
 	</MOVERS>
 	<PROTOCOLS>
@@ -512,6 +516,44 @@ For example, symmetric score12:
 <ScoreFunction name="score12_symm" weights="score12_full" symmetric="1"/>
 ```
 
+> **segmentation fault**
+>
+> If you run into a segfault, you might need to add a \<OUTPUT\> section with a symmetric scorefunction.
+
+```
+    ...
+    </PROTOCOLS>
+    <OUTPUT scorefxn="my_sym_scorefxn"/>
+</ROSETTASCRIPTS>
+```
+### Design-centric guidance scoreterms
+
+Certain specialized scoreterms exist that can be appended to the default energy function to guide design.  These can be useful to impose prior information (e.g. lots of prolines help to stabilize loop conformations; too many alanines in a core hinder folding), to add features desired for function (e.g. I want my protein to have a net negative charge but my binding interface to have a net positive charge), or to add features needed for protein production (I want to avoid too many methionines since extra AUG sequences result in alternative start sites, hindering expression) or experimental characterization (e.g. I want exactly one tryptophan in the core for fluorescence experimeents).  For more information about these scoreterms, see the page on [[design-centric guidance scoreterms|design-guidance-terms]].
+
+### A utility scoreterm for trajectory visualization
+
+When debugging a protocol, or when preparing an animation for a presentation, it is highly desirable to have a means of visualizing a series of steps in a trajectory.  One way to do this is to dump a structure to disk whenever a pose is scored.  In order to do this, a sepecial scoreterm called `dump_trajectory` was added.  This scoreterm contributes nothing to the score, but writes a structure out to disk whenever it is invoked.  (This of course comes with a major performance cost, and should not be done routinely).  It can be used when a structure is scored, at each step in a minimization trajectory, or at each step in a packing trajectory.  To use this scoreterm, simply add it to the scorefunction used for the steps that one wishes to visualize.  The following options can be set to alter the output filename, output format, or frequency with which structures are written:
+
+```xml
+	<ScoreFunction name="scorefxn" weights="ref2015" >
+
+		# Turns on the dump_trajectory scoreterm:
+		<Reweight scoretype="dump_trajectory" weight="1" />
+
+		# Sets the prefix for the file written to "my_prefix":
+		<Set dump_trajectory_prefix="my_prefix" />
+
+		# Sets the output format to gzipped PDB.  "False" by default (no compression):
+		<Set dump_trajectory_gz="true" />
+
+		# Sets the scorefunction to dump a structure on every SECOND scoring attempt, or every SECOND
+		# step in a minimization or packing trajectory.  Default is 1 (dumps on EVERY scoring attempt,
+		# or EVERY step in a minimization or packing trajectory):
+		<Set dump_trajectory_stride="2" />
+
+	</ScoreFunction>
+```
+
 ## RESIDUE_SELECTORS
 
 [[ResidueSelectors|ResidueSelectors]] are used by movers, filters and task operations to dynamically select residues at run-time. They are used to specify sets of residues based on multiple different properties.
@@ -567,7 +609,7 @@ Example use in `FastRelax`:
 		<Glycan name="glycans"/>
 	</RESIDUE_SELECTORS>
 	<MOVE_MAP_FACTORIES>
-		<MoveMapFactory name="fr_mm_factory" enable="0">
+		<MoveMapFactory name="fr_mm_factory">
 			<Backbone residue_selector="glycans" />
 			<Chi residue_selector="glycans" />
 		</MoveMapFactory>
@@ -585,18 +627,18 @@ Example use in `FastRelax`:
 
 
 Here, we use the MoveMapFactory to only run fast relax on all of the glycans in a pose.  
-By default, the movemap is constructed with all kinematics turned on (bb, chi, jump).  The option `enable="0"` makes everything off in the movemap first. `bb="0"`, `chi="0"`, `jump="0"` can optionally turn off specific components first when constructing the factory.  
+By default, the movemap is constructed with all kinematics turned on (bb, chi, jump).  By default, everything is off in the MoveMap first. The attributes `bb="0"`, `chi="0"`, `jump="0"` can optionally turn on specific components first when constructing the MoveMap.  
 
-### Subsections
+### MoveMapFactory Operations
 
-Subsections are used to turn on specific kinematic sections of the pose.  They optionally take a `residue_selector`
+Sub-tags of the MoveMapFactory tag are used to enable specific DOFs of the pose.  They require a `residue_selector`
 
 ```
 	<MOVE_MAP_FACTORIES>
 		<MoveMapFactory name="fr_mm_factory" enable="0">
-			<Backbone />
-			<Chi residue_selector="my_selecotor" />
-			<Jumps />
+			<Backbone residue_selector="my_first_residue_selector"/>
+			<Chi residue_selector="my_second_residue_selecotor" />
+			<Jump jump_selector="my_jump_selector"/>
 		</MoveMapFactory>
 	</MOVE_MAP_FACTORIES>
 
@@ -619,6 +661,8 @@ Subsections are used to turn on specific kinematic sections of the pose.  They o
 * `<Branches/>`
 
  These are specific torsions coming off the mainchain.  Typically, you do not need to worry about this unless you are using a complicated non-cannonical or modification.  Glycan branch torsions are treated as IUPAC BB torsions within the MoveMapFactory machinery.
+
+See [[MoveMapFactories |MoveMapFactories-RosettaScripts]]
 
 ##SIMPLE_METRICS
 

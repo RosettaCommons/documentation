@@ -37,9 +37,9 @@ If the mover crashes with a "doesn't have connection" error, this is because you
 
 **run\_kic (bool,"false")**:  Run KIC to close any chainbreak caused by the declared chemical bond?  This is not recommended.  The [[GeneralizedKIC mover|GeneralizedKICMover]] offers far more control over kinematic closure.
 
-**KIC\_res1 (int,"0")**:  First residue to use in KIC if **run_kic="true"** is set.
+**KIC\_res1 (int,"0")**:  First residue to use in KIC if **run_KIC="true"** is set.
 
-**KIC\_res2 (int,"0")**:  Second residue to use in KIC if **run_kic="true"** is set.
+**KIC\_res2 (int,"0")**:  Second residue to use in KIC if **run_KIC="true"** is set.
 
 **name (string)**:  The name given to this instance.
 

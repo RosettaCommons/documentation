@@ -3,7 +3,7 @@
 Metadata
 ========
 
-This document was last edited 7/20/2017. The original authors were Ingemar Andre and Frank DiMaio.
+This document was last edited 9/8/2019. The original authors were Ingemar Andre and Frank DiMaio.
 
 [[_TOC_]]
 
@@ -90,6 +90,13 @@ Protocols aware of symmetry
 
 This section provides a list of protocols that have been ported to use symmetry. If the protocol you are interested in using is found here you can just follow the instructions in [How to run with symmetry](#How-to-run-with-symmetry). This list will surely not bee properly updated at times, so you might end up having to look into the code. Please add new protocols here as you port them.
 
+## General
+* **MinMover**
+* **PackRotamersMover**
+* **FastRelax**
+* **Scoring**: IE - ScoreFunction is now symmetry-aware
+
+## Apps
 * **Score app: src/apps/pilot/score.cc**
 * **Symmetric Docking: see src/apps/pilot/andre/SymDock.cc**
 * **Fold and dock: see src/protocols/topology\_broker/FoldandDockClaimer.cc**

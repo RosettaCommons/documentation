@@ -108,11 +108,31 @@ Rosetta will now look in that directory each time it is run. If a file named `co
   -no_fconfig  
 ```
 
-Finally, the options that are loaded from these files are output to the Rosetta log on startup.  
+Finally, the options that are loaded from these files are output to the Rosetta log on startup.
+
+Running Rosetta with multiple threads <a name="multithreading" />
+========================
+Historically, each instance of Rosetta took advantage of only a single processor core.  Parallel sampling was typically accomplished by launching many independent Rosetta processes.  This allowed separate jobs to be carried out simultaneously, but there are many circumstances in which one may wish to complete a _single_ Rosetta job _more quickly_ using multiple cores.  Multi-threading support has recently (as of 5 November 2019) been added to Rosetta.  Most Rosetta modules do not yet support multi-threading, but some core algorithms have been parallelized.  To take advantage of multi-threading, the following considerations are important:
+
+1.  Rosetta must be compiled with the `extras=cxx11thread` option appended to the `scons` command.  This will produce Rosetta executables named <app name>.cxx11thread.<operating system><compiler><release/debug>.
+
+2.  Rosetta applications compiled with threading support will by default launch one thread for each core (or hardware thread, on hyper-threaded nodes) available on a node.  On laptops and personal computers on which one is running only one instance of Rosetta, this is often ideal.
+
+3.  On large nodes with many cores, you may wish to launch many Rosetta processes, each launching a small number of threads -- for example, you may wish to launch 16 Rosetta processes each with 4 threads on a 64-core node.  To limit the maximum number of threads that each Rosetta process may launch, use the `-multithreading:total_threads <number>` commandline option.  (Note that if multi-threading is used in conjunction with MPI process-level parallelism, this flag limits the number of threads launched _per process_).
+
+4.  Individual Rosetta modules that support multi-threading will by default try to use all available threads on  a first-come-first-served basis.  For example, let's suppose that module A calls module B, and both attempt to use threads.  Let's also suppose that there are 16 threads in total.  Module A will by default request that its work be distributed over all 16 threads, each of which can invoke module B.  Module B will also request that its work be distributed over threads, but will find no threads free, and will therefore have to carry out its work in the calling thread.  Since "inner" modules are given lower priority than "outer" modules, a user may manually limit the number of threads requested by a module with appropriate commandline flags, RosettaScripts options, or PyRosetta options (see below).  In the example above, one could restrict module A to 4 threads, and module B to 4 threads.  In this case, each of the 4 threads assigned to module A can invoke module B, and each of the 4 invocations of module B can be assigned 4 threads (for a total of 16).  Note that a module is always assigned at least one thread (the requesting thread), and at most the lesser of the total thread count or the number requested.
+
+5.  Currently, the following modules and tasks are multi-threaded.  The number of threads that they can request can be controlled as described in the following table:
+
+| Module | Task | Commandline control | RosettaScripts control | PyRosetta control |
+| ------ | ---- | ------------------- | ---------------------- | ----------------- |
+| Packer | Interaction graph pre-calculation. | -multithreading:interaction_graph_threads <number> | [[RestrictInteractionGraphThreadsOperation]] task operation | [[RestrictInteractionGraphThreadsOperation]] task operation |
+
+For developers, please see the page on the [[RosettaThreadManager]] for information about how to multi-thread your favourite Rosetta module.
 
 Running Rosetta via MPI <a name="mpi" />
 ========================
-In order to run Rosetta on a computational cluster or locally on many cores, most Rosetta protocols support parallel execution via MPI. If the Rosetta MPI executables were compiled, then in the executable directory there will be an extra set of executables specifically for MPI, for example <code>fixbb.mpi.linuxgccrelease </code>.  If these have not yet been compiled, please refer to the [[Setting Up Rosetta 3| Build-Documentation#MPI]] page for more information. To run these executables, simply run them via mpiexec (or mpirun for older mpi implementations): 
+Where threads are a useful means of parallelizing the execution of blocks of code involving many small tasks that share memory, across a limited number of cores on a single node, process-level cross-communication can also be useful for job-level parallelism.  Most Rosetta applications support job-level parallelism using MPI (the Message Passing Interface).  MPI allows many processes to communicate with one another by passing messages.  This is advantageous over entirely independent processes, since it allows load-balancing (processes that finish their work sooner can do the work that would otherwise be waiting in the queue of a slower process) and, in some cases, data reduction and analysis prior to output (see, for example, the [[simple_cycpep_predict]] application).  If the Rosetta MPI executables were compiled (using the `extras=mpi` option with `scons`, for example), then in the executable directory there will be an extra set of executables specifically for MPI, for example <code>fixbb.mpi.linuxgccrelease </code>.  If these have not yet been compiled, please refer to the [[Setting Up Rosetta 3| Build-Documentation#MPI]] page for more information. To run these executables, simply run them via mpiexec (or mpirun for older mpi implementations): 
 
 <code> mpiexec -np 16 fixbb.mpi.linuxgccrelease -database /path/to/database @ flags </code>
 
@@ -130,6 +150,10 @@ mpiexec -np $np --machinefile $HOME/dna.machinefile $program.mpi.linuxgccrelease
 $ROSETTA3/database -nstruct $nstruct -ex1 -add_orbitals -ex2 -use_input_sc -ignore_unrecognized_res @
 $flag -mpi_tracer_to_file $HOME/rosetta_run_logs/debug/$debug_log
 </pre>
+
+Note that MPI-based job distribution can be used in conjunction with multi-threading if both options are specified during compilation (`extras=cxx11thread,mpi`).  In this case, it is important to limit the product of the number of processes per node and the number of threads per process to equal the number of cores per node: the default behaviour of the multi-threaded build is to launch one thread per node core per process, which would result in oversubscription if more than one process per node is launched.  See the multi-threading section, above, for information on limiting the total threads per process.
+
+As a final note, it is highly recommended to enable the `serialization` extra any time that Rosetta is built with MPI support (`extras=mpi,cxx11thread,serialization` or `extras=mpi,serialization`).  This is needed for certain types of inter-process communication.
 
 Option Groups and Layers
 =========================

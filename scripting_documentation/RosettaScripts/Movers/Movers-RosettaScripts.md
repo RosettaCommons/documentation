@@ -133,6 +133,7 @@ Mover  | Description
 **[[BackboneGridSampler|BackboneGridSamplerMover]]** | Generates a residue chain and samples torsion angles
 **[[InitializeByBins|InitializeByBinsMover]]** | Randomizes stretches of backbone based on torsion bins
 **[[PerturbByBins|PerturbByBinsMover]]** | Perturbs stretches of backbone based on torsion bins
+**[[RandomizeBBByRamaPrePro|RandomizeBBByRamaPreProMover]]** | Randomize the backbone of a given residue biased by its Ramachandran map
 **[[SetTorsion|SetTorsionMover]]** | Sets torsion to a specified or random value
 **[[Shear|ShearMover]]** | Makes shear-style torsion moves that minimize downstream propagation
 **[[Small|SmallMover]]** | Makes small-move-style torsion moves (no propagation minimization)
@@ -192,6 +193,13 @@ Mover  | Description
 **[[DockingProtocol|DockingProtocolMover]]** | Performs full docking protocol with current defaults
 **[[FlexPepDock|FlexPepDockMover]]** | Performs ab initio or refinement peptide docking
 
+##### Docking with Mouse
+
+Mover  | Description
+------------ | -------------
+**[[MouseSetupMover]]** | Setup Rosetta for Mouse calculations
+**[[MouseSpyDockingProtocol|MouseSpyDockingProtocolMover]]** | Drop-in replacement for [[DockingProtocol|DockingProtocolMover]], but gives larger interfaces that are slightly more stable per residue.
+**[[MouseFinalizeMover]]** | Spin down after Mouse calculations
 
 ### Fragment Insertion
 
@@ -289,6 +297,7 @@ See [Symmetric Docking movers](#Symmetric Docking movers) for protocols involvin
 Mover  | Description
 ------------ | -------------
 **[[SetupForSymmetry|SetupForSymmetryMover]]** | Symmeterizes a pose based on a definition file
+**[[SetupForSequenceSymmetry|SetupForSequenceSymmetryMover]]** | Allows you to define symmetric chains for complicated systems before using the KeepSequenceSymmetry task operation
 **[[DetectSymmetry|DetectSymmetryMover]]** | Symmeterizes a pose composed of symmetric chains
 **[[ExtractAsymmetricUnit|ExtractAsymmetricUnitMover]]** | Turn symmetric pose into a nonsymmetric pose (inverse of SetupForSymmetry)
 **[[ExtractSubpose|ExtractSubposeMover]]** | (Developer release only) Extracts a subset of a symmetric pose without modifying the original

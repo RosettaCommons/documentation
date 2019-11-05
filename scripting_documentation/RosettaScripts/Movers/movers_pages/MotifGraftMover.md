@@ -76,6 +76,9 @@ and for a two fragments graft:
         </OperateOnCertainResidues>
 ```
 
+## Reference
+
+Silva, D., Correia, B.E., and Procko, E. (2016) Motif-driven Design of Protein-Protein Interactions. Methods Mol. Biol. 1414:285-304
 
 ##See Also
 

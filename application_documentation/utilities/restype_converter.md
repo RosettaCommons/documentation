@@ -40,8 +40,8 @@ The following options can be used to specify which residue types should be conve
 |-extra_res_mol | A list of SDF/Mol files to convert. (Used in both centroid and fullatom.)|
 |-extra_res_mmCIF | A list of CIF formatted ligand files to convert. (Used in both centroid and fullatom.)|
 
-If you wish to load a residue type from the Rosetta-provided Chemical Components Dictionary file, simply prepend `pdb_` to the three letter code, and use it with `-ligand_convert:types`.
-(For example, to load the residue TTL from the CCD, pass `-types pdb_TTL` to the ligand_convert application.)
+If you wish to load a residue type from the Rosetta-provided Chemical Components Dictionary file, simply prepend `pdb_` to the three letter code, and use it with `-restype_convert:types`.
+(For example, to load the residue TTL from the CCD, pass `-types pdb_TTL` to the restype_convert application.)
 
 Output
 ===============
@@ -67,7 +67,7 @@ Command Lines
 Sample command:
 
 ```
-restype_convert.linuxgccrelease -ligand_convert:types TRP:NtermProteinFull  -ligand_convert:name3 CYS -extra_res_fa my_type.params -out:pdb -ligand_convert:sdf_out 
+restype_convert.linuxgccrelease -restype_convert:types TRP:NtermProteinFull  -restype_convert:name3 CYS -extra_res_fa my_type.params -out:pdb -restype_convert:sdf_out 
 ```
 
 Example

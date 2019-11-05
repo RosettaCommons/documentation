@@ -38,7 +38,8 @@ While most of these applications focus on prediction, many have options which wi
     * [[IterativeHybridize]]
 
 - [[Floppy tail]] - Predict structures of long, flexible N-terminal or C-terminal regions.
-- [[Fold-and-dock]] - Predict 3-dimensional structures of symmetric homooligomers.  
+- [[Fold-and-dock]] - Predict 3-dimensional structures of symmetric homooligomers.
+- [[Helical bundle structure prediction|helical-bundle-predict]] - Predict structures of predominantly helical heteropolymers from sequence.  Uses a fragment-free approach that is good for proteins and non-natural heterpolymers with no close relatives of known structure.  Experimental.
 - [[Molecular replacement protocols|mr-protocols]] - Use Rosetta to build models for use in X-ray crystrallography molecular replacement.  
     * [[Prepare template for MR]] - Setup script for molecular replacement protocols.  
 - [[Relax]] - "Locally" optimize structures, including assigning sidechain positions.
@@ -123,6 +124,8 @@ Component | Description
    * [[Extract atomtree diffs]] - Extract structures from the AtomTreeDiff file format.
 
 - [[Docking Approach using Ray-Casting|DARC]] (DARC) - Docking method to specifically target protein interaction sites.
+
+- [[Terpene docking]] - Terdockin: Docking protocol for terpene synthases.
  
 ###Peptide Docking
 - [[Flexible peptide docking|flex-pep-dock]] - Dock a flexible peptide to a protein.
@@ -191,6 +194,8 @@ Component | Description
 ### Enzymes
 
 - [[Enzyme Design]] - Design a protein around a small molecule, with catalytic constraints. 
+
+- [[RosettaEnzCM]] - Calculates the average atomic distances from template catalytic residues to be used for distance constraints for RosettaCM. 
 
 ### Peptides
 - [[Pepspec]] - Evaluate and design peptide-protein interactions.

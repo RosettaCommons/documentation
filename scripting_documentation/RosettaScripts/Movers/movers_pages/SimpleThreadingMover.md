@@ -2,8 +2,6 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## SimpleThreadingMover
 
-Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
-
 [[include:mover_SimpleThreadingMover_type]]
 
 ### Details
