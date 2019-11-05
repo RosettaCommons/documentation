@@ -40,6 +40,10 @@ Note that a handful of multithreaded classes existed prior to the implementation
 
 ##Current code that supports multithreading
 
+###The Packer
+
+Interaction graph pre-calculation is currently carried out in threads, using the `RosettaThreadManager`.
+
 ###The JD3 MultiThreadedJobDistributor
 
 Version 3 of our job distribution system (JD3) includes a multithreaded job distributor class, called `MultiThreadedJobDistributor`.  Currently, this maintains a thread pool of its own, but will soon be switched to use the [[RosettaThreadManager]].
@@ -54,6 +58,16 @@ The [[StepWise|stepwise]] protocol is able to parallelize its work.  Currently, 
 
 ##Code that will support multithreading in the near future
 
-### The Packer
+### The ScoreFunctino
 
-Work is currently underway to parallelize the interaction graph precalculation performed by the Rosetta Packer.  Since the packer is called by many or most Rosetta protocols, we believe that this will represent a significant performance advantage.
+Work is underway to parallelize the `ScoreFunction::operator()`.  This will also parallelize the minimizer's line search.
+
+### The Minimizer
+
+Gradient calculation is a planned future target for multi-threading.
+
+##Known issues
+
+###Score12
+
+At least one scoreterm in the nearly-deprecated `score12` scorefunction is not threadsafe.
