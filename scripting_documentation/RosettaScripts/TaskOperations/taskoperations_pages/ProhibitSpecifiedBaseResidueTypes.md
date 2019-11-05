@@ -5,7 +5,7 @@
  
 ## Usage
 
-### XML
+### RosettaScripts
 
 [[include:to_ProhibitSpecifiedBaseResidueTypes_type]]
 
