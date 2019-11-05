@@ -10,8 +10,10 @@
 [[include:to_ProhibitSpecifiedBaseResidueTypes_type]]
 
 ### C++
+
 The following code is used to create a [[PackerTask]] in which residue 2 is prohibited from designing to a histidine residue.
-```C++
+
+```c++
 ResidueIndexSelectorOP selector( make_shared< ResidueIndexSelector >() );
 selector->set_index( "2" );
 
