@@ -4,7 +4,7 @@
 
 The packer can be controlled using TaskOperations, the equivalent for the minimizer is the MoveMapFactory. A MoveMapFactory will create a MoveMap tailored for an input Pose; you can say "I want to allow the sidechains to move from Chain B that are within 10 A of residues on chain A" using ResidueSelectors. The biggest difference between MoveMapFactories (which you construct explicitly) and TaskFactories (which are constructed behind the scenes from a list of TaskOperations) is that the order in which MoveMap operations take place matters. If you say in your first operation "turn on all sidechain DOFs" and you say in your second operation "disable sidechain DOFs for residues 10-20", you will have a MoveMap that allows all sidechain DOFs except for residues 10-20; if on the other hand you reverse the order of those two operations, you will have a MoveMap that allows all sidechain DOFs: the "enable everything" command will overwrite the specific prior instructions for residues 10-20. When you construct a MoveMapFactory in RosettaScripts, you list a series of operations for various DOFs. The operations will be performed in the order you list them.
 
-### [[_TOC_]]
+[[_TOC_]]
 
 
 ### Example
