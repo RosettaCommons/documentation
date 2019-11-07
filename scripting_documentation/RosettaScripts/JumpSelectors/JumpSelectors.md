@@ -28,14 +28,14 @@ Some JumpSelectors can nest other JumpSelectors in their definition; e.g.
 In this case, the documented structure of the Or JumpSelector will be stated as
 ```xml
     <Or name=(%string)>
-        <(Selector)>
+        <(Selector)/>
     </Or>
 ```
 With the <(Selector)> subtag designating that any JumpSelector can be nested inside it,
 including an Or selector (if you so desired).
 
 
-### [[_TOC_]]
+[[_TOC_]]
 
 ### Logical JumpSelectors
 
