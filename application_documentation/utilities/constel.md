@@ -72,6 +72,15 @@ Application-specific options are divided into "search" options and "filtering" o
 * \<CID_i\>, \<RNU_i\>, and \<ICO_i\> are as given in the pose's input PDB file.
 * A blank chain identifier in the input PDB file is specified by ',' (comma)
 * A blank insertion code in the input PDB file is specified by '_' (underscore)
+
+### Filtering options:
+**Filtering option #1** deprives constellations of the atoms that are closest to the mutated residues after the mutation. This avoids clash between those residues and the rescuing compound.
+````
+-constel:cnl_stripped
+````
+
+
+
 Output 
 ======
 to be written
