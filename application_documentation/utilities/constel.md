@@ -61,7 +61,7 @@ Application-specific options are divided into "search" options and "filtering" o
 ````
 -constel:target_cnl <CNL_FILE>
 ````
-* <CNL_FILE> is the path to an input file specifying the constellation. The file has the following format:
+* \<CNL_FILE\> is the path to an input file specifying the constellation. The file has the following format:
 ````
 <CID_1> <RNU_1> <ICO_1> <AASTA_1> <AAEND_1>
 ...
