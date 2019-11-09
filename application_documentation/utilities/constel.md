@@ -4,7 +4,7 @@ Metadata
 
 Author: Andrea Bazzoli (ndrbzz [at] gmail.com)
 
-Last updated: October 2019
+Last updated: November 2019
 
 Code
 ====
@@ -57,7 +57,16 @@ Application-specific options are divided into "search" options and "filtering" o
 * \<A\>, \<B\>, \<C\>, and \<D\> are 1-letter amino acid type codes. \<A\>\<B\>\_\<C\>\<D\> represents the target 2-residue mutation type, where \<A\>\<B\> denotes mutation from amino acid type \<A\> (larger) to amino acid type \<B\> (smaller), and \<C\>\<D\> denotes mutation from amino acid type \<C\> (larger) to amino acid type \<D\>
 (smaller)
 
-
+**Search option combination #6** extracts a single, target constellation 
+````
+-constel:target_cnl <CNL_FILE>
+````
+* <CNL_FILE> is the path to an input file specifying the constellation. The file has the following format:
+````
+<CID_1> <RNU_1> <ICO_1> <AASTA_1> <AAEND_1>
+...
+<CID_N> <RNU_N> <ICO_N> <AASTA_N> <AAEND_N>
+````
 Output 
 ======
 to be written
