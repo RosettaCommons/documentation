@@ -50,7 +50,7 @@ The app accepts one—and only one—of the following six search option combinat
 -constel:triple_all_res
 ````
 
-**SEA#5** extracts all 2-residue constellations that can be obtained from a target type of 2-residue large-to-small mutation: 
+**SEA#5** extracts all 2-residue constellations that match a target type of 2-residue large-to-small mutation: 
 ````
 -constel:pair_target_mutations <A><B>_<C><D>
 ````
