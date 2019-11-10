@@ -55,7 +55,7 @@ The app accepts one—and only one—of the following six search option combinat
 -constel:pair_target_mutations <A><B>_<C><D>
 ````
 * \<A\>, \<B\>, \<C\>, and \<D\> are 1-letter amino acid type codes. \<A\>\<B\>\_\<C\>\<D\> represents the target 2-residue mutation type, where \<A\>\<B\> denotes mutation from amino acid type \<A\> (larger) to amino acid type \<B\> (smaller), and \<C\>\<D\> denotes mutation from amino acid type \<C\> (larger) to amino acid type \<D\>
-(smaller)
+(smaller).
 
 **SEA#6** extracts a single, target constellation 
 ````
