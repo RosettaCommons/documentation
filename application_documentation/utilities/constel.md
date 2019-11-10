@@ -22,9 +22,9 @@ Usage
 Application-specific options are divided into "search" options and "filtering" options.
 
 ### Search options: accepted combinations
+The app accepts one—and only one—of the following six search option combinations (SEA#1 through SEA#6): 
 
-
-**Search option combination #1** extracts all 2-residue constellations formed by a target residue:
+**SEA#1** extracts all 2-residue constellations formed by a target residue:
 ````
 -constel:pair_target_resnum <PDB_NUM>
 -constel:target_chain <PDB_CHAIN>
@@ -32,12 +32,12 @@ Application-specific options are divided into "search" options and "filtering" o
 * \<PDB_NUM\> is the target residue's number in the PDB file.
 * \<PDB_CHAIN\> is the target residue's chain ID in the PDB file.
 
-**Search option combination #2** extracts all 2-residue constellations formed by all residues:
+**SEA#2** extracts all 2-residue constellations formed by all residues:
 ````
 -constel:pair_all_res
 ````
 
-**Search option combination #3** extracts all 3-residue constellations formed by a target residue:
+**SEA#3** extracts all 3-residue constellations formed by a target residue:
 ````
 -constel:triple_target_resnum <PDB_NUM>
 -constel:target_chain <PDB_CHAIN>
@@ -45,19 +45,19 @@ Application-specific options are divided into "search" options and "filtering" o
 * \<PDB_NUM\> is the target residue's number in the PDB file.
 * \<PDB_CHAIN\> is the target residue's chain ID in the PDB file.
 
-**Search option combination #4** extracts all 3-residue constellations formed by all residues:
+**SEA#4** extracts all 3-residue constellations formed by all residues:
 ````
 -constel:triple_all_res
 ````
 
-**Search option combination #5** extracts all 2-residue constellations that can be obtained from a target type of 2-residue large-to-small mutation: 
+**SEA#5** extracts all 2-residue constellations that can be obtained from a target type of 2-residue large-to-small mutation: 
 ````
 -constel:pair_target_mutations <A><B>_<C><D>
 ````
 * \<A\>, \<B\>, \<C\>, and \<D\> are 1-letter amino acid type codes. \<A\>\<B\>\_\<C\>\<D\> represents the target 2-residue mutation type, where \<A\>\<B\> denotes mutation from amino acid type \<A\> (larger) to amino acid type \<B\> (smaller), and \<C\>\<D\> denotes mutation from amino acid type \<C\> (larger) to amino acid type \<D\>
 (smaller)
 
-**Search option combination #6** extracts a single, target constellation 
+**SEA#6** extracts a single, target constellation 
 ````
 -constel:target_cnl <CNL_FILE>
 ````
