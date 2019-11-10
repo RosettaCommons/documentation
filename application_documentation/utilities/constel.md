@@ -74,7 +74,7 @@ The app accepts one—and only one—of the following six search option combinat
 * A blank insertion code in the input PDB file is specified by '_' (underscore)
 
 ### Filtering options:
-The application accepts one or more of the following 10 filtering option combinations (FIL#1 through FIL#10):
+The application accepts one or more of the following 10 filtering option combinations (FIL#1 through FIL#10). Every filter is inactive by dafault.
 
 **FIL#1** deprives constellations of the atoms that are closest to the mutated residues after the mutation. This avoids clash between those residues and the rescuing compound:
 ````
@@ -97,7 +97,7 @@ The application accepts one or more of the following 10 filtering option combina
 -constel:aromatic
 ````
 
-**FIL#4** extracts only constellations that do not contain any of a list of forbidden residues: 
+**FIL#5** extracts only constellations that do not contain any of a list of forbidden residues: 
 ````
 -constel:cnl_exclude <FORBIDDEN>
 ````
@@ -109,7 +109,7 @@ The application accepts one or more of the following 10 filtering option combina
 ````
 * \<RNU_i\> and \<CID_i\> are the ith forbidden residue's number and chain ID, respectively, in the pose's input PDB file (i=1,...,N).
 
-**FIL#5** extracts only constellations near the N- or C-terminui of a protein chain:
+**FIL#6** extracts only constellations near the N- or C-terminui of a protein chain:
 ````
 -constel:prox_ct_max <DCT>
 -constel:prox_tt_max <DTT>
@@ -117,8 +117,27 @@ The application accepts one or more of the following 10 filtering option combina
 ````
 * \<DCT\> is the maximum allowed distance (angstroms) between a constellation and the N- or C-termini of any chain that the constellation belongs to. The position of the constellation is that of its center of mass; the position of each terminal residue is that of its CA atom. Defaults to 0, meaning that this option combination is inactive.
 * \<DTT\> is the maximum allowed distance (angstroms) between the N- and C-termini of any chain that a constellation belongs to. Defaults to 10.
-* \<TNUM\> is the number of residues forming the N- and C-termini.
+* \<TNUM\> is the number of residues forming the N- and C-termini. Defaults to 10.
 
+**FIL#7** extracts only constellations that are in principle compatible with rescue by a compound that contains an indole moiety and a carboxylic group.
+````
+-constel:indole_coo
+````
+
+**FIL#8** extracts only constellations that are in principle compatible with rescue by tryptamine.
+````
+-constel:tryptamine
+````
+
+**FIL#9** extracts only constellations that are in principle compatible with rescue by amphetamine.
+````
+-constel:amphetamine
+````
+
+**FIL#10** extracts only constellations that are in principle compatible with rescue by histamine.
+````
+-constel:histamine
+````
 
 Output 
 ======
