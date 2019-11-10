@@ -1,4 +1,4 @@
-#constel: "Constellations" of atoms
+#constel: "Constellations" of atoms -- UNDER CONSTRUCTION
 Metadata
 ========
 
@@ -68,18 +68,22 @@ Application-specific options are divided into "search" options and "filtering" o
 <CID_N> <RNU_N> <ICO_N> <AASTA_N> <AAEND_N>
 ````
 * \<CID_i\>, \<RNU_i\>, \<ICO_i\>, \<AASTA_i\>, and \<AAEND_i\> are the chain ID, residue number, insertion code, start amino acid type (larger), and end amino acid type (smaller) of the ith residue contributing to the constellation (i=1,...N; N=2 or N=3)
-* \<AASTA_i\> and \<AAEND_i\> are one-letter amino acid type codes. 
+CAASTA_i\> and \<AAEND_i\> are one-letter amino acid type codes. 
 * \<CID_i\>, \<RNU_i\>, and \<ICO_i\> are as given in the pose's input PDB file.
 * A blank chain identifier in the input PDB file is specified by ',' (comma)
 * A blank insertion code in the input PDB file is specified by '_' (underscore)
 
 ### Filtering options:
-**Filtering option #1** deprives constellations of the atoms that are closest to the mutated residues after the mutation. This avoids clash between those residues and the rescuing compound.
+**Filtering option #1** deprives constellations of the atoms that are closest to the mutated residues after the mutation. This avoids clash between those residues and the rescuing compound:
 ````
 -constel:cnl_stripped
 ````
 
-
+**Filtering option #2** filters by solvent accessible surface area (SASA):
+````
+-constel:max_atom_sasa <X>
+````
+* \<X\> is the maximum allowed for an atom in a constellation
 
 Output 
 ======
