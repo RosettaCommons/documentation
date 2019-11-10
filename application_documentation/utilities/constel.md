@@ -83,7 +83,7 @@ CAASTA_i\> and \<AAEND_i\> are one-letter amino acid type codes.
 ````
 -constel:max_atom_sasa <X>
 ````
-* \<X\> is the maximum allowed for an atom in a constellation
+* \<X\> is the maximum allowed for an atom in a constellation (squared angstrom). Defaults to 999999.9.
 
 Output 
 ======
