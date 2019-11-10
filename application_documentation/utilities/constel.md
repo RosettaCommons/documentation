@@ -109,14 +109,16 @@ The application accepts one or more of the following 10 filtering option combina
 ````
 * \<RNU_i\> and \<CID_i\> are the ith forbidden residue's number and chain ID, respectively, in the pose's input PDB file (i=1,...,N).
 
-**FIL#5** extracts only constellations near the N- or C-terminus of a protein chain:
+**FIL#5** extracts only constellations near the N- or C-terminui of a protein chain:
 ````
 -constel:prox_ct_max <DCT>
 -constel:prox_tt_max <DTT>
 -constel:prox_nres <TNUM>
 ````
-* <DCT> is the maximum allowed distance (angstroms) between a constellation and the N- or C-terminus of the chains the constellation belongs to. The position of the constellation is that of its center of mass; the position of terminal residues is that of CA atoms.
-* 
+* \<DCT\> is the maximum allowed distance (angstroms) between a constellation and the N- or C-termini of any chain that the constellation belongs to. The position of the constellation is that of its center of mass; the position of each terminal residue is that of its CA atom. Defaults to 0, meaning that this option combination is inactive.
+* \<DTT\> is the maximum allowed distance (angstroms) between the N- and C-termini of any chain that a constellation belongs to. Defaults to 10.
+* \<TNUM\> is the number of residues forming the N- and C-termini.
+
 
 Output 
 ======
