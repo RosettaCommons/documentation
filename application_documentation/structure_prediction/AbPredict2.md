@@ -3,7 +3,7 @@
 Metadata
 ========
 
-Authors: Gideon Lapidoth (glapidoth@gmail.com), Chris Norn (ch.norn@gmail.com), Sarel Fleishman (sarel.fleishman@weizmann.ac.il )
+Authors: Gideon Lapidoth (glapidoth@gmail.com), Sarel Fleishman (sarel.fleishman@weizmann.ac.il )
 
 Corresponding PI Sarel Fleishman (sarel.fleishman@weizmann.ac.il ).
 
