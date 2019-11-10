@@ -144,4 +144,5 @@ Output
 to be written
 References
 ==========
-to be written
+Khowsathit J, Bazzoli A, Cheng H, and Karanicolas J. Allosteric control of antibody activity by
+deletion and rescue of a complex structural constellation. 2019. Submitted.
