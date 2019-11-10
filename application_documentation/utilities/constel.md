@@ -74,7 +74,7 @@ The app accepts one—and only one—of the following six search option combinat
 * A blank insertion code in the input PDB file is specified by '_' (underscore)
 
 ### Filtering options:
-The application accepts any combination of the following filtering options (FIL#1 through FIL#12):
+The application accepts one or more of the following filtering option combinations (FIL#1 through FIL#12):
 
 **FIL#1** deprives constellations of the atoms that are closest to the mutated residues after the mutation. This avoids clash between those residues and the rescuing compound:
 ````
@@ -85,9 +85,29 @@ The application accepts any combination of the following filtering options (FIL#
 ````
 -constel:max_atom_sasa <X>
 ````
-* \<X\> is the maximum allowed SASA for an atom in a constellation (squared angstrom). Defaults to 999999.9.
+* \<X\> is the maximum allowed SASA for an atom in a constellation (squared angstroms). Defaults to 999999.9.
 
+**FIL#3** extracts only constellations that are shared by two or more chains: 
+````
+-constel:interface
+````
 
+**FIL#4** extracts only constellations that contain at least one aromatic ring.
+````
+-constel:aromatic
+````
+
+**FIL#4** extracts only constellations that do not contain any of a list of forbidden residues: 
+````
+-constel:cnl_exclude <FORBIDDEN>
+````
+* \<FORBIDDEN\> is a file that lists the forbidden residues. The file has the following format
+````
+<RNU_1> <CID_1> 
+...
+<RNU_N> <CID_N> 
+````
+*\<RNU_i\> and \<CID_i\> are the residue number and chain ID of the ith forbidden residue in the pose's input PDB file (i=1,...,N).
 
 Output 
 ======
