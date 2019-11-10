@@ -67,7 +67,7 @@ The app accepts one—and only one—of the following six search option combinat
 ...
 <CID_N> <RNU_N> <ICO_N> <AASTA_N> <AAEND_N>
 ````
-* \<CID_i\>, \<RNU_i\>, \<ICO_i\>, \<AASTA_i\>, and \<AAEND_i\> are the chain ID, residue number, insertion code, start amino acid type (larger), and end amino acid type (smaller) of the ith residue contributing to the constellation (i=1,...N; N=2 or N=3)
+* \<CID_i\>, \<RNU_i\>, \<ICO_i\>, \<AASTA_i\>, and \<AAEND_i\> are the chain ID, residue number, insertion code, start amino acid type (larger), and end amino acid type (smaller), respectively, of the ith residue contributing to the constellation (i=1,...N; N=2 or N=3)
 \<AASTA_i\> and \<AAEND_i\> are one-letter amino acid type codes. 
 * \<CID_i\>, \<RNU_i\>, and \<ICO_i\> are as given in the pose's input PDB file.
 * A blank chain identifier in the input PDB file is specified by ',' (comma)
@@ -107,7 +107,9 @@ The application accepts one or more of the following filtering option combinatio
 ...
 <RNU_N> <CID_N> 
 ````
-*\<RNU_i\> and \<CID_i\> are the residue number and chain ID of the ith forbidden residue in the pose's input PDB file (i=1,...,N).
+* \<RNU_i\> and \<CID_i\> are the ith forbidden residue's number and chain ID, respectively, in the pose's input PDB file (i=1,...,N).
+
+**FIL#4** extracts only constellations
 
 Output 
 ======
