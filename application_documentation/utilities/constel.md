@@ -70,8 +70,8 @@ The app accepts one—and only one—of the following six search option combinat
 * \<CID_i\>, \<RNU_i\>, \<ICO_i\>, \<AASTA_i\>, and \<AAEND_i\> are the chain ID, residue number, insertion code, start amino acid type (larger), and end amino acid type (smaller), respectively, of the ith residue contributing to the constellation (i=1,...,N; N=2 or N=3).
 * \<AASTA_i\> and \<AAEND_i\> are one-letter amino acid type codes. 
 * \<CID_i\>, \<RNU_i\>, and \<ICO_i\> are as given in the pose's input PDB file.
-* A blank chain identifier in the input PDB file is specified by ',' (comma)
-* A blank insertion code in the input PDB file is specified by '_' (underscore)
+* A blank chain identifier in the input PDB file is specified by ',' (comma).
+* A blank insertion code in the input PDB file is specified by '_' (underscore).
 
 ### Filtering options:
 The application accepts one or more of the following 10 filtering option combinations (FIL#1 through FIL#10). Every filter is inactive by dafault.
