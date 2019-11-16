@@ -141,7 +141,23 @@ The application accepts one or more of the following 10 filtering option combina
 
 Output 
 ======
-A set of PDB files, each describing a different constellation. For example, the output of _constel.linux_
+A set of PDB files, each describing a different constellation. For example, the output of _constel.linuxclangrelease -s 2awl.pdb -triple_target_resnum 165 -target_chain A -max_atom_sasa 5_ should produce a set of 462 constellation files:
+````
+...
+constel_F0165GA_V0150GA_T0203AA.pdb
+constel_F0165GA_V0150GA_T0203GA.pdb
+constel_F0165GA_V0150GA_T0203SA.pdb
+constel_F0165GA_Y0145AA_I0167AA.pdb
+constel_F0165GA_Y0145AA_I0167GA.pdb
+constel_F0165GA_Y0145AA_I0167VA.pdb
+constel_F0165GA_Y0145FA_I0167AA.pdb
+constel_F0165GA_Y0145FA_I0167GA.pdb
+constel_F0165GA_Y0145FA_I0167VA.pdb
+constel_F0165GA_Y0145GA_I0167AA.pdb
+constel_F0165GA_Y0145GA_I0167GA.pdb
+constel_F0165GA_Y0145GA_I0167VA.pdb
+...
+````
 References
 ==========
 Khowsathit J, Bazzoli A, Cheng H, and Karanicolas J. _Allosteric control of antibody activity by
