@@ -141,7 +141,11 @@ The application accepts one or more of the following 10 filtering option combina
 
 Output 
 ======
-A set of PDB files, each describing a different constellation. For example, the output of _constel.linuxclangrelease -s 2awl.pdb -triple_target_resnum 165 -target_chain A -max_atom_sasa 5_ should produce a set of 462 constellation files:
+A set of PDB files, each describing a different constellation. For example, the output of command line
+````
+_constel.linuxclangrelease -s 2awl.pdb -triple_target_resnum 165 -target_chain A -max_atom_sasa 5
+````
+is a set of 462 constellation files:
 ````
 ...
 constel_F0165GA_V0150GA_T0203AA.pdb
