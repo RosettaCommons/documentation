@@ -109,7 +109,7 @@ The application accepts one or more of the following 10 filtering option combina
 ````
 * \<RNU_i\> and \<CID_i\> are the ith forbidden residue's number and chain ID, respectively, in the pose's input PDB file (i=1,...,N).
 
-**FIL#6** extracts only constellations near the N- or C-terminui of a protein chain:
+**FIL#6** extracts only constellations near the N- or C-termini of a protein chain:
 ````
 -constel:prox_ct_max <DCT>
 -constel:prox_tt_max <DTT>
