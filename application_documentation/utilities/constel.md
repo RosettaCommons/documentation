@@ -141,8 +141,8 @@ The application accepts one or more of the following 10 filtering option combina
 
 Output 
 ======
-to be written
+A set of PDB files, each describing a different constellation. For example, the output of _constel.linux_
 References
 ==========
-Khowsathit J, Bazzoli A, Cheng H, and Karanicolas J. Allosteric control of antibody activity by
-deletion and rescue of a complex structural constellation. 2019. Submitted.
+Khowsathit J, Bazzoli A, Cheng H, and Karanicolas J. _Allosteric control of antibody activity by
+deletion and rescue of a complex structural constellation._ 2019. Submitted.
