@@ -119,7 +119,7 @@ The application accepts one or more of the following 10 filtering option combina
 * \<DTT\> is the maximum allowed distance (angstroms) between the N- and C-termini of any chain that a constellation belongs to. Defaults to 10.
 * \<TNUM\> is the number of residues forming the N- and C-termini. Defaults to 10.
 
-**FIL#7** extracts only constellations that are in principle compatible with rescue by a compound that contains an indole moiety and a carboxylic group.
+**FIL#7** extracts only constellations that are in principle compatible with rescue by a compound that contains an indole moiety and a carboxylic group:
 ````
 -constel:indole_coo
 ````
