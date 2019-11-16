@@ -162,7 +162,30 @@ constel_F0165GA_Y0145GA_I0167GA.pdb
 constel_F0165GA_Y0145GA_I0167VA.pdb
 ...
 ````
-* Output file names have the "constel\_\<M1\>\_\<M2\>(\_\<M3\>).pdb" format. \<Mi\> denotes mutation of the ith residue of the constellation (i=1,2,3), and has the \<S\>\<IIII\>\<E\>\<C\> format, where \<S\> is the start amino acid type (larger), \<IIII\> is a four-digit, zero padded number denoting the residue's number, \<G\> is the end amino acid type (smaller), and \<C\> is the residue's chain ID.
+Output file names have the "constel\_\<M1\>\_\<M2\>(\_\<M3\>).pdb" format. \<Mi\> denotes mutation of the ith residue of the constellation (i=1,2,3), and has the \<S\>\<IIII\>\<E\>\<C\> format, where \<S\> is the start amino acid type (larger), \<IIII\> is a four-digit, zero padded number denoting the residue's number, \<E\> is the end amino acid type (smaller), and \<C\> is the residue's chain ID.
+
+Each constellation file lists the ATOM records of the constellation. For example, file constel_F0165GA_Y0145AA_I0167GA.pdb has the following contents:
+````
+HEADER    1st MUTATION: A:F165G 2nd MUTATION: A:Y145A 3rd MUTATION: A:I167G
+ATOM      1  CG  TYR A 145      31.312  32.826  -2.897  1.00 10.05           C  
+ATOM      2  CD1 TYR A 145      30.112  33.558  -2.911  1.00  9.19           C  
+ATOM      3  CD2 TYR A 145      31.800  32.358  -1.657  1.00 10.39           C  
+ATOM      4  CE1 TYR A 145      29.410  33.828  -1.721  1.00  8.48           C  
+ATOM      5  CE2 TYR A 145      31.101  32.619  -0.451  1.00  8.83           C  
+ATOM      6  CZ  TYR A 145      29.908  33.355  -0.499  1.00 10.46           C  
+ATOM      7  OH  TYR A 145      29.203  33.615   0.644  1.00 11.78           O  
+ATOM      8  CB  PHE A 165      32.609  33.946   9.090  1.00 11.67           C  
+ATOM      9  CG  PHE A 165      31.246  33.396   8.714  1.00 11.64           C  
+ATOM     10  CD1 PHE A 165      30.838  33.390   7.366  1.00 12.87           C  
+ATOM     11  CD2 PHE A 165      30.408  32.791   9.673  1.00 11.63           C  
+ATOM     12  CE1 PHE A 165      29.615  32.781   6.972  1.00 12.71           C  
+ATOM     13  CE2 PHE A 165      29.182  32.179   9.298  1.00 12.15           C  
+ATOM     14  CZ  PHE A 165      28.786  32.173   7.942  1.00 11.50           C  
+ATOM     15  CB  ILE A 167      30.791  36.758   3.293  1.00 13.51           C  
+ATOM     16  CG1 ILE A 167      30.494  35.486   4.109  1.00 11.87           C  
+ATOM     17  CG2 ILE A 167      30.713  36.511   1.780  1.00 13.25           C  
+ATOM     18  CD1 ILE A 167      31.257  34.230   3.738  1.00 11.24           C  
+````
 
 
 References
