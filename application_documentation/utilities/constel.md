@@ -76,7 +76,7 @@ The app accepts one—and only one—of the following six search option combinat
 ### Filtering options:
 The application accepts one or more of the following 10 filtering option combinations (FIL#1 through FIL#10). Every filter is inactive by dafault.
 
-**FIL#1** deprives constellations of the atoms that are closest to the mutated residues after the mutation. This avoids clash between those residues and the rescuing compound:
+**FIL#1** deprives constellations of the atoms that are closest to what remains of their residue after the mutation. This avoids clash between the mutated residues and the rescuing compound:
 ````
 -constel:cnl_stripped
 ````
