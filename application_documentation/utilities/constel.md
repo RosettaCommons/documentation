@@ -164,7 +164,7 @@ constel_F0165GA_Y0145GA_I0167VA.pdb
 ````
 Output file names have the "constel\_\<M1\>\_\<M2\>(\_\<M3\>).pdb" format. \<Mi\> denotes mutation of the ith residue of the constellation (i=1,2,3), and has the \<S\>\<IIII\>\<E\>\<C\> format, where \<S\> is the start amino acid type, \<IIII\> is a four-digit, zero padded number denoting the residue's number, \<E\> is the end amino acid type, and \<C\> is the residue's chain ID.
 
-Each output file starts with one HEADER line that summarizes the constellation, and then lists the ATOM records of the constellation. For example, file constel_F0165GA_Y0145AA_I0167GA.pdb has the following contents:
+Each output file starts with one HEADER line that summarizes the constellation, and then lists the ATOM records of the constellation. In the example above, file constel_F0165GA_Y0145AA_I0167GA.pdb has the following contents:
 ````
 HEADER    1st MUTATION: A:F165G 2nd MUTATION: A:Y145A 3rd MUTATION: A:I167G
 ATOM      1  CG  TYR A 145      31.312  32.826  -2.897  1.00 10.05           C  
