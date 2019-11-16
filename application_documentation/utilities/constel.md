@@ -162,7 +162,7 @@ constel_F0165GA_Y0145GA_I0167GA.pdb
 constel_F0165GA_Y0145GA_I0167VA.pdb
 ...
 ````
-Output file names have the constel_<M1>_<M2>(_<M3>).pdb format. <Mi> denotes the mutation of the ith residue of the constellation (i=1,2,3), and has the <S><IIII><E><C> format, where <S> is the start amino acid type (larger), <IIII> is a four-digit, zero padded number denoting the residue's number, G is the end amino acid type (smaller), and C is the chain ID. 
+Output file names have the constel\_\<M1\>\_\<M2\>(\_\<M3\>).pdb format. \<Mi\> denotes the mutation of the ith residue of the constellation (i=1,2,3), and has the \<S\>\<IIII\>\<E\>\<C\> format, where \<S\> is the start amino acid type (larger), \<IIII\> is a four-digit, zero padded number denoting the residue's number, \<G\> is the end amino acid type (smaller), and \<C\> is the chain ID. 
 
 References
 ==========
