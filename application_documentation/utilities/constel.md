@@ -1,4 +1,4 @@
-#constel: "Constellations" of atoms -- UNDER CONSTRUCTION
+#constel: "Constellations" of atoms
 Metadata
 ========
 
