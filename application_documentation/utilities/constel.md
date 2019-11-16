@@ -124,17 +124,17 @@ The application accepts one or more of the following 10 filtering option combina
 -constel:indole_coo
 ````
 
-**FIL#8** extracts only constellations that are in principle compatible with rescue by tryptamine.
+**FIL#8** extracts only constellations that are in principle compatible with rescue by tryptamine:
 ````
 -constel:tryptamine
 ````
 
-**FIL#9** extracts only constellations that are in principle compatible with rescue by amphetamine.
+**FIL#9** extracts only constellations that are in principle compatible with rescue by amphetamine:
 ````
 -constel:amphetamine
 ````
 
-**FIL#10** extracts only constellations that are in principle compatible with rescue by histamine.
+**FIL#10** extracts only constellations that are in principle compatible with rescue by histamine:
 ````
 -constel:histamine
 ````
