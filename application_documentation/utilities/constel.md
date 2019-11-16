@@ -92,7 +92,7 @@ The application accepts one or more of the following 10 filtering option combina
 -constel:interface
 ````
 
-**FIL#4** extracts only constellations that contain at least one aromatic ring.
+**FIL#4** extracts only constellations that contain at least one aromatic ring:
 ````
 -constel:aromatic
 ````
