@@ -143,7 +143,7 @@ Output
 ======
 A set of PDB files, each describing a different constellation. For example, the output of command line
 ````
-_constel.linuxclangrelease -s 2awl.pdb -triple_target_resnum 165 -target_chain A -max_atom_sasa 5
+constel.linuxclangrelease -s 2awl.pdb -triple_target_resnum 165 -target_chain A -max_atom_sasa 5
 ````
 is a set of 462 constellation files:
 ````
