@@ -101,7 +101,7 @@ The application accepts one or more of the following 10 filtering option combina
 ````
 -constel:cnl_exclude <FORBIDDEN>
 ````
-* \<FORBIDDEN\> is a file that lists the forbidden residues. The file has the following format
+* \<FORBIDDEN\> is the path to a file that lists the forbidden residues. The file has the following format
 ````
 <RNU_1> <CID_1> 
 ...
