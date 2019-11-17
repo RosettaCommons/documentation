@@ -13,13 +13,11 @@ The application's code lives in `src/apps/public/constel.cc`.
 
 Application's purpose
 ===================
-Extracts "constellations" of atoms from a protein structure. A constellation is defined as the arrangement of atoms that are lost by a group of spatially contiguous residues upon mutation to a smaller residue.
+Extracts "constellations" of atoms from a protein structure. A constellation is defined as the arrangement of atoms that are lost by a group of spatially contiguous residues upon mutation to a smaller residue. (Any two residues are defined to be "spatially contiguous" if their side-chains have an unweighted attractive van der Waals energy (fa_atr) lower than –0.375.)
+
+
 
 Once extracted, constellations may serve as templates for compounds that rescue the structure and activity of the mutated protein or protein complex.
-
-Definition
-==========
-Any two residues are defined to be "spatially contiguous" if their side-chains have an attractive van der Waals energy (fa_atr) lower than -0.375.
 
 Usage
 =====
