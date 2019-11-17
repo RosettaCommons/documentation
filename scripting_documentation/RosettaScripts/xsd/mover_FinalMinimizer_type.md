@@ -7,10 +7,11 @@ Do a gradient based minimization of the final docked pose.
 
 ```xml
 <FinalMinimizer name="(&string;)" scorefxn="(&string;)"
-        movemap_builder="(&string;)" />
+        movemap_builder="(&string;)" remove_constraints="(false &bool;)" />
 ```
 
 -   **scorefxn**: (REQUIRED) Used scorefunction. Required.
 -   **movemap_builder**: (REQUIRED) Name of a previously defined MoveMapBuilder. Required.
+-   **remove_constraints**: Remove any added constraints after minimization.
 
 ---
