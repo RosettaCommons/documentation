@@ -22,7 +22,7 @@ Usage
 Application-specific options are divided into "search" options and "filtering" options.
 
 ### Search options: accepted combinations
-The app accepts one—and only one—of the following 6 search option combinations (SEA#1 through SEA#6): 
+The app requires one—and only one—of the following 6 search option combinations (SEA#1 through SEA#6): 
 
 **SEA#1** extracts all 2-residue constellations formed by a target residue:
 ````
