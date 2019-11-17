@@ -15,7 +15,7 @@ Application's purpose
 ===================
 Extracts "constellations" of atoms from a protein structure. A constellation is defined as the arrangement of atoms that are lost by a group of spatially contiguous residues upon mutation to a smaller residue. (Two residues are defined to be "spatially contiguous" if their side-chains interact with an unweighted attractive van der Waals energy [fa_atr] lower than –0.375.)
 
-Once extracted, constellations may serve as templates for compounds that rescue the structure and activity of the mutated protein or protein complex.
+Once extracted, constellations may serve as templates for compounds to rescue the structure and activity of the mutated protein or protein complex.
 
 Usage
 =====
