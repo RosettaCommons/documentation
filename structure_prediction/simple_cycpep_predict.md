@@ -148,6 +148,15 @@ The simple\_cycpep\_predict application can attempt to model metal-mediated cros
 
 **-cyclic_peptide:n\_methyl\_positions \<IntegerVector\>** A list of the positions in the peptide that are N-methylated.  N-methylated positions will have their geometry updated, and will use Ramachandran maps and rotamer libraries specific for N-methyl amino acids.
 
+## Additional flags for bond length and bond angle sampling
+
+For small, highly constrained rings, the conformations that are accessible only by varying torsional degrees of freedom may not adequately represent the true conformational ensemble.  On 22 Nov. 2019, support was added for sampling bond lengths and bond angles in N-to-C cyclic peptide macrocyclse.  (Note that support does not yet exist for sampling these degrees of freedom for other types of cyclization chemistry).  To enable this, use the following flags:
+
+**-cyclic_peptide:bondlength\_perturbation\_magnitude \<Real\>** The size of the perturbation, in Angstroms, that will be applied to mainchain bond lengths.  0 by default (i.e. not used if not specified.)
+**-cyclic_peptide:bondangle\_perturbation\_magnitude \<Real\>** The size of the perturbation, in degrees, that will be applied to mainchain bond angles.  0 by default (i.e. not used if not specified.)
+
+If you use these features, you may wish to use a scoring function that has the `cart_bonded` term turned on (_e.g._ `ref2015_cart.wts`).
+
 ## Additional flags for quasi-symmetric sampling
 
 Sometimes, one wishes to sample peptide conformations with cyclic symmetry (_e.g._ c2 symmetry, c3 symmetry, _etc._).  The **simple_cycpep_predict** application can do quasi-symmetric sampling.  It does this by copying mainchain torsion values for perturbable residues in different symmetry repeats, and by filtering post-closure to ensure that pivot residues are adopting symmetric conformations.  (See the [[Generalized Kinematic Closure|GeneralizedKIC]] documentation for details on perturbable and pivot residues).  Note that this is _quasi_-symmetric rather than truly symmetric because (a) it does not use the Rosetta symmetry machinery, and (b) mainchain torsion values can deviate slightly from symmetry repeat to symmetry repeat, within user-defined limits.  The following flags control quasi-symmetric sampling:
