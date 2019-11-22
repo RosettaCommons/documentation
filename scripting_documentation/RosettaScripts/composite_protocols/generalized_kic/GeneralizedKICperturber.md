@@ -2,6 +2,8 @@
 
 [[Return to RosettaScripts|RosettaScripts]]
 
+[[_TOC_]]
+
 ## Overview
 [[GeneralizedKIC]] perturbers alter the chain to be closed in some way prior to kinematic closure.  They can _only_ act on the chain to be closed, and have no effect on tail residues or on any other part of the input structure.  Perturbers are applied in the order that they are defined.  Different perturbers may alter the same degrees of freedom, sequentially.
 
