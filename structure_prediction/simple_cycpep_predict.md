@@ -259,6 +259,8 @@ Note that, in MPI mode, there can be an incredible amount of tracer output.  For
 
 The PNear metric takes two parameters: **lambda** in Angstroms, which controls how close a sample has to be to native to be considered native-like, and **Boltzmann temperature** in Rosetta energy units, which controls how high-energy a non-native sample must be for the funnel not to be considered "bad".  These are set with the **-cyclic_peptide:MPI_pnear_lambda** and **-cyclic_peptide:MPI_pnear_kbt** flags, respectively.  See Bhardwaj, Mulligan, Bahl, *et al.* (2016) *Nature*, in press for more information about the PNear metric.
 
+Optionally, the solvent-accessible surface areas of each sample, and of the Boltzmann-weighted ensemble, can be computed.  To enable this, use the **-cyclic_peptide:compute_ensemble_sasa_metrics** option.  Polar SASA, apolar SASA, and total SASA are all included in the output summary.
+
 To receive only this summary as output in the standard output stream, use the **-mute all -unmute protocols.cyclic_peptide_predict.SimpleCycpepPredictApplication_MPI_summary** flags.  (This silences all output from non-emperor processes, and most output from the emperor process, except for the summary at the end.)  Since generating output and managing output from large numbers of processes takes clock and MPI communication cycles, muting unnecessary output is advised for better performance.
 
 Note too that intermediate master processes are optional; the minimum that one needs are an emperor node and a single slave node (though this setup would have no advantages over sampling with the non-MPI version of the app).  On a 4-core laptop, the following would be perfectly legal, for example:
