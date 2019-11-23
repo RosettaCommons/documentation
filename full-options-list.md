@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-11-06
+Generated: 2019-11-22
 
 _Note that some application specific options may not be present in this list._
 
@@ -4269,6 +4269,10 @@ _Note that some application specific options may not be present in this list._
 <dd>Allows the user to specify the dihedrals values at one or more alpha-amino acid positions in the peptide.  The flag must be followed by groups of four numbers, where the first is the sequence position and the second, third, and fourth are the phi, psi, and omega values, respectively.  Not used if not specified.<br/></dd>
 <dt><b>-user_set_alpha_dihedral_perturbation</b> \<Real\></dt>
 <dd>A small, random perturbation added to all dihedral values set with the -user_set_alpha_dihedrals value.  Zero if not specified.<br/>Default: 0.0<br/></dd>
+<dt><b>-bondlength_perturbation_magnitude</b> \<Real\></dt>
+<dd>If used, this is the magnitude (in Angstroms) of the perturbation to apply to mainchain bond lengths when closing with GenKIC.  This can be useful for small, strained macrocycles.  No bond length perturbation is applied if this option is not specified.<br/>Default: 0.0<br/></dd>
+<dt><b>-bondangle_perturbation_magnitude</b> \<Real\></dt>
+<dd>If used, this is the magnitude (in degrees) of the perturbation to apply to mainchain bond angles when closing with GenKIC.  This can be useful for small, strained macrocycles.  No bond angle perturbation is applied if this option is not specified.<br/>Default: 0.0<br/></dd>
 <dt><b>-filter_oversaturated_hbond_acceptors</b> \<Boolean\></dt>
 <dd>If true, sampled conformations with more than the allowed number of hydrogen bonds to an acceptor are discarded.  True by default.<br/>Default: true<br/></dd>
 <dt><b>-hbond_acceptor_energy_cutoff</b> \<Real\></dt>
