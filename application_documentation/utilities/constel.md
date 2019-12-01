@@ -4,7 +4,7 @@ Metadata
 
 Author: Andrea Bazzoli (ndrbzz [at] gmail.com)
 
-Last updated: November 2019
+Last updated: December 2019
 
 Code
 ====
@@ -89,7 +89,7 @@ The application accepts one or more of the following 10 filtering option combina
 
 **FIL#3** extracts only constellations that are shared by two or more chains: 
 ````
--constel:interface
+-constel:chain_interface
 ````
 
 **FIL#4** extracts only constellations that contain at least one aromatic ring:
