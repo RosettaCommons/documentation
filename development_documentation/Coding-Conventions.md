@@ -189,8 +189,13 @@ class MyClass {
     private my_int_ 
 }; </pre>
 An instance of this class may be passed to a function as a const & with the wonderful guarantee that its internal data will not be modified within that function.  The compiler will prevent calls to the non-const my_int() function!
-* Data members that are updated in a lazy fashion (e.g. retrieving xyz coordinates from a Conformation causes a lazy refold() evaluation)  should be declared "mutable" so that they may be modified in const methods.
+* Data members that are updated in a lazy fashion (e.g. retrieving xyz coordinates from a Conformation causes a lazy refold() evaluation)  should be avoided.  If these are necessary, they should be declared "mutable" so that they may be modified in const methods, and should be made thread-safe.  If you are uncertain about how to ensure that data access is thread-safe, please ask the community.
 * Data members that do not change over the lifetime of a class should be declared const, and must be initialized in their constructors.
+* Avoid methods of "getting around" the constness of functions to modify const data.  This means:
+     * Never use `const_cast` to discard the const-ness of a const object.
+     * Do not use `mutable` if it can be avoided.  If it cannot, ensure that mutable data are handled in a threadsafe manner.  The community can help you to ensure thread-safety, particularly during the pull request review process.  Usually, though, it is possible to simply pass data to the functions that need them, rather than caching data in mutable variables and accessing them further down a chain of function calls.  The former is thread-safe; the latter is not, since different threads might invalidate one another's caches.
+     * In const functions, avoid modifying objects pointed to by member (non-const) owning pointers.  Although it is the pointer itself, and not the thing that it points to, that is const, this pattern can harm thread-safety.  If you must do this, please consult the community about how to do this in a thread-safe manner.
+     * If it seems that you really must do any of the above, **ask the community** for advice!  There is usually a better way.
 
 #### Precision and `typedef`s
 * **Do not use raw literals for numeric values:** `0.0` *vs.* `Real( 0.0 )` 
