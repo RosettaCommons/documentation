@@ -176,18 +176,24 @@ In order from lowest to highest, the libraries are (with examples of familiar co
 *  When declaring variables to be const: first state the type of a variable, then state its const status. E.g. Size const my_constant( 4 );  There is a difference between a pointer to a constant (e.g. Size const *), a constant pointer (Size * const) and a constant pointer to a constant (Size const * const).  To distinguish these three, const must come after the type.
 * Member functions that do not change the data inside a class should be declared const.  Accessors should be const so long as they do not return non-const references to the data they contain.
   * Remember, the function signature for a class member function depends on the const status of the object, and member functions may be overloaded based on a difference of const:
-  * e.g. 
-<pre>
+  * _e.g._ 
+```c++
 class MyClass { 
-    public: int my_int() 
-        const { 
+    public:
+
+    int my_int() const { 
            return my_int_; 
-        } 
-        int & my_int { 
+    }
+ 
+    int & my_int { 
            return my_int_; 
-        } 
-    private my_int_ 
-}; </pre>
+    }
+
+    private:
+
+    int my_int_;
+};
+```
 An instance of this class may be passed to a function as a const & with the wonderful guarantee that its internal data will not be modified within that function.  The compiler will prevent calls to the non-const my_int() function!
 * Data members that are updated (_i.e._ recomputed) in a lazy fashion should be avoided.  If these are necessary (_e.g._ retrieving xyz coordinates from a Conformation causes a lazy `refold()` evaluation), they should be declared `mutable` so that they may be modified in const methods, and should be made thread-safe.  If you are uncertain about how to ensure that data access is thread-safe, please ask the community.
 * Data members that load data from disk in a lazy fashion _can_ use `mutable` data so that these can be loaded in a `const` context.  However, these must load their data in a threadsafe manner.  Utility functions in `utility/thread/threadsafe_creation.hh` can be used for this, and there are many examples in `core/scoring/ScoringManager.hh`.  When in doubt, **ask someone from the community** about how to do this safely.
