@@ -300,7 +300,7 @@ utility::pointer::down_pointer_cast< Bar >( foo ); // returns a BarOP
 * **Do not use goto ever.** C++ allows it, we do not.
 * **Do not use macros** except for controlling compilation with #ifdefs
 * **Do not use post-increment operators.**  i++ is a post increment operator for variable i.  ++i is a pre-increment operator.  If i = 5, then ++i would set i to 6 and return 6.  i++ would set i to 6 and return 5.  my_array[ ++i ] would return a different value than my_array[ i++ ]. To avoid confusion, do not use post-increment operators.  ++ operators mainly appear in for loops. In for loops, increment with ++loop_counter.
-
+* **Do not use `const_cast` ever.**  The ability to make something `const` is there to help you: it ensures that the compiler will catch you if you accidentally try to modify something that should not be modified.  It's a safety harness.  Casting away the const-ness of something is like throwing away your safety harness.
 ####Style
 #####Semi-colons
 * Do not add excess semi-colons.  Semi-colons are not needed after for-loops or function bodies.  Excess semi-colons following function bodies are flagged as errors by some compilers:
