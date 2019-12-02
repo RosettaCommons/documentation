@@ -189,7 +189,8 @@ class MyClass {
     private my_int_ 
 }; </pre>
 An instance of this class may be passed to a function as a const & with the wonderful guarantee that its internal data will not be modified within that function.  The compiler will prevent calls to the non-const my_int() function!
-* Data members that are updated in a lazy fashion (e.g. retrieving xyz coordinates from a Conformation causes a lazy refold() evaluation)  should be avoided.  If these are necessary, they should be declared "mutable" so that they may be modified in const methods, and should be made thread-safe.  If you are uncertain about how to ensure that data access is thread-safe, please ask the community.
+* Data members that are updated (_i.e._ recomputed) in a lazy fashion should be avoided.  If these are necessary (_e.g._ retrieving xyz coordinates from a Conformation causes a lazy `refold()` evaluation), they should be declared `mutable` so that they may be modified in const methods, and should be made thread-safe.  If you are uncertain about how to ensure that data access is thread-safe, please ask the community.
+* Data members that load data from disk in a lazy fashion _can_ use `mutable` data so that these can be loaded in a `const` context.  However, these must load their data in a threadsafe manner.  Utility functions in `utility/thread/threadsafe_creation.hh` can be used for this, and there are many examples in `core/scoring/ScoringManager.hh`.  When in doubt, **ask someone from the community** about how to do this safely.
 * Data members that do not change over the lifetime of a class should be declared const, and must be initialized in their constructors.
 * Avoid methods of "getting around" the constness of functions to modify const data.  This means:
      * Never use `const_cast` to discard the const-ness of a const object.
