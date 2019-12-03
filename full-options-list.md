@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-11-22
+Generated: 2019-12-03
 
 _Note that some application specific options may not be present in this list._
 
@@ -748,6 +748,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Signal Rosetta is to be run as a library in an interactive application. In particular, favor throwing exceptions on bad inputs rather than exiting.<br/>Default: false<br/></dd>
 <dt><b>-nosignal</b> \<Boolean\></dt>
 <dd>Don't install the signal handler to catch segfaults, etc. in the crash reporter. Useful for running under a debugger.<br/>Default: false<br/></dd>
+<dt><b>-crash_to_console</b> \<Boolean\></dt>
+<dd>Show the backtrace on the console/tracer in addition to the crash report file.<br/>Default: false<br/></dd>
 <dt><b>-condor</b> \<Boolean\></dt>
 <dd>if condor say yes -- proc_id counting starts at 0<br/>Default: false<br/></dd>
 <dt><b>-nproc</b> \<Integer\></dt>
