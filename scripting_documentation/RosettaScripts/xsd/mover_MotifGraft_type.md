@@ -9,6 +9,7 @@ MotifGraft is a new implementation of the well know motif grafting protocol. The
 <MotifGraft name="(&string;)" context_structure="(&string;)"
         motif_structure="(&string;)" RMSD_tolerance="(&real;)"
         NC_points_RMSD_tolerance="(340282346638528859811704183484516925440.000000 &real;)"
+        clash_atom_scale="(&real;)"
         clash_score_cutoff="(&non_negative_integer;)"
         min_fragment_size="(&non_negative_integer;)"
         combinatory_fragment_size_delta="(&string;)"
@@ -28,6 +29,7 @@ MotifGraft is a new implementation of the well know motif grafting protocol. The
 -   **motif_structure**: (REQUIRED) The path/name of the motif pdb (can contain multiple discontiguos motif separated by the keyword TER)
 -   **RMSD_tolerance**: (REQUIRED) The maximum RMSD tolerance (Angstrom) for the alignment
 -   **NC_points_RMSD_tolerance**: The maximum RMSD tolerance (Angstrom) for the alignment
+-   **clash_atom_scale**: The relative scale of the atoms used during clash checking compared to their normal size. Set this number less than 1 if you want to use a soft clash check. Defaults to 0.5 due to legacy.
 -   **clash_score_cutoff**: (REQUIRED) The maximum number of atomic clashes that are tolerated. The number of atom clashes are = (motif vs scaffold) + (scaffold vs pose), after the translation and mutation (to the "clash_test_residue") of the scaffold. Recommended: "5"
 -   **min_fragment_size**: The minimum size fragment that can be inserted. Useful if you need to set large enough that small fragments could be produced.
 -   **combinatory_fragment_size_delta**: Is a string separated by a colon that defines the maximum number of amino acids in which the Motif size can be variated in the N- and C-terminal regions (e.g. "positive-int:positive-int"). If several fragments are present the values should be specified by the addition of a comma (eg. 0:0, 1:2, 0:3). All the possible combinations in deltas of 1 amino acid will be tested
