@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-12-03
+Generated: 2019-12-12
 
 _Note that some application specific options may not be present in this list._
 
@@ -1314,6 +1314,8 @@ _Note that some application specific options may not be present in this list._
 <dd>When computing a harmonic function of RMSD for the alignment score, what should the standard deviation be?<br/>Default: 1.0<br/></dd>
 <dt><b>-rna_torsion_potential</b> \<String\></dt>
 <dd>In RNA torsion calculation, directory containing 1D torsional potentials<br/>Default: "ps_04282011"<br/></dd>
+<dt><b>-arg_cation_pi_his_can_be_pi</b> \<Boolean\></dt>
+<dd>For the arg_cation_pi scoreterm. Can histidine be the pi-side of an Arginine cation-pi interaction?<br/>Default: true<br/></dd>
 <dt><b>-mc_optimize_dG</b> \<Boolean\></dt>
 <dd>Optimize the dG during MonteCarlo.  It is not possible to do this within overall scoring, 			but where possible, do this during MC calls.  This option does not globally-use the MonteCarloInterface object, but is protocol-specific. 			This is due to needing to know the interface it will be used on. 			dG is measured by the InterfaceAnalyzerMover. 			Supported Code is currently RosettaAntibodyDesign and RosettaDock<br/>Default: false<br/></dd>
 <dt><b>-mc_interface_weight</b> \<Real\></dt>
