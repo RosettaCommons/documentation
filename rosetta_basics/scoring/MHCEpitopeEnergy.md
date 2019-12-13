@@ -327,7 +327,7 @@ options.set_mhc_epitope_setup_files(config)
 
 custom_scorefxn = pyrosetta.get_fa_scorefxn()
 custom_scorefxn.set_energy_method_options(options)  # Associate the custom options with custom_scorefxn only
-custom_scorefxn.set_weight(pyrosetta.rosetta.core.scoring.score_type_from_name("mhc_epitope", 0.5))  # Will apply to custom_scorefxn, but not default_scorefxn.
+custom_scorefxn.set_weight(pyrosetta.rosetta.core.scoring.score_type_from_name("mhc_epitope"), 0.5)  # Will apply to custom_scorefxn, but not default_scorefxn.
 ```
 
 ##See Also
