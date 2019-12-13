@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-12-12
+Generated: 2019-12-13
 
 _Note that some application specific options may not be present in this list._
 
@@ -8054,10 +8054,14 @@ _Note that some application specific options may not be present in this list._
 <dd>Dock each chunk, set fold tree up so that there are jumps from root virtual residue to all chunks, very useful for optimizing positions in density, use with -new_fold_tree_initializer<br/>Default: true<br/></dd>
 <dt><b>-dock_each_chunk_per_chain</b> \<Boolean\></dt>
 <dd>Dock each chunk, including multiple chunks from the same chain, set fold tree up so that there are jumps from root virtual residue to all chunks, very useful for optimizing positions in density, use with -dock_each_chunk and -new_fold_tree_initializer, may also want to use with -initial_structures<br/>Default: false<br/></dd>
+<dt><b>-dock_chunks</b> \<FileVector\></dt>
+<dd>Chunks that should be explicitly docked (the fold tree will be set up so that there are jumps from the root virtual residue to each of these chunks), use with -new_fold_tree_initializer<br/>Default: "true"<br/></dd>
 <dt><b>-center_jumps_in_single_stranded</b> \<Boolean\></dt>
 <dd>For RNA chains that don't have any base pairs, set up jumps in the center rather than at the first residue in the chain, use with -new_fold_tree_initializer and -dock_each_chunk<br/>Default: false<br/></dd>
 <dt><b>-initial_structures</b> \<FileVector\></dt>
 <dd>Initial structure for fragment assembly, useful for initializing rigid body orientations for docking especially with density<br/>Default: ""<br/></dd>
+<dt><b>-ft_close_chains</b> \<Boolean\></dt>
+<dd>Default is true (but it's only used if -initial_structures is also specified). May set to false with -initial_structures and either -dock_each_chunk_per_chain or -dock_chunks (and then you must include all concantenated sub-chunks from -initial_structures).<br/>Default: true<br/></dd>
 <dt><b>-helical_substructs</b> \<FileVector\></dt>
 <dd>Files provided with -s or -in:file:silent that represent helices, use with dock_each_chunk_per_chain and -new_fold_tree_initializer, includes moves that rotate and translate these helices along their helical axis<br/>Default: ""<br/></dd>
 <dt><b>-suppress_bp_constraint</b> \<Real\></dt>
