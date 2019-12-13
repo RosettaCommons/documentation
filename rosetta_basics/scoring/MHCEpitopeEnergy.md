@@ -1,7 +1,7 @@
 ## MHC Epitope energy (mhc_epitope)
 
 Documentation created by Brahm Yachnin (brahm.yachnin@rutgers.edu), Khare laboratory, and Chris Bailey-Kellogg (cbk@cs.dartmouth.edu).  Parts of this documentation are copied/adapted from Vikram K. Mulligan's (vmullig@uw.edu) design-centric guidance documentation.
-Last edited November 17, 2019.
+Last edited December 12, 2019.
 
 [[_TOC_]]
 
@@ -302,6 +302,33 @@ The ```mhc_energy``` score term should be fully compatible with symmetry.  Each 
 - Like any whole-body energy, the MHCEpitopeEnergy class implements a ```finalize_total_energy()``` function that takes a pose.  This calculates the score.  Internally, it calls ```full_rescore()```, which takes a vector of owning pointers to Residues (which can be called directly during packing).
 - On initialization, the term creates an internal MHCEpitopeEnergySetup object that stores the user-defined settings from the ```.mhc``` file.  This class is defined in ```core/scoring/mhc_energy/MHCEpitopeEnergySetup.cc``` and ```core/scoring/mhc_energy/MHCEpitopeEnergySetup.hh```.  MHCEpitopeEnergySetup objects can also be stored in MHCEpitopeConstraint associated with a Pose.  At scoring or packing time, the MHCEpitopeEnergy constructs a vector of owning pointers to its internal MHCEpitopeEnergySetup objects and to all those stored in the pose, and uses all of these for scoring.
 - A ```.mhc``` file is located in ```/database/scoring/score_functions/mhc_epitope/```.
+
+## Integration with C++ Applications
+
+Generally, any app that supports the use of custom scorefunctions through the command line should be able to use MHCEpitopeEnergy.  To do so, users should set the ```-mhc_epitope_setup_file``` to point to the configuration file you want to use, and also turn on the `mhc_epitope` scoreterm using ```-score:set_weights mhc_epitope 0.75``` (if you wanted a weight of 0.75).  Consult the documentation for the specific app to see if customized scorefunctions are supported.
+
+## Integration with PyRosetta
+
+MHCEpitopeEnergy should be broadly supported using PyRosetta.  Like with C++ apps, a global config file can be set by passing the ```-mhc_epitope_setup_file``` to ```init()``` when you start Pyrosetta, and then set the weight in your scorefunction:
+```
+pyrosetta.init("-mhc_epitope_setup_file my_config_file.mhc")  # Will apply to all sfxns with non-zero mhc_epitope weights
+default_scorefxn = pyrosetta.get_fa_scorefxn()
+custom_scorefxn = pyrosetta.get_fa_scorefxn()
+custom_scorefxn.set_weight(pyrosetta.rosetta.core.scoring.score_type_from_name("mhc_epitope", 0.5))  # Will apply to custom_scorefxn, but not default_scorefxn.
+```
+
+Alternatively, you can associate different config files with different scorefxns using ```EnergyMethodOptions``` configuration:
+```
+pyrosetta.init()
+options = pyrosetta.rosetta.core.scoring.methods.EnergyMethodOptions()
+config = pyrosetta.rosetta.utility.vector1_string()
+config.append("my_config_file.mhc")
+options.set_mhc_epitope_setup_files(config)
+
+custom_scorefxn = pyrosetta.get_fa_scorefxn()
+custom_scorefxn.set_energy_method_options(options)  # Associate the custom options with custom_scorefxn only
+custom_scorefxn.set_weight(pyrosetta.rosetta.core.scoring.score_type_from_name("mhc_epitope", 0.5))  # Will apply to custom_scorefxn, but not default_scorefxn.
+```
 
 ##See Also
 
