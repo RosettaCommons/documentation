@@ -18,8 +18,8 @@ Not documented.  Appears to be some sort of relax analogue.  Related to Backbone
         snapshot_interval="(100 &positive_integer;)" />
 ```
 
--   **start_res**: nominally lower bound for a region to sample, but it looks like it's ignored in the code. effectively defaults to 1
--   **stop_res**: nominally upper bound for a region to sample, but it looks like it's ignored in the code. effectively defaults to the size of the Pose at parse_my_tag time
+-   **start_res**: nominally lower bound for a region to sample (NOTE: THIS PARAMETER IS IGNORED)
+-   **stop_res**: nominally upper bound for a region to sample (NOTE: THIS PARAMETER IS IGNORED
 -   **native**: file path to native pose, used to calculate gdtmm
 -   **increase_cycles**: multiply cycle count by this
 -   **recover_low**: recover the lowest-energy structure seen in the Monte Carlo trajectory at the end?
