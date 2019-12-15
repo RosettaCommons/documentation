@@ -9,7 +9,7 @@ These applications serve mainly to support other Rosetta applications, or to ass
 
 - [[Cluster]]: Cluster structures by structural similarity.
 
-- [[constel]]: "Constellations" of atoms for chemical rescue of structure  
+- [[constel]]: "Constellations" of atoms for chemical rescue of structure.  
 
 - [[Create symmetry definition|make-symmdef-file-denovo]]: Create Rosetta symmetry definition files for a point group.  
     * [[Create symmetry definition from structure|make-symmdef-file]]: Create Rosetta symmetry definition files from template PDBs. 
