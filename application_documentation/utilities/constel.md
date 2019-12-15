@@ -1,4 +1,4 @@
-#constel: "Constellations" of atoms
+#constel: "Constellations" of atoms for chemical rescue of structure
 Metadata
 ========
 
