@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-12-13
+Generated: 2019-12-15
 
 _Note that some application specific options may not be present in this list._
 
@@ -4059,6 +4059,49 @@ _Note that some application specific options may not be present in this list._
 <dd>Switch to cenrot model in stage1_4<br/>Default: "score_cenrot_cm_stage1_4.wts"<br/></dd>
 <dt><b>-include_loop_ss_chunks</b> \<Boolean\></dt>
 <dd>include loop secondary structure chunks from templates<br/>Default: false<br/></dd>
+</dl>
++ <h2>-constel</h2>
+<dl>
+<dt><b>-constel</b> \<Boolean\></dt>
+<dd>constel option group<br/></dd>
+<dt><b>-pair_all_res</b> \<Boolean\></dt>
+<dd>extracts all constellations formed by all pairs of residues<br/>Default: false<br/></dd>
+<dt><b>-triple_all_res</b> \<Boolean\></dt>
+<dd>extracts all constellations formed by all triads of residues<br/>Default: false<br/></dd>
+<dt><b>-pair_target_resnum</b> \<Integer\></dt>
+<dd>PDB residue number of target residue for two-residue constellations<br/>Default: -1<br/></dd>
+<dt><b>-triple_target_resnum</b> \<Integer\></dt>
+<dd>PDB residue number of target residue for three-residue constellations<br/>Default: -1<br/></dd>
+<dt><b>-target_chain</b> \<String\></dt>
+<dd>PDB chain ID of target residue<br/>Default: "A"<br/></dd>
+<dt><b>-pair_target_mutations</b> \<String\></dt>
+<dd>Target mutation pair for two-residue constellations<br/>Default: "**_**"<br/></dd>
+<dt><b>-target_cnl</b> \<String\></dt>
+<dd>Path to the file describing the target constellation<br/>Default: ""<br/></dd>
+<dt><b>-cnl_stripped</b> \<Boolean\></dt>
+<dd>Deprives constellations of the atoms closest to the backbone<br/>Default: false<br/></dd>
+<dt><b>-max_atom_sasa</b> \<Real\></dt>
+<dd>Maximum allowed SASA for a constellation atom<br/>Default: 999999.9<br/></dd>
+<dt><b>-chain_interface</b> \<Boolean\></dt>
+<dd>Keeps only constellations shared by multiple chains<br/>Default: false<br/></dd>
+<dt><b>-aromatic</b> \<Boolean\></dt>
+<dd>Keeps only constellations with at least one aromatic ring<br/>Default: false<br/></dd>
+<dt><b>-cnl_exclude</b> \<String\></dt>
+<dd>Path to the file listing the residues to be excluded from constellations<br/>Default: ""<br/></dd>
+<dt><b>-prox_ct_max</b> \<Real\></dt>
+<dd>Maximum distance of a constellation to a chain terminus<br/>Default: 0<br/></dd>
+<dt><b>-prox_tt_max</b> \<Real\></dt>
+<dd>Maximum distance between chain termini<br/>Default: 10.0<br/></dd>
+<dt><b>-prox_nres</b> \<Integer\></dt>
+<dd>Number of residues forming a chain terminus<br/>Default: 10<br/></dd>
+<dt><b>-indole_coo</b> \<Boolean\></dt>
+<dd>Keeps only constellations formed by an indole group plus a COO group<br/>Default: false<br/></dd>
+<dt><b>-tryptamine</b> \<Boolean\></dt>
+<dd>Keeps only constellations that can be matched by tryptamine<br/>Default: false<br/></dd>
+<dt><b>-amphetamine</b> \<Boolean\></dt>
+<dd>Keeps only constellations that can be matched by amphetamine<br/>Default: false<br/></dd>
+<dt><b>-histamine</b> \<Boolean\></dt>
+<dd>Keeps only constellations that can be matched by histamine<br/>Default: false<br/></dd>
 </dl>
 + <h2>-contactMap</h2>
 <dl>
