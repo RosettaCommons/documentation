@@ -54,7 +54,7 @@ Alternatively, the `job_submission_template.sh` may just be a blank file if you 
 ##Running auto-DRRAFTER
 The auto-DRRAFTER workflow is described below.  
 **Step 1**: Low-pass filter the density map and determine the threshold level.  
-`python $ROSETTA/main/source/src/apps/public/DRRAFTER/auto-DRRAFTER_setup.py -map_thr 30 -full_dens_map input_files/map.mrc -full_dens_map_reso 10.0 -fasta input_files/fasta.txt -secstruct input_files/secstruct.txt -out_pref mini_example -rosetta_directory $ROSETTA/main/source/bin/ -nstruct_per_job 10 -cycles 1000 -fit_only_one_helix –just_low_pass`  
+`python $ROSETTA/main/source/src/apps/public/DRRAFTER/auto-DRRAFTER_setup.py -map_thr 30 -full_dens_map input_files/map.mrc -full_dens_map_reso 10.0 -fasta input_files/fasta.txt -secstruct input_files/secstruct.txt -out_pref mini_example -rosetta_directory $ROSETTA/main/source/bin/ -nstruct_per_job 100 -cycles 1000 -fit_only_one_helix –just_low_pass`  
 
 `-map_thr` is the density threshold at which the detection of optimal helix placement locations will take place. This is the value that we’re trying to figure out in this step, so the actual number that we put here doesn’t matter yet.   
 `-full_dens_map` is our density map.   
@@ -70,7 +70,7 @@ This will create a single file: `mini_example_lp20.mrc`. This is the low-pass fi
 **Step 2**: Open the low-pass filtered density map (`mini_example_lp20.mrc`) in Chimera. Change the threshold of the density map (using the sliding bar on the density histogram). You want to find the highest threshold such that you can clearly discern "end nodes" in the density map, but also such that the density map is still fully connected. Note that this threshold is only used for the initial helix placement and does not have any affect on the later modeling steps.  
 
 **Step 3**: Set up the auto-DRRAFTER run by typing:  
-`python $ROSETTA/main/source/src/apps/public/DRRAFTER/auto-DRRAFTER_setup.py -map_thr 30 -full_dens_map input_files/map.mrc -full_dens_map_reso 10.0 -fasta input_files/fasta.txt -secstruct input_files/secstruct.txt -out_pref mini_example -rosetta_directory $ROSETTA/main/source/bin/ -nstruct_per_job 10 -cycles 1000 -fit_only_one_helix`  
+`python $ROSETTA/main/source/src/apps/public/DRRAFTER/auto-DRRAFTER_setup.py -map_thr 30 -full_dens_map input_files/map.mrc -full_dens_map_reso 10.0 -fasta input_files/fasta.txt -secstruct input_files/secstruct.txt -out_pref mini_example -rosetta_directory $ROSETTA/main/source/bin/ -nstruct_per_job 100 -cycles 1000 -fit_only_one_helix`  
 
 This is the same command that we used in step 1, except we have removed the `–just_low_pass` flag and the value for `-map_thr` should be updated with the value that you determined in step 2. Depending on the helix placements that come out, you may want to change the threshold again.   
 
@@ -115,4 +115,61 @@ Auto-DRRAFTER then sets up the DRRAFTER runs for each of these mappings. This in
 `mini_example_init_points.pdb`: This PDB file contains all of the points that were placed into the density map in order to convert the density map into a graph.   
 
 `secstruct_mini_example.txt`: The secondary structure file for the DRRAFTER runs.
+
+**Step 4**: Submit/run the DRRAFTER jobs. Type:  
+`python $ROSETTA/main/source/src/apps/public/DRRAFTER/submit_jobs.py -out_pref mini_example -curr_round R1 -njobs 25 -template_submission_script input_files/job_submission_template.sh -queue_command source`  
+
+`-out_pref` is the prefix used for all output files from this run, this should be the same –out_pref that was used in the setup commands.   
+`-curr_round`: This is the round of modeling that is currently being performed. We haven’t done any modeling yet, so this is round 1. This should always be ‘R’ followed by a number that indicates the round number.   
+`-njobs`: This is the number of jobs that will be run. Each job will build the number of models that was specified in the setup command above (-nstruct_per_job), in this case 10 structures per job. We will therefore build 20 models in total (10 structures per job x 2 jobs).
+`-template_submission_script`: This should be a job submission script for the cluster you’re planning to run your job on. Here, we’re not running this on a cluster (this demo can be run on a laptop), so the job submission script is just a blank file.   
+`-queue_command`: This is the command that will be used to submit the job files to a cluster queuing system. If you want to run locally you can use the use "source". Alternatively, this might be something like `sbatch` or `qsub`, depending on the cluster that you’re using.   
+
+This command will take several hours (typically 12-24), depending on the number of models built per job (and of course, how quickly your jobs will be run on the cluster that you’re using).   
+
+This will create the following output files:   
+
+`job_files/`: This is a directory that contains all the job submission files.
+`out_mini_example_*_R1/`: These directories contains all the DRRAFTER models built for each helix alignment.   
+
+**Step 5**: Set up the next round of modeling.
+
+`python $ROSETTA/main/source/src/apps/public/DRRAFTER/auto-DRRAFTER_setup_next_round.py -out_pref mini_example -curr_round R1 -rosetta_directory $ROSETTA/main/source/bin/`  
+
+This will print something like this to the screen:  
+
+```
+Setting up next round
+Overall convergence 0.373
+Density threshold: 38.779
+```  
+
+This step collects all of the models from the previous step and calculates the convergence of the overall top ten scoring models (across all alignments). That is the "Overall convergence" value that is printed out. Then the next round of modeling is set up based on the models that were built from the previous round. Regions of the models that are well converged will be kept fixed in the next round of modeling.   
+
+Several files are written out at this step. The key files that you want to know about are:
+
+`mini_example_all_models_all_fits_R1.out.*.pdb`: These are the overall best scoring models from all of the different alignments from the first round of modeling. 
+
+`command_mini_example_*_R2`: These are the command file for the next round of modeling. The file names will indicate the next round of modeling that should be performed (in this case `R2`, but if the output files had been `command_mini_example_*_FINAL_R2`, then the next round would instead be `FINAL_R2`.)  
+
+`flags_mini_example_*_R2`: These files contain all the flags that will be used for the two DRRAFTER runs for the different helix alignments in the density map.   
+
+all_fit_mini_example_*_R2.REORDER.pdb: These PDB files contain initial helix placements for the next round of modeling.  
+
+convergence_mini_example_all_models_R1.txt: This file lists the convergence for the overall top scoring models.   
+
+Generally less important files, but good to know about for debugging:   
+
+`mini_example_*_R1_CAT_ALL_ROUNDS.out.*.pdb`: These are the top scoring models from each of the initial helix placements.  
+
+**Steps 4 and 5 should then be iterated, updating `-curr_round`, until the modeling is complete (there must be two successive round of `FINAL` modeling, e.g. `FINAL_R2` then `FINAL_R3`).**
+
+
+**Final step**: Finalize the models. Type:   
+`python $ROSETTA/main/source/src/apps/public/DRRAFTER/finalize_models.py -fasta input_files/fasta.txt -out_pref mini_example -final_round FINAL_R6`  
+`-fasta` is the fasta that was used to set up the run in step 1.
+`-out_pref` is the same –out_pref that was used to set up the run in step 1
+`-final_round` is the last round of modeling that was just completed (something like `FINAL_R6`).   
+
+This should print `Done finalizing models` to the screen, indicating that the modeling is complete. This creates the final models: `mini_example_all_models_all_fits_FINAL_R6.out.*.pdb`. These models should be carefully inspected in the context of the density map.
 
