@@ -168,7 +168,7 @@ Output file names have the "constel\_\<M1\>\_\<M2\>(\_\<M3\>).pdb" format. \<Mi\
 
 Each output file starts with one HEADER line that summarizes the constellation, and then lists the ATOM records of the constellation. In the example above, file constel_Q0069GA_F0084AA_Y0092LA.pdb has the following contents:
 ````
-EADER    1st MUTATION: A:Q69G 2nd MUTATION: A:F84A 3rd MUTATION: A:Y92L
+HEADER    1st MUTATION: A:Q69G 2nd MUTATION: A:F84A 3rd MUTATION: A:Y92L
 ATOM      1  CB  GLN A  69      27.786  23.666   8.084  1.00  9.49           C  
 ATOM      2  CG  GLN A  69      28.268  24.943   7.384  1.00 14.82           C  
 ATOM      3  CD  GLN A  69      28.124  26.209   8.214  1.00 17.44           C  
