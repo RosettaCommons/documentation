@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2019-12-15
+Generated: 2020-01-07
 
 _Note that some application specific options may not be present in this list._
 
@@ -843,6 +843,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Allow old checkpoint files to build up on disk. Cannot be combined with -archive_on_disk. Using this flag could use up a lot of disk space unncessarily. If this flag is not present on the command line, then previously created checkpoints will be deleted when the next checkpoints are created. Note that job distributor will delete the previous checkpoint by default after the next checkpoint is written to disk.<br/></dd>
 <dt><b>-keep_checkpoint</b> \<Integer\></dt>
 <dd>Prevent the JobDistributor from deleting a particular checkpoint; perhaps useful if you are trying to debug an infrequent event and you want to restart from a particular checkpoint repeatedly without worrying that the JobDistributor will delete your starting point.<br/></dd>
+<dt><b>-job_definition_script_vars</b> \<StringVector\></dt>
+<dd>Variable substitutions for xml parser, in the form of name=value<br/></dd>
 </dl>
 + <h2>-jd2</h2>
 <dl>
