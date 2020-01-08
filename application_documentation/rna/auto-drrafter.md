@@ -2,12 +2,12 @@
 
 ##Metadata
 
-Author: Kalli Kappel (kappel at stanford dot edu)  
-Last updated: December 2019
+Author: Kalli Kappel (kkappel at alumni dot stanford dot edu)  
+Last updated: January 2020
 
 ##Application purpose
 
-auto-DRRAFTER is used to build RNA coordinates into cryo-EM maps. Unlike DRRAFTER, it does not require initial manual helix placement. Currently, auto-DRRAFTER works only for systems that only RNA.
+auto-DRRAFTER is used to build RNA coordinates into cryo-EM maps. Unlike DRRAFTER, it does not require initial manual helix placement. Currently, auto-DRRAFTER works only for systems that only contain RNA.
 
 ##Reference
 auto-DRRAFTER is described in [this paper](https://www.biorxiv.org/content/10.1101/717801v1):  
