@@ -14,7 +14,8 @@ This mover is useful for reporting the total or per-residue ddgs in cases where 
         translate_by="(1000.0 &real;)" relax_mover="(&string;)"
         filter="(&string;)" chain_num="(&string;)" chain_name="(&string;)"
         solvate="(false &bool;)" solvate_unbound="(false &bool;)"
-        solvate_rbmin="(false &bool;)" min_water_jump="(false &bool;)" />
+        solvate_rbmin="(false &bool;)" min_water_jump="(false &bool;)"
+        compute_rmsd="(false &bool;)" />
 ```
 
 -   **scorefxn**: Name of score function to use
@@ -35,5 +36,6 @@ This mover is useful for reporting the total or per-residue ddgs in cases where 
 -   **solvate_unbound**: Solvate unbound pose (using ExplicitWater mover)
 -   **solvate_rbmin**: Use rigid-body minimization following solvation
 -   **min_water_jump**: Include waters in rigid-body minimization following solvation and packing
+-   **compute_rmsd**: Compute the rmsd both with and without superimposing -- requires in:file:native to be supplied
 
 ---

@@ -16,10 +16,10 @@ Initialize the runtime environment for Poisson-Boltzmann solver. It allows keepi
         filter="(&string;)" chain_num="(&string;)" chain_name="(&string;)"
         solvate="(false &bool;)" solvate_unbound="(false &bool;)"
         solvate_rbmin="(false &bool;)" min_water_jump="(false &bool;)"
-        apbs_path="(&string;)" charged_chains="(&string;)"
-        revamp_near_chain="(&string;)" potential_cap="(&real;)"
-        sidechain_only="(&bool;)" epsilon="(&real;)" calcenergy="(&bool;)"
-        apbs_debug="(2 &integer;)" />
+        compute_rmsd="(false &bool;)" apbs_path="(&string;)"
+        charged_chains="(&string;)" revamp_near_chain="(&string;)"
+        potential_cap="(&real;)" sidechain_only="(&bool;)" epsilon="(&real;)"
+        calcenergy="(&bool;)" apbs_debug="(2 &integer;)" />
 ```
 
 -   **scorefxn**: Name of score function to use
@@ -40,6 +40,7 @@ Initialize the runtime environment for Poisson-Boltzmann solver. It allows keepi
 -   **solvate_unbound**: Solvate unbound pose (using ExplicitWater mover)
 -   **solvate_rbmin**: Use rigid-body minimization following solvation
 -   **min_water_jump**: Include waters in rigid-body minimization following solvation and packing
+-   **compute_rmsd**: Compute the rmsd both with and without superimposing -- requires in:file:native to be supplied
 -   **apbs_path**: XRW TO DO
 -   **charged_chains**: Comma delimited list of charged chainnumbers ( greater than or equal to 1). e.g. charged_chains=1,2,3 for chains 1, 2 and 3. No extra whitespace is permitted
 -   **revamp_near_chain**: Comma delimited list of chain numbers. Scale down PB interactions if near the given chain(s). Default to none
