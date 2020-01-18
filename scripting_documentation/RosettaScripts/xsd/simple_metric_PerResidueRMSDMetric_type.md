@@ -13,7 +13,8 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 ```xml
 <PerResidueRMSDMetric name="(&string;)" custom_type="(&string;)"
         output_as_pdb_nums="(false &bool;)" residue_selector="(&string;)"
-        residue_selector_ref="(&string;)" robust="(true &bool;)"
+        residue_selector_ref="(&string;)" residue_selector_super="(&string;)"
+        residue_selector_super_ref="(&string;)" robust="(true &bool;)"
         use_native="(false &bool;)" super="(false &bool;)"
         rmsd_type="(&rmsd_types;)" desymmetrize_selector="(true &bool;)" />
 ```
@@ -22,7 +23,9 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
  The custom_type name will be added to the data tag in the scorefile or features database.
 -   **output_as_pdb_nums**: If outputting to scorefile use PDB numbering+chain instead of Rosetta (1 - N numbering)
 -   **residue_selector**: If a residue selector is present, we only calculate and output metrics for the subset of residues selected.
--   **residue_selector_ref**: Selector for the reference pose (input native or passed reference pose. ).  Residues selected must be same number of residues selected for the main selector.
+-   **residue_selector_ref**: Optional Selector for the reference pose (input native or passed reference pose. ).  Residues selected must be same number of residues selected for the main selector.
+-   **residue_selector_super**: Optional selector for superposition. If not given will use residue_selector
+-   **residue_selector_super_ref**: Optional selector for superposition of reference pose. Residues selected must be same number of residues selected for the main selector.
 -   **robust**: Set whether we are robust to atom mismatches for selected residues.  By default we only match atoms that are corresponding. (True).
 -   **use_native**: Use the native if present on the cmd-line.
 -   **super**: Run a superposition on the residues in the residue_selector (or all) before RMSD calculation and the atoms slected for RMSD

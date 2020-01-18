@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-01-07
+Generated: 2020-01-18
 
 _Note that some application specific options may not be present in this list._
 
@@ -1324,6 +1324,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Weight of interface score if using MonteCarloInterface with a particular protocol.<br/>Default: 1.0<br/></dd>
 <dt><b>-mc_total_weight</b> \<Real\></dt>
 <dd>Weight of total score if using MonteCarloInterface with a particular protocol<br/>Default: 0.0<br/></dd>
+<dt><b>-force_sugar_bb_zero</b> \<Boolean\></dt>
+<dd>Force the SugarBB weight to be zero from get_score_function.  			When using include_sugars, the sugar_bb weight is automatically added.  			This overrides that for benchmarking purposes<br/>Default: false<br/></dd>
 <dt><b>-voids_penalty_energy_containing_cones_cutoff</b> \<Integer\></dt>
 <dd>A parameter for the voids_penalty score term.  The minimum number of cones projecting from side-chains in which a voxel must lie in order for that voxel to be considerd to be buried.  Defaults to 6 cones.<br/>Default: 6<br/></dd>
 <dt><b>-voids_penalty_energy_cone_dotproduct_cutoff</b> \<Real\></dt>

@@ -55,12 +55,13 @@ Typically, we would want at least a window size of 1.
         rounds="(&non_negative_integer;)"
         glycan_sampler_rounds="(25 &non_negative_integer;)"
         use_conformer_probs="(false &bool;)"
-        use_gaussian_sampling="(false &bool;)"
+        use_gaussian_sampling="(true &bool;)"
         force_virts_for_refinement="(false &bool;)" idealize="(false &bool;)"
         quench_mode="(false &bool;)" final_min_pack_min="(true &bool;)"
         min_rings="(false &bool;)" cartmin="(false &bool;)"
-        hybrid_protocol="(false &bool;)" shear="(false &bool;)"
-        residue_selector="(&string;)" scorefxn="(&string;)" />
+        hybrid_protocol="(true &bool;)" shear="(true &bool;)"
+        match_window_one="(false &bool;)" root_populations_only="(false &bool;)"
+        kt="(&real;)" residue_selector="(&string;)" scorefxn="(&string;)" />
 ```
 
 -   **layer_size**: Brief: Set the layer size we will be using.  A layer is a set of glycan residues that we will be optimizing.
@@ -92,6 +93,9 @@ Typically, we would want at least a window size of 1.
 -   **cartmin**: Use Cartesian Minimization instead of Dihedral Minimization during packing steps.
 -   **hybrid_protocol**: Set to use an experimental protocol where we build out the glycans, but re-model the full tree during the building process
 -   **shear**: Use the Shear Mover that is now compatible with glycans at an a probability of 10 percent
+-   **match_window_one**: Matches the number of rounds per layer with that of using a window of 1.  Used for benchmarking.
+-   **root_populations_only**: Use population-based sampling for only the linkage between the amino acid and glycan residue
+-   **kt**: Override the GlycanSampler kT (which defaults to 2.0)
 -   **residue_selector**: Residue Selector containing only glycan residues.  This is not needed, as this class will automatically select ALL glycan residues in the pose to model.  See the GlycanResidueSelector and the GlycanLayerSelector for control glycan selection.  Note that the ASN is not technically a glycan.  Since dihedral angles are defined for a sugar from the upper to lower residue, the dihedral angles between the first glycan and the ASN are defined by the first glycan.
 -   **scorefxn**: Name of score function to use
 

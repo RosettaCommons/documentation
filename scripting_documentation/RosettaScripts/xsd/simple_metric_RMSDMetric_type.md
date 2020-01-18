@@ -13,7 +13,8 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 ```xml
 <RMSDMetric name="(&string;)" custom_type="(&string;)"
         reference_name="(&string;)" residue_selector="(&string;)"
-        residue_selector_ref="(&string;)" robust="(true &bool;)"
+        residue_selector_ref="(&string;)" residue_selector_super="(&string;)"
+        residue_selector_super_ref="(&string;)" robust="(true &bool;)"
         use_native="(false &bool;)" super="(false &bool;)"
         rmsd_type="(&rmsd_types;)" />
 ```
@@ -22,7 +23,9 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
  The custom_type name will be added to the data tag in the scorefile or features database.
 -   **reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
 -   **residue_selector**: Calculate the RMSD for these residues for both reference and main pose.
--   **residue_selector_ref**: Selector for the reference pose (input native or passed reference pose. ).  Residues selected must be same number of residues selected for the main selector.
+-   **residue_selector_ref**: Optional Selector for the reference pose (input native or passed reference pose. ).  Residues selected must be same number of residues selected for the main selector.
+-   **residue_selector_super**: Optional selector for superposition. If not given will use residue_selector
+-   **residue_selector_super_ref**: Optional selector for superposition of reference pose. Residues selected must be same number of residues selected for the main selector.
 -   **robust**: Set whether we are robust to atom mismatches for selected residues.  By default we only match atoms that are corresponding. (True).
 -   **use_native**: Use the native if present on the cmd-line.
 -   **super**: Run a superposition on the residues in the residue_selector (or all) before RMSD calculation and the atoms selected for RMSD

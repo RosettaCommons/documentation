@@ -14,8 +14,9 @@ Main mover for Glycan Relax, which optimizes glycans in a pose. Each round optim
         use_conformer_probs="(false &bool;)"
         use_gaussian_sampling="(false &bool;)" min_rings="(false &bool;)"
         shear="(false &bool;)" randomize_torsions="(true &bool;)"
-        match_sampling_of_modeler="(0 &bool;)"
+        match_sampling_of_modeler="(false &bool;)"
         inner_bb_cycles="(0 &non_negative_integer;)"
+        root_populations_only="(false &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
         packer_palette="(&named_packer_palette;)" scorefxn="(&string;)"
         residue_selector="(&string;)" />
@@ -36,6 +37,7 @@ Main mover for Glycan Relax, which optimizes glycans in a pose. Each round optim
 -   **randomize_torsions**: If NOT doing refinement, control whether we randomize torsions at the start, which helps to achieve low energy structures.
 -   **match_sampling_of_modeler**: Option that matches the amount of sampling in a default GlycanTreeModeler run.  Used for benchmarking.
 -   **inner_bb_cycles**: Inner cycles for each time we call BB sampling either through small/medium/large moves or through the SugarBB Sampler.  This is multiplied by the number of glycans.  Scales poorly with GlycanModeler.  If 0 (default), we run the protocol normally
+-   **root_populations_only**: Use population-based sampling for only the linkage between the amino acid and glycan residue
 -   **task_operations**: A comma-separated list of TaskOperations to use.
 -   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **scorefxn**: Name of score function to use
