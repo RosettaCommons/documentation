@@ -148,8 +148,8 @@ SimpleMetric  | Description | ResidueSelector Compatability?
 
 ##PerResidueRealMetrics
 These metrics calculate a single real number (or integer) for every Residue selected by a residue selector.
-Default is to calculate on ALL residues.  Also outputs the SUM of the residues. 
-All accept ResidueSelectors.  Output can be in Rosetta or PDB Numbering.  You can use the [[ResidueSummaryMetric]] to calculate the sum, mean, etc. from a PerResidueMetric.  
+Default is to calculate on ALL residues.  
+**All accept ResidueSelectors.**  Output can be in Rosetta or PDB Numbering.  You can use the [[ResidueSummaryMetric]] to calculate the sum, mean, etc. from a PerResidueMetric.  
 
 SimpleMetric  | Description 
 ------------ | -------------
