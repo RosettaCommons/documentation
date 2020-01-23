@@ -5,7 +5,7 @@
 Reads a PDB file from disk and concatenates it to the existing pose.
 
 ```xml
-<AddChain name="(&string)" file_name="(&string)" new_chain="(1&bool)" scorefxn="(score12 &string)" random_access="(0&bool)" swap_chain_number="(0 &Size)"/>
+<AddChain name="(&string)" file_name="(&string)" new_chain="(1&bool)" scorefxn="(score12 &string)" random_access="(0&bool)" swap_chain_number="(0 &Size)" spm_reference_name="(&string)" update_PDBInfo="(1 &bool)"/>
 ```
 
 -   file\_name: the name of the PDB file on disk.
