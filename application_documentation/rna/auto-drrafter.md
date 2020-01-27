@@ -16,7 +16,9 @@ Kappel, K.\*, Zhang, K.\*, Su, Z.\*, Kladwang, W., Li, S., Pintilie, G., Topkar,
 ##Code and demo
 auto-DRRAFTER code will be available in the Rosetta weekly releases after 2019.47 (it is not available in 2019.47). **auto-DRRAFTER is NOT available in Rosetta 3.11**.
 
-All of the auto-DRRAFTER scripts are located in `ROSETTA_HOME/demos/public/DRRAFTER/`.
+All of the auto-DRRAFTER scripts are located in `ROSETTA_HOME/main/src/apps/public/DRRAFTER/`.
+
+A demo of auto-DRRAFTER is available in `ROSETTA_HOME/main/demos/public/drrafter/`. Instructions for the demo can be found [here](https://www.rosettacommons.org/demos/latest/public/auto-drrafter/README). ***It is highly recommended to go through the full demo before trying to run auto-DRRAFTER for your RNA.***
 
 ##Setting up auto-DRRAFTER
   
