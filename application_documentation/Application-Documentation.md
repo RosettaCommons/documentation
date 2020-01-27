@@ -107,6 +107,7 @@ Component | Description
 -  [[RNA assembly with experimental constraints|rna-assembly]] - Predict 3-dimensional structures of large RNAs with the help of experimental constraints. Note – largely deprecated by newer pipeline (documentation coming soon).
 -  [[ERRASER]] - Refine an RNA structure given electron density constraints.  
 -  [[DRRAFTER]] - Build RNA coordinates into cryoEM maps of RNA-protein assemblies.
+-  [[auto-DRRAFTER]] - Automatically build RNA coordinates into cryo-EM maps (currently for maps that do not contain proteins).
 -  [[Sample around nucleobase]] - Visualizing energy functions by scanning probe molecules around a nucleobase.
 -  [[RECCES]] - RNA free energy calculation with comprehensive sampling.
 -  [[RNA pharmacophore]] - Extract and cluster the key features present in RNA (rings, hbond donors & acceptors) from the structure of a protein-RNA complex.
