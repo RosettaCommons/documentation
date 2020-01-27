@@ -24,13 +24,19 @@ All of the auto-DRRAFTER scripts are located in `ROSETTA_HOME/demos/public/DRRAF
 2. If you're not using the precompiled binaries (these are available for Mac and Linux and you can access them by downloading source+binaries in Step 1), install Rosetta following the instructions available [here] (https://www.rosettacommons.org/docs/latest/build_documentation/Build-Documentation).  
 3. Make sure you have python installed and install networkx and mrcfile. For example, type: pip install networkx mrcfile
 4. Install EMAN2 version 2.22 (https://blake.bcm.edu/emanwiki/EMAN2/Install). Confirm that e2proc3d.py and e2segment3d.py are installed by typing:   
-`e2proc3d.py –h`
-`e2segment3d.py –h` 
+```
+e2proc3d.py –h
+```
+```
+e2segment3d.py –h
+``` 
 You should see usage instructions for each of these commands.  
 5. Install Rosetta RNA tools. See instructions and documentation [here] (https://www.rosettacommons.org/docs/latest/application_documentation/rna/RNA-tools).  
 6. Check that the ROSETTA environmental variable is set (you should have set this up during RNA tools installation). Type echo $ROSETTA. This should return the path to your Rosetta directory. If it does not return anything, go back to step 5 and make sure that you follow the steps for RNA tools setup.  
 7. Add the path to the auto-DRRAFTER scripts to your $PATH (alternatively, you can type the full path to the scripts each time that you use them). They are found in main/source/src/apps/public/DRRAFTER/ in your Rosetta directory. An example for bash:  
-`export PATH=$PATH:$ROSETTA/main/source/src/apps/public/DRRAFTER/`  
+```
+export PATH=$PATH:$ROSETTA/main/source/src/apps/public/DRRAFTER/
+```  
 
 ##Required input files
 The following input files are required:  
@@ -54,7 +60,9 @@ Alternatively, the `job_submission_template.sh` may just be a blank file if you 
 ##Running auto-DRRAFTER
 The auto-DRRAFTER workflow is described below.  
 **Step 1**: Low-pass filter the density map and determine the threshold level.  
-`python $ROSETTA/main/source/src/apps/public/DRRAFTER/auto-DRRAFTER_setup.py -map_thr 30 -full_dens_map input_files/map.mrc -full_dens_map_reso 10.0 -fasta input_files/fasta.txt -secstruct input_files/secstruct.txt -out_pref mini_example -rosetta_directory $ROSETTA/main/source/bin/ -nstruct_per_job 100 -cycles 1000 -fit_only_one_helix –just_low_pass`  
+```
+python $ROSETTA/main/source/src/apps/public/DRRAFTER/auto-DRRAFTER_setup.py -map_thr 30 -full_dens_map input_files/map.mrc -full_dens_map_reso 10.0 -fasta input_files/fasta.txt -secstruct input_files/secstruct.txt -out_pref mini_example -rosetta_directory $ROSETTA/main/source/bin/ -nstruct_per_job 100 -cycles 1000 -fit_only_one_helix –just_low_pass
+```  
 
 `-map_thr` is the density threshold at which the detection of optimal helix placement locations will take place. This is the value that we’re trying to figure out in this step, so the actual number that we put here doesn’t matter yet.   
 `-full_dens_map` is our density map.   
@@ -70,7 +78,9 @@ This will create a single file: `mini_example_lp20.mrc`. This is the low-pass fi
 **Step 2**: Open the low-pass filtered density map (`mini_example_lp20.mrc`) in Chimera. Change the threshold of the density map (using the sliding bar on the density histogram). You want to find the highest threshold such that you can clearly discern "end nodes" in the density map, but also such that the density map is still fully connected. Note that this threshold is only used for the initial helix placement and does not have any affect on the later modeling steps.  
 
 **Step 3**: Set up the auto-DRRAFTER run by typing:  
-`python $ROSETTA/main/source/src/apps/public/DRRAFTER/auto-DRRAFTER_setup.py -map_thr 30 -full_dens_map input_files/map.mrc -full_dens_map_reso 10.0 -fasta input_files/fasta.txt -secstruct input_files/secstruct.txt -out_pref mini_example -rosetta_directory $ROSETTA/main/source/bin/ -nstruct_per_job 100 -cycles 1000 -fit_only_one_helix`  
+```
+python $ROSETTA/main/source/src/apps/public/DRRAFTER/auto-DRRAFTER_setup.py -map_thr 30 -full_dens_map input_files/map.mrc -full_dens_map_reso 10.0 -fasta input_files/fasta.txt -secstruct input_files/secstruct.txt -out_pref mini_example -rosetta_directory $ROSETTA/main/source/bin/ -nstruct_per_job 100 -cycles 1000 -fit_only_one_helix
+```  
 
 This is the same command that we used in step 1, except we have removed the `–just_low_pass` flag and the value for `-map_thr` should be updated with the value that you determined in step 2. Depending on the helix placements that come out, you may want to change the threshold again.   
 
@@ -117,7 +127,9 @@ Auto-DRRAFTER then sets up the DRRAFTER runs for each of these mappings. This in
 `secstruct_mini_example.txt`: The secondary structure file for the DRRAFTER runs.
 
 **Step 4**: Submit/run the DRRAFTER jobs. Type:  
-`python $ROSETTA/main/source/src/apps/public/DRRAFTER/submit_jobs.py -out_pref mini_example -curr_round R1 -njobs 25 -template_submission_script input_files/job_submission_template.sh -queue_command source`  
+```
+python $ROSETTA/main/source/src/apps/public/DRRAFTER/submit_jobs.py -out_pref mini_example -curr_round R1 -njobs 25 -template_submission_script input_files/job_submission_template.sh -queue_command source
+```  
 
 `-out_pref` is the prefix used for all output files from this run, this should be the same –out_pref that was used in the setup commands.   
 `-curr_round`: This is the round of modeling that is currently being performed. We haven’t done any modeling yet, so this is round 1. This should always be ‘R’ followed by a number that indicates the round number.   
@@ -134,7 +146,9 @@ This will create the following output files:
 
 **Step 5**: Set up the next round of modeling.
 
-`python $ROSETTA/main/source/src/apps/public/DRRAFTER/auto-DRRAFTER_setup_next_round.py -out_pref mini_example -curr_round R1 -rosetta_directory $ROSETTA/main/source/bin/`  
+```
+python $ROSETTA/main/source/src/apps/public/DRRAFTER/auto-DRRAFTER_setup_next_round.py -out_pref mini_example -curr_round R1 -rosetta_directory $ROSETTA/main/source/bin/
+```  
 
 This will print something like this to the screen:  
 
@@ -166,7 +180,9 @@ Generally less important files, but good to know about for debugging:
 
 
 **Final step**: Finalize the models. Type:   
-`python $ROSETTA/main/source/src/apps/public/DRRAFTER/finalize_models.py -fasta input_files/fasta.txt -out_pref mini_example -final_round FINAL_R6`  
+```
+python $ROSETTA/main/source/src/apps/public/DRRAFTER/finalize_models.py -fasta input_files/fasta.txt -out_pref mini_example -final_round FINAL_R6
+```  
 `-fasta` is the fasta that was used to set up the run in step 1.
 `-out_pref` is the same –out_pref that was used to set up the run in step 1
 `-final_round` is the last round of modeling that was just completed (something like `FINAL_R6`).   
