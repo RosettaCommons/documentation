@@ -24,8 +24,8 @@ A demo of auto-DRRAFTER is available in `ROSETTA_HOME/main/demos/public/drrafter
   
 1. Download Rosetta here <https://www.rosettacommons.org/software/license-and-download>. You will need to get a license before downloading Rosetta (free for academic users). auto-DRRAFTER will be available starting in Rosetta weekly releases *after* 2019.47. **auto-DRRAFTER is NOT available in Rosetta 3.11 (it will be available in 3.12)**.  
 2. If you're not using the precompiled binaries (these are available for Mac and Linux and you can access them by downloading source+binaries in Step 1), install Rosetta following the instructions available [here] (https://www.rosettacommons.org/docs/latest/build_documentation/Build-Documentation).  
-3. Make sure you have python installed and install networkx and mrcfile. For example, type: pip install networkx mrcfile
-4. Install EMAN2 version 2.22 (https://blake.bcm.edu/emanwiki/EMAN2/Install). Confirm that e2proc3d.py and e2segment3d.py are installed by typing:   
+3. Make sure you have python installed and install networkx and mrcfile. For example, type: `pip install networkx mrcfile`
+4. Install EMAN2 version 2.22 (https://blake.bcm.edu/emanwiki/EMAN2/Install). Confirm that `e2proc3d.py` and `e2segment3d.py` are installed by typing:   
 ```
 e2proc3d.py –h
 ```
