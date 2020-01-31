@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-01-18
+Generated: 2020-01-31
 
 _Note that some application specific options may not be present in this list._
 
@@ -5678,6 +5678,10 @@ _Note that some application specific options may not be present in this list._
 <dd>The number of rounds of FastRelax that will be applied.  Does nothing if do_final_fullatom_refinement is false.  Set to 3 by default.<br/>Default: 3<br/></dd>
 <dt><b>-find_disulfides</b> \<Boolean\></dt>
 <dd>If true, the full-atom refinement steps include trying disulfide permutations.  Does nothing if do_final_fullatom_refinement is false.  True by default.<br/>Default: true<br/></dd>
+<dt><b>-ignore_native_residues_in_rmsd</b> \<IntegerVector\></dt>
+<dd>A whitespace-separated list of residues in the pose provided with -in:file:native which should NOT be used in calculating the RMSD.  The alignment will skip these residues.  For example, if the generated structures are 10 residues long, the native is 11, and residue 5 is skipped, then residues 1-4 will be aligned to residues 1-4 of the generated structures, and residues 6-11 of the native wil be aligned to resiudues 5-10 of the generated stuctures.<br/></dd>
+<dt><b>-ignore_prediction_residues_in_rmsd</b> \<IntegerVector\></dt>
+<dd>A whitespace-separated list of residues in the generated poses that will be ignored when aligning to the pose provided with -in:file:native.  These residues are skipped in the alignment -- so if, for example, residues 3 and 4 are specified, and the generated structures are 12 residues long and the native structure is 10 residues long, residues 1-2 of both structures will be aligned, and residues 5-12 of the generaetd structures will be aligned to residues 3-10 of the native.<br/></dd>
 </dl>
 + <h2>-holes</h2>
 <dl>
