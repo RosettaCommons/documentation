@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-01-31
+Generated: 2020-02-01
 
 _Note that some application specific options may not be present in this list._
 
@@ -898,6 +898,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Specifiy weights for seeded ensemble.  Must match number of inputs.  See also: -seed_ensemble_weights_file<br/></dd>
 <dt><b>-seed_ensemble_weights_file</b> \<File\></dt>
 <dd>A file specifying weights to use for each input structure.  Two columns.  basename with extension (or relative path or full path), weight<br/></dd>
+<dt><b>-HOSTNAME_in_jobname</b> \<Boolean\></dt>
+<dd>Pre-prefixes job with $HOSTNAME env var; useful for determining which server a job came from.  When running in k8s pods, makes jobs distinct if they are all _0001<br/></dd>
 </dl>
 + <h2>-view</h2>
 <dl>
