@@ -14,6 +14,10 @@ Performs a FastRelax with design enabled. By default, each repeat of FastDesign 
 
 For a list of relax scripts in the database, [[click here|RelaxScript]].
 
+### Deprecated behaviours
+
+Until 8 February 2020, the default behaviour of FastDesign was to disable packing at all positions for which side-chain minimization was disabled by the MoveMap.  This is counter-intuitive, since in all other cases, MoveMaps control only minimization, and not packing.  (Packing is normally controlled by TaskOperations).   This behaviour has therefore been deprecated.  It can still be re-enabled using the `movemap_disables_packing_of_fixed_chi_positions="true"` option in RosettaScripts.
+
 ##See Also
 * [[FastRelaxMover]]
 * [[Relax]]: The relax application
