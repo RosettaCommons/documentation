@@ -2,6 +2,8 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## FastRelax
 
+[[_TOC_]]
+
 **Temporary Note:** The increased repulsive feature presented at Rosettacon2018 can be [[found here|RelaxScript]].
 
 Performs the fast relax protocol.  This finds low-energy backbone and side-chain conformations near a starting conformations by performing many rounds of packing and minimizing, with the repulsive weight in the scoring function gradually increased from a very low value to the normal value from one round to the next.
