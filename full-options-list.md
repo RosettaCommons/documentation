@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-02-01
+Generated: 2020-02-08
 
 _Note that some application specific options may not be present in this list._
 
@@ -7641,6 +7641,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Tell FastRelax to respect the input resfile.  Used mainly for doing design within FastRelax.<br/>Default: false<br/></dd>
 <dt><b>-use_explicit_water</b> \<Boolean\></dt>
 <dd>Consider explicit waters (part of the hybrid solvation protocol) during relax<br/>Default: false<br/></dd>
+<dt><b>-movemap_disables_packing_of_fixed_chi_positions</b> \<Boolean\></dt>
+<dd>If true, positions for which the movemap prevents sidechain minimization will also have packing disabled.  False by default.<br/>Default: false<br/></dd>
 <dt><b>-bb_move</b> \<Boolean\></dt>
 <dd>allow backbone to move during relax<br/>Default: true<br/></dd>
 <dt><b>-chi_move</b> \<Boolean\></dt>
