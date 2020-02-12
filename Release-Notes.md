@@ -3,6 +3,90 @@
 <!--- BEGIN_INTERNAL -->
 ## _Rosetta 3.12 (draft notes)_
 * <!-- * A simple restype conversion utility which allows you to specify certain residue types from the database (including patched types), CCD or command line, and output them in PDB, sdf or params file output. [currently pilot app.] -->
+
+New apps:
+* [[constel]]
+* A simple restype conversion utility which allows you to specify certain residue types from the database (including patched types), CCD or command line, and output them in PDB, sdf or params file output. [currently pilot app.]
+* application for finding the lowest energy hydrophobic thickness
+* [[simple_cycpep_predict]] companions:
+** [[count-cycpep-sequences]] for counting unique sequences
+** Fragment-free structure prediction for cyclic peptides
+
+
+New tools:
+* ROSETTA_CRASH.log -  FILL THIS PART IN AFTER MERGES FINISH - MAYBE LET ROCCO DO IT
+** Also improved several termination messages
+* More new RelaxScripts - [[MonomerDesign2019]] and friends
+* [[SliceResidueSelector]]
+* [[AcceptToBestMover]] - replicates the accept_to_best command from inside FastRelax
+* [[SequenceSymmetricAnnealer]]
+* [[ContactMolecularSurface]]
+* [[stepwise]] sampler and infrastructure for general polymers
+* [[DumpTrajectoryEnergy]] extended to work with the packer
+* [[ResidueType]] split off [[MutableResidueType]] to support chemical modification on the fly
+
+Performance:
+* multithreaded packing is available.  Note that you must build in multithreaded mode.
+
+Updates and bugfixes:
+* [[FastRelax]]
+* [[GreenPacker]]
+* [[helical_bundle_predict]] and [[simple_cycpep_predict]]
+* Deprecation of APPLY_TO_POSE in RosettaScripts
+* [[TryDisulfidePermutations]]
+* make_symmdef_file.pl updates for fibers and apolar helical symmetries
+* RNA scoring weights
+* PDB segmentID tweaks
+* scientific tests development
+* JD3's MPIJobDistributor
+* XML objects converted to have less dependency on Poses at parsing time:
+** use ResidueSelectors internally
+** [[baseEtableEnergy]] get_count_pair_function_trie
+* [[InterfaceAnalyzer]]
+* [[RMSDMetric]]
+* [[StructProfileMover]]
+* [[MotifGraft]]
+* Fixes to the glycan chirality constraints in cart_bonded.
+* remodel disulfide builder
+* multiple matcher bugs
+* [[MonteCarlo]] better support for mismatching a pose's total score with the score being judged
+* [[Residue]] co-orientation logic and other changes to [[MutableResidueType]]
+* ResidueAtomTreeCollection
+* [[CompoundFilter]]
+* ligand docking [[FinalMinimizer]]
+* ligand docking [[FinalMinimizer]]
+* ligand docking [[HighResDocker]]
+* [[TCRmodel]]
+* [[LoadDensityMapMover]]
+* [[HybridizeMover]]
+* Ferreted out some integer division bugs, at least one of which affected hydrogen bonding math
+* The stored-in-Rosetta copy of the wwPDB components file (users are always welcome to update from the wwPDB directly!)
+** Also updates to make it play more nicely with D amino acids and proper protonation states of ATP (the one in wwPDB is wrong)
+* [[beta_nov16]] statistical water protocols
+* python2->3 fixes
+* [[ApproximateBuriedUnsat]]
+* [[FragmentStore]]
+* [[mhc_epitope]]
+* PDB reading
+* [[RollMover]]
+* [[ddG_filter]]
+* [[RosettaAntibodyDesign]]
+* SnugDock
+* [[PDBInfoLabel]]
+* [[PhiSelector]]
+* After only 10 years of angst, -jd2:delete_old_poses defaults to true
+* [[PruneBuriedUnsats]] still does not support symmetry, but it fails politely if you try
+* [[VirtualRootMover]]
+* [[graftswitchmover]]
+* Better mmTF IO support
+* [[SasaMetric]] - polar or hydrophobic SASA
+* [[ParatopeSiteConstraintMover]]
+* [[ParatopeEpitopeSiteConstraintMover]]
+* [[NmerRefEnergy]]
+* site.settings.release
+
+
+
 <!--- END_INTERNAL -->
 
 ## Rosetta 3.11
