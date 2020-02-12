@@ -383,6 +383,7 @@ These applications serve mainly to support other Rosetta applications, or to ass
 #### Apps
 Application | Description
 ------------ | -------------
+[[acetyltransfer]] | Simulate the action of a virtual acetyltransferase enzyme on a `.pdb` file.
 [[glycosyltransfer]] | Simulate the action of a virtual glycosyltransferase (GT) or oligosacharyltransferase (OST) enzyme on a `.pdb` file.
 [[phosphorylation]] | Simulate the action of a virtual kinase enzyme on a `.pdb` file.
 
