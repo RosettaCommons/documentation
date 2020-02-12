@@ -2,7 +2,6 @@
 
 <!--- BEGIN_INTERNAL -->
 ## _Rosetta 3.12 (draft notes)_
-* <!-- * A simple restype conversion utility which allows you to specify certain residue types from the database (including patched types), CCD or command line, and output them in PDB, sdf or params file output. [currently pilot app.] -->
 
 New apps:
 * [[constel]]
