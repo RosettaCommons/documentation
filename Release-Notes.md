@@ -5,16 +5,16 @@
 
 New apps:
 * [[constel]]
-* A simple restype conversion utility which allows you to specify certain residue types from the database (including patched types), CCD or command line, and output them in PDB, sdf or params file output. [currently pilot app.]
+* [[restype_converter]] A simple utility to convert between residue representations
 * application for finding the lowest energy hydrophobic thickness
 * [[simple_cycpep_predict]] companions:
-** [[count-cycpep-sequences]] for counting unique sequences
-** Fragment-free structure prediction for cyclic peptides
+    * [[count-cycpep-sequences]] for counting unique sequences
+    * Fragment-free structure prediction for cyclic peptides
 
 
 New tools:
-* ROSETTA_CRASH.log -  FILL THIS PART IN AFTER MERGES FINISH - MAYBE LET ROCCO DO IT
-** Also improved several termination messages
+* Rosetta produces a ROSETTA_CRASH.log file on errors. RosettaCommons now collects these reports at <https://crash.rosettacommons.org>, and the script source/scripts/python/public/report_crashes.py can be used to automatically send such files.
+    * Also improved several termination messages
 * More new RelaxScripts - [[MonomerDesign2019]] and friends
 * [[SliceResidueSelector]]
 * [[AcceptToBestMover]] - replicates the accept_to_best command from inside FastRelax
@@ -39,8 +39,8 @@ Updates and bugfixes:
 * scientific tests development
 * JD3's MPIJobDistributor
 * XML objects converted to have less dependency on Poses at parsing time:
-** use ResidueSelectors internally
-** [[baseEtableEnergy]] get_count_pair_function_trie
+    * use ResidueSelectors internally
+    * [[baseEtableEnergy]] get_count_pair_function_trie
 * [[InterfaceAnalyzer]]
 * [[RMSDMetric]]
 * [[StructProfileMover]]
@@ -60,9 +60,9 @@ Updates and bugfixes:
 * [[HybridizeMover]]
 * Ferreted out some integer division bugs, at least one of which affected hydrogen bonding math
 * The stored-in-Rosetta copy of the wwPDB components file (users are always welcome to update from the wwPDB directly!)
-** Also updates to make it play more nicely with D amino acids and proper protonation states of ATP (the one in wwPDB is wrong)
+    * Also updates to make it play more nicely with D amino acids and proper protonation states of ATP (the one in wwPDB is wrong)
 * [[beta_nov16]] statistical water protocols
-* python2->3 fixes
+* some python2->3 fixes
 * [[ApproximateBuriedUnsat]]
 * [[FragmentStore]]
 * [[mhc_epitope]]
