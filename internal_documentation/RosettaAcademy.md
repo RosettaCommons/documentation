@@ -146,6 +146,7 @@ Extended information from the above intro is available here: https://wiki.rosett
 To write and develop code, it is much easier if you have an IDE (Integrated Development Environment) available. It is basically an editor and compiler, which also links to version control and has tons of nice little features like linking to functions somewhere else in the code, bracket completion, indentation, finding errors, etc. The two IDEs commonly used are 
 
 * Xcode - for Mac: https://wiki.rosettacommons.org/index.php/Tools:XCode
+* VsCode - any platform: https://code.visualstudio.com/ C++ code navigation works out of the box.
 * Eclipse - any platform: https://wiki.rosettacommons.org/index.php/Tools:Eclipse
 * Netbeans - any platform: https://netbeans.org
 Talk to your mentor which program he thinks is best so he can also give you advise on how to use it. And don't be discouraged, it takes a while to figure out the details.
