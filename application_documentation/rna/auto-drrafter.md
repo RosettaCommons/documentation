@@ -18,7 +18,7 @@ auto-DRRAFTER code will be available in the Rosetta weekly releases after 2019.4
 
 All of the auto-DRRAFTER scripts are located in `ROSETTA_HOME/main/src/apps/public/DRRAFTER/`.
 
-A demo of auto-DRRAFTER is available in `ROSETTA_HOME/main/demos/public/drrafter/`. Instructions for the demo can be found [here](https://www.rosettacommons.org/demos/latest/public/auto-drrafter/README). ***It is highly recommended to go through the full demo before trying to run auto-DRRAFTER for your RNA.***
+A demo of auto-DRRAFTER is available in `ROSETTA_HOME/main/demos/public/drrafter/` (available in releases after 2020.03). Instructions for the demo can be found [here](https://www.rosettacommons.org/demos/latest/public/auto-drrafter/README). ***It is highly recommended to go through the full demo before trying to run auto-DRRAFTER for your RNA.***
 
 ##Setting up auto-DRRAFTER
   
@@ -42,7 +42,7 @@ export PATH=$PATH:$ROSETTA/main/source/src/apps/public/DRRAFTER/
 
 ##Required input files
 The following input files are required:  
-`fasta.txt`: The FASTA file listing the full sequence of your RNA molecule. It should contain one line that starts with '>' and lists the chain and residue numbers for the sequence, e.g. A:1-35. *Currently auto-DRRAFTER can only handle single chain RNAs.*  
+`fasta.txt`: The FASTA file listing the full sequence of your RNA molecule. It should contain one line that starts with '>' and lists the chain and residue numbers for the sequence, e.g. A:1-35. The RNA sequence should be specified with lower-case letters. *Currently auto-DRRAFTER can only handle single chain RNAs.*  
 `secstruct.txt`: A file containing the secondary structure of the complex in dot-bracket notation. The secondary structure should be the same length as the sequence found in the fasta file. This secondary structure will be enforced during the auto-DRRAFTER modeling. We recommend verifying predicted secondary structures biochemically with [M2-seq](https://doi.org/10.1073/pnas.1619897114).  
 `map.mrc`: The density map file in mrc format.  
 `job_submission_template.sh`: This should be a job submission script for the cluster you’re planning to run your job on. For example, it might look something like this:   
