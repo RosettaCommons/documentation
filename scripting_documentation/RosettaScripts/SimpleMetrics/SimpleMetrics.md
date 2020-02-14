@@ -153,7 +153,9 @@ Default is to calculate on ALL residues.
 
 SimpleMetric  | Description 
 ------------ | -------------
-**[[MousePerResidueEnergy]]** | Evaluate your interface using Mouse. | Yes
+**[[HbondMetric]]** | Calculate number of hydrogen bonds of residues in a selector or between two selectors
+**[[WaterMediatedHbondMetric]]** | A metric to measure hydrogen bonds between a set of residues that are water-mediated (bridged).  Can calculate different depths to traverse hbond networks.
+**[[MousePerResidueEnergy]]** | Evaluate your interface using Mouse. 
 **[[PerResidueDensityFitMetric]]** | Calculate the Fit of a  model to the loaded density either by Correlation or a Zscore.
 **[[PerResidueClashMetric]]** | Calculates the number of atomic clashes per residue using two residue selectors. Clashes are calculated through the leonard jones radius of each atom type.
 **[[PerResidueEnergyMetric]]** | Calculate any energy term for each residue.  Total energy is default.  If a native or repose is given, can calculate the energy delta for each residue.
