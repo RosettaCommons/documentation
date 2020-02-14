@@ -1,4 +1,4 @@
-# SetupForSequenceSymmetry
+# SetupForSequenceSymmetryMover
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 Page last updated 11 October 2019.
 
@@ -22,7 +22,7 @@ Say you have 7 chains: 2 dimers and a trimer (2+2+3):
 	<Chain name="trimer" chains="5,6,7"/>
 </RESIDUE_SELECTORS>
 <MOVERS>
-	<SetupForSequenceSymmetry name="setup_seq_symm" independent_regions="dimer1,dimer2,trimer"/>
+	<SetupForSequenceSymmetryMover name="setup_seq_symm" independent_regions="dimer1,dimer2,trimer"/>
 </MOVERS>
 ```
 

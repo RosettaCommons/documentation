@@ -297,7 +297,7 @@ See [Symmetric Docking movers](#Symmetric Docking movers) for protocols involvin
 Mover  | Description
 ------------ | -------------
 **[[SetupForSymmetry|SetupForSymmetryMover]]** | Symmeterizes a pose based on a definition file
-**[[SetupForSequenceSymmetry|SetupForSequenceSymmetryMover]]** | Allows you to define symmetric chains for complicated systems before using the KeepSequenceSymmetry task operation
+**[[SetupForSequenceSymmetryMover|SetupForSequenceSymmetryMover]]** | Allows you to define symmetric chains for complicated systems before using the KeepSequenceSymmetry task operation
 **[[DetectSymmetry|DetectSymmetryMover]]** | Symmeterizes a pose composed of symmetric chains
 **[[ExtractAsymmetricUnit|ExtractAsymmetricUnitMover]]** | Turn symmetric pose into a nonsymmetric pose (inverse of SetupForSymmetry)
 **[[ExtractSubpose|ExtractSubposeMover]]** | (Developer release only) Extracts a subset of a symmetric pose without modifying the original
