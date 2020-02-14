@@ -2,8 +2,6 @@
 *Back to [[SimpleMetrics]] page.*
 ## SelectedResiduesPyMOLMetric
 
-Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
-
 [[include:simple_metric_SelectedResiduesPyMOLMetric_type]]
 
 ##See Also
