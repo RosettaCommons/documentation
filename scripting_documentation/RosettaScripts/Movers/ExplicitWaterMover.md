@@ -1,3 +1,7 @@
+## Reference
+
+Biorxiv: https://www.biorxiv.org/content/10.1101/618603v2
+
 ## Overview
 
 The ExplicitWaterMover is a special-purpose mover (exposed through the [[RosettaScripts]] application) intended to be used in conjunction with the [[beta_nov16 potential function|Updates-beta-nov16]]. It, when used in conjunction with the [[packer|PackRotamersMover]], allows the modeling of explicit water molecules during a packing/design trajectory.
