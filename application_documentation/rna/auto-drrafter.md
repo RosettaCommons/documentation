@@ -198,11 +198,57 @@ This section would replace steps 1-3 of the pipeline above. We need to create th
 
 `helix_fit_in_map.pdb`: This PDB file should contain a piece of the RNA structure fit into the density map. Numbering must match that found in your fasta file (see below).  
 
-`fasta_mini_example.txt`: The fasta file for the DRRAFTER runs. Numbering should start from 0 and must match the numbering in all PDB files.     
+`fasta_mini_example.txt`: The fasta file for the DRRAFTER runs. Numbering should start from 0 and must match the numbering in all PDB files. All RNA residues should be denoted with lower-case letters (`a`,`c`,`g`,`u`).       
 
-`flags_mini_example_R1`: This file contains all the flags that will be used for the DRRAFTER run. **It's very important to set this file up properly. Please read carefully through the example below.**  
+`secstruct_mini_example.txt`: The secondary structure file for the DRRAFTER runs in dot-bracket notation. The length of the secondary structure should exactly match the length of the sequence in your fasta file.   
 
-+++++++++++++++++++++++++++++++++
+`flags_mini_example_R1`: This file contains all the flags that will be used for the DRRAFTER run. **It's very important to set this file up properly. Please read carefully through the example below.**   
+
+```
+-fasta <fasta_mini_example.txt>
+-secstruct_file <secstruct_mini_example.txt>
+-s <helix_fit_in_map.pdb> <helix_1.pdb helix_2.pdb helix_3.pdb ...>
+-edensity:mapfile <input_files/map.mrc>
+-edensity:mapreso <10.0>
+-out:file:silent <mini_example_R1.out>
+-cycles <1000>
+-dock_into_density <false>
+-nstruct <10>
+-new_fold_tree_initializer true
+-ft_close_chains false
+-bps_moves false
+-minimize_rna true
+-minimize_protein_sc true
+-rna_protein_docking true
+-rnp_min_first true
+-rnp_pack_first true
+-rnp_high_res_cycles 2
+-minimize_rounds 1
+-ignore_zero_occupancy false
+-convert_protein_CEN false
+-FA_low_res_rnp_scoring true
+-ramp_rnp_vdw true
+-docking_move_size 0.5 
+-dock_each_chunk_per_chain false
+-mute protocols.moves.RigidBodyMover
+-mute protocols.rna.denovo.movers.RNA_HelixMover
+-use_legacy_job_distributor true
+-no_filters
+-set_weights linear_chainbreak 20.0
+-jump_library_file RNA18_HUB_2.154_2.5.jump 
+-vall_torsions RNA18_HUB_2.154_2.5.torsions
+-score:weights stepwise/rna/rna_res_level_energy4.wts 
+-restore_talaris_behavior
+-edensity:cryoem_scatterers
+```
+
+The most important options that you will need to modify are:  
+**`-fasta <fasta_mini_example.txt>`**: You should replace `fasta_mini_example.txt` with your fasta file.  
+**`-secstruct_file <secstruct_mini_example.txt>`**: You should replace `secstruct_mini_example.txt` with your secondary structure file.  
+**`-s <helix_fit_in_map.pdb> <helix_1.pdb helix_2.pdb helix_3.pdb ...>`**: These are all of the pieces of the RNA structure for which you have PDB files. Importantly, you should have a separate PDB file for each of the RNA helices in your structure. You'll need to create these using `rna_helix.py` (see instructions [here](https://www.rosettacommons.org/docs/wiki/application_documentation/rna/RNA-tools#some-useful-tools_rna-modeling-utilities); make sure that you have [RNA tools set up first](https://www.rosettacommons.org/docs/wiki/application_documentation/rna/RNA-tools#setup).  
+
+
++++++++++++++++++++++++++++++++++          
 `command_mini_example_R1`: The commands for the DRRAFTER runs for the possible alignments of the helices into the density map.  
 
 `mini_example_H*.pdb`: Ideal A-form helices.   
@@ -212,5 +258,3 @@ This section would replace steps 1-3 of the pipeline above. We need to create th
 `mini_example_auto_fits.txt`: This file lists all of the different possible alignments of helices into the density map. Each alignment is numbered and listed on a separate line in this file.   
 
 `mini_example_init_points.pdb`: This PDB file contains all of the points that were placed into the density map in order to convert the density map into a graph.   
-
-`secstruct_mini_example.txt`: The secondary structure file for the DRRAFTER runs.
