@@ -3,7 +3,7 @@
 ##Metadata
 
 Author: Kalli Kappel (kkappel at alumni dot stanford dot edu)  
-Last updated: January 2020
+Last updated: February 2020
 
 ##Application purpose
 
@@ -191,3 +191,26 @@ python $ROSETTA/main/source/src/apps/public/DRRAFTER/finalize_models.py -fasta i
 
 This should print `Done finalizing models` to the screen, indicating that the modeling is complete. This creates the final models: `mini_example_all_models_all_fits_FINAL_R6.out.*.pdb`. These models should be carefully inspected in the context of the density map.
 
+##Manually setting up an auto-DRRAFTER run
+Sometimes you might know where a piece of your RNA structure should sit within your density map. If that's the case, you might want to actually use that information during auto-DRRAFTER modeling. This section describes how you can do that.  
+
+This section would replace steps 1-3 of the pipeline above. We need to create the following files:
+
+`helix_fit_in_map.pdb`: This PDB file should contain a piece of the RNA structure fit into the density map. Numbering must match that found in your fasta file (see below).  
+
+`fasta_mini_example.txt`: The fasta file for the DRRAFTER runs. Numbering should start from 0 and must match the numbering in all PDB files.     
+
+`flags_mini_example_R1`: This file contains all the flags that will be used for the DRRAFTER run. **It's very important to set this file up properly. Please read carefully through the example below.**  
+
++++++++++++++++++++++++++++++++++
+`command_mini_example_R1`: The commands for the DRRAFTER runs for the possible alignments of the helices into the density map.  
+
+`mini_example_H*.pdb`: Ideal A-form helices.   
+
+`mini_example_H*_full.out.1.pdb`: The same idea A-form helices from above with placeholder coordinates added for the hairpins.   
+
+`mini_example_auto_fits.txt`: This file lists all of the different possible alignments of helices into the density map. Each alignment is numbered and listed on a separate line in this file.   
+
+`mini_example_init_points.pdb`: This PDB file contains all of the points that were placed into the density map in order to convert the density map into a graph.   
+
+`secstruct_mini_example.txt`: The secondary structure file for the DRRAFTER runs.
