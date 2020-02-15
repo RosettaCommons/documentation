@@ -8,7 +8,7 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 ##See Also
 
-# [[ExplicitWaterMover]]: Add and sample Explicit waters in Rosetta
+* [[ExplicitWaterMover]]: Add and sample Explicit waters in Rosetta
 
 * [[ResidueSummaryMetric]]: Summarize a PerResidueRealMetric in various ways, such as the mean, sum, or the number of residues above, below, or equal to a certain value. 
 
