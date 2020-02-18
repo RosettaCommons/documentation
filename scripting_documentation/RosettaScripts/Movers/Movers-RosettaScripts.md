@@ -579,6 +579,7 @@ Mover  | Description
 ------------ | -------------
 **[[GlycosyltransferaseMover]]** | Simulates the activity of specific biological glycosyltransferases and oligosaccharyltrasferases by glycosylating a `Pose`.
 **[[KinaseMover]]** | Simulates the activity of specific biological kinase by phosphorylating a `Pose`.
+**[[NTerminalAcetyltransferaseMover]]** | Simulates the activity of specific biological N-terminal acetyltransferase by acetylating a `Pose` at its N-terminus.
 
 ##See Also
 
