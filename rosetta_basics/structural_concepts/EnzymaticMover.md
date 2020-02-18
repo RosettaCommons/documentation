@@ -48,14 +48,17 @@ The `EnzymaticMover` framework was conceived of and implemented by Jason W.
 Labonte <JWLabonte@jhu.edu>. Please contact him with any questions or criticism.
 
 ## Types
-Currently, only two `EnzymaticMover`s are written, but many more can and will be
+Currently, four `EnzymaticMover`s are written, but many more can and will be
 added to the Rosetta code base.
 
 * [[GlycosyltransferaseMover]]<br />
   Simulates the activity of specific biological glycosyltransferases and
-  oligosaccharyltrasferases by glycosylating a Pose.
+  oligosaccharyltrasferases by glycosylating a `Pose`.
 * [[KinaseMover]]<br />
-  Simulates the activity of specific biological kinase by phosphorylating a Pose.
+  Simulates the activity of specific biological kinases by phosphorylating a `Pose`.
+* [[NTerminalAcetyltransferaseMover]]<br />
+  Simulates the activity of specific biological N-terminal acetyltransferases by
+  acetylating a `Pose` at the N-terminus.
 
 ## Usage
 
@@ -162,12 +165,16 @@ used by the protocol.
 #### Current Apps
 * [[glycosyltransfer]]
 * [[phosphorylation]]
+* [[N-terminal_acetylation]]
 
 #### Example Command Lines
 ```
 $ glycosyltransfer -s input/1ABC.pdb -include_sugars -enzymes:species h_sapiens -enzymes:enzyme OGT -nstruct 5
 
 $ phosphorylation -s input/2DEF.pdb -enzymes:species h_sapiens -nstruct 1
+
+
+$ N-terminal_acetylation -s input/4JKL.pdb -nstruct 1
 ```
 
 ## Enzyme Data Files
@@ -199,6 +206,10 @@ IUPAC carbohydrate sequence.
   * Parentheses are used to specify multiple possible residue types at that
   site, separated by forward slashes, _e.g._, `(A/G)` specifies either Ala or Gly at
   that position.
+  * A `<` in the first position indicates that the sequon must be located at the 
+  N-terminus.
+  * A `>` in the final position indicates that the sequon must be located at the 
+  C-terminus.
 * Sequence type &mdash; This value must be `AA`, `NA`, or `SACCHARIDE`, for the 
 three types of sequences accepted.
 * Residue of CS to modify &mdash; An integer representing the sequence position
@@ -309,3 +320,4 @@ provide a minimal sequon, have 100% efficiency, and not be promiscuous.
 
 ----------
 Documentation created 5 April 2019 by Jason W. Labonte <JWLabonte@jhu.edu>.
+Documentation updated 18 February 2020 by Jason W. Labonte <JWLabonte@jhu.edu>.
