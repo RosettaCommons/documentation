@@ -1,4 +1,4 @@
-# DNA_methylation
+# DNA-methylation
 
 [[_TOC_]]
 
