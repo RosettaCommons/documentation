@@ -18,19 +18,19 @@ Example
 
     ...
     <TASKOPERATIONS>
-      <ReadResfile name=rrf/>
-      <ReadResfile name=rrf2 filename=resfile2/>
-      <PreventRepacking name=NotBeingUsedHereButPresenceOkay/>
-      <RestrictResidueToRepacking name=restrict_Y100 resnum=100/>
-      <RestrictToRepacking name=rtrp/>
-      <OperateOnResidueSubset name=NoPackHelix>
+      <ReadResfile name="rrf"/>
+      <ReadResfile name="rrf2" filename="resfile2"/>
+      <PreventRepacking name="NotBeingUsedHereButPresenceOkay"/>
+      <RestrictResidueToRepacking name="restrict_Y100" resnum="100"/>
+      <RestrictToRepacking name="rtrp"/>
+      <OperateOnResidueSubset name="NoPackHelix">
           <SecondaryStructure ss="H" />
           <PreventRepackingRLT/>
       </OperateOnResidueSubset>
     </TASKOPERATIONS>
     ...
     <MOVERS>
-      <PackRotamersMover name=packrot scorefxn=sf task_operations=rrf,NoPackHelix,rtrp,restrict_Y100/>
+      <PackRotamersMover name="packrot" scorefxn="sf" task_operations="rrf,NoPackHelix,rtrp,restrict_Y100"/>
     </MOVERS>
     ...
 
