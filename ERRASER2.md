@@ -1,4 +1,4 @@
-#Remodeling RNA crystallographic models with electron density constraint (ERRASER: Enumerative Real-Space Refinement ASsitted by Electron density under Rosetta)
+#Remodeling RNA, RNA/protein, or RNA/ligand crystallographic models with electron density (ERRASER2: Enumerative Real-Space Refinement ASsitted by Electron density under Rosetta... 2)
 
 Metadata
 ========
@@ -31,16 +31,16 @@ This method pipelines Rosetta full-atom minimization and enumerative stepwise re
 Limitations
 ===========
 
--   ERRASER works only for RNA currently. Other parts in crystallographic model, including proteins, modified bases and ligands, are not being modeled. Remodeling of RNA residues that are in close contact with these components may be problematic. We are planning to tackle these issues in the future, but for now ERRASER seems to be work well for most RNA residues. Residues in close contact with non-RNA components can also be held fixed in ERRASER to avoid problematic rebuilding.
+-   Although ERRASER2 can work for complexes with RNA, protein, ligands, or both, it's the RNA and ligands that get resampled -- any other components are held fixed and just contribute to the scoring "environment" of the components that can be resampled. Furthermore, we can't produce _ad hoc_ torsional potentials for, e.g., chemically modified nucleotides with additional chi angles; any conformational preferences will have to be read out through existing Rosetta one- and two-body energies scores and correspondence to the electron density.
 
--   Currently crystal contacts are not being modeled, which is known to cause problems in a few test cases when RNA is interacting strongly with its crystal-packing partner (ex. base-pairing and base-stacking). Right now this problem can be resolved by mannually add the crystal-packing partner into the starting pdb file. We are planning to model crystal-packing in the future.
+-   Currently crystal contacts are not being modeled, which is known to cause problems in a few test cases when RNA is interacting strongly with its crystal-packing partner (ex. base-pairing and base-stacking). Right now this problem can be resolved by manually adding the crystal-packing partner into the starting PDB file under consideration.
 
--   The PHENIX refinement package is required for the ERRASER pipeline. The users can download PHENIX from [http://www.phenix-online.org](http://www.phenix-online.org) (free for academic usage)
+-   To point out a limitation that has been _resolved_, unlike [[ERRASER]], the PHENIX refinement package is not required.
 
 Modes
 =====
 
-There is only one mode to run ERRASER at present.
+There is only one mode to run ERRASER2 at present.
 
 Input Files
 ===========
@@ -50,9 +50,9 @@ Required files
 
 You need two files:
 
--   The starting structure in standard pdb format. The ERRASER directly takes the standard pdb file and convert it to Rosetta format automatically, therefore no pre-processing is required.
+-   The starting structure in standard PDB format; no pre-processing is required.
 
--   A CCP4 electron density map file. This can be created by PHENIX or other refinement packages. The input map must be a CCP4 2mFo-DFc map. To avoid overfitting, Rfree reflection should be excluded during the creation of the map file.
+-   A CCP4 electron density map file. This can be created by PHENIX or other refinement packages. The input map must be a CCP4 2mFo-DFc map. To avoid overfitting, Rfree reflections should be excluded during the creation of the map file.
 
 Optional additional files:
 --------------------------
@@ -62,175 +62,41 @@ Optional additional files:
 How to run the job
 ------------------
 
-Prior to running ERRASER, the following setup is required:
-
-1.  Download and install PHENIX from [http://www.phenix-online.org/](http://www.phenix-online.org/) . PHENIX is free for academic users.
-2.  Ensure you have correctly setup PHENIX. As a check, run the following command and see if it works:
-
-    ```
-    phenix.rna_validate
-    ```
-
-3.  Check if you have the latest python (v2.7) installed. If not, go to the `        rosetta/rosetta_tools/ERRASER/       ` folder and run
-
-    ```
-    ./convert_to_phenix.python
-    ```
-
-    This will change the default python used by the code to phenix-built-in python, instead of using system python.
-
-4.  Set up the environmental variable "\$ROSETTA", point it to the Rosetta folder. If you use bash, append the following lines to `        ~/.bashrc       ` :
-
-    ```
-    ROSETTA=<YOUR_ROSETTA_PATH>; export ROSETTA
-    ```
-
-    Also add the ERRASER script folder to \$PATH. Here is a bash example:
-
-    ```
-    PATH=$PATH:<YOUR_ROSETTA_PATH>/rosetta_tools/ERRASER/
-    ```
-
-Now you are ready to go!
-
-ERRASER can be simply run with the python script `       erraser.py      ` in the `       rosetta_tools/ERRASER/      ` directory. If you followed the setup instruction above, you should now be able to run ERRASER directly from command line:
+ERRASER can be run with the invocation
 
 ```
-erraser.py -pdb 1U8D_cut.pdb -map 1U8D_cell.ccp4 -map_reso 1.95 -fixed_res A33-37 A61 A65 
+erraser2 -s 1U8D_cut.pdb -edensity:mapfile 1U8D_cell.ccp4 -fasta fasta.txt @ flags
 ```
 
-The first two arguments are required – the input pdb file and the CCP4 map file. The last two arguments are optional; they supply the map resolution and the residues need to be fixed during rebuilding.
-
-You can see examples of the output pdb file in `       example_output/      ` .
-
-Command-lines in some more detail.
----------------------------
-
-The above workflow should work, but its worth looking at the rosetta command-lines called by the python scripts to see what's going on.
-
-The minimization step:
+The first three arguments are required – the input pdb file, the CCP4 map file, and a specially formatted fasta file that includes residue chain/numbering information. For example, for the tRNA-Cys + EF-Tu complex 1B23, the fasta might look like:
 
 ```
-erraser_minimizer.<exe> -database <path to database> -native <input pdb> -out_pdb <output pdb> 
--score::weights rna/rna_hires_elec_dens -score:rna_torsion_potential RNA09_based_2012_new 
--vary_geometry true -fixed_res <fixed residue list> 
--edensity:mapfile <map file> -edensity:mapreso 2.0 -edensity:realign no
+>1b23.pdb  R:1-16 R:18-46 R:48-76
+ggcgcguX[4SU]aacaaagcggX[H2U]X[H2U]auguagcggaX[PSU]ugcaX[MIA]aX[PSU]ccgucuaguccggX[5MU]X[PSU]cgacuccggaacgcgccucca
+
+>1b23.pdb  P:1-405
+AKGEFIRTKPHVNVGTIGHVDHGKTTLTAALTYVAAAENPNVEVKDYGDIDKAPEERARGITINTAHVEYETAKRHYSHVDCPGHADYIKNMITGAAQMDGAILVVSAADGPMPQTREHILLARQVGVPYIVVFMNKVDMVDDPELLDLVEMEVRDLLNQYEFPGDEVPVIRGSALLALEEMHKNPKTKRGENEWVDKIWELLDAIDEYIPTPVRDVDKPFLMPVEDVFTITGRGTVATGRIERGKVKVGDEVEIVGLAPETRKTVVTGVEMHRKTLQEGIAGDNVGLLLRGVSREEVERGQVLAKPGSITPHTKFEASVYILKKEEGGRHTGFFTGYRPQFYFRTTDVTGVVRLPQGVEMVMPGDNVTFTVELIKPVALEEGLRFAIREGGRTVGAGVVTKILE
 ```
 
-The rebuilding step with loop closure:
+Note the provision of residue and chain information in the title line, and the specification of chemically modified residues using X and then the PDB three letter code in brackets. This type of FASTA file may be generated using the `pdb2fasta.py` script provided in the Rosetta `tools/rna_tools/pdb_util` directory.
+
+The flags file might contain some optional arguments:
 
 ```
-swa_rna_analytical_closure.<exe> -database <path to database> -algorithm rna_resample_test -s <input pdb> -native <native pdb> 
--out:file:silent blah.out -sampler_extra_syn_chi_rotamer true -sampler_cluster_rmsd 0.3 -native_edensity_score_cutoff 0.9 
--sampler_native_rmsd_screen true -sampler_native_screen_rmsd_cutoff 2.0 -sampler_num_pose_kept 30 -PBP_clustering_at_chain_closure true 
--allow_chain_boundary_jump_partner_right_at_fixed_BP true -add_virt_root true -sample_res 2 -cutpoint_closed 2  
--fasta fasta -input_res 1 3-4 -fixed_res 1 3-4 -jump_point_pairs NOT_ASSERT_IN_FIXED_RES 1-4 -alignment_res 1-4 -rmsd_res 4 
--score:weights rna/rna_hires_elec_dens -edensity:mapfile <map file> -edensity:mapreso 2.0 -edensity:realign no 
--score:rna_torsion_potential RNA09_based_2012_new
-```
-
-The rebuilding step at terminal residue:
-
-```
-swa_rna_main.<exe> -database <path to database> -algorithm rna_resample_test -s <input pdb> -native <native pdb> 
--out:file:silent blah.out -sampler_extra_syn_chi_rotamer true -sampler_cluster_rmsd 0.3 -native_edensity_score_cutoff 0.9 
--sampler_native_rmsd_screen true -sampler_native_screen_rmsd_cutoff 2.0 -sampler_num_pose_kept 30 -PBP_clustering_at_chain_closure true 
--allow_chain_boundary_jump_partner_right_at_fixed_BP true -add_virt_root true -sample_res 2 -cutpoint_closed 2 
--fasta fasta -input_res 1-4 -fixed_res 2-4 -jump_point_pairs NOT_ASSERT_IN_FIXED_RES 1-4 -alignment_res 1-4 -rmsd_res 4 
--score:weights rna/rna_hires_elec_dens -edensity:mapfile <map file> -edensity:mapreso 2.0 -edensity:realign no 
--score:rna_torsion_potential RNA09_based_2012_new
-```
-
-Options
-=======
-
-Below are a list of available arguments for `       erraser.py      ` .
-
-```
-Required:
-
--pdb
-Format: -pdb <input pdb>
-The starting structure in standard pdb format.
-
--map
-Format: -map <map file>
-2mFo-DFc map file in CCP4 format. Rfree should be excluded.
-
-Commonly used:
-
--map_reso
-Format: -map_reso <float> / Default: 2.0
-The resolution of the input density map. It is highly recommanded to input the map 
-resolution whenever possible for better result.
-
--out_pdb
-Format: -out_pdb <string> / Default: <input pdb name>_erraser.pdb.
-The user can output to other name using this option.
-
--n_iterate
-Format: -n_iterate <int> / Default: 1
-The number of rebuild-minimization iteration in ERRASER. The user can increase the
-number to achieve best performance. Usually 2-3 rounds will be enough. Alternatively,
-the user can also take a ERRASER-refined model as the input for a next ERRASER run to
-achieve mannual iteration.
-
--fixed_res
-Format: -fixed_res <list> / Default: <empty>
-(Example: A1 A14-19 B9 B10-13  #chain ID followed by residue numbers)
-This allows users ton fix selected RNA residues during ERRASER. For example, because
-protein and ligands are not modeled in ERRASER, we recommand to fix RNA residues 
-that interacts strongly with these unmodeled atoms. ERRASER will automatically 
-detect residues covalently bonded to removed atoms and hold them fixed during the 
-rebuild, but users need to specify residues having non-covalent interaction with 
-removed atoms mannually.
-
--kept_temp_folder
-Format: -kept_temp_folder <True/False> / Default: False
-Enable this option allows user to examine intermediate output files storing in the 
-temp folder. The default is to remove the temp folder after job completion.
-
-Other: 
-
--rebuild_extra_res
-Format/Default: Same as -fixed_res
-This allows users to specify extra residues and force ERRASER to rebuild them. 
-ERRASER will automatically pick out incorrect residues, but the user may be able 
-to find some particular residues that was not fixed after one ERRASER run. The user 
-can then re-run ERRASER with -rebuild_extra_res argument, and force ERRASER to 
-remodel these residues.
-
--cutpoint_open
-Format/Default: Same as -fixed_res
-This allows users to specify cutpoints (where the nucleotide next to it is not 
-connected to itself) in the starting model. Since ERRASER will detect cutpoints in 
-the model automatically, the users usually do not need to specify this option.
-
--use_existing_temp_folder
-Format: -use_existing_temp_folder <True/False> / Default: True
-When is True, ERRASER will use any previous data stored in the existing temp folder 
-and skip steps that has been done.Useful when the job stopped abnormally and the 
-user try to re-run the same job. Disable it for a fresh run without using previously 
-computed data.
-
--rebuild_all
-Format: -rebuild_all <True/False> / Default: False
-When is True, ERRASER will rebuild all the residues instead of just rebuilding 
-errorenous ones. Residues in "-fixed_res" (see below) are still kept fixed during 
-rebuilding. It is more time consuming but not necessary leads to better result. 
-Standard rebuilding with more iteration cycles is usually prefered.
-
--native_screen_RMSD
-Format: -native_screen_RMSD <float> / Default: 2.0
-In ERRASER default rebuilding, we only samples conformations that are within 2.0 A to 
-the starting model (which is the "native" here). The user can modify the RMSD cutoff. 
-If the value of native_screen_RMSD is larger than 10.0, the RMSD screening will be turned off.
+-edensity:map_reso 1.95   # the resolution of the electron density map
+-score:weights stepwise/rna/rna_res_level_energy7beta.wts   # 'beta' scorefunction that serves as a starting point for the code
+-set_weights elec_dens_fast 30.0 cart_bonded 50.0 linear_chainbreak 10.0 chainbreak 10.0 fa_rep 1.5 fa_intra_rep 0.5 rna_torsion 10 suiteness_bonus 5 rna_sugar_close 10   # modifications to the scoring function to make it more appropriate for electron density scoring
+-rmsd_screen 3.0   # during rebuilds, only consider conformations within 3.0 Å of the starting conformation
+-ignore_zero_occupancy false   # do not remove from the input model residues with zero occupancy in the PDB file
+-missing_density_to_jump   # situational -- if there are gaps in the numbering, ensure they are connected by "jumps" in the Rosetta internal coordinate representation
+-allow_virtual_side_chains false   # do not virtualize protein side chains during RNA resampling
+-pack_protein_side_chains false   # do not pack protein side chains during RNA resamping
 ```
 
 Expected Outputs
 ================
 
-At the end you will get a output pdb file in standard pdb format. The output file is in the standard PDB format and inherits all the ligands, metals and waters from the input pdb file. You can then further refine the output model directly using PHENIX or other refinement packages without any post-processing.
+At the end you will get a output pdb file in standard pdb format. The output file is in the standard PDB format; you may want to add back in any metals, ligands, or water molecules that Rosetta could not model. (Rosetta uses an implicit solvent model and will not consider input waters.) You can then further refine the output model directly using PHENIX or other refinement packages without any post-processing.
 
 New things since last release
 =============================
