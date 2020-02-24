@@ -96,13 +96,7 @@ The flags file might contain some optional arguments:
 Expected Outputs
 ================
 
-At the end you will get a output pdb file in standard pdb format. The output file is in the standard PDB format; you may want to add back in any metals, ligands, or water molecules that Rosetta could not model. (Rosetta uses an implicit solvent model and will not consider input waters.) You can then further refine the output model directly using PHENIX or other refinement packages without any post-processing.
-
-New things since last release
-=============================
-
-* All the application used here (*erraser\_minimizer* , *swa\_rna\_analytical\_closure* and *swa\_rna\_main*) are new as of Rosetta 3.4. A new electron density scoring method `       elec_dens_atomwise      ` is used in ERRASER. ERRASER also uses an updated rna torsional potential based on RNA09 dataset. 
-* Recent updates/fixes to the ERRASER code base have been made to address possible bug-related inaccuracies. For best results, all ERRASER users should download/install a weekly build of Rosetta 2015.35 (released Sept. 24, 2015) or later.
+At the end you will get a output PDB file in standard PDB format. The output file is in the standard PDB format; you may want to add back in any metals, ligands, or water molecules that Rosetta could not model. (Rosetta uses an implicit solvent model and will not consider input waters.) You can then further refine the output model directly using PHENIX or other refinement packages without any post-processing.
 
 
 ##See Also
