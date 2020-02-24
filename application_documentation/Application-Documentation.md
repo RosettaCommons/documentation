@@ -106,6 +106,7 @@ Component | Description
 -  [[Stepwise monte carlo|stepwise]] - Generate 3D models of protein, RNA, and protein/RNA loops, motifs, and interfaces. Stochastic version of stepwise assembly. 
 -  [[RNA assembly with experimental constraints|rna-assembly]] - Predict 3-dimensional structures of large RNAs with the help of experimental constraints. Note – largely deprecated by newer pipeline (documentation coming soon).
 -  [[ERRASER]] - Refine an RNA structure given electron density constraints.  
+-  [[ERRASER2]] - An update to ERRASER that eliminates the need for a particular Python environment and Phenix evaluation, in favor of exclusively internal Rosetta tools. Still unpublished/officially "beta."
 -  [[DRRAFTER]] - Build RNA coordinates into cryoEM maps of RNA-protein assemblies.
 -  [[auto-DRRAFTER]] - Automatically build RNA coordinates into cryo-EM maps (currently for maps that do not contain proteins).
 -  [[Sample around nucleobase]] - Visualizing energy functions by scanning probe molecules around a nucleobase.
