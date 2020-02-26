@@ -35,7 +35,7 @@ References
 
 We recommend the following articles for further studies of RosettaDock methodology and applications:
 
--   Marze, N. A.; Roy Burman, S. S.; Sheffler, W.; Baker, D.; Gray, J. J., Successful docking of moderately flexible proteins using a fast, coarse-grained score function and enhanced conformer selection. In preparation.
+-   Marze, N. A.; Roy Burman, S. S.; Sheffler, W.; Gray, J. J. (2018) Efficient flexible backbone protein–protein docking for challenging targets. Bioinformatics 34(20), pp 3461–3469
 
 Application purpose
 ===========================================

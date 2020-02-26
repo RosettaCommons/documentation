@@ -11,6 +11,6 @@ The inverse of SetupForSymmetry: given a symmetric pose, make a nonsymmetric pos
 ```
 
 -   **keep_virtual**: If true, virtual atoms will be left in the pose. If false, the extracted asymmetric unit will not contain virtual atoms.
--   **keep_unknown_aas**: If true, amino acids in the input symmetric pose with aa type aa_unk will be included in the asymmetric unit. If false, amino acids with type aa_unk will be ignored and will not be included in the resulting asymmetric unit.
+-   **keep_unknown_aas**: Deprecated option.  All de-symmetrization will keep non-cannonical amino acids.
 
 ---

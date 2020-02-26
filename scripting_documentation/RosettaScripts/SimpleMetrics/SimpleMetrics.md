@@ -1,7 +1,7 @@
 # SimpleMetrics
 *Back to main [[RosettaScripts|RosettaScripts]] page.*
 
-SimpleMetrics are a new way to do analysis in Rosetta, and will eventually replace the Filter system and most filters.  They are declared in the new `<SIMPLE_METRICS>` block of RosettaScripts and are available in weekly releases after April 10th, 2018.  All data calculated by a SimpleMetric can be output to a score file with the metric name and any set prefix and/or suffix. These sets of SimpleMetrics can be also be run at different points in a protocol, such as before and after a particular mover or set of movers. See [[RunSimpleMetrics]] for more on the syntax of how to run them in in your protocol.  Filters were never meant to do analysis in the way they are being used currently.  The SimpleMetric framework aims to correct this. The SimpleMetrics on this page are broken into what kind of data they calculate.  
+SimpleMetrics are a new way to do analysis in Rosetta, and have replaced the old Filter system and most filters for analysis.  They are declared in the new `<SIMPLE_METRICS>` block of RosettaScripts and are available in weekly releases after April 10th, 2018.  All data calculated by a SimpleMetric can be output to a score file with the metric name and any set prefix and/or suffix. These sets of SimpleMetrics can be also be run at different points in a protocol, such as before and after a particular mover or set of movers. See [[RunSimpleMetrics]] for more on the syntax of how to run them in in your protocol.  Filters were never meant to do analysis in the way they are being used currently.  The SimpleMetric framework aims to correct this. The SimpleMetrics on this page are broken into what kind of data they calculate.  
 
 All SimpleMetrics can also be used as Filters, using the [[SimpleMetricFilter]].
  
@@ -121,7 +121,8 @@ SimpleMetric  | Description | ResidueSelector Compatability?
 ------------ | ------------- | -------------
 **[[DihedralDistanceMetric]]** | Calculates the normalized dihedral angle distance in degrees from directional statistics on a set of dihedrals/residues of two poses or two regions of a pose.  | Yes
 **[[InteractionEnergyMetric]]** | Calculates the (long range and short range) interaction energy between a selection and all other residues or another selection. Can be set to only calculate short or long or only use certain score terms such as fa_rep. | Yes
-**[[ResidueSummaryMetric]]** | A metric that takes a _PerResidueRealMetric_ and summarized the data in different ways, such means or the number of residues that match a certain criteria. | Yes
+**[[MouseTotalEnergy]]** | Evaluate your interface using Mouse. | Yes
+**[[ResidueSummaryMetric]]** | A metric that takes a _PerResidueRealMetric_ and summarizes the data in different ways, such as the sum, mean, or the number of residues that match a certain criteria. Can use cached data. | Yes
 **[[RMSDMetric]]** | Calculates the RMSD between two poses or on a subset of residues.  Many options for RMSD including bb, heavy, all, etc. | Yes 
 **[[SasaMetric]]** | Calculates the Solvent Accessible Surface Area (sasa). | Yes
 **[[SelectedResidueCountMetric]]** | Count the number of residues in a selection (or whole pose). | Yes
@@ -147,17 +148,19 @@ SimpleMetric  | Description | ResidueSelector Compatability?
 
 ##PerResidueRealMetrics
 These metrics calculate a single real number (or integer) for every Residue selected by a residue selector.
-Default is to calculate on ALL residues.  Also outputs the SUM of the residues. 
-All accept ResidueSelectors.  Output can be in Rosetta or PDB Numbering.  
+Default is to calculate on ALL residues.  
+**All accept ResidueSelectors.**  Output can be in Rosetta or PDB Numbering.  You can use the [[ResidueSummaryMetric]] to calculate the sum, mean, etc. from a PerResidueMetric.  
 
 SimpleMetric  | Description 
 ------------ | -------------
+**[[HbondMetric]]** | Calculate number of hydrogen bonds of residues in a selector or between two selectors
+**[[MousePerResidueEnergy]]** | Evaluate your interface using Mouse. 
 **[[PerResidueDensityFitMetric]]** | Calculate the Fit of a  model to the loaded density either by Correlation or a Zscore.
 **[[PerResidueClashMetric]]** | Calculates the number of atomic clashes per residue using two residue selectors. Clashes are calculated through the leonard jones radius of each atom type.
 **[[PerResidueEnergyMetric]]** | Calculate any energy term for each residue.  Total energy is default.  If a native or repose is given, can calculate the energy delta for each residue.
 **[[PerResidueRMSDMetric]]** | Calculate the RMSD for each residue between the input and either the native or a reference pose.
 **[[PerResidueSasaMetric]]** | Calculate the Solvent Accessible Surface Area (SASA) of each residue.
-
+**[[WaterMediatedHbondMetric]]** | A metric to measure hydrogen bonds between a set of residues that are water-mediated (bridged).  Can calculate different depths to traverse complex hbond networks.
 
 ##PerResidueStringMetrics
 These metrics output a single string for each residue of a residue selector. 
@@ -169,7 +172,7 @@ These metrics calculate a set of named real numbers. All metric values in the co
 SimpleMetric  | Description | ResidueSelector Compatability?
 ------------ | ------------- | -------------
 **[[CompositeEnergyMetric]]** | Calculates each individual scoreterm of a scorefunction or the DELTA of each scoreterm between two poses.  Each named value is the scoreterm | Yes
-
+**[[ElectrostaticComplementarityMetric | simple_metric_ElectrostaticComplementarityMetric_type ]]** | Calculates the McCoy, Chandana, Colman Electrostatic complementarity using APBS. | Yes
 
 ##CompositeStringMetrics
 

@@ -82,6 +82,7 @@ For RosettaCommons developers, we have a version of the Doxygen documentation wh
 
 - [[New energy method]] - How to add a new energy term.
 - [[Resfile reader]] - How to extend the resfile reader.
+- [[Multithreading]] - How to add support for multithreading.
 
 ##Testing changes
 

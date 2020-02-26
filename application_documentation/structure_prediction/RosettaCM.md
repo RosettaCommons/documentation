@@ -143,6 +143,16 @@ Save the above XML file as **hybridize.xml**.  Then, RosettaCM is run using the 
          -default_max_cycles 200 \
          -dualspace
 
+Within the tools/protein_tools/scripts/ directory is the RosettaEnzCM.py script that will generate atomic pairwise constraints for predicted catalytic residues. To use this script you will need:
+
+* An aligned fasta file with all template and target sequences
+* Template pdbs
+* A file that contains catalytic residue information of your templates
+
+To run the the script type:
+
+    python RosettaEnzCM.py -c "Cat. Res. File" -a "Aligned.fasta" -n "Output-Name (Optional)"
+
 ### Post Processing
 
 See [[Analyzing Results]]: Tips for analyzing results generated using Rosetta

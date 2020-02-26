@@ -1,4 +1,4 @@
-#Application Documentation
+### ### #Application Documentation
 
 Below is a list of the currently released applications containing developer documentation. Click on an application to
 see a more detailed description of the purpose and for detailed examples. If a released application is missing, please
@@ -38,7 +38,8 @@ While most of these applications focus on prediction, many have options which wi
     * [[IterativeHybridize]]
 
 - [[Floppy tail]] - Predict structures of long, flexible N-terminal or C-terminal regions.
-- [[Fold-and-dock]] - Predict 3-dimensional structures of symmetric homooligomers.  
+- [[Fold-and-dock]] - Predict 3-dimensional structures of symmetric homooligomers.
+- [[Helical bundle structure prediction|helical-bundle-predict]] - Predict structures of predominantly helical heteropolymers from sequence.  Uses a fragment-free approach that is good for proteins and non-natural heterpolymers with no close relatives of known structure.  Experimental.
 - [[Molecular replacement protocols|mr-protocols]] - Use Rosetta to build models for use in X-ray crystrallography molecular replacement.  
     * [[Prepare template for MR]] - Setup script for molecular replacement protocols.  
 - [[Relax]] - "Locally" optimize structures, including assigning sidechain positions.
@@ -95,6 +96,7 @@ Component | Description
 -----------------------------
 
 ###RNA and RNA/protein
+-  [[FARFAR2|FARFAR2]] - Predict whole RNA structures in one step
 -  [[RNA structure prediction|rna-denovo-setup]] - Predict 3-dimensional structures of RNA from their nucleotide sequence. Read this first. 
  *  [[RNA tools]] - Tools useful for RNA and RNA/proteinm including general PDB editing, cluster submission, job setup.
  *  [[RNA threading|rna-thread]] - Thread a new nucleotide sequence on an existing RNA structure.  
@@ -104,7 +106,9 @@ Component | Description
 -  [[Stepwise monte carlo|stepwise]] - Generate 3D models of protein, RNA, and protein/RNA loops, motifs, and interfaces. Stochastic version of stepwise assembly. 
 -  [[RNA assembly with experimental constraints|rna-assembly]] - Predict 3-dimensional structures of large RNAs with the help of experimental constraints. Note – largely deprecated by newer pipeline (documentation coming soon).
 -  [[ERRASER]] - Refine an RNA structure given electron density constraints.  
+-  [[ERRASER2]] - An update to ERRASER that eliminates the need for a particular Python environment and Phenix evaluation, in favor of exclusively internal Rosetta tools. Still unpublished/officially "beta."
 -  [[DRRAFTER]] - Build RNA coordinates into cryoEM maps of RNA-protein assemblies.
+-  [[auto-DRRAFTER]] - Automatically build RNA coordinates into cryo-EM maps (currently for maps that do not contain proteins).
 -  [[Sample around nucleobase]] - Visualizing energy functions by scanning probe molecules around a nucleobase.
 -  [[RECCES]] - RNA free energy calculation with comprehensive sampling.
 -  [[RNA pharmacophore]] - Extract and cluster the key features present in RNA (rings, hbond donors & acceptors) from the structure of a protein-RNA complex.
@@ -123,6 +127,8 @@ Component | Description
    * [[Extract atomtree diffs]] - Extract structures from the AtomTreeDiff file format.
 
 - [[Docking Approach using Ray-Casting|DARC]] (DARC) - Docking method to specifically target protein interaction sites.
+
+- [[Terpene docking]] - Terdockin: Docking protocol for terpene synthases.
  
 ###Peptide Docking
 - [[Flexible peptide docking|flex-pep-dock]] - Dock a flexible peptide to a protein.
@@ -192,8 +198,11 @@ Component | Description
 
 - [[Enzyme Design]] - Design a protein around a small molecule, with catalytic constraints. 
 
+- [[RosettaEnzCM]] - Calculates the average atomic distances from template catalytic residues to be used for distance constraints for RosettaCM. 
+
 ### Peptides
 - [[Pepspec]] - Evaluate and design peptide-protein interactions.
+- [[Count Cycpep Sequences|count-cycpep-sequences]] - Counts the number of unique sequences possible for a macrocycle given **P** possible building blocks and **n** residues, with options for CN and SN symmetry.  Evaluates the number using analytic expressions derived from [Burnside's lemma](https://en.wikipedia.org/wiki/Burnside%27s_lemma), and optionally compares to counts performed by brute-force enumeration.
 
 ### Small Molecules
 
@@ -378,6 +387,7 @@ Application | Description
 [[DNA_methylation]] | Simulate the action of a virtual DNA methyltransferase enzyme on a `.pdb` file.
 [[glycosyltransfer]] | Simulate the action of a virtual glycosyltransferase (GT) or oligosacharyltransferase (OST) enzyme on a `.pdb` file.
 [[phosphorylation]] | Simulate the action of a virtual kinase enzyme on a `.pdb` file.
+[[N-terminal_acetyltransfer]] | Simulate the action of a virtual N-terminal acetyltransferase (NAT) enzyme on a `.pdb` file.
 
 #### Mover Components
  - [[EnzymaticMover]] - Documentation about the underlying code used for post-translational modifications in Rosetta.

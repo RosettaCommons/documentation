@@ -423,7 +423,10 @@ main/source/src/apps/public/relax_w_allatom_cst/amino_acids.py
 ### RosettaCM
 
 tools/protein_tools/scripts/setup_RosettaCM.py    
-&#8195; - 
+&#8195; - A script to setup RosettaCM modeling.
+
+tools/protein_tools/scripts/RosettaEnzCM.py    
+&#8195; - Generates atomic distance constraints for predicted catalytic residues from known template residues.
 
 
 ### RNA

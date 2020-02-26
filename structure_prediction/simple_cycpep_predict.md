@@ -2,7 +2,7 @@
 
 Back to [[Application Documentation]].
 
-Created 24 October 2015 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).  Last updated 4 June 2018.<br/><br/>
+Created 24 October 2015 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).  Last updated 27 September 2019.<br/><br/>
 <b><i>If you use this application, please cite:</i><br/>
 Bhardwaj, G., V.K. Mulligan, C.D. Bahl, J.M. Gilmore, P.J. Harvey, O. Cheneval, G.W. Buchko, S.V.S.R.K. Pulavarti, Q. Kaas, A. Eletsky, P.-S. Huang, W.A. Johnsen, P. Greisen, G.J. Rocklin, Y. Song, T.W. Linsky, A. Watkins, S.A. Rettie, X. Xu, L.P. Carter, R. Bonneau, J.M. Olson, E. Coutsias, C.E. Correnti, T. Szyperski, D.J. Craik, and D. Baker. 2016.  <u>Accurate de novo design of hyperstable constrained peptides.</u> *Nature.* 538(7625):329-35.</b><br/>
 (<a href="http://www.ncbi.nlm.nih.gov/pubmed/27626386">Link</a> to article).
@@ -73,7 +73,7 @@ See the [[Build Documentation]] for details on the MPI (Message Passing Interfac
 **-cyclic_peptide:require_disulfides \<bool\>**  If true, then the application attempts to form disulfides between all disulfide-forming residues, trying permutations using the [[TryDisulfPermutations|TryDisulfPermuationsMover]] mover.  False by default.<br/><br/>
 **-cyclic_peptide:disulf_cutoff_prerelax \<Real\>**  If require_disulfides is true, this is the maximum disulfide energy per disulfide bond that is allowed prior to relaxation.  If the energy exceeds this value, the solution is rejected.  Default is 15.0, but a much larger value might be appropriate.<br/><br/>
 **-cyclic_peptide:disulf_cutoff_postrelax \<Real\>**  If require_disulfides is true, this is the maximum disulfide energy per disulfide bond that is allowed following relaxation.  If the energy exceeds this value, the solution is rejected.  Default 0.5.<br/><br/>
-**-cyclic_peptide:user_set_alpha_dihedrals \<RealVector\>**  Optionally, the user may fix certain mainchain dihedrals at user-specified values.  This flag must be followed by a list of groups of four numbers, in which the first represents a sequence position and the second, third, and fourth are the phi, psi, and omega values, respectively.  Unused if not specified.<br/><br/>
+**-cyclic_peptide:user_set_alpha_dihedrals \<RealVector\>**  Optionally, the user may fix certain mainchain dihedrals at user-specified values.  This flag must be followed by a list of groups of four numbers, in which the first represents a sequence position and the second, third, and fourth are the phi, psi, and omega values, respectively.  Unused if not specified.  Note that this only works for alpha-amino acids and peptoids.<br/><br/>
 **-cyclic_peptide:user_set_alpha_dihedral_perturbation \<Real\>**  If the **user_set_alpha_dihedrals** option is used, this is a small gaussian perturbation added to all dihedrals that were set.  Default 0.<br/><br/>
 **-in:file:native \<pdb_filename\>**  A PDB file for the native structure.  Optional.  If provided, an RMSD value will be calculated for each generated structure.<br/><br/>
 **-cyclic_peptide:filter_oversaturated_hbond_acceptors \<bool\>** Should sampled conformations with more than the allowed number of hydrogen bonds to an acceptor be discarded?  Default true.<br/><br/>
@@ -147,6 +147,15 @@ The simple\_cycpep\_predict application can attempt to model metal-mediated cros
 ## Additional flags for N-methylated amino acids
 
 **-cyclic_peptide:n\_methyl\_positions \<IntegerVector\>** A list of the positions in the peptide that are N-methylated.  N-methylated positions will have their geometry updated, and will use Ramachandran maps and rotamer libraries specific for N-methyl amino acids.
+
+## Additional flags for bond length and bond angle sampling
+
+For small, highly constrained rings, the conformations that are accessible only by varying torsional degrees of freedom may not adequately represent the true conformational ensemble.  On 22 Nov. 2019, support was added for sampling bond lengths and bond angles in N-to-C cyclic peptide macrocyclse.  (Note that support does not yet exist for sampling these degrees of freedom for other types of cyclization chemistry).  To enable this, use the following flags:
+
+**-cyclic_peptide:bondlength\_perturbation\_magnitude \<Real\>** The size of the perturbation, in Angstroms, that will be applied to mainchain bond lengths.  0 by default (i.e. not used if not specified.)
+**-cyclic_peptide:bondangle\_perturbation\_magnitude \<Real\>** The size of the perturbation, in degrees, that will be applied to mainchain bond angles.  0 by default (i.e. not used if not specified.)
+
+If you use these features, you may wish to use a scoring function that has the `cart_bonded` term turned on (_e.g._ `ref2015_cart.wts`).
 
 ## Additional flags for quasi-symmetric sampling
 
@@ -237,7 +246,7 @@ The job distribution system consists of a single **emperor** process, an arbitra
 mpirun -np 5000 /my_rosetta_path/main/source/bin/simple_cycpep_predict.mpi.linuxgccrelease -cyclic_peptide:MPI_processes_by_level 1 50 4949 ...(other options)...
 ```
 
-In the above, the slaves would be assigned to masters to make the distribution as even as possible.
+In the above, the slaves would be assigned to masters to make the distribution as even as possible.  Since two-level distribution is very common, with one emperor talking to N-1 slaves (given N total processes), one may use the **-cyclic_peptide:MPI_auto_2level_distribution** flag in lieu of the **-cyclic_peptide:MPI_processes_by_level** flag to set this up.  The **-cyclic_peptide:MPI_auto_2level_distribution** takes no options.
 
 At the start of a run, slaves send requests for jobs up the hierarchy.  Jobs are distributed to each level of the hierarchy in batches, with user-controlled batch sizes.  If batches are too small, the risk is that nodes spend all of their time requesting jobs and responding to job requests; if they are too large, the risk is that slaves are locked in to completing a large number of jobs even if another slave is free to do those jobs (<i>i.e.</i> poor load-balancing).  The number of jobs per batch at each level of the hierarchy is controlled with the **-cyclic_peptide:MPI_batchsize_by_level** flag, followed by a whitespace-separated list of integers.  One less value should be provided than was provided with the **-cyclic_peptide:MPI_processes_by_level** flag, since slaves do not pass batches of jobs any further down the hierarchy.  Using the example above, we could specify that the emperor would send out 200 jobs at a time to each master, and that each master would send 2 jobs at a time to each slave, with the following:
 
@@ -255,7 +264,13 @@ mpirun -np 5000 /my_rosetta_path/main/source/bin/simple_cycpep_predict.mpi.linux
 
 The details of sampling are controlled with the same flags used for the non-MPI version (see above).
 
-Note that, in MPI mode, there can be an incredible amount of tracer output.  For convenience, the emperor uses a separate tracer to write a summary of all jobs that have been completed.  This summary includes the energy of each sample, the RMSD to native (if a native structure was provided), and a goodness-of-funnel metric (PNear).  (The PNear metric takes two parameters: **lambda** in Angstroms, which controls how close a sample has to be to native to be considered native-like, and **Boltzmann temperature** in Rosetta energy units, which controls how high-energy a non-native sample must be for the funnel not to be considered "bad".  These are set with the **-cyclic_peptide:MPI_pnear_lambda** and **-cyclic_peptide:MPI_pnear_kbt** flags, respectively.  See Bhardwaj, Mulligan, Bahl, *et al.* (2016) *Nature*, in press for more information about the PNear metric.)  To receive only this as output in the standard output stream, use the **-mute all -unmute protocols.cyclic_peptide_predict.SimpleCycpepPredictApplication_MPI_summary** flags.  (This silences all output from non-emperor processes, and most output from the emperor process, except for the summary at the end.)  Since generating output and managing output from large numbers of processes takes clock and MPI communication cycles, muting unnecessary output is advised for better performance.
+Note that, in MPI mode, there can be an incredible amount of tracer output.  For convenience, the emperor uses a separate tracer to write a summary of all jobs that have been completed.  This summary includes the energy of each sample, the RMSD to native (if a native structure was provided), and a goodness-of-funnel metric (PNear).  Optionally, RMSD and PNear values may also be computed to the lowest-energy sample (rather than to a user-provided native).  To enable this, use the **-cyclic\_peptide:compute\_rmsd\_to\_lowest** option.
+
+The PNear metric takes two parameters: **lambda** in Angstroms, which controls how close a sample has to be to native to be considered native-like, and **Boltzmann temperature** in Rosetta energy units, which controls how high-energy a non-native sample must be for the funnel not to be considered "bad".  These are set with the **-cyclic\_peptide:MPI\_pnear\_lambda** and **-cyclic_peptide:MPI\_pnear\_kbt** flags, respectively.  See Bhardwaj, Mulligan, Bahl, *et al.* (2016) *Nature*, in press for more information about the PNear metric.
+
+Optionally, the solvent-accessible surface areas of each sample, and of the Boltzmann-weighted ensemble, can be computed.  To enable this, use the **-cyclic\_peptide:compute_ensemble\_sasa\_metrics** option.  Polar SASA, apolar SASA, and total SASA are all included in the output summary.
+
+To receive only this summary as output in the standard output stream, use the **-mute all -unmute protocols.cyclic_peptide_predict.SimpleCycpepPredictApplication_MPI_summary** flags.  (This silences all output from non-emperor processes, and most output from the emperor process, except for the summary at the end.)  Since generating output and managing output from large numbers of processes takes clock and MPI communication cycles, muting unnecessary output is advised for better performance.
 
 Note too that intermediate master processes are optional; the minimum that one needs are an emperor node and a single slave node (though this setup would have no advantages over sampling with the non-MPI version of the app).  On a 4-core laptop, the following would be perfectly legal, for example:
 

@@ -1,7 +1,7 @@
 ## MHC Epitope energy (mhc_epitope)
 
 Documentation created by Brahm Yachnin (brahm.yachnin@rutgers.edu), Khare laboratory, and Chris Bailey-Kellogg (cbk@cs.dartmouth.edu).  Parts of this documentation are copied/adapted from Vikram K. Mulligan's (vmullig@uw.edu) design-centric guidance documentation.
-Last edited June 7, 2019.
+Last edited December 12, 2019.
 
 [[_TOC_]]
 
@@ -15,7 +15,7 @@ Rosetta readily supports epitope deletion by incorporating into its scoring an e
 
 An epitope predictor takes as input a peptide and returns an evaluation of its relative risk to bind MHC, typically as some form of predicted binding affinity or as a relative rank with respect to a distribution (see e.g., [Wang+2008](https://www.ncbi.nlm.nih.gov/pubmed/18389056)). The predictions are specific to the MHC allele, and while there are thousands of different alleles, due to their degeneracy in peptide binding, a relatively small representative set can be used to capture population diversity (e.g., [Southwood+1998](http://www.ncbi.nlm.nih.gov/pubmed/9531296), [Greenbaum+2011](https://www.ncbi.nlm.nih.gov/pubmed/21305276), [Paul+2015](https://www.ncbi.nlm.nih.gov/pubmed/25862607)). The core unit of MHC-II binding is 9 amino acids, defined by the MHC-II groove and the pockets in which is accommodates peptide side chains. The overhanging amino acids can also contribute. Some epitope predictors focus on just the core 9mer, while others use longer peptides (15mers) in order to capture overhangs as well as capture the combined effect of multiple binding frames/registers as the core 9mer slides up and down the groove.
 
-Since epitope content is repeatedly evaluated during the course of design (for multiple peptides for each proposed mutation), mhc_epitope must be efficient in its use of epitope prediction. One way to do this is with a position-specific scoring matrix, e.g., the pocket profile method Propred ([Singh+2001](http://www.ncbi.nlm.nih.gov/pubmed/11751237)) which was based on TEPITOPE ([Sturniolo+1999](https://www.ncbi.nlm.nih.gov/pubmed/10385319)). The current implementation includes the [Southwood+1998](http://www.ncbi.nlm.nih.gov/pubmed/9531296) representative set of Propred matrices, downloaded from the [Propred site](http://crdd.osdd.net/raghava/propred/) courtesy of Dr. Raghava. Another way to enable efficient epitope prediction within the design loop, even when an external stand-alone program must be invoked, is to precompute and cache predictions. The current implementation supports this by using a sqlite database of predicted epitopes, which can be precomputed (e.g., using NetMHCII ([Jensen+2018](https://www.ncbi.nlm.nih.gov/pubmed/29315598))) using python scripts described below. There are also plans to incorporate the SVM method previously developed by ([King+2014](https://www.ncbi.nlm.nih.gov/pubmed/24843166)) for Rosetta-based deimmunization.
+Since epitope content is repeatedly evaluated during the course of design (for multiple peptides for each proposed mutation), mhc_epitope must be efficient in its use of epitope prediction. One way to do this is with a position-specific scoring matrix, e.g., the pocket profile method Propred ([Singh+2001](http://www.ncbi.nlm.nih.gov/pubmed/11751237)) which was based on TEPITOPE ([Sturniolo+1999](https://www.ncbi.nlm.nih.gov/pubmed/10385319)). The current implementation includes the [Southwood+1998](http://www.ncbi.nlm.nih.gov/pubmed/9531296) representative set of Propred matrices, downloaded from the [Propred site](http://crdd.osdd.net/raghava/propred/) courtesy of Dr. Raghava. Another way to enable efficient epitope prediction within the design loop, even when an external stand-alone program must be invoked, is to precompute and cache predictions. The current implementation supports this by using a sqlite database of predicted epitopes, which can be precomputed (e.g., using NetMHCII ([Jensen+2018](https://www.ncbi.nlm.nih.gov/pubmed/29315598))) using python scripts described below. The SVM method previously developed by ([King+2014](https://www.ncbi.nlm.nih.gov/pubmed/24843166)) for Rosetta-based deimmunization is also available, though the currently available SVMs are a bit slow to use in the context of the packer.  It is still very reasonable, from a speed perspective, to use the SVM-based predictor with mhc_epitope during scoring.
 
 ## Citation information
 
@@ -34,14 +34,10 @@ The matrices are obtained from http://crdd.osdd.net/raghava/propred/  If you use
 NetMHCII can be incorporated into external databases using the [[mhc-energy-tools]].  If you use NetMHCII, please cite Improved methods for predicting peptide binding affinity to MHC class II molecules.  Jensen KK, Andreatta M, Marcatili P, Buus S, Greenbaum JA, Yan Z, Sette A, Peters B, Nielsen M. Immunology. 2018 Jan 6. doi: 10.1111/imm.12889
 
 ### NMer
-<!--- BEGIN_INTERNAL -->
 nmer is an existing epitope predictor that runs within Rosetta.  Unlike mhc_epitope, it is not packer-compatible in its original form.  mhc_epitope can now use nmer as a predictor.
 
 If you use nmer within mhc_epitope, please cite the original paper:
 King C, Garza EN, Mazor R, Linehan JL, Pastan I, Pepper M, Baker D. Removing T-cell epitopes with computational protein design. Proc Natl Acad Sci U S A 2014;111:8577–82. https://doi.org/10.1073/pnas.1321126111
-
-NOTE: This feature is still in development, and requires checking out the relevant GitHub branches.
-<!--- END_INTERNAL -->
 
 ### IEDB
 IEDB is a public database of experimentally-validated immune epitopes.  The `iedb_data.mhc` file, available in the Rosetta database, references the database file `iedb_data.db` that contains data derived from the IEDB.  If you use either of these files, you must cite the IEDB.  In addition, the [[mhc-energy-tools]] provides resources to update and build custom database files based on IEDB data.
@@ -102,7 +98,6 @@ Subsequent lines in the ```.mhc``` file are optional, and control how scoring is
  - ```relative*``` is a score relative to the native sequence, in multiplicative mode.  The score is calculated as (raw score - native score * factor).  For example, ```raw relative* 1.2``` means that any score that is at most 20% higher than native will get a score of 0.
  - Note that the "native" sequence is the sequence when the packer first starts, not the sequence as read in.  A protocol that uses multiple movers will see its "native" sequence change throughout the protocol.
 
-<!--- BEGIN_INTERNAL -->
 An additional Predictor, based off of the NMerSVMEnergy terms introduced in the [King+2014](https://www.ncbi.nlm.nih.gov/pubmed/24843166) paper, can also be used in the context of the `mhc_epitope` scoreterm.  It's configuration is slightly different from the other Predictors, so will be described separately here.
 
  - Two method-level configurations are available: ```method svm``` and ```method svm_rank```.  The latter uses ranked SVM scores, while the former does not.  All other configuration settings are optional.
@@ -139,8 +134,6 @@ An additional Predictor, based off of the NMerSVMEnergy terms introduced in the 
   - sequence/mhc_pssms/HLA-DRB11101_nooverlap.9mer.norm.pssm
   - sequence/mhc_pssms/HLA-DRB11302_nooverlap.9mer.norm.pssm
   - sequence/mhc_pssms/HLA-DRB11501_nooverlap.9mer.norm.pssm
-
-<!--- END_INTERNAL -->
 
 ### Examples of ```.mhc``` files
 
@@ -309,6 +302,33 @@ The ```mhc_energy``` score term should be fully compatible with symmetry.  Each 
 - Like any whole-body energy, the MHCEpitopeEnergy class implements a ```finalize_total_energy()``` function that takes a pose.  This calculates the score.  Internally, it calls ```full_rescore()```, which takes a vector of owning pointers to Residues (which can be called directly during packing).
 - On initialization, the term creates an internal MHCEpitopeEnergySetup object that stores the user-defined settings from the ```.mhc``` file.  This class is defined in ```core/scoring/mhc_energy/MHCEpitopeEnergySetup.cc``` and ```core/scoring/mhc_energy/MHCEpitopeEnergySetup.hh```.  MHCEpitopeEnergySetup objects can also be stored in MHCEpitopeConstraint associated with a Pose.  At scoring or packing time, the MHCEpitopeEnergy constructs a vector of owning pointers to its internal MHCEpitopeEnergySetup objects and to all those stored in the pose, and uses all of these for scoring.
 - A ```.mhc``` file is located in ```/database/scoring/score_functions/mhc_epitope/```.
+
+## Integration with C++ Applications
+
+Generally, any app that supports the use of custom scorefunctions through the command line should be able to use MHCEpitopeEnergy.  To do so, users should set the ```-mhc_epitope_setup_file``` to point to the configuration file you want to use, and also turn on the `mhc_epitope` scoreterm using ```-score:set_weights mhc_epitope 0.75``` (if you wanted a weight of 0.75).  Consult the documentation for the specific app to see if customized scorefunctions are supported.
+
+## Integration with PyRosetta
+
+MHCEpitopeEnergy should be broadly supported using PyRosetta.  Like with C++ apps, a global config file can be set by passing the ```-mhc_epitope_setup_file``` to ```init()``` when you start Pyrosetta, and then set the weight in your scorefunction:
+```
+pyrosetta.init("-mhc_epitope_setup_file my_config_file.mhc")  # Will apply to all sfxns with non-zero mhc_epitope weights
+default_scorefxn = pyrosetta.get_fa_scorefxn()
+custom_scorefxn = pyrosetta.get_fa_scorefxn()
+custom_scorefxn.set_weight(pyrosetta.rosetta.core.scoring.score_type_from_name("mhc_epitope", 0.5))  # Will apply to custom_scorefxn, but not default_scorefxn.
+```
+
+Alternatively, you can associate different config files with different scorefxns using ```EnergyMethodOptions``` configuration:
+```
+pyrosetta.init()
+options = pyrosetta.rosetta.core.scoring.methods.EnergyMethodOptions()
+config = pyrosetta.rosetta.utility.vector1_string()
+config.append("my_config_file.mhc")
+options.set_mhc_epitope_setup_files(config)
+
+custom_scorefxn = pyrosetta.get_fa_scorefxn()
+custom_scorefxn.set_energy_method_options(options)  # Associate the custom options with custom_scorefxn only
+custom_scorefxn.set_weight(pyrosetta.rosetta.core.scoring.score_type_from_name("mhc_epitope"), 0.5)  # Will apply to custom_scorefxn, but not default_scorefxn.
+```
 
 ##See Also
 

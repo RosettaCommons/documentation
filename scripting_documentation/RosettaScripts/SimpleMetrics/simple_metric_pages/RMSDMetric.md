@@ -2,8 +2,6 @@
 *Back to [[SimpleMetrics]] page.*
 ## RMSDMetric
 
-Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
-
 [[include:simple_metric_RMSDMetric_type]]
 
 ##See Also

@@ -8,7 +8,7 @@ Calculate either a correlation (match_res true) or zscore related to the fit to 
 
 ```xml
 <PerResidueDensityFitMetric name="(&string;)" custom_type="(&string;)"
-        output_as_pdb_nums="(&string;)" residue_selector="(&string;)"
+        output_as_pdb_nums="(false &bool;)" residue_selector="(&string;)"
         sliding_window_size="(3 &positive_integer;)" match_res="(false &bool;)"
         mixed_sliding_window="(false &bool;)"
         use_selector_as_zscore_mask="(true &bool;)" />
@@ -16,7 +16,7 @@ Calculate either a correlation (match_res true) or zscore related to the fit to 
 
 -   **custom_type**: Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
  The custom_type name will be added to the data tag in the scorefile or features database.
--   **output_as_pdb_nums**: If outputting to scorefile use PDB numbering instead of Rosetta (default)
+-   **output_as_pdb_nums**: If outputting to scorefile use PDB numbering+chain instead of Rosetta (1 - N numbering)
 -   **residue_selector**: If a residue selector is present, we only calculate and output metrics for the subset of residues selected.
 -   **sliding_window_size**: Sliding window size for density calculation
 -   **match_res**: Use density correlation instead of a zscore to fit to density

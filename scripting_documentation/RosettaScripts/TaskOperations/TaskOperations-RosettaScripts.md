@@ -18,19 +18,19 @@ Example
 
     ...
     <TASKOPERATIONS>
-      <ReadResfile name=rrf/>
-      <ReadResfile name=rrf2 filename=resfile2/>
-      <PreventRepacking name=NotBeingUsedHereButPresenceOkay/>
-      <RestrictResidueToRepacking name=restrict_Y100 resnum=100/>
-      <RestrictToRepacking name=rtrp/>
-      <OperateOnResidueSubset name=NoPackHelix>
+      <ReadResfile name="rrf"/>
+      <ReadResfile name="rrf2" filename="resfile2"/>
+      <PreventRepacking name="NotBeingUsedHereButPresenceOkay"/>
+      <RestrictResidueToRepacking name="restrict_Y100" resnum="100"/>
+      <RestrictToRepacking name="rtrp"/>
+      <OperateOnResidueSubset name="NoPackHelix">
           <SecondaryStructure ss="H" />
           <PreventRepackingRLT/>
       </OperateOnResidueSubset>
     </TASKOPERATIONS>
     ...
     <MOVERS>
-      <PackRotamersMover name=packrot scorefxn=sf task_operations=rrf,NoPackHelix,rtrp,restrict_Y100/>
+      <PackRotamersMover name="packrot" scorefxn="sf" task_operations="rrf,NoPackHelix,rtrp,restrict_Y100"/>
     </MOVERS>
     ...
 
@@ -71,6 +71,8 @@ TaskOP  | Description
 
 TaskOp  | Description
 ------------ | -------------
+**[[RestrictToSpecifiedBaseResidueTypes]]** | Restrict the [[palette|PackerPalette]] of `ResidueType`s to the base `ResidueType`s given.
+**[[ProhibitSpecifiedBaseResidueTypes]]** | Prohibit the given base `ResidueType`s from the [[palette|PackerPalette]] of `ResidueType`s.
 **[[ReadResfile|ReadResfileOperation]]** | Read a [[resfile|resfiles]] and apply the specified behavior.
 **[[ReadResfileFromDB|ReadResfileFromDBOperation]]** | Apply a [[resfile|resfiles]] stored in a relational database.
 **[[ResfileCommandOperation]]** | Apply a [[resfile|resfiles]] command to a set of residues from a residue selector. 
@@ -89,6 +91,8 @@ TaskOp  | Description
 
 TaskOp  | Description
 ------------ | -------------
+**[[RestrictToResidueProperties]]** | Restrict the [[palette|PackerPalette]] of `ResidueType`s to those with the given properties.
+**[[ProhibitResidueProperties]]** | Prohibit `ResidueType`s with the given properties from the  [[palette|PackerPalette]].
 **[[ConservativeDesign|ConservativeDesignOperation]]** | Only design to amino acids that are similar to native.
 **[[ConsensusLoopDesign|ConsensusLoopDesignOperation]]** | Only design to amino acids in loops which match the ABEGO torsion bins.
 **[[DsspDesign|DsspDesignOperation]]** | Specify design identity based on secondary structure.
@@ -173,8 +177,11 @@ Packer Behavior Modification
 
 TaskOp  | Description
 ------------ | -------------
+**[[KeepSequenceSymmetry|KeepSequenceSymmetry]]** | Prevent chains from differing in sequence
 **[[ModifyAnnealer|ModifyAnnealerOperation]]** | Change the behavior of the packer.
 **[[ProteinLigandInterfaceUpweighter|ProteinLigandInterfaceUpweighterOperation]]** | Increase the contribution of protein/ligand interactions during design.
+**[[RestrictInteractionGraphThreadsOperation]]** | Limit the number of threads that the packer may use for interaction graph pre-calculation.  (Only affects behaviour of multi-threaded build.)
+**[[SetIGType|SetIGType]]** | Set the type of interaction graph to use
 
 Development/Testing
 -------------------

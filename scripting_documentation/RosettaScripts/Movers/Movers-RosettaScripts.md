@@ -133,6 +133,7 @@ Mover  | Description
 **[[BackboneGridSampler|BackboneGridSamplerMover]]** | Generates a residue chain and samples torsion angles
 **[[InitializeByBins|InitializeByBinsMover]]** | Randomizes stretches of backbone based on torsion bins
 **[[PerturbByBins|PerturbByBinsMover]]** | Perturbs stretches of backbone based on torsion bins
+**[[RandomizeBBByRamaPrePro|RandomizeBBByRamaPreProMover]]** | Randomize the backbone of a given residue biased by its Ramachandran map
 **[[SetTorsion|SetTorsionMover]]** | Sets torsion to a specified or random value
 **[[Shear|ShearMover]]** | Makes shear-style torsion moves that minimize downstream propagation
 **[[Small|SmallMover]]** | Makes small-move-style torsion moves (no propagation minimization)
@@ -192,6 +193,13 @@ Mover  | Description
 **[[DockingProtocol|DockingProtocolMover]]** | Performs full docking protocol with current defaults
 **[[FlexPepDock|FlexPepDockMover]]** | Performs ab initio or refinement peptide docking
 
+##### Docking with Mouse
+
+Mover  | Description
+------------ | -------------
+**[[MouseSetupMover]]** | Setup Rosetta for Mouse calculations
+**[[MouseSpyDockingProtocol|MouseSpyDockingProtocolMover]]** | Drop-in replacement for [[DockingProtocol|DockingProtocolMover]], but gives larger interfaces that are slightly more stable per residue.
+**[[MouseFinalizeMover]]** | Spin down after Mouse calculations
 
 ### Fragment Insertion
 
@@ -289,6 +297,7 @@ See [Symmetric Docking movers](#Symmetric Docking movers) for protocols involvin
 Mover  | Description
 ------------ | -------------
 **[[SetupForSymmetry|SetupForSymmetryMover]]** | Symmeterizes a pose based on a definition file
+**[[SetupForSequenceSymmetryMover|SetupForSequenceSymmetryMover]]** | Allows you to define symmetric chains for complicated systems before using the KeepSequenceSymmetry task operation
 **[[DetectSymmetry|DetectSymmetryMover]]** | Symmeterizes a pose composed of symmetric chains
 **[[ExtractAsymmetricUnit|ExtractAsymmetricUnitMover]]** | Turn symmetric pose into a nonsymmetric pose (inverse of SetupForSymmetry)
 **[[ExtractSubpose|ExtractSubposeMover]]** | (Developer release only) Extracts a subset of a symmetric pose without modifying the original
@@ -451,9 +460,16 @@ See [[RosettaScriptsLoopModeling]] for an overview.
 
 Mover  | Description
 ------------ | -------------
-**[[LoopModeler|LoopModelerMover]]** | Performs a standard loop modeling simulation
+**[[RemodelMover]]** | Remodel and rebuild a protein chain
+**[[LoopRemodelMover]]** | Perturbs and/or refines a set of user-defined loops. Useful to sample a variety of loop conformations.
+**[[ConnectChainsMover|mover_ConnectChainsMover_type]]** |  Best for helix-helix loops?
+**[[LoopHashLoopClosureMover|mover_LoopHashLoopClosureMover_type]]** |
+**[[LoopHash|mover_LoopHash_type]]** |
+**[[LoopCreationMover]]** | not available in released versions
+**[[LoopModeler|LoopModelerMover]]** | Performs a standard loop modeling simulation (KIC or LoopHash)
 **[[LoopBuilder|LoopBuilderMover]]** | Builds backbone atoms for loops with missing residues
 **[[LoopProtocol|LoopProtocolMover]]** | Optimizes the backbone of a loop region via a Monte Carlo simulation
+**[[CCDLoopClosureMover|mover_CCDLoopClosureMover_type]]** | Performs loops closure using the CCD algorithm.
 **[[KicMover]]** | Generates backbone conformations using the kinematic closure algorithm 
 **[[RepackingRefiner|RepackingRefinerMover]]** | Refines the sidechains around a loop using the standard repacker
 **[[RotamerTrialsRefiner|RotamerTrialsRefinerMover]]** | Refines the sidechains in and around a loop using rotamer trials
@@ -564,6 +580,7 @@ Mover  | Description
 **[[DNAMethyltransferaseMover]]** | Simulates the activity of specific biological DNA methyltransferases by methylating a DNA-containing `Pose`.
 **[[GlycosyltransferaseMover]]** | Simulates the activity of specific biological glycosyltransferases and oligosaccharyltrasferases by glycosylating a `Pose`.
 **[[KinaseMover]]** | Simulates the activity of specific biological kinases by phosphorylating a `Pose`.
+**[[NTerminalAcetyltransferaseMover]]** | Simulates the activity of specific biological N-terminal acetyltransferases by acetylating a `Pose` at its N-terminus.
 
 ##See Also
 

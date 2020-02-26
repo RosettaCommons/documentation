@@ -34,6 +34,11 @@ If a structure is used for input instead of a PSSM, the profile weights used are
 
 NOTE: The default behavior of FavorSequenceProfile has changed from previous versions. If you're using a structure as a reference, you'll want to check your weight, scaling and substitution matrix to make sure your energy values are falling in the appropriate range.
 
+The following settings will replicate the default behavior of the [[FavorNativeResidueMover]] with the default weight of 1.5:
+```xml
+<FavorSequenceProfile name="favournative" weight="1.5" use_current="true" matrix="IDENTITY"/>
+```
+Note that in contrast to FavorNativeResidue, FavorSequenceProfile does not update the weights of your scorefxn (unless it is listed in `scorefxns`).
 
 ##See Also
 

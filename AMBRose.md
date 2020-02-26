@@ -2,7 +2,7 @@
 
 The AMBRose python module was developed by Maria Szegedy (Khare Lab), Kristin Blacklock (Khare Lab), and Hai Nguyen (Case Lab) at Rutgers University.
 
-Last updated June 5, 2019. 
+Last updated August 28, 2019. 
 
 For questions please contact: 
 - [Maria Szegedy](https://github.com/mszegedy) ([mszegedy2@gmail.com](mszegedy2@gmail.com))
@@ -27,6 +27,8 @@ For the full API, see the docstrings of AMBRose's modules and objects. These wil
 - Working versions of some [[AMBER16+|http://ambermd.org/GetAmber.php]] executables, particularly:
   - pmemd.cuda
   - tleap
+
+Make sure your environment variable `$AMBERHOME` is set to the directory where AMBER lives. (This is the directory where `bin/pmemd.CUDA` lives, where `amber.sh` lives, et cetera.)
 
 ### For legacy only:
 - AmberTools (version >= 16) with pytraj and sander (Python module)

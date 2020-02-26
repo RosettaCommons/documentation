@@ -48,16 +48,19 @@ The `EnzymaticMover` framework was conceived of and implemented by Jason W.
 Labonte <JWLabonte@jhu.edu>. Please contact him with any questions or criticism.
 
 ## Types
-Currently, three `EnzymaticMover`s are written, but many more can and will be
+Currently, four `EnzymaticMover`s are written, but many more can and will be
 added to the Rosetta code base.
 * [[DNAMethyltransferaseMover]]<br />
   Simulates the activity of specific biological DNA methyltransferases by
   methylating a DNA-containing Pose.
 * [[GlycosyltransferaseMover]]<br />
   Simulates the activity of specific biological glycosyltransferases and
-  oligosaccharyltrasferases by glycosylating a Pose.
+  oligosaccharyltrasferases by glycosylating a `Pose`.
 * [[KinaseMover]]<br />
-  Simulates the activity of specific biological kinases by phosphorylating a Pose.
+  Simulates the activity of specific biological kinases by phosphorylating a `Pose`.
+* [[NTerminalAcetyltransferaseMover]]<br />
+  Simulates the activity of specific biological N-terminal acetyltransferases by
+  acetylating a `Pose` at the N-terminus.
 
 ## Usage
 
@@ -167,6 +170,7 @@ used by the protocol.
 * [[DNA_methylation]]
 * [[glycosyltransfer]]
 * [[phosphorylation]]
+* [[N-terminal_acetylation]]
 
 #### Example Command Lines
 ```
@@ -175,6 +179,8 @@ $ DNA_methylation -s input/1ABC.pdb -enzymes:species h_sapiens -enzymes:efficien
 $ glycosyltransfer -s input/2DEF.pdb -include_sugars -enzymes:species h_sapiens -enzymes:enzyme OGT -nstruct 5
 
 $ phosphorylation -s input/3GHI.pdb -enzymes:species h_sapiens -nstruct 1
+
+$ N-terminal_acetylation -s input/4JKL.pdb -nstruct 1
 ```
 
 ## Enzyme Data Files
@@ -207,6 +213,10 @@ IUPAC carbohydrate sequence.
     * Parentheses are used to specify multiple possible residue types at that
     site, separated by forward slashes, _e.g._, `(A/G)` specifies either Ala or Gly at
     that position.
+    * A `<` in the first position indicates that the sequon must be located at the 
+    N-terminus.
+    * A `>` in the final position indicates that the sequon must be located at the 
+    C-terminus.
   * Nucleic-acid Residue Sequences
     * In addition to the standard A, C, G, T, and U one-letter codes, the parser
     recognizes B, D, H, and V for _not_ A, C, G, or U, respectively; K for G or U;
@@ -321,4 +331,5 @@ default example of this this family of enzymes. Generally, this data will
 provide a minimal sequon, have 100% efficiency, and not be promiscuous.
 
 ----------
-Documentation updated 5 July 2019 by Jason W. Labonte <JWLabonte@jhu.edu>.
+Documentation created 5 April 2019 by Jason W. Labonte <JWLabonte@jhu.edu>.
+Documentation updated 26 February 2020 by Jason W. Labonte <JWLabonte@jhu.edu>.

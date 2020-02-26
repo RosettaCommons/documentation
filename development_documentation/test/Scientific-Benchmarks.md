@@ -71,13 +71,23 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
         * a test should ideally be self-contained to obtain the cutoffs. As described above, try to avoid regression-test-like behavior where you compare to previous results or gather results from multiple runs over time. 
         * be consistent with the test name, keep a single name that is also the name of the test directory. It appears in multiple files and consistency makes debugging easier
 9.	Install python3.6 or later if you haven’t already, anything earlier won’t work. Make sure you have an alias set where you an specify the python version, for instance `python3`. Every python script in the scientific tests will need the `python3` prefix to run them properly!
-10.	Run your tests locally in debug mode:
+
+
+## Run your tests locally
+
+1.  Setup a run on Multiple Cores
+    * If you want to run locally using multiple cores, copy `main/tests/benchmark/benchmark.ini.template` to `benchmark.linux.ini` (or whatever your architecture is).  Adjust the settings in this file (i.e. `cpu_count` and `memory`) as appropriate for your environment.  If `hpc_driver = MultiCore`, this will submit jobs up to `cpu_count` without using an HPC job distributor.
+
+2.  Setup the run
     * `cd Rosetta/main/tests/benchmark`
-    * `python3 benchmark.py --compiler <clang or else> --skip --debug scientific.<my_awesome_test>`
+    *`python3 benchmark.py --compiler <clang or else> --skip \`
+     `--debug scientific.<my_awesome_test>`
         * the `--skip` flag is to skip compilation, only recommended if you have an up-to-date version of master compiled in release mode (Sergey advises against skipping)
         * the `--debug` flag is to run in debug mode which is highly recommended for debugging (i.e. you create 2 decoys instead of 1000s)
-        * If you want to run locally using multiple cores, copy `main/tests/benchmark/benchmark.ini.template` to `benchmark.linux.ini` (or whatever your architecture is).  Adjust the settings in this file (i.e. `cpu_count` and `memory`) as appropriate for your environment.  If `hpc_driver = MultiCore`, this will submit jobs up to `cpu_count` without using an HPC job distributor.
     * this creates a directory `Rosetta/main/tests/benchmark/results/<os>.scientific.<my_awesome_test>` where it creates softlinks to the files in `Rosetta/main/tests/scientific/tests/<my_awesome_test>` and then it will likely crash in one way or another
+
+
+3.  Start Debugging
     * for step-by-step debugging `cd Rosetta/main/tests/benchmark/results/<os>.scientific.<my_awesome_test>` and debug each script individually, starting from the lowest number, by running for instance `python3 1.submit.py`
     * note that several other files and folders are created in the process: 
         * `config.json` which contains the configuration settings
@@ -88,17 +98,23 @@ Several tests are located in the `Rosetta/main/tests directory`. The directory s
         * `plot_results.png` with the results
         * `index.html` with the gathered results, failures and details you have written up in the readme. While all the files are accessible on the test server later, this file is the results summary that people will look at
         * `output.results.json` will tell you whether the tests passed or failed
-11.	Submit your branch for testing
-    * once you are finished debugging locally, commit all of your changes to your branch
+
+
+## Submit your branch
+
+1.  Once you are finished debugging locally, commit all of your changes to your branch
     * create a pull-request
     * run the test on the test server
         * since scientific tests require a huge amount of computational time, you might want to lower your `nstruct` for debugging your run on the test server. If you do that, don’t forget to increase it later once the tests run successfully
-    * once the tests run as you want, merge your branch into `master`
-        * The `scientific` branch is an extra branch that grabs the latest master version every few weeks to run all scientific tests on. **DO NOT MERGE YOUR BRANCH INTO THE SCIENTIFIC BRANCH!!!**
-        * tell Sergey Lyskov (sergey.lyskov@gmail.com) that your test is ready to be continuously run on the scientific branch
-12.	Celebrate! Congrats, you have added a new scientific test and contributed to Rosetta’s greatness. :D
 
-#### A common problem: evaluating folding funnel quality ####
+2.  Once the tests run as you want, merge your branch into `master`
+    * The `scientific` branch is an extra branch that grabs the latest master version every few weeks to run all scientific tests on. **DO NOT MERGE YOUR BRANCH INTO THE SCIENTIFIC BRANCH!!!**
+    * tell Sergey Lyskov (sergey.lyskov@gmail.com) that your test is ready to be continuously run on the scientific branch
+
+  Celebrate! Congrats, you have added a new scientific test and contributed to Rosetta’s greatness. :D
+
+
+## A common problem: evaluating folding funnel quality ####
 
 Frequently, a scientific test will aim to evaluate the quality of a folding funnel (a plot of Rosetta energy vs. RMSD to a native or designed structure).  Many of the simpler ways of doing this suffer from the effects of stochastic changes to the sampling: the motion of a single sample can drastically alter the goodness-of-funnel metric.  For example, one common approach is to divide the funnel into a "native" region (with an RMSD below some threshold value) and a "non-native" region (with an RMSD above the threshold), and to ask whether there is a large difference between the lowest energy in the "native" region and the lowest in the "non-native" region.  A single low-energy point that drifts across the threshold from the "native" region to the "non-native" region can convert a high-quality funnel into a low one, by this metric.
 
@@ -110,7 +126,9 @@ Intuitively, the denominator is the partition function, while the numerator is t
 
 For more information, see the Methods (online) of <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5161715/">Bhardwaj, Mulligan, Bahl _et al._ (2016). _Nature_ 538(7625):329-35</a>.
 
-### The science behind your test: Scientific test template
+<b>Update:</b> As of 10 October 2019, a Python script is available in the `tools` repository (in `tools/analysis`) to compute PNear.  Instructions for its use are in the comments at the start of the script.  In addition, the function `calculate_pnear()`, in `Rosetta/main/tests/benchmark/util/quality_measures.py`, can be used to compute PNear.
+
+## The science behind your test: Scientific test template
 Please use this template to describe your scientific test in the `readme.md` as described above. Also check out the `fast_relax` test for ideas of what we are looking for. 
 
 \## AUTHOR AND DATE
@@ -145,4 +163,3 @@ Please use this template to describe your scientific test in the `readme.md` as 
 \#### What are the limitations of the benchmark? Consider dataset, quality measures, protocol etc. 
 \#### How could the benchmark be improved?
 \#### What goals should be hit to make this a "good" benchmark?
-

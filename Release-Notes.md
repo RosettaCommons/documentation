@@ -1,12 +1,233 @@
 # Release Notes
 
 <!--- BEGIN_INTERNAL -->
-## _Rosetta 3.11 (draft notes)_
-**NOTE: As of September 2018, <u>Rosetta 3.10</u> is the currently-contemplated new version.  If you contributed something to it, put it in the release notes BELOW.  I'm starting Rosetta 3.11 release notes for features that were added after the Rosetta 3.10 release. -VKM**
+## _Rosetta 3.12 (draft notes)_
 
-* Dunbrack sidechain potentials now properly interpolate well locations as angles (eliminating problems at the -180/180 wraparound point).  This is still polylinear interpolation, but could easily be switched to Catmull-Rom splines in the future.
+New apps:
+* [[constel]]
+* [[restype_converter]] A simple utility to convert between residue representations
+* application for finding the lowest energy hydrophobic thickness
+* [[simple_cycpep_predict]] companions:
+    * [[count-cycpep-sequences]] for counting unique sequences
+    * Fragment-free structure prediction for cyclic peptides
+
+
+New tools:
+* Rosetta produces a ROSETTA_CRASH.log file on errors. RosettaCommons now collects these reports at <https://crash.rosettacommons.org>, and the script source/scripts/python/public/report_crashes.py can be used to automatically send such files.
+    * Also improved several termination messages
+* More new RelaxScripts - [[MonomerDesign2019]] and friends
+* [[SliceResidueSelector]]
+* [[AcceptToBestMover]] - replicates the accept_to_best command from inside FastRelax
+* [[SequenceSymmetricAnnealer]]
+* [[ContactMolecularSurface]]
+* [[stepwise]] sampler and infrastructure for general polymers
+* [[DumpTrajectoryEnergy]] extended to work with the packer
+* [[ResidueType]] split off [[MutableResidueType]] to support chemical modification on the fly
+
+Performance:
+* multithreaded packing is available.  Note that you must build in multithreaded mode.
+
+Updates and bugfixes:
+* [[FastRelax]]
+* [[GreenPacker]]
+* [[helical_bundle_predict]] and [[simple_cycpep_predict]]
+* Deprecation of APPLY_TO_POSE in RosettaScripts
+* [[TryDisulfidePermutations]]
+* make_symmdef_file.pl updates for fibers and apolar helical symmetries
+* RNA scoring weights
+* PDB segmentID tweaks
+* scientific tests development
+* JD3's MPIJobDistributor
+* XML objects converted to have less dependency on Poses at parsing time:
+    * use ResidueSelectors internally
+    * [[baseEtableEnergy]] get_count_pair_function_trie
+* [[InterfaceAnalyzer]]
+* [[RMSDMetric]]
+* [[StructProfileMover]]
+* [[MotifGraft]]
+* Fixes to the glycan chirality constraints in cart_bonded.
+* remodel disulfide builder
+* multiple matcher bugs
+* [[MonteCarlo]] better support for mismatching a pose's total score with the score being judged
+* [[Residue]] co-orientation logic and other changes to [[MutableResidueType]]
+* ResidueAtomTreeCollection
+* [[CompoundFilter]]
+* ligand docking [[FinalMinimizer]]
+* ligand docking [[FinalMinimizer]]
+* ligand docking [[HighResDocker]]
+* [[TCRmodel]]
+* [[LoadDensityMapMover]]
+* [[HybridizeMover]]
+* Ferreted out some integer division bugs, at least one of which affected hydrogen bonding math
+* The stored-in-Rosetta copy of the wwPDB components file (users are always welcome to update from the wwPDB directly!)
+    * Also updates to make it play more nicely with D amino acids and proper protonation states of ATP (the one in wwPDB is wrong)
+* [[beta_nov16]] statistical water protocols
+* some python2->3 fixes
+* [[ApproximateBuriedUnsat]]
+* [[FragmentStore]]
+* [[mhc_epitope]]
+* PDB reading
+* [[RollMover]]
+* [[ddG_filter]]
+* [[RosettaAntibodyDesign]]
+* SnugDock
+* [[PDBInfoLabel]]
+* [[PhiSelector]]
+* After only 10 years of angst, -jd2:delete_old_poses defaults to true
+* [[PruneBuriedUnsats]] still does not support symmetry, but it fails politely if you try
+* [[VirtualRootMover]]
+* [[graftswitchmover]]
+* Better mmTF IO support
+* [[SasaMetric]] - polar or hydrophobic SASA
+* [[ParatopeSiteConstraintMover]]
+* [[ParatopeEpitopeSiteConstraintMover]]
+* [[NmerRefEnergy]]
+* site.settings.release
+
+
 
 <!--- END_INTERNAL -->
+
+## Rosetta 3.11
+
+### New applications
+
+* shotgun glycomutagenesis, using the [[GlycosyltransferaseMover]].
+* [[TCRmodel]] (T Cell Receptor)
+* create_clash-based_repack_shell (Ahem)
+* An experimental application to generate mainchain potentials for noncanonicals has been added (called make_mainchain_potential).
+* [[ERRASER2]]
+* [[MultistageRosettaScripts]]
+* Added [[count_cycpep_sequences|count-cycpep-sequences]] application, to compute the number of unique sequences there are for a cyclic peptide with a given symmetry, accounting for cyclic permutations.
+* [[cartesian_ddg]]
+
+### Improvements to applications:
+* Non-canonical design conventions (in all applications) have been made consistent with canonical design conventions: task operations can only be used to _disable_ residue types, not to _enable_ them.  [[PackerPalettes|PackerPalette]] have been introduced as an interface element to define the default set of residue types with which to design in the absence of any task operation, allowing non-canonical designers to specify an expanded set of building blocks with which to work.
+* Support for peptoid macrocycle structure prediction in the [[simple_cycpep_predict]] application.
+* [[GALigandDock]]: density scoring
+* [[AntibodyModelerProtocol]]: [[LoopModeler]] compatibility
+* The [[energy_based_clustering_application]] can now report the number of unique Ramachandran bin strings observed in the clusters produced.
+* [[RosettaScripts]]: Output poses are only rescored automatically if the OUTPUT block says to; otherwise the last scoring data is left intact and reported.  Improved behavior in both cases.
+* Silent files now work with [[hbnet]] , [[PyRosetta]], and [[SimpleMetrics]]
+* FARFAR#
+* [[RosettaAntibodyDesign]] nanobody compatibility
+* [[mp_domain_assembly]]
+* Implemented a [[Rosetta thread manager|RosettaThreadManager]] to facilitate multithreaded protocol development and to avoid thread explosions when nested requests for multithreaded code execution are made.  (Note that this only affects the threaded builds of Rosetta, built with the `extras=cxx11thread` option.)
+
+###New tools and scorefunctions
+* [[pHVariantTaskOperation]] for -pH_mode
+* [[franklin2019]], for implicit membranes (https://www.biorxiv.org/content/10.1101/630715v1)
+* [[TautomerizeAnomerMover]]
+* [[EnzymaticMover]] (tools that make PTMs based on local sequence): better grammar for identifying what sequences should be acted upon
+ * [[GlycosyltransferaseMover]]
+ * There's a kinase
+* silent files compatible with [[PDBInfoLabels]]
+* [[RingConformerSet]] now allows aromatic ring conformers
+* [[GraftSwitchMover]]
+* [[mmTF]] support
+* The `mhc_epitope` scoreterm, implemented using [[MHCEpitopeEnergy]], allows packer-compatible de-immunization of proteins using ProPred or pre-computed database epitope predictors.  The latter can be generated for IEDB and NetMHCII databases using [[mhc-energy-tools]].  Local de-immunization can be performed with [[AddMHCEpitopeConstraintMover]].  Integration with nmer/NMerSVMEnergy will be implemented in the next release.
+* [[NMerSVMEnergy]]
+* PDB output now has header sections and options for author cards and further details
+ * SEQRES lines in PDB file IO available
+* Tools to export [[InteractionGraph]] to external code, so that the packing step can be done with QUANTUM COMPUTERS OH MY GOD IT'S THE FUTURE
+
+* A disulfide optimization mover
+* Serialized Poses as a more formal serialization than the silent file
+* [[RotamerSetsObjects]] framework
+** [[PruneBuriedUnsatsOperation]]
+
+* New [[ResidueSelectors]]
+ * [[ResiduePropertySelector]]
+
+* New [[SimpleMetrics]]
+ * [[ElectrostaticComplementarityMetric | simple_metric_ElectrostaticComplementarityMetric_type ]]
+ * [[ResidueSummaryMetric]]
+ * [[InteractionEnergyMetric]]
+ * [[PerResidueClashMetric]]
+ * [[SequenceRecoveryMetric]]
+ * [[PerResidueGlycanLayerMetric| simple_metric_PerResidueGlycanLayerMetric_type]]
+ * [[ProtocolSettingsMetric]]
+
+###Improvements/bugfixes to classes:
+* [[JD3]] and its ecosystem
+* [[RingPlaneFlipMover]]
+* [[NubInitioMover]]
+* [[CoupledMoves]]: [[RosettaScripts]] compatibility and new features
+* [[AtomicContactCount]]
+* [[AntibodyDesignMover]]
+* [[BuriedUnsatisfiedHBonds]] or [[BuriedUnsatHbondFilter]]
+* [[approximate_buried_unsat_penalty]] or [[approximate_buried_unsat_energy]]
+* [[SetSecStructEnergies]]
+* [[NearNativeLoopClosure]]
+* [[StructureProfile]]
+* [[ForceDisulfidesMover]]
+* [[RandomMutationMover]]
+* [[CovalentLabelingEnergy]]
+* [[MotifGraft]]
+* Bugfix to loading residues from the PDB Chemical Components Database
+* [[SimpleMetrics]] work in PyRosetta
+* [[ForceDisulfideMover]]
+* [[ShapeGrid]]
+* The [[RamaPrePro]] energy term received some efficiency tweaks.
+* [[InterfaceAnalyzerMover]]
+* [[HBnet]]
+* [[ReadResfileFromDB]]
+* [[ProteinProteinInterfaceUpweighter]]
+* [[MathVectors]]
+* [[LinearMemoryInteractionGraph]]
+* [[GlycanTreeModeler]]
+* [[PrimarySequenceNeighborhoodSelector]]
+* [[SSPredictionFilter]]
+* The [[SequenceMetric]] now has options to allow one-letter (_e.g._ `S`), three-letter (_e.g._ `DSE`), basename (_e.g._ `DSER`), or full name (_e.g._ `DSER:phosphorylation`) output.
+* [[BoltzmannRotamerMover]]
+* [[CoupledMovesProtocol]]
+* [[SnugDock]]
+* [[DDGMover]]
+* [[DDGFilter]]
+* [[RandomTorsionMover]]
+* [[xyzStripeHash]]
+* [[SugarBBEnergy]]
+* Interface hydrogen bonds and salt bridges filter
+* [[structure_store]]
+* [[SwitchChainOrderMover]]
+* [[BackboneMover]] (so venerable)
+* [[DisulfideInsertionMover]]
+* [[ShapeComplementarityFilter]]
+* [[ConservativeDesignOperation]]
+* [[SymmetricEnergies]]
+* [[SymmetricConformation]]
+* [[MinMover]]
+* [[MoveMapFactory]]
+* [[DensityFitMetric]]
+* [[DensityFitSelector]]
+* [[PerResidueEnergyMetric]]
+* [[TotalEnergyMetric]]
+* [[RMSDMetric]]
+* [[HolesFilter]]
+* [[ReplaceRegionMover]]
+* [[InsertPoseIntoPoseMover]]
+* [[AtomLevelHBondGraph]]
+* [[AtomicDepth]]
+* [[ResidueIndexDescription]]
+* The [[FastRelax|FastRelaxMover]] and [[FastDesign|FastDesignMovers]] now have a `RelaxScriptManager`, to ensure that relax scripts are read from disk once and once only, on first demand, and in a threadsafe manner.  (The `RelaxScriptManager` has no user-facing interface.)
+
+###Miscellaneous:
+* Scientific tests revivification drive
+* General improvements to centralize disk use and remove repeat access, especially w/r/t scoring.  This makes Rosetta more usable on ultra-high-processor-count supercomputers without disk hammering when all threads try to grab scorefunction data at once.
+* Jack Maguire did some serious profiling to hunt for inner-loop slowdowns and garnered several a-few-percent performance gains.
+* Threadsafety improvements, especially for the options system
+* Moving towards Python3 everywhere
+* The Npro atom type was incorrectly listed as a hydrogen bond donor
+* Cadmium has been added to the Rosetta database.
+* Added support for linking Rosetta against Tensorflow (`extras=tensorflow` option during compilation) to facilitate development of machine learning-based protocols.
+* Considerable refactoring of polycubic interpolation code to fix bugs and permit greater generality.
+
+###General bugfixes:
+* We know "Cannot normalize xyzVector of length() zero" is cryptic, it annoys us too.  There has been work to catch and re-throw this error with extra data so we can better track down the cause.  (The best understood cause is 3 colinear atoms, whose incalculable dihedral causes this error).
+* Rosetta's error handling and reporting system has matured to print debugging backtraces less aggressively for better understood crashes, and dump them to disk when appropriate instead of to terminal.
+* Dunbrack sidechain potentials now properly interpolate well locations as angles (eliminating problems at the -180/180 wraparound point).  This is still polylinear interpolation, but could easily be switched to Catmull-Rom splines in the future.
+* Rosetta's option system has been refactored for better thread-safety.
+* Bugfixes for N-methyl amino acids.  Support that had been temporarily removed for this modification has now been restored.
 
 ## Rosetta 3.10
 

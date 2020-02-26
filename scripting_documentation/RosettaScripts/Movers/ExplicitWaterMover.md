@@ -1,13 +1,17 @@
+## Reference
+
+Biorxiv: https://www.biorxiv.org/content/10.1101/618603v2
+
 ## Overview
 
-The WaterBoxMover is a special-purpose mover (exposed through the [[RosettaScripts]] application) intended to be used in conjunction with the [[beta_nov16 potential function|Updates-beta-nov16]]. It, when used in conjunction with the [[packer|PackRotamersMover]], allows the modeling of explicit water molecules during a packing/design trajectory.
+The ExplicitWaterMover is a special-purpose mover (exposed through the [[RosettaScripts]] application) intended to be used in conjunction with the [[beta_nov16 potential function|Updates-beta-nov16]]. It, when used in conjunction with the [[packer|PackRotamersMover]], allows the modeling of explicit water molecules during a packing/design trajectory.
 
-The WaterBoxMover is to be called _prior_ to packing, using the same task operation as packing.  It generates potential sites where water might bind to any allowed rotamer.  Then, a _subsequent packing call_ is used to bring waters out of solvent at these positions.
+The ExplicitWaterMover is to be called _prior_ to packing, using the same task operation as packing.  It generates potential sites where water might bind to any allowed rotamer.  Then, a _subsequent packing call_ is used to bring waters out of solvent at these positions.
 
 In the simplest case, it is used as follows:
 ```xml
     <MOVERS>
-      <WaterBoxMover name="solvate" mode="replace" gen_fixed="0" scorefxn="beta" task_operations="mytaskops" />
+      <ExplicitWaterMover name="solvate" mode="replace" gen_fixed="0" scorefxn="beta" task_operations="mytaskops" />
       <PackRotamersMover name="pack" scorefxn="beta" task_operations="mytaskops"/>
     </MOVERS>
    <PROTOCOLS>
@@ -45,3 +49,5 @@ Several "expert" options control these five steps:
 ## Notes
 
 If no task operation is provided, waters will only be generated against the fixed input pose (gen_fixed will always be assumed true)
+
+This mover was previously called WaterBoxMover -- this was changed to ExplicitWaterMover on 10/23/2019 to be more descriptive

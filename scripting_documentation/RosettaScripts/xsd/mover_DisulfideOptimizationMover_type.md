@@ -7,10 +7,12 @@ Optimize the pair of disulfide-bonded residues indicated in the residue selector
 
 ```xml
 <DisulfideOptimizationMover name="(&string;)" residue_selector="(&string;)"
-        final_optimization="(0 &non_negative_integer;)" />
+        final_optimization="(0 &non_negative_integer;)"
+        interaction_graph_threads="(1 &positive_integer;)" />
 ```
 
 -   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
 -   **final_optimization**: Number of iterations of final optimization (minimization and three more rounds of repack-minimize)
+-   **interaction_graph_threads**: Number of threads to request for packer interaction graph precalculation.  Only works in multi-threaded Rosetta builds (extras=cxx11threads during compilation).
 
 ---

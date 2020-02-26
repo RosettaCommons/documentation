@@ -1,6 +1,8 @@
 #Coding Conventions and Examples
 
-Rosetta 3 (formerly MiniRosetta) is an object-oriented implementation of Rosetta that has been rewritten in C++ from the ground up by a core team of developers. These guidelines are intended to help new (andeveld to remind old/current) Rosetta developers to learn, maintain, and improve the reliability, clarity, and performance of the code while we continue its development and modernization. 
+Rosetta 3 (formerly MiniRosetta) is an object-oriented implementation of Rosetta that has been rewritten in C++ from the ground up by a core team of developers. These guidelines are intended to help new (andeveld to remind old/current) Rosetta developers to learn, maintain, and improve the reliability, clarity, and performance of the code while we continue its development and modernization.
+
+[[_TOC_]]
 
 
 ##Conventions
@@ -176,21 +178,33 @@ In order from lowest to highest, the libraries are (with examples of familiar co
 *  When declaring variables to be const: first state the type of a variable, then state its const status. E.g. Size const my_constant( 4 );  There is a difference between a pointer to a constant (e.g. Size const *), a constant pointer (Size * const) and a constant pointer to a constant (Size const * const).  To distinguish these three, const must come after the type.
 * Member functions that do not change the data inside a class should be declared const.  Accessors should be const so long as they do not return non-const references to the data they contain.
   * Remember, the function signature for a class member function depends on the const status of the object, and member functions may be overloaded based on a difference of const:
-  * e.g. 
-<pre>
+  * _e.g._ 
+```c++
 class MyClass { 
-    public: int my_int() 
-        const { 
+    public:
+
+    int my_int() const { 
            return my_int_; 
-        } 
-        int & my_int { 
+    }
+ 
+    int & my_int { 
            return my_int_; 
-        } 
-    private my_int_ 
-}; </pre>
+    }
+
+    private:
+
+    int my_int_;
+};
+```
 An instance of this class may be passed to a function as a const & with the wonderful guarantee that its internal data will not be modified within that function.  The compiler will prevent calls to the non-const my_int() function!
-* Data members that are updated in a lazy fashion (e.g. retrieving xyz coordinates from a Conformation causes a lazy refold() evaluation)  should be declared "mutable" so that they may be modified in const methods.
+* Data members that are updated (_i.e._ recomputed) in a lazy fashion should be avoided.  If these are necessary (_e.g._ retrieving xyz coordinates from a Conformation causes a lazy `refold()` evaluation), they should be declared `mutable` so that they may be modified in const methods, and should be made thread-safe.  If you are uncertain about how to ensure that data access is thread-safe, please ask the community.
+* Data members that load data from disk in a lazy fashion _can_ use `mutable` data so that these can be loaded in a `const` context.  However, these must load their data in a threadsafe manner.  Utility functions in `utility/thread/threadsafe_creation.hh` can be used for this, and there are many examples in `core/scoring/ScoringManager.hh`.  When in doubt, **ask someone from the community** about how to do this safely.
 * Data members that do not change over the lifetime of a class should be declared const, and must be initialized in their constructors.
+* Avoid methods of "getting around" the constness of functions to modify const data.  This means:
+     * Never use `const_cast` to discard the const-ness of a const object.
+     * Do not use `mutable` if it can be avoided.  If it cannot, ensure that mutable data are handled in a threadsafe manner.  The community can help you to ensure thread-safety, particularly during the pull request review process.  Usually, though, it is possible to simply pass data to the functions that need them, rather than caching data in mutable variables and accessing them further down a chain of function calls.  The former is thread-safe; the latter is not, since different threads might invalidate one another's caches.
+     * In const functions, avoid modifying objects pointed to by member (non-const) owning pointers.  Although it is the pointer itself, and not the thing that it points to, that is const, this pattern can harm thread-safety.  If you must do this, please consult the community about how to do this in a thread-safe manner.
+     * If it seems that you really must do any of the above, **ask the community** for advice!  There is usually a better way.
 
 #### Precision and `typedef`s
 * **Do not use raw literals for numeric values:** `0.0` *vs.* `Real( 0.0 )` 
@@ -286,7 +300,7 @@ utility::pointer::down_pointer_cast< Bar >( foo ); // returns a BarOP
 * **Do not use goto ever.** C++ allows it, we do not.
 * **Do not use macros** except for controlling compilation with #ifdefs
 * **Do not use post-increment operators.**  i++ is a post increment operator for variable i.  ++i is a pre-increment operator.  If i = 5, then ++i would set i to 6 and return 6.  i++ would set i to 6 and return 5.  my_array[ ++i ] would return a different value than my_array[ i++ ]. To avoid confusion, do not use post-increment operators.  ++ operators mainly appear in for loops. In for loops, increment with ++loop_counter.
-
+* **Do not use `const_cast` ever.**  The ability to make something `const` is there to help you: it ensures that the compiler will catch you if you accidentally try to modify something that should not be modified.  It's a safety harness.  Casting away the const-ness of something is like throwing away your safety harness.
 ####Style
 #####Semi-colons
 * Do not add excess semi-colons.  Semi-colons are not needed after for-loops or function bodies.  Excess semi-colons following function bodies are flagged as errors by some compilers:

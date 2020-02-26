@@ -27,14 +27,6 @@ comment tags will be stripped from the documentation prior to being provided as 
 
 See [[how to write documentation|how-to-write-documentation]] for more details.
 
-## Development Overview
-- [[RosettaAcademy (or "Rosetta for Newbies")|RosettaAcademy]] - An intro guide for new RosettaCommons users and developers.
-- [[Code Template Generation | code_templates ]] - How to use the template generator scripts to generate code templates of common Rosetta classes/apps/unit tests to save development time
-- [[A guide to developing in Rosetta]] - Outdated, RosettaCommons centric developer overview.
-- [[Before commit check]] - Things to check before submission.
-- [[App name]] - Template for Rosetta application documentation.
-    - [[Template app documentation page]] - Alternative application documentation template.
-- [[ReviewerTemplate]] - A template for reviewers of application documentation.
 
 ## Rosetta Build System 
 
@@ -58,64 +50,37 @@ If you change the API for a core class (particularly if you *remove*, *rename*, 
 ## PyRosetta API changes
 1. Since r59466 xyzMatrix now have .xy properties bound as 'data' instead of set/get functions. So if your code accessed this methods directly you will need to refactor it as m.xx( m.xy() ) --> m.xx = m.xy
 
-## Pilot Apps
 
-This is documentation for not-yet-released applications
+## Rosetta Code-Writing Documentation
 
-### General 
+### Overview
+#### RosettaAcademy
+ - [[RosettaAcademy (or "Rosetta for Newbies")|RosettaAcademy]] - An intro guide for new RosettaCommons users and developers.
 
-- [[multi-residue-ligand-dock]] - Docking of multiple ligand residues
+#### Code Template Generation
+- [[Code Template Generation | code_templates ]] - How to use the template generator scripts to generate code templates of common Rosetta classes/apps/unit tests to save development time
 
-- [[hotspot-hash]] - Documentation for Hotspot hashing
-    * [[hshash-utils]] - Utilities for Hotspot hashing
+#### Before Commit Check
+- [[Before commit check]] - Things to check before submission.
 
-- [[multistate-design-ga]] - DNA interface multistate design  
+#### Code Review Guide
+- [[ReviewerTemplate]] - A template for reviewers of application documentation.
 
-- [[RosettaPCS]] - Protein folding using Pseudo-Contact-Shift NMR restraints
+#### Documentation Template
+- [[App name]] - Template for Rosetta application documentation.
+- [[Template app documentation page]] - Alternative application documentation template.
 
-### Antibodies
+### [[Writing a New SimpleMetric]]
+ - Creating a SimpleMetric instead of Filter or for general analysis
 
-[[General Antibody Options and Tips]]
-
-Utilities:
-- [[CDR Cluster Identification]]
-   * Application to Identify North/Dunbrack CDR Clusters 
-- [[CDR Cluster Constrained Relax]]
-   * Application to Relax CDRs using cluster-based dihedral constraints 
-
-Design:
-- [[Rosetta Antibody Designer (RAbD) | RosettaAntibodyDesign]]
-  * Application for knowledge-based Antibody Design based on CDR clusters and cellular mimicry
-- [[Antibody Design Strategy Analysis]]
-  * Methods for analyzing various antibody design strategies
-- [[Antibody Design Benchmark Analysis]]
-  * Methods for analyzing various antibody design benchmarks
-
-### Carbohydrates
-
-- [[ GlycanRelax ]]
-- [[ GlycanClashCheck ]]
-- [[ GlycanInfo ]]
-
-## Pilot RosettaScript Movers/Filters/etc.
-
-### Carbohydrates
-- [[ SimpleGlycsylateMover ]]
-- [[ GlycanRelaxMover ]]
-- [[ GlycanTreeSelector]]
-- [[ GlycanResidueSelector]]
-
-### Antibody Design
-- [[Generalized Antibody Design Framework RS]]
+### [[Global Objects-Singletons in Rosetta | internal_documentation/singletons]]
+ - Creating singletons that are threadsafe. Andrew
 
 
 ## Rosetta Method Documentation
 
 ### [[Computing SASA in Rosetta]]
  - Method for computing SASA in Rosetta written by Jared
-
-### [[Global Objects-Singletons in Rosetta | internal_documentation/singletons]]
- - Creating singletons that are threadsafe. Andrew
 
 ### Chemical XRW 2016 ##
 #### - [[Overview of File I/O Code | FileIOOverview ]]
@@ -190,34 +155,6 @@ Design:
 ### Fragment assembly of RNA (FARNA) renovation, unification with stepwise
 - [[FARNA|farna-refactor]] is Rosetta's original RNA de novo modeling code (dating back to Rosetta++). It is undergoing some updates in 2015-2016.
 
-### Antibodies
-[[General Antibody Options and Tips]]
-
-Utilities:
-- [[CDR Cluster Identification]]
-   * Application to Identify North/Dunbrack CDR Clusters 
-- [[CDR Cluster Constrained Relax]]
-   * Application to Relax CDRs using cluster-based dihedral constraints 
-
-Design:
-- [[Rosetta Antibody Designer (RAbD) | RosettaAntibodyDesign]]
-  * Application for knowledge-based Antibody Design based on CDR clusters and cellular mimicry
-- [[Antibody Design Strategy Analysis]]
-  * Methods for analyzing various antibody design strategies
-- [[Antibody Design Benchmark Analysis]]
-  * Methods for analyzing various antibody design benchmarks
-
-Features Reporters:
-- [[Antibody Features]]
-- [[CDR Cluster Features]]
-- [[Interface Features]]
-
-RosettaScripts Documentation:
-- [[Generalized Antibody Design Framework RS]]
-
-Input Files:
-- [[CDR Instruction File]]
- * CDR Level control of Antibody Design and CDRSets used for Antibody modeling
 
 ### S.E.W.I.N.G. Protocol
 - [[SEWING]]
@@ -226,6 +163,22 @@ Input Files:
  * [[Assembly of models]] 
 - [[Sidechain Design aided by Sewing]]
 - [[SEWING Dictionary]]
+
+## Pilot Apps
+
+This is documentation for not-yet-released applications
+
+### General 
+
+- [[multi-residue-ligand-dock]] - Docking of multiple ligand residues
+
+- [[hotspot-hash]] - Documentation for Hotspot hashing
+    * [[hshash-utils]] - Utilities for Hotspot hashing
+
+- [[multistate-design-ga]] - DNA interface multistate design  
+
+- [[RosettaPCS]] - Protein folding using Pseudo-Contact-Shift NMR restraints
+
 
 # Rosetta (not on) GPU
 [[internal_documentation/Rosetta-GPU-conversation-transcription]]

@@ -11,9 +11,11 @@ This mover is useful for reporting the total or per-residue ddgs in cases where 
         task_operations="(&task_operation_comma_separated_list;)"
         packer_palette="(&named_packer_palette;)" repack_bound="(true &bool;)"
         relax_bound="(false &bool;)" relax_unbound="(true &bool;)"
-        translate_by="(1000 &real;)" relax_mover="(&string;)"
+        translate_by="(1000.0 &real;)" relax_mover="(&string;)"
         filter="(&string;)" chain_num="(&string;)" chain_name="(&string;)"
-        solvate="(false &bool;)" />
+        solvate="(false &bool;)" solvate_unbound="(false &bool;)"
+        solvate_rbmin="(false &bool;)" min_water_jump="(false &bool;)"
+        compute_rmsd="(false &bool;)" />
 ```
 
 -   **scorefxn**: Name of score function to use
@@ -25,11 +27,15 @@ This mover is useful for reporting the total or per-residue ddgs in cases where 
 -   **repack_bound**: XSD XRW TO DO
 -   **relax_bound**: Should we relax the bound state, if a relax mover is specified?  Default false.
 -   **relax_unbound**: Should we relax the unbound state, if a relax mover is specified?  Default true.
--   **translate_by**: XSD XRW TO DO
+-   **translate_by**: Distance in Angstroms by which to separate the components of the bound state
 -   **relax_mover**: XSD XRW TO DO
 -   **filter**: XSD XRW TO DO
 -   **chain_num**: XSD XRW TO DO
 -   **chain_name**: XSD XRW TO DO
--   **solvate**: Solvate both bound and unbound pose (using WaterBox mover)
+-   **solvate**: Solvate bound pose (using ExplicitWater mover)
+-   **solvate_unbound**: Solvate unbound pose (using ExplicitWater mover)
+-   **solvate_rbmin**: Use rigid-body minimization following solvation
+-   **min_water_jump**: Include waters in rigid-body minimization following solvation and packing
+-   **compute_rmsd**: Compute the rmsd both with and without superimposing -- requires in:file:native to be supplied
 
 ---

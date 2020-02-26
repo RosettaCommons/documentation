@@ -20,28 +20,30 @@ Rosetta's residue type outputting isn't necessarily comprehensive at this point.
 There's no guarantee that you're able to round-trip a given residue with the restype_converter application.
 (There's not even a guarantee that Rosetta will be able read the files which it output.)
 
-It should suffice for getting something like a PyMol-readable PDB or SDF file from a residue type, though.
+That said, the params file output should be functionally complete and will likely round-trip, although there may be representational difference between a params file output and a params file input.
+
+At this point, the PDB and SDF file output is mainly for atom/bond/coordinate information. It should be sufficient for getting something like a PyMol-readable file, though the usability for other cases may vary.
 
 Input
 =====
 
 The restype_converter application does not make use of the standard Rosetta job distributor machinery, and as such doesn't obey normal input or output options.
 
-By default, the converter works with full atom residue types. If you wish to work with centroid types, add the flag `-in:file:centroid`.
+By default, the converter works with full atom residue types. If you wish to work with centroid types, add the flag `-in:file:centroid`. (For centrot types, use `-cenrot`.)
 
 The following options can be used to specify which residue types should be converted:
 
 |**Option**|**Description**|
 |:-------|:--------------|
 |-restype_convert:types | A list of residue types names to take from the standard database. This can take patched names. |
-|-restype_convert:name3 | A list of three letter codes to take from the standard database. If more than one residue shares the same three letter code, all will be output.|
-|-extra_res_fa | A list of Rosetta [[Residue Params file]]s to convert. (Not used with `-in:file:centroid` active.) |
+|-restype_convert:name3 | A list of three letter codes to take from the standard database. If more than one residue shares the same three letter code, all will be output. (Though it will likely not output patched types.)|
+|-extra_res_fa | A list of Rosetta [[Residue Params file]]s to convert. (Not used with `-in:file:centroid` or `-cenrot` active.) |
 |-extra_res_cen | A list of Rosetta [[Residue Params file]]s to convert. (Only used with `-in:file:centroid` active.) |
 |-extra_res_mol | A list of SDF/Mol files to convert. (Used in both centroid and fullatom.)|
 |-extra_res_mmCIF | A list of CIF formatted ligand files to convert. (Used in both centroid and fullatom.)|
 
-If you wish to load a residue type from the Rosetta-provided Chemical Components Dictionary file, simply prepend `pdb_` to the three letter code, and use it with `-ligand_convert:types`.
-(For example, to load the residue TTL from the CCD, pass `-types pdb_TTL` to the ligand_convert application.)
+If you wish to load a residue type from the Rosetta-provided Chemical Components Dictionary file, simply prepend `pdb_` to the three letter code, and use it with `-restype_convert:types`.
+(For example, to load the residue TTL from the CCD, pass `-types pdb_TTL` to the restype_convert application.)
 
 Output
 ===============
@@ -67,7 +69,7 @@ Command Lines
 Sample command:
 
 ```
-restype_convert.linuxgccrelease -ligand_convert:types TRP:NtermProteinFull  -ligand_convert:name3 CYS -extra_res_fa my_type.params -out:pdb -ligand_convert:sdf_out 
+restype_convert.linuxgccrelease -restype_convert:types TRP:NtermProteinFull  -restype_convert:name3 CYS -extra_res_fa my_type.params -out:pdb -restype_convert:sdf_out 
 ```
 
 Example

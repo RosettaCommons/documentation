@@ -146,6 +146,7 @@ Extended information from the above intro is available here: https://wiki.rosett
 To write and develop code, it is much easier if you have an IDE (Integrated Development Environment) available. It is basically an editor and compiler, which also links to version control and has tons of nice little features like linking to functions somewhere else in the code, bracket completion, indentation, finding errors, etc. The two IDEs commonly used are 
 
 * Xcode - for Mac: https://wiki.rosettacommons.org/index.php/Tools:XCode
+* VsCode - any platform: https://code.visualstudio.com/ C++ code navigation works out of the box.
 * Eclipse - any platform: https://wiki.rosettacommons.org/index.php/Tools:Eclipse
 * Netbeans - any platform: https://netbeans.org
 Talk to your mentor which program he thinks is best so he can also give you advise on how to use it. And don't be discouraged, it takes a while to figure out the details.
@@ -350,6 +351,18 @@ Other tips:
 * **I don't know what my error message means:** If you still don't know what an error message means, someone has probably run into this error before. Check the developers list, or if it is a generic C++ error Google can be incredibly useful. Also, debugging is largely trial and error - it requires creativity and persistence :)
 * **Code and test defensively:** To write good code, pretend your user is a monkey and trying to find a bug in your code. Think about all possible edge cases and make sure you are handling them in your code. 
 * **Step through your code using comments:** Comment everything in a function out and run line by line before you figure out the source of error. 
+
+## Debugging segmentation faults
+1.  Compile in debug mode.  (`./scons.py -j 8 mode=debug bin`).
+2.  Run your protocol with gdb (or lldb on Mac).  These are debuggers which allow you to halt your app as it is executing and inspect the call stack (what function was being run, and what function was calling it, and what function was calling it, etc.) and the values of variables at arbitrary points.
+`gdb --args <path_to_Rosetta>/main/source/bin/<your_app>.default.linuxgccdebug @rosetta.flags`
+or
+`lldb -- <path_to_Rosetta>/main/source/bin/<your_app>.default.macosdebug @rosetta.flags`
+3.  Type `catch throw` (gdb) or `break set -E C++` (lldb).
+4.  Type `run`.
+5.  Wait for the segfault.  When it happens, type `bt` (gdb or lldb) to get a backtrace.  If you want to get debugging help, post the backtrace for other developers.  It shows what was calling what when the segfault happened.
+6.  Step through the frames using `f 0`, `f 1`, `f 2`, etc. (gdb or lldb).  You can look at where you are in the code using `list`, print values of variables using `print <variable_name>`, etc.
+At this point, it's detective work.  A segfault generally means that memory is being accessed in an invalid way (e.g. accessing element 11 of a 10-element vector).  It's pretty easy to figure out what was being accessed, but you have to figure out why this is happening.
 
 ## Some Tricky/Difficult to Debug Errors + Solutions 
 Below is a non-comprehensive list of errors that were pretty ambiguous to debug. Feel free to add as you solve: 

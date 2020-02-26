@@ -12,7 +12,8 @@ These applications are specifically designed to work with RNA or RNA-protein com
 * [[Stepwise monte carlo|stepwise]]: Stochastic version of stepwise assembly used to generate 3D models of proteins, RNA, and protein/RNA loops, motifs, and interfaces. This application is not exclusively for RNA but is compatible. 
 *  [[RNA assembly with experimental constraints|rna-assembly]] - Predict 3-dimensional structures of large RNAs with the help of experimental constraints. Note – largely deprecated by newer pipeline (described in this [paper](https://daslab.stanford.edu/site_data/pub_pdf/2015_Cheng_MethEnzym.pdf) and [demo](https://www.rosettacommons.org/demos/latest/public/mohca_seq/README)).
 * [[CS Rosetta RNA]]: Refines and scores an RNA structure using NMR chemical shift data.  
-* [[DRRAFTER]]: Builds RNA coordinates into cryoEM maps of RNA-protein assemblies.
+* [[auto-DRRAFTER]]: Builds RNA coordinates into cryo-EM maps (currently for maps that do not contain proteins).
+* [[DRRAFTER]]: Builds RNA coordinates into cryo-EM maps of RNA-protein assemblies.
 * [[Structure prediction of RNA-protein complexes|rnp-modeling]]: Predict 3D structures of RNA-protein complexes.
 
 ###RNA Design
