@@ -50,7 +50,9 @@ Labonte <JWLabonte@jhu.edu>. Please contact him with any questions or criticism.
 ## Types
 Currently, four `EnzymaticMover`s are written, but many more can and will be
 added to the Rosetta code base.
-
+* [[DNAMethyltransferaseMover]]<br />
+  Simulates the activity of specific biological DNA methyltransferases by
+  methylating a DNA-containing Pose.
 * [[GlycosyltransferaseMover]]<br />
   Simulates the activity of specific biological glycosyltransferases and
   oligosaccharyltrasferases by glycosylating a `Pose`.
@@ -154,25 +156,29 @@ co-substrates. This is the default behavior.
 
 ### Command-Line Applications
 
-Two Rosetta options flags are used specifically for interfacing with
+Three Rosetta options flags are used specifically for interfacing with
 `EnzymaticMover`s used in any protocols.
 
 * `-enzymes:species` is used to set the species name of any simulated enzymes
 used by the protocol.
 * `-enzymes:enzyme` is used to set the specific name of any simulated enzymes
 used by the protocol.
+* `-enzymes:efficiencty` is used to override the efficiency of any simulated enzymes
+used by the protocol.
 
 #### Current Apps
+* [[DNA_methylation]]
 * [[glycosyltransfer]]
 * [[phosphorylation]]
 * [[N-terminal_acetylation]]
 
 #### Example Command Lines
 ```
-$ glycosyltransfer -s input/1ABC.pdb -include_sugars -enzymes:species h_sapiens -enzymes:enzyme OGT -nstruct 5
+$ DNA_methylation -s input/1ABC.pdb -enzymes:species h_sapiens -enzymes:efficiency 0.75 -nstruct 3
 
-$ phosphorylation -s input/2DEF.pdb -enzymes:species h_sapiens -nstruct 1
+$ glycosyltransfer -s input/2DEF.pdb -include_sugars -enzymes:species h_sapiens -enzymes:enzyme OGT -nstruct 5
 
+$ phosphorylation -s input/3GHI.pdb -enzymes:species h_sapiens -nstruct 1
 
 $ N-terminal_acetylation -s input/4JKL.pdb -nstruct 1
 ```
@@ -198,18 +204,24 @@ The first line is assumed to contain a whitespace-delimited list of the
 following, all of which are required:
 * Consensus sequence &mdash; This may be a 1-letter-code AA or NA sequence or an
 IUPAC carbohydrate sequence.
-  * The parser recognizes the IUPAC-approved one-letter codes `B`, `J`, `O`, `U`, and `Z`,
-  which code for Asx, Xle, Pyl, Sec, and Glx, respectively.
-  * `X` alone is recognized to be any of the 20 canonical amino acids; `X` followed
-  by square brackets specifies a single non-canonical amino acid by 3-letter
-  code. For example, `X[SEP]` specifies phosphoserine.
-  * Parentheses are used to specify multiple possible residue types at that
-  site, separated by forward slashes, _e.g._, `(A/G)` specifies either Ala or Gly at
-  that position.
-  * A `<` in the first position indicates that the sequon must be located at the 
-  N-terminus.
-  * A `>` in the final position indicates that the sequon must be located at the 
-  C-terminus.
+  * Amino-acid Residue Sequences
+    * The parser recognizes the IUPAC-approved one-letter codes `B`, `J`, `O`, `U`, and `Z`,
+    which code for Asx, Xle, Pyl, Sec, and Glx, respectively.
+    * `X` alone is recognized to be any of the 20 canonical amino acids; `X` followed
+    by square brackets specifies a single non-canonical amino acid by 3-letter
+    code. For example, `X[SEP]` specifies phosphoserine.
+    * Parentheses are used to specify multiple possible residue types at that
+    site, separated by forward slashes, _e.g._, `(A/G)` specifies either Ala or Gly at
+    that position.
+    * A `<` in the first position indicates that the sequon must be located at the 
+    N-terminus.
+    * A `>` in the final position indicates that the sequon must be located at the 
+    C-terminus.
+  * Nucleic-acid Residue Sequences
+    * In addition to the standard A, C, G, T, and U one-letter codes, the parser
+    recognizes B, D, H, and V for _not_ A, C, G, or U, respectively; K for G or U;
+    M for A or C; N for any of the four RnA bases; R for any of the puRines;
+    S for any of the "Strong" nucleobases; and W for any of the "Weak" ones.
 * Sequence type &mdash; This value must be `AA`, `NA`, or `SACCHARIDE`, for the 
 three types of sequences accepted.
 * Residue of CS to modify &mdash; An integer representing the sequence position
@@ -320,4 +332,4 @@ provide a minimal sequon, have 100% efficiency, and not be promiscuous.
 
 ----------
 Documentation created 5 April 2019 by Jason W. Labonte <JWLabonte@jhu.edu>.
-Documentation updated 18 February 2020 by Jason W. Labonte <JWLabonte@jhu.edu>.
+Documentation updated 26 February 2020 by Jason W. Labonte <JWLabonte@jhu.edu>.
