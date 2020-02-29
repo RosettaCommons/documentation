@@ -269,6 +269,8 @@ SINGLE_FIT
 ```
 This denotes that the run has been set up manually and that there is only a single possible placement of the RNA within the density map (as opposed to the many possible alignments that `auto-DRRAFTER_setup.py` would create).   
 
+8. `job_submission_template.sh`: This file is described [above](#required-input-files).
+
 ###An important note about the files above
 The other important thing to note is that the names of all of the above files are important. Each time that "mini_example" appears in one of the file names above, this should be replaced with the `-out_pref` that you are planning to use for subsequent steps of the auto-DRRAFTER modeling pipeline.  
 
