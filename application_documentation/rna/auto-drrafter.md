@@ -256,7 +256,10 @@ This section would replace steps 1-3 of the pipeline above. We need to create th
     * **`-nstruct <100>`**: Replace 100 with the number of structures that you'd like to build per job, per round of modeling. (This is different than the number of structure that you want to build per round. For example, if you run 10 jobs, each with `-nstruct 100`, then you will have 10x100=1000 models for that round.)   
 You should not need to change any of the other flags in this file.  
         
-5. `command_mini_example_R1`: The commands for the DRRAFTER runs for the possible alignments of the helices into the density map.  
+5. `command_mini_example_R1`: The commands for the DRRAFTER runs for the possible alignments of the helices into the density map. For example:   
+```
+$ROSETTA/main/source/bin/rna_denovo @flags_mini_example_R1
+```
 
 6. `helix_1.pdb`, `helix_2.pdb`, etc.: Ideal A-form helices for all helical regions of your RNA. These are all the files listed in the `-s` option in your `flags` file (see above). You'll need to create these using `rna_helix.py` (see instructions [here](https://www.rosettacommons.org/docs/wiki/application_documentation/rna/RNA-tools#some-useful-tools_rna-modeling-utilities); make sure that you have [RNA tools set up first](https://www.rosettacommons.org/docs/wiki/application_documentation/rna/RNA-tools#setup)).     
 
