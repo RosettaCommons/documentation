@@ -16,14 +16,14 @@ XRW TO DO
         use_atomic_contact_filter="(false &bool;)" confidence="(1.0 &real;)" />
 ```
 
--   **threshold**: Number of neighbors you want around your ssElement
--   **contacts_between_ssElement_threshold**: How many contacts needed between elements to count as a valid neighbor
--   **report_avg**: If true, will report the average score of the whole design, if false will filter based on the worst overall score
--   **ignore_terminal_ss**: Terminal ss tend to have fewer neighbors. Setting to true will remove these from the score, and only filter on the neighbors to the inner ssElements
--   **ignore_n_terminal_ss**: similar to ignore_terminal_ssbut only ignore the N terminal ssElement
--   **ignore_c_terminal_ss**: similar to ignore_terminal_ssbut only ignore the C terminal ssElement
--   **only_n_term**: only score the n terminus
--   **only_c_term**: only score the c terminus
+-   **threshold**: XRW TO DO
+-   **contacts_between_ssElement_threshold**: XRW TO DO
+-   **report_avg**: XRW TO DO
+-   **ignore_terminal_ss**: XRW TO DO
+-   **ignore_n_terminal_ss**: XRW TO DO
+-   **ignore_c_terminal_ss**: XRW TO DO
+-   **only_n_term**: XRW TO DO
+-   **only_c_term**: XRW TO DO
 -   **use_atomic_contact_filter**: uses the atomic contact filter instead of motifs. only applicable if structure already FA
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 

@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-02-15
+Generated: 2020-02-29
 
 _Note that some application specific options may not be present in this list._
 
@@ -866,6 +866,8 @@ _Note that some application specific options may not be present in this list._
 <dd>same as mpi_file_buf_job_distributor but with more intuitive spacing... determine if we should use the MPIFileBufJobDistributor (warning: silent output only)<br/>Default: true<br/></dd>
 <dt><b>-mpi_fast_nonblocking_output</b> \<Boolean\></dt>
 <dd>By default the master node blocks while a slave node outputs to avoid two slaves writing to a score file or silent file at the same time setting this to true disables that feature<br/>Default: false<br/></dd>
+<dt><b>-input_empty_pose</b> \<Boolean\></dt>
+<dd>Give the job distributor an empty pose.<br/>Default: false<br/></dd>
 <dt><b>-dd_parser</b> \<Boolean\></dt>
 <dd>determine whether to use the dock_design_parser<br/>Default: false<br/></dd>
 <dt><b>-ntrials</b> \<Integer\></dt>
