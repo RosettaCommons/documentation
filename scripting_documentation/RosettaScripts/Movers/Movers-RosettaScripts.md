@@ -435,7 +435,7 @@ Mover  | Description
 **[[FinalMinimizer|FinalMinimizerMover]]** | Performs gradient minimization of a docked pose
 **[[InterfaceScoreCalculator|InterfaceScoreCalculatorMover]]** | Calculates interface score by subtracting that of the separated partners from that of the complex
 **[[ComputeLigandRDF|ComputeLigandRDFMover]]** | Computes radial distribution functions using protein-protein or protein-ligand atom pairs
-**[[GALigandDock]] | Uses the beta general potential to perform flexible docking of a small-molecule ligand with precomputed scoring grids
+**[[GALigandDock]]** | Uses the beta general potential to perform flexible docking of a small-molecule ligand with precomputed scoring grids
 
 
 ### Enzyme Design
