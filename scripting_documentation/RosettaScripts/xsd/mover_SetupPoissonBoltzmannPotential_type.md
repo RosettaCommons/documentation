@@ -15,7 +15,7 @@ Initialize the runtime environment for Poisson-Boltzmann solver. It allows keepi
         translate_by="(1000.0 &real;)" relax_mover="(&string;)"
         filter="(&string;)" chain_num="(&string;)" chain_name="(&string;)"
         solvate="(false &bool;)" solvate_unbound="(false &bool;)"
-        solvate_rbmin="(false &bool;)" min_water_jump="(false &bool;)"
+        solvate_rbmin="(false &bool;)" min_water_jump="(true &bool;)"
         compute_rmsd="(false &bool;)" apbs_path="(&string;)"
         charged_chains="(&string;)" revamp_near_chain="(&string;)"
         potential_cap="(&real;)" sidechain_only="(&bool;)" epsilon="(&real;)"

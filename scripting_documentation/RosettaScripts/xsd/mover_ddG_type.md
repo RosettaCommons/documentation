@@ -14,7 +14,7 @@ This mover is useful for reporting the total or per-residue ddgs in cases where 
         translate_by="(1000.0 &real;)" relax_mover="(&string;)"
         filter="(&string;)" chain_num="(&string;)" chain_name="(&string;)"
         solvate="(false &bool;)" solvate_unbound="(false &bool;)"
-        solvate_rbmin="(false &bool;)" min_water_jump="(false &bool;)"
+        solvate_rbmin="(false &bool;)" min_water_jump="(true &bool;)"
         compute_rmsd="(false &bool;)" />
 ```
 
