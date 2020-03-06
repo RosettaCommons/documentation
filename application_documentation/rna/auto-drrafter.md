@@ -21,8 +21,10 @@ All of the auto-DRRAFTER scripts are located in `ROSETTA_HOME/main/src/apps/publ
 A demo of auto-DRRAFTER is available in `ROSETTA_HOME/main/demos/public/drrafter/` (available in releases after 2020.03). Instructions for the demo can be found [here](https://www.rosettacommons.org/demos/latest/public/auto-drrafter/README). ***It is highly recommended to go through the full demo before trying to run auto-DRRAFTER for your RNA.***
 
 ##On this page:
-[Setting up auto-DRRAFTER](#setting-up-auto-DRRAFTER)
-[Required input files](#required-input-files)
+[Setting up auto-DRRAFTER](#setting-up-auto-DRRAFTER): Do this before running auto-DRRAFTER.   
+[Required input files](#required-input-files): This describes the input files you'll need to prepare.   
+[Running auto-DRRAFTER](#running-auto-drrafter): This describes the steps for running auto-DRRAFTER.   
+[Manually setting up an auto-DRRAFTER run](#manually-setting-up-an-auto-drrafter-run): This is useful if you know something about your RNA structure (like where a piece of the structure sits in the density map) and/or want to run auto-DRRAFTER through the ROSIE server.   
 
 ##Setting up auto-DRRAFTER
   
