@@ -3,7 +3,7 @@
 ##Metadata
 
 Author: Kalli Kappel (kkappel at alumni dot stanford dot edu)  
-Last updated: February 2020
+Last updated: March 2020
 
 ##Application purpose
 
@@ -19,6 +19,10 @@ auto-DRRAFTER code will be available in the Rosetta weekly releases after 2019.4
 All of the auto-DRRAFTER scripts are located in `ROSETTA_HOME/main/src/apps/public/DRRAFTER/`.
 
 A demo of auto-DRRAFTER is available in `ROSETTA_HOME/main/demos/public/drrafter/` (available in releases after 2020.03). Instructions for the demo can be found [here](https://www.rosettacommons.org/demos/latest/public/auto-drrafter/README). ***It is highly recommended to go through the full demo before trying to run auto-DRRAFTER for your RNA.***
+
+##On this page:
+[Setting up auto-DRRAFTER](#setting-up-auto-DRRAFTER)
+[Required input files](#required-input-files)
 
 ##Setting up auto-DRRAFTER
   
@@ -61,7 +65,7 @@ Alternatively, the `job_submission_template.sh` may just be a blank file if you 
 
 ##Running auto-DRRAFTER
 The auto-DRRAFTER workflow is described below.  
-**Step 1**: Low-pass filter the density map and determine the threshold level.  
+####**Step 1**: Low-pass filter the density map and determine the threshold level.  
 ```
 python $ROSETTA/main/source/src/apps/public/DRRAFTER/auto-DRRAFTER_setup.py -map_thr 30 -full_dens_map input_files/map.mrc -full_dens_map_reso 10.0 -fasta input_files/fasta.txt -secstruct input_files/secstruct.txt -out_pref mini_example -rosetta_directory $ROSETTA/main/source/bin/ -nstruct_per_job 100 -cycles 1000 -fit_only_one_helix -rosetta_extension .static.linuxgccrelease -just_low_pass
 ```  
@@ -78,9 +82,11 @@ python $ROSETTA/main/source/src/apps/public/DRRAFTER/auto-DRRAFTER_setup.py -map
 
 This will create a single file: `mini_example_lp20.mrc`. This is the low-pass filtered density map, which will be used to figure out the initial helix placements.
 
-**Step 2**: Open the low-pass filtered density map (`mini_example_lp20.mrc`) in Chimera. Change the threshold of the density map (using the sliding bar on the density histogram). You want to find the highest threshold such that you can clearly discern "end nodes" in the density map, but also such that the density map is still fully connected. Note that this threshold is only used for the initial helix placement and does not have any affect on the later modeling steps.  
+####**Step 2**: Open the low-pass filtered density map (`mini_example_lp20.mrc`) in Chimera.   
+Change the threshold of the density map (using the sliding bar on the density histogram). You want to find the highest threshold such that you can clearly discern "end nodes" in the density map, but also such that the density map is still fully connected. Note that this threshold is only used for the initial helix placement and does not have any affect on the later modeling steps.  
 
-**Step 3**: Set up the auto-DRRAFTER run by typing:  
+####**Step 3**: Set up the auto-DRRAFTER run.   
+Type:  
 ```
 python $ROSETTA/main/source/src/apps/public/DRRAFTER/auto-DRRAFTER_setup.py -map_thr 30 -full_dens_map input_files/map.mrc -full_dens_map_reso 10.0 -fasta input_files/fasta.txt -secstruct input_files/secstruct.txt -out_pref mini_example -rosetta_directory $ROSETTA/main/source/bin/ -nstruct_per_job 100 -cycles 1000 -fit_only_one_helix -rosetta_extension .static.linuxgccrelease
 ```  
@@ -129,7 +135,8 @@ Auto-DRRAFTER then sets up the DRRAFTER runs for each of these mappings. This in
 
 `secstruct_mini_example.txt`: The secondary structure file for the DRRAFTER runs.
 
-**Step 4**: Submit/run the DRRAFTER jobs. Type:  
+####**Step 4**: Submit/run the DRRAFTER jobs.   
+Type:  
 ```
 python $ROSETTA/main/source/src/apps/public/DRRAFTER/submit_jobs.py -out_pref mini_example -curr_round R1 -njobs 25 -template_submission_script input_files/job_submission_template.sh -queue_command source
 ```  
@@ -147,7 +154,7 @@ This will create the following output files:
 `job_files/`: This is a directory that contains all the job submission files.
 `out_mini_example_*_R1/`: These directories contains all the DRRAFTER models built for each helix alignment.   
 
-**Step 5**: Set up the next round of modeling.
+####**Step 5**: Set up the next round of modeling.
 
 ```
 python $ROSETTA/main/source/src/apps/public/DRRAFTER/auto-DRRAFTER_setup_next_round.py -out_pref mini_example -curr_round R1 -rosetta_directory $ROSETTA/main/source/bin/ -rosetta_extension .static.linuxgccrelease
@@ -161,7 +168,7 @@ Overall convergence 0.373
 Density threshold: 38.779
 ```  
 
-This step collects all of the models from the previous step and calculates the convergence of the overall top ten scoring models (across all alignments). That is the "Overall convergence" value that is printed out. Then the next round of modeling is set up based on the models that were built from the previous round. Regions of the models that are well converged will be kept fixed in the next round of modeling.   
+This step collects all of the models from the previous step and calculates the convergence of the overall top ten scoring models (across all alignments). That is the "Overall convergence" value that is printed out. Then the next round of modeling is set up based on the models that were built from the previous round. Regions of the models that are well converged will be kept fixed in the next round of modeling.  
 
 Several files are written out at this step. The key files that you want to know about are:
 
@@ -171,18 +178,24 @@ Several files are written out at this step. The key files that you want to know 
 
 `flags_mini_example_*_R2`: These files contain all the flags that will be used for the two DRRAFTER runs for the different helix alignments in the density map.   
 
-all_fit_mini_example_*_R2.REORDER.pdb: These PDB files contain initial helix placements for the next round of modeling.  
+`all_fit_mini_example_*_R2.REORDER.pdb`: These PDB files contain initial helix placements for the next round of modeling.  
 
-convergence_mini_example_all_models_R1.txt: This file lists the convergence for the overall top scoring models.   
+`convergence_mini_example_all_models_R1.txt`: This file lists the convergence for the overall top scoring models.   
 
 Generally less important files, but good to know about for debugging:   
 
-`mini_example_*_R1_CAT_ALL_ROUNDS.out.*.pdb`: These are the top scoring models from each of the initial helix placements.  
+`mini_example_*_R1_CAT_ALL_ROUNDS.out.*.pdb`: These are the top scoring models from each of the initial helix placements.   
+  
 
-**Steps 4 and 5 should then be iterated, updating `-curr_round`, until the modeling is complete (there must be two successive round of `FINAL` modeling, e.g. `FINAL_R2` then `FINAL_R3`).**
+**The "Density threshold" (printed to the screen when you run this step) is very important.** This is the value that is used to determine whether regions of the RNA that are well converged will actually be kept fixed during the next round of modeling. The value that is printed to the screen is the value that was determined automatically. Sometimes, particularly for higher-resolution maps (better than about ~6 Å resolution) or for maps that are relatively noisy, this automatically selected value is too high. This can make it so that regions that are well converged and do fit reasonably well in the density map are not kept fixed in subsequent rounds of modeling, making it much more challenging for the models to converge overall. You can check whether this might be a problem in your case by examining the top scoring models from each fit from the last round (`mini_example_*_R1_CAT_ALL_ROUNDS.out.*.pdb`) as well as the PDB files containing the regions that will be kept fixed for the subsequent round of modeling (`all_fit_mini_example_*_R2.REORDER.pdb`). If there are regions of your models that look pretty well converged, but do not show up in the `all_fit_mini_example_*_R2.REORDER.pdb` files, then you might want to re-run this step and use the flag `-dens_thr` to select a lower value for the density threshold. It often makes sense to try reducing the density threshold by ~50% (so if the density threshold was automatically selected to be 38.779 as shown above, then try `-dens_thr 19` when you re-run the `auto-DRRAFTER_setup_next_round.py` the first time). If you still see a similar problem, you can reduce the density threshold even further.    
 
 
-**Final step**: Finalize the models. Type:   
+####Steps 4 and 5 should then be iterated. 
+`-curr_round` must be updated each time, until the modeling is complete (there must be two successive round of `FINAL` modeling, e.g. `FINAL_R2` then `FINAL_R3`).
+
+
+####**Final step**: Finalize the models.  
+Type:   
 ```
 python $ROSETTA/main/source/src/apps/public/DRRAFTER/finalize_models.py -fasta input_files/fasta.txt -out_pref mini_example -final_round FINAL_R6
 ```  
