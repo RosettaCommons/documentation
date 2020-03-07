@@ -86,3 +86,11 @@ Connecting_atom—which atom to use for the connection. If not mentioned, the de
 Repeat—by default is set to 1. If more than one is mentioned, keeps adding the same residue to the anchor residue. Only works for insert if the position is not set.
 
 Position—where we want the new residue index to be. if not mentioned, insert works similar as append.
+
+##Special cases
+###N-acetylation and C-methylamidation
+
+The N-acetylation and C-methylamidation patches can be used as "placeholders" when sampling conformations of an amino acid or short peptide that will be extended.  In this case, these variant types should _not_ be removed prior to applying the PeptideStubMover to extend the peptide.  If they are present, the mainchain psi and omega angles are preserved when replacing the C-methylamidation with a new amino acid, and the omega (of the N-1 residue) and phi anglse are preserved when replacing the N-acetylation.  This feature was added on 7 March 2020.
+
+##Auto-generated documentation
+[[include:mover_PeptideStubMover_type]]
