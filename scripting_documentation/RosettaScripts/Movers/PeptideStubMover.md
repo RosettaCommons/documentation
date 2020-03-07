@@ -4,7 +4,9 @@
 
 PeptideStubMover is a convenient method for modifying a pose or building a new pose from scratch. One can append, prepend, or insert residues to a pose.
 
-<b>Usage cases</b>
+[[_TOC_]]
+
+##Usage cases
 
 `PeptideStubMover` is useful for following scenarios:
 
@@ -14,15 +16,15 @@ PeptideStubMover is a convenient method for modifying a pose or building a new p
 
 PeptideStubMover is usually used as a starting point in the grand scheme of a larger problem, particularly for incorporating select modifications into a pose or designing peptides from scratch.
 
-<b>Inputs and Outputs</b>
+##Inputs and Outputs
 
 Depending on the specific usage, `PeptideStubMover` can take a pose as an input or a dummy file (make sure that the dummy file is not completely blank). It will generate as output a new pose with new residues added in the places requested. The residue numbering will be modified during the process.
 
-<b>Detailed workflow<b>
+##Detailed workflow
 
 The PeptideStubMover has a general setting as follows:
 
-```
+```xml
 <PeptideStubMover name="&string" reset="(false &bool)">
         <Prepend resname="(&string)" anchor_rsd="residuenumber"  repeat="(1 &number")/>
 	<Append resname="(&string)" repeat=(&number) jump="(false &bool)"  anchor_rsd=”residuenumber” connecting_atom=”atom type” />
@@ -35,7 +37,7 @@ Reset—whether to discard the pose information or not. Default is set false. If
 
 The PeptideStubMover has three modes, which will be described in more details later: Append, prepend, insert. At least one mode should be set during the process.
 
-<i>Append options</i>:
+###Append options
 
 Append=add residue AFTER an anchor residue.
 
@@ -49,13 +51,13 @@ Connecting_atom—which atom to use for the connection. If not mentioned, the de
 
 Repeat—by default is set to 1. If more than one is mentioned, keeps adding the same residue to the anchor residue. For example, the command line below will add 3 D-Ser to the C-terminal of the peptide with a common peptide bond.
 
-```
+```xml
 <Append resname="DSER" repeat="3"/>
 ```
 
 *  If you’re building a pose from scratch, append is the only mode that will work for the first residue. And by default the first residue of the pose is always added as a jump (nothing to bond it to!).
 
-<i>Prepend options</i>:
+###Prepend options
 
 Prepend= Add residue BEFORE an anchor residue
 
@@ -67,11 +69,11 @@ Connecting_atom—which atom to use for the connection. If not mentioned, the de
 
 Repeat—by default is set to 1. If more than one is mentioned, keeps adding the same residue to the anchor residue. For example, the command line below will add 2 L-Trp to the N-terminal of the peptide with a common peptide bond.
 
-```
+```xml
 <Prepend resname="TRP" repeat="2"/>
 ```
 
-<i>Insert options</i>:
+###Insert options
 
 Insert=insert a residue after an anchor residue in a pose.
 
