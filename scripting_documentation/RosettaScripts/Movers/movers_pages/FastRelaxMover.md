@@ -29,6 +29,11 @@ See the [[relax application|Relax]] page for more information on these options.
 ### Caveats
 
 - Although the [[relax application|Relax]] can read a movemap from the `-in:file:movemap` option, the RosettaScripts mover ignores it.  Instead you must use the `<MoveMap>` syntax described above.
+- cartesian: To enable Cartesian minimization (i.e if you get the `ERROR: Scorefunction not set up for nonideal/Cartesian scoring`) you must set `cart_bonded` to 0.5 and `pro_close` to 0.0.
+
+### Symmetry
+
+FastRelax is fully symmetry compatible and no special considerations are needed.
 
 ### Deprecated behaviours
 
