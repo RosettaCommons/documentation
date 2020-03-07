@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## PeptideStubMover
 
-PeptideStubMover is a convenient method for modifying a pose or building a new pose from scratch. One can append, prepend, or insert residues to a pose.
+PeptideStubMover is a convenient method for modifying a pose or building a new pose from scratch. One can append, prepend, or insert residues to a pose.  Created by Yifan Song ca. 2014; modified at various points by Vikram K. Mulligan.
 
 [[_TOC_]]
 
