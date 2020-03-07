@@ -20,6 +20,10 @@ For a list of relax scripts in the database, [[click here|RelaxScript]].
 
 FastDesign is fully symmetry compatible and no special considerations are needed. 
 
+### Notes
+
+- cartesian: To enable Cartesian minimization (i.e if you get the `ERROR: Scorefunction not set up for nonideal/Cartesian scoring`) you must set `cart_bonded` to 0.5 and `pro_close` to 0.0.
+
 ### Deprecated behaviours
 
 Until 8 February 2020, the default behaviour of FastDesign was to disable packing at all positions for which side-chain minimization was disabled by the MoveMap.  This is counter-intuitive, since in all other cases, MoveMaps control only minimization, and not packing.  (Packing is normally controlled by TaskOperations).   This behaviour has therefore been deprecated.  It can still be re-enabled using the `movemap_disables_packing_of_fixed_chi_positions="true"` option in RosettaScripts.
