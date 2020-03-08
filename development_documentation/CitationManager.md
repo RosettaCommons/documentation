@@ -150,6 +150,8 @@ MyMover::provide_authorship_info_for_unpublished() const {
 }
 ```
 
+As before, replace "MyMover" with the name of your class in the above, and if it is not a mover, update the `CitedModuleType::Mover` part to reflect the type.
+
 ### Adding citation information for a published Rosetta module
 
 If (or when) a module is published, the unpublished author information described above should be removed, and replaced with information about how to cite the module when it is used.  Citations are stored centrally in the Rosetta database, and are loaded lazily and in a threadsafe manner by the `CitationManager`.
@@ -158,8 +160,80 @@ If (or when) a module is published, the unpublished author information described
 
 To add a citation for a RosettaScripts-scriptable module:
 
-1.  Implement a function override for `bool mover_provides_citation_info() const`, `bool filter_provides_citation_info() const`, _etc._
+1.  Implement a function override for `bool mover_provides_citation_info() const`, `bool filter_provides_citation_info() const`, _etc._  The override should return `true`.
 
-2.  Implement a function override for `provide_citation_info()`:
-	a.  Return a citation by querying the `CitationManager` for the citation, by doi.
-	b.  If the citation is not yet in the Rosetta database, add it to `database/citations/rosetta_citations.txt`.
+2.  Implement a function override for `provide_citation_info()` that returns a citation by querying the `CitationManager` for the citation, by doi.
+	
+3.  If the citation is not yet in the Rosetta database, add it to `database/citations/rosetta_citations.txt`.
+	
+#### Detailed description of steps for adding citation information for RosettaScripts-scriptable modules
+
+1.  Implement a function override for `bool XXX_provides_citation_info() const`, where XXX is mover, filter, task\_operation, _etc._, depending the module type.  To do this, first edit the ".hh" file and add a public member function prototype to the class definition:
+
+```c++
+/// @brief Returns true, since this mover is published and has a citation to provide.
+bool mover_provides_citation_info() const override;
+```
+
+Next, implement it in the ".cc" file:
+
+```c++
+/// @brief Returns true, since this mover is published and has a citation to provide.
+bool
+MyMover::mover_provides_citation_info() const {
+	return true;
+}
+```
+
+In the above, replace "MyMover" with the name of your class, and "mover\_" with "filter\_", "task\_operation\_", _etc._ as appropriate, if your module is not a mover.
+
+2.  Implement a function override for `provide_citation_info() const`.  First, add a prototype for a public member function override to the class definition in the ".hh" file:
+
+```c++
+/// @brief Returns the citation for this mover.
+utility::vector1< basic::citation_manager::CitationCollectionCOP > provide_citation_info() const override;
+```
+
+Next, edit the ".cc" file and implement the function:
+
+```c++
+/// @brief Returns the citation for this mover.
+utility::vector1< basic::citation_manager::CitationCollectionCOP >
+MyMover::provide_citation_info() const {
+	using namespace basic::citation_manager;
+	
+	// Get a pointer to the global CitationManager:
+        CitationManager * cm( CitationManager::get_instance() );
+	
+	// Create a citation collection for this module:
+        CitationCollectionOP collection(
+		utility::pointer::make_shared< basic::citation_manager::CitationCollection >(
+			get_name() /*Gets the name of the module.*/,
+			CitedModuleType::Mover /*Should be updated for filters, task operations, residue selectors, etc.*/
+		)
+	);
+	
+	// Add the citation to this module:
+        collection->add_citation(
+		cm->get_citation_by_doi( "10.1073/pnas.1115898108" /*Update this with the DOI of your citation.*/ )
+		/*The line above queries the CitationManager for the citation,
+		and will throw an error if the citation is not in the database.*/
+	);
+	
+	// Encapsulate the citation collection for this module in a vector and return the vector.  (This
+	// is a vector because this module might ALSO return citation collections for sub-modules that it
+	// invokes):
+        return utility::vector1< CitationCollectionCOP > { collection };
+}
+```
+
+In the above, "MyMover" should be replaced with your class name.  If your class is not a mover, replace `CitedModuleType::Mover` with the appropriate type (_e.g._ `CitedModuleType::TaskOperation`, `CitedModuleType::EnergyMethod`, _etc._).  Be sure to fill in the DOI for the citation that you want in the `get_citation_by_doi` line.
+
+Finally, add the necessary headers to the top of the ".cc" file:
+
+```c++
+#include <basic/citation_manager/CitationManager.hh>
+#include <basic/citation_manager/CitationCollection.hh>
+```
+
+3.  If your citation is not already in `database/citations/rosetta_citations.txt`, add it there.  The file format is described in the next section.
