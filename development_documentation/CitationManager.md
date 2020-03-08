@@ -4,7 +4,7 @@ This page was created on 7 March 2020 by Vikram K. Mulligan, Flatiron Institute 
 
 [[_TOC_]]
 
-## Why is it important for me to seek credit for my contributions to Rosetta?
+## 1. Why is it important for me to seek credit for my contributions to Rosetta?
 
 We learn from an early age that humility is a virtue.  Nevertheless, in science, it is important to ensure that one gets credit for one's own work.  There are several reasons that we want to make sure that developers of Rosetta features or modules are credited, and these include:
 
@@ -16,7 +16,7 @@ We learn from an early age that humility is a virtue.  Nevertheless, in science,
 
 For all of these reasons, it is _both_ in an individual's best interest _and_ in the community's best interest to ensure that everyone knows who produced which Rosetta module, and which Rosetta modules are published (in which case the original papers should be cited) or unpublished (in which case the developer should be included on the first Rosetta community paper that relies on the module).
 
-## How we document contributions: The Rosetta CitationManager
+## 2. How we document contributions: The Rosetta CitationManager
 
 The Rosetta CitationManager is a Rosetta singleton -- an global object of which one instance exists in memory for a given Rosetta session.  Its job is to track which Rosetta modules were used during a Rosetta session, and to issue a report at the end of the session listing the published modules that should be cited (and the relevant papers), plus the unpublished modules whose authors should be included as coauthors on the first publication using those modules (plus the authors' names and contact information).  Any Rosetta module may register itself with the CitationManager, providing information about its citation(s) (if published) or author(s) (if unpublished).  In the case of Movers, Filters, TaskOperations, ResidueSelectors, EnergyMethods (score terms), SimpleMetrics, or PackerPalettes, special function overrides exist to make it easy for the [[RosettaScripts]] application to register all of the scripted modules in a user's script.  At the end of Rosetta execution, a message similar to the following is written:
 
@@ -38,11 +38,11 @@ Jared Adolf-Bryfogle, The Scripps Research Institute, La Jolla, CA <jadolfbr@gma
 
 ```
 
-### Adding authorship information for an unpublished Rosetta module
+### 2.1 Adding authorship information for an unpublished Rosetta module
 
 If authorship information is added to a Rosetta module, it will allow Rosetta to report the name of the developer and the fact that the module was used at the end of a Rosetta session in which the module was invoked.  For Movers, Filters, TaskOperations, ResidueSelectors, EnergyMethods (score terms), SimpleMetrics, or PackerPalettes (RosettaScripts-scriptable objects), one need only add two functions to the module.  For other Rosetta modules, 
 
-#### Short summary of steps for adding authorship information for RosettaScripts-scriptable modules
+#### 2.1.1 Short summary of steps for adding authorship information for RosettaScripts-scriptable modules
 
 To add authorship information for an unpublished Rosetta module, one must:
 
@@ -52,7 +52,7 @@ To add authorship information for an unpublished Rosetta module, one must:
 
 It's that simple.
 
-#### Detailed description of steps for adding authorship information for RosettaScripts-scriptable modules
+#### 2.1.2 Detailed description of steps for adding authorship information for RosettaScripts-scriptable modules
 
 1.  Override the `bool XXX_is_unpublished() const` function (where XXX is mover, filter, task\_operation, _etc._, depending on the type of module).  To do this, edit the header file (ending in ".hh") for your module.  If it's a mover, add the following lines protyping a public member function to the class definition:
 
@@ -111,7 +111,7 @@ Most likely, to get Rosetta to compile, you will also need to add the following 
 #include <basic/citation_manager/UnpublishedModuleInfo.hh>
 ```
 
-#### Adding multiple authors
+#### 2.1.3 Adding multiple authors
 
 The `UnpublishedAuthorInfo` object can store an arbitrarily long list of authors.  If more than one developer has contributed to a module, all developers who made significant contributions should be listed.  By adding notes about each author's contribution, users can make decisions about which authors should be included as co-authors when it comes time to publish.  In this case, the syntax isn't quite as concise, but here is an example:
 
@@ -152,11 +152,11 @@ MyMover::provide_authorship_info_for_unpublished() const {
 
 As before, replace "MyMover" with the name of your class in the above, and if it is not a mover, update the `CitedModuleType::Mover` part to reflect the type.
 
-### Adding citation information for a published Rosetta module
+### 2.2 Adding citation information for a published Rosetta module
 
 If (or when) a module is published, the unpublished author information described above should be removed, and replaced with information about how to cite the module when it is used.  Citations are stored centrally in the Rosetta database, and are loaded lazily and in a threadsafe manner by the `CitationManager`.
 
-#### Short summary of steps for adding citations for RosettaScripts-scriptable modules
+#### 2.2.1 Short summary of steps for adding citations for RosettaScripts-scriptable modules
 
 To add a citation for a RosettaScripts-scriptable module:
 
@@ -166,7 +166,7 @@ To add a citation for a RosettaScripts-scriptable module:
 	
 3.  If the citation is not yet in the Rosetta database, add it to `database/citations/rosetta_citations.txt`.
 	
-#### Detailed description of steps for adding citation information for RosettaScripts-scriptable modules
+#### 2.2.2. Detailed description of steps for adding citation information for RosettaScripts-scriptable modules
 
 1.  Implement a function override for `bool XXX_provides_citation_info() const`, where XXX is mover, filter, task\_operation, _etc._, depending the module type.  To do this, first edit the ".hh" file and add a public member function prototype to the class definition:
 
@@ -237,3 +237,91 @@ Finally, add the necessary headers to the top of the ".cc" file:
 ```
 
 3.  If your citation is not already in `database/citations/rosetta_citations.txt`, add it there.  The file format is described in the next section.
+
+#### 2.2.3 Adding citations to the Rosetta database
+
+Rosetta papers are listed in `database/citations/rosetta_citations.txt`.  Fields are separated by `[BEGIN_XXX]` and `[END_XXX]` lines.  Relevant fields are:
+* Primary author or co-primary authors (listed one per line as: `"Given name(s)" "Surname" "Initials"` -- for example, `"Barack Hussein" "Obama" "BH"`).
+* Co-authors (listed in the same format).
+* Senior author(s) (listed in the same format).
+* Year (an integer).
+* Title (no quotations, no period at the end).
+* Journal (abbreviated, no periods).
+* Volume, issue, and pages (e.g. "43(6):1325-32").
+* DOI
+
+An example is shown here:
+
+```
+[BEGIN_CITATION]
+    [BEGIN_PRIMARY_AUTHORS]
+        "Brandon" "Frenz" "B"
+    [END_PRIMARY_AUTHORS]
+    [BEGIN_COAUTHORS]
+        "Sebastian" "Rämisch" "S"
+        "Andrew J" "Borst" "AJ"
+        "Alexandra C" "Walls" "AC"
+        "Jared" "Adolf-Bryfogle" "J"
+        "William R" "Schief" "WR"
+        "David" "Veesler" "D"
+    [END_COAUTHORS]
+    [BEGIN_SENIOR_AUTHORS]
+        "Frank" "DiMaio" "F"
+    [END_SENIOR_AUTHORS]
+    [BEGIN_YEAR]
+        2018
+    [END_YEAR]
+    [BEGIN_TITLE]
+        Automatically fixing errors in glycoprotein structures with Rosetta
+    [END_TITLE]
+    [BEGIN_JOURNAL]
+        Structure
+    [END_JOURNAL]
+    [BEGIN_VOLUME_ISSUE_PAGES]
+        27(1):134-139.e3
+    [END_VOLUME_ISSUE_PAGES]
+    [BEGIN_DOI]
+        10.1016/j.str.2018.09.006
+    [END_DOI]
+[END_CITATION]
+```
+
+Manuscripts under review may also be added.  In this case, the Journal and volume/issue/pages fields should be "XXX" (which is a special signal to the CitationManager to treat this as an unpublished manuscript under review).  The DOI can be anything in this case, so long as it is a unique string that allows the manuscript to be uniquely identified in code.  (Journal, volume/issue/pages, and DOI will not be printed in user-facing messages for manuscripts under review).  An example is as follows:
+
+```
+[BEGIN_CITATION]
+    [BEGIN_PRIMARY_AUTHORS]
+        "Vikram Khipple" "Mulligan" "VK"
+    [END_PRIMARY_AUTHORS]
+    [BEGIN_COAUTHORS]
+        "Christine S" "Kang" "CS"
+        "Michael R" "Sawaya" "MR"
+        "Stephen" "Rettie" "S"
+        "Xinting" "Li" "X"
+        "Inna" "Antselovich" "I"
+        "Timothy" "Craven" "T"
+        "Andrew" "Watkins" "A"
+        "Jason W" "Labonte" "JW"
+        "Frank" "DiMaio" "F"
+        "Todd O" "Yeates" "TO"
+    [END_COAUTHORS]
+    [BEGIN_SENIOR_AUTHORS]
+        "David" "Baker" "D"
+    [END_SENIOR_AUTHORS]
+    [BEGIN_YEAR]
+        2020
+    [END_YEAR]
+    [BEGIN_TITLE]
+        Computational design of mixed chirality peptide macrocycles with internal symmetry
+    [END_TITLE]
+    [BEGIN_JOURNAL]
+        XXX
+    [END_JOURNAL]
+    [BEGIN_VOLUME_ISSUE_PAGES]
+        XXX
+    [END_VOLUME_ISSUE_PAGES]
+    [BEGIN_DOI]
+        Mulligan_2020_underreview
+    [END_DOI]
+[END_CITATION]
+```
