@@ -93,10 +93,11 @@ MyMover::provide_authorship_info_for_unpublished() const {
 using namespace basic::citation_manager;
 	return utility::vector1< UnpublishedModuleInfoCOP > {
 		utility::pointer::make_shared< UnpublishedModuleInfo >(
-			get_name, CitedModuleType::Mover,
-			"Your Name",
-			"Your Affiliation",
-			"Your e-mail address"
+			get_name() /*Gets the name of this Mover.*/,
+			CitedModuleType::Mover /*Should match the type of module being cited.*/,
+			"Your Name" /*Fill this in.*/,
+			"Your Affiliation" /*Fill this in.*/,
+			"Your e-mail address" /*Fill this in.*/
 		)
 	};
 }
@@ -109,3 +110,46 @@ Most likely, to get Rosetta to compile, you will also need to add the following 
 ```c++
 #include <basic/citation_manager/UnpublishedModuleInfo.hh>
 ```
+
+#### Adding multiple authors
+
+The `UnpublishedAuthorInfo` object can store an arbitrarily long list of authors.  If more than one developer has contributed to a module, all developers who made significant contributions should be listed.  In this case, the syntax isn't quite as concise, but here is an example:
+
+```c++
+/// @brief Provide a list of authors for this module.
+utility::vector1< basic::citation_manager::UnpublishedModuleInfoCOP >
+MyMover::provide_authorship_info_for_unpublished() const {
+	using namespace basic::citation_manager;
+	
+	// Create the UnpublishedModuleInfo object and set the module name and type.  (The type
+	// should match the actual module type):
+	UnpublishedModuleInfoOP my_author_info(
+		utility::pointer::make_shared< UnpublishedModuleInfo >( get_name(), CitedModuleType::Mover )
+	);
+	
+	// Add first author:
+	my_author_info->add_author(
+		"Susan Calvin" /*Fill in name here.*/,
+		"United States Robots and Mechanical Men, Inc." /*Fill in institution here.*/,
+		"scalvin@psych.usrobots.com" /*Fill in e-mail address here.*/,
+		"Initial logic for this mover."  /*This additional notes field is optional.*/
+	);
+	
+	// Add a second author:
+	my_author_info->add_author(
+		"Hari Seldon" /*Fill in name here.*/,
+		"Streeling University" /*Fill in institution here.*/,
+		"hseldon@pscyhohistory.streeling.edu" /*Fill in e-mail address here.*/,
+		"Refactored to future-proof the implementation."  /*This additional notes field is optional.*/
+	);
+
+	// Encapsulate the UnpublishedModuleInfo in a vector.  (This is because a module might
+	// return more than one UnpublshedModuleInfo object -- for example, one for itself and
+	// one for another module that it invokes.):
+	return utility::vector1< UnpublishedModuleInfoCOP > { my_author_info };
+}
+```
+
+### Adding citation information for a published Rosetta module
+
+If (or when) a module is published, the unpublished author information described above should be removed, and replaced with information about how to cite the module when it is used.
