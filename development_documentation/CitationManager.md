@@ -42,19 +42,19 @@ Jared Adolf-Bryfogle, The Scripps Research Institute, La Jolla, CA <jadolfbr@gma
 
 If authorship information is added to a Rosetta module, it will allow Rosetta to report the name of the developer and the fact that the module was used at the end of a Rosetta session in which the module was invoked.  For Movers, Filters, TaskOperations, ResidueSelectors, EnergyMethods (score terms), SimpleMetrics, or PackerPalettes (RosettaScripts-scriptable objects), one need only add two functions to the module.  For other Rosetta modules, 
 
-#### Summary of steps for RosettaScripts-scriptable modules
+#### Short summary of steps for adding authorship information for RosettaScripts-scriptable modules
 
 To add authorship information for an unpublished Rosetta module, one must:
 
-1.  Implement a function override for `bool mover_is_unpublished()`, `bool filter_is_unpublished()`, _etc._  The override should return `true`.
+1.  Implement a function override for `bool mover_is_unpublished() const`, `bool filter_is_unpublished() const`, _etc._  The override should return `true`.
 
 2.  Implement a function override for `provide_authorship_info_for_unpublished()`.  This should return a vector of `UnpublishedModuleInfo` const owning pointers.  An `UnpublishedModuleInfo` object contains a module name and type, plus a vector of one or more authors (name, affiliation, e-mail address).
 
 It's that simple.
 
-#### Detailed description of steps for RosettaScripts-scriptable modules
+#### Detailed description of steps for adding authorship information for RosettaScripts-scriptable modules
 
-1.  Override the `bool XXX_is_unpublished()` function (where XXX is mover, filter, task\_operation, _etc._, depending on the type of module).  To do this, edit the header file (ending in ".hh") for your module.  If it's a mover, add the following lines protyping a public member function to the class definition:
+1.  Override the `bool XXX_is_unpublished() const` function (where XXX is mover, filter, task\_operation, _etc._, depending on the type of module).  To do this, edit the header file (ending in ".hh") for your module.  If it's a mover, add the following lines protyping a public member function to the class definition:
 
 ```c++
 /// @brief A function that returns "true", indicating that
@@ -113,7 +113,7 @@ Most likely, to get Rosetta to compile, you will also need to add the following 
 
 #### Adding multiple authors
 
-The `UnpublishedAuthorInfo` object can store an arbitrarily long list of authors.  If more than one developer has contributed to a module, all developers who made significant contributions should be listed.  In this case, the syntax isn't quite as concise, but here is an example:
+The `UnpublishedAuthorInfo` object can store an arbitrarily long list of authors.  If more than one developer has contributed to a module, all developers who made significant contributions should be listed.  By adding notes about each author's contribution, users can make decisions about which authors should be included as co-authors when it comes time to publish.  In this case, the syntax isn't quite as concise, but here is an example:
 
 ```c++
 /// @brief Provide a list of authors for this module.
@@ -152,4 +152,14 @@ MyMover::provide_authorship_info_for_unpublished() const {
 
 ### Adding citation information for a published Rosetta module
 
-If (or when) a module is published, the unpublished author information described above should be removed, and replaced with information about how to cite the module when it is used.
+If (or when) a module is published, the unpublished author information described above should be removed, and replaced with information about how to cite the module when it is used.  Citations are stored centrally in the Rosetta database, and are loaded lazily and in a threadsafe manner by the `CitationManager`.
+
+#### Short summary of steps for adding citations for RosettaScripts-scriptable modules
+
+To add a citation for a RosettaScripts-scriptable module:
+
+1.  Implement a function override for `bool mover_provides_citation_info() const`, `bool filter_provides_citation_info() const`, _etc._
+
+2.  Implement a function override for `provide_citation_info()`:
+	a.  Return a citation by querying the `CitationManager` for the citation, by doi.
+	b.  If the citation is not yet in the Rosetta database, add it to `database/citations/rosetta_citations.txt`.
