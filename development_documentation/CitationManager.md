@@ -240,7 +240,8 @@ Finally, add the necessary headers to the top of the ".cc" file:
 
 #### 2.2.3 Adding citations to the Rosetta database
 
-Rosetta papers are listed in `database/citations/rosetta_citations.txt`.  Fields are separated by `[BEGIN_XXX]` and `[END_XXX]` lines.  Relevant fields are:
+Rosetta papers are listed in `database/citations/rosetta_citations.txt`.  Please keep citations in order by year, and please enter each citation once and only once.  Fields are separated by `[BEGIN_XXX]` and `[END_XXX]` lines.  Relevant fields are:
+
 * Primary author or co-primary authors (listed one per line as: `"Given name(s)" "Surname" "Initials"` -- for example, `"Barack Hussein" "Obama" "BH"`).
 * Co-authors (listed in the same format).
 * Senior author(s) (listed in the same format).
