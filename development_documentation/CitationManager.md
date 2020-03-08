@@ -104,7 +104,7 @@ using namespace basic::citation_manager;
 
 In the above, change "MyMover" to the name of your module, and replacee `CitedModuleType::Mover` with the appropriate type (_e.g._ `CitedModuleType::ResidueSelector`, `CitedModuleType::EnergyMethod`, _etc._) if this is not a mover.
 
-Most likely to get Rosetta to compile, you will also need to add the following to the headers at the top of the ".cc" file:
+Most likely, to get Rosetta to compile, you will also need to add the following to the headers at the top of the ".cc" file:
 
 ```c++
 #include <basic/citation_manager/UnpublishedModuleInfo.hh>
