@@ -1,7 +1,6 @@
 # Release Notes
 
-<!--- BEGIN_INTERNAL -->
-## _Rosetta 3.12 (draft notes)_
+## _Rosetta 3.12_
 
 New apps:
 * [[constel]]
@@ -52,9 +51,7 @@ Updates and bugfixes:
 * [[Residue]] co-orientation logic and other changes to [[MutableResidueType]]
 * ResidueAtomTreeCollection
 * [[CompoundFilter]]
-* ligand docking [[FinalMinimizer]]
-* ligand docking [[FinalMinimizer]]
-* ligand docking [[HighResDocker]]
+* ligand docking [[FinalMinimizer]] and [[HighResDocker]]
 * [[TCRmodel]]
 * [[LoadDensityMapMover]]
 * [[HybridizeMover]]
@@ -83,10 +80,6 @@ Updates and bugfixes:
 * [[ParatopeEpitopeSiteConstraintMover]]
 * [[NmerRefEnergy]]
 * site.settings.release
-
-
-
-<!--- END_INTERNAL -->
 
 ## Rosetta 3.11
 
