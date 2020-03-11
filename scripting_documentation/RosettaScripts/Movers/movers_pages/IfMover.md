@@ -2,6 +2,8 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## IfMover
 
+[[include:mover_If_type]]
+
 Implements a simple IF (filter(pose)) THEN true\_mover(pose) ELSE false\_mover(pose). *true\_mover* is required, *false\_mover* is not.
 
 ```xml
