@@ -190,4 +190,4 @@ ATOM     15  OH  TYR A  92      23.886  22.013   9.152  1.00 11.00           O
 References
 ==========
 Khowsathit J, Bazzoli A, Cheng H, and Karanicolas J. _Allosteric control of antibody activity by
-deletion and rescue of a complex structural constellation._ 2020. ACS Central Science, https://doi.org/10.1021/acscentsci.9b01065 
+deletion and rescue of a complex structural constellation._ ACS Central Science (2020), https://doi.org/10.1021/acscentsci.9b01065 
