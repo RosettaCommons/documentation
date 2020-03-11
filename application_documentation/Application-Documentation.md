@@ -1,4 +1,4 @@
-### ### #Application Documentation
+#Application Documentation
 
 Below is a list of the currently released applications containing developer documentation. Click on an application to
 see a more detailed description of the purpose and for detailed examples. If a released application is missing, please
