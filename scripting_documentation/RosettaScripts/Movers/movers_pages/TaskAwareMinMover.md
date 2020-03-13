@@ -2,6 +2,8 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## TaskAwareMinMover
 
+[[include:mover_TaskAwareMinMover_type]]
+
 Performs minimization. Accepts TaskOperations via the task\_operations option e.g.
 
     task_operations=(&string,&string,&string)
