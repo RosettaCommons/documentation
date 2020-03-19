@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-03-03
+Generated: 2020-03-19
 
 _Note that some application specific options may not be present in this list._
 
@@ -4876,6 +4876,8 @@ _Note that some application specific options may not be present in this list._
 <dd>If a decoy does not pass the low- and high-resolution filters, how many attempts to make before failur<br/>Default: 1000<br/></dd>
 <dt><b>-dock_lowres_filter</b> \<RealVector\></dt>
 <dd>manually sets the lowres docking filter: -dock_lowres_filter <INTERCHAIN_CONTACT CUTOFF> <INTERCHAIN_VDW CUTOFF> <RESTRAINT CUTOFF>. Default values for protein docking are 10.0 and 1.0<br/></dd>
+<dt><b>-SymDock_lowres_filter</b> \<Real\></dt>
+<dd>Manually sets the lowres docking filter value that will be multiplied by the number of interfaces<br/>Default: 5.0<br/></dd>
 <dt><b>-multibody</b> \<IntegerVector\></dt>
 <dd>List of jumps allowed to move during docking<br/></dd>
 <dt><b>-ignore_default_docking_task</b> \<Boolean\></dt>
@@ -4896,6 +4898,12 @@ _Note that some application specific options may not be present in this list._
 <dd>The magnitude of the rotational perturbation during lowres in docking.<br/>Default: 5.0<br/></dd>
 <dt><b>-enable_pymol_viewer</b> \<Boolean\></dt>
 <dd>See conformer switch moves in PyMOL. Color changes when switch is accepted.<br/>Default: false<br/></dd>
+<dt><b>-SymDock_reduce_motif_dock_weights</b> \<Boolean\></dt>
+<dd>Reduces motif_dock_score weights to 1/N, where N = number of subunits<br/>Default: false<br/></dd>
+<dt><b>-SymDock_fa_rep_max</b> \<Real\></dt>
+<dd>Changes the max value of fa_rep for the docking_hires_mover, but not for jd2 score file.<br/>Default: 0.55<br/></dd>
+<dt><b>-SymDock_fa_sol_max</b> \<Real\></dt>
+<dd>Changes the max value of fa_sol for the docking_hires_mover, but not for jd2 score file.<br/>Default: 1.0<br/></dd>
 </dl>
 + <h3>-docking:ligand</h3>
 <dl>
