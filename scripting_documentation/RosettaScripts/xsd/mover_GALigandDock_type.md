@@ -23,7 +23,7 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
         random_oversample="(&real;)" reference_oversample="(&real;)"
         reference_pool="(&string;)" reference_frac="(&real;)"
         reference_frac_auto="(&bool;)" sidechains="(&string;)"
-        sc_edge_buffer="(&real;)" fa_rep_grid="(&real;)"
+        frozen_scs="(&string;)" sc_edge_buffer="(&real;)" fa_rep_grid="(&real;)"
         grid_bound_penalty="(&real;)" estimate_dG="(&bool;)"
         use_mean_maxRad="(&bool;)" stdev_multiplier="(&real;)"
         ngen="(&integer;)" npool="(&non_negative_integer;)" pmut="(&real;)"
@@ -76,6 +76,7 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 -   **reference_frac**: If reference pool is provided, the fraction of structures from the reference pool.
 -   **reference_frac_auto**: Select Nstruct to sample by reference automatically
 -   **sidechains**: Sidechains to move: none, auto, or residue IDs.
+-   **frozen_scs**: Sidechains to freeze: list of residue IDs.
 -   **sc_edge_buffer**: Scaling factor of maxdistance when deciding to include sc as movable
 -   **fa_rep_grid**: Repulsion weight at grid scoring stage
 -   **grid_bound_penalty**: Penalty factor when ligand atm gets out of boundary
