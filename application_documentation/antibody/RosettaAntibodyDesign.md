@@ -27,6 +27,12 @@ The framework is based on rigorous bioinformatic analysis and rooted very much o
 
 The supplemental methods section of the published paper has all details of the RosettaAntibodyDesign method.  This manual serves to get you started running RAbD in typical use fashions. 
 
+A PyRosetta Notebook for RAbD and framework components can be found [here](https://github.com/RosettaCommons/PyRosetta.notebooks#chapter-110-working-with-antibodies)
+
+The preprint of the PyRosetta Notebook Workshop is available [here](https://www.preprints.org/manuscript/202002.0097/v1)
+
+The beginning of this manual reads like a tutorial, with more advanced concepts to RAbD being introduced in each example.  
+
 # Algorithm
   
 Broadly, the RAbD protocol consists of alternating outer and inner Monte Carlo cycles. Each outer cycle consists of randomly choosing a CDR (L1, L2, etc…) from those CDRs set to design, randomly choosing a cluster and then a structure from that cluster from the database according to the input instructions, and grafting that CDR’s structure, onto the antibody framework in place of the existing CDR (**GraftDesign**). The program then performs N rounds of the inner cycle, consisting of sequence design (**SeqDesign**), energy minimization, and optional docking. Each inner cycle structurally optimizes the backbone and repacks side chains of the CDR chosen in the outer cycle as well as optional neighbors in order to optimize interactions of the CDR with the antigen and other CDRs. 
