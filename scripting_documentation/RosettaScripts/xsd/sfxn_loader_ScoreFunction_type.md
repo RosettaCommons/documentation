@@ -58,7 +58,8 @@ XRW TO DO
             buried_unsatisfied_penalty_cone_dist_midpoint="(&real;)"
             buried_unsatisfied_penalty_burial_threshold="(&real;)"
             buried_unsatisfied_penalty_hbond_energy_threshold="(&real;)"
-            dump_trajectory_prefix="(&string;)" dump_trajectory_gz="(&bool;)"
+            target_clash_pdb="(&string;)" dump_trajectory_prefix="(&string;)"
+            dump_trajectory_gz="(&bool;)"
             dump_trajectory_stride="(&positive_integer;)"
             voids_penalty_energy_containing_cones_cutoff="(&non_negative_integer;)"
             voids_penalty_energy_voxel_size="(&real;)"
@@ -151,6 +152,7 @@ Subtag **Set**:
 -   **buried_unsatisfied_penalty_cone_dist_midpoint**: The distance midpoint for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
 -   **buried_unsatisfied_penalty_burial_threshold**: The number of cones in which a point must lie to be considered buried by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
 -   **buried_unsatisfied_penalty_hbond_energy_threshold**: The energy threshold above which a hydrogen bond is not counted, used by the BuriedUnsatPenalty energy.
+-   **target_clash_pdb**: The target pdb file for clash checking.
 -   **dump_trajectory_prefix**: If the dump_trajectory scoreterm is used, this is the prefix for the filename to which we're dumping.
 -   **dump_trajectory_gz**: If the dump_trajectory scoreterm is used, this determines whether we write to gzipped files.  False by defualt.
 -   **dump_trajectory_stride**: If the dump_trajectory scoreterm is used, this is the frequency with which we write.  Every Nth evaluation of the score term, a pose will be written.  Default 1.
