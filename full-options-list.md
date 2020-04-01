@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-03-27
+Generated: 2020-04-01
 
 _Note that some application specific options may not be present in this list._
 
@@ -1054,6 +1054,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Default spring constants for bonded parameters [length,angle,torsion,proton-torsion,improper-torsion]<br/></dd>
 <dt><b>-bonded_params_dir</b> \<String\></dt>
 <dd>Spring constants for bonded parameters [length,angle,torsion,proton-torsion,improper-torsion]<br/>Default: "scoring/score_functions/bondlength_bondangle"<br/></dd>
+<dt><b>-extra_mm_params_dir</b> \<StringVector\></dt>
+<dd>Directory/ies with extra parameter files for the mm score terms. (Looks for mm_torsion_params.txt, mm_bond_angle_params.txt and mm_bond_length_params.txt)<br/></dd>
 <dt><b>-gen_bonded_params_file</b> \<String\></dt>
 <dd>Parameters for [length,angle,torsion,improper-torsion]<br/>Default: "scoring/score_functions/generic_potential/generic_bonded.round6p.txt"<br/></dd>
 <dt><b>-gen_bonded_exclude_def_file</b> \<String\></dt>
@@ -1816,6 +1818,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Names of the residue-type-set patches which should be applied even if excluded/commented out in patches.txt; useful for testing non-default patches<br/></dd>
 <dt><b>-add_atom_type_set_parameters</b> \<StringVector\></dt>
 <dd>Additional AtomTypeSet extra-parameter files that should be read; format is a sequence of paired strings: <atom-type-set-tag1> <filename1> <atom-type-set-tag2> <filename2> ...<br/></dd>
+<dt><b>-add_mm_atom_type_set_parameters</b> \<StringVector\></dt>
+<dd>Additional MMAtomTypeSet extra-parameter files that should be read; format is a sequence of paired string: <mm-atom-type-set-tag1> <filename1> <mm-atom-type-set-tag2> <filename2> ...<br/></dd>
 <dt><b>-set_atom_properties</b> \<StringVector\></dt>
 <dd>Modify atom properties (the ones in <atom-set>/atom_properties.txt) from the command line. Happens at time of AtomTypeSet creation inside ChemicalManager.cc. Format is: -chemical:set_atom_properties <atom-set1>:<atom_name1>:<param1>:<setting1> <atom-set2>:<atom2>:<param2>:<setting2> ... For example: '-chemical:set_atom_properties fa_standard:OOC:LK_DGFREE:-5 fa_standard:ONH2:LJ_RADIUS:0.5' <br/></dd>
 <dt><b>-patch_selectors</b> \<StringVector\></dt>
