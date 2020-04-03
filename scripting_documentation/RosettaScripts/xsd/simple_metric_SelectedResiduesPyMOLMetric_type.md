@@ -8,11 +8,12 @@ A utility metric that outputs the residue selection as a PyMOL selection.
 
 ```xml
 <SelectedResiduesPyMOLMetric name="(&string;)" custom_type="(&string;)"
-        residue_selector="(&string;)" />
+        residue_selector="(&string;)" use_rosetta_numbering="(false &bool;)" />
 ```
 
 -   **custom_type**: Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
  The custom_type name will be added to the data tag in the scorefile or features database.
 -   **residue_selector**: Required.  Output those residues selected.
+-   **use_rosetta_numbering**: If true, the output uses Rosetta numbers.  If false, it uses PDB numbers.  False by default.
 
 ---
