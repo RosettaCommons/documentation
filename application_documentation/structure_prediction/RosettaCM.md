@@ -122,8 +122,8 @@ A simple XML for performing modelling is listed below (see [[RosettaScripts]] fo
     </SCOREFXNS>
     <MOVERS>
         <Hybridize name=hybridize stage1_scorefxn=stage1 stage2_scorefxn=stage2 fa_scorefxn=fullatom batch=1 stage1_increase_cycles=1.0 stage2_increase_cycles=1.0>
-            <Template pdb="1k3d_templ.pdb" cst_file="AUTO" weight=1.000 />
-            <Template pdb="1y12_templ.pdb" cst_file="AUTO" weight=1.000 />
+            <Template pdb="1k3d_templ.pdb" cst_file="AUTO" weight="1.000" />
+            <Template pdb="1y12_templ.pdb" cst_file="AUTO" weight="1.000" />
         </Hybridize>
     <FastRelax name="relax" scorefxn=talaris2013  />
     </MOVERS>
