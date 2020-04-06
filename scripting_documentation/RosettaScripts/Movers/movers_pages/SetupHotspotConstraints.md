@@ -14,4 +14,5 @@
 
 ##See Also
 
+* [[RosettaScriptsPlacement]]: More about the hotspot placement framework.
 * [[I want to do x]]: Guide to choosing a mover
