@@ -74,7 +74,7 @@ The equivalent functionality is obtainable by simply placing the movers from the
     ...
 ```
 
-You can transform it like so:
+You can transform it like so (note the move of the APPLY_TO_POSE subtags to a MOVERS section, and the addition of the `name` attribute to each.):
 
 ```
     ...
