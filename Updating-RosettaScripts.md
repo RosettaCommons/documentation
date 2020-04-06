@@ -1,4 +1,4 @@
-[[TOC]]
+[[_TOC_]]
 
 RosettaScripts is a system under continual development. While the developers try to keep the format of the RosettaScript XML somewhat consistent between versions of Rosetta, occasionally there are significant changes which cause existing RosettaScript XMLs to break or work sub-optimally.
 
@@ -53,7 +53,7 @@ to the following to be explicit about using the input pose as a reference pose:
     ...
 ```
 
-## Deprecation of the APPLY_TO_POSE section.
+## Removal of the APPLY_TO_POSE section.
 
 The APPLY_TO_POSE section was a mechanism to apply movers to a pose prior to the "start" of the XML. With more complex RosettaScripts being supported, this mechanism no longer works well, and has been removed. If you encounter this issue, you'll see an error message along the lines of "The APPLY_TO_POSE section is no longer valid. Please remove it from your XML." (Note that an empty APPLY_TO_POSE section is still allowed, it's only a non-empty one which will cause the error message.)
 
