@@ -4,6 +4,8 @@
 
 RosettaScripts is a system under continual development. While the developers try to keep the format of the RosettaScript XML somewhat consistent between versions of Rosetta, occasionally there are significant changes which cause existing RosettaScript XMLs to break or work sub-optimally.
 
+For smaller changes limited to how a single Mover or other RosettaScript object works, please see the documentation page for the respective RosettaScript object.
+
 ## XML Modernization.
 
 RosettaScripts started with something that was almost-but-not-quite XML. In late 2016 (Rosetta 3.8 and later) we converted the XML loading code in Rosetta to require properly formatted XML. The two most obvious changes in the syntax were the new requirement for quotation marks around tag attributes/options as well as the requirement that the subtags in the <SCOREFXNS> section now look like `<ScoreFunction name="sfxname" ...>` rather than the previous `<sfxname ...>`. 
