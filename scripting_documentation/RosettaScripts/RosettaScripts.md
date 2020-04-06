@@ -902,7 +902,15 @@ sets residue\_type type constraints to the pose based on a sequence profile. fil
 -   HotspotFiles: You can specify a set of hotspot files to be read individually. Each one is associated with a nickname for use in the placement movers/filters. You can set to keep in memory only a subset of the read stubs using stub\_num. If stubfile in the main branch is not specified, only the stubs in the leaves will be used.
 
 
+## Troubleshooting RosettaScripts
 
+RosettaScripts is under continuing development. In conjuction with this, there are occasionally changes which cause older scripts to break. Sometimes this will be a small change in required options for a particular RosettaScripts object. These should (hopefully) be documented on the documentation pages for the individual movers. See [[Updating RosettaScripts]] for information about changes which are more far reaching and affect multiple RosettaScripts objects. 
+
+### Troubleshooting hints.
+
+The first thing to do when getting an error with RosettaScripts is to check the documentation for each of the RosettaScripts objects which you are using. Pay particular attention to those options and settings which the object mentions as being required. Often times it's not just an in-XML parameter which will need to be changed in order to address the error. You may also need to add various command line parameters to your RosettaScript runs in order to get the results you're expecting.
+
+Another good troubleshooting tool is to simplify your XML. Try creating a stripped-down verison of your XML with only a handful of Movers. Test that and make sure it's behaving as you expect. Slowly reenable your movers and other RosettaScripts objects a few at a time, checking at each stage that the behavior is as you expect it to be. Also try simplifying the settings to your movers, using the defaults as much as possible. Check to make sure that each additional change to the defaults is causing the behavioral change you would expect it to. This progressive approach can often help you narrow down where the exact cause of your issues lie.
 
 ##See Also
 
