@@ -93,3 +93,5 @@ You can transform it like so (note the move of the APPLY_TO_POSE subtags to a MO
     </PROTOCOLS>
     ...
 ```
+
+Note that if you're combining this transformation with that of the "Input pose as a reference pose." section above, the addition of the SavePoseMover should (likely) come after the movers of the APPLY_TO_POSE section, though depending on the particular layout of the XML, it may be that a different order may be more appropriate.
