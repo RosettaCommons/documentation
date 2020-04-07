@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-04-01
+Generated: 2020-04-07
 
 _Note that some application specific options may not be present in this list._
 
@@ -1754,11 +1754,9 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-glycan_sampler_test</b> \<Boolean\></dt>
 <dd>Indicates to go into testing mode for Glycan Relax.  Will try all torsions in a given PDB in a linear fashion<br/>Default: false<br/></dd>
 <dt><b>-glycan_sampler_rounds</b> \<Integer\></dt>
-<dd>Number of rounds to use for Glycan Relax. Total rounds is this # times number of glycan residues in movemap<br/>Default: 25<br/></dd>
+<dd>Number of rounds to use for Glycan Relax. Total rounds is this # times number of glycan residues in movemap<br/>Default: 100<br/></dd>
 <dt><b>-min_rings</b> \<Boolean\></dt>
 <dd>Minimize Carbohydrate Rings during minimization?  Otherwise, we keep them at their input values (which is recommended).<br/>Default: false<br/></dd>
-<dt><b>-pack_glycans</b> \<Boolean\></dt>
-<dd>Pack Glycan OH groups during Glycan Relax. Currently time consuming<br/>Default: false<br/></dd>
 <dt><b>-final_min_glycans</b> \<Boolean\></dt>
 <dd>Do a final minimization of glycans after glycan relax protocol?<br/>Default: true<br/></dd>
 <dt><b>-glycan_sampler_movie</b> \<Boolean\></dt>
@@ -1774,7 +1772,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-population_based_conformer_sampling</b> \<Boolean\></dt>
 <dd>Use the populations of the conformers as probabilities during our linkage conformer sampling.  This makes it harder to overcome energy barriers with more-rare conformers<br/>Default: false<br/></dd>
 <dt><b>-use_gaussian_sampling</b> \<Boolean\></dt>
-<dd>Set whether to build conformer torsions using a gaussian of the angle or through uniform sampling up to 1 SD (default)<br/>Default: false<br/></dd>
+<dd>Set whether to build conformer torsions using a gaussian of the angle or through uniform sampling up to 1 SD (default)<br/>Default: true<br/></dd>
 </dl>
 + <h3>-carbohydrates:clash_check</h3>
 <dl>
