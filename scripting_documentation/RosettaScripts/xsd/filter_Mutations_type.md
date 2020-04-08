@@ -11,7 +11,8 @@ Determines mutated residues in current pose as compared to a reference pose
         packer_palette="(&named_packer_palette;)" rate_threshold="(0.0 &real;)"
         mutation_threshold="(100 &non_negative_integer;)"
         report_mutations="(0 &bool;)" verbose="(0 &bool;)" packable="(0 &bool;)"
-        write2pdb="(0 &bool;)" confidence="(1.0 &real;)" />
+        write2pdb="(0 &bool;)" reference_name="(&string;)"
+        confidence="(1.0 &real;)" />
 ```
 
 -   **task_operations**: A comma-separated list of TaskOperations to use.
@@ -22,6 +23,7 @@ Determines mutated residues in current pose as compared to a reference pose
 -   **verbose**: Defaults to false. If set to true, then will output the mutated positions and identities to the tracer.
 -   **packable**: Defaults to false. If set to true, then will also consider mutations at packable positions in addition to designable positions.
 -   **write2pdb**: Defaults to false. If set to true, then will output the mutated positions and identities to the output pdb.
+-   **reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

@@ -8,11 +8,13 @@ Sets up a star topology fold tree for this pose
 ```xml
 <MakeStarTopology name="(&string;)"
         mode="(default &valid_make_star_topology_modes;)"
-        restore="(false &bool;)" tag="(nulltag &string;)" />
+        restore="(false &bool;)" tag="(nulltag &string;)"
+        reference_name="(&string;)" />
 ```
 
 -   **mode**: Set up default or disconnected star topology?
 -   **restore**: Apply the fold tree set up on a previous run of this mover to the pose?
 -   **tag**: Name of a previously defined fold tree to be used in this mover. If the fold tree has not been defined, it will be set as the default fold tree.
+-   **reference_name**: The saved pose to take the forldtree from if restoring without a prior save.
 
 ---

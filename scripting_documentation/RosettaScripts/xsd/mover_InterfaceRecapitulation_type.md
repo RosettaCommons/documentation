@@ -7,10 +7,11 @@ XRW TO DO
 
 ```xml
 <InterfaceRecapitulation name="(&string;)" mover_name="(&string;)"
-        pssm="(false &bool;)" />
+        pssm="(false &bool;)" reference_name="(&string;)" />
 ```
 
 -   **mover_name**: Name of mover to be applied, either a DesignRepack or PackRotamers
 -   **pssm**: Should the pssm score be calculated against a possibly-provided pose reference?
+-   **reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
 
 ---

@@ -7,7 +7,8 @@ This filter checks whether in the current configuration the scaffold is 'feeling
 
 ```xml
 <StubScore name="(&string;)" chain_to_design="(2 &non_negative_integer;)"
-        cb_force="(2 &non_negative_integer;)" confidence="(1.0 &real;)" >
+        cb_force="(2 &non_negative_integer;)" reference_name="(&string;)"
+        confidence="(1.0 &real;)" >
     <StubSets >
         <Add stubfile="(&string;)" />
     </StubSets>
@@ -16,6 +17,7 @@ This filter checks whether in the current configuration the scaffold is 'feeling
 
 -   **chain_to_design**: Chain that ought to be designed, numbered sequentially from 1
 -   **cb_force**: Chain that ought to be designed, numbered sequentially from 1
+-   **reference_name**: The reference pose to use for finalizing the stub sets (defaults to input pose).
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 

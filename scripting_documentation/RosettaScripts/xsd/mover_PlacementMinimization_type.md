@@ -8,7 +8,7 @@ A simple rb-minimization in a bb-stub constraint biased forcefield. Note that th
 ```xml
 <PlacementMinimization name="(&string;)" host_chain="(2 &positive_integer;)"
         cb_force="(0.5 &real;)" optimize_foldtree="(false &bool;)"
-        minimize_rb="(true &bool;)" >
+        minimize_rb="(true &bool;)" reference_name="(&string;)" >
     <StubSets >
         <Add stubfile="(&string;)" />
     </StubSets>
@@ -19,6 +19,7 @@ A simple rb-minimization in a bb-stub constraint biased forcefield. Note that th
 -   **cb_force**: Force to apply to CB atoms.  Must be positive.
 -   **optimize_foldtree**: setup new fold_tree for better numerical behaviour between the residue at the center of target_residues and the nearest residue on the partner
 -   **minimize_rb**: minimize the rigid body degree of freedom
+-   **reference_name**: The reference pose to use for finalizing the stub sets (defaults to input pose).
 
 
 Subtag **StubSets**:   A container for tags that indicate stubfiles to be loaded

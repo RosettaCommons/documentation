@@ -8,12 +8,13 @@ XRW TO DO
 ```xml
 <SaveAndRetrieveSidechains name="(&string;)" allsc="(0 &bool;)"
         multi_use="(false &bool;)" two_step="(false &bool;)"
-        jumpid="(1 &non_negative_integer;)" />
+        jumpid="(1 &non_negative_integer;)" reference_name="(&string;)" />
 ```
 
 -   **allsc**: Save and retrieve all sidechains
 -   **multi_use**: Set up so that we can use this multiple times
 -   **two_step**: Save and retrieve in two steps
 -   **jumpid**: Jump ID to keep track of
+-   **reference_name**: If two_step is false, what structure to get the sidechains from.
 
 ---

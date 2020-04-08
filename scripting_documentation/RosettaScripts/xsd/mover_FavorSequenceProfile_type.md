@@ -11,7 +11,8 @@ Sets residue type constraints (SequenceProfileConstraint) on the pose according 
         use_starting="(&bool;)" use_current="(&bool;)" pdbname="(&bool;)"
         pssm="(&string;)" chain="(&non_negative_integer;)"
         scaling="(prob &favor_seqprof_scaling_type;)"
-        matrix="(BLOSUM62 &string;)" exclude_resnums="(&string;)" />
+        matrix="(BLOSUM62 &string;)" exclude_resnums="(&string;)"
+        reference_name="(&string;)" />
 ```
 
 -   **weight**: Adjust the post-scaling strength of the constraints.
@@ -26,5 +27,6 @@ Sets residue type constraints (SequenceProfileConstraint) on the pose according 
 -   **scaling**: Set how to scale the given values."prob"=Boltzmann-weighted probability based on the profile score"global"= global linear fixed-zero rescalingsuch that all (pre-weighted) values fall in the range of -1.0 to 1.0"none" does no adjustment of values.
 -   **matrix**: Set substitution matrix; valid:  BLOSUM62,MATCH,IDENTITY
 -   **exclude_resnums**: Exclude residues from being contrained.
+-   **reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
 
 ---

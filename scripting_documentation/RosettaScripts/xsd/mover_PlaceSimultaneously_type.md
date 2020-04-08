@@ -29,7 +29,7 @@ Places hotspot residues simultaneously on a scaffold, rather than iteratively as
     </NotifyMovers>
     <StubSets explosion="(0 &non_negative_integer;)"
             stub_energy_threshold="(1.0 &real;)" max_cb_dist="(3.0 &real;)"
-            cb_force="(&real;)" >
+            reference_name="(&string;)" cb_force="(&real;)" >
         <Add stubfile="(&string;)" filter_name="(&string;)" cb_force="(&real;)" />
     </StubSets>
 </PlaceSimultaneously>
@@ -87,6 +87,7 @@ Subtag **StubSets**:   What are the Stubs we are placing?
 -   **explosion**: which chis to explode, which probably means 'sample extensively'
 -   **stub_energy_threshold**: after placement and minimization, what energy cutoff to use for each of the hotspots
 -   **max_cb_dist**: Maximum distance from ideal placement that is nonetheless considered a hit
+-   **reference_name**: The reference pose to use for finalizing the stub sets (defaults to input pose).
 -   **cb_force**: the force on CB atoms
 
 
