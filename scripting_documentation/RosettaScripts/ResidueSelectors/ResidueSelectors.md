@@ -708,7 +708,41 @@ or
 -   selector - the name of a predefined selector that defines a subset of residues to restrict selection.
 
 
-####See Also
+###LogicBased
+
+####Slice
+Residue selector that allows slicing of the selection of other residue selections. Also allows negative indexing. 1 is the first residue and -1 is the last.
+
+    <Slice name=(%string) selector=(%string,"") from=(%int, 0) to=(%int, 1)
+                indices=(%string,"") 
+                slice_mode=(%string,"SPARSE") oob_mode=(%string,"ERROR")/>
+
+ - selector - The selector to slice from.
+ - from - Range selection: This is the first residue of the range to select.
+ - to - Range selection: This is the last residue of the range to select.
+ - indices - Index selection: Comma separated list of indices. May not use this with from-to
+ - slice_mode - How should the previous residue selector be represented? SPARSE: all gaps are removed from the previous selection. If residues 101 and 200 are selected, only indices 1 and 2 are valid. CONTIGUOUS - gaps from previous selection are included in indices. If residues 101 and 200 are selected, all indices from 1 to 100 are valid.
+ - oob_mode - If an index is out of bounds, how should this be handled? ERROR: Quit and display error message. WARN: Display error message. IGNORE: Ignore.
+
+Examples:
+
+Selecting residue 8 on chain B:
+```xml
+<Chain name="chainB" chain="B" />
+<Slice name="8B" selector="chainB" indices="8" />
+```
+
+Select all residues between the 2nd and 3rd CYS:
+```xml
+<ResidueName name="cys" residue_name3="CYS" />
+<Slice name="cys_2_and_3" selector="cys" indices="2,3" slice_mode="SPARSE" />
+<Slice name="from_cys2_to_cys3" selector="cys_2_and_3" from="1" to="-1" slice_mode="CONTIGUOUS" />
+```
+
+
+
+
+###See Also
 
 * [[StoreTaskMover]]
 * [[StoreCompoundTaskMover]]
