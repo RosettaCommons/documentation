@@ -8,13 +8,14 @@ For use when designing with symmetric building blocks. Prevents repacking at res
 ```xml
 <BuildingBlockInterface name="(&string;)"
         nsub_bblock="(1 &non_negative_integer;)"
-        sym_dof_names="(XRW TO DO &string;)" contact_dist="(10.0 &real;)"
-        bblock_dist="(5.0 &real;)" fa_rep_cut="(3.0 &real;)"
-        filter_intrabb="(true &bool;)" intrabb_only="(false &bool;)"
-        multicomp="(false &bool;)" />
+        bblock_reference_pdb="(1 &string;)" sym_dof_names="(XRW TO DO &string;)"
+        contact_dist="(10.0 &real;)" bblock_dist="(5.0 &real;)"
+        fa_rep_cut="(3.0 &real;)" filter_intrabb="(true &bool;)"
+        intrabb_only="(false &bool;)" multicomp="(false &bool;)" />
 ```
 
 -   **nsub_bblock**: The number of subunits in the symmetric building block (e.g., 3 for a trimer). This option is not needed for multicomponent systems.
+-   **bblock_reference_pdb**: A reference PDB for defining the bblock interface. NOT COMPATIBLE with multicomponent symmetry.
 -   **sym_dof_names**: Names of the sym_dofs corresponding to the symmetric building blocks. (Eventually replace the need for this option by having is_singlecomponent or is_multicomponent utility functions). If no sym_dof_names are specified, then they will be extracted from the pose.
 -   **contact_dist**: Residues with beta carbons not within this distance of any beta carbon from another building block are prevented from repacking.
 -   **bblock_dist**: The all-heavy atom cutoff distance used to specify residues that are making inter-subunit contacts within the building block. Because these residues are making presumably important intra-building block interactions, they are prevented from repacking unless they are clashing.
