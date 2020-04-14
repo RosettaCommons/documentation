@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-04-07
+Generated: 2020-04-14
 
 _Note that some application specific options may not be present in this list._
 
@@ -5678,6 +5678,8 @@ _Note that some application specific options may not be present in this list._
 <dl>
 <dt><b>-helical_bundle_predict</b> \<Boolean\></dt>
 <dd>helical_bundle_predict option group<br/></dd>
+<dt><b>-sequence_file</b> \<String\></dt>
+<dd>Filename of a file specfying the sequence, as a series of whitespace-separated full residue names (e.g. ALA LYS DARG DPRO HYP).  Required input for the simple_cycpep_predict app unless -in:file:fasta is provided.<br/></dd>
 <dt><b>-helix_assignment_file</b> \<File\></dt>
 <dd>A file containing information about the helix types and helical regions within a helical bundle.<br/>Default: ""<br/></dd>
 <dt><b>-num_simulated_annealing_rounds_centroid</b> \<Integer\></dt>
