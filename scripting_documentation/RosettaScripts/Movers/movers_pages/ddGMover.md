@@ -12,7 +12,7 @@ This mover is useful for reporting the total or per-residue ddgs in cases where 
 
 The `repack_bound` and `repack_unbound` control whether global repacking is applied to the bound and unbound states, respectively.  Both are true by default, though this can be expensive for large structures (and can result in irrelevant noise caused by different configurations of residues far from the binding interface).  The `relax_bound` and `relax_unbound` options provide an alternative, if a configured relaxation mover is provided with the `relax_mover` option.  This allows the user to specify, for example, a FastRelaxMover that only repacks and minimizes side-chains in the binding interface.
 
-chain\_num and chain\_name allow you to specify a list of chain numbers or chain names to use to calculate the ddg, rather than a single jump. You cannot move chain 1, moving all the other chains is the same thing as moving chain 1, so do that instead. If filter is specified, the computed value of the filter will be used for the reported difference in score, rather than the given scorefunction. Use of the filter with per-residue ddG is not supported.
+`chain_num` and `chain_name` allow you to specify a list of chain numbers or chain names to use to calculate the ddg, rather than a single jump. You cannot move chain 1, moving all the other chains is the same thing as moving chain 1, so do that instead. If `filter` is specified, the computed value of the filter will be used for the reported difference in score, rather than the given scorefunction. Use of the filter with per-residue ddG is not supported.
 
 
 
