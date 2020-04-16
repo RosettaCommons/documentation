@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-04-14
+Generated: 2020-04-16
 
 _Note that some application specific options may not be present in this list._
 
@@ -1638,6 +1638,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Force the packer to always procrastinate allocation AND energy caclulation 				until each RPE is needed; each RPE is computed at most once. 				The InteractionGraphFactory will prefer the linear-memory interaction graph 				to the DoubleLazy Interaction graph, so specifying both linmem_ig and lazy_ig results 				in the use of the linear-memory interaction graph.  The Surface-series IGs (surface 				weight in scorefunction is nonzero) also overrides this IG.<br/>Default: false<br/></dd>
 <dt><b>-linmem_ig</b> \<Integer\></dt>
 <dd>Force the packer to use the linear memory interaction graph; each 				RPE may be computed more than once, but recently-computed RPEs 				are reused.  The integer parameter specifies the number 				of recent rotamers to store RPEs for.  10 is the recommended size. 				Memory use scales linearly with the number of 				rotamers at about 200 bytes per rotamer per recent rotamers to 				store RPEs for (~4 KB per rotamer by default)<br/>Default: 10<br/></dd>
+<dt><b>-precompute_ig</b> \<Boolean\></dt>
+<dd>Explicitly request the O(N^2) interaction graph that precopmutes all 2-body energies. This option is overriden by linmem_ig.<br/>Default: false<br/></dd>
 <dt><b>-multi_cool_annealer</b> \<Integer\></dt>
 <dd>Alternate annealer for packing.  Runs multiple quence cycles in a first cooling stage, and tracks 			the N best network states it observes.  It then runs low-temperature rotamer substitutions with repeated 			quenching starting from each of these N best network states.  10 is recommended.<br/></dd>
 <dt><b>-sequence_symmetric_annealer</b> \<Boolean\></dt>
