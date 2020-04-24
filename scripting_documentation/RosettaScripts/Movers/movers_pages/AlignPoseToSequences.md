@@ -11,7 +11,19 @@ If you are predicting the structure of residues 341-400 with Rosetta the output 
 
 Example application:
 ```
-Example XML code here
+<ROSETTASCRIPTS>
+	<MOVERS>
+		<AlignPoseToSequenceMover name="apts" mode="multiple" >
+			<Target sequence="MKVKIKCWNGVATWLWVANDENCGICRMAFNGCCPDCKVPGDDCPLVWGQCSHCFHMHCILKWLHAQQVQQHCPMCRQEWKFKE" chains="C,D" />\n"
+			<Target sequence="LSDYNIQKESTLHLVLRLRGGMQIFVKTLTGKTITLEVEPSDTIENVKA" chains="U,u" />\n"
+		</AlignPoseToSequenceMover>
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover="apts" />
+	</PROTOCOLS>
+	<OUTPUT />
+</ROSETTASCRIPTS>
+
 ```
 
 Option Descriptions here
