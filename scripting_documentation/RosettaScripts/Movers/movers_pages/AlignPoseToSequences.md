@@ -25,7 +25,28 @@ Example application:
 </ROSETTASCRIPTS>
 
 ```
+Each `Target` must have `sequence` and `chains` defined, but can also have `segmentIDs` and/or `insCodes` defined if you would like to define those as well.
 
+If you don't want to use `Target` blocks you can supply 1 or more json files (comma separated) with the "json_fns" option.
+the json files must follow the format: (List of Dictionaries, with required keys of `chain`+`sequence` (optional keys of `segmentIDs` and `insCodes`)
+
+```
+[
+	{
+		"chains": ["C"],
+		"sequence": "MKVKIKCWNGVATWLWVANDENCGICRMAFNGCCPDCKVPGDDCPLVWGQCSHCFHMHCILKWLHAQQVQQHCPMCRQEWKFKE"
+	},
+	{
+		"chains": ["D"],
+		"sequence": "MSTLFPSLFPRVTETLWFNLDRPCVEETELQQQEQQHQAWLQSIAEKDNNLVPIGKPASEHYDDEEEEDDEDDEDSEEDSEDDEDMQDMDEMNDYNESPDDGEVNEVDMEGNEQDQDQWMI"
+	},
+	{
+		"chains": ["G", "W"],
+		"sequence": "MLRRKPTRLELKLDDIEEFENIRKDLETRKKQKEDVEVVGGSDGEGAIGLSSDPKSREQMINDRIGYKPQPKPNNRSSQFGSLEF"
+	},
+]
+
+```
 Option Descriptions here
 
 Caveats--common errors, when not to use this mover
