@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-04-16
+Generated: 2020-04-28
 
 _Note that some application specific options may not be present in this list._
 
@@ -1644,6 +1644,16 @@ _Note that some application specific options may not be present in this list._
 <dd>Alternate annealer for packing.  Runs multiple quence cycles in a first cooling stage, and tracks 			the N best network states it observes.  It then runs low-temperature rotamer substitutions with repeated 			quenching starting from each of these N best network states.  10 is recommended.<br/></dd>
 <dt><b>-sequence_symmetric_annealer</b> \<Boolean\></dt>
 <dd>When used, the packer will enforce that all chains end up with the same sequence. 			It uses pdb info to link residues together, 			so all residues with the same pdb number will be the same amino acid in the end. 			If a residue does not have a partner on every chain, it will not be allowed to mutate. 			Like traditional symmetry, this assumes that all chains are part of the same symmetric system. 			It is impossible to have, say, chains A+B+C where A+B are symmetric and C is separate.<br/>Default: false<br/></dd>
+<dt><b>-smart_annealer</b> \<Boolean\></dt>
+<dd>(requires extras=tensorflow) Use AI to guide your packing protocol. Currently not usable with the multi_cool_annealer, but it may be soon.<br/>Default: false<br/></dd>
+<dt><b>-smart_annealer_model</b> \<String\></dt>
+<dd>(requires extras=tensorflow) Choose which neural network to use for the smart annealer. Look at database/protocol_data/tensorflow_graphs/smart_annealer/ to see the options. Passing this flag enables '-smart_annealer'<br/>Default: "jack3.07.1"<br/></dd>
+<dt><b>-smart_annealer_cutoff</b> \<Real\></dt>
+<dd>(requires extras=tensorflow) Choose a number from 0 to 1 to tune how aggressive the smart annealer is. Higher numbers are more agressive (risky) but have a potentially greater speedup (speedup requires -smart_annealer_pick_again false). Passing this flag enables '-smart_annealer'<br/>Default: 0.25<br/></dd>
+<dt><b>-smart_annealer_pick_again</b> \<Boolean\></dt>
+<dd>(requires extras=tensorflow) If disabled, the smart annealer just skips unfruitful amino acids. Enabling this option tells the annealer to pick a fruitful rotamer to sample this round instead of skipping the round. Will not give you a speedup but may give you a better final outcome. Passing this flag enables '-smart_annealer'<br/>Default: true<br/></dd>
+<dt><b>-smart_annealer_disable_during_quench</b> \<Boolean\></dt>
+<dd>(requires extras=tensorflow) Run the final quenching stage as normal, regardless of how bad an amino acid may be. Passing this flag enables '-smart_annealer'<br/>Default: true<br/></dd>
 <dt><b>-minpack_temp_schedule</b> \<RealVector\></dt>
 <dd>Alternate annealing schedule for min_pack.<br/></dd>
 <dt><b>-minpack_inner_iteration_scale</b> \<Integer\></dt>
