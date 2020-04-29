@@ -83,12 +83,11 @@ segmentIDs:
 ["SEQ", "SEQ", "SEQ", "HERE", "HERE", "HERE", "HERE"]
 ```
 
-]
-```
 This is useful, but normally you have 20+ chains and their order isn't consistent between experiments so instead using the 'multiple' mode
 
 given a pose with sequences ["SEQ", "HERE", "SEQ"]
 you could align this with the json (or equivalent `Target` block):
+
 ```
 [
    {
@@ -121,10 +120,8 @@ segmentIDs:
 so using 'single' mode you have more per 'residue' control but less flexibility on the pose ordering, whereas in 'multiple' mode you have less per 'residue' control but lots of flexibility on the pose ordering.
 
 
-Caveats--common errors, when not to use this mover
+## Caveats--common errors, when not to use this mover
 
 One big problem (or feature) with this mover is that the sequences of the pose chains must identically match the target sequences.  Even if you're off by just 1 residue, the SmithWaterman can fail. and your pose will not be properly aligned.  Be extra careful when blindly using this protocol in combination with downstream protocols!
 
  
-##See Also
-
