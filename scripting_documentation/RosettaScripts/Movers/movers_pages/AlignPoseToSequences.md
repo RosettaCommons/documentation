@@ -47,7 +47,79 @@ the json files must follow the format: (List of Dictionaries, with required keys
 ]
 
 ```
-Option Descriptions here
+## Option Descriptions
+
+because there's no standard format that can really handle the level of control I want, I've decided to go with the following:
+
+in 'single' mode:
+given the json file (or its equivalent `Target` block)
+```
+[
+   {
+       "sequence": "SEQ",
+       "chains": ["A", "B", "C"],
+       "segmentIDs": ["SEQ"]
+   },
+   {
+       "sequence": "HERE",
+       "chains": ["D"],
+       "segmentIDs": ["HERE"]
+   },
+
+]
+```
+the mover will alter the PDBInfo of the a pose with two chains with sequences ["SEQ", "HERE"] to:
+
+the residue numbering:
+```
+[1, 2, 3, 1, 2, 3, 4]
+```
+chains:
+```
+["A", "B", "C", "D", "D", "D", "D"]
+```
+segmentIDs:
+```
+["SEQ", "SEQ", "SEQ", "HERE", "HERE", "HERE", "HERE"]
+```
+
+]
+```
+This is useful, but normally you have 20+ chains and their order isn't consistent between experiments so instead using the 'multiple' mode
+
+given a pose with sequences ["SEQ", "HERE", "SEQ"]
+you could align this with the json (or equivalent `Target` block):
+```
+[
+   {
+       "sequence": "SEQ",
+       "chains": ["A", "B"],
+       "segmentIDs": ["SEQ1", "SEQ2"]
+   },
+   {
+       "sequence": "HERE",
+       "chains": ["D"],
+       "segmentIDs": ["HERE"]
+   },
+]
+```
+and this will result in the:
+
+residue numbering:
+```
+[1, 2, 3, 1, 2, 3, 4, 1, 2, 3]
+```
+chains:
+```
+["A", "A", "A", "D", "D", "D", "D", "B", "B", "B"]
+```
+segmentIDs:
+```
+["SEQ1", "SEQ1", "SEQ1", "HERE", "HERE", "HERE", "HERE", "SEQ2", "SEQ2", "SEQ2"]
+```
+
+so using 'single' mode you have more per 'residue' control but less flexibility on the pose ordering, whereas in 'multiple' mode you have less per 'residue' control but lots of flexibility on the pose ordering.
+
 
 Caveats--common errors, when not to use this mover
 
