@@ -5,7 +5,7 @@
 [[include:mover_AlignPoseToSequences_type]]
 
 Purpose:
-The goal of this application is to provide the ability to align the pose's sequence to a reference sequence.
+The goal of this application is to provide the ability to align the pose's sequence (PDBInfo) to a reference sequence.
 This is particularly useful when performing structure prediction, ie:
 If you are predicting the structure of residues 341-400 with Rosetta the output pdb will often start with residue 1 and end at residue 60.  Adding this mover will make sure that the pdb's numbering will be correct (ie numbered as residue 341->400) at the end.
 
@@ -51,5 +51,8 @@ Option Descriptions here
 
 Caveats--common errors, when not to use this mover
 
+One big problem (or feature) with this mover is that the sequences of the pose chains must identically match the target sequences.  Even if you're off by just 1 residue, the SmithWaterman can fail. and your pose will not be properly aligned.  Be extra careful when blindly using this protocol in combination with downstream protocols!
+
+ 
 ##See Also
 
