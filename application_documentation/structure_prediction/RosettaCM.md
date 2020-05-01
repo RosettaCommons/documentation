@@ -167,11 +167,11 @@ In the input fasta file, separate sequences of individual chains with a '/' char
 
 Briefly:
 
-1. Add the tag **use_hetatm=1** to the Hybridize mover line.
+1. Add the tag **add_hetatm=1** to the Hybridize mover line.
 2. Make sure your run-command and flag-file don't include the `-ignore_unrecognized_res` flag
 3. Add flags to your run-command or flag-file to read in centroid and fullatom `.params` files and a `.tors` files for your ligand
 
-By adding the tag **use_hetatm=1** to the Hybridize mover line, any ligands/nucleic acids you want to model will be automatically taken from all templates with non-zero weights in the XML file.
+By adding the tag **add_hetatm=1** to the Hybridize mover line, any ligands/nucleic acids you want to model will be automatically taken from all templates with non-zero weights in the XML file.
 
 **Note:**  Ligands must be added to _all_ templates with a non-zero weight in the XML file!
 
