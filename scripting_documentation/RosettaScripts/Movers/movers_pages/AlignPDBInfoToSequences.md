@@ -1,8 +1,8 @@
-# [[ AlignPoseToSequences ]]
+# [[ AlignPDBInfoToSequences ]]
 *Back to [[Mover|Movers-RosettaScripts]] page.*
-## [[ AlignPoseToSequences ]]
+## [[ AlignPDBInfoToSequences ]]
 
-[[include:mover_AlignPoseToSequences_type]]
+[[include:mover_AlignPDBInfoToSequences_type]]
 
 Purpose:
 The goal of this application is to provide the ability to align the pose's sequence (PDBInfo) to reference sequences.
@@ -13,10 +13,10 @@ Example application:
 ```
 <ROSETTASCRIPTS>
 	<MOVERS>
-		<AlignPoseToSequenceMover name="apts" mode="multiple" >
+		<AlignPDBInfoToSequences name="apts" mode="multiple" >
 			<Target sequence="MKVKIKCWNGVATWLWVANDENCGICRMAFNGCCPDCKVPGDDCPLVWGQCSHCFHMHCILKWLHAQQVQQHCPMCRQEWKFKE" chains="C,D" />\n"
 			<Target sequence="LSDYNIQKESTLHLVLRLRGGMQIFVKTLTGKTITLEVEPSDTIENVKA" chains="U,u" />\n"
-		</AlignPoseToSequenceMover>
+		</AlignPDBInfoToSequences>
 	</MOVERS>
 	<PROTOCOLS>
 		<Add mover="apts" />
