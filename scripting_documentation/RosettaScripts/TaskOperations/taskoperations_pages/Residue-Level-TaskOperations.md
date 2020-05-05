@@ -35,6 +35,16 @@ Add the given "behavior" to the positions selected by the accompanying ResFilter
 
 -   behavior - Behavior string. These are protocol-specific. Consult the protocol documentation for if it responds to behavior strings.
 
+
+### DisallowIfNonnativeRLT 
+
+[[include:rlto_DisallowIfNonnativeRLT_type]]
+
+### DisallowIfNonnativeRLT 
+
+[[include:rlto_DisallowIfNonnativeRLT_type]]
+
+
 ##See Also
 
 * [[RosettaScripts|RosettaScripts]]: Using RosettaScripts
