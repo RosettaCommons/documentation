@@ -44,9 +44,9 @@ Add the given "behavior" to the positions selected by the accompanying ResFilter
 
 [[include:rlto_ExtraChiCutoffRLT_type]]
 
-### ExtraRotamersGenericRLT
+### [[ExtraRotamersGenericRLT|rlto_ExtraRotamersGenericRLT_type]]
 
-[[include:rlto_ExtraRotamersGenericRLT_type]]
+During packing, extra rotamers can be used to increase sampling. Use this TaskOperation to specify for all residues at once what extra rotamers should be used. 
 
 ### IncludeCurrentRLT
 
