@@ -68,7 +68,7 @@ Move only toward a lower cutoff for #neighbors w/i 10A that qualify a residue to
 ```
 
 ### [[PreserveCBetaRLT|rlto_PreserveCBetaRLT_type]]
-preserves c-beta during rotamer building for all residues. Under development and untested. Use at your own risk.
+preserves c-beta during rotamer building for selected residues. Under development and untested. Use at your own risk.
 ```xml
 <PreserveCBetaRLT name="(&string;)" />
 ```
