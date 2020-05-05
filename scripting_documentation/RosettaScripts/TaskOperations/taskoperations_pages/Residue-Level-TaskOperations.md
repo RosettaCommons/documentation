@@ -1,6 +1,6 @@
 <!-- --- title: Residue Level TaskOperations -->
 
-Residue Level TaskOperations
+Residue Level Task Operations
 ----------------------------
 Residue Level TaskOperations control the packer at the residue level, in combination with [[ResidueSelectors|ResidueSelectors]].
 
