@@ -2,31 +2,34 @@
 
 Residue Level TaskOperations
 ----------------------------
+Residue Level TaskOperations control the packer at the residue level, in combination with [[ResidueSelectors|ResidueSelectors]].
+
 Use these as a subtag for [[OperateOnResidueSubset|OperateOnResidueSubsetOperation]] (or the deprecated [[OperateOnCertainResidues|OperateOnCertainResiduesOperation]]). Only one may be used per OperateOnResidueSubset/OperateOnCertainResidues tag.
 
 Residue Level TaskOperations can also be declared as stand alone in their own tag `<RESIDUE_LEVEL_TASK_OPERATIONS>` and passed to [[DesignRestrictions|DesignRestrictionsOperation]].
 
 
-### RestrictToRepackingRLT
+### [[RestrictToRepackingRLT|rlto_RestrictToRepackingRLT_type]]
 
-Turn off design on the positions selected by the accompanying ResFilter.
+Turn off design on the positions selected.
+```xml
+<RestrictToRepackingRLT name="(&string;)" />
+```
 
-    <RestrictToRepackingRLT/>
+### [[PreventRepackingRLT|rlto_PreventRepackingRLT_type]]
 
-### PreventRepackingRLT
+Turn off design and repacking on the positions selected.
 
-Turn off design and repacking on the positions selected by the accompanying ResFilter.
+```xml
+<PreventRepackingRLT name="(&string;)" />
+```
 
-    <PreventRepackingRLT/>
+### [[RestrictAbsentCanonicalAASRLT|rlto_RestrictAbsentCanonicalAASRLT_type]]
 
-### RestrictAbsentCanonicalAASRLT
-
-Do not allow design to amino acid identities that are not listed (i.e. permit only those listed) at the positions selected by the accompanying ResFilter.
-
-    <RestrictAbsentCanonicalAASRLT aas="(&string)"/>
-
--   aas - list of one letter codes of permitted amino acids, with no separator. (e.g. aas=HYFW for only aromatic amino acids.)
-
+Do not allow design to amino acid identities that are not listed (i.e. permit only those listed) at the positions selected.
+```xml
+<RestrictAbsentCanonicalAASRLT name="(&string;)" aas="(&string)"/>
+```
 ### [[RestrictAbsentCanonicalAASExceptNativeRLT|rlto_RestrictAbsentCanonicalAASRLT_type]]
 
 Except for the native amino acid, do not allow design to amino acid identities that are not listed (i.e. permit only those listed + native).
@@ -35,18 +38,19 @@ Except for the native amino acid, do not allow design to amino acid identities t
 <RestrictAbsentCanonicalAASExceptNativeRLT name="(&string;)" aas="(&string;)" />
 ```
 
-### AddBehaviorRLT
 
+### [[AddBehaviorRLT|rlto_AddBehaviorRLT_type]]
 Add the given "behavior" to the positions selected by the accompanying ResFilter.
+```xml
+<AddBehaviorRLT name="(&string;)"  behavior="(&string)"/>
+```
 
-    <AddBehaviorRLT behavior="(&string)"/>
+### [[DisallowIfNonnativeRLT |rlto_DisallowIfNonnativeRLT _type]]
+Restrict design to not include a residue as an possibility in the task at a position unless it is the starting residue. 
+```xml
+<DisallowIfNonnativeRLT name="(&string;)" disallow_aas="(&string;)" />
+```
 
--   behavior - Behavior string. These are protocol-specific. Consult the protocol documentation for if it responds to behavior strings.
-
-
-### DisallowIfNonnativeRLT 
-
-[[include:rlto_DisallowIfNonnativeRLT_type]]
 
 ### ExtraChiCutoffRLT
 
