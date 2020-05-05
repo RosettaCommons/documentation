@@ -45,7 +45,7 @@ Add the given "behavior" to the positions selected by the accompanying ResFilter
 <AddBehaviorRLT name="(&string;)"  behavior="(&string)"/>
 ```
 
-### [[DisallowIfNonnativeRLT |rlto_DisallowIfNonnativeRLT _type]]
+### [[DisallowIfNonnativeRLT|rlto_DisallowIfNonnativeRLT_type]]
 Restrict design to not include a residue as an possibility in the task at a position unless it is the starting residue. 
 ```xml
 <DisallowIfNonnativeRLT name="(&string;)" disallow_aas="(&string;)" />
