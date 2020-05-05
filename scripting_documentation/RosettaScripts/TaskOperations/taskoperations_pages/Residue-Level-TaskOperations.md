@@ -51,25 +51,27 @@ Restrict design to not include a residue as an possibility in the task at a posi
 <DisallowIfNonnativeRLT name="(&string;)" disallow_aas="(&string;)" />
 ```
 
-
-### ExtraChiCutoffRLT
-
-[[include:rlto_ExtraChiCutoffRLT_type]]
-
 ### [[ExtraRotamersGenericRLT|rlto_ExtraRotamersGenericRLT_type]]
 
 During packing, extra rotamers can be used to increase sampling. Use this TaskOperation to specify for all residues at once what extra rotamers should be used. 
 
-### IncludeCurrentRLT
+### [[IncludeCurrentRLT|rlto_IncludeCurrentRLT_type]]
+Includes current rotamers of the pose in the rotamer set.
+```xml
+<IncludeCurrentRLT name="(&string;)" />
+```
 
-[[include:rlto_IncludeCurrentRLT_type]]
+### [[ExtraChiCutoffRLT|rlto_ExtraChiCutoffRLT_type]]
+Move only toward a lower cutoff for #neighbors w/i 10A that qualify a residue to be considered buried.
+```xml
+<ExtraChiCutoffRLT name="(&string;)" extrachi_cutoff="(18 &non_negative_integer;)" />
+```
 
-### PreserveCBetaRLT
-
-[[include:rlto_PreserveCBetaRLT_type]]
-
-
-
+### [[PreserveCBetaRLT|rlto_PreserveCBetaRLT_type]]
+preserves c-beta during rotamer building for all residues. Under development and untested. Use at your own risk.
+```xml
+<PreserveCBetaRLT name="(&string;)" />
+```
 
 ##See Also
 
