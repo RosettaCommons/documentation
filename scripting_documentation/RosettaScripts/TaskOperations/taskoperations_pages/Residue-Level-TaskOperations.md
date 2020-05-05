@@ -40,9 +40,18 @@ Add the given "behavior" to the positions selected by the accompanying ResFilter
 
 [[include:rlto_DisallowIfNonnativeRLT_type]]
 
-### DisallowIfNonnativeRLT 
+### ExtraChiCutoffRLT
 
-[[include:rlto_DisallowIfNonnativeRLT_type]]
+[[include:rlto_ExtraChiCutoffRLT_type]]
+
+### ExtraRotamersGenericRLT
+
+[[include:rlto_ExtraRotamersGenericRLT_type]]
+
+### IncludeCurrentRLT
+
+[[include:rlto_IncludeCurrentRLT_type]]
+
 
 
 ##See Also
