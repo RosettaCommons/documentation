@@ -27,6 +27,14 @@ Do not allow design to amino acid identities that are not listed (i.e. permit on
 
 -   aas - list of one letter codes of permitted amino acids, with no separator. (e.g. aas=HYFW for only aromatic amino acids.)
 
+### [[RestrictAbsentCanonicalAASExceptNativeRLT|rlto_RestrictAbsentCanonicalAASRLT_type]]
+
+Except for the native amino acid, do not allow design to amino acid identities that are not listed (i.e. permit only those listed + native).
+
+```xml
+<RestrictAbsentCanonicalAASExceptNativeRLT name="(&string;)" aas="(&string;)" />
+```
+
 ### AddBehaviorRLT
 
 Add the given "behavior" to the positions selected by the accompanying ResFilter.
