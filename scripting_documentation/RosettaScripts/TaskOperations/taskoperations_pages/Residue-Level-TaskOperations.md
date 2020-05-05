@@ -4,7 +4,7 @@ Residue Level TaskOperations
 ----------------------------
 Residue Level TaskOperations control the packer at the residue level, in combination with [[ResidueSelectors|ResidueSelectors]].
 
-Use these as a subtag for [[OperateOnResidueSubset|OperateOnResidueSubsetOperation]] (or the deprecated [[OperateOnCertainResidues|OperateOnCertainResiduesOperation]]). Only one may be used per OperateOnResidueSubset/OperateOnCertainResidues tag.
+Use these as a subtag (without the name) for [[OperateOnResidueSubset|OperateOnResidueSubsetOperation]] (or the deprecated [[OperateOnCertainResidues|OperateOnCertainResiduesOperation]]). Only one may be used per OperateOnResidueSubset/OperateOnCertainResidues tag.
 
 Residue Level TaskOperations can also be declared as stand alone in their own tag `<RESIDUE_LEVEL_TASK_OPERATIONS>` and passed to [[DesignRestrictions|DesignRestrictionsOperation]].
 
