@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-04-28
+Generated: 2020-05-12
 
 _Note that some application specific options may not be present in this list._
 
@@ -5210,6 +5210,17 @@ _Note that some application specific options may not be present in this list._
 <dd>If option -final_repack_without_ligand is active, this option will cause the repacked structure to be separately dumped.<br/>Default: false<br/></dd>
 <dt><b>-parser_read_cloud_pdb</b> \<Boolean\></dt>
 <dd>read cloud format PDB for enzdes in rosetta scripts<br/>Default: false<br/></dd>
+</dl>
++ <h2>-epr_deer</h2>
+<dl>
+<dt><b>-epr_deer</b> \<Boolean\></dt>
+<dd>epr_deer option group<br/></dd>
+<dt><b>-input_files</b> \<FileVector\></dt>
+<dd>Input files for DEER distance or decay data<br/></dd>
+<dt><b>-coords_files</b> \<FileVector\></dt>
+<dd>Input files for coordinates used for DEER measurement simulation<br/></dd>
+<dt><b>-print_data</b> \<Boolean\></dt>
+<dd>Prints DEER distance distributions and decay traces. Note that this will flood your terminal if used during Monte Carlo modeling.<br/>Default: false<br/></dd>
 </dl>
 + <h2>-fast_loops</h2>
 <dl>
