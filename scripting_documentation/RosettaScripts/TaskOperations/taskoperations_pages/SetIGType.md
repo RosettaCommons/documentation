@@ -2,16 +2,17 @@
 *Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
 ## SetIGType
 
-Task operation to set interaction graph type linmem, lazy, or double lazy
+Task operation to set interaction graph type linmem, lazy, double lazy, or precompute_ig.
 
 ```xml
-<SetIGType name=(string) lin_mem_ig=(bool,"false") lazy_ig=(bool,"false") double_lazy_ig=(bool,"false")/>
+<SetIGType name=(string) lin_mem_ig=(bool,"false") lazy_ig=(bool,"false") double_lazy_ig=(bool,"false") precompute_ig=(bool,"false")/>
 ```
 
 name (string):  The name given to this instance.
 lin_mem_ig (bool,"false"):  Interaction graph type lin_mem_ig.
 lazy_ig (bool,"false"):  Interaction graph type lazy_ig.
 double_lazy_ig (bool,"false"):  Interaction graph type double_lazy_ig.
+precompute_ig (bool,"false"):  Interaction graph type precompute_ig.
 
 ##See Also
 
