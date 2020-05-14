@@ -607,8 +607,6 @@ Option | Description
 Option | Description
 ------------ | -------------
 `-design_protocol` | Set the main protocol to use.  Note that deterministic is currently only available for the grafting of one CDR. (_Options = gen_mc, even_cluster_mc, even_length_cluster_mc, deterministic_graft_)(**Default=even_cluster_mc**)
-`-run_snugdock` | Run snugdock on each ensemble after designing. (**Default=false**)
-`-run_relax` | Run Dualspace Relax on each ensemble after designing (after snugdock if run). Also output pre-relaxed structures (**Default = false**)
 `-run_interface_analyzer`| Run the Interface Analyzer and add the information to the resulting score function for each top design output. (**Default = true**)
 
 --------------------------------------
