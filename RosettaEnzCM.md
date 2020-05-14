@@ -19,7 +19,7 @@ Input files that are needed:
 
 -   a cleaned pdb for each template
 -   a file containing all catalytic residues for each template
--   an aligned fasta file with all template and target sequences
+-   a file containing aligned sequences of all templates and targets in fasta format
 
 Setup
 =====
@@ -47,6 +47,8 @@ Command line options are:
 -a aligned fasta sequences
 -n optional name for output
 ```
+
+Template names need to be consistent in all locations (pdb files, in alignment, and in catalytic residue file).
 
 ####Catalytic Residue Syntax
 
