@@ -30,7 +30,7 @@ Do not allow design to amino acid identities that are not listed (i.e. permit on
 ```xml
 <RestrictAbsentCanonicalAASRLT name="(&string;)" aas="(&string)"/>
 ```
-### [[RestrictAbsentCanonicalAASExceptNativeRLT|rlto_RestrictAbsentCanonicalAASRLT_type]]
+### [[RestrictAbsentCanonicalAASExceptNativeRLT|rlto_RestrictAbsentCanonicalAASExceptNativeRLT_type]]
 
 Except for the native amino acid, do not allow design to amino acid identities that are not listed (i.e. permit only those listed + native).
 
