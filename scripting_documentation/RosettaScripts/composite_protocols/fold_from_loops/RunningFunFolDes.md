@@ -101,7 +101,7 @@ Before folding our protein it is recommended to generate `atom_pair_constraints`
 </AddConstraints>
 ```
  
-Now we can call [[NubInitio]]:
+Now we can call [[NubInitioMover]]:
 ```xml
 <NubInitioMover name="FunFolDes" fragments_id="auto" template_motif_selector="insert" >
   <Nub pose_file="motif.pdb" residue_selector="motif" binder_selector="binder" />
@@ -114,7 +114,7 @@ One could also first load the PDB file into a pose and then pass it as a `refere
   <Nub reference_name="motif_pose" residue_selector="motif" binder_selector="binder" />
 </NubInitioMover>
 ```
-There are some alternatives to the most basic call of [[NubInitio]].  
+There are some alternatives to the most basic call of [[NubInitioMover]].  
 For example, let's say that one wants two residues on each side of the **motif** to be able to move, hopping for a better fit into the **template**, and one also considers that residues `2,4,6,8,13` (inside the motif count) are not in actual contact with the binder and, thus, they can be designed. One can target specific parameters of each segment in the **motif**:
 ```xml
 <NubInitioMover name="FunFolDes" fragments_id="auto" template_motif_selector="insert" >
