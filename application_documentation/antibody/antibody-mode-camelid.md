@@ -7,6 +7,11 @@ Author: Aroop Sircar and Sergey Lyskov
 
 Last edited 7/20/2011. Corresponding PI Jeffrey Gray (jgray@jhu.edu).
 
+Latest
+======
+
+As of June 2019, camelid antibodies can be modelled by the [[default protocol|antibody-protocol]].
+
 Code and Demo
 =============
 
