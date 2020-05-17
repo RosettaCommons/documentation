@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-05-12
+Generated: 2020-05-17
 
 _Note that some application specific options may not be present in this list._
 
@@ -3299,6 +3299,12 @@ _Note that some application specific options may not be present in this list._
 <dd>Check CDRs of input antibody for chainbreaks upon initializing RosettaAntibody and RosettaAntibodyDesign.  Chainbreaks found will result in the model not proceeding. A peptide bond in the loop is considered broken if its C-N bond is > 2.0 A<br/>Default: true<br/></dd>
 <dt><b>-check_cdr_pep_bond_geom</b> \<Boolean\></dt>
 <dd>Check CDRs of input antibody for bad peptide bond geometry.  This checks Ca-C-N and C-N-Ca bond angles for -large- deviations from the min max values found in a recent analysis of protein geometry  - Conformation dependence of backbone geometry in proteins. Structure -.  If found, the model will not proceed.  Use FastRelax with bond angle min to fix issues.  These issues usually arise from poorly resolved crystal loops or incorrectly solved structures.  Many older antibody structures have some of these issues.<br/>Default: false<br/></dd>
+<dt><b>-constrain_cter</b> \<Boolean\></dt>
+<dd>The option to turn on/off the cterminal constrain penalty in loop scoring function<br/>Default: false<br/></dd>
+<dt><b>-auto_generate_kink_constraint</b> \<Boolean\></dt>
+<dd>Generate the kink constraint on-the-fly<br/>Default: false<br/></dd>
+<dt><b>-all_atom_mode_kink_constraint</b> \<Boolean\></dt>
+<dd>Enable the kink constraint in the all-atom phase of the simulation<br/>Default: false<br/></dd>
 <dt><b>-numbering_scheme</b> \<String\></dt>
 <dd>Deprecated Numbering Scheme option<br/>Default: "Chothia_Scheme"<br/></dd>
 <dt><b>-graft_l1</b> \<Boolean\></dt>
@@ -3361,14 +3367,14 @@ _Note that some application specific options may not be present in this list._
 <dd>extend the H3 to forget the intial H3 configuration<br/>Default: true<br/></dd>
 <dt><b>-centroid_refine</b> \<String\></dt>
 <dd>Choose a refine method to refine a loop in centroid mode<br/>Default: "refine_kic"<br/></dd>
-<dt><b>-constrain_cter</b> \<Boolean\></dt>
-<dd>The option to turn on/off the cterminal constrain penalty in loop scoring function<br/>Default: false<br/></dd>
+<dt><b>-h3_loop_csts_lr</b> \<Boolean\></dt>
+<dd>Turn on/off the dihedral angle and atom pair constraint weights in the low-resolution score function used during H3 loop modeling<br/>Default: true<br/></dd>
+<dt><b>-h3_loop_csts_hr</b> \<Boolean\></dt>
+<dd>Turn on/off the dihedral angle and atom pair constraint weights in the high-resolution score function used during H3 loop modeling<br/>Default: true<br/></dd>
+<dt><b>-auto_generate_h3_kink_constraint</b> \<Boolean\></dt>
+<dd>Generate the kink constraint on-the-fly for either the low-resolution or high-resolution H3 modeling stages, depending on h3_loop_csts flags.<br/>Default: true<br/></dd>
 <dt><b>-constrain_vlvh_qq</b> \<Boolean\></dt>
-<dd>The option to turn on/off the VL-VH QQ H-bond in docking scoring function<br/>Default: false<br/></dd>
-<dt><b>-auto_generate_kink_constraint</b> \<Boolean\></dt>
-<dd>Generate the kink constraint on-the-fly<br/>Default: false<br/></dd>
-<dt><b>-all_atom_mode_kink_constraint</b> \<Boolean\></dt>
-<dd>Enable the kink constraint in the all-atom phase of the simulation<br/>Default: false<br/></dd>
+<dd>Turn on/off a constraint forcing the VL-VH QQ H-bond in docking scoring function<br/>Default: true<br/></dd>
 <dt><b>-snug_loops</b> \<Boolean\></dt>
 <dd>Allow CDR loop backbone flexibility during minimization<br/>Default: false<br/></dd>
 <dt><b>-input_fv</b> \<File\></dt>
@@ -3395,8 +3401,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Path to the Antibody Grafting Database from Rosetta tools repository. By default this option is empty and grafting_database is looked at ../../tools/antibody and then $ROSETTA/tools/antibody<br/>Default: ""<br/></dd>
 <dt><b>-blastp</b> \<String\></dt>
 <dd>Path to NCBI-Blast+ executable<br/>Default: "blastp"<br/></dd>
-<dt><b>-exclude_pdb</b> \<String\></dt>
-<dd>do not use given pdb as graft source (no default)<br/></dd>
+<dt><b>-exclude_pdbs</b> \<StringVector\></dt>
+<dd>do not use given pdb(s) as sources for grafting (no default), e.g. 1ABC 2CDE<br/></dd>
 <dt><b>-exclude_homologs</b> \<Boolean\></dt>
 <dd>Filter BLAST matches by sequence identity? (false by default)<br/>Default: false<br/></dd>
 <dt><b>-exclude_homologs_cdr_cutoff</b> \<Real\></dt>
