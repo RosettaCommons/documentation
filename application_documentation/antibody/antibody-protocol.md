@@ -7,7 +7,7 @@ Author: Jianqing Xu (xubest@gmail.com), Daisuke Kuroda (dkuroda1981@gmail.com), 
 
 Corresponding PI Jeffrey Gray (jgray@jhu.edu).
 
-Last edited 5/23/2017 by Jeliazko Jeliazkov (jeliazkov@jhu.edu). 
+Last edited 5/17/2020 by Jeliazko Jeliazkov (jeliazkov@jhu.edu). 
 
 
 References
@@ -61,6 +61,43 @@ As of April 27th, 2019, there is a **new database** in `additional_protocol_data
 
 Next, for each grafted model, the CDR H3 is de novo modeled and the relative VH&ndash;VL orientation is refined via local docking. Flags are split into a simulation set and a loop-modeling set. Both sets of flags are shown below (the loop modeling flags can also be found in tools/antibody/abH3.flags). If loop modeling is slow, it can be expedited by decreasing KIC sampling via the flags `-loops:refine_outer_cycles 2` and `-loops:max_inner_cycles 20`, however these flags have not been benchmarked. If using multiple VH&ndash;VL orientations, we recommend 1000 structures be generated for the top grafted model (typically, model-0.relaxed.pdb) and 200 structures be generated for the other orientations.
 
+Sample command line (as of May 17th, 2020): `antibody_H3.macosclangrelease @flags`.
+
+flags:
+```
+# input grafted model
+-s grafting/model-0.relaxed.pdb
+
+# recommended number of structs
+-nstruct 1000 
+
+# constraints are enabled by default, so flags are shown just to indicate that they can be turned off
+# recommended as kink is present in 90% of Abs and as VH-VL Q-Q is present in 808%
+-antibody:h3_loop_csts_lr true
+-antibody:h3_loop_csts_hr true
+-antibody:auto_generate_h3_kink_constraint true
+-antibody:constrain_vlvh_qq true
+-constraints:cst_weight 1.0
+# standard settings, for packages used by antibody_H3
+-ex1
+-ex2
+-extrachi_cutoff 0
+
+# necessary if running multiple procs w/o MPI
+-multiple_processes_writing_to_one_directory 
+
+# specify output file
+-out:file:scorefile H3_modeling_scores.fasc 
+
+# specify output folder
+-out:path:pdb H3_modeling 
+```
+
+The typical runtime varies, based on CDR H3 length (due to KIC). In our benchmark, the runtime was ~1 hour per model. We highly recommend using a cluster to speed up calculations. 
+
+Additionally, models should be validated for a reasonable VH&ndash;VL orientation. This can be done with following command: `python $ROSETTA/main/source/scripts/python/public/plot_VL_VH_orientational_coordinates/plot_LHOC.py`.
+
+**Flags prior to May 17th 2020**
 Sample command line (as of June 24th, 2019): `antibody_H3.macosclangrelease @flags`.
 
 flags:
@@ -96,10 +133,6 @@ flags:
 # specify output folder
 -out:path:pdb H3_modeling 
 ```
-
-The typical runtime varies, based on CDR H3 length (due to KIC). In our benchmark, the runtime was ~1 hour per model. We highly recommend using a cluster to speed up calculations. 
-
-Additionally, models should be validated for a reasonable VH&ndash;VL orientation. This can be done with following command: `python $ROSETTA/main/source/scripts/python/public/plot_VL_VH_orientational_coordinates/plot_LHOC.py`.
 
 **Flags prior to June 2019**
 
