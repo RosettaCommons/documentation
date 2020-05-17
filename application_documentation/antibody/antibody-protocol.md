@@ -53,6 +53,8 @@ VKLEESGGGLVQPGGSMKLSCATSGFRFADYWMDWVRQSPEKGLEWVAEIRNKANNHATYYAESVKGRFTISRDDSKRRV
 DVVMTQTPLSLPVSLGNQASISCRSSQSLVHSNGNTYLHWYLQKPGQSPKLLIYKVSNRFSGVPDRFSGSGSGTDFTLKISRVEAEDLGVYFCSQSTHVPFTFGSGTKLEIKR
 ```
 
+Heavy-chain only antibodies can also be modelled by only specifying a heavy chain and the flag `-vhh_only`.
+
 The typical runtime, with FastRelax, is ~20 mins per model or ~3 hours for 10 models.
 
 As of April 27th, 2019, there is a **new database** in `additional_protocol_data`, which has some slight formatting changes from the old one. Switching over to the new database is easy and can be done by running `git submodule update --init --recursive` for the git-tracked version of Rosetta. Presumably, the additional data repository should be downloadable for general users as well.
