@@ -1,9 +1,6 @@
 # PerResidueClashMetric
 *Back to [[SimpleMetrics]] page.*
 ## PerResidueClashMetric
-
-Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
-
 [[include:simple_metric_PerResidueClashMetric_type]]
 
 ##See Also
