@@ -2,8 +2,6 @@
 *Back to [[SimpleMetrics]] page.*
 ## TimingProfileMetric
 
-Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
-
 [[include:simple_metric_TimingProfileMetric_type]]
 
 ##See Also
