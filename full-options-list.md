@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-05-17
+Generated: 2020-05-26
 
 _Note that some application specific options may not be present in this list._
 
@@ -8098,8 +8098,6 @@ _Note that some application specific options may not be present in this list._
 <dd>For hacky symmetry that forces matching fragment insertions, what's the n-repeats?<br/>Default: 1<br/></dd>
 <dt><b>-exhaustive_fragment_insertion</b> \<Integer\></dt>
 <dd>Instead of doing a single random fragment insertion per move, do the BEST one from among n random trials.<br/>Default: 1<br/></dd>
-<dt><b>-params_file</b> \<String\></dt>
-<dd>Input file for pairings [deprecated!]<br/>Default: "default.prm"<br/></dd>
 <dt><b>-filter_lores_base_pairs</b> \<Boolean\></dt>
 <dd>Filter for models that satisfy structure parameters<br/>Default: true<br/></dd>
 <dt><b>-filter_lores_base_pairs_early</b> \<Boolean\></dt>
