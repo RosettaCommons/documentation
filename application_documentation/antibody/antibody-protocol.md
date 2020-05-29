@@ -7,7 +7,7 @@ Author: Jianqing Xu (xubest@gmail.com), Daisuke Kuroda (dkuroda1981@gmail.com), 
 
 Corresponding PI Jeffrey Gray (jgray@jhu.edu).
 
-Last edited 5/17/2020 by Jeliazko Jeliazkov (jeliazkov@jhu.edu)and 5/29/2020 by Rahel Frick (rahel.frick@jhu.edu)
+Last edited 5/17/2020 by Jeliazko Jeliazkov (jeliazkov@jhu.edu) and 5/29/2020 by Rahel Frick (rahel.frick@jhu.edu)
 
 References
 ==========
