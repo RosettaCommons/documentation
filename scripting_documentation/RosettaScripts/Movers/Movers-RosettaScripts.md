@@ -309,6 +309,13 @@ Mover  | Description
 **[[PeriodicBoxMover]]** | Mover that allows to run MC simulation in a periodic box, for instance liquid simulation.  
 
 
+### Pose Creation
+
+Mover  | Description
+------------ | -------------
+**[[PoseFromSequenceMover]]**  | Create a pose from a sequence or multiple chains from sequences.
+
+
 ### Other Pose Manipulation
 
 Mover  | Description
