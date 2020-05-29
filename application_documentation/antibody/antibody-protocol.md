@@ -97,7 +97,7 @@ flags:
 
 The typical runtime varies, based on CDR H3 length (due to KIC). In our benchmark, the runtime was ~1 hour per model. We highly recommend using a cluster to speed up calculations. 
 
-Additionally, models should be validated for a reasonable VH&ndash;VL orientation. This can be done with following command: `python $ROSETTA/main/source/scripts/python/public/plot_VL_VH_orientational_coordinates/plot_LHOC.py`.
+Additionally, models should be validated for a reasonable VH&ndash;VL orientation. This can be done with the following command: `python $ROSETTA/main/source/scripts/python/public/plot_VL_VH_orientational_coordinates/plot_LHOC.py`.
 
 **Flags prior to May 17th 2020**
 Sample command line (as of June 24th, 2019): `antibody_H3.macosclangrelease @flags`.
