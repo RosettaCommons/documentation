@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-05-26
+Generated: 2020-05-30
 
 _Note that some application specific options may not be present in this list._
 
@@ -4510,6 +4510,8 @@ _Note that some application specific options may not be present in this list._
 <dd>option added to minirosetta app in order to produce only refinement in wt structures<br/>Default: false<br/></dd>
 <dt><b>-mut_only</b> \<Boolean\></dt>
 <dd>options added to minirosetta app in order to produce refinement in only mutant structure<br/></dd>
+<dt><b>-optimize_wt</b> \<Boolean\></dt>
+<dd>Will optimize the native structure when using the refactored version of the code. This will serve as the new baseline score.<br/>Default: false<br/></dd>
 <dt><b>-output_silent</b> \<Boolean\></dt>
 <dd>No description<br/></dd>
 <dt><b>-minimization_scorefunction</b> \<String\></dt>
