@@ -11,11 +11,22 @@ Align the PDBInfo of a pose to some given sequences. This mover does not alter g
 
 ```xml
 <AlignPDBInfoToSequences name="(&string;)" mode="(&string;)"
-        json_fns="(&string;)" throw_on_fail="(false &bool;)" />
+        json_fns="(&string;)" throw_on_fail="(false &bool;)" >
+    <Target name="(&string;)" sequence="(&string;)" chains="(&string;)"
+            segmentIDs="(&string;)" insCodes="(&string;)" />
+</AlignPDBInfoToSequences>
 ```
 
 -   **mode**: (REQUIRED) Which mode to run in. options: ['single', 'multiple']
 -   **json_fns**: The name of the json sequence file(s) (separated by ',')
 -   **throw_on_fail**: throw on failure.
+
+
+Subtag **Target**:   Targets and settings of the sequences to align to.
+
+-   **sequence**: (REQUIRED) sequence of current chain/protein
+-   **chains**: (REQUIRED) chains to set with current protein
+-   **segmentIDs**: segmentIDs to set for the current protein
+-   **insCodes**: insertion codes to set for the current protein
 
 ---
