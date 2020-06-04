@@ -11,7 +11,22 @@ TJ Brunette; tjbrunette@gmail.com
 Combines two poses along a common secondary structure element and redesigns the sequence as appropriate.
 
 ```xml
-<MergePDB name="(&string)" task_operations="(&string)" scorefxn="(&string)" attachment_termini="[n_term|c_term]" attach_pdb="(&string) overlap_length="(&int) overlap_rmsd="(&int)" design_range="*(&int)" packing_range="(&int) overlap_scan_range_cmdLine_pose="(&int)" overlap_scan_range_cmdLine_xml_pose="(&int)" symm_file="(&string) no_design_label="(&string)" init_overlap_sequence="[input_pose|xml_pose|both]" duplicate_rmsd_pose_threshold="(&real)" chain="(&chain)"/>
+<MergePDB name="(&string;)" symm_file="(&string;)"
+        attachment_termini="(n_term &attachment_termini_type;)"
+        chain="(A &string;)" overlap_length="(4 &non_negative_integer;)"
+        overlap_rmsd="(0.3 &real;)"
+        overlap_scan_range_cmdLine_pose="(20 &non_negative_integer;)"
+        overlap_scan_range_xml_pose="(20 &non_negative_integer;)"
+        attach_pdb="(&string;)" design_range="(9 &real;)"
+        packing_range="(8 &real;)" detect_disulf_before_pack="(true &bool;)"
+        do_minimize="(true &bool;)" no_design_label="(&string;)"
+        duplicate_rmsd_pose_threshold="(1.0 &real;)"
+        init_overlap_sequence="[input_pose|xml_pose|both]"
+        scorefxn="(&string;)" output_only_first="(false &bool;)"
+        output_overlap_positions="(false &bool;)" do_design="(true &bool;)"
+        clash_threshold="(10 &real;)"
+        task_operations="(&task_operation_comma_separated_list;)"
+        packer_palette="(&named_packer_palette;)" />
 ```
 
 Options:
@@ -46,6 +61,10 @@ Options:
 * **duplicate_rmsd_pose_threshold:** rmsd for eliminating duplicate poses. For speed does not work >1.0
 
 * **chain:** Which chain to operate on. Defaults to 'A'.
+
+* **do_design**: Perform sequence design (default:true)
+
+* **do_minimize**: Perform energy minimization (default:true)
 
 **Notes:**
 
