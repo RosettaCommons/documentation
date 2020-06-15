@@ -149,7 +149,7 @@ To write and develop code, it is much easier if you have an IDE (Integrated Deve
 * VsCode - any platform: https://code.visualstudio.com/ C++ code navigation works out of the box.
 * Eclipse - any platform: https://wiki.rosettacommons.org/index.php/Tools:Eclipse
 * Netbeans - any platform: https://netbeans.org
-Talk to your mentor which program he thinks is best so he can also give you advise on how to use it. And don't be discouraged, it takes a while to figure out the details.
+Talk to your mentor which program s/he thinks is best so s/he can also give you advise on how to use it. And don't be discouraged, it takes a while to figure out the details.
 
 ## Coding conventions
 Now that you know about version control, have set up your IDE and are knowledgeable about C++, you should read through the coding conventions and comply with them - no excuse!!! This will make it much easier in the long run for other people (and yourself) to read, understand and use your code in the way it is intended for. This also applies for Python code:
