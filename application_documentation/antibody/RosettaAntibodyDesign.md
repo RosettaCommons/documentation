@@ -75,7 +75,7 @@ On input into the program, Rosetta assigns our CDR clusters using the same metho
 
 ### General Design
 
-**Example 1**
+**Example 1 - GraftDesign and SeqDesign**
 
 The command-line can be as simple as:
 
@@ -101,7 +101,7 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 
 #### Optimizing Interface Energy (opt-dG)
 
-**Example 1**
+**Example 1 - opt-dG**
 
 Here, we want to set the protocol to optimize the interface energy during Monte Carlo instead of total energy.  The interface energy is calculated by the [[InterfaceAnalyzerMover]] through a specialized MonteCarlo called **MonteCarloInterface**.   **This is useful to improve binding energy and will result in better interface energies**.  Resulting models should still be pruned for high total energy.  This was benchmarked in the paper, and has been used for real-life designs after - so please see it for more information.
 
@@ -129,20 +129,21 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 
 ### Docked Design
 
-**Example 1 - Basic docking incorporation**
+**Example 1 - Basic DockDesign Incorporation**
 
 In this example, we use integrated RosettaDock (with sequence design during the high-res step) to sample the antibody-antigen orientation, but we don't care where the antibody binds to the antigen.  Just that it binds. IE - No Constraints. The RAbD protocol always has at least Paratope SiteConstraints enabled to make sure any docking is contained to the paratope (like most good docking programs).
+
+By default, we have now reduced the high-res dock cycles to 2/2.  This should greatly speed up docking.
+You can change this with the `-dock_first_cycles` and `-dock_second_cycles` options.  Note that for a FULL docking protocol in Rosetta, these numbers are 4 and 45 respectively.
 
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -do_dock -nstruct 1
 ```
 
-By default, we have now reduced the high-res dock cycles to 2/2.  This should greatly speed up docking.
-You can change this with the `-dock_first_cycles` and `-dock_second_cycles` options.  Note that for a FULL docking protocol in Rosetta, these numbers are 4 and 45 respectively.
 ------------------------
 
-**Example 2 - SiteConstraint incorporation**
+**Example 2 - SiteConstraints**
 
 Allow Dock-Design, incorporating auto-generated SiteConstraints to keep the antibody around the starting interface residues.  These residues are determined by being within 6A to the CDR residues.  
 
@@ -153,7 +154,7 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 
 ----------------
 
-**Example 3 - incorporating Epitope SiteConstraints**
+**Example 3 - Optimizing Design to Specific Epitope Residues**
 
 Allow Dock-Design, as above, but specify the Epitope Residues and Paratope CDRs to guide design to have these interact.
 
@@ -165,7 +166,7 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 
 -----------------------
 
-**Example 4 - High energy start and super quick docking**
+**Example 4 - DeNovo Design**
 
 Here, we want to do a denovo-run, creating an interface at the light-chain, starting with random CDRs grafted in instead of whatever we have in the antibody to start with (for the designing CDRs).  
 
