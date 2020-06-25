@@ -2,7 +2,7 @@
 
 
 
-Last Doc Update: 5/14/2020
+Last Doc Update: 6/25/2020
 
 
 
@@ -158,7 +158,7 @@ Allow Dock-Design, as above, but specify the Epitope Residues and Paratope CDRs 
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -do_dock -use_epitope_constraints \
--paratope_cdrs H3 -epitope 63A 63A:A 64 -nstruct 1
+-paratope H3 -epitope 63A 63A:A 64 -nstruct 1
 ```
 
 -----------------------
@@ -170,7 +170,7 @@ Here, we want to do a denovo-run, creating an interface at the light-chain, star
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs L1 L2 L3 \
 -graft_design_cdrs L1 L2 L3 -seq_design_cdrs L1 L2 L3 -light_chain lambda -do_dock \
--use_epitope_constraints -paratope_cdrs L1 L2 L3 -epitope 63A 63A:A 64 -random_start
+-use_epitope_constraints -paratope L1 L2 L3 -epitope 63A 63A:A 64 -random_start
 ```
 
 ### Instruction File Customization
