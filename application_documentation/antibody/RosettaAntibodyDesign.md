@@ -187,7 +187,7 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 
 ## Advanced Settings
 
-**Example 1 - Incorporating a Resfile to limit design**
+**Example 1 - Incorporating a Resfile to Limit Design**
 
 Here, we will disallow ANY sequence design into Proline residues and Cysteine residues, while giving a resfile to further LIMIT design and packing as specific positions. These can be given as 3 or 1 letter codes and mixed codes such as PRO and C are accepted. Note that the resfile does NOT turn any residues ON, it is simply used to optionally LIMIT design residue types and design and packing positions.
 
@@ -238,7 +238,7 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 Cool.  That should make some interesting antibodies for our experiment.  
 
 ------------------
-**Example 3 - Increasing temperature**
+**Example 3 - Increasing MonteCarlo Temperature**
 
 Now, we will change around the KT to get more interesting samplings (from our 1.0 default).
 
@@ -250,7 +250,7 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 
 ----------------
 
-**Example 4 - Increase sequence design variability**
+**Example 4 - Increasing Sequence Design Variability**
 
 Finally, we want increased variability for our sequence designs.  So, we will increase number of sampling rounds for our lovely cluster profiles using the `-seq_design_profile_samples` option.  
 
