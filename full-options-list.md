@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-05-30
+Generated: 2020-06-30
 
 _Note that some application specific options may not be present in this list._
 
@@ -4482,6 +4482,8 @@ _Note that some application specific options may not be present in this list._
 <dd>In the multi-threaded MPI compilation, this is the number of threads to launch per slave process.  Note that emperor and master-layer processes do not launch threads.  A value of 1 (the default) means that only standard hierarchical process-based parallelism will be used.  In non-MPI or non-threaded compilations, this option is unused.<br/>Default: 1<br/></dd>
 <dt><b>-compute_rmsd_to_lowest</b> \<Boolean\></dt>
 <dd>If true the RMSD to the top structure (by whatever ranking) is computed in addition to the RMSD to a user-supplied native (if a native structure is provided).  False by default.  Only used in MPI version of Rosetta.<br/>Default: false<br/></dd>
+<dt><b>-compute_pnear_to_this_fract</b> \<Real\></dt>
+<dd>If this option is provided, PNear will be computed to each of the lowest-energy samples found, for the specified lowest-energy fraction.  (Setting this to 0.02 would compute PNear to each of the lowest-energy 2% of samples, for example).  Not used by default.<br/>Default: 0.0<br/></dd>
 <dt><b>-compute_ensemble_sasa_metrics</b> \<Boolean\></dt>
 <dd>If true, the Boltzmann-weighted SASA, polar SASA, hydrophobic SASA, and number of unsatisfied polar groups is computed (ensemble average).  False by default.  Only used in MPI version of Rosetta.<br/>Default: false<br/></dd>
 </dl>

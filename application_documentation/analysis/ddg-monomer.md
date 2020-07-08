@@ -43,7 +43,7 @@ There are two main ways that this application should be used: a high-resolution 
 
 A) High Resolution Protocol:
 
-This protocol allows a small degree of backbone conformational freedom. The protocol optimizes both the initial input structure for the wild-type and the generated structure for the point mutant in the same way, for the same number of iterations (recommended 50). It begins by optimizing the rotamers at all residues in the protein using Rosetta's standard side-chain optimization module (the packer). It follows this initial side-chain optimization with three rounds of gradient-based minimiztion, where the repulsive component of the Lennard-Jones (van der Waals) term is downweighted in the first iteration (10% of its regular strength), weighted at an intermediate value in the second iteration (33% of its regular strength), and weighted at its standard value in the third iteration. This repacking followed by minimiztion is run several times, always starting from the same structure. Scores and optionally PDBs are written out.
+This protocol allows a small degree of backbone conformational freedom. The protocol optimizes both the initial input structure for the wild-type and the generated structure for the point mutant in the same way, for the same number of iterations (recommended 50). It begins by optimizing the rotamers at all residues in the protein using Rosetta's standard side-chain optimization module (the packer). It follows this initial side-chain optimization with three rounds of gradient-based minimization, where the repulsive component of the Lennard-Jones (van der Waals) term is downweighted in the first iteration (10% of its regular strength), weighted at an intermediate value in the second iteration (33% of its regular strength), and weighted at its standard value in the third iteration. This repacking followed by minimization is run several times, always starting from the same structure. Scores and optionally PDBs are written out.
 
 Distance Restraints: The high-resolution protocol relies on the use of Calpha-Calpha distance restraints as part of the optimization to prevent the backbone from moving too far from the starting conformation. These distance restraints may be generated externally before the protocol may be run. If not specified, constraints will be automatically generated based on the input structure, but the results obtained in the published paper utilized constraints based on the high-resolution crystal structure. The constraints used in the generation of data for row 16 in [Kellogg2011] were given as distance restraints between all Calpha pairs within 9 Angstroms of each other in the wild type structure; for each harmonic restraint, the ideal value for the restraint was taken as the distance in the original crystal structure (not the pre-minimized structure which should be given as input) and the standard-deviation on the harmonic constraint was set to 0.5 Angstroms. For example, the distance restraint between the c-alpha of residue 1 and the c-alpha of residue 2 of the PDB 1hz6 is described in the input constraint file by the line "AtomPair CA 2 CA 1 HARMONIC 3.79007 0.5".
 
@@ -57,10 +57,10 @@ this shell script simply takes the output of the minimization log (from pre-mini
 
 Preminimization of the Input Structures: The experimentally determined structure of the wildtype (only crystal structures have been used) should be preminimized to reduce collisions that otherwise introduce large amounts of noise into the relaxation process. Structures are backbone-and-sidechain minimized with the use of harmonic distance constraints on all c-alpha atoms within 9 Angstrom in the crystal structure. Usually, one generates a set of constraints based on the crystal structures, uses these constraints for the initial minimization as well as for the ddg backbone-and-sidechain minimization later on.
 
-the command to perform pre-minimization is as follows:
+the command to perform pre-minimization is as follows (add flags to modify the scorefunction as appropriate):
 
 ```
-/path/to/minimize_with_cst.linuxgccrelease -in:file:l lst  -in:file:fullatom -ignore_unrecognized_res -fa_max_dis 9.0 -database /path/to/rosetta/main/database/ -ddg::harmonic_ca_tether 0.5 -score:weights standard -ddg::constraint_weight 1.0 -ddg::out_pdb_prefix min_cst_0.5 -ddg::sc_min_only false -score:patch rosetta/main/database/scoring/weights/score12.wts_patch > mincst.log
+/path/to/minimize_with_cst.linuxgccrelease -in:file:l lst  -in:file:fullatom -ignore_unrecognized_res -fa_max_dis 9.0 -database /path/to/rosetta/main/database/ -ddg::harmonic_ca_tether 0.5 -ddg::constraint_weight 1.0 -ddg::out_pdb_prefix min_cst_0.5 -ddg::sc_min_only false > mincst.log
 ```
 
 this application will only take in a list of pdb structures, designated by -in:file:l lst the resulting minimized structures will have a prefix designated by -ddg::out\_pdb\_prefix. In this case the structures will have a prefix "min\_cst\_0.5" followed by the original input pdb name.
@@ -151,7 +151,7 @@ The following flags are required / recommended to generate the proper behavior o
 -in:file:s <pdbfile of the preminimized wildtype structure> # the PDB file of the structure on which point mutations should be made
 -ddg::mut_file <mutfile> # the list of point mutations to consider in this run
 -ddg:weight_file soft_rep_design # Use soft-repulsive weights for the initial sidechain optimization stage
--ddg:minimization_scorefunction <weights file> # optional -- the weights file to use, if not given, then "score12" will be used (score12 = standard.wts + score12.wts_patch)
+-ddg:minimization_scorefunction <weights file> # optional -- the weights file to use, if not given, then the current default scorefunction will be used.
 -ddg::minimization_patch <weights patch file > # optional -- the weight-patch file to apply to the weight file; does not have to be given
 -database /path/to/rosetta/main/database #the full oath to the database is required
 -fa_max_dis 9.0 # optional -- if not given, the default value of 9.0 Angstroms is used.

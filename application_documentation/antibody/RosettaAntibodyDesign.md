@@ -2,7 +2,7 @@
 
 
 
-Last Doc Update: 5/14/2020
+Last Doc Update: 6/25/2020
 
 
 
@@ -75,7 +75,7 @@ On input into the program, Rosetta assigns our CDR clusters using the same metho
 
 ### General Design
 
-**Example 1**
+**Example 1 - GraftDesign and SeqDesign**
 
 The command-line can be as simple as:
 
@@ -88,7 +88,7 @@ This makes the H3 loop the primary CDR chosen in the outer cycle, running graft-
 
 ----------------
 
-**Example 2**
+**Example 2 - Starting with Random CDRs**
 
 Here, we want to do a denovo-run, starting with random CDRs grafted in instead of whatever we have in antibody to start with (only for the CDRs that are actually undergoing graft-design).  This is useful, as we start the design with very high energy and work our way down.
 
@@ -101,7 +101,7 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 
 #### Optimizing Interface Energy (opt-dG)
 
-**Example 1**
+**Example 1 - opt-dG**
 
 Here, we want to set the protocol to optimize the interface energy during Monte Carlo instead of total energy.  The interface energy is calculated by the [[InterfaceAnalyzerMover]] through a specialized MonteCarlo called **MonteCarloInterface**.   **This is useful to improve binding energy and will result in better interface energies**.  Resulting models should still be pruned for high total energy.  This was benchmarked in the paper, and has been used for real-life designs after - so please see it for more information.
 
@@ -129,9 +129,12 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 
 ### Docked Design
 
-**Example 1**
+**Example 1 - Basic DockDesign Incorporation**
 
 In this example, we use integrated RosettaDock (with sequence design during the high-res step) to sample the antibody-antigen orientation, but we don't care where the antibody binds to the antigen.  Just that it binds. IE - No Constraints. The RAbD protocol always has at least Paratope SiteConstraints enabled to make sure any docking is contained to the paratope (like most good docking programs).
+
+By default, we have now reduced the high-res dock cycles to 2/2.  This should greatly speed up docking.
+You can change this with the `-dock_first_cycles` and `-dock_second_cycles` options.  Note that for a FULL docking protocol in Rosetta, these numbers are 4 and 45 respectively.
 
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
@@ -140,7 +143,7 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 
 ------------------------
 
-**Example 2**
+**Example 2 - SiteConstraints**
 
 Allow Dock-Design, incorporating auto-generated SiteConstraints to keep the antibody around the starting interface residues.  These residues are determined by being within 6A to the CDR residues.  
 
@@ -151,26 +154,26 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 
 ----------------
 
-**Example 3**
+**Example 3 - Optimizing Design to Specific Epitope Residues**
 
 Allow Dock-Design, as above, but specify the Epitope Residues and Paratope CDRs to guide design to have these interact.
 
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 -graft_design_cdrs H3 -seq_design_cdrs H1 H2 -light_chain lambda -do_dock -use_epitope_constraints \
--paratope_cdrs H3 -epitope 63A 63A:A 64 -nstruct 1
+-paratope H3 -epitope 63A 63A:A 64 -nstruct 1
 ```
 
 -----------------------
 
-**Example 4**
+**Example 4 - DeNovo Design**
 
 Here, we want to do a denovo-run, creating an interface at the light-chain, starting with random CDRs grafted in instead of whatever we have in the antibody to start with (for the designing CDRs).  
 
 ```
 antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs L1 L2 L3 \
 -graft_design_cdrs L1 L2 L3 -seq_design_cdrs L1 L2 L3 -light_chain lambda -do_dock \
--use_epitope_constraints -paratope_cdrs L1 L2 L3 -epitope 63A 63A:A 64 -random_start
+-use_epitope_constraints -paratope L1 L2 L3 -epitope 63A 63A:A 64 -random_start -dock_first_cycles 1 -dock_second_cycles 2
 ```
 
 ### Instruction File Customization
@@ -184,7 +187,7 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 
 ## Advanced Settings
 
-**Example 1**
+**Example 1 - Incorporating a Resfile to Limit Design**
 
 Here, we will disallow ANY sequence design into Proline residues and Cysteine residues, while giving a resfile to further LIMIT design and packing as specific positions. These can be given as 3 or 1 letter codes and mixed codes such as PRO and C are accepted. Note that the resfile does NOT turn any residues ON, it is simply used to optionally LIMIT design residue types and design and packing positions.
 
@@ -196,7 +199,7 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 
 ------------------------
 
-**Example 2**
+**Example 2 - Flexible Backbone Design (Generally Recommended)**
 
 Here, we will change the mintype to relax.  This mintype enables Flexible-Backbone design.  Our default is to use min/pack cycles, but relax typically works better.  However, it also takes considerably more time!
 
@@ -208,7 +211,7 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 
 -------------------------
 
-**Example 3**
+**Example 3 - Incorporating Framework Design**
 
 Finally, we want to allow the framework residues AROUND the CDRs we will be designing and any interacting antigen residues to design as well here.  We will disable conservative framework design as we want something funky (this is not typically recommended and is used here to indicate what you CAN do.
 
@@ -221,7 +224,7 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 
 ## Expert Settings
 
-**Example 1**
+**Example 1 - H3 Design**
 
 Now, we will spice things up even further.  We are feeling daring today.  A new Rosetta energy function with fully polarizable forcefields has just been published, we have our first quantum computer, Andrew just got done the Quantum JD through JD4, and we have LOTS of money for designs (I can dream, right! ;).  We are ready to put Rosetta to the test.
 
@@ -235,7 +238,7 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 Cool.  That should make some interesting antibodies for our experiment.  
 
 ------------------
-**Example 3**
+**Example 3 - Increasing MonteCarlo Temperature**
 
 Now, we will change around the KT to get more interesting samplings (from our 1.0 default).
 
@@ -247,7 +250,7 @@ antibody_designer.macosclangrelease -s my_ab.pdb -primary_cdrs H3 \
 
 ----------------
 
-**Example 4**
+**Example 4 - Increasing Sequence Design Variability**
 
 Finally, we want increased variability for our sequence designs.  So, we will increase number of sampling rounds for our lovely cluster profiles using the `-seq_design_profile_samples` option.  
 
@@ -508,6 +511,8 @@ Option | Description
 `-outer_cycle_rounds` | Rounds for outer loop of the protocol (not for deterministic_graft ).  Each round chooses a CDR and designs. One run of 100 cycles with relax takes about 12 hours. If you decrease this number, you will decrease your run time significantly, but your final decoys will be higher energy.  Make sure to increase the total number of output structures (nstruct) if you use lower than this number.  Typically about 500 - 1000 nstruct is more than sufficient.  Full DeNovo design will require significantly more rounds and nstruct.  If you are docking, runs take about 30 percent longer. (**Default=25**)
 `-inner_cycle_rounds` | Number of times to run the inner minimization protocol after each graft.  Higher (2-3) rounds recommended for pack/min/backrub mintypes or if including dock in the protocol. (**Default = 1**)
 `-dock_cycle_rounds` | Number of rounds for any docking.  If you are seeing badly docked structures, increase this value. (**Default=1**)
+`-dock_first_cycles` | Number of first cycles for High-Res docking step. (**Default=2**)
+`-dock_second_cycles` | Number of second cycles for High-Res docking step. (**Default=2**) 
 
 ----------------------------
 
