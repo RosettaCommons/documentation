@@ -150,6 +150,8 @@ Protocol-Specific Options
 |frags:picking:query\_pos|provide sequence position for which fragments will be picked. By default fragments are picked for the whole query sequence|21 22 23 24 25 26 27 28 29|
 |constraints:cst\_file|constraints filename(s) for centoroid. When multiple files are given a *random* one will be picked.|2gb1-noe.cst|
 |out:file:frag\_prefix|Prefix for fragment file output|aa|
+|multithreading:total\_threads|In the multi-threaded build of Rosetta (built with extras=cxx11thread), this is the total number of threads that Rosetta will launch and maintain in its thread pool.  The fragment picker may use _up to_ this number of threads.  The actual number used will be set with -frags:j | 8 |
+|frags:j | In the multi-threaded build of Rosetta, this is the number of threads that the fragment picker will request to use from the RosettaThreadManager.  The actual number that it receives will depend on the total number launched (set with -multithreading:total_threads) and the number available and not already assigned to other tasks.| 8 |
 
 The fragment picker components and concepts
 ===========================================
