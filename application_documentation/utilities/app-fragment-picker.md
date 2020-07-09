@@ -52,6 +52,15 @@ The picker provides three fragment picking protocols:
 -   **Best fragments** - selects fragments by maximizing score function; the protocol works well if available data (e.g. local backbone NOE, Chemical Shifts, restraints) are satisfactory to define the optimal solution
 -   **Keep all** - may be used to enumerate all the fragments that satisfy some criteria. In general the protocol consumes a lot of memory and should be used only for very particular applications.
 
+### Multi-threaded fragment picking
+==============================
+
+When Rosetta is compiled with multi-threading support (appending `extras=cxx11thread` to the `scons` command), the fragment picker may carry out its work in parallel, using multiple threads.  To use this feature, two flags must be set:
+* The `-multithreading:total_threads` flag sets the total number of threads that Rosetta will launch.  No Rosetta module may use more than this number of threads.  By default, this is 1.  Setting this to 0 launches one thread per CPU on the system.
+* The `-frags:j` flag sets the number of threads that the fragment picker will request.  The maximum number that it will be assigned is the maximum of the number launched and the number requested.  The default is 1.  Setting this to 0 requests all available threads.
+
+So to use 8 threads for fragment picking on a system with 8 CPU cores for example, one would compile Rosetta with the `extras=cxx11thread` option, and one would use the commandline options `-multithreading:total_threads 8 -frags:j 8`.
+
 ## User options
 ============
 
