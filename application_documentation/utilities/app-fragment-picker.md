@@ -1,13 +1,15 @@
 #Fragment picking documentation
 
-Metadata
+##Metadata
 ========
 
 Author: Dominik Gront (dgront@chem.uw.edu.pl)
 
-Last edited 4/22/11. Corresponding PI Dominik Gront (dgront@chem.uw.edu.pl).
+Last edited 9 July 2020 to add information about multi-threaded execution. Corresponding PI Dominik Gront (dgront@chem.uw.edu.pl).
 
-Code and Demo
+[[_TOC_]]
+
+##Code and Demo
 =============
 
 -   Application source code: `        rosetta/main/source/src/apps/public/fragment_picker.cc       `
@@ -23,25 +25,25 @@ To run picker, type the following in a commandline:
 [path to executable]/picker.[platform|linux/mac][compile|gcc/ixx]release –database [path to database] @options
 ```
 
-References
+##References
 ==========
 
 The algorithm and the code components have been described in:
 
 -   Gront D, Kulp DW, Vernon RM, Strauss CEM and Baker D, "Generalized fragment picking in Rosetta: design, protocols and applications", submitted to PLoS ONE
 
-Purpose
+##Purpose
 ===========================================
 
 Pick fragment sets for Rosetta protein structure modeling
 
-Algorithm
+##Algorithm
 =========
 
 | [[/images/frag_picker_overview.png]]   Figure 1: A general scheme of the fragment picking workflow | Detail of the algorithm are described in Gront D. et al paper. In brief, the program reads a database file (nicknamed *vall* ), input query sequence or sequence profile and other files and produces fragment files for modeling with Rosetta. The picking process consists of three stages: preparation (reading input files, etc), actual fragment picking when the candidates are pushed into a collector, and a selection when the final fragment set is prepared based on the collected candidates. |
 |------|-----|
 
-Modes
+###Modes
 -----
 
 The picker provides three fragment picking protocols:
@@ -50,8 +52,11 @@ The picker provides three fragment picking protocols:
 -   **Best fragments** - selects fragments by maximizing score function; the protocol works well if available data (e.g. local backbone NOE, Chemical Shifts, restraints) are satisfactory to define the optimal solution
 -   **Keep all** - may be used to enumerate all the fragments that satisfy some criteria. In general the protocol consumes a lot of memory and should be used only for very particular applications.
 
-Input Files
-===========
+## User options
+============
+
+###Input Files
+-----------
 
 There are many possible input files, depending on the picking protocol and scoring function. The most commonly used are:
 
@@ -73,7 +78,7 @@ Note, that some of these files are produced by external programs:
 |sequence profile|PsiBlast (the old version, not the C++ one!)|Raw PsiBlast checkpoint is stored in a binary format. The file is processed by make\_fragments.pl script that adds pseudocounts to empty rows in the profile and saves it in a flat text format|
 |secondary structure prediction|PsiPred, Jufo, SAM, Porter|All these programs require PsiBlast to be installed.fragment\_picker reads input secondary structure predicitons only in PsiPred's SS2 format. The ss\_pred\_converter.py script may be used to convert from other file formats|
 
-Weight file for fragment picking
+###Weight file for fragment picking
 --------------------------------
 
 A weight file has at least four columns, which provide: score name, its priority, weight and the maximum allowed value. If for a certain candidate a given score returned value higher than the maximum allowed, the fragment candidate is no longer considered and any further score won't be evaluated. The scores are evaluated according to the decreasing priority rather than the order how they are listed in a weight file. To be sure that all scores are evaluated for each fragment, put '-' (dash) character as the max\_allowed score value.
@@ -114,10 +119,10 @@ GunnCostScore 20 0.0 -
 
 Everything that starts at the fifth column goes to a score term maker as additional parameters. The most important application is to provide secondary structure prediction name for quota protocol.
 
-Options
-=======
+###Options
+-------
 
-Protocol-Specific Options
+####Protocol-Specific Options
 -------------------------
 
 |option|description|example|
@@ -153,48 +158,48 @@ Protocol-Specific Options
 |multithreading:total\_threads|In the multi-threaded build of Rosetta (built with extras=cxx11thread), this is the total number of threads that Rosetta will launch and maintain in its thread pool.  The fragment picker may use _up to_ this number of threads.  The actual number used will be set with -frags:j | 8 |
 |frags:j | In the multi-threaded build of Rosetta, this is the number of threads that the fragment picker will request to use from the RosettaThreadManager.  The actual number that it receives will depend on the total number launched (set with -multithreading:total_threads) and the number available and not already assigned to other tasks.| 8 |
 
-The fragment picker components and concepts
+##The fragment picker components and concepts
 ===========================================
 
 In brief, the picker process vall database one chunk after another. For each chunk it takes all possible fragment candidates, scores them and stores inside collectors. When all vall chunks are processed, the collectors' content is passed to a selector which selects the final fragments. These are saved into file(s). All parts of this machinery are briefly described below.
 
-Fragment candidate
+###Fragment candidate
 ------------------
 
 ... is a fragment-to-be, if it survive the collection and selection stages.
 
-Fragment collector
+###Fragment collector
 ------------------
 
 The collector collects fragments along with their scores; all the colectors are build on utility::vector1\<\>. Unfortunately there are more than 2M possible fragment candidates. To keep them all one would need about ... per each residue in a query sequence. Therefore a collector may keep only a small fraction of all candidates. BoundedColelctor keeps Ncand best candidates per each position in a query sequence, where "best" is defined by a comparator object that is used to sort the container.
 
-Fragment selector
+###Fragment selector
 -----------------
 
 Fragment selection rule takes all fragment candidates and selects the final Nfrags fragments.
 
-Cacheable fragment score
+###Cacheable fragment score
 ------------------------
 
 Caching is a way to speed up fragment scoring by recycling per-residue score values. Caching score function must implemant do\_caching() method which evaluates a full matrix of pairwise residue-vs-residue scores. For instance ProfileL1Score compares any column from query profile with any profile column from a chunk. When it comes to compute a score of a fragment of length nf that start at qi in query and at ci in chunk, a simple sum over a stripe qi-\>qi+nf; ni -\> ni+nf is computed. Moreover, to evaluate a score for the very next fragment (i.e. the one staring at (qi+1,ni+1)), one can just has to subtract one and add one per-residue score.
 
 Obviously caching doesn't work when a score cannot be decomposed into per-residue components, e.g. FragmentCrmsd or RDCScore. In some cases caching is actually slower than just computing the score without caching, e.g. SequenceIdentity
 
-Quota system
+###Quota system
 ------------
 
 In general the purpose for quota is to keep the diversity within fragments. If for example a given position in a query sequence has been predicted to be helical with 70% chance and loop with 30%, "select best" protocol will pick only helical fragments for this position, because they will be favored by the `       SecondarySimilarity      ` scoring term. To the contrary, quota protocol will pick 30% (best scoring) loop fragments and 70% best scoring helices. The situation is more complicated by the fact that 3 secondary structure predictors are used. This makes in total 9 different categories of fragments (referred further as quota pools) collected and scored separately. Once final fragments are selected (separately for each quota pool), they are merged into a single set.
 
 Quota protocol uses quota specific collectors and selectors. Scoring scheme is also altered.
 
-Quota pools
+####Quota pools
 -----------
 
 In quota protocol there are several fragment categories (pools), that are kept separated from each other. They are collected, scored and selected separately. By default there are 3 secondary structure predictions used for fragment picking: PsiPred, SAM and Porter. The fragment candidates are also split by the secondary structure class (H, E or L) which makes 9 quota pools in total. The size of each pool is controlled by quota allowance and secondary structure probability.
 
 From the implementation's point of view, a quota pool is a BoundedCollector whose size is based on quota allowance, sorted by slightly modified quota score. Note, that quota pools, similarly to fragment collectors, are position specific, so for a 100aa query sequence there are about 900 quota pools.
 
-Quota.def file
+####Quota.def file
 --------------
 
 ```
@@ -204,12 +209,12 @@ Quota.def file
 3 sam 0.2
 ```
 
-Quota allowance
+####Quota allowance
 ---------------
 
 is defined for each predictor by a Quota.def file. Default allocations are: PsiPred - 0.6 SAM - 0.2 Porter - 0.2 Final allowance for a quota pool is a product of predictor share and secondary structure probability. For example, if PsiPred predicted that a certain position is helical
 
-Quota score - pool identification
+####Quota score - pool identification
 ---------------------------------
 
 As it has been mentioned in [Quota score](#Quota-score) section, some scores are switched on and off for different pools. To have it working properly, the two config files: [Weight file for fragment picking](#Weight-file-for-fragment-picking) and [Quota.def file](#Quota.def-file) must contain matching string identifiers. Although the above examples use the predictors' names (psipred, porter and sam) for this purpose, one can use any arbitrary strings. The only limitation is that the three :
@@ -218,12 +223,12 @@ As it has been mentioned in [Quota score](#Quota-score) section, some scores are
 -   quota pool name, given in Quota.def file
 -   econdary prediction name assigned to a RamaScore or SecondarySimilarity score must match.
 
-Quota score
+####Quota score
 -----------
 
 The only difference between the fragment total score and fragment quota score is in the use of proper secondary-structure variant of some scores. Currently this only implies to RamaScore and SecondarySimilarity score. So for example, a quota pools created from a prediction named "psipred" use **only** SecondarySimilarity score named "psipred".
 
-Tips
+##Tips
 ====
 
 -   multiple fragment sizes:
@@ -238,17 +243,17 @@ Tips
     ```
     Homologues structures introduces significantly more fragments than unrelated proteins. One should manually examine the most popular hits, possibly add them to the list of denied PDB ids and run the fragment picker once again.
 
-Expected Outputs
+##Expected Outputs
 ================
 
 There are two kinds of output files:
 
-fragment file
+###fragment file
 -------------
 
 Output fragments are written in Rosetta++ format.
 
-fragment score file
+###fragment score file
 -------------------
 
 Fragment scores are stored in a flat tabulated format, one score file for each fragment size. All columns from a single line describe a single fragment and provide:
@@ -264,17 +269,18 @@ Fragment scores are stored in a flat tabulated format, one score file for each f
 -   name of the quota pool who contributed this frgament (only in the case of quota protocol)
 -   unique integer ID of this fragment; this is defined as a line number from the vall file where the data for the first residue for this fragment is stored. If user provided more than one vall file, continuous numbering is used.
 
-Post Processing
+##Post Processing
 ===============
 
 Fragment may be directly used by Rosetta 2.x and 3.x. Fragment score file may be useful for debuging, check for quota levels, fragment quality assessment, etc.
 
-New things since last release
+##New things since last release
 =============================
 
 This is the first public release
 
 ## See Also
+========
 
 * [[Utility applications | utilities-applications]]: other utility applications
 * [[fragment-file]]: fragment files
