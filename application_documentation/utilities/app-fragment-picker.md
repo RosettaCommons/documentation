@@ -55,7 +55,7 @@ The picker provides three fragment picking protocols:
 ### Multi-threaded fragment picking
 ==============================
 
-When Rosetta is compiled with multi-threading support (appending `extras=cxx11thread` to the `scons` command), the fragment picker may carry out its work in parallel, using multiple threads.  To use this feature, two flags must be set:
+When Rosetta is compiled with multi-threading support (appending `extras=cxx11thread` to the `scons` command), the fragment picker may carry out its work in parallel, using multiple threads.  This results in a speedup: to a good approximation, fragment picking carried out in two threads will complete twice as fast as fragment picking carried out in one.  (Note that this may not remain linear for very large thread counts; nor is there an advantage to launching more threads than one has CPU cores).  To use this feature, two flags must be set:
 * The `-multithreading:total_threads` flag sets the total number of threads that Rosetta will launch.  No Rosetta module may use more than this number of threads.  By default, this is 1.  Setting this to 0 launches one thread per CPU on the system.
 * The `-frags:j` flag sets the number of threads that the fragment picker will request.  The maximum number that it will be assigned is the maximum of the number launched and the number requested.  The default is 1.  Setting this to 0 requests all available threads.
 
