@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-06-30
+Generated: 2020-07-10
 
 _Note that some application specific options may not be present in this list._
 
@@ -4461,11 +4461,11 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-require_symmetry_perturbation</b> \<Real\></dt>
 <dd>If provided, this is the magnitude of the perturbation to apply when copying mainchain dihedrals for symmetric sampling.  Allows slightly asymmetric conformations to be sampled.  Default is 0.0 (no perturbation).<br/>Default: 0.0<br/></dd>
 <dt><b>-MPI_auto_2level_distribution</b> \<Boolean\></dt>
-<dd>If true, will automatically set up job distribution with one emperor talking to N-1 slaves, where N is the total number of processes.  Cannot be used with -MPI_processes_by_level.  Default false.<br/>Default: false<br/></dd>
+<dd>If true, will automatically set up job distribution with one director talking to N-1 workers, where N is the total number of processes.  Cannot be used with -MPI_processes_by_level.  Default false.<br/>Default: false<br/></dd>
 <dt><b>-MPI_processes_by_level</b> \<IntegerVector\></dt>
-<dd>The number of processes at each level of the parallel communications hierarchy, used only by the MPI version.  For example, '1 10 100' would mean that one emperor would talk to 10 masters, which would talk to 100 slaves (implying that each master is assigned 10 slaves).  Similarly, '1 100' would mean that one master would talk directly to 100 slaves.  Required for the MPI version.<br/></dd>
+<dd>The number of processes at each level of the parallel communications hierarchy, used only by the MPI version.  For example, '1 10 100' would mean that one director would talk to 10 managers, which would talk to 100 workers (implying that each manager is assigned 10 workers).  Similarly, '1 100' would mean that one manager would talk directly to 100 workers.  Required for the MPI version.<br/></dd>
 <dt><b>-MPI_batchsize_by_level</b> \<IntegerVector\></dt>
-<dd>The number of jobs sent at a time by each communication level to its children.  Given N levels, N-1 values must be specified.  For example, given 3 communications levels, '100 10' would mean that the emperor sends 100 jobs at a time to each master, which sends 10 jobs at a time to each slave.  Must be specified for the helical_bundle_predict and simple_cycpep_predict applications in MPI mode.<br/></dd>
+<dd>The number of jobs sent at a time by each communication level to its children.  Given N levels, N-1 values must be specified.  For example, given 3 communications levels, '100 10' would mean that the director sends 100 jobs at a time to each manager, which sends 10 jobs at a time to each worker.  Must be specified for the helical_bundle_predict and simple_cycpep_predict applications in MPI mode.<br/></dd>
 <dt><b>-MPI_sort_by</b> \<String\></dt>
 <dd>The MPI versions of the helical_bundle_predict and simple_cycpep_predict applictions have the option of writing out the top N% of solutions.  This determines the sort metric.<br/>Default: "energy"<br/></dd>
 <dt><b>-MPI_choose_highest</b> \<Boolean\></dt>
@@ -4473,13 +4473,13 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-MPI_output_fraction</b> \<Real\></dt>
 <dd>The fraction of total structures that will be written out.  This is used in conjunction with 'MPI_sort_by' to output the top N% of job outputs.  For example, '-MPI_output_fraction 0.05 -MPI_sort_by rmsd' means that the 5% of structures with the lowest RMSD values will be written out.<br/>Default: 1.0<br/></dd>
 <dt><b>-MPI_stop_after_time</b> \<Integer\></dt>
-<dd>If this option is used, the emperor node will send a stop signal after an elapsed period of time, given in seconds.  Slave jobs currently running will continue, but intermediate masters will not assign any more work.  Useful on HPC clusters with time limits, to ensure that jobs completed are collected at the end.  Unused if not specified.<br/></dd>
+<dd>If this option is used, the director node will send a stop signal after an elapsed period of time, given in seconds.  Worker jobs currently running will continue, but intermediate managers will not assign any more work.  Useful on HPC clusters with time limits, to ensure that jobs completed are collected at the end.  Unused if not specified.<br/></dd>
 <dt><b>-MPI_pnear_lambda</b> \<Real\></dt>
 <dd>In MPI mode a goodness-of-funnel metric is automatically calculated at the end (PNear).  This value may be thought of as the probability, from 0 to 1, of the peptide being in the native conformation at any given time.  The parameter lambda controls the breadth of the Gaussian (in RMSD units -- Angstroms) that is used to determine the extent to which a state is native-like.  Default 0.5 A.<br/>Default: 0.5<br/></dd>
 <dt><b>-MPI_pnear_kbt</b> \<Real\></dt>
 <dd>In MPI mode a goodness-of-funnel metric is automatically calculated at the end (PNear).  This value may be thought of as the probability, from 0 to 1, of the peptide being in the native conformation at any given time.  The parameter kbt is the Boltzmann temperature that determines the extent to which higher energy states are likely to be sampled.  Default 1.0 kcal/mol.<br/>Default: 1.0<br/></dd>
-<dt><b>-threads_per_slave</b> \<Integer\></dt>
-<dd>In the multi-threaded MPI compilation, this is the number of threads to launch per slave process.  Note that emperor and master-layer processes do not launch threads.  A value of 1 (the default) means that only standard hierarchical process-based parallelism will be used.  In non-MPI or non-threaded compilations, this option is unused.<br/>Default: 1<br/></dd>
+<dt><b>-threads_per_worker</b> \<Integer\></dt>
+<dd>In the multi-threaded MPI compilation, this is the number of threads to launch per worker process.  (This was formerly called threads_per_slave.)  Note that director and manager-layer processes do not launch threads.  A value of 1 (the default) means that only standard hierarchical process-based parallelism will be used.  In non-MPI or non-threaded compilations, this option is unused.<br/>Default: 1<br/></dd>
 <dt><b>-compute_rmsd_to_lowest</b> \<Boolean\></dt>
 <dd>If true the RMSD to the top structure (by whatever ranking) is computed in addition to the RMSD to a user-supplied native (if a native structure is provided).  False by default.  Only used in MPI version of Rosetta.<br/>Default: false<br/></dd>
 <dt><b>-compute_pnear_to_this_fract</b> \<Real\></dt>
@@ -5566,7 +5566,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-frags</b> \<Boolean\></dt>
 <dd>frags option group<br/></dd>
 <dt><b>-j</b> \<Integer\></dt>
-<dd>Number of threads to use<br/></dd>
+<dd>Number of threads to use.  The default, 0, means use all available threads.  Note that total threads must be set with -multithreading:total_threads.  (The fragment picker cannot use more threads than have been launched).<br/>Default: 0<br/></dd>
 <dt><b>-filter_JC</b> \<Boolean\></dt>
 <dd>Filter J-coupling values in the dynamic range <br/>Default: false<br/></dd>
 <dt><b>-bounded_protocol</b> \<Boolean\></dt>
