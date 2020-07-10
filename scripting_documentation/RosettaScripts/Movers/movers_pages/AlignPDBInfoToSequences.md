@@ -83,7 +83,9 @@ segmentIDs:
 ["SEQ", "SEQ", "SEQ", "HERE", "HERE", "HERE", "HERE"]
 ```
 
-This is useful, but normally you have 20+ chains and their order isn't consistent between experiments so instead using the 'multiple' mode
+This is useful, but normally you have 20+ chains and their order isn't consistent between experiments so instead I would suggest using the 'multiple' mode
+
+multiple mode:
 
 given a pose with sequences ["SEQ", "HERE", "SEQ"]
 you could align this with the json (or equivalent `Target` block):
@@ -119,6 +121,25 @@ segmentIDs:
 
 so using 'single' mode you have more per 'residue' control but less flexibility on the pose ordering, whereas in 'multiple' mode you have less per 'residue' control but lots of flexibility on the pose ordering.
 
+I find myself using the "multiple" format significantly more often.
+
+### Residue numbering
+```
+   {
+       "sequence": "HERE",
+       "chains": ["D"],
+       "segmentIDs": ["HERE"],
+       "residue_numbering": [22]
+   },
+```
+Given the above configuration the resulting pdb numbering would be: `22, 23, 24, 25`
+so by having residue_numbering set with 1 number you can set the starting number of the chain.
+Another thing you can do is specifically set the residue numbering of every residue via a
+list that is the size of `sequence`. ie:
+```
+       "residue_numbering": [20, 50, 51, 99]
+```
+would yield pdb numbering with `20, 50, 51, 99`
 
 ## Caveats--common errors, when not to use this mover
 
