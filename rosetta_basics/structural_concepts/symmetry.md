@@ -188,7 +188,7 @@ The subunit jump is anchored at residue 29.
  virtual_coordinates_stop
 ```
 
-Define the coordinates of the virtual residues. There are three triples ( X, Y and ORIGIN ) that each have three coordinates describing units vectors( for X and Y ) and a center ( ORIGIN ). You can use ane unique name for theses virtuals.
+Define the coordinates of the virtual residues. There are three triples ( X, Y and ORIGIN ) that each have three coordinates describing units vectors( for X and Y ) and a center ( ORIGIN ). You can use a unique name for theses virtuals.
 
 ```
  connect_virtual JUMP_0_0_0_0_to_subunit VRT_0_0_0_0_base SUBUNIT
