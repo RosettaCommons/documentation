@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-07-10
+Generated: 2020-07-16
 
 _Note that some application specific options may not be present in this list._
 
@@ -1828,6 +1828,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Names of the residue-type-set patches which should be applied even if excluded/commented out in patches.txt; useful for testing non-default patches<br/></dd>
 <dt><b>-add_atom_type_set_parameters</b> \<StringVector\></dt>
 <dd>Additional AtomTypeSet extra-parameter files that should be read; format is a sequence of paired strings: <atom-type-set-tag1> <filename1> <atom-type-set-tag2> <filename2> ...<br/></dd>
+<dt><b>-add_atom_types</b> \<StringVector\></dt>
+<dd>Add additional atom types to an AtomTypeSet using atom_properties.txt formatted files; input format is a sequence of paired strings: <atom-type-set-tag1> <filename1> <atom-type-set-tag2> <filename2> ...<br/></dd>
 <dt><b>-add_mm_atom_type_set_parameters</b> \<StringVector\></dt>
 <dd>Additional MMAtomTypeSet extra-parameter files that should be read; format is a sequence of paired string: <mm-atom-type-set-tag1> <filename1> <mm-atom-type-set-tag2> <filename2> ...<br/></dd>
 <dt><b>-set_atom_properties</b> \<StringVector\></dt>
