@@ -345,7 +345,7 @@ Options:
 
 SASA-specific options:
 - ball_radius=(2.0 &Real): The radius for the rolling ball algorithm used to pick residues by SASA.
-- core_cutoff=(20.0 &Real), surface_cutoff=(40.0 &Real):  The SASA values (as a percentage of total surface area) below which a residue is sorted into the core group, or above which a residue is sorted into the surface group.  Note that setting use_sidechain_neighbors=false alters the default values of core_cutoff and surface_cutoff.
+- core_cutoff=(20.0 &Real), surface_cutoff=(40.0 &Real):  The SASA values (in units of A^2) below which a residue is sorted into the core group, or above which a residue is sorted into the surface group.  Note that setting use_sidechain_neighbors=false alters the default values of core_cutoff and surface_cutoff.
 
 Sidechain neighbor-specific options:
 - core_cutoff=(5.2 &Real), surface_cutoff=(2.0 &Real):  The number of sidechain neighbors (weighted counts -- see below) above which a residue is sorted into the core group, or below which a residue is sorted into the surface group.
