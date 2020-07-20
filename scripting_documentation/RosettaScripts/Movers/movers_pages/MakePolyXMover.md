@@ -9,7 +9,7 @@
 
 * [[BuildAlaPoseMover]]
 * [[SaveAndRetrieveSidechainsMover]]
-* [[SavePose]]
+* [[SavePoseMover]]
 * [[PackRotamersMoverPartGreedyMover]]
 * [[PredesignPerturbMover]]
 * [[EnzRepackMinimizeMover]]
