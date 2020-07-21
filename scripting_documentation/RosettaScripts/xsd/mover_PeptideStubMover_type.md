@@ -7,24 +7,29 @@ Used to append/insert/prepend residues to a pose
 
 ```xml
 <PeptideStubMover name="(&string;)" reset="(&bool;)"
-        update_pdb_numbering="(&bool;)" >
+        update_pdb_numbering="(&bool;)"
+        label="(PEPTIDE_STUB_EXTENSION &string;)" >
     <Append resname="(&string;)" position="(&non_negative_integer;)"
             jump="(false &bool;)" connecting_atom="(&string;)"
             repeat="(1 &non_negative_integer;)"
-            anchor_rsd="(&non_negative_integer;)" anchor_atom="(&string;)" />
+            anchor_rsd="(&non_negative_integer;)" anchor_rsd_selector="(&string;)"
+            anchor_atom="(&string;)" />
     <Prepend resname="(&string;)" position="(&non_negative_integer;)"
             jump="(false &bool;)" connecting_atom="(&string;)"
             repeat="(1 &non_negative_integer;)"
-            anchor_rsd="(&non_negative_integer;)" anchor_atom="(&string;)" />
+            anchor_rsd="(&non_negative_integer;)" anchor_rsd_selector="(&string;)"
+            anchor_atom="(&string;)" />
     <Insert resname="(&string;)" position="(&non_negative_integer;)"
             jump="(false &bool;)" connecting_atom="(&string;)"
             repeat="(1 &non_negative_integer;)"
-            anchor_rsd="(&non_negative_integer;)" anchor_atom="(&string;)" />
+            anchor_rsd="(&non_negative_integer;)" anchor_rsd_selector="(&string;)"
+            anchor_atom="(&string;)" />
 </PeptideStubMover>
 ```
 
 -   **reset**: Delete the input pose
 -   **update_pdb_numbering**: Update the PDB chain IDs and numbers for this pose
+-   **label**: Residue label for residues added by this mover. This requires update_pdb_numbering="true"
 
 
 Subtag **Append**:   
@@ -35,6 +40,7 @@ Subtag **Append**:
 -   **connecting_atom**: Name of atom where residues should be connected
 -   **repeat**: Number of times to add this residue
 -   **anchor_rsd**: Residue to which the stub residue should bond
+-   **anchor_rsd_selector**: Selector alternative to "anchor_rsd"
 -   **anchor_atom**: Atom to which the stub residue should bond
 
 Subtag **Prepend**:   
@@ -45,6 +51,7 @@ Subtag **Prepend**:
 -   **connecting_atom**: Name of atom where residues should be connected
 -   **repeat**: Number of times to add this residue
 -   **anchor_rsd**: Residue to which the stub residue should bond
+-   **anchor_rsd_selector**: Selector alternative to "anchor_rsd"
 -   **anchor_atom**: Atom to which the stub residue should bond
 
 Subtag **Insert**:   
@@ -55,6 +62,7 @@ Subtag **Insert**:
 -   **connecting_atom**: Name of atom where residues should be connected
 -   **repeat**: Number of times to add this residue
 -   **anchor_rsd**: Residue to which the stub residue should bond
+-   **anchor_rsd_selector**: Selector alternative to "anchor_rsd"
 -   **anchor_atom**: Atom to which the stub residue should bond
 
 ---
