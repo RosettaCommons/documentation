@@ -20,7 +20,7 @@ Example:
           <Var name="E1" metric="bound" />
           <Var name="E2" metric="altbind" />
           <Value name="kT" value="0.6" />
-    </CalculatorFilter>
+    </CalculatorMetric>
 
 CAVEAT: The parsing of the equation is a little touchy and black-box at the moment. Diagnostic error messages are poor at best. I'd recommend starting with a simple equation and working your way up (bad equations should be detected at parse-time.)
 
