@@ -2,6 +2,8 @@
 *Back to [[Filters|Filters-RosettaScripts]] page.*
 ## CalculatorFilter
 
+DEPRECATED - see [[CalculatorMetric]] for the replacement.
+
     <CalculatorFilter name="(&string)" equation="(&string)" threshold="(&real 0)" >
           <Var name="(&string)" filter="(&string)" value="(&Real)"/>
         ... 
@@ -31,6 +33,7 @@ CAVEAT: The parsing of the equation is a little touchy and black-box at the mome
 
 ## See also
 
+* [[CalculatorMetric]]
 * [[BoltzmannFilter]]
 * [[CompoundStatementFilter]]
 * [[CombinedValueFilter]]
