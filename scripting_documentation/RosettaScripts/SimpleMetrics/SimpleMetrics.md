@@ -53,9 +53,9 @@ Framework Author:
 
 ### Summarizing/Calculating metrics
 
-#### ResidueSummaryMetric
-
 The [[ResidueSummaryMetric]] takes a [[PerResidueRealMetric | SimpleMetrics#PerResidueRealMetric]] and summarizes the data in various ways, such as the mean, sum, or the number of residues above, below, or equal to a certain value. This Metric is itself a [[RealMetric | SimpleMetrics#RealMetric]] and can be used as such in filters, features reporters, etc.
+
+The [[CalculatorMetric]] is a RealMetric which can combine other RealMetrics with an arbitrary mathematical formula.
 
 ### Custom Types
 
