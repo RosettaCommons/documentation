@@ -119,6 +119,7 @@ These metrics calculate a single real number (or integer).
 
 SimpleMetric  | Description | ResidueSelector Compatability?
 ------------ | ------------- | -------------
+**[[CalculatorMetric]]** | Combine multiple RealMetrics with a mathematical expression. | No
 **[[DihedralDistanceMetric]]** | Calculates the normalized dihedral angle distance in degrees from directional statistics on a set of dihedrals/residues of two poses or two regions of a pose.  | Yes
 **[[InteractionEnergyMetric]]** | Calculates the (long range and short range) interaction energy between a selection and all other residues or another selection. Can be set to only calculate short or long or only use certain score terms such as fa_rep. | Yes
 **[[MouseTotalEnergy]]** | Evaluate your interface using Mouse. | Yes
