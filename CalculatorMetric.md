@@ -1,5 +1,5 @@
 # CalculatorMetric
-*Back to [[Filters|Filters-RosettaScripts]] page.*
+*Back to [[SimpleMetrics]] page.*
 ## CalculatorMetric
 
 [[include:simple_metric_CalculatorMetric_type]]
