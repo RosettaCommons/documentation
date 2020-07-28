@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-07-16
+Generated: 2020-07-28
 
 _Note that some application specific options may not be present in this list._
 
@@ -1130,6 +1130,8 @@ _Note that some application specific options may not be present in this list._
 <dd>The energy threshold above which a hydrogen bond is not counted, used by the BuriedUnsatPenalty energy.<br/>Default: -0.25<br/></dd>
 <dt><b>-covalent_labeling_input</b> \<File\></dt>
 <dd>Input covalent labeling data in the form of neighbor counts<br/></dd>
+<dt><b>-hrf_dynamics_input</b> \<File\></dt>
+<dd>Input covalent labeling data in the form of protection factors for FA<br/></dd>
 <dt><b>-covalent_labeling_fa_input</b> \<File\></dt>
 <dd>Input covalent labeling data in the form of neighbor counts for FA<br/></dd>
 <dt><b>-elec_min_dis</b> \<Real\></dt>
