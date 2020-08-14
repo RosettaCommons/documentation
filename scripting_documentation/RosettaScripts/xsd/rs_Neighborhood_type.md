@@ -14,7 +14,7 @@ A Residue Selector that selects neighboring residues to a set of residues (focus
 </Neighborhood>
 ```
 
--   **selector**: Focus to select around.
+-   **selector**: Focus to select around. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **resnums**: Focus to select around.
 -   **distance**: Distance to measure neighbors. Default is 10A.
 -   **atom_names_for_distance_measure**: A list of comma separated atom names, for each focus residue, the positions of which will be used for measuring distance to find neighbors.

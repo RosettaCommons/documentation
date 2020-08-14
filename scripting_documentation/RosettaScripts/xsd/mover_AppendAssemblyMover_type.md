@@ -116,7 +116,7 @@ Builds an assembly around the segment provided in the input PDB file
 -   **output_partner**: Should the output pdb contain the partner?
 -   **extend_mode**: Should SEWING append only a single helix?
 -   **start_node_vital_segments**: Which segments from starting node are vital? (terminal or all)
--   **required_selector**: Residue selector specifying residues in the input structure that must be preserved
+-   **required_selector**: Residue selector specifying residues in the input structure that must be preserved. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 
 
 Subtag **AssemblyScorers**:   The subtags of this tag define the AssemblyScoreFunction that will be used to evaluate assemblies
@@ -218,7 +218,7 @@ Subtag **Ligand**:   Specifies the position of a ligand and the contacts that it
 -   **alignment_atoms**: Comma-separated list of atom names to use when aligning ligand conformers to one another
 -   **auto_detect_contacts**: Should we automatically detect contacts that are joined to the ligand by inter-residue chemical bonds?
 -   **ligand_resnum**: Residue number of ligand in either PDB or Rosetta numbering
--   **ligand_selector**: Residue selector indicating ligand(s) covered in this tag
+-   **ligand_selector**: Residue selector indicating ligand(s) covered in this tag. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 
 
 Subtag **Contact**:   

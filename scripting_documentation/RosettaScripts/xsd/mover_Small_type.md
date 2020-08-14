@@ -26,7 +26,7 @@ Small-move style backbone-torsion moves that, unlike shear, do not minimize down
 -   **angle_max**: By how much to perturb the backbone
 -   **preserve_detailed_balance**: If set to true, does not test the MC acceptance criterion, and instead always accepts
 -   **scorefxn**: Name of score function to use
--   **residue_selector**: An optional, previously-defined ResidueSelector, specifying the subset of residues to which the mover will be applied. If not provided, the mover is applied to the whole pose. (Alternatively, a MoveMap may be used -- see below)
+-   **residue_selector**: An optional, previously-defined ResidueSelector, specifying the subset of residues to which the mover will be applied. If not provided, the mover is applied to the whole pose. (Alternatively, a MoveMap may be used -- see below). The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 
 
 Subtag **MoveMap**:   MoveMap specification

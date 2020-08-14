@@ -21,7 +21,7 @@ This filter counts the number of residues that form sufficiently energetically f
 -   **sidechain**: Count sidechain H-bonds
 -   **residue**: Particular residue of interest
 -   **scorefxn**: Name of score function to use
--   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
+-   **residue_selector**: . The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **from_same_chain**: Count residues from the same chain in H-bonds
 -   **from_other_chains**: Count residues from the other chains in H-bonds
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter

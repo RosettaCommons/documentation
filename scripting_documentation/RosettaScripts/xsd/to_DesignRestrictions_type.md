@@ -16,7 +16,7 @@ Concise way to combine residue selectors and residue-level task operations. The 
 
 Subtag **Action**:   
 
--   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
+-   **residue_selector**: . The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **selector_logic**: Logically combine already-delcared ResidueSelectors using boolean AND, OR, and ! (not) operators. As convnetional, ! (not) has the highest precedence, then AND, then OR. Parentheses may be used to group operations together.
 -   **aas**: A list of the canonical L amino acids that are to be allowed for the selected residues. Either upper or lower case letters are accepted. Note that if an amino acid is allowed for a residue that is selected by one action, but disallowed for that residue selected by a second action, the amino acid will not be allowed.
 -   **residue_level_operations**: A comma-separated list of residue-level-task operations that will be retrieved from the DataMap.

@@ -13,7 +13,7 @@ A metric for measuring SASA and adding it to the resulting score file. Virtual a
 
 -   **custom_type**: Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
  The custom_type name will be added to the data tag in the scorefile or features database.
--   **residue_selector**: If a residue selector is present, we calculate the total sasa of these residues.
+-   **residue_selector**: If a residue selector is present, we calculate the total sasa of these residues. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **sasa_metric_mode**: Sets the behaviour of the calculator (the subset of the SASA that is counted).  Options include: all_sasa, polar_sasa, hydrophobic_sasa.
 
 ---

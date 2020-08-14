@@ -16,15 +16,14 @@ XSD_XRW: TO DO
             initialization_strength="(DOES_NOT_CONTROL &envclaim_ctrl_str;)"
             cut="(&string;)" atom1="(&string;)" atom2="(&string;)"
             physical_cut="(&bool;)" />
-    <TorsionClaim control_strength="(&envclaim_ctrl_str;)"
+    <TorsionClaim selector="(&string;)" control_strength="(&envclaim_ctrl_str;)"
             initialization_strength="(DOES_NOT_CONTROL &envclaim_ctrl_str;)"
-            backbone="(false &bool;)" sidechain="(false &bool;)"
-            selector="(&string;)" />
+            backbone="(false &bool;)" sidechain="(false &bool;)" />
     <VirtResClaim vrt_name="(&string;)" jump_label="(&string;)" parent="(&string;)"
             jump_control_strength="(DOES_NOT_CONTROL &envclaim_ctrl_str;)" />
-    <XYZClaim control_strength="(&envclaim_ctrl_str;)"
+    <XYZClaim selection="(&string;)" control_strength="(&envclaim_ctrl_str;)"
             initialization_strength="(DOES_NOT_CONTROL &envclaim_ctrl_str;)"
-            relative_only="(false &bool;)" selection="(&string;)" />
+            relative_only="(false &bool;)" />
 </ScriptCM>
 ```
 
@@ -53,11 +52,11 @@ Subtag **JumpClaim**:   XRW TO DO
 
 Subtag **TorsionClaim**:   XRW TO DO
 
+-   **selector**: Name of previously defined residue selector that defines where to apply this claim. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **control_strength**: (REQUIRED) XRW TO DO
 -   **initialization_strength**: XRW TO DO
 -   **backbone**: XRW TO DO
 -   **sidechain**: XRW TO DO
--   **selector**: (REQUIRED) Name of previously defined residue selector that defines where to apply this claim
 
 Subtag **VirtResClaim**:   XRW TO DO
 
@@ -68,9 +67,9 @@ Subtag **VirtResClaim**:   XRW TO DO
 
 Subtag **XYZClaim**:   XRW TO DO
 
+-   **selection**: . The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **control_strength**: (REQUIRED) XRW TO DO
 -   **initialization_strength**: XRW TO DO
 -   **relative_only**: XRW TO DO
--   **selection**: (REQUIRED) XRW TO DO
 
 ---

@@ -20,7 +20,7 @@ This filter filters based on a user-specified minimum number of internal backbon
 -   **exclusion_distance**: Hydrogen bonds between residues that are N positions apart in terms of covalent connectivity will not be counted if this is set higher than 0.  Set to 1 by default to exclude hydrogen bonds between neighbouring residues.
 -   **hbond_energy_cutoff**: The maximum energy of a hydrogen bond, if that hydrogen bond is to be counted.  Defaults to -0.25
 -   **scorefxn**: The scorefunction to use for computing hydrogen bonds.  If not provided, the default scoring function is used.
--   **residue_selector**: An optional residue selector that selects the peptide.  If provided, hydrogen bonds within this selection will be counted.  If not, the entire pose will be considered.
+-   **residue_selector**: An optional residue selector that selects the peptide.  If provided, hydrogen bonds within this selection will be counted.  If not, the entire pose will be considered. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **hbond_cutoff**: The threshold number of internal hydrogen bonds, below which the filter fails.  Defaults to 1.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 

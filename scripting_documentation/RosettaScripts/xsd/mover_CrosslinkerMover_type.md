@@ -35,7 +35,7 @@ Adds a crosslinker linking two or more user-specified side-chains.
 -   **constraints_energy_filter_multiplier**: This is a multiplier for the constraints energy cutoff filter.  Higher values make the filter less stringent.  Default 1.0.
 -   **filter_by_final_energy**: At the end of this protocol, should this mover exit with error status if the final energy is above a user-defined cutoff?  Default false.
 -   **final_energy_cutoff**: If we are exiting with error status if the final energy is too high, this is the energy cutoff.  Default 0.0.
--   **residue_selector**: (REQUIRED) A previously-defined residue selector that has been set up to select the residues that will be cross-linked.
+-   **residue_selector**: (REQUIRED) A previously-defined residue selector that has been set up to select the residues that will be cross-linked. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **scorefxn**: (REQUIRED) A scorefunction to use for packing, energy-minimization, and filtering.  If constraints are turned off in this score function, they will be turned on automatically at apply time.
 
 ---

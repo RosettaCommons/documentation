@@ -18,7 +18,7 @@ A metric to report the total energy of the system or the delta total energy betw
 -   **reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
 -   **use_native**: Use the native as reference for DELTA score if present on the cmd-line.
 -   **scoretype**: ScoreType to calculate.
--   **residue_selector**: If a residue selector is present, we calculate the total energy of only these residues.
+-   **residue_selector**: If a residue selector is present, we calculate the total energy of only these residues. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **scorefxn**: Name of score function to use
 
 ---

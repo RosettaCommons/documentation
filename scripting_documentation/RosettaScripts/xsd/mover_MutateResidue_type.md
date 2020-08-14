@@ -18,6 +18,6 @@ Change a single residue or a given subset of residues to a different type. For i
 -   **perserve_atom_coords**: If true, then atoms in the new residue that have names matching atoms in the old residue will be placed at the coordinates of the atoms in the old residue, with other atoms rebuilt based on ideal coordinates. If false, then only the mainchain heavyatoms are placed based on the old atom's mainchain heavyatoms; the sidechain is built from ideal coordinates, and sidechain torsion values are then set to the sidechain torsion values from the old residue. False if unspecified.
 -   **update_polymer_bond_dependent**: Update the coordinates of atoms that depend on polymer bonds
 -   **preserve_atom_coords**: Preserve atomic coords as much as possible
--   **residue_selector**: name of a residue selector that specifies the subset to be mutated
+-   **residue_selector**: name of a residue selector that specifies the subset to be mutated. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 
 ---

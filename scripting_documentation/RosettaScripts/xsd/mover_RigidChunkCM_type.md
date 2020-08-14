@@ -7,16 +7,15 @@ Holds a specified region of the pose constant, fixed to the coordinates in the t
 
 ```xml
 <RigidChunkCM name="(&string;)" selector="(&string;)"
-        apply_to_template="(&string;)" template="(&string;)"
-        region_file="(&string;)" region_selector="(&string;)"
-        region="(&string;)" />
+        region_selector="(&string;)" apply_to_template="(&string;)"
+        template="(&string;)" region_file="(&string;)" region="(&string;)" />
 ```
 
--   **selector**: Residue selector specifying the region over which this client mover will be applied
+-   **selector**: Residue selector specifying the region over which this client mover will be applied. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
+-   **region_selector**: Residue selector specifying the region of the template pdb to use as a template for the pose. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **apply_to_template**: Comma-separated list of movers to apply to the template region
 -   **template**: PDB file to be used as a template for the specified region. If the argument 'INPUT' is supplied instead, it will fix the coordinates to their current positions
 -   **region_file**: Loops file specifying the region of the template pdb to use as a template for the pose
--   **region_selector**: Residue selector specifying the region of the template pdb to use as a template for the pose
 -   **region**: String specifying indices of residues to be used as a template
 
 ---
