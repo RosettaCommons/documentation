@@ -10,11 +10,12 @@ Declares a chemical bond between two atoms
         res2="(&non_negative_integer;)" atom1="(&string;)" atom2="(&string;)"
         add_termini="(true &bool;)" rebuild_fold_tree="(false &bool;)"
         run_kic="(false &bool;)" KIC_res1="(0 &non_negative_integer;)"
-        KIC_res2="(0 &non_negative_integer;)" />
+        KIC_res2="(0 &non_negative_integer;)" res1_selector="(&string;)"
+        res2_selector="(&string;)" />
 ```
 
--   **res1**: (REQUIRED) Residue containing first atom
--   **res2**: (REQUIRED) Residue containing second atom
+-   **res1**: Residue containing first atom
+-   **res2**: Residue containing second atom
 -   **atom1**: (REQUIRED) Name of first atom
 -   **atom2**: (REQUIRED) Name of second atom
 -   **add_termini**: Add termini to pose?
@@ -22,5 +23,7 @@ Declares a chemical bond between two atoms
 -   **run_kic**: Run KIC to close any chainbreak caused by the declared chemical bond?
 -   **KIC_res1**: First residue to use in KIC
 -   **KIC_res2**: Second residue to use in KIC
+-   **res1_selector**: Alternative to using the res1 option. This residue selector must select exactly one residue!. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
+-   **res2_selector**: Alternative to using the res2 option. This residue selector must select exactly one residue!. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 
 ---
