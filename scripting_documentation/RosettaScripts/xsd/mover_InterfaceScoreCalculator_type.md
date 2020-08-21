@@ -9,7 +9,8 @@ InterfaceScoreCalculator calculates a myriad of ligand specific scores and appen
 <InterfaceScoreCalculator name="(&string;)" chains="(&string;)"
         scorefxn="(&string;)" native="(&string;)"
         native_ensemble_best="(false &bool;)" normalize="(&string;)"
-        compute_grid_scores="(false &bool;)" grid_set="(default &string;)" />
+        compute_grid_scores="(false &bool;)" score_in_membrane="(false &bool;)"
+        grid_set="(default &string;)" />
 ```
 
 -   **chains**: (REQUIRED) Comma separated chains to dock.
@@ -18,6 +19,7 @@ InterfaceScoreCalculator calculates a myriad of ligand specific scores and appen
 -   **native_ensemble_best**: If true, the native pose has multiple residues for the given chains, and the travel and rmsd metrics will be computed as the best (lowest) value from any of them.
 -   **normalize**: The normalization function you wish to use.
 -   **compute_grid_scores**: If compute_grid_scores is true, the scores for each grid will be calculated. This may result in the regeneration of the scoring grids, which can be slow.
+-   **score_in_membrane**: If true, the interface score of the pose will be computed in solution and in the membrane. Requires pose to have membrane_info object as set in RosettaMP.
 -   **grid_set**: The Grid Set to use when computing grid scores.
 
 ---
