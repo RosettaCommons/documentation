@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-07-28
+Generated: 2020-08-29
 
 _Note that some application specific options may not be present in this list._
 
@@ -7466,7 +7466,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-grid_dir</b> \<String\></dt>
 <dd>Directory to store grids in<br/></dd>
 <dt><b>-max_grid_cache_size</b> \<Integer\></dt>
-<dd>delete old grids if grid cache exceeds specified size<br/></dd>
+<dd>delete old grids if grid cache exceeds specified size<br/>Default: 10<br/></dd>
 </dl>
 + <h2>-rbe</h2>
 <dl>
