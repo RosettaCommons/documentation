@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-08-29
+Generated: 2020-09-17
 
 _Note that some application specific options may not be present in this list._
 
@@ -4648,7 +4648,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-specificity</b> \<Boolean\></dt>
 <dd>specificity option group<br/></dd>
 <dt><b>-exclude_dna_dna</b> \<Boolean\></dt>
-<dd>No description<br/>Default: true<br/></dd>
+<dd>No description<br/>Default: false<br/></dd>
 <dt><b>-params</b> \<RealVector\></dt>
 <dd>vector of real-valued params<br/></dd>
 <dt><b>-frag_files</b> \<FileVector\></dt>
