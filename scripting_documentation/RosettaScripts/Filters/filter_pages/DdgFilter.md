@@ -4,6 +4,8 @@
 
 [[include:filter_Ddg_type]]
 
+
+
 This filter supports the Poisson-Boltzmann energy method by setting the runtime environment to indicate the altering state, either bound or unbound. When used properly in conjunction with SetupPoissonBoltzmannPotential (mover), the energy method (see: core/scoring/methods/PoissonBoltzmannEnergy) is enabled to solve for the PDE only when the conformation in corresponding state has changed sufficiently enough. Because Ddg uses all-atom centroids to determine the separation vector when jump is used, it is highly recommended to use the chain\_num option instead to specify the movable chains, to avoid invalidating the unbound cache when there are slight changes to atom positions.
 
 Example:
@@ -31,6 +33,8 @@ The script below shows how to enable PB with ddg filter. I have APBS (Adaptive P
 ```
 
 ## Known issues
+**BUG**: Always leave `repack="1"` and control repacking using `repack_bound` and `repack_unbound`. If not ddG may return 0 and debug pdbs are not written.
+
 If a disulfide present across the interface in question the filter silently fails and the ddG column is not added to the score file. A work around (that ignores the energy contribution of the disulfide) is to provide the ddG filter a scorefunction with dslf_fa13 reweighed to zero.
 
 ## See also
