@@ -2,13 +2,12 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## ddG
 
+[[include:mover_Ddg_type]]
+
 Ddg (or delta-delta-G) is an estimate of the binding energy of a complex.  It is computed by taking the difference of the energy of the complex and of the separated components.  Repacking or relaxation can be done on the bound and/or unbound state, in which case averaging over several attempts is recommended.
 
 This mover is useful for reporting the total or per-residue ddgs in cases where you don't want to use the [[Ddg filter|DdgFilter]] for some reason. (The Ddg filter can't currently do per-residue ddgs, for example). Ddg scores are reported as string-real pairs in the job. The total ddg score has the tag "ddg" and the each per residue ddg has the tag "residue\_ddg\_n" where n is the residue number.
 
-```xml
-<ddG name="(&string)" jump="(1 &integer)" per_residue_ddg="(0 &bool)" repack_bound="(true bool&)" repack_unbound="(true bool&)" relax_bound=(false bool&) relax_unbound=(true bool&) relax_mover=(&string) scorefxn="('score12' &string)" chain_num="(&int,&int...)" chain_name="(&char,&char)" filter="(&string)"/>
-```
 
 The `repack_bound` and `repack_unbound` control whether global repacking is applied to the bound and unbound states, respectively.  Both are true by default, though this can be expensive for large structures (and can result in irrelevant noise caused by different configurations of residues far from the binding interface).  The `relax_bound` and `relax_unbound` options provide an alternative, if a configured relaxation mover is provided with the `relax_mover` option.  This allows the user to specify, for example, a FastRelaxMover that only repacks and minimizes side-chains in the binding interface.
 
