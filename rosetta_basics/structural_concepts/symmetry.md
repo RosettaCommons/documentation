@@ -151,7 +151,7 @@ Everything that rosetta needs to know about the symmetry of the system is encode
 symmetry_name my_pdb_P_1_21_1
 ```
 
-a string describing the symmetry of the system. This can be anything.
+a string describing the symmetry of the system. This can be anything (as long as the coefficients are **integers**!).
 
 ```
 E = 2*VRT_0_0_0_0_base + 1*(VRT_0_0_0_0_base:VRT_0_0_0_1_base) + 3*(VRT_0_0_0_0_base:VRT_0_n1_0_0_base) + 4*(VRT_0_0_0_0_base:VRT_1_0_0_0_base)
