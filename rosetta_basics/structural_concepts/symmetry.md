@@ -151,13 +151,13 @@ Everything that rosetta needs to know about the symmetry of the system is encode
 symmetry_name my_pdb_P_1_21_1
 ```
 
-a string describing the symmetry of the system. This can be anything (as long as the coefficients are **integers**!).
+a string describing the symmetry of the system. This can be anything.
 
 ```
 E = 2*VRT_0_0_0_0_base + 1*(VRT_0_0_0_0_base:VRT_0_0_0_1_base) + 3*(VRT_0_0_0_0_base:VRT_0_n1_0_0_base) + 4*(VRT_0_0_0_0_base:VRT_1_0_0_0_base)
 ```
 
-E line: This is how to tell rosetta how to score the structure. In this example, the subunit that is connected to the virtual residue VRT\_0\_0\_0\_0\_base is the scoring subunit and internal energies in this subunit is multiplied with 2 to get the total energy. The add intermolecular energies from the VRT\_0\_0\_0\_0\_base connected subunit to subunits connected to VRT\_0\_0\_0\_1\_base, VRT\_0\_n1\_0\_0\_base and VRT\_1\_0\_0\_0\_base with factors of 1,3 and 4, respectively.
+E line: This is how to tell rosetta how to score the structure. In this example, the subunit that is connected to the virtual residue VRT\_0\_0\_0\_0\_base is the scoring subunit and internal energies in this subunit is multiplied with 2 to get the total energy. The add intermolecular energies from the VRT\_0\_0\_0\_0\_base connected subunit to subunits connected to VRT\_0\_0\_0\_1\_base, VRT\_0\_n1\_0\_0\_base and VRT\_1\_0\_0\_0\_base with factors of 1,3 and 4, respectively. The factors should be **integers**. 
 
 ```
 anchor_residue 29
