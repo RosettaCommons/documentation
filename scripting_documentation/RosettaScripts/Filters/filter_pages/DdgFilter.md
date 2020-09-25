@@ -33,7 +33,7 @@ The script below shows how to enable PB with ddg filter. I have APBS (Adaptive P
 ```
 
 ## Known issues
-**BUG**: Always leave `repack="1"` and control repacking using `repack_bound` and `repack_unbound`. If not ddG may return 0 and debug pdbs are not written.
+**BUG**: Always leave `repack="1"` and control repacking using `repack_bound` and `repack_unbound`. If not ddG may return 0 and debug pdbs are not written. If `repack=="0"` a different code path is used that does not use the ddG mover and may not handle symmetry correctly (and also does not output debug_pdbs).
 
 If a disulfide present across the interface in question the filter silently fails and the ddG column is not added to the score file. A work around (that ignores the energy contribution of the disulfide) is to provide the ddG filter a scorefunction with dslf_fa13 reweighed to zero.
 
