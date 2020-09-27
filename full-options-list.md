@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-09-17
+Generated: 2020-09-27
 
 _Note that some application specific options may not be present in this list._
 
@@ -4517,7 +4517,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-mut_only</b> \<Boolean\></dt>
 <dd>options added to minirosetta app in order to produce refinement in only mutant structure<br/></dd>
 <dt><b>-optimize_wt</b> \<Boolean\></dt>
-<dd>Will optimize the native structure when using the refactored version of the code. This will serve as the new baseline score.<br/>Default: false<br/></dd>
+<dd>Will optimize the native structure when using the refactored version of the code. This will serve as the new baseline score.<br/>Default: true<br/></dd>
 <dt><b>-output_silent</b> \<Boolean\></dt>
 <dd>No description<br/></dd>
 <dt><b>-minimization_scorefunction</b> \<String\></dt>
@@ -4597,7 +4597,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-ntrials</b> \<Integer\></dt>
 <dd>How many cycles of frag assign to run in the cartesian sampler<br/>Default: 30<br/></dd>
 <dt><b>-optimize_proline</b> \<Boolean\></dt>
-<dd>Triggers use of fragments and the cartesian sampler to optimize around proline residues.<br/>Default: true<br/></dd>
+<dd>Triggers use of fragments and the cartesian sampler to optimize around proline residues.<br/>Default: false<br/></dd>
 <dt><b>-flex_bb</b> \<Boolean\></dt>
 <dd>Should neighbor residues be allowed to move the backbone.<br/>Default: false<br/></dd>
 <dt><b>-fd_mode</b> \<Boolean\></dt>
