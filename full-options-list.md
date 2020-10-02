@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-09-27
+Generated: 2020-10-02
 
 _Note that some application specific options may not be present in this list._
 
@@ -5372,9 +5372,9 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-score_filter</b> \<Real\></dt>
 <dd>Only output decoys with scores lower than this filter.<br/>Default: 10000.0<br/></dd>
 <dt><b>-hb_filter</b> \<Integer\></dt>
-<dd>Only output decoys with more h-bonds than this filter.<br/>Range: 0-<br/>Default: 0<br/></dd>
+<dd>Only output decoys with more h-bonds than this filter.  Currently not implemented -- DO NOT USE!<br/>Range: 0-<br/>Default: 0<br/></dd>
 <dt><b>-hotspot_filter</b> \<Integer\></dt>
-<dd>Only output decoys with more hotspots than this filter.<br/>Range: 0-<br/>Default: 0<br/></dd>
+<dd>Only output decoys with more hotspots than this filter.  Currently not implemented -- DO NOT USE!<br/>Range: 0-<br/>Default: 0<br/></dd>
 <dt><b>-frag5</b> \<String\></dt>
 <dd>5-mer fragments for ab-initio flexPepDock<br/></dd>
 <dt><b>-frag9_weight</b> \<Real\></dt>

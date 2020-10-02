@@ -10,9 +10,9 @@ Adds Circular Harmonic Dihedral Constraints to the Phi and Psi dihedral angles t
 <CDRDihedralConstraintMover name="(&string;)" cdr="(&string;)"
         use_cluster_csts="(&bool;)"
         use_general_constraints_on_failure="(&bool;)"
-        force_cluster="(&cluster_definitions;)" cluster_data_required="(&real;)"
-        use_outliers="(&real;)" general_phi_sd="(&real;)"
-        general_psi_sd="(&real;)" />
+        force_cluster="(&cluster_definitions;)"
+        cluster_data_required="(&non_negative_integer;)" use_outliers="(&bool;)"
+        general_phi_sd="(&real;)" general_psi_sd="(&real;)" />
 ```
 
 -   **cdr**: (REQUIRED) CDR to add the constraints to (ex: H1 or h1)

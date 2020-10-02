@@ -7,9 +7,8 @@ XRW TO DO
 
 ```xml
 <ScoreCutoffFilter name="(&string;)"
-        report_residue_pair_energies="(0 &non_negative_integer;)"
-        cutoff="(10000.0 &real;)" pdb_numbering="(true &bool;)"
-        confidence="(1.0 &real;)" />
+        report_residue_pair_energies="(false &bool;)" cutoff="(10000.0 &real;)"
+        pdb_numbering="(true &bool;)" confidence="(1.0 &real;)" />
 ```
 
 -   **report_residue_pair_energies**: XRW TO DO
