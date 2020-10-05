@@ -37,11 +37,13 @@ In order to be considered h-bonding:
 [[/images/buried_polars/AMIDE-N.png]]
 [[/images/buried_polars/AMIDE-O.png]]
 [[/images/buried_polars/G-AMIDE.png]]
+[[/images/buried_polars/G-AMIDE_box.png]]
 
 ## Aspartate and Glutamate
 
 [[/images/buried_polars/CARB-O.png]]
 [[/images/buried_polars/G-CARB.png]]
+[[/images/buried_polars/G-CARB_box.png]]
 
 ## Histidine
 
@@ -61,6 +63,7 @@ The data for 0 h-bonds here is suspect. The code wasn't properly written to iden
 [[/images/buried_polars/SER-O.png]]
 [[/images/buried_polars/SER-H.png]]
 [[/images/buried_polars/G-SER.png]]
+[[/images/buried_polars/G-SER_box.png]]
 
 
 ## Tryptophan
@@ -73,6 +76,7 @@ The data for 0 h-bonds here is suspect. The code wasn't properly written to iden
 [[/images/buried_polars/TYR-O.png]]
 [[/images/buried_polars/TYR-H.png]]
 [[/images/buried_polars/G-TYR.png]]
+[[/images/buried_polars/G-TYR_box.png]]
 
 
 # Notes
