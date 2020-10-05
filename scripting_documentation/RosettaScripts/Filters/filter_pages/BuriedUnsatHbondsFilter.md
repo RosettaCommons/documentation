@@ -4,6 +4,8 @@
 
 Maximum number of buried unsatisfied polar atoms allowed. This filter was significantly updated Dec 18, 2017: users can choose different reporting behaviors, and the default is to return the number of buried heavy-atom donors/acceptors that do not participate in any h-bonds.  The old behavior was to count all unsats as equal, and to use a ddG-style calculation (subtract \#unsat unbound from \#unsat bound); these options are still available but no longer the default.  The filter now by default uses a more generous definition of h-bonds (previously, many legit h-bonds were excluded because of sfxn exceptions); users can now choose between legacy SASA and VSASA for burial (Andrew's VSASA varsoldist is default); poses with more than 3 chains are now supported; the Filter is now Symmetry compatible, and users can pass sym_dof_names as in Jacob Bale's [[SymUnsatHbondsFilter]] .  The old filter behavior can be restored by setting use_legacy_options="true", but this is only recommended for benchmarking purposes
 
+For a survey of buried polar atoms in native protein structures, see [[HBond-Preferences-Of-Buried-Polars]]. 
+
 ### Restoring the old filter's behavior: 
 If `use_legacy_options="true"` then the filter works exactly like before and expects the same options, behaving as follows:
 If a jump number is specified (default=1), then this number is calculated across the interface of that jump. If jump\_number=0, then the filter is calculated for a monomer. Note that \#unsat for monomers is often much higher than 20. Notice that water is not assumed in these calculations. By specifying task\_operations you can decide which residues will be used to compute the statistic. ONly residues that are defined as repackable (or designable) will be used for computing. Others will be ignored. A tricky aspect is that backbone unsatisfied hbonds will also only be counted for residues that are mentioned in the task\_operations, so this is somewhat inconsistent.
@@ -125,7 +127,7 @@ The filter is now Symmetry aware.  The default for Symmetric case is that symmet
 -   task_operations: define residues to look at by task operations (legacy behavior of old filter); now recommended to use residue_selector instead.
 
 # See Also:
-
+* [[HBond-Preferences-Of-Buried-Polars]]
 * [[HbondsToResidueFilter]]
 * [[HbondsToAtomFilter]]
 * [[SymUnsatHbondsFilter]]
