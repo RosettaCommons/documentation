@@ -1,28 +1,28 @@
 # CrosslinkerMover
 Page created by Vikram K. Mulligan (vmullig@uw.edu) on 27 November 2016.<br/>
-Last updated on 18 October 2018.<br/>
+Last updated on 7 October 2020.<br/>
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 
 [[_TOC_]]
 
 ## Description
-This mover places chemical cross-linkers such as 1,3,5-tris(bromomethyl)benzene (TBMB) or trimesic acid (TMA).  It can set up covalent bonds and constraints, pack and energy-minimize the linker and the side-chains to which it is connected, and relax the entire structure.  Options are provided for filtering based on input geometry, to throw out poses that do not present side-chains in conformations compatible with the linker.
+This mover places chemical cross-linkers such as 1,3,5-tris(bromomethyl)benzene (TBMB), 1,4-bis(bromomethyl)benzene (paraBBMB), or trimesic acid (TMA).  It can set up covalent bonds and constraints, pack and energy-minimize the linker and the side-chains to which it is connected, and relax the entire structure.  Options are provided for filtering based on input geometry, to throw out poses that do not present side-chains in conformations compatible with the linker.
 
 Metals are also effectively cross-links that connect several side-chains, as far as Rosetta is concerned, so as of 16 May 2018, this mover can also place metals.  When placing metals, metal-coordinating residues (currently L- or D-histidine, glutamate, or aspartate) are patched to add a virtual atom on the metal-coordinating side-chain atom representing the metal, atom pair constraints are added to tether the virtual atoms to one another and to ensure that all of the virtual atoms overlap (representing a single metal ion), and angle constraints are added for each trio of (liganding atom 1)--(metal virtual atom)--(liganding atom 2) to enforce tetrahedral, octahedral, square pyramidal, square planar, trigonal pyramidal, or trigonal planar geometry.  Future development will add support for other metal coordination geometries.
 
 ## Needed flags
-The CrosslinkerMover requires that Rosetta load a params file for the crosslinker, as well as the sidechain conjugation variant types for the sidechains that will be cross-linked.  These are not loaded by default.  For example, to link three cysteine residues with TBMB, one needs the following commandline flag:
+The CrosslinkerMover requires that Rosetta load a params file for the crosslinker.  These are not loaded by default.  For example, to link three cysteine residues with TBMB, one needs the following commandline flag:
 
 ```
--extra_res_fa sidechain_conjugation/CYX.params crosslinker/1.3.5_trisbromomethylbenzene.params
+-extra_res_fa crosslinker/1.3.5_trisbromomethylbenzene.params
 ```
 
-These load the CYX cysteine variant (used when cysteine is conjugated to things other than disulfide-forming residues) and the TBMB crosslinker.
+This flag loads the TBMB crosslinker.
 
 When using the mover with symmetry, the symmetric variant of the TBMB crosslinker (which is one third of the crosslinker -- <i>vide infra</i>) must be loaded instead:
 
 ```
--extra_res_fa sidechain_conjugation/CYX.params crosslinker/1.3.5_trisbromomethylbenzene_symm.params
+-extra_res_fa crosslinker/1.3.5_trisbromomethylbenzene_symm.params
 ```
 
 When placing metals, no special flags are needed.
@@ -206,16 +206,17 @@ When placing tetrahedrally-coordinated metals, compatible symmetries are C2, D2,
 
 Note that each type of crosslinker can link different types of side-chains:
 
-| Abbreviation | Crosslinker | Types that can be linked |
-| ------------ | ----------- | ------------------------ |
-| octahedral\_metal | virtual atoms representing a metal (note: no new residue is placed) | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) |
-| tetrahedral\_metal | virtual atoms representing a metal (note: no new residue is placed) | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) |
-| square\_pyramidal\_metal | virtual atoms representing a metal (note: no new residue is placed ) | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) |
-| square\_planar\_metal | virtual atoms representing a metal (note: no new residue is placed ) | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) |
-| trigonal\_pyramidal\_metal | virtual atoms representing a metal (note: no new residue is placed ) | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) |
-| trigonal\_planar\_metal | virtual atoms representing a metal (note: no new residue is placed ) | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) |
-| TBMB | 1,3,5-tris(bromomethyl)benzene | L-cysteine (CYS), D-cysteine (DCY) | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) |
-| TMA  | trimesic acid                  | L-lysine (LYS), D-lysine (DLY), L-ornithine (ORN), D-ornithine (DOR), L-2,4-diaminobutyric acid (DAB), D-2,4-diaminobutyric acid (DDA), L-2,3-diaminopropanoic acid (DPP), D-2,3-diaminopropanoic acid (DDP) |
+| Abbreviation | Crosslinker | Number of residues linked | Types that can be linked | Compatible symmetries |
+| ------------ | ----------- | ------------------------- | ------------------------ | --------------------- |
+| octahedral\_metal | virtual atoms representing a metal (note: no new residue is placed) | 6 | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) | S6, D3, C3, S2, C2, asymmetric |
+| tetrahedral\_metal | virtual atoms representing a metal (note: no new residue is placed) | 4 | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) | S4, D2, C2, asymmetric |
+| square\_pyramidal\_metal | virtual atoms representing a metal (note: no new residue is placed ) | 4 | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) | asymmetric |
+| square\_planar\_metal | virtual atoms representing a metal (note: no new residue is placed ) | 4 | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) | S4, C4, D2, S2, C2, asymmetric |
+| trigonal\_pyramidal\_metal | virtual atoms representing a metal (note: no new residue is placed ) | 3 | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) | C3, asymmetric |
+| trigonal\_planar\_metal | virtual atoms representing a metal (note: no new residue is placed ) | 3 | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) | C3, asymmetric |
+| TBMB | 1,3,5-tris(bromomethyl)benzene | 3 | L-cysteine (CYS), D-cysteine (DCY) | C3, asymmetric |
+| 1_4_BBMB | 1,4-bis(bromomethyl)benzene | 3 | L-cysteine (CYS), D-cysteine (DCY) | S2, C2, asymmetric |
+| TMA  | trimesic acid                  | 3 | L-lysine (LYS), D-lysine (DLY), L-ornithine (ORN), D-ornithine (DOR), L-2,4-diaminobutyric acid (DAB), D-2,4-diaminobutyric acid (DDA), L-2,3-diaminopropanoic acid (DPP), D-2,3-diaminopropanoic acid (DDP) | C3, asymmetric |
 
 ##See also
 * [[Information on constraints|constraint-file]]
