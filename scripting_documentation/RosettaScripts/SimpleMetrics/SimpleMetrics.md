@@ -1,7 +1,11 @@
 # SimpleMetrics
 *Back to main [[RosettaScripts|RosettaScripts]] page.*
 
-SimpleMetrics are a new way to do analysis in Rosetta, and have replaced the old Filter system and most filters for analysis.  They are declared in the new `<SIMPLE_METRICS>` block of RosettaScripts and are available in weekly releases after April 10th, 2018.  All data calculated by a SimpleMetric can be output to a score file with the metric name and any set prefix and/or suffix. These sets of SimpleMetrics can be also be run at different points in a protocol, such as before and after a particular mover or set of movers. See [[RunSimpleMetrics]] for more on the syntax of how to run them in in your protocol.  Filters were never meant to do analysis in the way they are being used currently.  The SimpleMetric framework aims to correct this. The SimpleMetrics on this page are broken into what kind of data they calculate.  
+SimpleMetrics are a new way to do analysis and data reporting in RosettaScripts, and have replaced the old Filter system for that purpose. SimpleMetrics can be run at different points in a protocol, such as before and after a particular mover or set of movers. They are declared in the `<SIMPLE_METRICS>` block of RosettaScripts and are available in Rosetta versions after April 10th, 2018. 
+
+There are two ways of outputting the data calculated by SimpleMetrics to a scorefile. The first and most flexible is with the [[RunSimpleMetrics]] mover. See the documentation page for [[RunSimpleMetrics]] for more on the syntax of how to include it in your protocol.
+
+The other is to use the `metrics` option in the [[PROTOCOLS|RosettaScripts#rosettascript-sections_protocols]] section. This option takes a comma-separated list of metric names (previously defined in the SIMPLE_METRICS section) to apply at that point of the protocol and to report to the scorefile. By default, this approach uses the name of the metric as the output label, rather than the metric-specified custom types. You can specify a different output label using the `labels` option of the PROTOCOLS section (which also takes a comma-separated list). The label `-` is special-cased to give you the name of the metric you would otherwise get with RunSimpleMetrics. 
 
 All SimpleMetrics can also be used as Filters, using the [[SimpleMetricFilter]].
  
@@ -32,12 +36,13 @@ Example with comparison to native through `-in:file:native`:
 	<MOVERS>
 		<MinMover name="min_mover" movemap_factory="movemap_L1" tolerance=".1" /> 
 		<RunSimpleMetrics name="run_metrics1" metrics="pymol_selection,total_energy" prefix="m1_" />
-		<RunSimpleMetrics name="run_metrics2" metrics="timing,pymol_selection,total_energy,rmsd" prefix="m2_" />
+		<RunSimpleMetrics name="run_metrics2" metrics="pymol_selection,total_energy" prefix="m2_" />
 	</MOVERS>
 	<PROTOCOLS>
 		<Add mover_name="run_metrics1"/>
 		<Add mover_name="min_mover" />
 		<Add mover_name="run_metrics2" />
+		<Add metrics="timing,rmsd" labels="run_time,bb_rmsd_to_native"/>
 	</PROTOCOLS>
 </ROSETTASCRIPTS>
 ```
