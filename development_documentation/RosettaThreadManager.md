@@ -47,6 +47,7 @@ If the basic RosettaThreadManager API is used (as is preferred), a module sends 
 On receiving a request, the RosettaThreadManager constructs a vector of mutexes equal in length to the work vector, then bundles both vectors with a work function to be executed in parallel.  This function is passed to the RosettaThreadPool which runs it in many threads.  The thread copies of the function draw work from the work vector while using the corresponding mutex vector to ensure that other thread copies of the function don't attempt to do the same blocks of work.  Since each thread claims the next piece of available work as it finished the work that it was doing, the function automatically load-balances itself.  When no more work is available, it blocks until all copies of itself have terminated, then returns control to the RosettaThreadManager, which returns control to the calling module.
 
 ##### General coding example
+    #include <basic/thread_manager/RosettaThreadAssignmentInfo.hh>
     #include <basic/thread_manager/RosettaThreadManager.hh>
     
     using namespace basic::thread_manager;
