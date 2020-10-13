@@ -443,6 +443,18 @@ Always returns false. Can be explicitly specified with the name "false\_filter".
 
 #RosettaScript Sections
 
+##PROTOCOLS
+
+The PROTOCOLS section is the "main" section of the XML which actually specifies how the protocol will be run. Internally, it's implemented with the [[ParsedProtocolMover]], so more details of the subtag syntax can be found there.
+
+Generally, the PROTOCOLS section will be a series of `<Add ../>` tags. Each tag will specify a mover, filter and/or simple metric to apply. The RosettaScript protocol steps through each subtag in order, applying each entry.
+
+Typical parameters for each Add tag:
+
+-  `mover` or `mover_name` -- Specify a [[mover|Movers-RosettaScripts]] (defined previously in the MOVERS section) to apply at this stage of the protocol. The current pose (structure) being simulated will be modified by that mover and become the input structure to the next mover/filter/metric/etc. in the list.
+-  `filter` or `filter_name` -- Specify a [[filter|Filters-RosettaScripts]] (defined previously in the FILTERS section) to applied to the pose being simulated. Filters will not modify the pose, but will produce a pass/fail result. If the pose passes, it moves on to the next step. If the pose fails, the current simulation will be discarded, and the simulation will be restarted from the top of the PROTOCOLS section. Most filters will also calculate an associated value, and filters specified in the PROTOCOLS section will report that value to the scorefile (under the name of the filter). NOTE: By default the score thus reported is recalculated for the structure being output. You can change this to be for the evaluation mid-protocol by setting the option `report_at_end="false"` in the Add tag for that filer. (Though for reporting purposes, the metrics option is preferred.)
+-  `metrics` -- (Post 15-Oct-2020 releases) Specify a comma-separated list of [[SimpleMetrics]] to calculate at this stage of the protocol and add to the scorefile. By default, the metrics will be added to the scorefile under the name of the metric, as specified in the `metrics` option. You can change this with the `labels` option, which takes a comma-separated list of names. The label `-` is special cased to give you the same name as you would have typically gotten withthe RunSimpleMetrics mover. (The [[RunSimpleMetrics]] mover provides more options in running SimpleMetrics.)
+
 ##SCOREFUNCTIONS
 
 The SCOREFXNS section defines scorefunctions that will be used in Filters and Movers. This can be used to define any of the scores defined in the path/to/rosetta/main/database
