@@ -46,6 +46,42 @@ If the basic RosettaThreadManager API is used (as is preferred), a module sends 
 
 On receiving a request, the RosettaThreadManager constructs a vector of mutexes equal in length to the work vector, then bundles both vectors with a work function to be executed in parallel.  This function is passed to the RosettaThreadPool which runs it in many threads.  The thread copies of the function draw work from the work vector while using the corresponding mutex vector to ensure that other thread copies of the function don't attempt to do the same blocks of work.  Since each thread claims the next piece of available work as it finished the work that it was doing, the function automatically load-balances itself.  When no more work is available, it blocks until all copies of itself have terminated, then returns control to the RosettaThreadManager, which returns control to the calling module.
 
+##### General coding example
+    #include <basic/thread_manager/RosettaThreadManager.hh>
+    
+    using namespace basic::thread_manager;
+    
+    // The thread manager will populate this object with information about the number of threads actually assigned:
+    // The originating level allows future logic prioritizing thread assignments based on layer of Rosetta  from which a thread request comes.
+    RosettaThreadAssignmentInfo thread_assignments( RosettaThreadRequestOriginatingLevel::PROTOCOLS_GENERIC );
+    utility::vector1< RosettaThreadFunction > work_vector; /*The tasks that we'll be doing in some random order, in parallel.*/
+    utility::vector1< some_type > result_vector( num_tasks ); /*A place to store the output.  Could be a vector of Reals, for example.*/
+    for( core::Size i(1); i<=num_tasks; ++i ) {
+        core::pose::PoseOP pose_copy( utility::pointer::make_shared< core::pose::Pose >() );
+        pose_copy->detached_copy( *master_pose );
+        work_vector.push_back(
+            std::bind(
+                my_thread_function, /*void function*/
+                pose_copy,
+                master_scorefxn->clone(),
+                /*A place to store output, with each thread writing to a different place in the vector -- CAN'T RESIZE VECTOR WHILE THIS IS HAPPENING.*/
+                std::ref(result_vector[i]), 
+                ... /*any other things that my_thread_function takes as inputs*/
+            )
+        );
+    }
+    // The work will run in threads now.  The number of threads actually used will be 1 <= actual number <= number requested.
+    // The requesting thread is always used to do the work, plus up to number requested-1 additional threads, as available.
+    RosettaThreadManager::get_instance()->do_work_vector_in_threads( work_vector, num_threads_to_request, thread_assignments );
+    // After the work runs in threads, the thread_assignments object will have information about how many threads were actually used.
+    // It may be fewer than the number requested.  You can use this for summary messages and whatnot.  You can also pass the
+    // thread_assignments object to your thread function if you want this information  to be available within a thread.
+
+##### Some notes
+* Each thread must use a different instance of a ScoreFunction object and must operate on a different instance of a Pose.
+* Poses must be cloned using `Pose::detached_copy()` before passing them to sub-threads. Regular `Pose::clone()` results in  a new object that shares data with the old, which can result in non-threadsafe behaviour.
+* multithreaded Rosetta apps must be compiled with `extras=cxx11thread`, and must be run with `-multithreading:total_threads #`, where # is the number of threads to launch and maintain in the thread pool (often equal to the number of CPUs you have, though it can be less if you're launching multiple Rosetta instances per node). Default is 1 thread per Rosetta instance.
+
 #### Advanced parallel function interface
 
 ****TODO****
