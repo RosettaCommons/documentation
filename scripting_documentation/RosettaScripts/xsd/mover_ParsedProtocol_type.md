@@ -10,8 +10,8 @@ This is a special mover that allows making a single compound mover and filter ve
         filter_name="(true_filter &string;)" filter="(true_filter &string;)"
         apply_probability="(&real;)" resume_support="(false &bool;)" >
     <Add mover_name="(&string;)" mover="(&string;)" filter_name="(&string;)"
-            filter="(&string;)" apply_probability="(&real;)"
-            report_at_end="(true &bool;)" />
+            filter="(&string;)" metrics="(&string;)" labels="(&string;)"
+            apply_probability="(&real;)" report_at_end="(true &bool;)" />
     <Filter Tag ... />
     <Mover Tag ... />
 </ParsedProtocol>
@@ -24,12 +24,14 @@ This is a special mover that allows making a single compound mover and filter ve
 -   **resume_support**: XSD XRW: TO DO
 
 
-Subtag **Add**:   Elements that add a particular mover-filter pair to a ParsedProtocol
+Subtag **Add**:   The steps to be applied.
 
 -   **mover_name**: The mover whose execution is desired
 -   **mover**: The mover whose execution is desired
 -   **filter_name**: The filter whose execution is desired
 -   **filter**: The filter whose execution is desired
+-   **metrics**: A comma-separated list of metrics to run at this point.
+-   **labels**: A comma-separated list of labels to use for the provided metrics in the output. If empty/missing, use the metric names from the metrics setting. If '-', use the metric's default.
 -   **apply_probability**: by default equal probability for all tags
 -   **report_at_end**: Report filter value via filter re-evaluation on final pose after conclusion of protocol. Otherwise report filter value as evaluated mid-protocol.
 
