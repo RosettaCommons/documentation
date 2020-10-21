@@ -23,7 +23,7 @@ _Journal of Computational Chemistry_, 11/30/2016
 Brandon Frenz, Sebastian Rämisch, Andrew J. Borst, Alexandra C. Walls
 Jared Adolf-Bryfogle, William R. Schief, David Veesler, Frank DiMaio
 _Structure_, 1/2/2019
-[[https://doi.org/10.1016/j.str.2018.09.00]]
+[[https://www.sciencedirect.com/science/article/pii/S0969212618303320]]
 
 
 [[_TOC_]]
