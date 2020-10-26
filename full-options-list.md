@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-10-02
+Generated: 2020-10-26
 
 _Note that some application specific options may not be present in this list._
 
@@ -4979,6 +4979,10 @@ _Note that some application specific options may not be present in this list._
 <dd>Name of Ligand Option File for use with multi_ligand_dock application<br/></dd>
 <dt><b>-ligand_ensemble</b> \<Real\></dt>
 <dd>Weight for correlation adjustment in ligand ensemble docking, ignores ligand-ligand interactions if value is not zero<br/>Default: 0<br/></dd>
+<dt><b>-iphold_cen_cycles</b> \<Integer\></dt>
+<dd>Number of centroid iphold cycles<br/>Default: 0<br/></dd>
+<dt><b>-iphold_fa_cycles</b> \<Integer\></dt>
+<dd>Number of full-atom iphold cycles<br/>Default: 0<br/></dd>
 </dl>
 + <h4>-docking:ligand:grid</h4>
 <dl>
