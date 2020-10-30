@@ -85,6 +85,7 @@ Mover  | Description
 Mover  | Description
 ------------ | -------------
 **[[SetupPoissonBoltzmannPotential|SetupPoissonBoltzmannPotentialMover]]** | Runtime environment initialization for the PB solver (ddG mover)
+**[[SetupForDensityScoringMover]]** | Set up the pose for using Electron Density Scoring 
 
 
 ## "Best Practices" Movers
