@@ -166,6 +166,7 @@ Mover  | Description
 **[[ConstraintSetMover]]** | Adds constraints to the pose using a constraints file
 **[[FavorSymmetricSequence|FavorSymmetricSequenceMover]]** | Adds constraints to prefer symmetric sequences
 **[[ResidueTypeConstraintMover]]** | Constrains residue type
+**[[RemoveMetalConnectionsMover]]** | Removes covalent bonds to metal ions that were added with the SetupMetalsMover or -auto_setup_metals
 **[[SetupMetalsMover]]** | Adds covalent bonds and distance/angle constraints to metal ions
 **[[TaskAwareCsts|TaskAwareCstsMover]]** | Adds constraints to residues designated by task_operations
 **[[AddConstraints|AddConstraintsMover]]** | Uses a constraint generator to add constraints to the pose
