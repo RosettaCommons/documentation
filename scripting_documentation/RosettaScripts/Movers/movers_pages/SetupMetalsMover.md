@@ -63,6 +63,6 @@ The following script applies metal-binding constraints to the input pose, then r
 The [[RemoveMetalConnectionsMover]] may be used to remove the bonds and variant types added with this mover.  The [[ClearConstraintsMover]] in turn may be used to remove the constraints added with this mover.
 
 ###See Also
-* [[Metals]]
+* [[Workng with metalloproteins in Rosetta|Metals]]
 * [[RemoveMetalConnectionsMover]]
 * [[AddConstraintsToCurrentConformationMover]]
