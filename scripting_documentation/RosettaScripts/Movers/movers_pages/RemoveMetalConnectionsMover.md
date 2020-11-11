@@ -43,7 +43,7 @@ The following script applies metal-binding constraints to the input pose, then r
 ```
 
 ###See Also
-* [[Metals|Workng with metalloproteins in Rosetta]]
+* [[Workng with metalloproteins in Rosetta|Metals]]
 * [[AddConstraintsToCurrentConformationMover]]
 * [[ClearConstraintsMover]]
 * [[SetupMetalsMover]]
