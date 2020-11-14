@@ -2,7 +2,7 @@
 
 Back to [[Application Documentation]].
 
-Created 21 August 2019 by Vikram K. Mulligan, Flatiron Institute (vmulligan@flatironinstitute.org).  Last updated 27 September 2019.<br/><br/>
+Created 21 August 2019 by Vikram K. Mulligan, Flatiron Institute (vmulligan@flatironinstitute.org).  Last updated 14 November 2020.<br/><br/>
 <b><i>This application is currently unpublished!  If you use this application, please include the developer in the list of authors for your paper.</i><br/>
 
 [[_TOC_]]
@@ -206,7 +206,7 @@ Settings for individual helices are specified in blocks that begin with `BEGIN_H
 
 ### Base protocol
 
-The application is located in `src/apps/pilot/vmullig/helical_bundle_predict` for now, and will be migrated to public apps when fully functional.  The protocol that it runs is located in `src/protocols/helical_bundle_predict`, with classes defined in the `protocols::helical_bundle_predict` namespace.
+The application is located in `src/apps/public/helical_bundle/helical_bundle_predict`.  The protocol that it runs is located in `src/protocols/helical_bundle_predict`, with classes defined in the `protocols::helical_bundle_predict` namespace.
 
 The main protocol is defined in the `protocols::helical_bundle_predict::HelicalBundlePredictApplication` class, in `src/protocols/helical_bundle_predict/HelicalBundlePredictApplication.hh`.  The MPI/multi-threaded variant (which calls the `HelicalBundlePredictApplication` for individual prediction trajectories) is defined in the `protocols::helical_bundle_predict::HelicalBundlePredictApplication_MPI` class, which derives from the `protocols::cyclic_peptide_predict::HierarchicalHybridJDApplication` base class and uses the same hierarchical MPI/multi-threaded job distribution and results collection system as the [[simple_cycpep_predict application|simple_cycpep_predict]].
 
