@@ -107,7 +107,7 @@ CoordinateConstraint Atom1_Name Atom1_ResNum[Atom1_ChainID] Atom2_Name Atom2_Res
 
     <i>score term: coordinate_constraint</i>
 
-    * Constrain Atom1 to the XYZ position listed. Atom2 is used as a reference atom to determine when Atom1 has moved (so that Rosetta knows when to rescore it) - pick at atom that Atom1 will move relative to. CoordinateConstraint is compatible with PDB numbering.
+    * Constrain Atom1 to the XYZ position listed. Atom2 is used as a reference atom to determine when Atom1 has moved (so that Rosetta knows when to rescore it) - pick at atom that Atom1 will move relative to, the root atom of the [[FoldTree|foldtree-overview]] being a good choice.  CoordinateConstraint is compatible with PDB numbering.
     * Atom_ResNum[Atom_ChainID] indicates a number with an optional letter together as a single token
 
 
