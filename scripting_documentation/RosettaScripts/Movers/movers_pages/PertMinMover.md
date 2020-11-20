@@ -4,7 +4,7 @@
 
 [[include:mover_PertMinMover_type]]
 
-This mover is based off the approach taken by Davey & Chica, Proteins 82:771-784 [doi:10.1002/prot.24457](https://dx.doi.org/mover_PertMinMover_type)
+This mover is based off the approach taken by Davey & Chica, Proteins 82:771-784 https://onlinelibrary.wiley.com/doi/full/10.1002/prot.24457
 
 In short, it explores local conformational space by making a small, random Cartesian perturbation of atomic coordinates, followed by an energy minimization. In a rough energy landscape, even small variations in starting position can greatly change the trajectory of minimization and the final result, resulting in local conformation search (see Fig. 2 of Davey & Chica).
 
