@@ -7,11 +7,14 @@ Threads a single letter sequence onto the source pdb.
 
 ```xml
 <ThreadSequence name="(&string;)" target_sequence="(&string;)"
-        start_res="(1 &positive_integer;)" allow_design_around="(true &bool;)" />
+        start_res="(1 &positive_integer;)" allow_design_around="(true &bool;)"
+        chain_num="(0 &non_negative_integer;)" filter_non_aas="(false &bool;)" />
 ```
 
 -   **target_sequence**: (REQUIRED) The target sequence can contain two types of 'wildcards'. Placing 'x' in the sequence results in design at this position: target_sequence='TFYxxxHFS' will thread the two specified tripeptides and allow design in the intervening tripeptide. Placing ' ' (space) or '_' (underscore), however, restricts this position to repacking: the string 'TFY HFS' (three spaces between the two triplets) will thread the two tripeptides and will repack the pose's original intervening tripeptide. The string 'TFY___HFS' -three underscores between the two triplets- will also only repack the original intervening tripeptide.
 -   **start_res**: Residue at which to start.
 -   **allow_design_around**: If set to false, only design the region that is threaded. The rest is set to repack.
+-   **chain_num**: Which chain to apply the sequence to. If 0 - the entire structure
+-   **filter_non_aas**: If set to true non amino acid residues will not be threaded
 
 ---

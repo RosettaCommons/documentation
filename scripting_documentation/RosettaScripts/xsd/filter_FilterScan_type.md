@@ -16,7 +16,9 @@ Scan all mutations allowed by a particular set of TaskOperations and test them a
         resfile_name="(&string;)" resfile_general_property="(nataa &string;)"
         rtmin="(false &string;)" score_log_file="(&string;)"
         dump_pdb="(false &bool;)" delta_filters="(&string;)"
-        delta_filter_thresholds="(&real_cslist;)" confidence="(1.0 &real;)" />
+        delta_filter_thresholds="(&real_cslist;)"
+        log_pdb_number="(false &bool;)" log_separator="(  &string;)"
+        confidence="(1.0 &real;)" />
 ```
 
 -   **task_operations**: A comma-separated list of TaskOperations to use.
@@ -36,6 +38,8 @@ Scan all mutations allowed by a particular set of TaskOperations and test them a
 -   **dump_pdb**: Dump PDBs
 -   **delta_filters**: Comma-separated list of filters to run
 -   **delta_filter_thresholds**: Comma-separated list of filter thresholds
+-   **log_pdb_number**: Does score log includes pdb numbering
+-   **log_separator**: Which seperator character to use in score log
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

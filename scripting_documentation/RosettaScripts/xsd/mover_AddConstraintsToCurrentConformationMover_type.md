@@ -10,7 +10,7 @@ XRW TO DO
         use_distance_cst="(&bool;)" max_distance="(&real;)" coord_dev="(&real;)"
         bound_width="(&real;)" min_seq_sep="(&non_negative_integer;)"
         cst_weight="(&real;)" CA_only="(&bool;)" bb_only="(&bool;)"
-        inter_chain="(&bool;)"
+        sc_tip_only="(&bool;)" inter_chain="(&bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
         packer_palette="(&named_packer_palette;)" residue_selector="(&string;)" />
 ```
@@ -21,8 +21,9 @@ XRW TO DO
 -   **bound_width**: BoundFunc zero basin width BoundFunc; also activates use of BoundFunc (if non-zero)
 -   **min_seq_sep**: Do not generate distance constraints between residues within this sequence separation.  Only active with use_distance_cst.
 -   **cst_weight**: use ScalarWeightedFunc to reweight constraints by this; also activates use of HarmonicFunc (if this and bound_width are both zero)
--   **CA_only**: constrain only CA atoms.
--   **bb_only**: constrain only backbone atoms.
+-   **CA_only**: constrain only CA atoms. Sets bb_only and sc_tip_only to false.
+-   **bb_only**: constrain only backbone atoms. Sets CA_only and sc_tip_only to false.
+-   **sc_tip_only**: constrain only atoms affected by the final chi angle. Sets CA_only and bb_only to false.
 -   **inter_chain**: Generate distance constraints between residues on different chains if true.  (Does not appear to generate ONLY interchain constraints.)  If false, skips constraints that would go between chains.  Only active with use_distance_cst.
 -   **task_operations**: A comma-separated list of TaskOperations to use.
 -   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).

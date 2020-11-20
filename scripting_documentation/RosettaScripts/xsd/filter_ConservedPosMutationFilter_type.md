@@ -7,6 +7,7 @@ Returns true if the given pose passes the filter, false otherwise. In this case,
 
 ```xml
 <ConservedPosMutationFilter name="(&string;)"
+        use_occurrence_data="(true &bool;)"
         restrict_to_repacking="(true &bool;)"
         convert_scores_to_probabilities="(true &bool;)" filename="(&string;)"
         min_aa_probability="(&real;)" keep_native="(&bool;)"
@@ -37,6 +38,7 @@ Returns true if the given pose passes the filter, false otherwise. In this case,
 </ConservedPosMutationFilter>
 ```
 
+-   **use_occurrence_data**: Should we restrict positions to mutations that have occurrence larger than zero
 -   **restrict_to_repacking**: XRW TO DO
 -   **convert_scores_to_probabilities**: XRW TO DO
 -   **filename**: XRW TO DO
