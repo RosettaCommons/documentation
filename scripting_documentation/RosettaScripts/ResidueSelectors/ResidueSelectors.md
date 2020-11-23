@@ -290,6 +290,20 @@ The BondedResidueSelector can also take a residue selector as a subtag:
 ```
 Only one residue selector may be provided, and it is mutually exclusive with the resnum list.
 
+#### CloseContactResidueSelector
+    <CloseContact name=(%string) residue_selector=(%string) contact_threshold=(4.5%float)/>
+
+or
+
+    <CloseContact name=(%string) contact_threshold=(4.5%float)>
+       <Selector ... />
+    </CloseContact>
+
+-   The CloseContactResidueSelector selects all the residues within a certain distance cutoff of a focused set of residues. This is similar to the NeighborhoodResidueSelector (below) except that the distances measured are atom-to-atom distances. The CloseContact selector is sensitive to which rotamer is placed at a certain residue (e.g. if the tyrosine rotamer points to the left, then its close contacts are found on the left); the Neighborhood selector, in contrast, selects residues within a sphere centered at the CBeta atom.
+-   It sets each position in the ResidueSubset that corresponds to a residue within a certain distance of the focused set of residues __as well as the residues in the focused set__ to true, and sets all other positions to false.
+-   The set of focused residues can be specified in one of two (mutually exclusive) ways: through a previously-declared ResidueSelector using the "residue_selector" option, or by defining a subtag that declares an anonymous ResidueSelector.
+
+
 #### HBondSelector
 
 HBondSelector selects all residues with hydrogen bonds to the residues specified in the input (either by a comma-separated resnum list or by a residue selector). If no input residues are selected, then all residues in the pose forming hydrogen bonds stronger than the specified energy cutoff are selected.
