@@ -1,5 +1,9 @@
 #Rna Denovo: RNA 3D structure modeling
 
+#Deprecation notice
+
+As of mid-2020, your best choice for whole-RNA modeling with fragment assembly is [[FARFAR2]], which uses the same executable and many of the same flags. FARFAR2 represents a new set of defaults and some changes in behavior, so this documentation will be a little out of date. 
+
 #Application purpose
 To produce <i>de novo</i> models of small RNA motifs through Fragment Assembly of RNA with Full Atom Refinement (FARFAR).
 
