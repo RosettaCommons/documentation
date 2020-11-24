@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-10-26
+Generated: 2020-11-24
 
 _Note that some application specific options may not be present in this list._
 
@@ -4390,8 +4390,18 @@ _Note that some application specific options may not be present in this list._
 <dd>If a lariat cyclization type is specified (e.g. nterm_isopeptide_lariat, cterm_isopeptide_lariat), then this is the residue that provides the side-chain that connects to the N- or C-terminus of the peptide.  If not specified, the residue of appropriate type closest to the other end is used.<br/>Default: 0<br/></dd>
 <dt><b>-sidechain_isopeptide_indices</b> \<IntegerVector\></dt>
 <dd>If the sidechain_isopeptide cyclization type is specified, these are the indices of the residues that are linked by a sidechain-sidechain isopeptide bond to make the loop.  If not specified, the residues furthest apart of appropriate types are used.  Note that exactly two indices must be given.<br/></dd>
+<dt><b>-paraBBMB_positions</b> \<IntegerVector\></dt>
+<dd>If provided, then these positions will be linked by a 1,4-bis(bromomethyl)benzene, or para-BBMB, crosslinker.  2N positions must be specified, and every group of two will be linked.  Unused if not specified.<br/></dd>
+<dt><b>-use_paraBBMB_filters</b> \<Boolean\></dt>
+<dd>If true, then filters are applied based on distance between BBMB cysteines and on constraints to discard GenKIC solutions that can't be crosslinked easily.  True by default.<br/>Default: true<br/></dd>
+<dt><b>-paraBBMB_sidechain_distance_filter_multiplier</b> \<Real\></dt>
+<dd>A multiplier for the distance cutoff for BBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
+<dt><b>-paraBBMB_constraints_energy_filter_multiplier</b> \<Real\></dt>
+<dd>A multiplier for the constraints energy for BBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
+<dt><b>-link_all_cys_with_paraBBMB</b> \<Boolean\></dt>
+<dd>If true, then all cysteine residues in the peptide are linked with 1,4-bis(bromomethyl)benzene.  There must be exactly two cysteine residues for this flag to be used, and it cannot be used with the -paraBBMB_positions flag, the -TBMB_positions flag, or the -link_all_cys_with_TBMB flag.  False/unused by default.<br/>Default: false<br/></dd>
 <dt><b>-TBMB_positions</b> \<IntegerVector\></dt>
-<dd>If provided, then these positions will be linked by a 1,3,5-tris(bromomethyl)benzene crosslinker.  3N positions must be specified, and every group of three will be linked.  Unused if not specified.<br/></dd>
+<dd>If provided, then these positions will be linked by a 1,3,5-tris(bromomethyl)benzene, or TBMB, crosslinker.  3N positions must be specified, and every group of three will be linked.  Unused if not specified.<br/></dd>
 <dt><b>-use_TBMB_filters</b> \<Boolean\></dt>
 <dd>If true, then filters are applied based on distance between TBMB cysteines and on constraints to discard GenKIC solutions that can't be crosslinked easily.  True by default.<br/>Default: true<br/></dd>
 <dt><b>-TBMB_sidechain_distance_filter_multiplier</b> \<Real\></dt>
@@ -4399,7 +4409,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-TBMB_constraints_energy_filter_multiplier</b> \<Real\></dt>
 <dd>A multiplier for the constraints energy for TBMB cysteines.  Higher values result in more permissive filtering.  Default 1.0.<br/>Default: 1.0<br/></dd>
 <dt><b>-link_all_cys_with_TBMB</b> \<Boolean\></dt>
-<dd>If true, then all cysteine residues in the peptide are linked with 1,3,5-tris(bromomethyl)benzene.  There must be exactly three cysteine residues for this flag to be used, and it cannot be used with the -TBMB_positions flag.  False/unused by default.<br/>Default: false<br/></dd>
+<dd>If true, then all cysteine residues in the peptide are linked with 1,3,5-tris(bromomethyl)benzene.  There must be exactly three cysteine residues for this flag to be used, and it cannot be used with the -paraBBMB_positions flag, the -TBMB_positions flag, or the -link_all_cys_with_paraBBMB flag.  False/unused by default.<br/>Default: false<br/></dd>
 <dt><b>-TMA_positions</b> \<IntegerVector\></dt>
 <dd>If provided, then these positions will be linked by a trimesic acid crosslinker.  The positions must have sidechain primary amines (i.e. be one of lysine [LYS], ornithine [ORN], 2,4-diaminobutyric acid [DAB], or 2,3-diaminopripionic acid [DPP].  There must be 3N positions specified, and every group of three will be linked.  Unused if not specified.<br/></dd>
 <dt><b>-use_TMA_filters</b> \<Boolean\></dt>
