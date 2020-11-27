@@ -1,11 +1,11 @@
-#FARFAR2: Homology modeling and ab initio prediction of whole RNA 3D structures
+# FARFAR2: Homology modeling and ab initio prediction of whole RNA 3D structures
 
-#Application purpose
+# Application purpose
 To produce <i>de novo</i> models of RNA structures up to around 250nt, or homology models of RNA structures where up to about 80 nt are not in known templates or A-form helices, through a parameter-optimized version of Fragment Assembly of RNA with Full Atom Refinement (FARFAR), which we're calling FARFAR2.
 
 Note that most of the functionality of FARFAR2 is now available on a [ROSIE FARFAR server](http://rosie.rosettacommons.org/farfar2), if you want to do some easy tests.
 
-#Code and Demo
+# Code and Demo
 
 The central code for the *rna\_denovo* application is in `       src/protocols/rna/denovo/RNA_DeNovoProtocol.cc      ` .
 
@@ -13,7 +13,7 @@ For a 'minimal' demo example of the RNA fragment assembly and full-atom minimiza
 
 `       demos/public/FARFAR2      `
 
-#References
+# References
 Watkins, A. M.; Das, R. “FARFAR2: Improved de novo Rosetta prediction of complex global RNA folds.” bioRxiv, 2019. [Link.](https://doi.org/10.1101/764449)
 Watkins, A. M.; Rangan, R.; Das, R. “FARFAR2: Improved de novo Rosetta prediction of complex global RNA folds.” Structure, 2020, 28: 963-976. [Link.](https://doi.org/10.1016/j.str.2020.05.011)
 
@@ -41,14 +41,14 @@ Algorithmic description of FARFAR (i.e., Fragment Assembly of RNA with Full Atom
 -   It is strongly suggested that you run with "-minimize\_rna", which permits the refinement in the high-resolution Rosetta potential, and results in models with few steric clashes and 'cleaner' hydrogen bonds.
 
 
-#Input Files
+# Input Files
 
 
-##Required file
+## Required file
 
 FARNA (rna_denovo) can accept sequence and secondary structure from command line, and does not require any files. However, using file input can help with organizing runs.
 
-##Optional additional files:
+## Optional additional files:
 
 -   The [[fasta file]]: it is a sequence file for your RNA. Its header lines can specify chains and numbering for the output structures, too.
 
@@ -56,7 +56,7 @@ FARNA (rna_denovo) can accept sequence and secondary structure from command line
 
 -   Native pdb file, if all-heavy-atom rmsd's are desired. Must be in Rosetta's [PDB format for RNA](#File-Format).
 
-##How to include these files.
+## How to include these files.
 
 A sample command line is the following:
 
@@ -74,7 +74,7 @@ The code takes about 1 minute to generate two models.
 
 The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. Example fasta and secstruct files are available in `       demos/public/rna_denovo      ` .
 
-#Options
+# Options
 ## Commonly used options
 ```
 -in:fasta                                        Fasta-formatted sequence file. [FileVector]
@@ -135,10 +135,121 @@ Advanced
 -staged_constraints                              Apply constraints in stages depending on sequence separation
 -close_loops                                     Attempt closure across chainbreaks by cyclic coordinate descent after fragment moves [Boolean] Defaults to true.
 ```
-#Tips
+
+## Supported chemically modified nucleotides
+
+ICY - isocytidine  
+IGU - isoguanidine  
+INO - inosine  
+
+### 2'OMe
+A2M - 2'-O-methyladenosine  
+OMC - 2'-O-methylcytidine  
+OMG - 2'-O-methylguanosine  
+OMU - 2'-O-methyluridine  
+
+### Other 2' modifications
+5JO - 2'-O-prop-2-yn-1-yladenosine  
+A44 - 2'-O-methoxyethyladenosine  
+C43 - 2'-O-methoxyethylcytidine  
+C5L - 2'-O-methoxyethyl-5-methylcytidine  
+G48 - 2'-O-methoxyethylguanosine  
+U36 - 2'-O-methoxyethyluridine  
+
+### 2'F
+FMA - 2'-fluoroadenosine  
+FMC - 2'-fluorocytidine  
+FMG - 2'-fluoroguanosine  
+FMU - 2'-fluorouridine  
+
+### OP1 => SP1
+SRA - adenosine-thiomonophosphate (enantiomer 1)  
+SRC - cytidine-thiomonophosphate (enantiomer 1)  
+SRG - guanosine-thiomonophosphate (enantiomer 1)  
+SRU - uridine-thiomonophosphate (enantiomer 1)  
+
+### OP1 => SP2
+SSA - adenosine-thiomonophosphate (enantiomer 2)  
+SSC - cytidine-thiomonophosphate (enantiomer 2)  
+SSG - guanosine-thiomonophosphate (enantiomer 2)  
+SSU - uridine-thiomonophosphate (enantiomer 2)  
 
 
-##File Format 
+### Modified bases
+1AP - 2,6-diaminopurine  
+1MA - 1-methyl-6-hydroadenosine  
+2MA - 2-methyladenosine  
+2MG - 2-methylguanosine  
+2MU - 2'O-,5-dimethyluridine  
+4OC - 2'O-,5-dimethylcytidine  
+5MC - 5-methylcytidine  
+5MU - 5-methyluridine  
+BRU - 5-bromo-2'O-deoxyuridine  
+5BU - 5-bromouridine  
+7MG - 7-methyl-8-hydroguanosine  
+G7M - 7-methyl-guanosine  
+7DA - 7-deaza-2'O-deoxyadenosine  
+M2G - 2-dimethylguanosine  
+MA6 - 6-dimethyladenosine  
+PSU - pseudouridine  
+UR3 - 3-methyluridine  
+6MZ - 6-methyladenosine  
+1MG - 1-methylguanosine  
+4SU - 4-thiouridine  
+3TD - 3-methylpseudouridine  
+H2U - dihydrouridine  
+MIA - 2-methylthio-6-isopentenyladenosine  
+5FU - 5-fluorouridine  
+5IU - 5-iodouridine  
+2AP - 2-aminopurine  
+PUR - purine  
+6MG - 6-methylguanosine  
+5FC - 5-fluorocytidine  
+8OG - 8-oxo-2'-deoxyguanosine  
+OMI - 2'O-methylinosine  
+CFM - 2'O-methyl-5-formylcytidine  
+PPU - puromycin  
+AET - N6-methyl,N6-carbamoylthreonyladenosine  
+T6A - N6-carbamoylthreonyladenosine  
+3MC - 3-methylcytidine  
+52C - 2',5-methylcytidine  
+RIA - 2'-(5'-phospho)ribosyladenosine  
+QUO - queuesine  
+YYG - wybutosine  
+O2W - 2'-methylwybutosine  
+NMT - 2'-methylcarbamoyl-5-methyluridine  
+M3G - 2,2,2'-trimethylguanosine  
+<!-- residue_types/nucleic/rna_nonnatural/1PU.params -->
+<!-- residue_types/nucleic/rna_nonnatural/2ST.params -->
+<!-- residue_types/nucleic/rna_nonnatural/2SU.params -->
+<!-- residue_types/nucleic/rna_nonnatural/31U.params -->
+<!-- residue_types/nucleic/rna_nonnatural/52U.params -->
+<!-- residue_types/nucleic/rna_nonnatural/I6A.params -->
+<!-- residue_types/nucleic/rna_nonnatural/M1I.params -->
+<!-- residue_types/nucleic/rna_nonnatural/MPU.params -->
+<!-- residue_types/nucleic/rna_nonnatural/S2C.params -->
+<!-- residue_types/nucleic/rna_nonnatural/A4C.params -->
+<!-- residue_types/nucleic/rna_nonnatural/K2C.params -->
+<!-- residue_types/nucleic/rna_nonnatural/F5C.params -->
+<!-- residue_types/nucleic/rna_nonnatural/IHA.params -->
+<!-- residue_types/nucleic/rna_nonnatural/NST.params -->
+<!-- residue_types/nucleic/rna_nonnatural/C5T.params -->
+<!-- residue_types/nucleic/rna_nonnatural/CMT.params -->
+<!-- residue_types/nucleic/rna_nonnatural/MOT.params -->
+<!-- residue_types/nucleic/rna_nonnatural/MST.params -->
+<!-- residue_types/nucleic/rna_nonnatural/CNT.params -->
+<!-- residue_types/nucleic/rna_nonnatural/CNS.params -->
+<!-- residue_types/nucleic/rna_nonnatural/CNM.params -->
+<!-- residue_types/nucleic/rna_nonnatural/APU.params -->
+<!-- residue_types/nucleic/rna_nonnatural/OAU.params -->
+<!-- residue_types/nucleic/rna_nonnatural/MOU.params -->
+<!-- residue_types/nucleic/rna_nonnatural/MHU.params -->
+<!-- residue_types/nucleic/rna_nonnatural/M26.params -->
+<!-- residue_types/nucleic/rna_nonnatural/2FU.params -->
+
+# Tips
+
+## File Format 
 <a name="File-Format" />
 
 Note that in older versions of Rosetta, the PDBs may have residue types marked as rA, rC, rG, and rU and unusual atom names. Versions of Rosetta released after 3.5 have residue and atom names matching BMRB/NDB standard nomenclature. If you have a "standard" PDB file, there is a python script available to convert it to current Rosetta format:
@@ -147,7 +258,7 @@ Note that in older versions of Rosetta, the PDBs may have residue types marked a
 tools/rna_tools/bin/make_rna_rosetta_ready.py <pdb file>
 ```
 
-##Can I specify non-Watson-Crick pairs? 
+## Can I specify non-Watson-Crick pairs? 
 <a name="Can-I-specify-non-Watson-Crick-pairs?" />
 
 You can also specify base pairs that must be forced, even at the expense of creating temporary chainbreaks, in the params file, with a flag like
@@ -164,7 +275,7 @@ When specifying pairs, if there are not sufficient strand breaks to allow all th
 -cutpoint_closed 6
 ```
 
-##Can I use fragments that take advantage of our rich database of base pairings? 
+## Can I use fragments that take advantage of our rich database of base pairings? 
 
 Yes, by using the flags `-bps_moves`, you can ask the application to try to  draw from a database of "base pair steps". There are two kinds of those steps. 
 
@@ -182,7 +293,7 @@ using the flag `-bps_moves` will trigger moves that substitute sequence-matched 
 
 Note: For noncanonical pairs, we don't allow specification of edges and orientations at the moment -- the database gets pretty sparse with that level of specification. Also note: If there is a base pair step that includes a pair both inside a Watson/Crick stem and a more general 'obligate pair', the stem pairing may actually come out as non-Watson-Crick, which often happens anyway for base pairs at the edge of stems.
 
-##See Also
+## See Also
 
 * [RiboKit](https://ribokit.github.io/workflows/3D_modeling/): Workflows for experimentally-guided RNA 3D modeling.
 * [[RNA applications]]: The RNA applications home page
