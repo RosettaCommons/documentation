@@ -14,7 +14,6 @@ For a 'minimal' demo example of the RNA fragment assembly and full-atom minimiza
 `       demos/public/FARFAR2      `
 
 # References
-Watkins, A. M.; Das, R. “FARFAR2: Improved de novo Rosetta prediction of complex global RNA folds.” bioRxiv, 2019. [Link.](https://doi.org/10.1101/764449)
 Watkins, A. M.; Rangan, R.; Das, R. “FARFAR2: Improved de novo Rosetta prediction of complex global RNA folds.” Structure, 2020, 28: 963-976. [Link.](https://doi.org/10.1016/j.str.2020.05.011)
 
 #Algorithm
