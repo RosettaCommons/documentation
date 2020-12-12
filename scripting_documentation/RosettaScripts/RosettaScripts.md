@@ -5,6 +5,7 @@ Fleishman SJ, Leaver-Fay A, Corn JE, Strauch EM, Khare SD, et al. (2011) Rosetta
 
 ===
 
+-   [[Using RosettaScripts with VSCode|Using-RosettaScripts-with-VSCode]]
 -   [Introductory Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/scripting_with_rosettascripts/scripting_with_rosettascripts)
 -   [Advanced Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/advanced_scripting_with_rosettascripts/advanced_scripting_with_rosettascripts)
 
