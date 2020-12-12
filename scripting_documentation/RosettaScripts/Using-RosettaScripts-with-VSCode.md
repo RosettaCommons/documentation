@@ -5,7 +5,7 @@ Back to [[RosettaScripts]].
 
 ## Using RosettaScripts with VSCode
 
-The [[Visual Studio Code]](https://code.visualstudio.com/) editor can be a convenient tool for editing RosettaScripts XML.  This document shows how to enable auto-completion and mouse-over help in VSCode.
+The [Visual Studio Code](https://code.visualstudio.com/) editor can be a convenient tool for editing RosettaScripts XML.  This document shows how to enable auto-completion and mouse-over help in VSCode.
 
 [[_TOC_]]
 
