@@ -3,6 +3,7 @@
 ##RosettaScripts
  
 * [[Overview|RosettaScripts]]
+* [[Using RosettaScripts with VSCode|using_RosettaScripts_with_VSCode]]
 * [Introductory Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/scripting_with_rosettascripts/scripting_with_rosettascripts)
 
 ---------------------------------
