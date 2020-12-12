@@ -29,6 +29,13 @@ In the above, replace `<path to file>` with the path to the file relative to the
 
 And that's it!  Steps 1 and 2 only need be done once.  Step 3 need only be done when you compile a new version of Rosetta.  Step 4 needs to be done for each XML file that you work with, and unfortunately, the added `<root ... />` lines need to be commented out (flanked with `<!--` and `-->`) before running the script.  This will likely be addressed in the near future so that Rosetta just disregards these extra lines.  In the mean time, one can comment and uncomment these lines easily in VSCode by selecting them and pressing `Ctrl + /` on a PC, or `Command + /` on a Mac.
 
-# See also
+## Using VSCode
+
+When using VSCode:
+
+* `Ctrl + space` will bring up tab completion.  For example, in the `<MOVERS> ... </MOVERS>` block of a RosettaScripts script, you will see a list of all available scriptable movers if you hit `Ctrl + space`.  Within a tag, you'll see a list of all options for that tag.  In some cases, you can even get a list of allowed values for an option. For example, if you type `<MinMover name="minimize" type="" />`, put the cursor between the two quotation marks, and press `Ctrl + space`, you will see a list of all allowed minimization flavours in Rosetta.
+* Hovering the mouse over a block of text will bring up help.  For example, hovering over the name of a mover shows the description of that mover.  Hovering over an option in a tag shows a description of that option.
+
+## See also
 *  [[RosettaScripts]]
 *  [[Compiling Rosetta|Build-Documentation]].
