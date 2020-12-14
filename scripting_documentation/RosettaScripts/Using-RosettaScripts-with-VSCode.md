@@ -15,10 +15,8 @@ Follow the following four steps:
 
 1.  Install [VSCode](https://code.visualstudio.com/).
 2.  Open VSCode, and from the **View** menu, select **Extensions**.  Type "XSD" in the search dialogue, and select **Xml Complete**.  Click **Install**.
-
-2a.  You will probably want to install the XML and XML Tools packages as well. These allow more information from your XSD including docs for the sections and each class within. 
-
-3.  Export a RosettaScripts XSD file (a file defining all the allowed commands and syntax in RosettaScripts) from RosettaScripts.  To do this, from the commandline run:
+3.  You will probably want to install the XML and XML Tools packages as well. These allow more information from your XSD including docs for the sections and each class within. 
+4.  Export a RosettaScripts XSD file (a file defining all the allowed commands and syntax in RosettaScripts) from RosettaScripts.  To do this, from the commandline run:
 
 ```
 <path to Rosetta>/Rosetta/main/source/bin/rosetta_scripts.default.linuxgccrelease -output_schema rosettascripts.xsd
