@@ -20,11 +20,9 @@ Follow the following five steps:
 3.  You will probably want to install the XML and XML Tools packages as well. These allow more information from your XSD including docs for the sections and each class within.
 
 4.  Export a RosettaScripts XSD file (a file defining all the allowed commands and syntax in RosettaScripts) from RosettaScripts.  To do this, from the commandline run:
-
 ```
 <path to Rosetta>/Rosetta/main/source/bin/rosetta_scripts.default.linuxgccrelease -output_schema rosettascripts.xsd
 ```
-
 Replace `<path to Rosetta>` with your Rostta path, and `.default.linuxgccrelease` with your build, operating system, compiler, and mode (_e.g._ `.cxx11thread.maxcosclangrelease` for the threaded build on MacOS).  This command will run the RosettaScripts application, which will write out an XSD file and then exit.  Place this XSD file someplace convenient.  (Note that Rosetta [[must be compiled first|Build-Documentation]].)
 
 5.  Open a RosettaScripts XML file in VSCode.  (You can create a new, empty RosettaScripts XML file by running the RosettaScripts application with no options and cutting-and-pasting from the output into VSCode.)  Add the following lines to the top of your XML file:
