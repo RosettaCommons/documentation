@@ -167,7 +167,7 @@ Filter  | Description
 **[[HbondsToAtom|HbondsToAtomFilter]]** | Filter on number of h-bonding partners to an atom(s).
 **[[PeptideInternalHbondsFilter]]** | Filter on the number of hydrogen bonds in a single selection or pose, excluding bonds between residues within a threshold distance of each other in terms of covalent connectivity.
 **[[BuriedUnsatHbonds|BuriedUnsatHbondsFilter]]** | Filter on maximum number of buried unsatisfied h-bonds.
-**[[BuriedUnsatHbonds2|BuriedUnsatHbonds2Filter]]** | Filter on number of unsatisfied h-bonds at interfaces (different algorithm from filter above, currently devel only).
+**[[BuriedUnsatHbonds2|BuriedUnsatHbonds2Filter]]** | Filter on number of unsatisfied h-bonds at interfaces (different algorithm from filter above).
 **[[OversaturatedHbondAcceptorFilter]]** | Filter on number of hydrogen bond acceptors that are receiving hydrogen bonds from more than the allowed number of donors.
 **[[DisulfideFilter]]** | Filter based on the presence of a disulfide across an interface.
 **[[AveragePathLength|AveragePathLengthFilter]]** | Compute shortest graph path length where residues are nodes and covalent bonds are edges.
