@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-11-24
+Generated: 2020-12-16
 
 _Note that some application specific options may not be present in this list._
 
@@ -902,6 +902,8 @@ _Note that some application specific options may not be present in this list._
 <dd>A file specifying weights to use for each input structure.  Two columns.  basename with extension (or relative path or full path), weight<br/></dd>
 <dt><b>-HOSTNAME_in_jobname</b> \<Boolean\></dt>
 <dd>Pre-prefixes job with $HOSTNAME env var; useful for determining which server a job came from.  When running in k8s pods, makes jobs distinct if they are all _0001<br/></dd>
+<dt><b>-parse_script_once_only</b> \<Boolean\></dt>
+<dd>Skip reparsing the xml for every input and use the movers as they are? Some movers may not work correctly with this enabled.<br/>Default: false<br/></dd>
 </dl>
 + <h2>-view</h2>
 <dl>
