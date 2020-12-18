@@ -22,6 +22,7 @@ MotifGraft is a new implementation of the well know motif grafting protocol. The
         only_allow_if_C_point_match_aa_identity="(false &bool;)"
         revert_graft_to_native_sequence="(false &bool;)"
         allow_repeat_same_graft_output="(false &bool;)"
+        reinit_every_apply="(false &bool;)"
         output_cluster_tolerance="(-1.0 &real;)" output_filter="(&string;)" />
 ```
 
@@ -43,6 +44,7 @@ MotifGraft is a new implementation of the well know motif grafting protocol. The
 -   **only_allow_if_C_point_match_aa_identity**: This option will only perform grafts if the N-/C- point amino acids in the motif match the amino acids to be replaced in the target Scaffold fragment. This can be useful if for example one is looking to replace a fragment that starts in a S-S bridge
 -   **revert_graft_to_native_sequence**: This option will revert/transform/modify the sequence of the graft piece(s) in the sequence of the native scaffold, except the hotspots. This option only can work in conjunction with the full_bb alignment mode (full_motif_bb_alignment="1") and, of course, it only makes sense if you are replacing fragments in the target scaffold that are of the same size of your motif, which is the default behavior for full_bb alignment.
 -   **allow_repeat_same_graft_output**: If turned on it will prevent the generation of repeated outputs, in combination with a large number of -nstruc (e.g. 100), it can be useful to extract all the matches without repetition, since when the last n-graft match is reached the mover will stop. if turned off, the usual -nstruct behavior will happen, that is: rosetta will stop only when -nstructs are generated (even if it has to repeat n-times the same result) or if the mover fails (i.e. no graft matches at all).
+-   **reinit_every_apply**: If turned on it will clear the outputs every time apply is called. Useful for -parse_script_once_only
 -   **output_cluster_tolerance**: If this is enabled (set greater than 0), grafts will be clustered before being output in order to remove redundant grafts. This setting is the RMSD that will be used for clustering. This RMSD is not exact, but is correlated with an actual RMSD.
 -   **output_filter**: Only output results that pass this filter. This filter is applied before clustering. If many of your outputs fail your filters, apply the filter here will ensure that if any member of a cluster can pass the filter, that that member will be output.
 
