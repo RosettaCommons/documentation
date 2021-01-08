@@ -308,15 +308,15 @@ Once you have gotten a green slate from the test server, and you've reviewed you
 
 ####Pull requests from industry members and pull requests reviewed by industry members
 * If you contribute code to the RosettaCommons, you agree that your code becomes  the IP of the RosettaCommons.
-* If you work for a private entity and you open a pull request, your pull request must be approved by someone from _outside_ your company.
-* If you work for a private entity, you may approve pull requests from academia or from _outside_ of your company only.
+* If you are an employee of a private entity and you open a pull request, your pull request must be approved by someone from _outside_ your company (_i.e._ an academic Commons member or a Commons member employed by a different private entity).
+* If you are an employee of a private entity, you may approve pull requests from academia or from _outside_ of your company only.
 * No one may approve a PR that they themselves opened.
 
-|          | PR opened by academic Commons member | PR opened by Commons member at private company X | PR opened by Commons member at private company Y |
+|          | PR opened by academic Commons member | PR opened by Commons member employed by private company X | PR opened by Commons member employed by private company Y |
 | ----- | ----- | ----- | ----- |
 | Approval by academic Commons member | Allowed | Allowed | Allowed |
-| Approval by Commons member at private company X | Allowed | **Prohibited** | Allowed |
-| Approval by Commons member at private company Y | Allowed | Allowed | **Prohibited** |
+| Approval by Commons member employed by private company X | Allowed | **Prohibited** | Allowed |
+| Approval by Commons member employed by private company Y | Allowed | Allowed | **Prohibited** |
 
 ####What to do once your code is reviewed
 * Broadly, fix the problems identified by your reviewer.  Once those changes are pushed and the test server re-approves, ping your reviewer to let them know so they can re-review and turn the X into a checkmark.
