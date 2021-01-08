@@ -9,7 +9,7 @@ A metric for writing out a description of the Rosetta-calculated interaction gra
 <InteractionGraphSummaryMetric name="(&string;)" custom_type="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
         packer_palette="(&named_packer_palette;)" scorefxn="(&string;)"
-        skip_pose_reconstruction_info="(false &bool;)" />
+        skip_pose_reconstruction_info="(false &bool;)" filename="(&string;)" />
 ```
 
 -   **custom_type**: Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
@@ -18,5 +18,6 @@ A metric for writing out a description of the Rosetta-calculated interaction gra
 -   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **scorefxn**: Name of score function to use
 -   **skip_pose_reconstruction_info**: If true, then this metric only stores a summary of the interaction graph.  If false (the default), then it stores both the interaction graph summary and full information for reconstructing the pose.  False by default.
+-   **filename**: If this value is not empty, we will dump the IG summary to a file during calculation and simply return the filename as the return string. This results in a large amount of information being written directly to disk by each process. This will perform variable substituion on the "{rand}" substring such that "path/to/{rand}.txt" will result in something like "path/to/5748295.txt". The number will be different for each call so you can re-use the same metric without overwriting previous results.
 
 ---
