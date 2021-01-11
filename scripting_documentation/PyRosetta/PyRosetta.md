@@ -20,7 +20,7 @@ Note: Python 2.6 or better is required. Python 3 now works with the [PyRosetta-4
         ```
 
 ### PyRosetta-4 ###
-3. From the main PyRosetta directory, run `python setup.py install`
+3. From the main PyRosetta directory, run `python setup/setup.py install`
 
 4.  __Be aware that running PyRosetta is now different than for PyRosetta-3:  See below__.
 
