@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2020-12-16
+Generated: 2021-01-13
 
 _Note that some application specific options may not be present in this list._
 
@@ -3288,6 +3288,15 @@ _Note that some application specific options may not be present in this list._
 <dd>hold the anchor-containing loop fixed.  Currently in testing.<br/>Default: false<br/></dd>
 <dt><b>-randomize_input_sequence</b> \<Boolean\></dt>
 <dd>randomizes the input sequence by packing with a null scorefunction; uses the AnchoredDesign-specified packer task (obeys resfile, etc).<br/>Default: false<br/></dd>
+</dl>
++ <h2>-simple_metrics</h2>
+<dl>
+<dt><b>-simple_metrics</b> \<Boolean\></dt>
+<dd>simple_metrics option group<br/></dd>
+<dt><b>-use_name_as_custom_type</b> \<Boolean\></dt>
+<dd>Use the name of the tag as the custom_type unless a custom_type. For use outside of Protocols section<br/>Default: false<br/></dd>
+<dt><b>-use_name_as_metric</b> \<Boolean\></dt>
+<dd>Use the name of the tag as the full name of the metric. For use outside of Protocols section. <br/>Default: false<br/></dd>
 </dl>
 + <h2>-antibody</h2>
 <dl>
