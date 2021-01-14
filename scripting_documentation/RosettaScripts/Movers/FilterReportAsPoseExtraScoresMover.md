@@ -13,8 +13,9 @@ This value can be extracted using [[ReadPoseExtraScoreFilter|ReadPoseExtraScoreF
 - filter_name: The Filter object to run.  It expects to go dig this out of the DataMap, so it should have been declared in the FILTERS block of your xml.
 
 ##Note 
-The add option in the protocols sections accepts `report_at_end` value, which will prevent filters returning the value at the end of the run. For example
-```XML
+The `Add` tag in the protocols sections accepts `report_at_end` value, which will prevent filters returning the value at the end of the run. For example
+
+```xml
 <Add filter="vbuns" report_at_end="false"  />
 ```
 
