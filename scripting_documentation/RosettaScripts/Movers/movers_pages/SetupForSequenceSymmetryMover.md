@@ -13,6 +13,7 @@ It is possible to use different types of residue selectors but all linked select
 Additionally, each SetupForSequenceSymmetry mover must be associated with a specific KeepSequenceSymmetry task operation using the *sequence_symmetry_behaviour* option.
 
 Please note, the mover uses a caching system to store linked regions once the mover has been applied. Therefore, if residues are added or removed before packing it may result in unintended behaviour.
+It is recommended that users apply the SetupForSequenceSymmetry mover immediately before a packing step.
 
 ### Example
 Say you have a 7 chain protein: 2 dimers and a trimer (2+2+3), where you want to enforce sequence symmetry on each dimer and the trimer simultaneously:
