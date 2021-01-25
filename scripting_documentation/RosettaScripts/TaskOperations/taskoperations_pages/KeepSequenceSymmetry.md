@@ -9,6 +9,13 @@ When used, the packer will enforce identical sequences for all linked regions de
 
 **NOTE**: if there are no common residue types amongst linked residues the annealer will exit as it cannot assign any valid residue types to these positions.
 
+### Syntax
+
+```xml
+<KeepSequenceSymmetry name="(&string)" setting="true(&bool)"/>
+```
+* **setting**: If true, Rosetta will activate the SequenceSymmetricAnnealer. Use this when you want to design identical regions but do not want/cannot enforce physical symmetry.
+
 ### Residue Linking Logic
 
 The linking logic for the task operation relies on predefined ResidueSelectors, specified in SequenceSymmetry subtags in an associated [[SetupForSequenceSymmetryMover]].
@@ -16,6 +23,8 @@ More specifically, it uses a lists, ordered by Rosetta residue IDs, of the resid
 Therefore, all ResidueSelectors defined in a subtag must define the same number of residues.
 Moreover, if any residues are defined in multiple subtags then the union of all defined links will be used, see below for an example.
 Any residues not defined by a SequenceSymmetry tag will be treated normally.
+
+### Example
 
 Consider the scenario described by the following XML:
 
@@ -52,14 +61,6 @@ Therefore, the final links are as follows (where <-> denotes a linkage):
 - 6 <-> 23
 - 7 <-> 24
 - 7 <-> 25
-
-### Syntax
-```xml
-<KeepSequenceSymmetry name="(&string)" setting="true(&bool)"/>
-```
-* **setting**: If true, Rosetta will activate the SequenceSymmetricAnnealer. Use this when you want to design identical regions but do not want/cannot enforce physical symmetry.
-
-Please report bugs to jack@med.unc.edu
 
 ### Developer Info
 
