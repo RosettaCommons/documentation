@@ -1,28 +1,28 @@
 # KeepSequenceSymmetry
-*Back to [[TaskOperations|TaskOperations-RosettaScripts]] page.*
+*Back to [[TaskOperations|TaskOperations-RosettaScripts]] page. Page last updated 25 January 2021.*
 ## KeepSequenceSymmetry
 
-This feature was created to perform the same purpose of link residues,
-but hopefully in a more user-friendly way.
+This feature was created to perform the same purpose of link residues, but hopefully in a more user-friendly way. 
+It must be paired with a corresponding [[SetupForSequenceSymmetryMover]] to have any affect.
 
-When used, the packer will enforce that all chains end up with the same sequence.
-It uses pdb info to link residues together,
-so all residues with the same pdb number will be the same amino acid in the end.
+When used, the packer will enforce identical sequences for all linked regions defined in a corresponding **SetupForSequenceSymmetryMover**.
 
-A residue will not be allowed to mutate unless it has a partner on every chain in the pose.
-
-Like traditional symmetry, this assumes that all chains are part of the same symmetric system.
-It is impossible to have by default, say, chains A+B+C where A+B are symmetric and C is separate.
-If this is not the case for you, check out the SetupForSequenceSymmetry mover.
+### Linking Residue Logic
 
 
+
+### Syntax
 ```xml
 <KeepSequenceSymmetry name="(&string)" setting="true(&bool)"/>
 ```
-
-*setting:* If true, Rosetta will activate the SequenceSymmetricAnnealer. Use this when you give Rosetta a multimer to design and you want the sequences of the chains to be the same but you don't need strict physical symmetry.
+* **setting**: If true, Rosetta will activate the SequenceSymmetricAnnealer. Use this when you want to design identical regions but do not want/cannot enforce physical symmetry.
 
 Please report bugs to jack@med.unc.edu
+
+### Developer Info
+
+Enabling this task operation will construct the SequenceSymmetricAnnealer.
+Introduced in PR 4260, updated in PR 5168. 
 
 ##See Also
 
