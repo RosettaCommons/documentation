@@ -159,6 +159,7 @@ Mover  | Description
 **[[AddConstraintsToCurrentConformationMover]]** | Adds constraints based on the current conformation
 **[[AddNetChargeConstraintMover]]** | Adds sequence constraints to penalize deviation from a desired net charge, enforced by the [[netcharge score term|NetChargeEnergy]].
 **[[AddMHCEpitopeConstraintMover]]** | Adds sequence-based constraints to penalize immunogenic epitopes, enforced by the [[mhc_epitope scoreterm|MHCEpitopeEnergy]].
+**[[AddResidueCouplingConstraint]]** | Adds co-evolutionary constraints to favor more natural sequences and to retain function during design
 **[[AtomCoordinateCstMover]]** | Adds coordinate constraints for Relax
 **[[ClearConstraintsMover]]** | Removes all constraints (geometric and sequence) from the pose
 **[[ReleaseConstraintFromResidueMover]]** | The same as [[ClearConstraintsMover]] but only for selected residues
