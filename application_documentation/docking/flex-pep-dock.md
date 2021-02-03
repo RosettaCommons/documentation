@@ -153,17 +153,17 @@ II. Relevant Common Rosetta flags
 
 More information on common Rosetta flags can be found in the [[relevant rosetta manual pages|Rosetta-Basics]]. In particular, flags related to the job-distributor (jd2), scoring function, constraint files and packing resfiles are identical to those in any other Rosetta protocol).
 
-|  Flag  |  Description  |
-|:-------|:--------------|
-| -in::file::s  Or -in:file:silent| Specify starting structure (in::file::s for PDB format, in:file:silent for silent file format).|
-| -in::file::silent_struct_type  -out::file::silent_struct_type|Format of silent file to be read in/out. For silent output, use the binary file type since other types may not support ideal form|
-|-native|Specify the native structure for which to compare in RMSD calculations. When the native is not given, the starting structure is used for reference.|
-|-nstruct|Number of models to create in the simulation|
-|-unboundrot|Add the position-sepcific rotamers of the specified structure to the rotamer library (usually used to include rotamers of unbound receptor)|
-|-use_input_sc|Include rotamer conformations from the input structure during side-chain repacking. Unlike the -unboundrot flag, not all rotamers from the input structure are added each time to the rotamer library, only those conformations accepted at the end of each round are kept and the remaining conformations are lost.|
-|-ex1/-ex1aro -ex2/-ex2aro -ex3 -ex4|Adding extra side-chain rotamers (highly   recommended). The -ex1 and -ex2aro flags were used in our own tests, and therefore are recommended as default values.|
-|-database|The Rosetta database|
-|-frag3 / -flexPepDocking:frag5 / -frag9|3mer / 5mer / 9mer fragments files for ab-initio peptide docking (9mer fragments for peptides longer than 9).|
+|  Flag  |  Description  |  Type  |  Default  |
+|:-------|:--------------|:-------|:----------|
+| -in::file::s  Or -in:file:silent| Specify starting structure (in::file::s for PDB format, in:file:silent for silent file format).| File | N/A |
+| -in::file::silent_struct_type  -out::file::silent_struct_type|Format of silent file to be read in/out. For silent output, use the binary file type since other types may not support ideal form| Filetype | N/A |
+|-native|Specify the native structure for which to compare in RMSD calculations. When the native is not given, the starting structure is used for reference.| File | N/A |
+|-nstruct|Number of models to create in the simulation| Number | 1 |
+|-unboundrot|Add the position-sepcific rotamers of the specified structure to the rotamer library (usually used to include rotamers of unbound receptor)| File | N/A |
+|-use_input_sc|Include rotamer conformations from the input structure during side-chain repacking. Unlike the -unboundrot flag, not all rotamers from the input structure are added each time to the rotamer library, only those conformations accepted at the end of each round are kept and the remaining conformations are lost.| Boolean | False |
+|-ex1/-ex1aro -ex2/-ex2aro -ex3 -ex4|Adding extra side-chain rotamers (highly   recommended). The -ex1 and -ex2aro flags were used in our own tests, and therefore are recommended as default values.| Boolean | False |
+|-database|The Rosetta database | Directory | N/A |
+|-frag3 / -flexPepDocking:frag5 / -frag9|3mer / 5mer / 9mer fragments files for ab-initio peptide docking (9mer fragments for peptides longer than 9).| File | N/A |
 
 III. Expert flags
 -----------------
