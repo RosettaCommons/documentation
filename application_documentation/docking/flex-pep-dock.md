@@ -73,20 +73,21 @@ Modes
 -----
 
 -   **Pre-pack mode** ( -flexpep\_prepack flag):
-     The pre-packing mode optimizes the side-chains of each monomer according to the [[Rosetta energy function|score-types]]. Unless you know what you are doing, we strongly recommend pre-packing the input structures, and applying one of the peptide docking protocols to the resulting pre-packed structures, as this can improve model selection considerably (see below). However, in cases where side-chains have been previously optimized by Rosetta using the same scoring function, this step can be skipped.
+     The pre-packing mode optimizes the side-chains of each monomer according to the [[Rosetta energy function|score-types]]. Unless you know what you are doing, we strongly recommend pre-packing the input structures, and applying one of the peptide docking protocols to the resulting pre-packed structures, as this can improve model selection considerably (see below at *More tips*). However, in cases where side-chains have been previously optimized by Rosetta using the same scoring function, this step can be skipped.
 
 -   **Low-resolution *ab-initio* mode** (-lowres\_abinitio flag):
-     This is the main part of the *ab-initio* peptide docking protocol, for simultaneous *ab-initio* folding and docking of the peptide over the protein surface. This mode is typicalled used together with the refinement mode ( -pep\_refine flag) - in this case, the peptide is first folded *de-novo* and then refined.
+     This is the main part of the *ab-initio* peptide docking protocol, for simultaneous *ab-initio* folding and docking of the peptide over the protein surface. This mode is typically used together with the refinement mode ( -pep\_refine flag) - in this case, the peptide is first folded *de-novo* and then refined.
 
 -   **Refinement mode** ( -pep\_refine flag)
-     High-resolution refinement, starting from a coarse model of the complex. This protocol may be used together with the lowres\_preoptimize flag, see below. It is also used for refining the low-resolution structure that results from the low-resolution *ab-initio* protocol (these two modes can be used together)
-     Important note: for most input files, we strongly recommend running the prepack mode (below) before running the *ab-initio* or Refinement protocols.
+     High-resolution refinement, starting from a coarse model of the complex. This protocol may be used together with the lowres\_preoptimize flag, see below. It is also used for refining the low-resolution structure that results from the low-resolution *ab-initio* protocol (these two modes can be used together)  
+
+     _Important note: for most input files, we strongly recommend running the prepack mode (below) before running the *ab-initio* or Refinement protocols._
 
 -   **Rescoring mode** (-flexpep\_score\_only)
      This mode rescores the input PDB structures, and outputs elaborate statistics about them in the score file.
 
 -   **Minimization mode** (-flexPepDockingMinimizeOnly)
-     Perform a short minimization of the peptide protein interface without going into the docking simulation (including all side-chain torsion angles ; all peptide backbone torsion angles ; and the rigid body orientation of the peptide relative to the receptor)
+     Perform a short minimization of the peptide protein interface without going into the docking simulation (including all side-chain torsion angles ; all peptide backbone torsion angles ; and the rigid body orientation of the peptide relative to the receptor). *For minimization, no prepack is required.*
 
 For the refinement step in PIPER-FlexPepDock use:
 
