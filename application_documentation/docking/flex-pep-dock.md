@@ -156,7 +156,7 @@ More information on common Rosetta flags can be found in the [[relevant rosetta 
 |  Flag  |  Description  |  Type  |  Default  |
 |:-------|:--------------|:-------|:----------|
 | -in::file::s  Or -in:file:silent| Specify starting structure (in::file::s for PDB format, in:file:silent for silent file format).| File | N/A |
-| -in::file::silent_struct_type  -out::file::silent_struct_type|Format of silent file to be read in/out. For silent output, use the binary file type since other types may not support ideal form| Filetype | N/A |
+| -in::file::silent_struct_type  -out::file::silent_struct_type|Format of silent file to be read in/out. For silent output, use the binary file type since other types may not support ideal form| String | N/A |
 |-native|Specify the native structure for which to compare in RMSD calculations. When the native is not given, the starting structure is used for reference.| File | N/A |
 |-nstruct|Number of models to create in the simulation| Number | 1 |
 |-unboundrot|Add the position-sepcific rotamers of the specified structure to the rotamer library (usually used to include rotamers of unbound receptor)| File | N/A |
