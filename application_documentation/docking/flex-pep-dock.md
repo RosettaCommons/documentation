@@ -148,8 +148,7 @@ I. Common FlexPepDock flags:
 |-flexPepDockingMinimizeOnly| Minimization mode. Perform only a short minimization of the input complex|Boolean|false|
 | -ref_startstruct| Alternative start structure for scoring statistics,instead of the original start structure (useful as reference for rescoring previous runs with the -flexpep_score_only flag.)| File| N/A|
 |-peptide_anchor| Set the peptide anchor residue manually. It is recommended to override the default value only if one strongly suspects the critical region for peptide binding is extremely remote from its center of mass.| Integer| Residue nearest to the peptide center of mass.|
-|-design_peptide | Within refinement, design protein facing peptide positions
-| Boolean| False |
+|-design_peptide | Within refinement, design protein facing peptide positions | Boolean| False |
 
 II. Relevant Common Rosetta flags
 ---------------------------------
