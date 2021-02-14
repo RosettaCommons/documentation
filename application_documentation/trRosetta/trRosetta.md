@@ -46,7 +46,6 @@ TODO
 - The original PyRosetta implementation mutated all glycine residues to alanine during centroid phases of the protocol, and back again during the full-atom phase.  This allowed the CA1-CB1-CB2-CA2 dihedral to be defined even for glycine residues during centroid minimization, but during full-atom minimization, glycine orientation constraints were ignored.  The C++ implementation follows nearly the same protocol, with two exceptions:
     - Although glycine residues are temporarily mutated to alanine during the centroid phase, and then reverted to glycine for full-atom refinement, as in the Python protocol, _if_ this were overridden, the C++ code uses the CEN atom in place of CB for glycine residues when constraining dihedrals in centroid mode.
     - In fullatom mode, the C++ code uses 1HA in place of CB for glycine residues when constraining dihedrals.  This means that orientation constraints for glycine are _not_ ignored in fullatom refinement phases.
-- The original PyRosetta implementation included a small bug that prevented constraints from being applied to the terminal residue.  The C++ implementation constrains all residues.
 
 ##See Also
 * [[Structure prediction applications]]: Includes links to these and other applications for loop modeling
