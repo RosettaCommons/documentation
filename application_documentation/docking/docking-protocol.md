@@ -32,7 +32,8 @@ References
 
 We recommend the following articles for further studies of RosettaDock methodology and applications:
 
--   Gray, J. J.; Moughon, S.; Wang, C.; Schueler-Furman, O.; Kuhlman, B.; Rohl, C. A.; Baker, D., Protein-protein docking with simultaneous optimization of rigid-body displacement and side-chain conformations. Journal of Molecular Biology 2003, 331, (1), 281-299.
+-   Original protocol: Gray, J. J.; Moughon, S.; Wang, C.; Schueler-Furman, O.; Kuhlman, B.; Rohl, C. A.; Baker, D., Protein-protein docking with simultaneous optimization of rigid-body displacement and side-chain conformations. Journal of Molecular Biology 2003, 331, (1), 281-299.
+-   Current version (4.0): Marze, NA; Roy Burman, SS; Sheffler, W; Gray, JJ. Efficient flexible backbone protein–protein docking for challenging targets. Bioinformatics 34(20), 3461–3469
 -   Wang, C., Schueler-Furman, O., Baker, D. (2005). Improved side-chain modeling for protein-protein docking Protein Sci 14, 1328-1339.
 -   Wang, C., Bradley, P. and Baker, D. (2007) Protein-protein docking with backbone flexibility. Journal of Molecular Biology, 2007 Oct 19;373(2):503-19. Epub 2007 Aug 2.
 -   S. Chaudhury & J. J. Gray, "Conformer selection and induced fit in flexible backbone protein-protein docking using computational and NMR ensembles," J. Mol. Biol. 381(4), 1068-1087 (2008). [[Online|http://dx.doi.org/10.1016/j.jmb.2008.05.042]]
