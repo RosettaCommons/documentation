@@ -7,18 +7,21 @@ XRW TO DO
 
 ```xml
 <PeptideCyclizeMover name="(&string;)" residue_selector="(&string;)" >
-    <Bond res1="(&non_negative_integer;)" atom1="(&string;)"
-            res2="(&non_negative_integer;)" atom2="(&string;)"
+    <Bond res1="(&non_negative_integer;)" res1_sel="(&string;)" atom1="(&string;)"
+            res2="(&non_negative_integer;)" res2_sel="(&string;)" atom2="(&string;)"
             add_termini="(&bool;)" rebuild_fold_tree="(false &bool;)" />
-    <Distance res1="(&non_negative_integer;)" atom1="(&string;)"
-            res2="(&non_negative_integer;)" atom2="(&string;)" cst_func="(&string;)" />
-    <Angle res_center="(&non_negative_integer;)" atom_center="(&string;)"
-            res1="(&non_negative_integer;)" atom1="(&string;)"
-            res2="(&non_negative_integer;)" atom2="(&string;)" cst_func="(&string;)" />
-    <Torsion res1="(&non_negative_integer;)" atom1="(&string;)"
-            res2="(&non_negative_integer;)" atom2="(&string;)"
-            res3="(&non_negative_integer;)" atom3="(&string;)"
-            res4="(&non_negative_integer;)" atom4="(&string;)" cst_func="(&string;)" />
+    <Distance res1="(&non_negative_integer;)" res1_sel="(&string;)"
+            atom1="(&string;)" res2="(&non_negative_integer;)" res2_sel="(&string;)"
+            atom2="(&string;)" cst_func="(&string;)" />
+    <Angle res_center="(&non_negative_integer;)" res_center_sel="(&string;)"
+            atom_center="(&string;)" res1="(&non_negative_integer;)"
+            res1_sel="(&string;)" atom1="(&string;)" res2="(&non_negative_integer;)"
+            res2_sel="(&string;)" atom2="(&string;)" cst_func="(&string;)" />
+    <Torsion res1="(&non_negative_integer;)" res1_sel="(&string;)"
+            atom1="(&string;)" res2="(&non_negative_integer;)" res2_sel="(&string;)"
+            atom2="(&string;)" res3="(&non_negative_integer;)" res3_sel="(&string;)"
+            atom3="(&string;)" res4="(&non_negative_integer;)" res4_sel="(&string;)"
+            atom4="(&string;)" cst_func="(&string;)" />
 </PeptideCyclizeMover>
 ```
 
@@ -28,8 +31,10 @@ XRW TO DO
 Subtag **Bond**:   Tags describing a bond from the macrocycle
 
 -   **res1**: Residue one
+-   **res1_sel**: Residue one selector
 -   **atom1**: Atom one
 -   **res2**: Residue two
+-   **res2_sel**: Residue two selector
 -   **atom2**: Atom two
 -   **add_termini**: Add terminal types where necessary
 -   **rebuild_fold_tree**: Rebuild the fold tree around this bond
@@ -37,30 +42,39 @@ Subtag **Bond**:   Tags describing a bond from the macrocycle
 Subtag **Distance**:   Tags describing a distance from the macrocycle
 
 -   **res1**: Residue one
+-   **res1_sel**: Residue one selector
 -   **atom1**: Atom one
 -   **res2**: Residue two
+-   **res2_sel**: Residue two selector
 -   **atom2**: Atom two
 -   **cst_func**: Function to use as a constraint
 
 Subtag **Angle**:   Tags describing a angle from the macrocycle
 
 -   **res_center**: Central residue
+-   **res_center_sel**: Central residue selector
 -   **atom_center**: Central atom
 -   **res1**: Residue one
+-   **res1_sel**: Residue one selector
 -   **atom1**: Atom one
 -   **res2**: Residue two
+-   **res2_sel**: Residue two selector
 -   **atom2**: Atom two
 -   **cst_func**: Function to use as a constraint
 
 Subtag **Torsion**:   Tags describing a torsion from the macrocycle
 
 -   **res1**: Residue one
+-   **res1_sel**: Residue one selector
 -   **atom1**: Atom one
 -   **res2**: Residue two
+-   **res2_sel**: Residue two selector
 -   **atom2**: Atom two
 -   **res3**: Residue three
+-   **res3_sel**: Residue three selector
 -   **atom3**: Atom three
 -   **res4**: Residue four
+-   **res4_sel**: Residue four selector
 -   **atom4**: Atom four
 -   **cst_func**: Function to use as a constraint
 
