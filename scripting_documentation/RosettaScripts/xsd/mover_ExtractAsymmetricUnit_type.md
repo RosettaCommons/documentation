@@ -11,6 +11,6 @@ The inverse of SetupForSymmetry: given a symmetric pose, make a nonsymmetric pos
 ```
 
 -   **keep_virtual**: If true, virtual atoms will be left in the pose. If false, the extracted asymmetric unit will not contain virtual atoms.
--   **keep_unknown_aas**: Deprecated option.  All de-symmetrization will keep non-cannonical amino acids.
+-   **keep_unknown_aas**: Deprecated option.  All de-symmetrization will keep non-canonical amino acids.
 
 ---
