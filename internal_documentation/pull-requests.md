@@ -20,7 +20,7 @@ Once you have submitted a pull request for your branch, you can have it tested a
 
 ##Tutorial
 
-A tutorial is available as PDF slides [[https://drive.google.com/file/d/1NTTcCi_FilNuyq8w16tYbLHsc8JjVcP5/view?usp=sharing here]] and a recording should be available on the WinterRosettaCon 2021 wiki page. 
+A tutorial is available as PDF slides ([[https://drive.google.com/file/d/1NTTcCi_FilNuyq8w16tYbLHsc8JjVcP5/view?usp=sharing]]) and a recording should be available on the WinterRosettaCon 2021 wiki page. 
 
 
 ##See Also
