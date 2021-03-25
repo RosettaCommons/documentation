@@ -44,6 +44,7 @@ The trRosetta application takes two inputs: a sequence (in FASTA format) and a m
 ## Options
 ==========
 
+```
                         Option |                  Setting  |Type|  Description                  
 --------------------------------------------------------------------------------------
                                |                           |    |
@@ -277,6 +278,7 @@ distance_constraint_prob_cutoff |                     0.05 |   R| The minimum cu
                                |                           |    |  t
                                |                           |    |  rRosetta:scorefxn_fullatom 
                                |                           |    |  flag.  True by default.
+```
 
 ### Recommended flags
 =====================
