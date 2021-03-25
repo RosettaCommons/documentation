@@ -191,6 +191,7 @@ Mover  | Description
 **[[HydrogenBondConstraintGenerator]]** | Generates constraints to enforce hydrogen bonding between residues
 **[[SheetConstraintGenerator]]** | Generates constraints for proper hydrogen bonding in beta-sheets
 **[[TerminiConstraintGenerator]]** | Generates atom pair constraints between N- and C- termini
+**[[trRosettaConstraintGenerator]]** | Generates inter-residue distance and orientation constraints given a multiple sequence alignment, using the trRosetta neural network.  Note special compilation requirements.
 
 
 ### Docking/Assembly
