@@ -106,5 +106,5 @@ Please see the [[trRosetta application|trRosetta]] documentation for information
 * [[trRosettaProtocol mover|trRosettaProtocol]]:  A mover that uses this constraint generator and the [[MinMover]] to predict protein structure.
 * [[trRosetta application|trRosetta]]: Essentially, the above mover in application form, so that you can provide an MSA on the commandline and get a structure out.
 * [[MinMover]]: Used by the [[trRosettaProtocol]] mover to find conformations compatible with the trRosetta constraints.
-* [[FastRelax]]:  Used by the [[trRosettaProtocol]] mover for all-atom refinement.
+* [[FastRelax|FastRelaxMover]]:  Used by the [[trRosettaProtocol]] mover for all-atom refinement.
 * [[AbinitioRelax application|abinitio-relax]]:  Classic, fragment-based structure prediction.
