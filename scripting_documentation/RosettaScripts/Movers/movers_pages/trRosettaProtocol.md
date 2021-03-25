@@ -82,12 +82,12 @@ Please see the [[trRosetta application|trRosetta]] documentation for information
 ## References
 
 - The trRosetta neural network is described in Yang _et al_. (2020) _Proc Natl Acad Sci USA_ 117(3):1496-1503 (doi 10.1073/pnas.1914677117).
-- The trRosettaProtocol mover, [[trRosettaConstriantGenerator]], [[trRosetta application|trRosetta]], and other C++ infrastructure were written by Vikram K. Mulligan (vmulligan@flatironinstitute.org), and are currently unpublished.
+- The trRosettaProtocol mover, [[trRosettaConstraintGenerator]], [[trRosetta application|trRosetta]], and other C++ infrastructure were written by Vikram K. Mulligan (vmulligan@flatironinstitute.org), and are currently unpublished.
 
 ## See Also
 
 * [[trRosetta application|trRosetta]]: Essentially, this mover in application form, so that you can provide an MSA on the commandline and get a structure out.
 * [[trRosettaConstraintGenerator]]:  A constraint generator used by this mover to create the inter-residue constraints that guide structure prediction.
 * [[MinMover]]: Used by this composite mover to find conformations compatible with the trRosetta constraints.
-* [[FastRelax]]:  Used by tihs composite mover for all-atom refinement.
+* [[FastRelax|FastRelaxMover]]:  Used by tihs composite mover for all-atom refinement.
 * [[AbinitioRelax application|abinitio-relax]]:  Classic, fragment-based structure prediction.
