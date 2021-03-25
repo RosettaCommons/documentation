@@ -51,21 +51,27 @@ Although "omega" and "phi" are commonly used to refer to the third and first mai
 ======================
 
 The trRosetta application takes two inputs: a sequence (in FASTA format) and a multiple sequence alignment (in .a3m format).  Multiple sequence alignments can be generated using the HHBlits webserver (https://toolkit.tuebingen.mpg.de/tools/hhblits); for an example of an MSA in .a3m format, see the [[trRosettaProtocolMover|trRosettaProtocol]] documentation.  The trRosetta application then carries out the following steps:
+
 1.  The multiple sequence alignment is converted to a one-hot 3D tensor (sequence position x sequence x amino acid identity), which is provided to the trRosetta neural network.
+
 2.  The trRosetta neural network runs, applying a series of 2D convolutional layers to transform the inputs into a set of output tensors.  These include 3D inter-residue distance probability distribution tensor (res1 x res2 x binned inter-residue distances), two 3D inter-residue torsion probability tensors for the inter-residue dihedrals omega and theta (see note above), and a 3D inter-residue angle probability distributoin for the inter-residue angle phi (see note above).
+
 3.  A centroid-mode representation of the sequence is built, and its initial conformation is randomized.  Randomization modes include:
     * The "classic" protocol of Yang _et al_.  For each amino acid residue, backbone phi and psi dihedral angles are set randomly to one of (-140, 153), (-72, 145), (-122, 117), (-82, -14), (-61, -41), or (57, 39), with probailities weighted to favour likely secondary structures.  No considreation is given to the amino acid conformational preferences of different amino acid types, and all backbone omega angles are set to 180 degrees (_i.e._ cis peptide bonds are not sampled).  **This protocol is default.**
     * The "ramachandran" protocol.  Each amino acid's phi and psi dihedrals are drawn from the probability distribution for that amino acid using the [[RandomizeBBByRamaPrePro]] mover.  Residues preceding prolines use different distributions (_i.e._ the rama_prepro energy function's probability distributions are used).  Cis peptide bonds are sampled with low probability (default is 0.05% of the time) except at pre-proline positions, where they are sampled with moderate probability (default is 5% of the time, to match PDB statistics).
     * The "bins" protocol.  The backbone conformation is initialized using the [[InitializeByBins]] mover, which sets the conformation of each pair of amino acids by choosing backbone conformational bins based on PDB statistics listing the probability of seeing residue i in bin X and residue i+1 in bin Y.  Exact backbone phi and psi values are drawn from the Ramachandran distribution within each bin, and cis amide bonds are sampled in proportion to PDB statistics.  See the documentation for that mover for details.
 
 4.  The [[trRosettaConstraintGenerator]] is used to conver the inter-residue distance, omega, theta, and phi distributions into atom pair, dihedral, dihedral, and angle constraints, respectively.
+
 5.  The [[MinMover]] is used to pull the backbone from its initial, random conformation into a conformation that is consistent with the constraints.  Regardless the minimization protocol, minimization involves alternating rounds of torsion-space and Cartesian-space minimization, with an energy function that blends the centroid scoring function with constraint penalty terms.  Available minimization protocols include:
     * The "classic0" protocol, which first minimizes using only short-range constraints, then minimizes using short+intermediate-range constraints, then minimizes using all constraints.
     * The "classic1" protocol, which first minimizes using short+intermediate-range constraints, then minimizes using all constraints.
     * The "classic2" protocol, which immediately minimizes using all constraints.  **This protocol is default.**
 
 6.  The pose is converted to an all-atom model.
+
 7.  The [[FastRelax]] protocol is applied with constraints present, and torsion/Cartesian space minimization alternating with the "dualspace" protocol of Conway _et al_. (2014) _Protein Sci_ 23(1):47-55 (doi 10.1002/pro.2389).  This refines backbone and side-chain geometry.
+
 8.  A final pose is written to disk.  Statistics such as RMSD to native (after Centroid and fullatom refinement phases) and execution time are included.
 
 ## Options
