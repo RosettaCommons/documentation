@@ -16,7 +16,7 @@ While most of these applications focus on prediction, many have options which wi
 - [[Relax]]: "Locally" optimize structures, including assigning sidechain positions.
 - [ RNA ](#RNA): see below for apps, including FARFAR & ERRASER (crystallographic refinement).  
 - [[RosettaNMR with Paramagnetic Restraints|RosettaNMR with Paramagnetic Restraints]]: Structure prediction in RosettaNMR using backbone chemical shifts and paramagnetic restraints derived from metal ion tags.
-  
+- [[trRosetta]]: Fragment-free structure prediction using constraints generated from sequence or multiple sequence alignment, and the power of deep neural networks.  The #2 performer in the 2020 CASP14 competition, second only to AlphaFold2.  
 
 ###Loop Modeling
 -  [[Loop modeling overview|loopmodel]]

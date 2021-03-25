@@ -9,7 +9,7 @@ The ConnectJumps, as the Doxygen calls it, is deprecated. Use BridgeChains inste
 <ConnectJumps name="(&string;)" chain1="(&non_negative_integer;)"
         chain2="(&non_negative_integer;)" segment1="(&string;)"
         segment2="(&string;)" motif="(&string;)" cutpoint="(&string;)"
-        ideal_abego="(false &bool;)" extend_ss="(true &bool;)"
+        ideal_abego="(false &bool;)" extend_ss="(true &string;)"
         overlap="(&non_negative_integer;)" dry_run="(&non_negative_integer;)"
         trials="(&non_negative_integer;)" scorefxn="(&string;)" />
 ```
@@ -21,10 +21,10 @@ The ConnectJumps, as the Doxygen calls it, is deprecated. Use BridgeChains inste
 -   **motif**: The secondary structure + abego to be used for the backbone region to be rebuilt. Taken from input pose if not specified. The format of this string is: "[Length][SS][ABEGO]-[Length2][SS2][ABEGO2]-...-[LengthN][SSN][ABEGON]" For example, "1LX-5HA-1LB-1LA-1LB-6EB" will build a one residue loop of any abego, followed by a 5-residue helix, followed by a 3-residue loop of ABEGO BAB, followed by a 6-residue strand.
 -   **cutpoint**: XSD XRW: TO DO
 -   **ideal_abego**: XSD XRW: TO DO
--   **extend_ss**: XSD XRW: TO DO
--   **overlap**: Build overlap of nested BuildDeNovoBackboneMover
--   **dry_run**: Sets folder of BuildDeNovoBackboneMover to RandomTorsionPoseFolder instead of RemodelLoopMoverPoseFolde
--   **trials**: iterations per phase of nested BuildDeNovoBackboneMover
+-   **extend_ss**: Gives the SS types that can be extended during the connection. Extensions are part of the loop and are expected to have secondary structure of 'L'. An empty string or '0' means not to extend any secondary structures and use only the ideal loop ABEGOS, e.g. EA, GG for Strand--Strand connections. With extend_ss='E', ABEGO values of EA, EAB, BEA, BEAB, BGG, GGB, and BGGB are allowed. extend_ss='1' means that all SS types can be extended.
+-   **overlap**: Build overlap of nested FoldArchitectMover
+-   **dry_run**: Sets folder of FoldArchitectMover to RandomTorsionPoseFolder instead of RemodelLoopMoverPoseFolde
+-   **trials**: iterations per phase of nested FoldArchitectMover
 -   **scorefxn**: Name of score function to use
 
 ---

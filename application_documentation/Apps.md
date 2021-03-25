@@ -348,6 +348,9 @@ Alignment, O2' packing, RMSD, mutation, slicing, silent file creation, and minim
 ### [[stepwise]]
 General code that will perform Monte Carlo stepwise assembly on anything.
 
+### [[trRosetta]]
+Neural network-enhanced protein structure prediction, using a multiple sequence alignment as input.  Requires extras=tensorflow during compilation.
+
 ### [[revert_design_to_native|RosettaScripts#revert_design_to_wt-application]]
 If a design is sufficiently comparable to the native score, we revert 
 
