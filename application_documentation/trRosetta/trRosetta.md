@@ -9,8 +9,8 @@ Documentation added 4 February 2021 by Vikram K. Mulligan, Flatiron Institute (v
 
 The trRosetta application uses the trRosetta neural network described in Yang _et al_. (2020) _Proc Natl Acad Sci USA_ 117(3):1496-1503 (doi 10.1073/pnas.1914677117) to generate inter-residue distance and orientation constraints for a sequence of unknown structure given a multiple sequence alignment.  The application then uses the Rosetta minimizer to find the backbone conformation consistent with the constraints.  This allows faster and more accurate structure prediction than the classic AbintioRelax application.  This reproduces the Python protocol described in Yang _et al._, but offers advantages in speed and disk usage, automatic job distribution via the Rosetta job distributor, and a few additional options.
 
-## Compilation requirements
-===========================
+### Compilation requirements
+============================
 
 The trRosetta application requires that Rosetta be linked against the Tensorflow C-API libraries.  To compile with Tensorflow support:
 
@@ -39,8 +39,8 @@ The trRosetta application requires that Rosetta be linked against the Tensorflow
         ./scons.py -j 8 mode=release extras=tensorflow bin
 
 
-## A note on nomenclature
-=========================
+### A note on nomenclature
+==========================
 
 Although "omega" and "phi" are commonly used to refer to the third and first mainchain backbone dihedrals of an alpha amino acid, and "theta" is used to refer to the second mainchain backbone dihedral of a beta-amino acid, in the context of trRosetta-related protocols, these Greek letters are assigned new meanings.  Here, "omega" refers to the inter-residue dihedral angle between the CA and CB atoms of a first residue and the CB and CA atoms of a second residue.  "Theta" refers to the inter-residue dihedral angle between the N, CA, and CB atoms of a first residue and the CB atom of a second residue.  And "phi" refers to the inter-residue angle between the CA and CB atoms of a first residue and the CB atom of a second residue.
 
