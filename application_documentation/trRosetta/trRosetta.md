@@ -9,6 +9,36 @@ Documentation added 4 February 2021 by Vikram K. Mulligan, Flatiron Institute (v
 
 The trRosetta application uses the trRosetta neural network described in Yang _et al_. (2020) _Proc Natl Acad Sci USA_ 117(3):1496-1503 (doi 10.1073/pnas.1914677117) to generate inter-residue distance and orientation constraints for a sequence of unknown structure given a multiple sequence alignment.  The application then uses the Rosetta minimizer to find the backbone conformation consistent with the constraints.  This allows faster and more accurate structure prediction than the classic AbintioRelax application.  This reproduces the Python protocol described in Yang _et al._, but offers advantages in speed and disk usage, automatic job distribution via the Rosetta job distributor, and a few additional options.
 
+## Compilation requirements
+===========================
+
+The trRosetta application requires that Rosetta be linked against the Tensorflow C-API libraries.  To compile with Tensorflow support:
+
+1.  Download the Tensorflow 1.15 precompiled libraries for your operating system from one of the following.  (Note that GPU versions require CUDA drivers; see https://www.tensorflow.org/install/lang_c for more information.)
+        Linux/CPU: https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-linux-x86_64-1.15.0.tar.gz
+        Linux/GPU: https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-gpu-linux-x86_64-1.15.0.tar.gz
+        Windows/CPU: https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-windows-x86_64-1.15.0.zip
+        Windows/GPU: https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-gpu-windows-x86_64-1.15.0.zip
+        MacOS/CPU: https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-darwin-x86_64-1.15.0.tar.gz
+        MacOS/GPU: None available.
+
+2.  Unzip/untar the archive into a suitable directory (~/mydir/ is used here as an example), and add the following environment variables:
+        Linux, Windows:
+                LIBRARY_PATH=$LIBRARY_PATH:~/mydir/lib
+                LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/mydir/lib
+        MacOS:
+                LIBRARY_PATH=$LIBRARY_PATH:~/mydir/lib
+                DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:~/mydir/lib
+
+3.  Edit your user.settings file (Rosetta/main/source/tools/build/user.settings), and uncomment (i.e. remove the octothorpe from the start of) the following lines:
+        import os
+                'program_path'  : os.environ['PATH'].split(':'),
+                'ENV' : os.environ,
+
+4.  Compile Rosetta, appending extras=tensorflow (for CPU-only) or extras=tensorflow_gpu (for GPU) to your scons command.  For example:
+        ./scons.py -j 8 mode=release extras=tensorflow bin
+
+
 ## A note on nomenclature
 =========================
 
