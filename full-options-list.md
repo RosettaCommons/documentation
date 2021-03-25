@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2021-02-02
+Generated: 2021-02-24
 
 _Note that some application specific options may not be present in this list._
 
@@ -3532,6 +3532,10 @@ _Note that some application specific options may not be present in this list._
 <dd>Use the atom pair cst score throughout the protocol, including final scoring of the poses instead of just during docking. Typically, the scoreterm is set to zero for scorefxns other than docking to decrease bias via loop lengths, relax, etc.  It may indeed help to target a particular epitope quicker during monte carlo design if epitope constraints are in use, as well for filtering final models on score towards a particular epitope if docking.<br/>Default: true<br/></dd>
 <dt><b>-do_dock</b> \<Boolean\></dt>
 <dd>Run a short lowres + highres docking step in the inner cycles.  (dock/min).  Recommended 2 inner cycles for better coverage. (dock/min/dock/min). Inner/Outer loops for highres are hard coded, while low-res can be changed through regular low_res options.  If sequence design is enabled, will design regions/CDRs set during the high-res dock. Recommended to <br/>Default: false<br/></dd>
+<dt><b>-dock_first_cycles</b> \<Integer\></dt>
+<dd>Number of first cycles for high res dock.  Default for Full Docking protocol is 4.<br/>Default: 2<br/></dd>
+<dt><b>-dock_second_cycles</b> \<Integer\></dt>
+<dd>Number of second cycles for high res dock. Default for Full Docking Protocol is 45.<br/>Default: 2<br/></dd>
 <dt><b>-outer_cycle_rounds</b> \<Integer\></dt>
 <dd>Rounds for outer loop of the protocol (not for deterministic_graft ).  Each round chooses a CDR and designs. One run of 100 cycles with relax takes about 12 hours.				  If you decrease this number, you will decrease your run time significantly, but your final decoys will be higher energy.  Make sure to increase the total number of output 				  structures (nstruct) if you use lower than this number.  Typically about 500 - 1000 nstruct is more than sufficient.  Full DeNovo design will require significantly more rounds 				  and nstruct.  If you are docking, runs take about 30 percent longer.<br/>Default: 25<br/></dd>
 <dt><b>-inner_cycle_rounds</b> \<Integer\></dt>

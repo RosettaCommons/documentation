@@ -9,8 +9,9 @@ Calculates the contact molecular surface area on the target defined by the targe
 <ContactMolecularSurface name="(&string;)" min_interface="(0 &real;)"
         distance_weight="(1.0 &real;)" near_squared_size="(0.0 &real;)"
         verbose="(false &bool;)" quick="(false &bool;)"
-        apolar_target="(false &bool;)" target_selector="(&string;)"
-        binder_selector="(&string;)" confidence="(1.0 &real;)" />
+        use_rosetta_radii="(false &bool;)" apolar_target="(false &bool;)"
+        target_selector="(&string;)" binder_selector="(&string;)"
+        confidence="(1.0 &real;)" />
 ```
 
 -   **min_interface**: The filter fails is the calculated interface area is less than the given value.
@@ -18,6 +19,7 @@ Calculates the contact molecular surface area on the target defined by the targe
 -   **near_squared_size**: The weight factor of the cloest distance betweent the distance that is multiplied by the area by each surface dot.
 -   **verbose**: If true, print extra calculation details to the tracer.
 -   **quick**: If true, do a quicker, less accurate calculation by reducing the density.
+-   **use_rosetta_radii**: Use rosetta radii instead of the historical shape complementarity radii.
 -   **apolar_target**: Only look at non-polar atoms on the target side.
 -   **target_selector**: Explicitly set which residues are on each side of the interface using residue_selectors.
 -   **binder_selector**: Explicitly set which residues are on each side of the interface using residue_selectors.

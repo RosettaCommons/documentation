@@ -13,7 +13,7 @@ Calculates the Lawrence and Coleman shape complementarity using a port of the or
         sym_dof_name="(&string;)" multicomp="(false &bool;)"
         residues1="(&string;)" residues2="(&string;)"
         residue_selector1="(&string;)" residue_selector2="(&string;)"
-        confidence="(1.0 &real;)" />
+        use_rosetta_radii="(false &bool;)" confidence="(1.0 &real;)" />
 ```
 
 -   **min_sc**: The filter fails if the calculated sc is less than the given value.
@@ -30,6 +30,7 @@ Calculates the Lawrence and Coleman shape complementarity using a port of the or
 -   **residues2**: Explicitly set which residues are on each side of the interface (both symmetric and non-symmetric poses.)
 -   **residue_selector1**: Explicitly set which residues are on each side of the interface using residue_selectors.
 -   **residue_selector2**: Explicitly set which residues are on each side of the interface using residue_selectors.
+-   **use_rosetta_radii**: use rosetta radii instead of historical shape complementarity radii
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

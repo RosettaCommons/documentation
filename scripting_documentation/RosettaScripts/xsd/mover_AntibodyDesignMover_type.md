@@ -15,8 +15,10 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
         mintype="(&string;)" instruction_file="(&string;)"
         mc_optimize_dG="(false &bool;)" mc_interface_weight="(1.0 &real;)"
         mc_total_weight="(0.0 &real;)" do_dock="(&bool;)"
-        use_epitope_csts="(&bool;)" epitope_residues="(&string;)"
-        paratope_cdrs="(&string;)" random_start="(&bool;)"
+        dock_first_cycles="(2 &positive_integer;)"
+        dock_second_cycles="(2 &positive_integer;)" use_epitope_csts="(&bool;)"
+        epitope_residues="(&string;)" paratope_cdrs="(&string;)"
+        random_start="(&bool;)"
         design_protocol="(EVEN_CLUSTER_MC &ABdesign_protocols;)"
         primary_cdrs="(&string;)" dock_cycles="(&non_negative_integer;)"
         interface_dis="(&real;)" neighbor_dis="(&real;)"
@@ -46,6 +48,8 @@ It is not possible to do this within overall scoring, but where possible, do thi
 -   **mc_interface_weight**: Weight of interface score (dG) if using mc_optimize_dG
 -   **mc_total_weight**: Weight of the classic total score if using mc_optimize_dG
 -   **do_dock**: Run RosettaDock during the inner cycles? Significantly increases run time. Default False
+-   **dock_first_cycles**: First set of High-res dock cycles.  Default in Full Docking protocol is 4.
+-   **dock_second_cycles**: Second set of High-res dock cycles.  Default in Full Docking protocol is 45.
 -   **use_epitope_csts**: Use the ParatopeEpitopeSiteConstraintMover during design instead of just the ParatopeSiteConstraintMover. Default False
 -   **epitope_residues**: Use these residues as the epitope residues.  Adds site constraints for dock-design. (auto-detects by default ). Comma separated.
 -   **paratope_cdrs**: Use these CDRs for Paratope Constraints instead of all of them. Useful if attempting to create or optimize the interface of a specific CDR, or keep a CDR in contact with a region of antigen. Comma separated.
