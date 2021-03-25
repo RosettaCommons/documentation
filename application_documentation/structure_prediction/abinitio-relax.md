@@ -16,6 +16,8 @@ This document was last updated on October, 2014 by Jared Adolf-Bryfogle. The PI 
 
 An introductory tutorial _ab initio_ tutorial can be found [here](https://www.rosettacommons.org/demos/latest/tutorials/denovo_structure_prediction/Denovo_structure_prediction).
 
+[[_TOC_]]
+
 Code and Demo
 =============
 
