@@ -47,7 +47,7 @@ Although "omega" and "phi" are commonly used to refer to the third and first mai
 ## trRosetta algorithm
 ======================
 
-The trRosetta application takes two inputs: a sequence (in FASTA format) and a multiple sequence alignment (in .a3m format).  It then carries out the following steps:
+The trRosetta application takes two inputs: a sequence (in FASTA format) and a multiple sequence alignment (in .a3m format).  Multiple sequence alignments can be generated using the HHBlits webserver (https://toolkit.tuebingen.mpg.de/tools/hhblits); for an example of an MSA in .a3m format, see the [[trRosettaProtocolMover|trRosettaProtocol]] documentation.  The trRosetta application then carries out the following steps:
 1.  The multiple sequence alignment is converted to a one-hot 3D tensor (sequence position x sequence x amino acid identity), which is provided to the trRosetta neural network.
 2.  The trRosetta neural network runs, applying a series of 2D convolutional layers to transform the inputs into a set of output tensors.  These include 3D inter-residue distance probability distribution tensor (res1 x res2 x binned inter-residue distances), two 3D inter-residue torsion probability tensors for the inter-residue dihedrals omega and theta (see note above), and a 3D inter-residue angle probability distributoin for the inter-residue angle phi (see note above).
 3.  A centroid-mode representation of the sequence is built, and its initial conformation is randomized.  Randomization modes include:
@@ -334,7 +334,7 @@ These may become default at some point in the future.  All other settings may be
 =======
 
 - The trRosetta neural network parameters are located in the Rosetta database, in `Rosetta/main/database/protocol_data/tensorflow_graphs/tensorflow_graph_repo_submodule/trRosetta/model_v1/`.
-- The [[RosettaTensorflowManager]], low-level code for loading Tensorflow models and using them in Rosetta protocols is located in `Rosetta/main/source/src/basic/tensorflow_manager`.
+- The `RosettaTensorflowManager`, low-level code for loading Tensorflow models and using them in Rosetta protocols is located in `Rosetta/main/source/src/basic/tensorflow_manager`.
 - The code to convert a multiple sequence alignment to a one-hot 3D tensor, to run the trRosetta neural network, and to store the results in an output object containing distance, omega, theta, and phi tensors is located in `Rosetta/main/source/src/protocols/trRosetta/`.  The `trRosettaProtocolBase` and `trRosettaOutputsBase` classes are abstract base classes, and the `trRosettaProtocol_v1` and `trRosettaOutputs_v1` derived classes implement the process of converting inputs to tensors, running the network, and producing outputs, and provide a place to store outputs, respectively.
 - The [[trRosettaConstraintGenerator]] converts [[trRosettaOutputs_v1]] into Rosetta constraints.  It contains the `trRosettaProtocol_v1` internally, and runs it to generate the outputs.  It is located in `Rosetta/main/source/src/protocols/trRosetta_protocols/constraint_generators/`.
 - The full protocol to take an MSA and produce a predicted pose is implemented as the [[trRosettaProtocol]] mover, located in `Rosetta/main/source/src/protocols/trRosetta_protocols/movers`.  This mover encapsulates the [[trRosettaConstraintGenerator]], which in turn encapsulates the [[trRosettaProtocol_v1]] class.
