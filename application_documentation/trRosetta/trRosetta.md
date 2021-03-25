@@ -70,7 +70,7 @@ The trRosetta application takes two inputs: a sequence (in FASTA format) and a m
 
 6.  The pose is converted to an all-atom model.
 
-7.  The [[FastRelax]] protocol is applied with constraints present, and torsion/Cartesian space minimization alternating with the "dualspace" protocol of Conway _et al_. (2014) _Protein Sci_ 23(1):47-55 (doi 10.1002/pro.2389).  This refines backbone and side-chain geometry.
+7.  The [[FastRelax protocol|FastRelaxMover]] is applied with constraints present, and torsion/Cartesian space minimization alternating with the "dualspace" protocol of Conway _et al_. (2014) _Protein Sci_ 23(1):47-55 (doi 10.1002/pro.2389).  This refines backbone and side-chain geometry.
 
 8.  A final pose is written to disk.  Statistics such as RMSD to native (after Centroid and fullatom refinement phases) and execution time are included.
 
@@ -277,7 +277,7 @@ distance_constraint_prob_cutoff |                     0.05 |   R| The minimum cu
                                |                           |    |  fullatom refinement with 
                                |                           |    |  FastRelax.  If 
                                |                           |    |  atom-pair_constraint, 
-                               |                           |    |  dihedral_constriant, or 
+                               |                           |    |  dihedral_constraint, or 
                                |                           |    |  angle_constraint terms are 
                                |                           |    |  zero, they will be set to 
                                |                           |    |  5.0, 1.0, and 1.0 
@@ -339,8 +339,8 @@ These may become default at some point in the future.  All other settings may be
 - The trRosetta neural network parameters are located in the Rosetta database, in `Rosetta/main/database/protocol_data/tensorflow_graphs/tensorflow_graph_repo_submodule/trRosetta/model_v1/`.
 - The `RosettaTensorflowManager`, low-level code for loading Tensorflow models and using them in Rosetta protocols is located in `Rosetta/main/source/src/basic/tensorflow_manager`.
 - The code to convert a multiple sequence alignment to a one-hot 3D tensor, to run the trRosetta neural network, and to store the results in an output object containing distance, omega, theta, and phi tensors is located in `Rosetta/main/source/src/protocols/trRosetta/`.  The `trRosettaProtocolBase` and `trRosettaOutputsBase` classes are abstract base classes, and the `trRosettaProtocol_v1` and `trRosettaOutputs_v1` derived classes implement the process of converting inputs to tensors, running the network, and producing outputs, and provide a place to store outputs, respectively.
-- The [[trRosettaConstraintGenerator]] converts [[trRosettaOutputs_v1]] into Rosetta constraints.  It contains the `trRosettaProtocol_v1` internally, and runs it to generate the outputs.  It is located in `Rosetta/main/source/src/protocols/trRosetta_protocols/constraint_generators/`.
-- The full protocol to take an MSA and produce a predicted pose is implemented as the [[trRosettaProtocol]] mover, located in `Rosetta/main/source/src/protocols/trRosetta_protocols/movers`.  This mover encapsulates the [[trRosettaConstraintGenerator]], which in turn encapsulates the [[trRosettaProtocol_v1]] class.
+- The [[trRosettaConstraintGenerator]] converts `trRosettaOutputs_v1` into Rosetta constraints.  It contains the `trRosettaProtocol_v1` internally, and runs it to generate the outputs.  It is located in `Rosetta/main/source/src/protocols/trRosetta_protocols/constraint_generators/`.
+- The full protocol to take an MSA and produce a predicted pose is implemented as the [[trRosettaProtocol]] mover, located in `Rosetta/main/source/src/protocols/trRosetta_protocols/movers`.  This mover encapsulates the [[trRosettaConstraintGenerator]], which in turn encapsulates the `trRosettaProtocol_v1` class.
 - The trRosetta application is implemented in `Rosetta/main/source/src/apps/pilot/vmullig/trRosetta.cc`.  **In the near future, this will be promoted to a public application available outside of the RosettaCommons community.**
 - The code is intended to be modular and extensible as new versions of the trRosetta neural network become available.
 
@@ -348,13 +348,13 @@ These may become default at some point in the future.  All other settings may be
 =============
 
 - The trRosetta neural network is described in Yang _et al_. (2020) _Proc Natl Acad Sci USA_ 117(3):1496-1503 (doi 10.1073/pnas.1914677117).
-- The [[trRosettaProtocol]] mover, [[trRosettaConstriantGenerator]], trRosetta application, and other C++ infrastructure were written by Vikram K. Mulligan (vmulligan@flatironinstitute.org), and are currently unpublished.
+- The [[trRosettaProtocol]] mover, [[trRosettaConstraintGenerator]], trRosetta application, and other C++ infrastructure were written by Vikram K. Mulligan (vmulligan@flatironinstitute.org), and are currently unpublished.
 
 ## History
 ==========
 
 - The trRosetta neural network was developed by Jianyi Yang, Ivan Anishchenko, and Sergey Ovchinnikov in 2019.
-- A PyRosetta-based protocol was developed for use in the 2020 CASP14 protein structure prediction competition.  This protocol converted trRosetta generated distance and inter-reside orientation probability distributions into Rosetta constraints, applied them to a pose, and used constrained minimization to generate the final structure (followed by all-atom relaxation with the [[FastRelax]] protocol.
+- A PyRosetta-based protocol was developed for use in the 2020 CASP14 protein structure prediction competition.  This protocol converted trRosetta generated distance and inter-reside orientation probability distributions into Rosetta constraints, applied them to a pose, and used constrained minimization to generate the final structure (followed by all-atom relaxation with the [[FastRelax protocol|FastRelaxMover]].
 - The C++ implementation was written in Jan-Mar 2021 by Vikram K. Mulligan, Flatiron Institute.
 
 ### Differences from original Python version
