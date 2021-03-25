@@ -109,6 +109,12 @@ Mover  | Description
 **[[InterfaceAnalyzerMover]]** | Computes protein-protein interface metrics
 **[[RunSimpleMetrics]]** | Mover to run a set of [[SimpleMetrics]], which enables robust analysis in Rosetta.
 
+### Structure Prediction Protocols
+
+Mover  | Description
+------------ | -------------
+**[[trRosettaProtocolMover|trRosettaProtocol]]** | Uses the trRosetta neural network to predict protein structure.  Note special compilation requirements!
+
 ### Simple Sequence Design
 
 Mover  | Description
