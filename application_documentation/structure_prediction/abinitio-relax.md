@@ -217,6 +217,7 @@ Lowest scoring models that are in a cluster and that have a topology represented
   - [[Molecular replacement protocols|mr-protocols]]: Use Rosetta to build models for use in X-ray crystallography molecular replacement.  
     * [[Prepare template for MR]]: Setup script for molecular replacement protocols.  
   - [[Relax]]: "Locally" optimize structures, including assigning sidechain positions.
+  - [[trRosetta application|trRosetta]]: Fragment-free structure prediction using the trRosetta neural network. 
 * [[Application Documentation]]: List of Rosetta applications
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
 * [[Comparing structures]]: Essay on comparing structures
