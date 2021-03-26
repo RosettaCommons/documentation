@@ -5,12 +5,10 @@ Documentation added 4 February 2021 by Vikram K. Mulligan, Flatiron Institute (v
 [[_TOC_]]
 
 ## Application purpose
-=====================
 
 The trRosetta application uses the trRosetta neural network described in Yang _et al_. (2020) _Proc Natl Acad Sci USA_ 117(3):1496-1503 (doi 10.1073/pnas.1914677117) to generate inter-residue distance and orientation constraints for a sequence of unknown structure given a multiple sequence alignment.  The application then uses the Rosetta minimizer to find the backbone conformation consistent with the constraints.  This allows faster and more accurate structure prediction than the classic AbintioRelax application.  This reproduces the Python protocol described in Yang _et al._, but offers advantages in speed and disk usage, automatic job distribution via the Rosetta job distributor, and a few additional options.
 
 ### Compilation requirements
-============================
 
 The trRosetta application requires that Rosetta be linked against the Tensorflow C-API libraries.  To compile with Tensorflow support:
 
@@ -43,12 +41,10 @@ The trRosetta application requires that Rosetta be linked against the Tensorflow
 ```
 
 ### A note on nomenclature
-==========================
 
 Although "omega" and "phi" are commonly used to refer to the third and first mainchain backbone dihedrals of an alpha amino acid, and "theta" is used to refer to the second mainchain backbone dihedral of a beta-amino acid, in the context of trRosetta-related protocols, these Greek letters are assigned new meanings.  Here, "omega" refers to the inter-residue dihedral angle between the CA and CB atoms of a first residue and the CB and CA atoms of a second residue.  "Theta" refers to the inter-residue dihedral angle between the N, CA, and CB atoms of a first residue and the CB atom of a second residue.  And "phi" refers to the inter-residue angle between the CA and CB atoms of a first residue and the CB atom of a second residue.
 
 ## trRosetta algorithm
-======================
 
 The trRosetta application takes two inputs: a sequence (in FASTA format) and a multiple sequence alignment (in .a3m format).  Multiple sequence alignments can be generated using the HHBlits webserver (https://toolkit.tuebingen.mpg.de/tools/hhblits); for an example of an MSA in .a3m format, see the [[trRosettaProtocolMover|trRosettaProtocol]] documentation.  The trRosetta application then carries out the following steps:
 
@@ -75,7 +71,6 @@ The trRosetta application takes two inputs: a sequence (in FASTA format) and a m
 8.  A final pose is written to disk.  Statistics such as RMSD to native (after Centroid and fullatom refinement phases) and execution time are included.
 
 ## Options
-==========
 
 ```
                         Option |                  Setting  |Type|  Description                  
@@ -314,7 +309,6 @@ distance_constraint_prob_cutoff |                     0.05 |   R| The minimum cu
 ```
 
 ### Recommended flags
-=====================
 
 At the time of this writing, the recommended best practice flags are:
 
@@ -326,15 +320,13 @@ At the time of this writing, the recommended best practice flags are:
 These may become default at some point in the future.  All other settings may be left in their default values.
 
 ## Limitations
-==============
 
 - The trRosetta neural network is trained on hundreds of millions of known sequences and hundreds of thousands of known structures.  Proteins with few close homologues or with unusual sequences or backbone geometry may be predicted poorly.
 - The models produced tend to have limited diversity.  The trRosetta minimization protocol is a good one for predicting the native state of a well-folded protein, but may not be the best for conformational sampling the energy landscape of a sequence.  For that, consider using the [[AbinitioRelax application|abinitio-relax]], with or without the `-use_trRosetta_constraints` option, to carry out fragment insertion-based conformational sampling.
 - The trRosetta protocol can currently only be used on single-chain poses composed entirely of canonical amino acids.  Cofactors, posttranslational modifications, multi-chain proteins, and noncanonical building blocks are currently unsupported.
 - This protocol is intended for soluble proteins.  Support for membrane proteins is planned.
 
-## Code 
-=======
+## Code Organization 
 
 - The trRosetta neural network parameters are located in the Rosetta database, in `Rosetta/main/database/protocol_data/tensorflow_graphs/tensorflow_graph_repo_submodule/trRosetta/model_v1/`.
 - The `RosettaTensorflowManager`, low-level code for loading Tensorflow models and using them in Rosetta protocols is located in `Rosetta/main/source/src/basic/tensorflow_manager`.
@@ -344,21 +336,20 @@ These may become default at some point in the future.  All other settings may be
 - The trRosetta application is implemented in `Rosetta/main/source/src/apps/pilot/vmullig/trRosetta.cc`.  **In the near future, this will be promoted to a public application available outside of the RosettaCommons community.**
 - The code is intended to be modular and extensible as new versions of the trRosetta neural network become available.
 
+![trRosetta code organization](trRosetta_code_layout.png)
+
 ## References
-=============
 
 - The trRosetta neural network is described in Yang _et al_. (2020) _Proc Natl Acad Sci USA_ 117(3):1496-1503 (doi 10.1073/pnas.1914677117).
 - The [[trRosettaProtocol]] mover, [[trRosettaConstraintGenerator]], trRosetta application, and other C++ infrastructure were written by Vikram K. Mulligan (vmulligan@flatironinstitute.org), and are currently unpublished.
 
 ## History
-==========
 
 - The trRosetta neural network was developed by Jianyi Yang, Ivan Anishchenko, and Sergey Ovchinnikov in 2019.
 - A PyRosetta-based protocol was developed for use in the 2020 CASP14 protein structure prediction competition.  This protocol converted trRosetta generated distance and inter-reside orientation probability distributions into Rosetta constraints, applied them to a pose, and used constrained minimization to generate the final structure (followed by all-atom relaxation with the [[FastRelax protocol|FastRelaxMover]].
 - The C++ implementation was written in Jan-Mar 2021 by Vikram K. Mulligan, Flatiron Institute.
 
 ### Differences from original Python version
-============================================
 
 - The original PyRosetta implementation mutated all glycine residues to alanine during centroid phases of the protocol, and back again during the full-atom phase.  This allowed the CA1-CB1-CB2-CA2 dihedral to be defined even for glycine residues during centroid minimization, but during full-atom minimization, glycine orientation constraints were ignored.  The C++ implementation follows nearly the same protocol, with two exceptions:
     - Although glycine residues are by default temporarily mutated to alanine during the centroid phase, and then reverted to glycine for full-atom refinement, as in the Python protocol, _if_ this is overridden with the `-mutate_gly_to_ala false` option, the C++ code uses the CEN atom in place of CB for glycine residues when constraining dihedrals in centroid mode.
@@ -366,7 +357,7 @@ These may become default at some point in the future.  All other settings may be
 - In "ramachandran" or "bins" initialization modes, cis peptide bonds are sampled.
 
 ## See Also
-===========
+
 * [[Structure prediction applications]]: Includes links to these and other applications for loop modeling
 * [[RosettaScripts]]: The RosettaScripts home page
 * [[Application Documentation]]: List of Rosetta applications
