@@ -131,6 +131,24 @@ The standard command line for optimal performance is shown below (nstruct should
         -nstruct 10
 ```
 
+Use with the trRosetta neural network
+-------------------------------------
+
+The trRosetta neural network (Yang _et al_. (2020) _Proc Natl Acad Sci USA_ 117(3):1496-1503 (doi 10.1073/pnas.1914677117)) predicts inter-residue distances and orientations given an input multiple sequence alignment.  This is useful for guiding structure prediction.  The AbinitioRelax application can add trRosetta-generated constraints automatically.  To enable this, add the flags:
+
+```
+-use_trRosetta_constraints
+-trRosetta:msa_file <filename>
+```
+
+The multiple sequence alignment (MSA) file provided with the `-trRosetta:msa_file` option should be provided in .a3m format, and can be generated with HHBlits or another program; see the [[trRosettaProtocol mover|trRosettaProtocol]] for an example.
+
+This feature requires that Rosetta be compiled with the `extras=tensorflow` or `extras=tensorflow_gpu` option, and linked against the Tensorflow C-API libraries. Details on doing this may be found in the documentation for the [[trRosettaProtocol mover|trRosettaProtocol]].
+
+Although trRosetta-constrained fragment-based conformational sampling tends to be slower than minimization-based structure prediction using the [[trRosetta application|trRosetta]], it provides broader exploration of the conformational landscape near the native state, which can be useful in some cases.  It might also be more accurate for larger structures.
+
+This features was implemented in March 2021 by Vikram K. Mulligan, Flatiron Institute (vmulligan@flatironinstitue.org).  It is currently unpublished.  For more information, see the [[trRosetta application|trRosetta]], [[trRosettaProtocol mover|trRosettaProtocol]], and [[trRosettaConstraintGenerator]].
+
 Extracting PDB models from a silent output file using the score application
 ---------------------------------------------------------------------------
 
