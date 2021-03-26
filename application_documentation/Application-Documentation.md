@@ -45,6 +45,7 @@ While most of these applications focus on prediction, many have options which wi
 - [[Relax]] - "Locally" optimize structures, including assigning sidechain positions.
 - [ RNA ](#RNA) - see below for apps, including FARFAR & ERRASER (crystallographic refinement).  
 - [[Simple Cyclic Peptide Prediction|simple_cycpep_predict]] - Prediction of structures of small (~5-20 residue) backbone-cyclized peptides consisting of any mixture of L- and D-amino acids.
+- [[trRosetta application|trRosetta]] - Predict structures of canonical single-chain proteins without fragments, using the trRosetta neural network and gradient-descent minimization.
 - [[RosettaNMR with Paramagnetic Restraints|RosettaNMR with Paramagnetic Restraints]] - Structure prediction in RosettaNMR using backbone chemical shifts and paramagnetic restraints derived from metal ion tags.
   
 --------------------------
