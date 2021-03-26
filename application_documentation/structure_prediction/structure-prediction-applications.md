@@ -4,7 +4,7 @@ While most of these applications focus on prediction, many have options which wi
 
 [[_TOC_]]
 
-## Structure Prediction
+### Structure Prediction
 - [[Ab initio modeling|abinitio-relax]]: Predict 3-dimensional structures of proteins from their amino acid sequences.
     * [[Abinitio]]: Further documentation on the abinitio protocol
     * [[NonlocalAbinitio]]: Application for predicting protein structure given some information about the protein's structure.
