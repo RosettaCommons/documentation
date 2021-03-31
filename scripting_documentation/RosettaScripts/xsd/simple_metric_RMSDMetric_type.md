@@ -16,7 +16,7 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
         residue_selector_ref="(&string;)" residue_selector_super="(&string;)"
         residue_selector_super_ref="(&string;)" robust="(true &bool;)"
         use_native="(false &bool;)" super="(false &bool;)"
-        rmsd_type="(&rmsd_types;)" />
+        cyclic="(false &bool;)" rmsd_type="(&rmsd_types;)" />
 ```
 
 -   **custom_type**: Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
@@ -29,6 +29,7 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 -   **robust**: Set whether we are robust to atom mismatches for selected residues.  By default we only match atoms that are corresponding. (True).
 -   **use_native**: Use the native if present on the cmd-line.
 -   **super**: Run a superposition on the residues in the residue_selector (or all) before RMSD calculation and the atoms selected for RMSD
+-   **cyclic**: if the pose is cyclic, this will compute RMSDs on all equivalent matches and return the smallest rmsd
 -   **rmsd_type**: Type of calculation.  Current choices are: 
 [rmsd_all, rmsd_all_heavy, rmsd_protein_bb_ca, rmsd_protein_bb_heavy, rmsd_protein_bb_heavy_including_O, rmsd_sc, rmsd_sc_heavy]
 

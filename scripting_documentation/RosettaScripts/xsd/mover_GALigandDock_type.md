@@ -7,7 +7,7 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 
 ```xml
 <GALigandDock name="(&string;)" scorefxn="(&string;)"
-        scorefxn_relax="(&string;)" runmode="(&string;)" altcrossover="(&bool;)"
+        scorefxn_relax="(&string;)" runmode="(&string;)"
         sample_ring_conformers="(&bool;)" rotprob="(&real;)" rotEcut="(&real;)"
         ligand="(&string;)" nativepdb="(&string;)" favor_native="(&real;)"
         optimize_input_H="(&bool;)" grid_step="(&real;)" padding="(&real;)"
@@ -26,14 +26,15 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
         frozen_scs="(&string;)" sc_edge_buffer="(&real;)" fa_rep_grid="(&real;)"
         grid_bound_penalty="(&real;)" estimate_dG="(&bool;)"
         use_mean_maxRad="(&bool;)" stdev_multiplier="(&real;)"
-        ngen="(&integer;)" npool="(&non_negative_integer;)" pmut="(&real;)"
-        smoothing="(&real;)" rmsdthreshold="(&real;)" ramp_schedule="(&string;)"
+        torsion_sampler_percentage="(&real;)" ngen="(&integer;)"
+        npool="(&non_negative_integer;)" pmut="(&real;)" smoothing="(&real;)"
+        rmsdthreshold="(&real;)" ramp_schedule="(&string;)"
         maxiter="(&non_negative_integer;)"
         pack_cycles="(&non_negative_integer;)" >
     <Stage repeats="(&integer;)" npool="(&non_negative_integer;)"
             smoothing="(&real;)" elec_scale="(&real;)" pmut="(&real;)"
-            rb_maxrank="(&integer;)" rmsdthreshold="(&real;)"
-            ramp_schedule="(&string;)" maxiter="(&non_negative_integer;)"
+            rmsdthreshold="(&real;)" ramp_schedule="(&string;)"
+            maxiter="(&non_negative_integer;)"
             pack_cycles="(&non_negative_integer;)" />
 </GALigandDock>
 ```
@@ -41,11 +42,10 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 -   **scorefxn**: weights file
 -   **scorefxn_relax**: weights file
 -   **runmode**: run mode [dock/dockPH/refine/optligand]
--   **altcrossover**: Use alternate xover.
 -   **sample_ring_conformers**: Allow ring conformer sampling if defined in params.
 -   **rotprob**: max cumulative rotamer probability
 -   **rotEcut**: rotamer 1b energy
--   **ligand**: ligand residue id (if not specified default to last residue)
+-   **ligand**: ligand residue ids (if not specified default to last residue)
 -   **nativepdb**: name of native pdb
 -   **favor_native**: give a bonus score to the input rotamer
 -   **optimize_input_H**: do not optimize H at the begining (which is used for grid construction)
@@ -83,6 +83,7 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 -   **estimate_dG**: Estimate dG of binding on lowest-energy docked pose. Default: false
 -   **use_mean_maxRad**: Use mean maxRad for multi ligands? Default: false
 -   **stdev_multiplier**: Standard deviation multiplier for mean_maxRad. Default: 1.0
+-   **torsion_sampler_percentage**: The percentage of the initial gene sampled by torsion sampler.
 -   **ngen**: number of generations
 -   **npool**: (default) pool size
 -   **pmut**: (default) probability of mutation
@@ -100,7 +101,6 @@ Subtag **Stage**:   Per-stage parameters
 -   **smoothing**: Grid smoothing in this stage
 -   **elec_scale**: Scale of elec and hbond terms at this stage
 -   **pmut**: Sampling frequency weight for this template
--   **rb_maxrank**: superimpose sampled pose to motifs of topN parent structures
 -   **rmsdthreshold**: symmdef file associated with this template (only if using symmetry)
 -   **ramp_schedule**: comma-seprated list of chains to randomize - not documented
 -   **maxiter**: maxiter for minimizer

@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2021-03-27
+Generated: 2021-03-31
 
 _Note that some application specific options may not be present in this list._
 
@@ -1060,6 +1060,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Directory/ies with extra parameter files for the mm score terms. (Looks for mm_torsion_params.txt, mm_bond_angle_params.txt and mm_bond_length_params.txt)<br/></dd>
 <dt><b>-gen_bonded_params_file</b> \<String\></dt>
 <dd>Parameters for [length,angle,torsion,improper-torsion]<br/>Default: "scoring/score_functions/generic_potential/generic_bonded.round6p.txt"<br/></dd>
+<dt><b>-torsion_distr_params_file</b> \<String\></dt>
+<dd>Parameters for gaussian functions of torsion distributions<br/>Default: "scoring/score_functions/generic_potential/torsion_distribution.round6p.gz.v1.txt"<br/></dd>
 <dt><b>-gen_bonded_exclude_def_file</b> \<String\></dt>
 <dd>Definitions for double-counting params with other energy terms<br/>Default: "scoring/score_functions/generic_potential/params_exclude.txt"<br/></dd>
 <dt><b>-genbonded_score_full</b> \<Boolean\></dt>
@@ -1773,6 +1775,12 @@ _Note that some application specific options may not be present in this list._
 <dd>Indicates to the Glycosylation Protocol which residue is being glycosylated.<br/></dd>
 <dt><b>-low_res</b> \<Boolean\></dt>
 <dd>Indicate to the Glycosylation Protocol whether to perform low-resolution refinement of the substrate.<br/>Default: false<br/></dd>
+<dt><b>-high_res_outer_cycles</b> \<Integer\></dt>
+<dd>How many outer MC cycles to run with the high-resolution refinement.<br/>Default: 10<br/></dd>
+<dt><b>-low_res_outer_cycles</b> \<Integer\></dt>
+<dd>How many outer MC cycles to run with the low-resolution refinement.<br/>Default: 30<br/></dd>
+<dt><b>-low_res_inner_cycles</b> \<Integer\></dt>
+<dd>How many inner torsion sampling cycles to run with the low-resolution refinement.<br/>Default: 50<br/></dd>
 <dt><b>-high_res</b> \<Boolean\></dt>
 <dd>Indicate to the Glycosylation Protocol whether to perform high-resolution refinement of the substrate.<br/>Default: true<br/></dd>
 <dt><b>-substrate_type</b> \<String\></dt>
@@ -3544,6 +3552,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Number of times to run the inner minimization protocol after each graft.  Higher (2-3) rounds recommended for pack/min/backrub mintypes or if including dock in the protocol.<br/>Default: 1<br/></dd>
 <dt><b>-dock_cycle_rounds</b> \<Integer\></dt>
 <dd>Number of rounds for any docking.  If you are seeing badly docked structures, increase this value.<br/>Default: 1<br/></dd>
+<dt><b>-relax_cycle_rounds</b> \<Integer\></dt>
+<dd>Rounds of relax that are run after each inner cycle. The default recommendation is 5 cycles for FastRelax.				If you decrease this number, you will decrease your run time significantly. This has not been benchmarked though.<br/>Default: 5<br/></dd>
 <dt><b>-interface_dis</b> \<Real\></dt>
 <dd>Interface distance cutoff.  Used for repacking of interface, epitope detection, etc.<br/>Default: 8.0<br/></dd>
 <dt><b>-neighbor_dis</b> \<Real\></dt>

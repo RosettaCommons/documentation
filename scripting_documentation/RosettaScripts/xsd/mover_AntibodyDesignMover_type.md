@@ -23,6 +23,7 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
         primary_cdrs="(&string;)" dock_cycles="(&non_negative_integer;)"
         interface_dis="(&real;)" neighbor_dis="(&real;)"
         outer_cycles="(&non_negative_integer;)"
+        relax_cycles="(&non_negative_integer;)"
         inner_cycles="(&non_negative_integer;)"
         mutate_framework_for_cluster="(&bool;)" outer_kt="(&real;)"
         inner_kt="(&real;)" top_designs="(&non_negative_integer;)"
@@ -64,6 +65,7 @@ Use this if you are primarily interested in specific CDRs (such as graft-designi
 -   **interface_dis**: Set the interface detection distance. Default 8A
 -   **neighbor_dis**: Set the neighbor detection distance. Default 6A
 -   **outer_cycles**: Set the number of outer cycles. Default 25.
+-   **relax_cycles**: Set the number of relax cycles. Default 5.
 -   **inner_cycles**: Set the number of inner (minimization) cycles. Default 1.
 -   **mutate_framework_for_cluster**: Should we add framework mutations for the specified cdr? Default True.
 -   **outer_kt**: Temperature to use for outer cycle. Default 1.0
