@@ -23,7 +23,7 @@ The trRosettaConstraintGenerator requires compilation with Tensorflow support.  
 		LIBRARY_PATH=$LIBRARY_PATH:~/mydir/lib
 		DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:~/mydir/lib
 
-3.  Edit your user.settings file (Rosetta/main/source/tools/build/user.settings), and uncomment (i.e. remove the octothorp from the start of) the following lines:
+3.  Edit your user.settings file (Rosetta/main/source/tools/build/user.settings), and uncomment (i.e. remove the octothorpe from the start of) the following lines:
 	import os
 		'program_path'  : os.environ['PATH'].split(':'),
 		'ENV' : os.environ,
