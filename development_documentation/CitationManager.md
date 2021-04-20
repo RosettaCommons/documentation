@@ -18,7 +18,7 @@ For all of these reasons, it is _both_ in an individual's best interest _and_ in
 
 ## 2. How we document contributions: The Rosetta CitationManager
 
-The Rosetta CitationManager is a Rosetta singleton -- an global object of which one instance exists in memory for a given Rosetta session.  Its job is to track which Rosetta modules were used during a Rosetta session, and to issue a report at the end of the session listing the published modules that should be cited (and the relevant papers), plus the unpublished modules whose authors should be included as coauthors on the first publication using those modules (plus the authors' names and contact information).  Any Rosetta module may register itself with the CitationManager, providing information about its citation(s) (if published) or author(s) (if unpublished).  In the case of Movers, Filters, TaskOperations, ResidueSelectors, EnergyMethods (score terms), SimpleMetrics, or PackerPalettes, special function overrides exist to make it easy for the [[RosettaScripts]] application to register all of the scripted modules in a user's script.  At the end of Rosetta execution, a message similar to the following is written:
+The Rosetta CitationManager is a Rosetta singleton -- a global object of which one instance exists in memory for a given Rosetta session.  Its job is to track which Rosetta modules were used during a Rosetta session, and to issue a report at the end of the session listing the published modules that should be cited (and the relevant papers), plus the unpublished modules whose authors should be included as coauthors on the first publication using those modules (plus the authors' names and contact information).  Any Rosetta module may register itself with the CitationManager, providing information about its citation(s) (if published) or author(s) (if unpublished).  In the case of Movers, Filters, TaskOperations, ResidueSelectors, EnergyMethods (score terms), SimpleMetrics, or PackerPalettes, special function overrides exist to make it easy for the [[RosettaScripts]] application to register all of the scripted modules in a user's script.  At the end of Rosetta execution, a message similar to the following is written:
 
 ```
 basic.citation_manager.CitationManager: 
@@ -160,50 +160,26 @@ If (or when) a module is published, the unpublished author information described
 
 To add a citation for a RosettaScripts-scriptable module:
 
-1.  Implement a function override for `bool mover_provides_citation_info() const`, `bool filter_provides_citation_info() const`, _etc._  The override should return `true`.
-
-2.  Implement a function override for `provide_citation_info()` that returns a citation by querying the `CitationManager` for the citation, by doi.
+1.  Implement a function override for `provide_citation_info()` that queries the `CitationManager` for the citation, by doi, and updates the `CitationCollectionList` object.
 	
-3.  If the citation is not yet in the Rosetta database, add it to `database/citations/rosetta_citations.txt`.
+2.  If the citation is not yet in the Rosetta database, add it to `database/citations/rosetta_citations.txt`.
 	
 #### 2.2.2. Detailed description of steps for adding citation information for RosettaScripts-scriptable modules
 
-1.  Implement a function override for `bool XXX_provides_citation_info() const`, where XXX is mover, filter, task\_operation, _etc._, depending the module type.  To do this, first edit the ".hh" file and add a public member function prototype to the class definition:
+1.  Implement a function override for `provide_citation_info() const`.  First, add a prototype for a public member function override to the class definition in the ".hh" file:
 
 ```c++
-/// @brief Returns true, since this mover is published and has a citation to provide.
-bool mover_provides_citation_info() const override;
-```
-
-Next, implement it in the ".cc" file:
-
-```c++
-/// @brief Returns true, since this mover is published and has a citation to provide.
-bool
-MyMover::mover_provides_citation_info() const {
-	return true;
-}
-```
-
-In the above, replace "MyMover" with the name of your class, and "mover\_" with "filter\_", "task\_operation\_", _etc._ as appropriate, if your module is not a mover.
-
-2.  Implement a function override for `provide_citation_info() const`.  First, add a prototype for a public member function override to the class definition in the ".hh" file:
-
-```c++
-/// @brief Returns the citation for this mover.
-utility::vector1< basic::citation_manager::CitationCollectionCOP > provide_citation_info() const override;
+/// @brief Provide the citation for this mover.
+void provide_citation_info( basic::citation_manager::CitationCollectionList & ) const override;
 ```
 
 Next, edit the ".cc" file and implement the function:
 
 ```c++
 /// @brief Returns the citation for this mover.
-utility::vector1< basic::citation_manager::CitationCollectionCOP >
-MyMover::provide_citation_info() const {
+void
+MyMover::provide_citation_info(basic::citation_manager::CitationCollectionList & citations) const {
 	using namespace basic::citation_manager;
-	
-	// Get a pointer to the global CitationManager:
-        CitationManager * cm( CitationManager::get_instance() );
 	
 	// Create a citation collection for this module:
         CitationCollectionOP collection(
@@ -213,17 +189,13 @@ MyMover::provide_citation_info() const {
 		)
 	);
 	
-	// Add the citation to this module:
-        collection->add_citation(
-		cm->get_citation_by_doi( "10.1073/pnas.1115898108" /*Update this with the DOI of your citation.*/ )
+	// Add the relevant citation from the CitationManager to the collection
+	collection->add_citation( CitationManager::get_instance()->get_citation_by_doi("10.1073/pnas.1115898108"  /*Update this with the DOI of your citation.*/ ) );
 		/*The line above queries the CitationManager for the citation,
 		and will throw an error if the citation is not in the database.*/
-	);
 	
-	// Encapsulate the citation collection for this module in a vector and return the vector.  (This
-	// is a vector because this module might ALSO return citation collections for sub-modules that it
-	// invokes):
-        return utility::vector1< CitationCollectionCOP > { collection };
+	// Add the collection to the CitationCollectionList
+	citations.add( collection );
 }
 ```
 
