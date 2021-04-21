@@ -40,66 +40,42 @@ Jared Adolf-Bryfogle, The Scripps Research Institute, La Jolla, CA <jadolfbr@gma
 
 ### 2.1 Adding authorship information for an unpublished Rosetta module
 
-If authorship information is added to a Rosetta module, it will allow Rosetta to report the name of the developer and the fact that the module was used at the end of a Rosetta session in which the module was invoked.  For Movers, Filters, TaskOperations, ResidueSelectors, EnergyMethods (score terms), SimpleMetrics, or PackerPalettes (RosettaScripts-scriptable objects), one need only add two functions to the module.  For other Rosetta modules, 
+If authorship information is added to a Rosetta module, it will allow Rosetta to report the name of the developer and the fact that the module was used at the end of a Rosetta session in which the module was invoked.  For Movers, Filters, TaskOperations, ResidueSelectors, EnergyMethods (score terms), SimpleMetrics, or PackerPalettes (RosettaScripts-scriptable objects), one need only one function to the module, which will get called automatically by the RosettaScripts machinery.  For other Rosetta modules, the same types of functions should be added in the same way, but you will need to call that function to register it.
 
 #### 2.1.1 Short summary of steps for adding authorship information for RosettaScripts-scriptable modules
 
 To add authorship information for an unpublished Rosetta module, one must:
 
-1.  Implement a function override for `bool mover_is_unpublished() const`, `bool filter_is_unpublished() const`, _etc._  The override should return `true`.
-
-2.  Implement a function override for `provide_authorship_info_for_unpublished()`.  This should return a vector of `UnpublishedModuleInfo` const owning pointers.  An `UnpublishedModuleInfo` object contains a module name and type, plus a vector of one or more authors (name, affiliation, e-mail address).
+1.  Implement a function override for `provide_citation_info()`.  This should update the CitationCollectionList object with an `UnpublishedModuleInfo` object that contains a vector of the module name, module type, plus one or more authors (name, affiliation, e-mail address).
 
 It's that simple.
 
 #### 2.1.2 Detailed description of steps for adding authorship information for RosettaScripts-scriptable modules
 
-1.  Override the `bool XXX_is_unpublished() const` function (where XXX is mover, filter, task\_operation, _etc._, depending on the type of module).  To do this, edit the header file (ending in ".hh") for your module.  If it's a mover, add the following lines protyping a public member function to the class definition:
-
-```c++
-/// @brief A function that returns "true", indicating that
-/// this mover is unpublished.
-bool mover_is_unpublished() const override;
-```
-
-In the above, replace "mover" with "filter", "task\_operation", _etc._ if your module is of a different type.
-
-Now edit the ".cc" file for your module.  Let's suppose that it's a mover called "MyMover".  Add the following lines:
-
-```c++
-/// @brief A function that returns "true", indicating that
-/// this mover is unpublished.
-bool
-MyMover::mover_is_unpublished() const {
-     return true;
-}
-```
-
-Again, replace "mover" with the appropriate module type, and "MyMover" with the actual name of your module.
-
-2.  Override the `provide_authorship_info_for_unpublished()` function.  First, edit the ".hh" file for your module to add the following as a public member function:
+1.  Override the `provide_citation_info()` function.  First, edit the ".hh" file for your module to add the following as a public member function:
 
 ```c++
 /// @brief Provide a list of authors for this module.
-utility::vector1< basic::citation_manager::UnpublishedModuleInfoCOP > provide_authorship_info_for_unpublished() const override;
+void provide_citation_info(basic::citation_manager::CitationCollectionList & ) const override;
 ```
 
-Now edit the ".cc" file.  Again, let us suppose that this is a mover called "MyMover".  Add the following lines:
+Now edit the ".cc" file.  Let us suppose that this is a mover called "MyMover".  Add the following lines:
 
 ```c++
 /// @brief Provide a list of authors for this module.
-utility::vector1< basic::citation_manager::UnpublishedModuleInfoCOP >
-MyMover::provide_authorship_info_for_unpublished() const {
-using namespace basic::citation_manager;
-	return utility::vector1< UnpublishedModuleInfoCOP > {
+void
+MyMover::provide_citation_info(basic::citation_manager::CitationCollectionList & citations ) const {
+	using namespace basic::citation_manager;
+	
+	citations.add(
 		utility::pointer::make_shared< UnpublishedModuleInfo >(
-			get_name() /*Gets the name of this Mover.*/,
-			CitedModuleType::Mover /*Should match the type of module being cited.*/,
-			"Your Name" /*Fill this in.*/,
-			"Your Affiliation" /*Fill this in.*/,
-			"Your e-mail address" /*Fill this in.*/
+		get_name() /*Gets the name of this Mover.*/,
+		CitedModuleType::Mover /*Should match the type of module being cited.*/,
+		"Your Name" /*Fill this in.*/,
+		"Your Affiliation" /*Fill this in.*/,
+		"Your e-mail address" /*Fill this in.*/
 		)
-	};
+	);
 }
 ```
 
@@ -117,8 +93,8 @@ The `UnpublishedAuthorInfo` object can store an arbitrarily long list of authors
 
 ```c++
 /// @brief Provide a list of authors for this module.
-utility::vector1< basic::citation_manager::UnpublishedModuleInfoCOP >
-MyMover::provide_authorship_info_for_unpublished() const {
+void
+MyMover::provide_citation_info(basic::citation_manager::CitationCollectionList & citations ) const {
 	using namespace basic::citation_manager;
 	
 	// Create the UnpublishedModuleInfo object and set the module name and type.  (The type
@@ -143,10 +119,8 @@ MyMover::provide_authorship_info_for_unpublished() const {
 		"Refactored to future-proof the implementation."  /*This additional notes field is optional.*/
 	);
 
-	// Encapsulate the UnpublishedModuleInfo in a vector.  (This is because a module might
-	// return more than one UnpublshedModuleInfo object -- for example, one for itself and
-	// one for another module that it invokes.):
-	return utility::vector1< UnpublishedModuleInfoCOP > { my_author_info };
+	// Add the authorship information to the CitationCollectionList
+	citations.add(my_author_info)
 }
 ```
 
