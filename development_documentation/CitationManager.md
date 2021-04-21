@@ -272,3 +272,20 @@ Manuscripts under review may also be added.  In this case, the Journal and volum
     [END_DOI]
 [END_CITATION]
 ```
+
+### 2.3 Adding citation information to a non-RosettaScripts module
+
+If you write a module that is not one of the RosettaScripts classes that automatically register themselves if the `provide_citation_info` is implemented, an additional step is needed to register it with the CitationManager.
+
+#### 2.3.1 Detailed description of steps for adding authorship information for a generic, non-RosettaScripts modules
+
+1. Implement a `provide_citation_info` function in the module's ".hh" and ".cc" files, as described above.
+
+Figure out whether you are describing an unpublished or published module, and follow the instructions in sections 2.1.2 or 2.2.2.  In the case of a published module, do not forget to also add it to the Rosetta database (section 2.2.3).
+
+2. Call the function at the stage in your code where you want the module to register itself.  This could be, for example, in the class' constructor, in which case it will be registered whenever the class is instantiated.
+
+There are a few things to keep in mind when deciding whether to call `provide_citation_info` in the constructor:
+ * You're sure that you want the module cited absolutely every time that it is instantiated.
+ * You're OK with a little bit of overhead every time the module is instantiated.
+ * You are not introducing redundant citations by adding a citation to each of a series of modules that are instantiated by a single, user-accessible class (such as a Mover, Filter, etc.).  This would result in the same citation being list for every one of those modules in the final output of a Rosetta job.
