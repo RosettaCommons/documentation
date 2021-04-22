@@ -102,6 +102,14 @@ any JumpSelector can be defined as a subtag of the Not selector.  You cannot, ho
 
 -   This selector selects all jumps that span two chains
 
+#### JumpForResidue
+
+    <JumpForResidue name="chainb_jump" residue_selector="chainB" allow_multiple_results="true"/>
+
+-   JumpForResidue selects the jump that builds the residues passed in
+-   `residue_selector`: We will select the jumps that build the residues selected by this residue selector
+-   `allow_multiple_results`: If false, we will assert that every residue passed in is built by the same jump
+
 
 ####See Also
 
