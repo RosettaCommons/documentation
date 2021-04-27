@@ -11,7 +11,8 @@ This is a special mover that allows making a single compound mover and filter ve
         apply_probability="(&real;)" resume_support="(false &bool;)" >
     <Add mover_name="(&string;)" mover="(&string;)" filter_name="(&string;)"
             filter="(&string;)" metrics="(&string;)" labels="(&string;)"
-            apply_probability="(&real;)" report_at_end="(true &bool;)" />
+            apply_probability="(&real;)" report_at_end="(true &bool;)"
+            never_rerun_filter="(false &bool;)" />
     <Filter Tag ... />
     <Mover Tag ... />
 </ParsedProtocol>
@@ -34,6 +35,7 @@ Subtag **Add**:   The steps to be applied.
 -   **labels**: A comma-separated list of labels to use for the provided metrics in the output. If empty/missing, use the metric names from the metrics setting. If '-', use the metric's default.
 -   **apply_probability**: by default equal probability for all tags
 -   **report_at_end**: Report filter value via filter re-evaluation on final pose after conclusion of protocol. Otherwise report filter value as evaluated mid-protocol.
+-   **never_rerun_filter**: Never run this filter after the original apply-time run. Use this option to avoid expensive re-runs when reporting
 
 "Filter Tag": Any of the [[RosettaScripts Filters|Filters-RosettaScripts]] tags
 

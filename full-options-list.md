@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2021-03-31
+Generated: 2021-04-26
 
 _Note that some application specific options may not be present in this list._
 
@@ -794,6 +794,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Have the rosetta_scripts application write out its XML Schema to the given file and then exit.<br/></dd>
 <dt><b>-validate_and_exit</b> \<Boolean\></dt>
 <dd>After XML Schema validation completes, exit<br/></dd>
+<dt><b>-never_rerun_filters</b> \<Boolean\></dt>
+<dd>Interpret all <Add filter=foo/> elements as <Add filter=foo never_rerun_filter=true/> in rosetta_scripts. Filters are run only once at apply time.<br/>Default: false<br/></dd>
 <dt><b>-patchdock</b> \<String\></dt>
 <dd>Patchdock output file name.<br/></dd>
 <dt><b>-patchdock_random_entry</b> \<IntegerVector\></dt>
