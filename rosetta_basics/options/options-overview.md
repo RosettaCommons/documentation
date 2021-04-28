@@ -11,6 +11,7 @@ The following page gives an overview of the most commonly used categories of opt
 * [[Packing options|packing-options]]: Options that control the behavior of the packer (including resfile input, resfile input, and additional options).
 * [[Database options|Database-options]]: Options for using relational databases within Rosetta.
 * [[Renamed and Deprecated Options|Renamed-and-Deprecated-Options]]: Options that may appear in older Rosetta runs but which have changed or been removed are listed here.
+* [[Suggested Options|Suggested-Options]]: Here are a few options that would be default if we did not care about maintaining old behavior
 
 ##See Also
 
