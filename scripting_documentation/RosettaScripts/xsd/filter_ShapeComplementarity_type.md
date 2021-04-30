@@ -9,9 +9,9 @@ Calculates the Lawrence and Coleman shape complementarity using a port of the or
 <ShapeComplementarity name="(&string;)" min_sc="(0.5 &real;)"
         min_interface="(0 &real;)" max_median_dist="(1000 &real;)"
         verbose="(false &bool;)" quick="(false &bool;)" jump="(1 &integer;)"
-        write_int_area="(false &bool;)" write_median_dist="(false &bool;)"
-        sym_dof_name="(&string;)" multicomp="(false &bool;)"
-        residues1="(&string;)" residues2="(&string;)"
+        jump_selector="(&string;)" write_int_area="(false &bool;)"
+        write_median_dist="(false &bool;)" sym_dof_name="(&string;)"
+        multicomp="(false &bool;)" residues1="(&string;)" residues2="(&string;)"
         residue_selector1="(&string;)" residue_selector2="(&string;)"
         use_rosetta_radii="(false &bool;)" confidence="(1.0 &real;)" />
 ```
@@ -21,7 +21,8 @@ Calculates the Lawrence and Coleman shape complementarity using a port of the or
 -   **max_median_dist**: The filter fails is the calculated median distance between the molecular surfaces is greater than the given value.
 -   **verbose**: If true, print extra calculation details to the tracer.
 -   **quick**: If true, do a quicker, less accurate calculation by reducing the density.
--   **jump**: For non-symmetric poses, which jump over which to calculate the interface.
+-   **jump**: For non-symmetric poses, which jump over which to calculate the interface. This option is overidden by jump_selector.
+-   **jump_selector**: Jump selector to be used as an alternative to the 'jump' option. This selector should only select one jump.
 -   **write_int_area**: If true, write interface area to scorefile.
 -   **write_median_dist**: If true, write interface median distance to scorefile.
 -   **sym_dof_name**: For symmetric poses, which dof over which to calculate the interface.

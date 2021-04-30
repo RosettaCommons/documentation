@@ -7,8 +7,9 @@ Computes the binding energy for the complex and if it is below the threshold ret
 
 ```xml
 <Ddg name="(&string;)" threshold="(-15 &real;)" threshold_min="(-999999 &real;)"
-        jump="(1 &positive_integer;)" repeats="(1 &positive_integer;)"
-        repack="(1 &bool;)" symmetry="(&string;)" repack_bound="(true &bool;)"
+        jump="(1 &positive_integer;)" jump_selector="(&string;)"
+        repeats="(1 &positive_integer;)" repack="(1 &bool;)"
+        symmetry="(&string;)" repack_bound="(true &bool;)"
         repack_unbound="(true &bool;)" relax_bound="(false &bool;)"
         relax_unbound="(true &bool;)" translate_by="(100 &real;)"
         relax_mover="(&string;)" filter="(&string;)" chain_num="(&string;)"
@@ -20,7 +21,8 @@ Computes the binding energy for the complex and if it is below the threshold ret
 
 -   **threshold**: If ddG value is lower than this value, filter returns True (passes).
 -   **threshold_min**: If ddG value is higher than this value, filter returns True (passes).
--   **jump**: Specifies which chains to separate. Jump=1 would separate the chains interacting across the first chain termination, jump=2, second etc.
+-   **jump**: Specifies which chains to separate. Jump=1 would separate the chains interacting across the first chain termination, jump=2, second etc. This option is overriden by the jump_selector option.
+-   **jump_selector**: Jump selector to be used as an alternative to the 'jump' option. This selector should only select one jump.
 -   **repeats**: Averages the calculation over the number of repeats. Note that ddg calculations show noise of about 1-1.5 energy units, so averaging over 3-5 repeats is recommended for many applications.
 -   **repack**: Should the complex be repacked in the bound and unbound states prior to taking the energy difference? If false, the filter turns to a dG evaluator. If repack=false repeats should be turned to 1, b/c the energy evaluations converge very well with repack=false.
 -   **symmetry**: Note: DdgFilter autodetermines symmetry from input pose - symmetry option has no effect.
