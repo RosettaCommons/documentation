@@ -40,6 +40,8 @@ The trRosetta application requires that Rosetta be linked against the Tensorflow
         ./scons.py -j 8 mode=release extras=tensorflow bin
 ```
 
+Note: If scons gives you a `KeyError:'LESS'`, move the `'ENV'` line in the user settings file to the override section and recompile with scons. 
+
 ### A note on nomenclature
 
 Although "omega" and "phi" are commonly used to refer to the third and first mainchain backbone dihedrals of an alpha amino acid, and "theta" is used to refer to the second mainchain backbone dihedral of a beta-amino acid, in the context of trRosetta-related protocols, these Greek letters are assigned new meanings.  Here, "omega" refers to the inter-residue dihedral angle between the CA and CB atoms of a first residue and the CB and CA atoms of a second residue.  "Theta" refers to the inter-residue dihedral angle between the N, CA, and CB atoms of a first residue and the CB atom of a second residue.  And "phi" refers to the inter-residue angle between the CA and CB atoms of a first residue and the CB atom of a second residue.
