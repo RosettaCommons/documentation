@@ -40,7 +40,7 @@ The trRosetta application requires that Rosetta be linked against the Tensorflow
         ./scons.py -j 8 mode=release extras=tensorflow bin
 ```
 
-Note: If scons gives you a `KeyError:'LESS'`, move the `'ENV'` line in the user settings file to the override section and recompile with scons. 
+Note that the `'ENV'` line in the user.settings file should be in the "override" section.  If this has been moved to another section, you may get a `KeyError:'LESS'` error on compilation. 
 
 ### A note on nomenclature
 
