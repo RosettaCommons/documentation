@@ -28,6 +28,7 @@ A filter for computing the number of buried unsatisfied hydrogen bond donors and
         report_sc_heavy_atom_unsats="(false &bool;)"
         report_bb_heavy_atom_unsats="(false &bool;)"
         report_nonheavy_unsats="(false &bool;)"
+        report_heavy_acceptors_and_hpols="(false &bool;)"
         atomic_depth_deeper_than="(true &bool;)"
         atomic_depth_poly_leu="(true &bool;)" sym_dof_names="(&string;)"
         scorefxn="(&string;)"
@@ -65,6 +66,7 @@ A filter for computing the number of buried unsatisfied hydrogen bond donors and
 -   **report_sc_heavy_atom_unsats**: report side chain heavy atom unsats
 -   **report_bb_heavy_atom_unsats**: report back bone heavy atom unsats
 -   **report_nonheavy_unsats**: report non heavy atom unsats
+-   **report_heavy_acceptors_and_hpols**: report heavy atom acceptors and hpols
 -   **atomic_depth_deeper_than**: If true, only atoms deeper than atomic_depth_selection are included. If false, only atoms less deep than atomic_depth_selection are included.
 -   **atomic_depth_poly_leu**: Convert pose to poly-leu before calculating depth? Gives stable, sequence independent values that align with approximate_buried_unsat_penalty.
 -   **sym_dof_names**: For multicomponent symmetry: what jump(s) used for ddG-like separation. (From Dr. Bale: For multicomponent systems, one can simply pass the names of the sym_dofs that control the master jumps. For one component systems, jump can still be used.)  IF YOU DEFIN THIS OPTION, Will use ddG-style separation for the calulation; if you do not want this, pass a residue selector instead of defining symdofs.
