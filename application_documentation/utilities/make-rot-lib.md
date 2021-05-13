@@ -6,7 +6,9 @@ Metadata
 Author: P. Douglas Renfrew (renfrew@nyu.edu)
 Author: Andrew Watkins (amw579@nyu.edu)
 
-The documentation was updated in February 2016, by Andy Watkins.  Notes about how current usage differs from what is documented here were added on 9 November 2018 by Vikram K. Mulligan (vmulligan@flatironinstiutute.org) and on 27 November 2018 by Andy Watkins. The PI for this application is Brian Kuhlman (bkuhlman@email.unc.edu).
+The documentation was updated in February 2016, by Andy Watkins.  Notes about how current usage differs from what is documented here were added on 9 November 2018 by Vikram K. Mulligan (vmulligan@flatironinstiutute.org) and on 27 November 2018 by Andy Watkins.  Minor tweaks were made on 13 May 2021 by Vikram K. Mulligan. The PI for this application is Brian Kuhlman (bkuhlman@email.unc.edu).
+
+[[_TOC_]]
 
 Code and Demo
 =============
@@ -130,7 +132,7 @@ The next step is to run the MakeRotLib protocol on each of the input files we cr
 
 ```
 $ cd outputs
-$ PATH/TO/ROSETTA/bin/MakeRotLib.default.macosclangrelease -database PATH/TO/rosetta/main/database -options_file ../inputs/C40_rot_lib_options_-60_-40.in >& C40_rot_lib_options_-60_-40.log &
+$ PATH/TO/ROSETTA/bin/MakeRotLib.default.macosclangrelease -database PATH/TO/rosetta/main/database -options_file ../inputs/C40_rot_lib_options_-60_-40.in >C40_rot_lib_options_-60_-40.log &
 ```
 
 **Note:** The extension on your executable may be different.
