@@ -6,7 +6,7 @@ Metadata
 Author: P. Douglas Renfrew (renfrew@nyu.edu)
 Author: Andrew Watkins (amw579@nyu.edu)
 
-The documentation was updated in February 2016, by Andy Watkins.  Notes about how current usage differs from what is documented here were added on 9 November 2018 by Vikram K. Mulligan (vmulligan@flatironinstiutute.org) and on 27 November 2018 by Andy Watkins.  Minor tweaks were made on 13 May 2021 by Vikram K. Mulligan. The PI for this application is Brian Kuhlman (bkuhlman@email.unc.edu).
+The documentation was updated in February 2016, by Andy Watkins.  Notes about how current usage differs from what is documented here were added on 9 November 2018 by Vikram K. Mulligan (vmulligan@flatironinstiutute.org) and on 27 November 2018 by Andy Watkins.  Minor tweaks were made on 13 May 2021 and 17 May 2021 by Vikram K. Mulligan. The PI for this application is Brian Kuhlman (bkuhlman@email.unc.edu).
 
 [[_TOC_]]
 
@@ -95,11 +95,11 @@ TEMPERATURE 1
 ```
 
 -   AA\_NAME | three letter code for the amno acid
--   OMG\_RANGE | omega range for the peptide bond _preceding_ the residue
--   PHI\_RANGE | phi value for this bin phi value for this bin | 0 : The phi range functionality is not functional. Both values need to be the same and the interval set to 0. **Update 9 Nov 2018: This functionality _is_ now functional.  Ranges can be set, so it is not necessary to generate thousands of input files. --VKM**
--   PSI\_RANGE | psi value for this bin psi value for this bin | 0 : The psi range functionality is not functional. Both values need to be the same and the interval set to 0  **Update 9 Nov 2018: This functionality _is_ now functional.  Ranges can be set, so it is not necessary to generate thousands of input files. --VKM**
--   EPS\_RANGE | omega range (referred to as "epsilon") for the peptide bond _following_ the residue-
--   BB_\_RANGE | optionally used to add additional backbone dihedrals. | Note that NUM_BB must reflect the number of backbone dihedrals not including omega and epsilon.  Backbone dihedral indices are based on the order specified, and PHI\_RANGE, PSI\_RANGE, and BB\_RANGE all have the same effect, under the hood, of setting the range for the next backbone dihedral index.
+-   OMG\_RANGE | omega range for the peptide bond _preceding_ the residue, expressed as STARTVAL ENDVAL INCREMENT
+-   PHI\_RANGE | phi value for this bin phi value for this bin, expressed as STARTVAL ENDVAL INCREMENT | 0 : The phi range functionality is not functional. Both values need to be the same and the interval set to 0. **Update 9 Nov 2018: This functionality _is_ now functional.  Ranges can be set, so it is not necessary to generate thousands of input files. --VKM**
+-   PSI\_RANGE | psi value for this bin psi value for this bin, expressed as STARTVAL ENDVAL INCREMENT | 0 : The psi range functionality is not functional. Both values need to be the same and the interval set to 0  **Update 9 Nov 2018: This functionality _is_ now functional.  Ranges can be set, so it is not necessary to generate thousands of input files. --VKM**
+-   EPS\_RANGE | omega range (referred to as "epsilon") for the peptide bond _following_ the residue, expressed as STARTVAL ENDVAL INCREMENT
+-   BB_\_RANGE | optionally used to add additional backbone dihedrals. | Note that NUM_BB must reflect the number of backbone dihedrals not including omega and epsilon.  Backbone dihedral indices are based on the order specified, and PHI\_RANGE, PSI\_RANGE, and BB\_RANGE all have the same effect, under the hood, of setting the range for the next backbone dihedral index. All are expressed as STARTVAL ENDVAL INCREMENT.
 -   NUM\_BB | number of backbone dihedrals _not including_ omega (the preceding inter-residue bond) or epsilon (the following inter-residue bond)
 -   NUM\_CHI | number side chain dihedral angles : This should be the same as in the parameter file.
 -   CHI\_RANGE chi number | starting value | ending value | interval : The number of CHI\_RANGE fields needs to equal the values specified for NUM\_CHI.
