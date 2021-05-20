@@ -6,7 +6,8 @@ Page created 19 May 2021 by Vikram K. Mulligan, Flatiron Institute (vmulligan@fl
 
 The ConstraintsMetric provides a summary of all of the constraints in a pose or pose region selected by a residue
 selector.  The summary is formatted as (non-enzdes) [[constraints file|constraint-file]] constraints, and can be copied
-into a .cst file directly for use with the [[ConstraintSetMover]], for example.
+into a .cst file directly for use with the [[ConstraintSetMover]], for example.  This metric is intended as a replacement
+for the older [[CstInfoMover]].
 
 [[include:simple_metric_ConstraintsMetric_type]]
 
