@@ -145,7 +145,7 @@ These metrics calculate a string, such as sequence and seecondary structure.
 
 SimpleMetric  | Description | ResidueSelector Compatability?
 ------------ | ------------- | -------------
-**[[ConstraintsMetric]]** | Given a pose with constraints in it, extact the constraints definitions, in a format compatible with .cst files.
+**[[ConstraintsMetric]]** | Given a pose with constraints in it, extact the constraints definitions, in a format compatible with .cst files. | Yes.
 **[[InteractionGraphSummaryMetric]]** | Given a pose and a set of task operations, calculates an interaction graph and writes out a summary of it.  Intended for use with external annealers and with the [[ExternalPackerResultLoader mover|ExternalPackerResultLoader]] to reconstruct the pose with the external solution. | Yes (indirectly -- since task operations may take residue selectors)
 **[[PolarGroupBurialPyMolStringMetric]]** | Returns PyMol commands to colour polar groups in a pose based on burial, in a manner compatible with the [[buried_unsatisfied_penalty|BuriedUnsatPenalty]] scoreterm. | No (not applicable)
 **[[SecondaryStructureMetric]]** | Returns the DSSP secondary structure of the pose or set of selected residues. | Yes
