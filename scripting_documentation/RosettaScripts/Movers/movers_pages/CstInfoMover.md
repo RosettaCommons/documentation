@@ -2,6 +2,9 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## CstInfoMover
 
+_Note: this is an older mover that predates the newer [[SimpleMetrics]] framework.  Consider using the [[ConstraintsMetric]]
+if you want to capture information about constraints in a pose in a format compatible with [[.cst files|constraint-file]]._
+
 [[include:mover_CstInfoMover_type]]
 
 ### Expected outputs.
