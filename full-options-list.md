@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2021-05-05
+Generated: 2021-05-20
 
 _Note that some application specific options may not be present in this list._
 
@@ -1140,6 +1140,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Input covalent labeling data in the form of protection factors for FA<br/></dd>
 <dt><b>-covalent_labeling_fa_input</b> \<File\></dt>
 <dd>Input covalent labeling data in the form of neighbor counts for FA<br/></dd>
+<dt><b>-depc_ms_input</b> \<File\></dt>
+<dd>Input DEPC covalent labeling MS data in the form of His/Lys/Ser/Thr/Tyr residue numbers and labeling status of labeled (L) or unlabeled (U)<br/></dd>
 <dt><b>-elec_min_dis</b> \<Real\></dt>
 <dd>changes the minimum distance cut-off for hack-elec energy<br/>Default: 1.6<br/></dd>
 <dt><b>-elec_max_dis</b> \<Real\></dt>
