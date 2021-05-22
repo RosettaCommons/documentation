@@ -13,7 +13,7 @@ Filter based on any score that can be calculated in fragment_picker.
         outputs_name="(pose &string;)" csblast="(&string;)"
         blast_pgp="(&string;)" placeholder_seqs="(&string;)"
         sparks-x="(&string;)" sparks-x_query="(&string;)" psipred="(&string;)"
-        vall_path="(/Users/vmulligan/rosetta_devcopy/Rosetta/main/database//sampling/vall.jul19.2011.gz &string;)"
+        vall_path="(Rosetta/main/database/sampling/vall.jul19.2011.gz &string;)"
         frags_scoring_config="(&string;)" n_frags="(200 &non_negative_integer;)"
         n_candidates="(1000 &non_negative_integer;)"
         print_to_pdb="(false &xs:boolean;)"
