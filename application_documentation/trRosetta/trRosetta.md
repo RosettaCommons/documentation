@@ -180,6 +180,25 @@ distance_constraint_prob_cutoff |                     0.05 |   R| The minimum cu
                                |                           |    |  CA1-CB1-CB2 angle, not the 
                                |                           |    |  usual backbone dihedral 
                                |                           |    |  angle.)  Default 1.0.
+     write_constraints_to_file |                           |   S| If provided, trRosetta 
+                               |                           |    |  constraints are written to 
+                               |                           |    |  the specified filename.  
+                               |                           |    |  No write occurs if not 
+                               |                           |    |  provided or if set to an 
+                               |                           |    |  empty string.
+        only_write_constraints |                     false |   B| If true, the the 
+                               |                           |    |  trRosettaProtocolMover or 
+                               |                           |    |  trRosetta application 
+                               |                           |    |  skips the structue 
+                               |                           |    |  prediction phase, and ONLY 
+                               |                           |    |  writes constraints to a 
+                               |                           |    |  file.  Must be used in 
+                               |                           |    |  conjunction with a 
+                               |                           |    |  filename specified with 
+                               |                           |    |  the -trRosett
+                               |                           |    |  a
+                               |                           |    |  :write_constraints_to_file 
+                               |                           |    |  option.  False by default.
    backbone_randomization_mode |                   classic |   S| The manner in which the 
                                |                           |    |  polypeptide backbone is 
                                |                           |    |  initially randomized.  Can 
@@ -274,7 +293,7 @@ distance_constraint_prob_cutoff |                     0.05 |   R| The minimum cu
                                |                           |    |  fullatom refinement with 
                                |                           |    |  FastRelax.  If 
                                |                           |    |  atom-pair_constraint, 
-                               |                           |    |  dihedral_constraint, or 
+                               |                           |    |  dihedral_constriant, or 
                                |                           |    |  angle_constraint terms are 
                                |                           |    |  zero, they will be set to 
                                |                           |    |  5.0, 1.0, and 1.0 
