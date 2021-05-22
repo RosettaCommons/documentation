@@ -293,7 +293,7 @@ distance_constraint_prob_cutoff |                     0.05 |   R| The minimum cu
                                |                           |    |  fullatom refinement with 
                                |                           |    |  FastRelax.  If 
                                |                           |    |  atom-pair_constraint, 
-                               |                           |    |  dihedral_constriant, or 
+                               |                           |    |  dihedral_constraint, or 
                                |                           |    |  angle_constraint terms are 
                                |                           |    |  zero, they will be set to 
                                |                           |    |  5.0, 1.0, and 1.0 
