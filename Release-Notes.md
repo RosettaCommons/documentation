@@ -130,9 +130,9 @@ Updated or bugfixed classes and modules:
 * [[FastRelax]]
 
 Other:
-* Non more noncannonical spelling of "noncanonical" 
+* No more noncannonical spelling of "noncanonical" 
 * Toned down the famous "Inaccurate G!" error message.  It's still bad but now it yells about it less.
-* Non-recursive refolding algorithm available.  Useful when multithreading, because stack space for non-primary threads may be limited
+* Non-recursive coordinate update algorithm replaces old recursive version.  Useful when multithreading, because stack space for non-primary threads may be limited.  Faster and more efficient in general.
 * ResidueTypes have been updated with an eye towards properties for ML
 * Several general fixes for DNA
 * EnzymaticMovers: Adding parsing of nucleic acid sequences to the EnzymaticMover system
