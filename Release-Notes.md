@@ -12,11 +12,11 @@ New tools and apps:
 * RosettaSurf (protein surfaces)
 * PyMOL-Rosetta hookup can now be "bounced" off a Gray lab server to allow viewing of Rosetta trajectories when the trajectory source is insufficiently configurable
 * epr/deer handling
-* NDM-1 design scripts (via RosettaScripts subrepo)
+* NDM-1 peptide macrocycle design scripts (via RosettaScripts subrepo)
 * helical_bundle_predict
 * auto-DRRAFTER
 * Major updates to [[Updating-RosettaScripts]] RosettaScripts - in particular APPLY_TO_POSE no longer exists.
-* [[CitationManager]]
+* [[CitationManager]] -- A Rosetta module to track which modules were used in a protocol, and to write information to the tracer at the end indicating which papers should be cited.
 * Jacobi loop closure protocol and Jacobian analysis modules
 * [[restype_converter]]
 *  https://crash.rosettacommons.org/ and a user-assistant script meant to report to it (Rosetta cannot report anything on its own)
