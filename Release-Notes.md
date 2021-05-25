@@ -13,7 +13,7 @@ New tools and apps:
 * PyMOL-Rosetta hookup can now be "bounced" off a Gray lab server to allow viewing of Rosetta trajectories when the trajectory source is insufficiently configurable
 * epr/deer handling
 * NDM-1 peptide macrocycle design scripts (via RosettaScripts subrepo)
-* helical_bundle_predict
+* [[helical_bundle_predict|helical-bundle-predict]] -- Fragment-free structure prediction of helical bundle assemblies.  Experimental.
 * auto-DRRAFTER
 * Major updates to [[Updating-RosettaScripts]] RosettaScripts - in particular APPLY_TO_POSE no longer exists.
 * [[CitationManager]] -- A Rosetta module to track which modules were used in a protocol, and to write information to the tracer at the end indicating which papers should be cited.
