@@ -1,5 +1,137 @@
 # Release Notes
 
+## _Rosetta 3.13
+
+New tools and apps:
+* Scientific benchmarking system rejuvenated (and submitted for publication)
+* trRosetta available in C++ Rosetta now.  A TensorFlow build supports this.
+* Support for new Mac M1 chipset
+* RosettaSurf (protein surfaces)
+* PyMOL-Rosetta hookup can now be "bounced" off a Gray lab server to allow viewing of Rosetta trajectories when the trajectory source is insufficiently configurable
+* epr/deer handling
+* NDM-1 design scripts (via RosettaScripts subrepo)
+* helical_bundle_predict
+* auto-DRRAFTER
+* Major updates to [[Updating-RosettaScripts]] RosettaScripts - in particular APPLY_TO_POSE no longer exists.
+* [[CitationManager]]
+* Jacobi loop closure protocol and Jacobian analysis modules
+* [[restype_converter]]
+*  https://crash.rosettacommons.org/ and a user-assistant script meant to report to it (Rosetta cannot report anything on its own)
+
+
+New Movers, Filters, etc:
+* [[ShapeSimilarity]], [[ElectrostaticSimilarity]] (RosettaSurf)
+* [[SideChainNeighborCountMetric]]
+* [[BuriedUnsatHbonds2]]
+* [[RemoveMetalConnectionsMover]]
+* [[LogicResidueSelector]]
+* [[SapScore]], as a SimpleMetric or score term
+* [[SimpleMetricSelector]]
+* [[CavityVolumeFilter]]
+* [[hrf_dynamics]]
+* [[FavorCouplingTensor]]
+* SimpleMetric and Filter for internal hbonds in a peptide
+* [[FoldTreeFromMotif]]
+* [[TargetClashEnergy]]
+* [[NTerminalAcetyltransferaseMover]]
+
+
+Database:
+* Carbohydrates: lactyl, triose, tetrose, Aldohexofuranosyls, Modified Aldohexofuranoses, to4 / to7 / to9-Neuraminic acid, Ketopentofuranosyls, Quivonose, Ketohexopyranosyls, Aldopentofuranosyls; GLYCAM codes; many other additions to the database
+* Centroid params files for AIB, ORN, DAB, and DAP (common noncanonicals)
+
+
+Updated or bugfixed classes and modules:
+* molfile_to_params.py
+* [[GALigandDock]], [[GenericBondedPotential]]
+* [[RosettaAntibodyDesign]]
+ * disulfides
+ * Cycle optimization of fullatom stage
+ * other fixes
+* CitationManager (try the -info flag with RosettaScripts)
+* RosettaScripts:
+ * access to the native pose
+ * single_random
+ * ' in addition to "
+ * option to not reload XML per-structure
+ * Removal of APPLY_TO_POSE
+* most classes now use selector logic through their `selector=` option in a tag.
+* SimpleMetrics: more reporting options
+ * Can be run directly from PROTOCOLS section of XML
+* [[DEEROverlapMethod]]
+* [[DsspMover]], [[LayerSelector]] work better with symmetry
+* glycomutagenesis: disulfides
+* [[LinearPenaltyFunction]]
+* Better adherence to lbfgs_armijo_nonmonotone as the default minimizer type across more of Rosetta
+* [[SwitchChainOrderMover]]
+* Backrub compatible with MoveMap specification
+* [[InteractionGraphSummaryMetric]]
+* Handling of D-amino acids
+* [[SequenceSymmetricAnnealer]]
+* [[CrosslinkerMover]] and [[simple_cycpep_predict]]
+* Cartesian ddG
+* [[SeqprofConsensusOperation]]
+* [[AddConstraintsToCurrentConformationMover]]
+* Scorefunction stuff
+ * [[RamachandranEnergy]]
+ * Cartesian minimization with Ramachandran
+* [[EPRSpinLabel]]
+* [[AlignChainMover]]
+* [[FragmentScoreFilter]]
+* Memory use in ligand docking improved
+* [[AtomicDistanceFilter]]
+* RNA
+ * [[RNA_BasePairHandler]]
+ * idealization mover
+ * monomer sampler
+ * Ligand flexibility in FARFAR2
+
+
+* [[MutateResidue]] now stronger than a disulfide
+* [[DeclareBond]]
+* [[MoverFilterPair]]
+* [[TimingProfileMetric]]
+* [[HybridizeMover]]
+* [[NormalModeRelaxMover]]
+* [[DisulfidizeMover]]
+* [[approximate_buried_unsat_penalty]]
+* [[PeptideStubMover]]
+* [[HbondMetric]]
+* [[IndexSelector]]
+* [[ResidueTypeLinkingConstraint]]
+* ATOM and HETATM output handling
+* packing performance improvements
+* [[ApproximateBuriedUnsatPenalty]]
+* [[MinimizationRefiner]]
+* [[Multistage RosettaScripts]]
+* [[StoredRotamerLibrarySpecification]]
+* [[SmartAnnealer]]
+* [[BuildingBlockInterface]]
+* [[TaskAwareSymmMinMover]]
+* [[GlycanTreeModeler]]
+* [[FullAtomDisulfideEnergy]]
+* [[SelectedResiduesPyMOLMetric]]
+* [[RepackWithoutLigand]]
+* [[ShuffleFileDistributor]]
+* [[HybridizeFoldTreeDynamic]]
+* [[FlexPepDock]]
+* [[SSElementSelector]]
+* [[PeptideStubMover]]
+* [[PoseFromSequenceMover]]
+* [[SequenceSymmetricAnnealer]]
+* [[WaterMediatedHbondMetric]]
+* [[FastDesign]]
+* [[FastRelax]]
+
+Other:
+* Non more noncannonical spelling of "noncanonical" <!--leave it-->
+* Toned down the famous "Inaccurate G!" error message.  It's still bad but now it yells about it less.
+* Non-recursive refolding algorithm available.  Useful when multithreading, because stack space for non-primary threads may be limited
+* ResidueTypes have been updated with an eye towards properties for ML
+* Several general fixes for DNA
+* EnzymaticMovers: Adding parsing of nucleic acid sequences to the EnzymaticMover system
+
+
 ## _Rosetta 3.12_
 
 New apps:
