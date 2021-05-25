@@ -1,6 +1,6 @@
 # Release Notes
 
-## _Rosetta 3.13
+## Rosetta 3.13
 
 New tools and apps:
 * Scientific benchmarking system rejuvenated (and submitted for publication)
@@ -132,7 +132,7 @@ Other:
 * EnzymaticMovers: Adding parsing of nucleic acid sequences to the EnzymaticMover system
 
 
-## _Rosetta 3.12_
+## Rosetta 3.12
 
 New apps:
 * [[constel]]
