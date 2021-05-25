@@ -54,7 +54,7 @@ Updated or bugfixed classes and modules:
  * disulfides
  * Cycle optimization of fullatom stage
  * other fixes
-* CitationManager (try the -info flag with RosettaScripts)
+* CitationManager (try the -info flag with RosettaScripts -- for example, "Rosetta/main/source/bin/rosetta_scripts.default.linuxgccrelease -info FastDesign".)
 * RosettaScripts:
  * access to the native pose
  * single_random
