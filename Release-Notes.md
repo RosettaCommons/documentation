@@ -6,7 +6,7 @@ New tools and apps:
 * Scientific benchmarking system rejuvenated (and submitted for publication)
 * trRosetta available in C++ Rosetta now.  A TensorFlow build (extras=tensorflow or extras=tensorflow_gpu) supports this.
      * [[trRosetta application|trRosetta]] for one-and-done structure prediction from sequence or multiple sequence alignment.
-     * [[trRosettaProtocol]] mover for structure prediction from sequence or multiple sequence alignment in the context of a larger protocol.  (Accessible to RosettaScripts, PyRosetta, or C++ code.)
+     * [[trRosettaProtocol mover|trRosettaProtocol]] for structure prediction from sequence or multiple sequence alignment in the context of a larger protocol.  (Accessible to RosettaScripts, PyRosetta, or C++ code.)
      * [[trRosettaConstraintGenerator]] for applying trRosetta constraints based on sequence or multiple sequence alignment in the context of a larger protocol.  (Accessible to RosettaScripts, PyRosetta, or C++ code.)
 * Support for new Mac M1 chipset
 * RosettaSurf (protein surfaces)
@@ -36,7 +36,7 @@ New Movers, Filters, etc:
 * SimpleMetric and Filter for internal hbonds in a peptide
 * [[FoldTreeFromMotif]]
 * [[TargetClashEnergy]]
-* [[trRosettaProtocol]] -- Run trRosetta structure prediction inside a larger RosettaScripts, PyRosetta, or C++ protocol.
+* [[trRosettaProtocol mover|trRosettaProtocol]] -- Run trRosetta structure prediction inside a larger RosettaScripts, PyRosetta, or C++ protocol.
 * [[trRosettaConstraintGenerator]] -- Add trRosetta structural constraints inside a larger RosettaScripts, PyRosetta, or C++ protocol.
 * [[PeptideInternalHbondsMetric]] and [[PeptideInternalHbondsFilter]] -- Count or filter based on number of internal hydrogen bonds within a pose, chain, or selection. 
 * [[NTerminalAcetyltransferaseMover]]
