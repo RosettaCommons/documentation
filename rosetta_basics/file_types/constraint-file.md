@@ -277,7 +277,13 @@ Functions are listed as "Func\_Type Func\_Def".
 
 -   `SPLINE description histogram_file_path experimental_value weight bin_size`
 
-    or, if the option `-constraints:epr_distance` is set `SPLINE description experimental_value weight bin_size`
+    or, if the option `-constraints:epr_distance` is set:
+    
+    `SPLINE description experimental_value weight bin_size`
+
+    or, if one wishes to provide a spline definition in a single line in a constraints file:
+
+    `SPLINE description NONE experimental_value weight bin_size x_axis <val1> ... <valN> y_axis <val1> ... <valN>`
 
     In the first form, this function reads in a histogram file and creates a cubic spline over it using the Rosetta SplineGenerator. The full path to the file must be specified. The basic form of the histogram file is a *TAB SEPARATED* file of the following format:
 
@@ -288,7 +294,9 @@ Functions are listed as "Func\_Type Func\_Def".
 
     If the `description` parameter is `EPR_DISTANCE`, then the functional transformation of the measurement *x* is `weight * S(experimental_value - x)`, otherwise the functional transformation is `weight * S(x)`, and `experimental_value` is ignored.
 
-    If the `-constraints:epr_distance` option is given on the command line, then the histogram_file_path should be omitted, and the RosettaEPR knowledge-based potential will be read from a file in the Rosetta database. (See Hirst *et al.* (2011) J. Struct Biol. 173:506 and Alexander *et al.* (2013) PLoS One e72851 for details on this potential.) See example below for using with EPR knowledge-based potential.
+    In the second form, if the `-constraints:epr_distance` option is given on the command line, then the `histogram_file_path` should be omitted, and the RosettaEPR knowledge-based potential will be read from a file in the Rosetta database. (See Hirst *et al.* (2011) J. Struct Biol. 173:506 and Alexander *et al.* (2013) PLoS One e72851 for details on this potential.) See example below for using with EPR knowledge-based potential.
+
+    In the third form, if the `-constraints:epr_distance` option is _not_ used but `NONE` is substituted for the `histogram_file_path`, then the spline definition must be provided on the same line.  It _must_ include `x_axis` followed by a series of values, and `y_axis` followed by a series of values.  Optionally, it _may_ include `lb_function <cutoff> <slope> <intercept>` to define a linear function for the curve past the lower bound, and `ub_function <cutoff> <slope> <intercept>` to define a linear function past the upper bound.
 
 -   `FADE  lb ub d wd [ wo ]       `
     * This is meant to basically be a smoothed "square well" bonus of `        wd       ` between the boundaries `        lb       ` and `        ub       ` . An optional offset `        wo       ` (default 0) can be added to the whole function; this is useful if you want to make the function be zero in the 'golden range' and then give a penalty elsewhere (e.g., specify wd of -20 and wo of +20). To make sure the function and its derivative are continuous, the function is connected by cubic splines in the boundary regions in slivers of width d, between `        lb       ` to `        lb+d       ` and between `        ub-d       ` to `        ub       ` :
