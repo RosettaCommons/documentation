@@ -1,7 +1,7 @@
 ## MHC Epitope energy (mhc_epitope)
 
 Documentation created by Brahm Yachnin (brahm.yachnin@rutgers.edu), Khare laboratory, and Chris Bailey-Kellogg (cbk@cs.dartmouth.edu).  Parts of this documentation are copied/adapted from Vikram K. Mulligan's (vmullig@uw.edu) design-centric guidance documentation.
-Last edited December 12, 2019.
+Last edited May 24, 2021.
 
 [[_TOC_]]
 
@@ -19,7 +19,9 @@ Since epitope content is repeatedly evaluated during the course of design (for m
 
 ## Citation information
 
-The mhc_epitope scoreterm itself is unpublished for the time being.  If you make use of it, please check back here to see if the paper has been published.
+The MHCEpitopeEnergy energy method, mhc_epitope scoreterm, and benchmark are described in the following publication.  If you make use of it, please cite the following paper:
+
+Yachnin BJ, Mulligan VK, Khare SD, and Bailey-Kellogg C.  (2021).  MHCEpitopeEnergy, a flexible Rosetta-based biotherapeutic deimmunization platform.  J Chem Inf Model 61(5):2368-2382.  doi: 10.1021/acs.jcim.1c00056.  https://pubmed.ncbi.nlm.nih.gov/33900750/
 
 In addition to the Rosetta functionality, mhc_epitope makes use of several de-immunization resources developed outside of the Rosetta community.  As a condition for using this code, it is imperative that the resources that you use are appropriately cited in any resulting publication.
 
