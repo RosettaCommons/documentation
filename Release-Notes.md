@@ -541,7 +541,7 @@ The third is a general command that takes any ResidueProperty. Currently, it onl
 * symmetric disulfide scoring bugfix
 * [[PolymerBondedEnergyContainer]] bugfix
 * [[LoopModeler | LoopModelerMover]] optimize the support for fragment based sampling
-* [[GenKIC]] bugfixes
+* [[GenKIC|GeneralizedKIC]] bugfixes
 * [[remodel]] bugfixes
 * [[Backrub]] bugfix
 * Improvements to silent file reading, enabling the reading of some slightly-corrupted silent files.  (There remains a lurking bug causing them to occasionally be written in a corrupted state).
@@ -552,8 +552,8 @@ The third is a general command that takes any ResidueProperty. Currently, it onl
 * ABEGO bin scoreterm
 * Implementation of mean-field algorithm to predict rotamer or amino acid probability. Can be used to [[predict specificity profile|GenMeanFieldMover]] for protein-protein or protein-peptide interactions.
 * [[MonteCarloInterface]] allows users to set protein-protein interface ddG as the energy criterion in MonteCarlo.  This partially addresses the often-requested feature to favor binding energy, not total energy, in design operations.
-* [[VoidsPenalty]] - nature abhors a vacuum, but Rosetta tends to ignore them.  VoidsPenalty detects underpacked regions in protein cores and favors rotamers to fill those gaps.
-* [[NetCharge]] - a superclass of the older "supercharge" idea, this score term lets you target a desired net charge for your design.
+* [[voids_penalty design-centric guidance term|VoidsPenaltyEnergy]] - nature abhors a vacuum, but Rosetta tends to ignore them.  VoidsPenalty detects underpacked regions in protein cores and favors rotamers to fill those gaps.
+* [[netcharge design-centric guidance term|NetChargeEnergy]] - a superclass of the older "supercharge" idea, this score term lets you target a desired net charge for your design.
 * Old [[SEWING]] deprecated but still functional ahead of its replacement
 * [[LoopAnalyzerMover]] bugfixes
 
