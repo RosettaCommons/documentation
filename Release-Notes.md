@@ -38,6 +38,7 @@ New Movers, Filters, etc:
 * [[TargetClashEnergy]]
 * [[trRosettaProtocol]] -- Run trRosetta structure prediction inside a larger RosettaScripts, PyRosetta, or C++ protocol.
 * [[trRosettaConstraintGenerator]] -- Add trRosetta structural constraints inside a larger RosettaScripts, PyRosetta, or C++ protocol.
+* [[PeptideInternalHbondsMetric]] and [[PeptideInternalHbondsFilter]] -- Count or filter based on number of internal hydrogen bonds within a pose, chain, or selection. 
 * [[NTerminalAcetyltransferaseMover]]
 
 
