@@ -19,7 +19,9 @@ Note that for the constraint to be function, YOU MUST USE A SCOREFUNCTION WITH `
 
 ##Citation Information
 
-Please see the main [[MHCEpitopeEnergy|MHCEpitopeEnergy#citation-information]] page for citation information if you use the `AddMHCEpitopeConstraintMover`.
+Please see the main [[MHCEpitopeEnergy|MHCEpitopeEnergy#citation-information]] page for complete citation information if you use the `AddMHCEpitopeConstraintMover`.  Users should cite the following paper, plus papers corresponding to Predictors that are used as described in the main page:
+
+Yachnin BJ, Mulligan VK, Khare SD, and Bailey-Kellogg C.  (2021).  MHCEpitopeEnergy, a flexible Rosetta-based biotherapeutic deimmunization platform.  J Chem Inf Model 61(5):2368-2382.  doi: 10.1021/acs.jcim.1c00056.  https://pubmed.ncbi.nlm.nih.gov/33900750/
 
 ##Usage
 
