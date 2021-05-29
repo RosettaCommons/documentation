@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2021-05-26
+Generated: 2021-05-29
 
 _Note that some application specific options may not be present in this list._
 
@@ -2805,6 +2805,8 @@ _Note that some application specific options may not be present in this list._
 <dd>scoring option group<br/></dd>
 <dt><b>-hbond</b> \<Boolean\></dt>
 <dd>Hydrogen bonding energy correction for membrane proteins<br/>Default: false<br/></dd>
+<dt><b>-analytic_membetable_evaluation</b> \<Boolean\></dt>
+<dd>If true, membrane solvation energies will be calculated analytically, instead of ahead of time and stored in memb_etable<br/>Default: true<br/></dd>
 </dl>
 + <h3>-mp:setup</h3>
 <dl>
