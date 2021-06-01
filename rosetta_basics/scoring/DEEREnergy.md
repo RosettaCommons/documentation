@@ -4,7 +4,7 @@
 
 Electron paramagnetic resonance spectroscopy, EPR for short, is an experimental tool that reports protein dynamics and structural heterogeneity. A widely-used application is double electron-electron resonance (DEER, also called PELDOR), which is used to measure nanometer-scale distances between pairs of spin probes attached to protein backbones by site-directed spin labeling (SDSL). The DEEREnergy energy method, which is a part of the broader RosettaDEER module, allows these data to be integrated with Rosetta for modeling protein structures.
 
-Documentation written by Diego del Alamo (del.alamo@vanderbilt.edu). Last edited 13 May 2020. If you use this score term, please cite "Rapid Simulation of Unprocessed DEER Decay Data for Protein Fold Prediction" by del Alamo et al, Biophysical Journal (2020).
+Documentation written by Diego del Alamo (del.alamo@vanderbilt.edu). Last edited 1 June 2021. If you use this score term, please cite "Rapid Simulation of Unprocessed DEER Decay Data for Protein Fold Prediction" by del Alamo et al, Biophysical Journal (2020).
 
 [[_TOC_]]
 
