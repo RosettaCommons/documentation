@@ -20,7 +20,7 @@ The DEEREnergy scoring method compares experimental data, provided by the user, 
 
 ### How to provide experimental data using the command line
 
-The score term for DEEREnergy is ```deer_energy_score```. As with all score terms in Rosetta, it may be passed to the program using the command line option ```-score:set_weights epr_deer_score X```, where ```X``` is the desired weight. One or more files containing experimental data may be specified using the command line option ```-epr_deer:input_files file1.txt file2.txt ... fileN.txt```. Formatting these files is discussed below. 
+The score term for DEEREnergy is ```epr_deer_score```. As with all score terms in Rosetta, it may be passed to the program using the command line option ```-score:set_weights epr_deer_score X```, where ```X``` is the desired weight. One or more files containing experimental data may be specified using the command line option ```-epr_deer:input_files file1.txt file2.txt ... fileN.txt```. Formatting these files is discussed below. 
 
 There are four approaches for integrating experimental DEER data as restraints:
 * **Passing a specific distance value:** The average distance of the simulated distance distribution (in Ångstroms) will be compared to the provided value, and the square of the difference will be returned.
