@@ -10,7 +10,7 @@ The trRosetta application uses the trRosetta neural network described in Yang _e
 
 ### Compilation requirements
 
-The trRosetta application requires that Rosetta be linked against the Tensorflow C-API libraries.  To compile with Tensorflow support:
+The trRosetta application requires that Rosetta be linked against the Tensorflow 2 C-API libraries, version 2.5.0 or higher.  To compile with Tensorflow support:
 
 1.  Download the Tensorflow 2.5.0 precompiled libraries for your operating system from one of the following.  (Note that GPU versions require CUDA drivers; see https://www.tensorflow.org/install/lang_c for more information.)
      * Linux/CPU: https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-linux-x86_64-2.5.0.tar.gz
