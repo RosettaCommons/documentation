@@ -83,6 +83,7 @@ The trRosetta application takes two inputs: a sequence (in FASTA format) and a m
                         native |                           |   F| Native PDB filename
 		in:detect_disulfides   |                           |   B| If true, detects potential
 		                       |                           |    | disulfides after centroid phase
+							   |                           |    | (default true)
                                |                           |    |
                   trRosetta:   |                           |    | 
                       msa_file |                           |   F| Filename for a multiple 
