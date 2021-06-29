@@ -2,11 +2,11 @@
 
 Creator Names:
 * Sarah Biehn (biehn.4@osu.edu) (`hrf_dynamics` and `depc_ms`)
-* Melanie Aprahamian (aprahamian.4@osu.edu) (`covalent_labeling` and `hrf_ms_labeling`)
+* Melanie Aprahamian (aprahamian.4@osu.edu) (`covalent_labeling` and `hrf_ms_labeling` and the `per_residue_solvent_exposure` application)
 * PI: Steffen Lindert (lindert.1@osu.edu)
 
 Date created: July 27, 2018
-Updated: June 07, 2021
+Updated: June 29, 2021
 
 ## Covalent Labeling Mass Spectrometry
 Covalent labeling (sometimes referred to as “protein footprinting”) involves exposing a protein in solution to a small labeling reagent that will covalently bond to select amino acid side chains that are exposed to solvent, whereas side chains buried within the core of the protein or occluded by interacting protein subunits will not get labeled. This provides information about the relative location of certain amino acids with respect to the solvent (either on the surface and solvent exposed or buried within the protein or protein complex structure). A variety of different labeling reagents exist and some are highly specific as to which amino acid(s) can react with the reagent and others have a much broader range of potential target residues.
@@ -44,9 +44,9 @@ The associated weights file, `hrf_dynamics.wts`, gives this score a weight of `1
 
 Command line usage for rescoring models:
 ```
-~/Rosetta/main/source/bin/score.linuxgccrelease \
-   -database /path/to/rosetta/main/database \
-   -in:file:s S_000001.pdb \
+~/Rosetta/main/source/bin/score.linuxgccrelease 
+   -database /path/to/rosetta/main/database 
+   -in:file:s S_000001.pdb 
    -score:hrf_dynamics_input labeling_input_file.txt
    -score:weights hrf_dynamics.wts 
 ```
@@ -80,9 +80,9 @@ The associated weights file, `depc_ms.wts`, gives this score a weight of `9.0`. 
 
 Command line usage for rescoring models:
 ```
-~/Rosetta/main/source/bin/score.linuxgccrelease \
-   -database /path/to/rosetta/main/database \
-   -in:file:s S_000001.pdb \
+~/Rosetta/main/source/bin/score.linuxgccrelease 
+   -database /path/to/rosetta/main/database 
+   -in:file:s S_000001.pdb 
    -score:depc_ms_input labeling_input_file.txt
    -score:weights depc_ms.wts 
 ```
