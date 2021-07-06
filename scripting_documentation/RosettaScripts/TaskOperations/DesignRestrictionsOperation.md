@@ -113,7 +113,7 @@ Here's an example of what NOT to do:
     </PROTOCOLS>
     <OUTPUT />
 </ROSETTASCRIPTS>
-'''
+```
 
 The above script will not produce the intended behavior. The first ten residues will not be allowed to repack unless their native AA happens to be in the set of allowed amino acids. Let's imagine the first 10 residues are all Lysines (K). Then regardless of whether they are exposed, intermediate, or buried, they will have two restrictive operations placed on them: one to eliminate all AAs except K, and a second to eliminate all AAs except either R, N, or V depending on their burial level. The intersection of {K} and {R}, e.g., is the empty set. So there will be no allowed amino acids at that position. This is equivalent to disabling all packing at that position. These first 10 residues will be held completely fixed while packing takes place around them.
 
