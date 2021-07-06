@@ -79,7 +79,7 @@ Say you wanted to keep the first 10 amino acids fixed and then use regular layer
 
 Here's an example of what NOT to do:
 
-```
+```xml
  <ROSETTASCRIPTS>
     <SCOREFXNS>
         <ScoreFunction name="sfxn" weights="beta_nov16" />
@@ -119,7 +119,7 @@ The above script will not produce the intended behavior. The first ten residues 
 
 So the proper way to handle this is to include the "first_10" residue selector into the DesignRestrictions TO operations:
 
-```
+```xml
         <Index name="first_10" resnums="1-10" />
     </RESIDUE_SELECTORS>
     <TASKOPERATIONS>        
