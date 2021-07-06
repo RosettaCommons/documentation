@@ -124,9 +124,9 @@ So the proper way to handle this is to include the "first_10" residue selector i
     </RESIDUE_SELECTORS>
     <TASKOPERATIONS>        
         <DesignRestrictions name="coreV_boundN_surfaceR">
-            <Action selector_logic="surface  AND ! first_10"  aas="R"/>
+            <Action selector_logic="surface  AND ! first_10" aas="R"/>
             <Action selector_logic="boundary AND ! first_10" aas="N"/>
-            <Action selector_logic="core     AND ! first_10"     aas="V"/>
+            <Action selector_logic="core     AND ! first_10" aas="V"/>
         </DesignRestrictions>
 ```
 
