@@ -169,7 +169,7 @@ SimpleMetric  | Description
 **[[PerResidueRMSDMetric]]** | Calculate the RMSD for each residue between the input and either the native or a reference pose.
 **[[PerResidueSasaMetric]]** | Calculate the Solvent Accessible Surface Area (SASA) of each residue.
 **[[WaterMediatedHbondMetric]]** | A metric to measure hydrogen bonds between a set of residues that are water-mediated (bridged).  Can calculate different depths to traverse complex hbond networks.
-**[[simple_metric_SapScoreMetric_type]]| Calculates SAP score (~hydrophobicity) for each residue 
+**[[simple_metric_SapScoreMetric_type]]**| Calculates SAP score (~hydrophobicity) for each residue 
 
 ##PerResidueStringMetrics
 These metrics output a single string for each residue of a residue selector. 
