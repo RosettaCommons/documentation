@@ -136,7 +136,7 @@ SimpleMetric  | Description | ResidueSelector Compatability?
 **[[SequenceSimilarityMetric]]** | Averages the BLOSUM62 score for selected residues. | Yes
 **[[TotalEnergyMetric]]** | Calculates the Total Energy of a pose using a Scorefunction OR the delta total energy between two poses. | Yes
 **[[TimingProfileMetric | TimingMetric]]** | Calculates the time passed in minutes or hours from from construction to apply (ie from when declared in the RS block to when it is run).  Useful for obtaining timing information of protocols. | No
-
+**[[simple_metric_SapScoreMetric_type]]**| Calculates SAP score | yes
 
 
 ##StringMetrics
@@ -169,7 +169,9 @@ SimpleMetric  | Description
 **[[PerResidueRMSDMetric]]** | Calculate the RMSD for each residue between the input and either the native or a reference pose.
 **[[PerResidueSasaMetric]]** | Calculate the Solvent Accessible Surface Area (SASA) of each residue.
 **[[WaterMediatedHbondMetric]]** | A metric to measure hydrogen bonds between a set of residues that are water-mediated (bridged).  Can calculate different depths to traverse complex hbond networks.
-**[[simple_metric_SapScoreMetric_type]]**| Calculates SAP score (~hydrophobicity) for each residue 
+**[[simple_metric_PerResidueSapScoreMetric_type]]**| Calculates SAP score (~hydrophobicity) for each residue 
+
+
 
 ##PerResidueStringMetrics
 These metrics output a single string for each residue of a residue selector. 
