@@ -3,17 +3,15 @@
 ## FavorSequenceProfile
 
 [[include:mover_FavorSequenceProfile_type]]
-```xml
-<FavorSequenceProfile scaling="('prob' &string)" weight="(1 &Real)"  pssm="(&string)" use_native="(0 &bool)" use_fasta="(0 &bool)" use_starting="(0 &bool)" chain="(0, &int)" use_current="(0 &bool)" pdbname="(&string)" matrix="(BLOSUM62 &string)" scorefxns="(comma seperated list of &string)" exclude_resnums="&string" />
-```
+
 
 Sets residue type constraints on the pose according to the given profile and weight. Set one (and only one) of the following:
 
--   pssm - a filename of a blast formatted pssm file containing the sequence profile to use
--   use\_native - use the structure specified by -in:file:native as reference
--   use\_fasta - use a native FASTA sequence specified by the -in:file:fasta as reference
--   use\_starting - use the starting input structure (e.g. one passed to -s) as reference
--   use\_current - use the current structure (the one passed to apply) as the reference
+-   **pssm **- a filename of a blast formatted pssm file containing the sequence profile to use
+-   **use\_native** - use the structure specified by -in:file:native as reference
+-   **use\_fasta** - use a native FASTA sequence specified by the -in:file:fasta as reference
+-   **use\_starting** - use the starting input structure (e.g. one passed to -s) as reference
+-   **use\_current** - use the current structure (the one passed to apply) as the reference
 -   pdbname - use the structure specified by the filename as the reference
 
 specify if needed:
