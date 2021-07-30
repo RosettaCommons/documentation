@@ -7,7 +7,7 @@
 
 Sets residue type constraints on the pose according to the given profile and weight. Set one (and only one) of the following:
 
--   **pssm **- a filename of a blast formatted pssm file containing the sequence profile to use
+-   **pssm** - a filename of a blast formatted pssm file containing the sequence profile to use
 -   **use\_native** - use the structure specified by -in:file:native as reference
 -   **use\_fasta** - use a native FASTA sequence specified by the -in:file:fasta as reference
 -   **use\_starting** - use the starting input structure (e.g. one passed to -s) as reference
