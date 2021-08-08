@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2021-07-17
+Generated: 2021-08-08
 
 _Note that some application specific options may not be present in this list._
 
@@ -1118,6 +1118,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Apply a bonus factor to hydrogen bonds accross chains. Remember to set this negative.<br/>Default: 0<br/></dd>
 <dt><b>-approximate_buried_unsat_penalty_hbond_bonus_ser_to_helix_bb</b> \<Real\></dt>
 <dd>Apply a bonus factor to the classic SER/THR i - i-4 h-bond. OG/OG1 - O. Set this positive to penalize.<br/>Default: 0<br/></dd>
+<dt><b>-approximate_buried_unsat_penalty_lys_ok_with_1</b> \<Boolean\></dt>
+<dd>Make LYS N work like carbonyl O where it prefers 1 or 2 h-bonds.<br/>Default: false<br/></dd>
 <dt><b>-target_clash_pdb</b> \<String\></dt>
 <dd>The target pdb file for clashing check with the target_clash score term.<br/>Default: ""<br/></dd>
 <dt><b>-aspartimide_penalty_value</b> \<Real\></dt>
