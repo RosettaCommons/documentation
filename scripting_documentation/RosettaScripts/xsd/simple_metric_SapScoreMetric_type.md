@@ -8,7 +8,8 @@ A metric to report the SapScore of a specific region of a pose. Also see the Add
 ```xml
 <SapScoreMetric name="(&string;)" custom_type="(&string;)"
         score_selector="(true_selector &string;)"
-        sap_calculate_selector="(&string;)" sasa_selector="(&string;)" />
+        sap_calculate_selector="(&string;)" sasa_selector="(&string;)"
+        hydrop_lys_arg_setting="(&real;)" hydrop_adder="(&real;)" />
 ```
 
 -   **custom_type**: Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
@@ -16,5 +17,7 @@ A metric to report the SapScore of a specific region of a pose. Also see the Add
 -   **score_selector**: Which residues should be included in the sap score? Optional, will default to full-pose.
 -   **sap_calculate_selector**: Which residues should be present during the sap calculation? Only residues in the score_selector will have their values reported, but residues in this selector will still be assigned atom-saps which can affect the residues in score_selector. Optional, will default to score_selector.
 -   **sasa_selector**: Which residues should be present during the sasa calculation? Optional, will default to sap_calculate_selector.
+-   **hydrop_lys_arg_setting**: Manually adjust the hydrophobicity of ARG and LYS to be this value.
+-   **hydrop_adder**: Add this value to all hydrophobicity values.
 
 ---
