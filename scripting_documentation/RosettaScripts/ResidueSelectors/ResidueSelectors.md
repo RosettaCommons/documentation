@@ -52,6 +52,12 @@ A mover that can handle ResidueSelectors will take the following option:
 Note that Logic is now integrated into all rosetta script components that accept a residue selector. 
 The syntax is the same as DesignRestrictions.  For example, `selector="SEL1 and SEL2 and not(SEL3)"` is something that can be passed and parsed.  You can also use the Logic selector to combine this logic instead of using separate logical selectors reviewed below. 
 
+#### LogicSelector
+
+    <Logic name="(&string)" selector="SEL1 and SEL2 and (not SEL3) or SEL4"/>
+
+- See the [[LogicSelector| rs_Logic_type]] info for more information:
+
 #### NotResidueSelector
 
     <Not name="(&string)" selector="(&string)">
