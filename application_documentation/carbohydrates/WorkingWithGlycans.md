@@ -157,7 +157,8 @@ Although an app is planned, one can use the `CreateGlycanSequonMover` in order t
 
 Glycosylating Structures
 =======================
-Structures can be glycosylated either through a function accessible to PyRosetta or via RosettaScripts.
+Structures can be glycosylated either through a function accessible to PyRosetta or via RosettaScripts as covered below.
+
 ## RosettaScripts
 
 See the [[SimpleGlycosylateMover]] documentation
