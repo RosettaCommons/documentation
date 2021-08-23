@@ -46,6 +46,10 @@ PDBs from the RCSB should be able to be read in by default.  However, in order t
 
         -alternate_3_letter_codes pdb_sugar
 
+* In order to round-trip PDB glycans, use the option to write PDB codes instead of Rosetta:
+        
+       -write_glycan_pdb_codes
+
 * When loading a file from the PDB, the order of HETATM and LINK records is important for reading it into Rosetta. Since pdb files are usually not formatted for Rosetta-compatibility, connections can be determined internally, ignoring the order of records. Instead atom distances are used to determine protein-sugar and sugar-sugar connections.  
 
         -auto_detect_glycan_connections
