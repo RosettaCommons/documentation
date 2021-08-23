@@ -159,7 +159,7 @@ Glycosylating Structures
 =======================
 Structures can be glycosylated either through a function accessible to PyRosetta or via RosettaScripts as covered below.
 
-## RosettaScripts
+### RosettaScripts
 
 See the [[SimpleGlycosylateMover]] documentation
 
