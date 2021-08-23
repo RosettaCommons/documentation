@@ -16,7 +16,7 @@ Description
 ===========
 This mover is created to do denovo modeling and refinement of glycans.  It does this through iteratively sampling and building out the glycan trees from their roots. By default (without a passed residue selector), it selects ALL glycan residues in the pose.  Please see the [[GlycanResidueSelector]] for selecting particular glycan trees and the [[GlycanLayerSelector]] for particular glycan layers.
 
-Note that the defaults used the modeler are now the optimal defaults found in the upcoming paper.  The plethora of options here are mostly for benchmarking.  The only two options you should need are `-residue_selector` and `scorefxn`
+**Note that the defaults used the modeler are now the optimal defaults found in the upcoming paper.  The plethora of options here are mostly for benchmarking.  The only two options you should need are `-residue_selector` and `scorefxn`**
  
 Details
 =======
