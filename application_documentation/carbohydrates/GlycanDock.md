@@ -8,6 +8,8 @@ MetaData
 
 Application created by Morgan Nance (morganlnance(at)gmail(dot)com) with the original version created by Dr. Jason Labonte (JWLabonte@jhu.edu). See https://doi.org/10.1002/jcc.24679 for the details on the original `glycan_dock` application.
 
+Please cite: _Development and Evaluation of GlycanDock: A Protein-Glycoligand Docking Refinement Algorithm in Rosetta_; DOI: [10.1021/acs.jpcb.1c00910](10.1021/acs.jpcb.1c00910)
+
 PIs: Dr. Jeffrey Gray (jgray@jhu.edu)
 
 
