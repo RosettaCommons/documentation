@@ -122,6 +122,8 @@ Applications
 
 [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
+[[GlycanDock]] - Dock free glycans onto protein surfaces
+
 RosettaScript Components
 ========================
 [[GlycanTreeModeler ]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
@@ -254,6 +256,7 @@ print lactose.chain_sequence()
 ### Apps
 * [[GlycanInfo]] - Get information on all glycan trees within a pose
 * [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
+* [[GlycanDock]] - Dock free glycans onto protein surfaces
 
 ### RosettaScript Components
 * [[GlycanTreeModeler]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
