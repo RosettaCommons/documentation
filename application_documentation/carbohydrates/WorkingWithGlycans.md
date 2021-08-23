@@ -163,11 +163,11 @@ Structures can be glycosylated either through a function accessible to PyRosetta
 
 See the [[SimpleGlycosylateMover]] documentation
 
-## PyRosetta
+### PyRosetta
 Here is an example of adding a man9 to the pose.
 This can now be done in two ways within PyRosetta, either via the core function, or the class wrapper. 
 
-### Base Function
+#### Base Function
 The following uses a function to glycosylate a pose using the IUPAC name:
 ```
 /// @brief  Glycosylate the Pose at the given sequence position using an IUPAC sequence.
@@ -194,7 +194,7 @@ print p.chain_sequence()
 ```
  
  
-### SimpleGlycosylateMover
+#### SimpleGlycosylateMover
 This mover is accessible both in PyRosetta and RosettaScripts. It was written by Jared Adolf-Bryfogle.
 
 see [[SimpleGlycosylateMover]] for a full description.
