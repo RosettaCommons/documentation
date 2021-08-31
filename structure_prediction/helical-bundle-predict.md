@@ -172,6 +172,12 @@ Settings for individual helices are specified in blocks that begin with `BEGIN_H
 | RETRACTION_PROB | Probability of retracting a helix in this region on any given Monte Carlo move.  Overrides any global setting. | RETRACTION_PROB 0.02 # This region has a helix-shrinking probability of 2%.|
 | CRICK_PARAMS_FILE | The helix type.  Overrides any global setting. | CRICK_PARAMS_FILE beta_strand.crick_params #This is a beta strand. |
 
+### PsiPred ss2 secondary structure prediction file
+
+In addition to a helix assignment file, the helical\_bundle\_predict application can accept a PsiPred ss2 file.  This has rows for each position in the protein, with coil, helix, and strand probabilities listed in the fourth, fifth, and sixth columns in each row.  Any position with a helix probability over a threshold is assigned to be in an alpha helix, and any position with a strand probability over a threshold is assigned to be in a beta strand.  Note that this is only useful for assigning canonical secondary structures to canonical amino acids.
+
+To use a PsiPred ss2 file with this application, provide it with the `-helical_bundle_predict:psipred_file` commandline flag.  The thresholds for alpha helices and beta strands can be set with the `-helical_bundle_predict:psipred_alpha_helix_prob_cutoff` and `-helical_bundle_predict:psipred_beta_strand_prob_cutoff` flags.  Note that this can be used _in addition to_ a helix assignment file.  Since the helix assignment file is the only way to provide global options, it is generally recommended to include one.
+
 ### Full options list
 
 |                        Option |          Default Setting  |Type|  Description            |      
