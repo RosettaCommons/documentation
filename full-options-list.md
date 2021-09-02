@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2021-08-08
+Generated: 2021-09-02
 
 _Note that some application specific options may not be present in this list._
 
@@ -5856,6 +5856,12 @@ _Note that some application specific options may not be present in this list._
 <dd>Filename of a file specfying the sequence, as a series of whitespace-separated full residue names (e.g. ALA LYS DARG DPRO HYP).  Required input for the simple_cycpep_predict app unless -in:file:fasta is provided.<br/></dd>
 <dt><b>-helix_assignment_file</b> \<File\></dt>
 <dd>A file containing information about the helix types and helical regions within a helical bundle.<br/>Default: ""<br/></dd>
+<dt><b>-psipred_file</b> \<File\></dt>
+<dd>A file produced by PsiPred, with columns indicating position, alpha helix probability, beta strand probability, and random coil probability.  An alternative to helix_assignment_file for canonical amino acid predictions.<br/>Default: ""<br/></dd>
+<dt><b>-psipred_alpha_helix_prob_cutoff</b> \<Real\></dt>
+<dd>The probability cutoff above which a position is assigned to be alpha helical when using a PsiPred file.  Default 0.75.<br/>Default: 0.75<br/></dd>
+<dt><b>-psipred_beta_strand_prob_cutoff</b> \<Real\></dt>
+<dd>The probability cutoff above which a position is assigned to be in a beta strand conformation when using a PsiPred file.  Default 0.75.<br/>Default: 0.75<br/></dd>
 <dt><b>-num_simulated_annealing_rounds_centroid</b> \<Integer\></dt>
 <dd>Number of rounds of simulated annealing in centroid mode.<br/>Default: 3<br/></dd>
 <dt><b>-num_steps_per_simulated_annealing_round_centroid</b> \<Integer\></dt>
