@@ -31,6 +31,29 @@ The trRosettaProtocol mover requires compilation with Tensorflow support.  To co
 4.  Compile Rosetta, appending extras=tensorflow (for CPU-only) or extras=tensorflow_gpu (for GPU) to your scons command.  For example:
 	./scons.py -j 8 mode=release extras=tensorflow bin
 
+
+References and author information for the trRosettaProtocol mover:
+
+trRosetta Neural Network's citation(s):
+Yang J, Anishchenko I, Park H, Peng Z, Ovchinnikov S, and Baker D.  (2020).  Improved protein structure prediction using predicted interresidue orientations.  Proc Natl Acad Sci USA 117(3):1496-503.  doi: 10.1073/pnas.1914677117.
+
+FastRelax Mover's citation(s):
+Khatib F, Cooper S, Tyka MD, Xu K, Makedon I, Popovic Z, Baker D, and Players F.  (2011).  Algorithm discovery by protein folding game players.  Proc Natl Acad Sci USA 108(47):18949-53.  doi: 10.1073/pnas.1115898108.
+
+Maguire JB, Haddox HK, Strickland D, Halabiya SF, Coventry B, Griffin JR, Pulavarti SVSRK, Cummins M, Thieker DF, Klavins E, Szyperski T, DiMaio F, Baker D, and Kuhlman B.  (2021).  Perturbing the energy landscape for improved packing during computational protein design.  Proteins 89(4):436-449.  doi: 10.1002/prot.26030.
+
+trRosettaProtocol Mover's author(s):
+Vikram K. Mulligan, Systems Biology, Center for Computational Biology, Flatiron Institute [vmulligan@flatironinstitute.org]  (Converted the Python trRosetta protocol from Yang et al. (2020) to C++, and implemented it as the trRosettaProtocolMover.)
+
+RMSDMetric SimpleMetric's author(s):
+Jared Adolf-Bryfogle, Scripps Research Institute [jadolfbr@gmail.com]
+
+TotalEnergyMetric SimpleMetric's author(s):
+Jared Adolf-Bryfogle, Scripps Research Institute [jadolfbr@gmail.com]
+
+TimingProfileMetric SimpleMetric's author(s):
+Jared Adolf-Bryfogle, Scripps Research Institute [jadolfbr@gmail.com]
+
 ```xml
 <trRosettaProtocol name="(&string;)" msa_file="(&string;)"
         write_constraints_to_file="(&string;)"
