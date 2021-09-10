@@ -14,7 +14,8 @@ Quickly generates a structure profile
         eliminate_background="(true &bool;)"
         cenType="(6 &non_negative_integer;)" outputProfile="(false &bool;)"
         add_csts_to_pose="(true &bool;)" ignore_terminal_residue="(true &bool;)"
-        profile_name="(profile &string;)" residue_selector="(&string;)" />
+        profile_name="(profile &string;)" fragment_store="(&string;)"
+        residue_selector="(&string;)" />
 ```
 
 -   **RMSthreshold**: XRW TO DO
@@ -29,6 +30,7 @@ Quickly generates a structure profile
 -   **add_csts_to_pose**: XRW TO DO
 -   **ignore_terminal_residue**: XRW TO DO
 -   **profile_name**: Name of the profile to output. Empty string results in using the pdb output name. Setting this the the special word "profile" results in the original behavior of profile named "profile" and MSAcst named "MSAcst"
+-   **fragment_store**: path to fragment store. Note:All fragment stores use the same database
 -   **residue_selector**: Only compute structure profile for residues within residue selector
 
 ---
