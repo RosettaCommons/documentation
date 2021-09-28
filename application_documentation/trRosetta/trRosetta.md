@@ -10,14 +10,14 @@ The trRosetta application uses the trRosetta neural network described in Yang _e
 
 ### Compilation requirements
 
-The trRosetta application requires that Rosetta be linked against the Tensorflow C-API libraries.  To compile with Tensorflow support:
+The trRosetta application requires that Rosetta be linked against the Tensorflow 2 C-API libraries, version 2.5.0 or higher.  To compile with Tensorflow support:
 
-1.  Download the Tensorflow 1.15 precompiled libraries for your operating system from one of the following.  (Note that GPU versions require CUDA drivers; see https://www.tensorflow.org/install/lang_c for more information.)
-     * Linux/CPU: https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-linux-x86_64-1.15.0.tar.gz
-     * Linux/GPU: https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-gpu-linux-x86_64-1.15.0.tar.gz
-     * Windows/CPU: https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-windows-x86_64-1.15.0.zip
-     * Windows/GPU: https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-gpu-windows-x86_64-1.15.0.zip
-     * MacOS/CPU: https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-darwin-x86_64-1.15.0.tar.gz
+1.  Download the Tensorflow 2.5.0 precompiled libraries for your operating system from one of the following.  (Note that GPU versions require CUDA drivers; see https://www.tensorflow.org/install/lang_c for more information.)
+     * Linux/CPU: https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-linux-x86_64-2.5.0.tar.gz
+     * Linux/GPU: https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-gpu-linux-x86_64-2.5.0.tar.gz
+     * Windows/CPU: https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-windows-x86_64-2.5.0.zip
+     * Windows/GPU: https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-gpu-windows-x86_64-2.5.0.zip
+     * MacOS/CPU: https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-darwin-x86_64-2.5.0.tar.gz
      * MacOS/GPU: None available.
 
 2.  Unzip/untar the archive into a suitable directory (~/mydir/ is used here as an example), and add the following environment variables:
