@@ -111,9 +111,11 @@ _Example for Multiple PDBs (PDBLIST)_
       </Input>
 ```
 
-##### Additional Options
+##### Options
 Option | Description
 ------------ | -------------
+`listfile` | Give the path to a list file of pdbs
+`filename` | Give the path to a single pdb. 
 `path` | Give the path to the PDB or the path for each PDB listed in list file
 
 ------------------------------
@@ -127,10 +129,11 @@ Example:
       </Input>
 ```
 
-##### Additional Options
+##### Options
 
 Option | Description
 ------------ | -------------
+`silent_files` | Comma-separated list of silent files.
 `tags` | Comma-separated list of tags specifying the subset of Poses that should be processed from the input silent file(s). If neither this attribute, nor the 'tagfile' attribute are used, then all Poses in the input silent file(s) are used.
 `tagfile`| File name whose contents lists a set of whitespace-separated tags specifying the subset of Poses that should be processed from the input silent file(s). If neither this attribute, nor the 'tags' attribute are used, then all Poses in the input silent file(s) are used.
 `skip_failed_simulations` | Skip processing of input Poses if the tag starts with 'W_'
@@ -160,6 +163,42 @@ Option | Description
 `suffix` | Set output PDB Suffix. Can be combined with the 'filename_pattern' attribute. Overrides any cmd-line prefix option set."
 
 ------------------------------
+
+#### mmTF files
+
+Example:
+      <Output>
+         <mmTF filename_pattern="glycan-build_50_hybrid-gs-even-final_200A/glycan-build_50_hybrid-gs-even2_200A_$"/>
+      </Output>
+
+##### Options
+Option | Description
+------------ | -------------
+`filename` | The name of the file to write the output structure to -- only works correctly so long as there is only one input structure, otherwise the output structures would pile up on top of each other. Cannot be combined with the 'filename_pattern' attribute, which is typically preferable to this one.
+`filename_pattern` | If you want to name the output mmtf files for a job with some permutation on the input tag (i.e. the input pdb name) and then something that identifies something particular about the job (e.g. '1abc_steal_native_frags_0001.mmtf') then use the filename_pattern string. The original job tag will be substituted for the dolar sign. E.g. '$_steal_native_frags' would produce pdbs named '1abc_steal_native_frags_0001.mmtf'. Prefix and Suffix options will be added to these.
+`path` | Give the directory to which the output .pdb file should be written. Note that the output path does not become part of the job name, so if you have two jobs with the same job name written to different directories, then your log file and your score file (and any other secondary pose outputter) will not distinguish between which of the two jobs it is writing output for
+`overwrite` | If this is set to 'true', then the job(s) will run even if an output file with the name that this job would produce exists, and that previously-existing output file will be overwritten with the new output file.
+`mmtf_gz` | Should the output mmtf file be written as a .gz?
+`prefix`| Set output mmtf Prefix. Can be combined with the 'filename_pattern' attribute. Overrides any cmd-line prefix option set.
+`suffix` | Set output mmtf Suffix. Can be combined with the 'filename_pattern' attribute. Overrides any cmd-line prefix option set."
+
+------------------------------
+
+#### Rosetta Silent files
+
+A PoseOutputter that writes structures out in a rosetta-specific format; a single silent file can hold hundreds or thousands of output structures, lessening the load on file systems, and making output management easier. Note that if two different Jobs defined in the Job-definition file intend to write their outputs to the same file, then the settings for the first Job will take precedence over the settings for the second Job. This situation is complicated further if using MPI and multiple output/archive nodes: in this scenario, multiple silent files will be written (one per output node) and the first Job to be written to a silent file will determine which settings take precedence but that it is not knowable which of the two Jobs will be written first. To avoid confusion, it is recommended that either each Job write their outputs to a different file, or that the same options are used for all Jobs writing to the same file."
+
+Example:
+      <Output>
+         <SilentFile filename="my_silent_file"/>
+      </Output>
+
+##### Options
+Option | Description
+------------ | -------------
+`filename` | The name of the output silent file that should be written to.
+`buffer_limit` | The number of Poses that should be held in memory between each write to disk
+`path` | Give the directory to which the output silent file should be written. Note that the output path does not become part of the job name, so if you have two jobs with the same job name written to different directories, then your log file and your score file (and any other secondary pose outputter) will not distinguish between which of the two jobs it is writing output for
 
 ## Global Command Line Options Accepted
 
