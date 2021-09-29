@@ -22,7 +22,7 @@ A collection of example command lines can be found [[here|commands-collection]].
 
 ##Scripting interfaces to Rosetta functionality <a name="scripting" />
 - [[RosettaScripts]]: An XML-based scripting interface
-- [[RosettaScriptsJD3]]: RosettaScripts that can be run for different inputs and settings in a single job
+- [[RosettaScripts-JD3]]: RosettaScripts that can be run for different inputs and settings in a single job
 - [[The Topology Broker|BrokeredEnvironment]]: Rapid protocol prototyping in C++, [[PyRosetta]], and [[RosettaScripts]]
 - [[PyRosetta]]: Python wrappings for Rosetta
 
