@@ -26,6 +26,8 @@ This file lists the per-job settings and xml files used.  You can mix and match.
 Here is an example with different PDBs, script vars, etc. 
 In general, you should have Input and Output for each job as well as the parser protocol listed. 
 
+Note that double underscores, `__` are used to denote namespaces of global options used for each job, for example `parser__protocol` and `parser__script_vars`.
+
 ### Example
 
 ```xml
@@ -87,7 +89,7 @@ In general, you should have Input and Output for each job as well as the parser 
 
 ### Input
 
-#### PDBs and PDB Lists
+#### RCSB (PDB files)
 The PDB Inputter accepts ANY RCSB file type: `.pdb`, `.cif`, and `.mmtf`
 
 _Example for Single PDB_:
@@ -107,13 +109,27 @@ _Example for Multiple PDBs (PDBLIST)_
       </Input>
 ```
 
-Additional Options
-- `path`
- - Give the path to the PDB or the path for each PDB listed in list file
+##### Additional Options
+- `path`: Give the path to the PDB or the path for each PDB listed in list file
 
+#### Rosetta Silent Files
+
+Example:
+```xml
+      <Input>
+         <Silent silent_files="silent1,silent2"/>
+      </Input>
+```
+
+##### Additional Options
+- `tags`: Comma-separated list of tags specifying the subset of Poses that should be processed from the input silent file(s). If neither this attribute, nor the 'tagfile' attribute are used, then all Poses in the input silent file(s) are used.
+
+- `tagfile`: File name whose contents lists a set of whitespace-separated tags specifying the subset of Poses that should be processed from the input silent file(s). If neither this attribute, nor the 'tags' attribute are used, then all Poses in the input silent file(s) are used.
+
+- `skip_failed_simulations`: Skip processing of input Poses if the tag starts with 'W_'
 
 ### Output
 
-### Options Accepted
+### Global Command Line Options Accepted
 
 ## Useful SimpleMetrics for Benchmarking
