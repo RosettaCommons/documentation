@@ -15,7 +15,8 @@ _bioRxiv_ 2021.09.27.462000; [[https://doi.org/10.1101/2021.09.27.462000]]
 ## Example Command
 
 
-```rosetta_scripts_jd3.macosclangrelease -job_definition_file my_job_definition_file.xml```
+`rosetta_scripts_jd3.macosclangrelease -job_definition_file my_job_definition_file.xml`
+
 
 ## Job Definition File
 
@@ -28,7 +29,6 @@ In general, you should have Input and Output for each job as well as the parser 
 ### Example
 
 ```xml
-
 <JobDefinitionFile>
    <Job>
       <Input>
