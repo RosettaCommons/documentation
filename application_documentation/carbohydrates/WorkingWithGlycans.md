@@ -20,7 +20,7 @@ _Journal of Computational Chemistry_, 11/30/2016
 
 **Growing Glycans in Rosetta: Accurate de novo glycan modeling, density fitting, and rational sequon design**
 Jared Adolf-Bryfogle, J. W Labonte, J. C Kraft, M. Shapavolov, S. Raemisch, T. Lutteke, F. Dimaio, C. D Bahl, J. Pallesen, N. P King, J. J Gray, D. W Kulp, W. R Schief
-bioRxiv 2021.09.27.462000; [[https://doi.org/10.1101/2021.09.27.462000]]
+_bioRxiv_ 2021.09.27.462000; [[https://doi.org/10.1101/2021.09.27.462000]]
 
 **Automatically Fixing Errors in Glycoprotein Structures with Rosetta**
 Brandon Frenz, Sebastian Rämisch, Andrew J. Borst, Alexandra C. Walls
