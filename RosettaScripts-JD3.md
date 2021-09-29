@@ -88,8 +88,9 @@ In general, you should have Input and Output for each job as well as the parser 
 ### Input
 
 #### PDBs and PDB Lists
+The PDB Inputter accepts ANY RCSB file type: `.pdb`, `.cif`, and `.mmtf`
 
-Example PDB:
+_Example for Single PDB_:
 
 ```xml
       <Input>
@@ -97,7 +98,8 @@ Example PDB:
       </Input>
 ```
 
-Example PDB List (one pdb per line - just as with the `-l` option for all other apps:
+_Example for Multiple PDBs (PDBLIST)_ 
+- Note: one pdb file per line - just as with the `-l` option for all other apps-
 
 ```xml
       <Input>
