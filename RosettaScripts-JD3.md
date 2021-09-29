@@ -230,6 +230,8 @@ in__include_sugars
 score__force_sugar_bb_zero;
 ```
 
+------------------------------
+
 ## Useful SimpleMetrics for Benchmarking
 
 The [[ProtocolSettingsMetric]] is designed to be combined with RosettaScripts JD3 to make benchmarking and more complex protocols easier to write, run, and analyze in downstream scripts. 
