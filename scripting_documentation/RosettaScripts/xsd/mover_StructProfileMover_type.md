@@ -7,25 +7,30 @@ Quickly generates a structure profile
 
 ```xml
 <StructProfileMover name="(&string;)" RMSthreshold="(0.40 &real;)"
-        burialWt="(0.8 &real;)"
+        burialThreshold="(3 &real;)" burialWt="(0.8 &real;)"
         consider_topN_frags="(50 &non_negative_integer;)"
-        only_loops="(false &bool;)" allowed_deviation="(0.10 &real;)"
+        only_loops="(false &bool;)" censorByBurial="(false &bool;)"
+        allowed_deviation="(0.10 &real;)"
         allowed_deviation_loops="(0.10 &real;)"
         eliminate_background="(true &bool;)"
-        cenType="(6 &non_negative_integer;)" outputProfile="(false &bool;)"
+        cenType="(6 &non_negative_integer;)"
+        psiblast_style_pssm="(false &bool;)" outputProfile="(false &bool;)"
         add_csts_to_pose="(true &bool;)" ignore_terminal_residue="(true &bool;)"
         profile_name="(profile &string;)" fragment_store="(&string;)"
         residue_selector="(&string;)" />
 ```
 
 -   **RMSthreshold**: XRW TO DO
+-   **burialThreshold**: XRW TO DO
 -   **burialWt**: XRW TO DO
 -   **consider_topN_frags**: XRW TO DO
 -   **only_loops**: XRW TO DO
+-   **censorByBurial**: XRW TO DO
 -   **allowed_deviation**: XRW TO DO
 -   **allowed_deviation_loops**: XRW TO DO
 -   **eliminate_background**: XRW TO DO
 -   **cenType**: XRW TO DO
+-   **psiblast_style_pssm**: XRW TO DO
 -   **outputProfile**: XRW TO DO
 -   **add_csts_to_pose**: XRW TO DO
 -   **ignore_terminal_residue**: XRW TO DO

@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2021-09-02
+Generated: 2021-09-29
 
 _Note that some application specific options may not be present in this list._
 
@@ -5226,6 +5226,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Only include sidechain atoms in atom mask<br/>Default: false<br/></dd>
 <dt><b>-render_density</b> \<Boolean\></dt>
 <dd>render electron density in graphics mode build<br/>Default: false<br/></dd>
+<dt><b>-periodicity</b> \<Boolean\></dt>
+<dd>calculate density scores with periodic boundaries<br/>Default: true<br/></dd>
 </dl>
 + <h2>-enzdes</h2>
 <dl>
