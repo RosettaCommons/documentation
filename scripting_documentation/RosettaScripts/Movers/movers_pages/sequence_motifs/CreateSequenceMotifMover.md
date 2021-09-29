@@ -4,9 +4,6 @@
 
 [[_TOC_]]
 
-MetaData
-========
-Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 Reference
 =========
