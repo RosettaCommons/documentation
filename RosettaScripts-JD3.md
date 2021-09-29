@@ -206,7 +206,17 @@ Option | Description
 
 ## Command Line Options Accepted per-job
 Note that only these options can be set per `<Job>` in the `<Options>` tag. 
+Use `value=` to set the option or options. List one option per line as below. 
 
+Example:
+
+```xml
+   </Job>
+      <Options>
+         <parser__protocol value="xmls/glycan_tree_relax.xml"/>
+
+      </Options>
+   </Job>
 ### Parser Options
 ```
 parser__protocol
