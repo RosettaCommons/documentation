@@ -130,6 +130,6 @@ Example:
 
 ### Output
 
-### Global Command Line Options Accepted
+## Global Command Line Options Accepted
 
 ## Useful SimpleMetrics for Benchmarking
