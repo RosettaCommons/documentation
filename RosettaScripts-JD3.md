@@ -87,6 +87,29 @@ In general, you should have Input and Output for each job as well as the parser 
 
 ### Input
 
+#### PDBs and PDB Lists
+
+Example PDB:
+
+```xml
+      <Input>
+         <PDB filename="pdbs/pareto/1gai_refined.pdb.gz"/>
+      </Input>
+```
+
+Example PDB List (one pdb per line - just as with the `-l` option for all other apps:
+
+```xml
+      <Input>
+         <PDB listfile="my_pdb_list.txt"/>
+      </Input>
+```
+
+Additional Options
+- `path`
+ - Give the path to the PDB or the path for each PDB listed in list file
+
+
 ### Output
 
 ### Options Accepted
