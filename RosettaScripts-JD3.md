@@ -204,7 +204,8 @@ Option | Description
 
 ------------------------------
 
-## Global Command Line Options Accepted per-job
+## Command Line Options Accepted per-job
+Note that only these options can be set per `<Job>` in the `<Options>` tag. 
 
 ### Parser Options
 ```
