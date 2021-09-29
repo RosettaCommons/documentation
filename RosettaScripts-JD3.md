@@ -130,6 +130,30 @@ Example:
 
 ### Output
 
+#### PDB Files
+Output classic PDB files using either `filename` or `filename_pattern`
+
+```xml
+      <Output>
+         <PDB filename_pattern="glycan-build_50_hybrid-gs-even-final_200A/glycan-build_50_hybrid-gs-even2_200A_$"/>
+      </Output>
+```
+
+##### Options
+- `filename`: The name to of the file write the output structure to -- only works correctly so long as there is only one input structure, otherwise the output structures would pile up on top of each other (the input tags distinguishing them are ignored.). Should not include any directory names; use the 'path' attribute instead for that. Cannot be combined with the 'filename_pattern' attribute, which is typically preferrable to this one.
+
+- `filename_pattern`: If you want to name the output pdb files for a job with some permutation on the input ta (i.e. the input pdb name) and then something that identifies something particular about the job (e.g. '1abc_steal_native_frags_0001.pdb') then use the filename_pattern string. It expects a string that has a single dolar sign; the original job tag will be substituted for the dolar sign. E.g. '$_steal_native_frags' would produce pdbs named '1abc_steal_native_frags_0001.pdb', '1abc_steal_native_frags_0002.pdb', ..., '2def_steal_native_frags_0001.pdb', etc. if it were used with input tags '1abc' and '2def'. prefix and suffix options either on the cmd line or here will be combined appropriately with this option -  added to the beginning or end of the final name respectively.  If our prefix was `prefix_` and our suffix was `suffix_`, then our final PDB name would be: prefix_2def_steal_native_frags_suffix_0001`
+
+- `path`: Give the directory to which the output .pdb file should be written. Note that the output path does not become part of the job name, so if you have two jobs with the same job name written to different directories, then your log file and your score file (and any other secondary pose outputter) will not distinguish between which of the two jobs it is writing output for
+
+- `overwrite`: If this is set to 'true', then the job(s) will run even if an output file with the name that this job would produce exists, and that previously-existing output file will be overwritten with the new output file.
+
+- `pdb_gz`: Should the output PDB file be written as a .gz?
+
+- `prefix`: Set output PDB Prefix. Can be combined with the 'filename_pattern' attribute. Overrides any cmd-line prefix option set.
+
+- `suffix`: Set output PDB Suffix. Can be combined with the 'filename_pattern' attribute. Overrides any cmd-line prefix option set."
+
 ## Global Command Line Options Accepted
 
 ## Useful SimpleMetrics for Benchmarking
