@@ -189,9 +189,11 @@ Option | Description
 A PoseOutputter that writes structures out in a rosetta-specific format; a single silent file can hold hundreds or thousands of output structures, lessening the load on file systems, and making output management easier. Note that if two different Jobs defined in the Job-definition file intend to write their outputs to the same file, then the settings for the first Job will take precedence over the settings for the second Job. This situation is complicated further if using MPI and multiple output/archive nodes: in this scenario, multiple silent files will be written (one per output node) and the first Job to be written to a silent file will determine which settings take precedence but that it is not knowable which of the two Jobs will be written first. To avoid confusion, it is recommended that either each Job write their outputs to a different file, or that the same options are used for all Jobs writing to the same file."
 
 Example:
+```xml
       <Output>
          <SilentFile filename="my_silent_file"/>
       </Output>
+```
 
 ##### Options
 Option | Description
@@ -200,6 +202,36 @@ Option | Description
 `buffer_limit` | The number of Poses that should be held in memory between each write to disk
 `path` | Give the directory to which the output silent file should be written. Note that the output path does not become part of the job name, so if you have two jobs with the same job name written to different directories, then your log file and your score file (and any other secondary pose outputter) will not distinguish between which of the two jobs it is writing output for
 
-## Global Command Line Options Accepted
+------------------------------
+
+## Global Command Line Options Accepted per-job
+
+### Parser Options
+```
+parser__protocol
+parser__script_vars
+parser__inclusion_recursion_limit
+corrections__restore_talaris_behavior
+mistakes__restore_pre_talaris_2013_behavior
+in__file__native;
+
+### ScoreFunction Options
+
+```
+score__empty
+score__weights
+score__patch
+corrections__correct
+corrections__hbond_sp2_correction
+corrections__score__dun10
+corrections__score__score12prime
+in__auto_setup_metals
+in__include_sugars
+score__force_sugar_bb_zero;
+```
 
 ## Useful SimpleMetrics for Benchmarking
+
+The [[ProtocolSettingsMetric]] is designed to be combined with RosettaScripts JD3 to make benchmarking and more complex protocols easier to write, run, and analyze in downstream scripts. 
+
+Use the `job_tag` Option with script_vars job option to separate specific experiments. This will be shown in the scorefile (and in the PDB) as `opt_job_tag`. Really useful when combined with pandas.  Use the options `get_script_vars` and `get_user_options` to report set script_vars and set per-job/global options in the scorefile to use for plotting and analysis.  Finally, use `limit_to_options` to only write specific options out to the score file.  
