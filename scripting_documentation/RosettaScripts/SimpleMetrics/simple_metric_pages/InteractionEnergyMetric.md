@@ -2,7 +2,6 @@
 *Back to [[SimpleMetrics]] page.*
 ## InteractionEnergyMetric
 
-Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 ##Reference
 **Growing Glycans in Rosetta: Accurate de novo glycan modeling, density fitting, and rational sequon design**
