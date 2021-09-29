@@ -3,9 +3,11 @@
 
 SimpleMetrics are a new way to do analysis and data reporting in RosettaScripts, and have replaced the old Filter system for that purpose. SimpleMetrics can be run at different points in a protocol, such as before and after a particular mover or set of movers. They are declared in the `<SIMPLE_METRICS>` block of RosettaScripts and are available in Rosetta versions after April 10th, 2018. 
 
+**Please cite:** [this paper](https://doi.org/10.1101/2021.09.27.462000) if you use SimpleMetrics. 
+
 There are two ways of outputting the data calculated by SimpleMetrics to a scorefile. The first and most flexible is with the [[RunSimpleMetrics]] mover. See the documentation page for [[RunSimpleMetrics]] for more on the syntax of how to include it in your protocol.
 
-The other (available after Oct 15th, 2010) is to use the `metrics` option in the [[PROTOCOLS|RosettaScripts#rosettascript-sections_protocols]] section. This option takes a comma-separated list of metric names (previously defined in the SIMPLE_METRICS section) to apply at that point of the protocol and to report to the scorefile. By default, this approach uses the name of the metric as the output label, rather than the metric-specified custom types. You can specify a different output label using the `labels` option of the PROTOCOLS section (which also takes a comma-separated list). The label `-` is special-cased to give you the name of the metric you would otherwise get with RunSimpleMetrics. 
+The other (available after Oct 15th, 2021) is to use the `metrics` option in the [[PROTOCOLS|RosettaScripts#rosettascript-sections_protocols]] section. This option takes a comma-separated list of metric names (previously defined in the SIMPLE_METRICS section) to apply at that point of the protocol and to report to the scorefile. By default, this approach uses the name of the metric as the output label, rather than the metric-specified custom types. You can specify a different output label using the `labels` option of the PROTOCOLS section (which also takes a comma-separated list). The label `-` is special-cased to give you the name of the metric you would otherwise get with RunSimpleMetrics. 
 
 All SimpleMetrics can also be used as Filters, using the [[SimpleMetricFilter]].
  
