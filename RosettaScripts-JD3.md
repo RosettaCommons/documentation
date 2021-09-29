@@ -1,8 +1,8 @@
-# Description
+## RosettaScripts JD3
 
 This app uses a file called the `job_definition_file` to run a RosettaScript with different inputs or settings in a single job.  It is extremely useful for benchmarking. 
 
-# Reference
+## Reference
 
 
 **Growing Glycans in Rosetta: Accurate de novo glycan modeling, density fitting, and rational sequon design**
@@ -10,12 +10,14 @@ Jared Adolf-Bryfogle, J. W Labonte, J. C Kraft, M. Shapavolov, S. Raemisch, T. L
 _bioRxiv_ 2021.09.27.462000; [[https://doi.org/10.1101/2021.09.27.462000]]
 
 
-# Example Command
+[[_TOC_]]
+
+## Example Command
 
 
 `rosetta_scripts_jd3.macosclangrelease -job_definition_file my_job_definition_file.xml`
 
-# Job Definition File
+## Job Definition File
 
 
 This file lists the per-job settings and xml files used.  You can mix and match.  Only certain global options are allowed to change.  If you wish to try different settings, use the script_vars option for the XML to control different jobs. 
@@ -23,7 +25,7 @@ This file lists the per-job settings and xml files used.  You can mix and match.
 Here is an example with different PDBs, script vars, etc. 
 In general, you should have Input and Output for each job as well as the parser protocol listed. 
 
-## Example
+### Example
 
 ```xml
 
@@ -81,3 +83,9 @@ In general, you should have Input and Output for each job as well as the parser 
       </Options>
    </Job>
 </JobDefinitionFile>
+
+### Input
+
+### Output
+
+### Options Accepted
