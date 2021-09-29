@@ -1,6 +1,6 @@
 ## RosettaScripts JD3
 
-This app uses a file called the `job_definition_file` to run a RosettaScript with different inputs or settings in a single job.  It is extremely useful for benchmarking. 
+This app uses a file called the `job_definition_file` to run a RosettaScript with different inputs or settings in a single run.  It is extremely useful for benchmarking. It is called RosettaScripts JD3 as it uses a new Job Distribution framework in Rosetta that was created by Andrew Leaver-Fay.
 
 ## Reference
 
@@ -215,6 +215,7 @@ parser__inclusion_recursion_limit
 corrections__restore_talaris_behavior
 mistakes__restore_pre_talaris_2013_behavior
 in__file__native;
+```
 
 ### ScoreFunction Options
 
