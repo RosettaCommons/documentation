@@ -15,7 +15,7 @@ _bioRxiv_ 2021.09.27.462000; [[https://doi.org/10.1101/2021.09.27.462000]]
 ## Example Command
 
 
-`rosetta_scripts_jd3.macosclangrelease -job_definition_file my_job_definition_file.xml`
+`rosetta_scripts_jd3.macosclangrelease -job_definition_file my_jd_file.xml`
 
 
 ## Job Definition File
