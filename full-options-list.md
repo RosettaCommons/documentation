@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2021-09-29
+Generated: 2021-10-06
 
 _Note that some application specific options may not be present in this list._
 
@@ -3043,6 +3043,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Use the old approach to symmetric minimization<br/>Default: false<br/></dd>
 <dt><b>-debug_inaccurate_G</b> \<Boolean\></dt>
 <dd>Debug innacurate G messages<br/>Default: false<br/></dd>
+<dt><b>-cmaes_rgsigma</b> \<Real\></dt>
+<dd>CMAES initial coordinate wise standard deviation (step size)<br/>Default: 0.3<br/></dd>
 </dl>
 + <h2>-orbitals</h2>
 <dl>
