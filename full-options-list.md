@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2021-10-06
+Generated: 2021-10-12
 
 _Note that some application specific options may not be present in this list._
 
@@ -118,6 +118,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Database file input search paths.  If the database is not found the ROSETTA3_DB environment variable is tried.<br/></dd>
 <dt><b>-database_cache_dir</b> \<Path\></dt>
 <dd>Which directory to use when caching processed database files.<br/></dd>
+<dt><b>-bcl</b> \<PathVector\></dt>
+<dd>Path to the BCL submodule in Rosetta. Must lead to a valid BCL submodule. If the BCL is not found then we attempt to resolve the path relative to the Rosetta database.<br/></dd>
 </dl>
 + <h3>-in:file</h3>
 <dl>
@@ -3045,6 +3047,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Debug innacurate G messages<br/>Default: false<br/></dd>
 <dt><b>-cmaes_rgsigma</b> \<Real\></dt>
 <dd>CMAES initial coordinate wise standard deviation (step size)<br/>Default: 0.3<br/></dd>
+<dt><b>-cmaes_lambda</b> \<Integer\></dt>
+<dd>CMAES population size, default is defined as a function of dimension size (N) (i.e. 4+(int)(3*log((double)N))), set default using value < 2<br/>Default: 0<br/></dd>
 </dl>
 + <h2>-orbitals</h2>
 <dl>
