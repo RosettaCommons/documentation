@@ -35,5 +35,6 @@ Pass the option to repack neighbors for packing.
 * [[RosettaCM]]: Full Rosetta Comparative Modeling protocol
 * [[HybridizeMover]]: More Complex mover for Comparative Modeling
 * [[FastRelaxMover]]: The relax application
+* [[MutateResidueMover]]: Introduce mutations quickly and easily.
 * [[Preparing structures]]: Page on preparing structures for use in Rosetta using relax.
 * [[I want to do x]]: Guide to chosing a mover
