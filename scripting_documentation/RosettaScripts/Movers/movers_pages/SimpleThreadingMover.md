@@ -5,7 +5,7 @@
 [[include:mover_SimpleThreadingMover_type]]
 
 ### Details
-It does the threading by allowing the task to only enable these residues and then does a repacking. Optionally repack neighbors so we save one more step.
+It does the threading by calling the [[MutateResidueMover]], and then does a repacking. Optionally repack neighbors so we save one more step.
 
 A sequence can be provided in one of several formats, with the input format specified with the `sequence_mode` option.  The table below gives the available sequence modes, and shows how to specify the tetrapeptide sequence L-aspartate, L-phenylalanine, D-tryptophan, D-alanine.
 
