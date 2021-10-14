@@ -17,8 +17,7 @@ Perform small molecule drug design mutations via the BCL FragmentMutateInterface
         conf_cluster="(true &bool;)" conf_clash_resolution="(0.1 &real;)"
         conf_sample_dihed="(true &bool;)" conf_sample_rings="(true &bool;)"
         conf_sample_bond_angles="(true &bool;)" object_data_label="(&string;)"
-        n_max_mutate_attempts="(10 &non_negative_integer;)"
-        reference_fragment_filename="(&string;)" />
+        n_max_mutate_attempts="(10 &non_negative_integer;)" />
 ```
 
 -   **ligand_chain**: The chain ID of the ligand residue to be mutated. The specified chain may not contain more than one residue/molecule.
@@ -35,8 +34,7 @@ Perform small molecule drug design mutations via the BCL FragmentMutateInterface
 -   **conf_sample_dihed**: If true, sample across dihedral bins; if false, restrict conformational sampling to current dihedral bins
 -   **conf_sample_rings**: If true, sample rings; if false, restrict conformational sampling to current ring conformer
 -   **conf_sample_bond_angles**: If true, sample bond angles and lengths; if false, restrict conformational sampling to current bond angles and lengths
--   **object_data_label**: (REQUIRED) The BCL Object Data Label specifying the mutate to use and the options with which that mutate will be constructed.
+-   **object_data_label**: (REQUIRED) The BCL Object Data Label specifying the mutate to use and the options with which that mutate will be constructed. To view all of the options available to a mutate, pass 'help' as the argument to the mutate. For example, if you are making an ExtendWithLinker flavor of this mover, in your XML script Mover definition for BCLFragmentMutateMover, the 'object_data_label' attribute would read 'ExtendWithLinker(help)'.
 -   **n_max_mutate_attempts**: The maximum number of retry attempts that can occur for any single mutate move. Retry attempts are initiated when a mutated fragment fails the internal druglikeness filter or when 3D coordinates cannot be generated for the mutated fragment.
--   **reference_fragment_filename**: Path to a file that specifies a small molecule SDF. If provided, this fragment will be compared to the current pose residue small molecule ligand. The common substructure atoms will be fixed as non-mutable (unless they are within a ring structure that contains at least one mutable atom accessible by a RingSwap mutate). The non-conserved atoms will be set to mutable. This allows new substructures created with one instance of this mover to be the subject of modification by a separate instance of this mover in a protocol. Specifying a filename here supersedes any 'mutable_atoms' specified in the 'object_data_label' argument.
 
 ---
