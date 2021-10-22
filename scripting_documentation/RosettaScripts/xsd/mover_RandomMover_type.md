@@ -7,11 +7,14 @@ Randomly apply a mover from a list given probability weights
 
 ```xml
 <RandomMover name="(&string;)" movers="(&string;)"
-        weights="(&xsct_real_cslist_w_ws;)" repeats="(1 &non_negative_integer;)" />
+        weights="(&xsct_real_cslist_w_ws;)"
+        mover_repeats="(&xsct_real_cslist_w_ws;)"
+        repeats="(1 &non_negative_integer;)" />
 ```
 
 -   **movers**: The movers tag takes a comma separated list of mover names
 -   **weights**: NO SPACES between commas and values! The weights tag takes a comma separate list of weights that sum to 1
+-   **mover_repeats**: Comma seperated list of repeats where we repeat the mover N times.  Allows probabilistic repetition.
 -   **repeats**: Number of times the movers are being applied XDW TO DO
 
 ---

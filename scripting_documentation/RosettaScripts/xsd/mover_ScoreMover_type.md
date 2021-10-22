@@ -9,7 +9,7 @@ This Mover applies the scorefunction to your pose
 <ScoreMover name="(&string;)" scorefxn="(&string;)" verbose="(&bool;)" />
 ```
 
--   **scorefxn**: (REQUIRED) Score function to use when scoring this pose. Must be previously defined in the DataMap. Calls ScoreFunctionFactory with an empty string by default, which is either a good default or NULL
+-   **scorefxn**: Score function to use when scoring this pose. Must be previously defined in the DataMap. Otherwise, we use the default scorefunction.
 -   **verbose**: boolean controls a bunch of extra output - pose.energies.show() and something called a jd2:ScoreMap
 
 ---

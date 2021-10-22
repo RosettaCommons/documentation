@@ -11,7 +11,8 @@ Deletes a region from a pose
         add_terminal_types_on_rechain="(&bool;)" add_jump_on_rechain="(&bool;)"
         start="(&string;)" end="(&string;)"
         nter_overhang="(&non_negative_integer;)"
-        cter_overhang="(&non_negative_integer;)" residue_selector="(&string;)" />
+        cter_overhang="(&non_negative_integer;)"
+        detect_disulfides="(true &xs:boolean;)" residue_selector="(&string;)" />
 ```
 
 -   **rechain**: Add terminus variants and recompute chains after deleting
@@ -21,6 +22,7 @@ Deletes a region from a pose
 -   **end**: Last residue in region to delete
 -   **nter_overhang**: Number of additional residues to delete on the N terminal side
 -   **cter_overhang**: Number of additional residues to delete on the C terminal side
+-   **detect_disulfides**: Detect disulfides?  Pass false if you are designing disulfides.
 -   **residue_selector**: ResidueSelector with region(s) to delete. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 
 ---

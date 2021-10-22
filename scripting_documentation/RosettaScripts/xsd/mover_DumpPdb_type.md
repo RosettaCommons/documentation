@@ -7,11 +7,12 @@ Dumps a pdb. Recommended ONLY for debugging as you can't change the name of the 
 
 ```xml
 <DumpPdb name="(&string;)" fname="(dump.pdb &string;)" tag_time="(false &bool;)"
-        scorefxn="(&string;)" />
+        dir="(&string;)" scorefxn="(&string;)" />
 ```
 
--   **fname**: Filename of dumped PDB.
+-   **fname**: Filename of dumped PDB.  If PDBInfo is present, we will also append the pdb name.
 -   **tag_time**: If true, adds timestamp to name of pdb file.
+-   **dir**: Any directory to give.  Will use this and fname as the final name.
 -   **scorefxn**: Name of score function to use
 
 ---
