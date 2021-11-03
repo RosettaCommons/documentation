@@ -17,13 +17,14 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
         premin_ligand="(&bool;)" min_neighbor="(&bool;)"
         full_repack_before_finalmin="(&bool;)" final_solvate="(&bool;)"
         fastrelax_script="(&string;)" move_water="(&bool;)"
-        redefine_flexscs_at_relax="(&bool;)" exact="(&bool;)" debug="(&bool;)"
-        use_pharmacophore="(&bool;)" initial_pool="(&string;)"
-        multiple_ligands="(&string;)" multiple_ligands_file="(&string;)"
-        random_oversample="(&real;)" reference_oversample="(&real;)"
-        reference_pool="(&string;)" reference_frac="(&real;)"
-        reference_frac_auto="(&bool;)" sidechains="(&string;)"
-        frozen_scs="(&string;)" sc_edge_buffer="(&real;)" fa_rep_grid="(&real;)"
+        turnon_flexscs_at_relax="(&bool;)" redefine_flexscs_at_relax="(&bool;)"
+        exact="(&bool;)" debug="(&bool;)" use_pharmacophore="(&bool;)"
+        initial_pool="(&string;)" multiple_ligands="(&string;)"
+        multiple_ligands_file="(&string;)" random_oversample="(&real;)"
+        reference_oversample="(&real;)" reference_pool="(&string;)"
+        reference_frac="(&real;)" reference_frac_auto="(&bool;)"
+        sidechains="(&string;)" frozen_scs="(&string;)"
+        sc_edge_buffer="(&real;)" fa_rep_grid="(&real;)"
         grid_bound_penalty="(&real;)" estimate_dG="(&bool;)"
         use_mean_maxRad="(&bool;)" stdev_multiplier="(&real;)"
         torsion_sampler_percentage="(&real;)" ngen="(&integer;)"
@@ -63,6 +64,7 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 -   **final_solvate**: Solvate pose (via ExplicitWaterMover) in final optimize. Default: false
 -   **fastrelax_script**: FastRelax script file for exact minimize.
 -   **move_water**: Move water at final relaxation.
+-   **turnon_flexscs_at_relax**: Turn on movable residues at final relaxation.
 -   **redefine_flexscs_at_relax**: Redefine movable residues at final relaxation.
 -   **exact**: Use exact scoring.
 -   **debug**: Debug grid scoring: report both exact and grid scores.
