@@ -147,6 +147,16 @@ SiteConstraintResidues Atom1_ResNum Atom1_Name Res2 Res3 Func_Type Func_Def
 
 	* Constraint that a residue interacts with at least one of two other residues. The atom and resnum identify which atom is being checked for interactions with the CA atoms of the other residues.
 
+-   MinResidueAtomicDistance:
+```
+MinResidueAtomicDistance res1 res2 dist
+
+```
+
+	<i>score term: atom_pair_constraint</i>
+
+	* Constraint that at least one heavyatom from res1 falls within dist of at least one heavyatom from res2. Implemented via AmbiguousConstraint (see below); a FADE function is used for each atom pair.
+
 -   BigBin: 
 ```
 BigBin res_number bin_char sdev
