@@ -27,7 +27,8 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
         sc_edge_buffer="(&real;)" fa_rep_grid="(&real;)"
         grid_bound_penalty="(&real;)" estimate_dG="(&bool;)"
         use_mean_maxRad="(&bool;)" stdev_multiplier="(&real;)"
-        torsion_sampler_percentage="(&real;)" ngen="(&integer;)"
+        torsion_sampler_percentage="(&real;)" contact_distance="(&real;)"
+        freeze_ligand_backbone="(&bool;)" ngen="(&integer;)"
         npool="(&non_negative_integer;)" pmut="(&real;)" smoothing="(&real;)"
         rmsdthreshold="(&real;)" ramp_schedule="(&string;)"
         maxiter="(&non_negative_integer;)"
@@ -86,6 +87,8 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 -   **use_mean_maxRad**: Use mean maxRad for multi ligands? Default: false
 -   **stdev_multiplier**: Standard deviation multiplier for mean_maxRad. Default: 1.0
 -   **torsion_sampler_percentage**: The percentage of the initial gene sampled by torsion sampler.
+-   **contact_distance**: Distance cutoff for determining if ligand is in contact with a residue sidechain. Default: 4.5
+-   **freeze_ligand_backbone**: Freeze peptide ligand backbone torsion, only works on peptide ligand. Default: false.
 -   **ngen**: number of generations
 -   **npool**: (default) pool size
 -   **pmut**: (default) probability of mutation
