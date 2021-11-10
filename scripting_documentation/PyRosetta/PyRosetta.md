@@ -64,13 +64,24 @@ __To build PyRosetta__:
 
 ```
 cd main/source/src/python/PyRosetta
-./build.py -j8 --create-package path/to/package
-python3 build.py -j8 --create-package path/to/package
+python build.py -j8 --create-package path/to/package
 
 cd `build.py --print-build-root`/setup
 sudo python setup.py install
 ```
 See [the Dev Wiki](https://wiki.rosettacommons.org/index.php/PyRosetta:build) for more.
+
+__To build under Conda__:
+
+To build under Conda, first create the environment you want to install the PyRosetta to, including the version of Python you wish to use. Then follow the instructions above. 
+
+It may be that the build script needs help finding the Python include files and libraries ("Could not find requested Python version"). When that happens, you can specify the path to the build.py script
+
+```
+python build.py -j8 --python-include-dir ${CONDA_PREFIX}/include/python* --python-lib ${CONDA_PREFIX}/lib/python* --create-package path/to/package
+```
+
+Note that you don't need to run setup.py with sudo if your conda environment is a user-level install.
 
 __Binding complex data-types to PyRosetta__
 
