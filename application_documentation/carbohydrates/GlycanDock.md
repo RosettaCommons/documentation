@@ -93,24 +93,15 @@ Here, the input `prot_glyc_complex.pdb` is a putative complex of a protein (chai
 
 <!--- END_INTERNAL -->
 
-## See Also
-### General
-* [[WorkingWithGlycans]]
-
-### Apps
+See Also
+========
+* [[WorkingWithGlycans]] - Working with carbohydrates in Rosetta
 * [[GlycanInfo]] - Get information on all glycan trees within a pose
 * [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 * [[GlycanRelax]] - Sample potential conformational states of a glycan chain, either attached to a protein or free.
-
-### RosettaScript Components
 * [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
 * [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
 * [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
-
-### Other
-* [[Application Documentation]]: List of Rosetta applications
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
-* [[Comparing structures]]: Essay on comparing structures
-* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
 * [[Commands collection]]: A list of example command lines for running Rosetta executable files
