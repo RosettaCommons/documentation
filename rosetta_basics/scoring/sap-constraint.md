@@ -14,7 +14,7 @@ Developability Index: A Rapid In Silico Tool for the Screening of Antibody Aggre
 Brian added various ways to calculate this as well as design with it to Rosetta. See below for the various options.
 
 
-At the time of writing, this isn't published, so there's nothing to cite. I figure we keep it that way until it's important enough to someone's work that they need to describe it in the methods. At which point that'll be the publication to cite.
+At the time of writing, this isn't published, so there's nothing to cite. I figure we keep it that way until it's important enough to someone's work that they need to describe it in the methods. At which point that'll be the publication to cite. (You could probably cite the original Developability Index paper though. The SimpleMetrics are trivial. The movers are the only place where something interesting was required.)
 
 
 ## Ways to use it
