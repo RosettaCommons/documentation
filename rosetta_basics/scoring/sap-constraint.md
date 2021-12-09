@@ -1,4 +1,4 @@
-# Sap Constraint (approximate_buried_unsatisfied_penalty) 
+# Sap Constraint (sap_constraint) 
 
 [[_TOC_]]
 
