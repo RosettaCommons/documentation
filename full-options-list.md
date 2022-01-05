@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2021-10-12
+Generated: 2022-01-05
 
 _Note that some application specific options may not be present in this list._
 
@@ -4426,7 +4426,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-cyclic_peptide</b> \<Boolean\></dt>
 <dd>cyclic_peptide option group<br/></dd>
 <dt><b>-cyclization_type</b> \<String\></dt>
-<dd>The type of cyclization for the peptide (e.g. N-to-C amide bond, terminal disulfide, isopeptide N-terminal lariat, etc.<br/>Default: "n_to_c_amide_bond"<br/></dd>
+<dd>The type of cyclization for the peptide (e.g. N-to-C amide bond, terminal disulfide, thioether lariat, isopeptide N-terminal lariat, etc.<br/>Default: "n_to_c_amide_bond"<br/></dd>
 <dt><b>-use_chainbreak_energy</b> \<Boolean\></dt>
 <dd>If true, then the chainbreak energy is used to preserve any N-to-C peptide bond (assuming that this is an N-to-C cyclic peptide).  If false, then constraints are used instead.  True by default.<br/>Default: true<br/></dd>
 <dt><b>-rand_checkpoint_file</b> \<String\></dt>
