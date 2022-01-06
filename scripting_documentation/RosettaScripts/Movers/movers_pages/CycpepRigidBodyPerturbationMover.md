@@ -18,7 +18,7 @@ The mover and its creator are found in the `protocols::cyclic_peptide` namespace
 
 ### Usage
 
-[[include: ../../../xsd/mover_CycpepRigidBodyPerturbationMover_type]]
+[[include:mover_CycpepRigidBodyPerturbationMover_type]]
 
 ##See Also
 
