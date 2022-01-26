@@ -7,7 +7,8 @@ Restrict rotamer selctions to ones derived from natural PDBs
 
 ```xml
 <SampleRotamersFromPDB name="(&string;)" add_rotamer="(1 &bool;)"
-        debug="(0 &bool;)" ccd="(1 &bool;)" aligned_positions="(&int_cslist;)" >
+        debug="(0 &bool;)" ccd="(1 &bool;)" db_file_name="(&string;)"
+        aligned_positions="(&int_cslist;)" >
     <Segments name="(&string;)" >
         <Segment name="(&string;)" pdb_profile_match="(&string;)" rot_lib="(&string;)" />
     </Segments>
@@ -17,6 +18,7 @@ Restrict rotamer selctions to ones derived from natural PDBs
 -   **add_rotamer**: If true, add the sampled rotamer to rotamer vector, otherwise just delete rotamers that are not in input pdbs/rotamaer database
 -   **debug**: make output more verbose
 -   **ccd**: do not modify residues with CUT_LOWER/CUT_UPPER property
+-   **db_file_name**: The database name to use
 -   **aligned_positions**: only apply to this taskoperation to specific positions.
 
 
