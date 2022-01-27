@@ -1,6 +1,6 @@
 # PyRosetta
 
-PyRosetta is an interactive Python-based interface to Rosetta, allowing users to create custom molecular modeling algorithms with Rosetta sampling and scoring functions using Python scripting. PyRosetta was written for Python 2.6, while the newer PyRosetta-4 also works with Python 3+
+PyRosetta is an interactive Python-based interface to Rosetta, allowing users to create custom molecular modeling algorithms with Rosetta sampling and scoring functions using Python scripting. PyRosetta was written for Python 2.6, while the newer PyRosetta-4 require Python-3
 
 PyRosetta is available as a separate download (independent of C++ Rosetta). See <http://www.pyrosetta.org/> for more details.  If you are a developer, it can also be compiled from source.
 
