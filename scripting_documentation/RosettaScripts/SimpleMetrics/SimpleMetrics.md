@@ -190,7 +190,8 @@ These metrics calculate a set of named real numbers. All metric values in the co
 
 SimpleMetric  | Description | ResidueSelector Compatability?
 ------------ | ------------- | -------------
-**[[BlockwiseShapeCompMetric|simple_metric_BlockwiseShapeCompMetric_type]]** | A metric for measuring the shape complementarity between blocks. Reports the number of good links for each block. A link is defined as acceptable Shape Complementarity between each block and all other blocks. | Yes
+**[[BlockwiseShapeCompMetric|simple_metric_BlockwiseShapeCompMetric_type]]** | Measures shape complementarity between blocks (contiguous stretches of amino acids). | Yes
+**[[BlockwisePoseCompMotifMetric|simple_metric_BlockwisePoseCompMotifMetric_type]]** | Calculate motif scores between blocks (contiguous stretches of amino acids). | Yes
 **[[CompositeEnergyMetric]]** | Calculates each individual scoreterm of a scorefunction or the DELTA of each scoreterm between two poses.  Each named value is the scoreterm | Yes
 **[[ElectrostaticComplementarityMetric | simple_metric_ElectrostaticComplementarityMetric_type ]]** | Calculates the McCoy, Chandana, Colman Electrostatic complementarity using APBS. | Yes
 
