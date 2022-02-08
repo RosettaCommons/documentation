@@ -142,7 +142,7 @@ SimpleMetric  | Description | ResidueSelector Compatability?
 **[[SequenceSimilarityMetric]]** | Averages the BLOSUM62 score for selected residues. | Yes
 **[[TotalEnergyMetric]]** | Calculates the Total Energy of a pose using a Scorefunction OR the delta total energy between two poses. | Yes
 **[[TimingProfileMetric | TimingMetric]]** | Calculates the time passed in minutes or hours from from construction to apply (ie from when declared in the RS block to when it is run).  Useful for obtaining timing information of protocols. | No
-**[[SapScoreMetric]]**| Calculates SAP score | yes
+**[[SapScoreMetric|simple_metric_SapScoreMetric_type]]**| Calculates SAP score | yes
 
 
 ##StringMetrics
