@@ -174,9 +174,9 @@ SimpleMetric  | Description
 **[[PerResidueEnergyMetric]]** | Calculate any energy term for each residue.  Total energy is default.  If a native or repose is given, can calculate the energy delta for each residue.
 **[[PerResidueRMSDMetric]]** | Calculate the RMSD for each residue between the input and either the native or a reference pose.
 **[[PerResidueSasaMetric]]** | Calculate the Solvent Accessible Surface Area (SASA) of each residue.
-**[[simple_metric_SidechainNeighborCountMetric_type]]** | Calculates each sidechains neighbors based on cones. This metric uses the same core code as the LayerSelector.
+**[[SidechainNeighborCountMetric|simple_metric_SidechainNeighborCountMetric_type]]** | Calculates each sidechains neighbors based on cones. This metric uses the same core code as the LayerSelector.
 **[[WaterMediatedHbondMetric]]** | A metric to measure hydrogen bonds between a set of residues that are water-mediated (bridged).  Can calculate different depths to traverse complex hbond networks.
-**[[simple_metric_PerResidueSapScoreMetric_type]]** | Calculates SAP score (~hydrophobicity) for each residue.
+**[[PerResidueSapScoreMetric|simple_metric_PerResidueSapScoreMetric_type]]** | Calculates SAP score (~hydrophobicity) for each residue.
 
 
 
