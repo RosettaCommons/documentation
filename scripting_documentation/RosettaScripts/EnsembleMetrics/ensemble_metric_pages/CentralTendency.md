@@ -14,7 +14,7 @@ Created Tuesday, 8 February 2022 by Vikram K. Mulligan, Center for Computational
 
 ### Interface
 
-[[include:ensemble_metric_CentralTendencyEnsembleMetric_type]]
+[[include:ensemble_metric_CentralTendency_type]]
 
 ### Named values produced
 
