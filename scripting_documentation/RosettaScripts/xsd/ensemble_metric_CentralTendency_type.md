@@ -7,7 +7,8 @@ An ensemble metric that takes a real-valued simple metric, applies it to all pos
 
 ```xml
 <CentralTendency name="(&string;)" label_prefix="(&string;)"
-        label_suffix="(&string;)" ensemble_generating_protocol="(&string;)"
+        label_suffix="(&string;)" output_mode="(tracer &string;)"
+        output_filename="(&string;)" ensemble_generating_protocol="(&string;)"
         ensemble_generating_protocol_repeats="(&string;)"
         n_threads="(0 &non_negative_integer;)"
         use_additional_output_from_last_mover="(false &bool;)"
@@ -16,6 +17,8 @@ An ensemble metric that takes a real-valued simple metric, applies it to all pos
 
 -   **label_prefix**: If provided, this prefix is prepended to the label for this ensemble metric (with an underscore after the prefix and before the ensemble metric name).
 -   **label_suffix**: If provided, this suffix is appended to the label for this ensemble metric (with an underscore after the ensemble metric name and before the suffix).
+-   **output_mode**: The output mode for reports from this ensemble metric.  Default is 'tracer'.  Allowed modes are: 'tracer', 'tracer_and_file', or 'file'.
+-   **output_filename**: The file to which the ensemble metric report will be written if output mode is 'tracer_and_file' or 'file'.  Note that this filename will have the job name and number prepended so that each report is unique.
 -   **ensemble_generating_protocol**: An optional ParsedProtocol or other mover for generating an ensemble from the current pose.  This protocol will be applied repeatedly (ensemble_generating_protocol_repeats times) to generate the ensemble of structures.  Each generated pose will be measured by this metric, then discarded.  The ensemble properties are then reported.  If not provided, the current pose is measured and the report will be produced later (e.g. at termination with the JD2 rosetta_scripts application).
 -   **ensemble_generating_protocol_repeats**: The number of times that the ensemble_generating_protocol is applied.  This is the maximum number of structures in the ensemble (though the actual number may be smaller if the protocol contains filters or movers that can fail for some attempts).  Only used if an ensemble-generating protocol is provided with the ensemble_generating_protocol option.
 -   **n_threads**: The number of threads to request for generating ensembles in parallel.  This is only used in multi-threaded compilations of Rosetta (compiled with extras=cxx11thread), and only when an ensemble-generating protocol is provided with the ensemble_generating_protocol option.  A value of 0 means to use all available threads.  In single-threaded builds, this must be set to 0 or 1.
