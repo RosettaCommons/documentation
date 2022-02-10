@@ -114,6 +114,52 @@ TODO
 
 ## Interrogating EnsembleMetric floating-point values by name
 
+Each EnsembleMetric can return one or more floating-point values describing different features of the ensemble.  Each of these has a name associated with it.
+
+### From C++ or Python code
+
+From C++ (or Python) code, after an EnsembleMetric produces its final report, these values can be interrogated with the `get_metric_by_name()` method.  To see all names offered by a particular EnsembleMetric, call `real_valued_metric_names()`:
+
+```C++
+	// Create an EnsembleMetric:
+	CentralTendency my_ensemble_metric;
+	// Configure this EnsembleMetric here.  This particular
+	// example would require a SimpleMetric to be passed to
+	// it, though in general the setup for EnsembleMetrics
+	// will vary from EnsembleMetric subclass to subclass.
+
+	for( core::Size i=1; i<=nstruct; ++i ) {
+		// Generate a pose here.
+		// ...
+
+		// Collect data from it:
+		my_ensemble_metric.apply( pose );
+	}
+
+	// Produce final report (to tracer or disk,
+	// depending on configuration):
+	my_ensemble_metric.produce_final_report();
+
+	// Get the names of floating point values
+	// that the EnsembleMetric has calculated:
+	utility::vector1< std::string > const value_names(
+		my_ensemble_metric.real_valued_metric_names()
+	);
+
+	// Confirm that "median" is a name of a value
+	// returned by this particular metric:
+	runtime_assert( value_names.has_value( "median" ) ); //This passes.
+
+	// Get the median value from the ensemble:
+	core::Real const median_value(
+		my_ensemble_metric.get_metric_by_name( "median" )
+	);
+```
+
+### Using filters
+
+TODO
+
 ## Note about running in MPI mode
 
 TODO
