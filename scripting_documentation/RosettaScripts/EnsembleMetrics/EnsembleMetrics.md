@@ -158,7 +158,11 @@ From C++ (or Python) code, after an EnsembleMetric produces its final report, th
 
 ### Using filters
 
-TODO
+In RosettaScripts (or in PyRosetta or even C++ code), when an EnsembleMetric is used in internal generator mode or multiple pose mover mode (_i.e._ it applies itself to an ensemble of poses that it either generates internally or receives from a previous mover) a subsequent [[EnsembleFilter]] may be used to interrogate a named value computed by the EnsembleMetric, and to cause the protocol to pass or fail depending on that property of the ensemble.
+
+Why would someone want to do this?  One example would be if one wanted to write a script that would design a protein, generate for each design a conformational ensemble, and score the propensity to favour the designed state (_e.g._ with the planned [[PNear]] EnsembleMetric), then discard those designs that have poor propensith to favour the designed state based on the ensemble analysis.  This would ensure that one could produce thousands or tens of thousands of designs in memory, analyze them all, and only write to disk the ones worth carrying forward.  Other similar usage patterns are possible.
+
+For more information, see the page for the [[EnsembleFilter]].
 
 ## Note about running in MPI mode
 
