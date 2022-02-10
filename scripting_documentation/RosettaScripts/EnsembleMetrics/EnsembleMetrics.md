@@ -9,6 +9,12 @@ Page created Wed, 9 February 2022 by Vikram K. Mulligan, Flatiron Institute (vmu
 
 Just as [[SimpleMetrics]] measure some property of a pose, EnsembleMetrics measure some property of a group (or _ensemble_) of poses.  They are designed to be used in two phases.  In the _accumulation_ phase, an EnsembleMetric is applied to each pose in an ensemble in sequence, allowing it to store any relevant measurements from that pose that will later be needed to calculate properties of the ensemble.  In the _reporting_ phase, the EnsembleMetric generates a report about the properties of the ensemble and writes this report to disk or to tracer.  Following reporting, an EnsembleMetric may be _interrogated_ by such modules as the [[EnsembleFilter]], allowing retrieval of any floating-point values computed by the EnsembleMetric for filtering.  Alternatively, the EnsembleMetric may be _reset_ for re-use (meaning that accumulated data, but not configuration settings, are wiped).
 
+##Available EnsembleMetrics
+
+EnsembleMetric  | Description
+------------ | -------------
+**[[CentralTendency]]** | Takes a [[real-valued SimpleMetric|SimpleMetrics]], applies it to each pose in an ensemble, and returns measures of central tendency (mean, median, mode) and other measures of the distribution (standard deviation, standard error, etc.).
+
 ## Usage modes
 
 EnsembleMetrics have three intended usage modes in [[RosettaScripts]]:
@@ -19,13 +25,98 @@ Basic accumulator mode | Added to a protocol at point of accumulation. | The Ens
 Internal generation mode | Provided with a ParsedProtocol for generating the ensemble of poses from the input pose, and a number to generate.  Added to protocol at point where ensemble should be generated from pose at that point. | Accumulates information about each pose in the ensemble it generates.  Poses are then discaded. | The report is provided immediately once the ensemble has been generated.  The script then continues with the input pose. | After reporting. | On next nstruct (repeat) or next job.
 Multiple pose mover mode | Set to use input from a mover that produces many outputs (a [[MultiplePoseMover]]).  Placed in script after such a mover. | Collects data from each pose produced by previous mover. | Reports immediately after collecting data on all poses produced by previous mover.  The script then continues on. | After reporting. | On next nstruct (repeat) or next job.
 
-CONTINUE HEREs
+### Example of basic usage
 
-##Available EnsembleMetrics
+In this example, the input is a cyclic peptide.  This script perturbs the peptide backbone, relaxes the peptide, and then applies a [[CentralTendency EnsembleMetric|CentralTendency]] that in turn applies a [[TotalEnergyMetric]], measuring total score.  At the end of execution (after repeat execution, a number of times set with the `-nstruct` flag), the EnsembleMetric produces a report about the mean, median, mode, etc. of the samples.
 
-EnsembleMetric  | Description
------------- | -------------
-**[[CentralTendency]]** | Takes a [[real-valued SimpleMetric|SimpleMetrics]], applies it to each pose in an ensemble, and returns measures of central tendency (mean, median, mode) and other measures of the distribution (standard deviation, standard error, etc.).
+```xml
+<ROSETTASCRIPTS>
+	<!-- Example of the CentralTendency EnsembleMetric used in basic accumulator mode. -->
+	<SCOREFXNS>
+		<ScoreFunction name="r15" weights="ref2015.wts" />
+	</SCOREFXNS>
+	<MOVERS>
+		<!-- The following movers set up, perturb, and relax a cyclic peptide: -->
+		<DeclareBond name="connect_termini" res1="8" res2="1" atom1="C" atom2="N" add_termini="true" />
+		<GeneralizedKIC name="perturb1" selector_scorefunction="r15" closure_attempts="200" stop_when_n_solutions_found="1" selector="lowest_rmsd_selector" >
+			<AddResidue res_index="3"/>
+			<AddResidue res_index="4"/>
+			<AddResidue res_index="5"/>
+			<AddResidue res_index="6"/>
+			<AddResidue res_index="7"/>
+			<SetPivots res1="3" atom1="CA" res2="5" atom2="CA" res3="7" atom3="CA" />
+			<AddPerturber effect="perturb_dihedral" >
+				<AddAtoms res1="3" atom1="N" res2="3" atom2="CA" />
+				<AddAtoms res1="3" atom1="CA" res2="3" atom2="C" />
+				<AddAtoms res1="4" atom1="N" res2="4" atom2="CA" />
+				<AddAtoms res1="4" atom1="CA" res2="4" atom2="C" />
+				<AddAtoms res1="5" atom1="N" res2="5" atom2="CA" />
+				<AddAtoms res1="5" atom1="CA" res2="5" atom2="C" />
+				<AddAtoms res1="6" atom1="N" res2="6" atom2="CA" />
+				<AddAtoms res1="6" atom1="CA" res2="6" atom2="C" />
+				<AddAtoms res1="7" atom1="N" res2="7" atom2="CA" />
+				<AddAtoms res1="7" atom1="CA" res2="7" atom2="C" />
+				<AddValue value="5.0"/>
+			</AddPerturber>
+		</GeneralizedKIC>
+		<GeneralizedKIC name="perturb2" selector_scorefunction="r15" closure_attempts="200" stop_when_n_solutions_found="1" selector="lowest_rmsd_selector" >
+			<AddResidue res_index="7"/>
+			<AddResidue res_index="1"/>
+			<AddResidue res_index="2"/>
+			<AddResidue res_index="3"/>
+			<AddResidue res_index="4"/>
+			<SetPivots res1="7" atom1="CA" res2="2" atom2="CA" res3="4" atom3="CA"></SetPivots>
+			<AddPerturber effect="perturb_dihedral" >
+				<AddAtoms res1="7" atom1="N" res2="7" atom2="CA" />
+				<AddAtoms res1="7" atom1="CA" res2="7" atom2="C" />
+				<AddAtoms res1="1" atom1="N" res2="1" atom2="CA" />
+				<AddAtoms res1="1" atom1="CA" res2="1" atom2="C" />
+				<AddAtoms res1="2" atom1="N" res2="2" atom2="CA" />
+				<AddAtoms res1="2" atom1="CA" res2="2" atom2="C" />
+				<AddAtoms res1="3" atom1="N" res2="3" atom2="CA" />
+				<AddAtoms res1="3" atom1="CA" res2="3" atom2="C" />
+				<AddAtoms res1="4" atom1="N" res2="4" atom2="CA" />
+				<AddAtoms res1="4" atom1="CA" res2="4" atom2="C" />
+				<AddValue value="5.0"/>
+			</AddPerturber>
+		</GeneralizedKIC>
+		<FastRelax name="frlx" repeats="1" scorefxn="r15" />
+	</MOVERS>
+	<SIMPLE_METRICS>
+		<!-- The SimpleMetric that will be passed to the CentralTendency EnsembleMetric: --> 
+		<TotalEnergyMetric name="total_energy" scorefxn="r15" />
+	</SIMPLE_METRICS>
+	<ENSEMBLE_METRICS>
+		<!-- Setting up the EnsembleMetric: -->
+		<CentralTendency name="avg_energy" n_threads="0" real_valued_metric="total_energy" />
+	</ENSEMBLE_METRICS>
+	<PROTOCOLS>
+		<!-- Set up and perturb the peptide: -->
+		<Add mover="connect_termini" />
+		<Add mover="perturb1" />
+		<Add mover="perturb2" />
+		<Add mover="frlx" />
+		<!-- Accumulate data with the EnsembleMetric for every replicate of the peturbation protocol: -->
+		<Add ensemble_metrics="avg_energy" />
+	</PROTOCOLS>
+	<OUTPUT scorefxn="r15" />
+	<!-- The report is written on script termination, after all replicates have been performed (as set with the -nstruct flag on the commandline. -->
+</ROSETTASCRIPTS>
+```
+
+### Example of internal generation mode
+
+TODO
+
+### Example of multiple pose mover mode
+
+TODO
+
+## Interrogating EnsembleMetric floating-point values by name
+
+## Note about running in MPI mode
+
+TODO
 
 ##See Also
 
