@@ -5,7 +5,7 @@ Page created Wed, 9 February 2022 by Vikram K. Mulligan, Flatiron Institute (vmu
 
 [[_TOC_]]
 
-## Description
+## 1. Description
 
 Just as [[SimpleMetrics]] measure some property of a pose, EnsembleMetrics measure some property of a group (or _ensemble_) of poses.  They are designed to be used in two phases.  In the _accumulation_ phase, an EnsembleMetric is applied to each pose in an ensemble in sequence, allowing it to store any relevant measurements from that pose that will later be needed to calculate properties of the ensemble.  In the _reporting_ phase, the EnsembleMetric generates a report about the properties of the ensemble and writes this report to disk or to tracer.  Following reporting, an EnsembleMetric may be _interrogated_ by such modules as the [[EnsembleFilter]], allowing retrieval of any floating-point values computed by the EnsembleMetric for filtering.  Alternatively, the EnsembleMetric may be _reset_ for re-use (meaning that accumulated data, but not configuration settings, are wiped).
 
@@ -15,7 +15,7 @@ EnsembleMetric  | Description
 ------------ | -------------
 **[[CentralTendency]]** | Takes a [[real-valued SimpleMetric|SimpleMetrics]], applies it to each pose in an ensemble, and returns measures of central tendency (mean, median, mode) and other measures of the distribution (standard deviation, standard error, etc.).
 
-## Usage modes
+## 2. Usage modes
 
 EnsembleMetrics have three intended usage modes in [[RosettaScripts]]:
 
@@ -25,7 +25,7 @@ Basic accumulator mode | Added to a protocol at point of accumulation. | The Ens
 Internal generation mode | Provided with a ParsedProtocol for generating the ensemble of poses from the input pose, and a number to generate.  Added to protocol at point where ensemble should be generated from pose at that point. | Accumulates information about each pose in the ensemble it generates.  Poses are then discaded. | The report is provided immediately once the ensemble has been generated.  The script then continues with the input pose. | After reporting. | On next nstruct (repeat) or next job.
 Multiple pose mover mode | Set to use input from a mover that produces many outputs (a [[MultiplePoseMover]]).  Placed in script after such a mover. | Collects data from each pose produced by previous mover. | Reports immediately after collecting data on all poses produced by previous mover.  The script then continues on. | After reporting. | On next nstruct (repeat) or next job.
 
-### Example of basic usage
+### 2.1 Example of basic usage
 
 In this example, the input is a cyclic peptide (provided with the `-in:file:s` commandline option).  This script perturbs the peptide backbone, relaxes the peptide, and then applies a [[CentralTendency EnsembleMetric|CentralTendency]] that in turn applies a [[TotalEnergyMetric]], measuring total score.  At the end of execution (after repeat execution, a number of times set with the `-nstruct` commandline option), the EnsembleMetric produces a report about the mean, median, mode, etc. of the samples.
 
@@ -110,7 +110,7 @@ In this example, the input is a cyclic peptide (provided with the `-in:file:s` c
 </ROSETTASCRIPTS>
 ```
 
-### Example of internal generation mode
+### 2.2 Example of internal generation mode
 
 This example is similar to the example above, only this time, we load one or more cyclic peptides (provided with the `-in:file:s` or `-in:file:l` commandline options), generate a conformational ensemble for each peptide _in memory_, without writing all structures to disk, and perform ensemble analysis on that ensemble, filtering on the results with the [[EnsembleMetric]].
 
@@ -218,15 +218,19 @@ This example is similar to the example above, only this time, we load one or mor
 
 ```
 
-### Example of multiple pose mover mode
+#### 2.2.1 Multi-threading
+
+When used in internal generation mode, the EnsembleMetric can generate members of the ensemble in [[parallel threads|Multithreading]].  This uses the [[RosettaThreadManager]], assigning work to available threads up to a user-specied maximum number to request.  To set the maximum number of threads to request, use the `n_threads` option (where a setting of zero means to request all available threads).  This functionality is only available in multi-threaded builds of Rosetta (built using `extras=cxx11thread` in the `scons` command), and requires that the total number of Rosetta threads be set at the command line using the `-multithreading:total_threads` commandline option.  Note that an EnsembleMetric may be assigned fewer than the requested number of threads if other modules are using threads; at a minimum, it is guaranteed to be assigned the calling thread.
+
+### 2.3 Example of multiple pose mover mode
 
 TODO
 
-## Interrogating EnsembleMetric floating-point values by name
+## 3. Interrogating EnsembleMetric floating-point values by name
 
 Each EnsembleMetric can return one or more floating-point values describing different features of the ensemble.  Each of these has a name associated with it.
 
-### From C++ or Python code
+### 3.1 From C++ or Python code
 
 From C++ (or Python) code, after an EnsembleMetric produces its final report, these values can be interrogated with the `get_metric_by_name()` method.  To see all names offered by a particular EnsembleMetric, call `real_valued_metric_names()`:
 
@@ -266,19 +270,19 @@ From C++ (or Python) code, after an EnsembleMetric produces its final report, th
 	);
 ```
 
-### Using filters
+### 3.2 Using filters
 
 In RosettaScripts (or in PyRosetta or even C++ code), when an EnsembleMetric is used in internal generator mode or multiple pose mover mode (_i.e._ it applies itself to an ensemble of poses that it either generates internally or receives from a previous mover) a subsequent [[EnsembleFilter]] may be used to interrogate a named value computed by the EnsembleMetric, and to cause the protocol to pass or fail depending on that property of the ensemble.
 
 Why would someone want to do this?  One example would be if one wanted to write a script that would design a protein, generate for each design a conformational ensemble, and score the propensity to favour the designed conformation (_e.g._ with the planned [[PNear]] EnsembleMetric), then discard those designs that have poor propensity to favour the designed state based on the ensemble analysis.  This would ensure that one could produce thousands or tens of thousands of designs in memory, analyze them all, and only write to disk the ones worth carrying forward.  Variant patterns include generating initial designs using a low-cost initial design protocol, doing moderate-cost ensemble analysis, discarding poor designs with the EnsembleFilter, and refining those designs that pass the filter using higher-cost refinement protocols.  Other similar usage patterns are possible.
 
-For more information, see the page for the [[EnsembleFilter]].
+Note that if one simply wants the value produced by the EnsembleMetric to be recorded in the pose, the EnsembleFilter can be used for that purpose as well by setting `confidence="0"` (so that the filter never rejects anything, but only reports).  At some point, a SimpleMetric may be written for that purpose.  For more information, see the page for the [[EnsembleFilter]].
 
-## Note about running in MPI mode
+## 4. Note about running in MPI mode
 
 Note that EnsembleMetrics that run in different MPI processes cannot share information about the different poses that they have seen at present.  This means that they will produce reports about only the ensemble of poses that they have seen _in their own MPI process_.  They can still be used in MPI mode to analyse different ensembles in each MPI process.  Support for generating giant ensembles by MPI and analysing them with EnsembleMetrics is planned for the future.
 
-## See Also
+## 5. See Also
 
 * [[SimpleMetrics]]: Measure a property of a single pose.
 * [[Filters|Filters-RosettaScripts]]: Filter on a measured feature of a pose.
