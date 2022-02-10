@@ -166,9 +166,9 @@ For more information, see the page for the [[EnsembleFilter]].
 
 ## Note about running in MPI mode
 
-TODO
+Note that EnsembleMetrics that run in different MPI processes cannot share information about the different poses that they have seen at present.  This means that they will produce reports about only the ensemble of poses that they have seen _in their own MPI process_.  They can still be used in MPI mode to analyse different ensembles in each MPI process.  Support for generating giant ensembles by MPI and analysing them with EnsembleMetrics is planned for the future.
 
-##See Also
+## See Also
 
 * [[SimpleMetrics]]: Measure a property of a single pose.
 * [[Filters|Filters-RosettaScripts]]: Filter on a measured feature of a pose.
