@@ -112,7 +112,7 @@ In this example, the input is a cyclic peptide (provided with the `-in:file:s` c
 
 ### 2.2 Example of internal generation mode
 
-This example is similar to the example above, only this time, we load one or more cyclic peptides (provided with the `-in:file:s` or `-in:file:l` commandline options), generate a conformational ensemble for each peptide _in memory_, without writing all structures to disk, and perform ensemble analysis on that ensemble, filtering on the results with the [[EnsembleMetric]].
+This example is similar to the example above, only this time, we load one or more cyclic peptides (provided with the `-in:file:s` or `-in:file:l` commandline options), generate a conformational ensemble for each peptide _in memory_, without writing all structures to disk, and perform ensemble analysis on that ensemble, filtering on the results with the [[EnsembleFilter]].
 
 ```xml
 <ROSETTASCRIPTS>
@@ -215,7 +215,6 @@ This example is similar to the example above, only this time, we load one or mor
 	</PROTOCOLS>
 	<OUTPUT scorefxn="r15" />
 </ROSETTASCRIPTS>
-
 ```
 
 #### 2.2.1 Multi-threading
