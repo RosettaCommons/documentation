@@ -288,8 +288,10 @@ Each EnsembleMetric can return one or more floating-point values describing diff
 From C++ (or Python) code, after an EnsembleMetric produces its final report, these values can be interrogated with the `get_metric_by_name()` method.  To see all names offered by a particular EnsembleMetric, call `real_valued_metric_names()`:
 
 ```C++
+	// C++ pseudo-code:
+
 	// Create an EnsembleMetric:
-	CentralTendency my_ensemble_metric;
+	CentralTendencyEnsembleMetric my_ensemble_metric;
 	// Configure this EnsembleMetric here.  This particular
 	// example would require a SimpleMetric to be passed to
 	// it, though in general the setup for EnsembleMetrics
