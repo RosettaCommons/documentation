@@ -224,7 +224,61 @@ When used in internal generation mode, the EnsembleMetric can generate members o
 
 ### 2.3 Example of multiple pose mover mode
 
-TODO
+The following example uses the [[BundleGridSampler]] mover to grid-sample helical bundle conformations parametrically.  For each conformation sampled, the protocol then uses the [[Disulfidize]] mover to generate all possible disulfides joining the helices as an ensemble of poses.  It then computes the median disulfide pair energy, and discards conformations for which this energy is above a cutoff.
+
+```xml
+<ROSETTASCRIPTS>
+	<!-- Generate a bunch of helical bundles, find all the disulphides that they can form,
+	and score the median dslf_fa13 score across all disulphide pairs.  Reject helical bundles with
+	disulfide scores above a threshold.-->
+	<SCOREFXNS>
+		<ScoreFunction name="r15" weights="ref2015.wts" />
+	</SCOREFXNS>
+	<MOVERS>
+		<!-- Grid-sample conformations of two-helix bundles: -->
+		<BundleGridSampler name="bgs" scorefxn="r15" helix_length="24"
+			use_degrees="true" reset="true" nstruct_mode="true"
+		>
+			<Helix omega0_min="0.0" omega0_max="2.5" omega0_samples="4" r0_min="4.4" r0_max="5.2" r0_samples="4" />
+			<Helix pitch_from_helix="1" r0_copies_helix="1" delta_omega0="180" />
+		</BundleGridSampler>
+		<!-- Add termini: -->
+		<DeclareBond name="add_termini" atom1="C" atom2="N" res1="1" res2="2" add_termini="true" />
+		<!-- Generate an ensemble of poses, each with a single disulfide bond linking the
+		helices.  (Note that the Disulfidize mover is a multiple pose mover.) -->
+		<Disulfidize name="disulfidize" min_disulfides="1" max_disulfides="1"
+			scorefxn="r15" 
+		/>
+	</MOVERS>
+	<SIMPLE_METRICS>
+		<!-- The SimpleMetric that will be used by the CentralTendency EnsembleMetrc, below: -->
+		<TotalEnergyMetric name="dslf_energy" scorefxn="r15" scoretype="dslf_fa13" />
+	</SIMPLE_METRICS>
+	<ENSEMBLE_METRICS>
+		<!-- Compute the median disulfide pair energy across the ensemble of disulfide pairings
+		for the current backbone conformation:-->
+		<CentralTendency name="median_energy" n_threads="0" real_valued_metric="dslf_energy"
+			output_mode="tracer_and_file" output_filename="report.txt"
+			use_additional_output_from_last_mover="true"
+		/>
+	</ENSEMBLE_METRICS>
+	<FILTERS>
+		<!-- Discard backbone conformations for which the median energy is too high: -->
+		<EnsembleFilter name="filter_on_median_energy" ensemble_metric="median_energy"
+			named_value="median" filter_acceptance_mode="less_than_or_equal"
+			threshold="2.5"
+		/>
+	</FILTERS>
+	<PROTOCOLS>
+		<Add mover="bgs" />
+		<Add mover="add_termini" />
+		<Add mover="disulfidize" />
+		<Add ensemble_metrics="median_energy" /> <!-- Report generated here! -->
+		<Add filter="filter_on_median_energy" />
+	</PROTOCOLS>
+	<OUTPUT scorefxn="r15" />
+</ROSETTASCRIPTS>
+```
 
 ## 3. Interrogating EnsembleMetric floating-point values by name
 
