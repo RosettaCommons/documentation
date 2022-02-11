@@ -31,7 +31,7 @@ Range | range | the largest value seen minus the smallest.
 
 #### Note about mode
 
-The mode of a set of floating-point numbers can be thrown off by floating-point error.  For instance, two poses may have energies of -3.7641 kJ/mol, but the process of computing that energy may result in slightly different values at the 15th decimal point.  This would prevent the filter from recognizing this is at the most frequent value.
+The mode of a set of floating-point numbers can be thrown off by floating-point error.  For instance, two poses may have energies of -3.7641 kJ/mol, but the process of computing that energy may result in slightly different values at the 15th decimal point.  This could prevent the filter from recognizing this is at the most frequent value.  Mode is most useful as a metric when the "floating-point" values are actually integers (for instance, given a [[SimpleMetric|SimpleMetrics]] like the [[SelectedResidueCountMetric]], which returns integer counts).
 
 ##See Also
 
