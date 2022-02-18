@@ -29,7 +29,7 @@ The following lines are typically found in Ligand params files. This does not re
 
     Where C17 is the PDB atom name, CH1 is the Rosetta AtomType, X is the MM AtomType, and 0.13 is the charge. The PDB atom names must be unique within each params file.
 
-Some params file have an optional sixth column after the atom charge. This is an alternate charging scheme and is not used by default. Only if the -corrections:chemical::parse_charge option is provided will the second charge column be used. (The values for the canoncial amino acids come from the Parameters For Solvation Energy charge set of Sitkoff, Sharp & Honig 1994 J. Phys. Chem 98:1978 https://doi.org/10.1021/j100058a043)
+Some params files have an optional sixth column after the atom charge. This is an alternate charging scheme and is not used by default. Only if the -corrections:chemical::parse_charge option is provided will the second charge column be used. (The values for the canoncial amino acids come from the Parameters For Solvation Energy charge set of Sitkoff, Sharp & Honig 1994 J. Phys. Chem 98:1978 https://doi.org/10.1021/j100058a043) -- These values are completely ignored by current standard protocols, and can be omitted from any new params files.
 
 -   **BOND** Defines a bond connection between two named atoms.
 
