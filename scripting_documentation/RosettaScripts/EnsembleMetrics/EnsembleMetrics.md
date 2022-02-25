@@ -11,9 +11,9 @@ Just as [[SimpleMetrics]] measure some property of a pose, EnsembleMetrics measu
 
 ##Available EnsembleMetrics
 
-EnsembleMetric  | Description
------------- | -------------
-**[[CentralTendency]]** | Takes a [[real-valued SimpleMetric|SimpleMetrics]], applies it to each pose in an ensemble, and returns measures of central tendency (mean, median, mode) and other measures of the distribution (standard deviation, standard error, etc.).
+EnsembleMetric | Description | MPI support?
+-------------- | ----------- | ------------
+**[[CentralTendency]]** | Takes a [[real-valued SimpleMetric|SimpleMetrics]], applies it to each pose in an ensemble, and returns measures of central tendency (mean, median, mode) and other measures of the distribution (standard deviation, standard error, etc.). | YES
 
 ## 2. Usage modes
 
@@ -335,7 +335,11 @@ Note that if one simply wants the value produced by the EnsembleMetric to be rec
 
 ## 4. Note about running in MPI mode
 
-Note that EnsembleMetrics that run in different MPI processes cannot share information about the different poses that they have seen at present.  This means that they will produce reports about only the ensemble of poses that they have seen _in their own MPI process_.  They can still be used in MPI mode to analyse different ensembles in each MPI process.  Support for generating giant ensembles by MPI and analysing them with EnsembleMetrics is planned for the future.
+The [[Message Passing Interface (MPI)|MPI]] permits massively parallel execution of a Rosetta protocol.  If an EnsembleMetric is used in basic mode (Section 2.1) using the [[MPI build|Build-Documentation]] of Rosetta, all poses seen _by all processes_ are considered part of the ensemble that is being analysed.  At the end of the protocol, all of the instances of the EnsembleMetric on worker processes will report back to the director process with the measurements needed to allow the director process to perform the analysis on the whole ensemble.  This can be convenient for rapidly analysing very large ensembles generated in memory across a large cluster, without needing to write thousands or millions of structuers to disk.  This functionality is currently only available in the [[JD2]] version of the [[RosettaScripts]] application, and only when the [[MPIWorkPoolJobDistributor|JD2]] (the default MPI JD2 job distributor) is used.  Support for [[JD3|RosettaScripts-JD3]] is planned.
+
+Note that EnsembleMetrics that run in different MPI processes, and which generate ensembles internally using either a generating protocol (Section 2.2) or a multiple pose mover (Section 2.3), report immediately on the ensemble seen locally _in that process_. In this case, no information is shared between processes.
+
+As a final note, some EnsembleMetrics may not support MPI job collection.  These should tell you so with a suitable error message at parse time (i.e. before you run an expensive protocol and try to collect in results).  See the table of EnsembleMetrics for MPI support.
 
 ## 5. See Also
 
