@@ -138,14 +138,17 @@ Mover  | Description
 ------------ | -------------
 **[[Backrub|BackrubMover]]** | Makes local rotations around two backbone atoms
 **[[BackboneGridSampler|BackboneGridSamplerMover]]** | Generates a residue chain and samples torsion angles
+**[[CartesianMD|CartesianMD]]** | Brings concerted motion to backbone using Cartesian-space molecular dynamics
+**[[ConfChangeMover|ConfChangeMover]]** | Brings concerted motion to backbone using Markov Chain Monte Carlo (MCMC)
 **[[InitializeByBins|InitializeByBinsMover]]** | Randomizes stretches of backbone based on torsion bins
+**[[NormalModeRelax|NormalModeRelaxMover]]** | Brings concerted motion to backbones using Anisotropic Network Model (ANM)
 **[[PerturbByBins|PerturbByBinsMover]]** | Perturbs stretches of backbone based on torsion bins
 **[[RandomizeBBByRamaPrePro|RandomizeBBByRamaPreProMover]]** | Randomize the backbone of a given residue biased by its Ramachandran map
 **[[SetTorsion|SetTorsionMover]]** | Sets torsion to a specified or random value
 **[[Shear|ShearMover]]** | Makes shear-style torsion moves that minimize downstream propagation
 **[[Small|SmallMover]]** | Makes small-move-style torsion moves (no propagation minimization)
-**[[NormalModeRelax|NormalModeRelaxMover]]** | Brings concerted motion to backbones using Anisotropic Network Model (ANM)
-**[[CartesianMD|CartesianMD]]** | Brings concerted motion to backbones using Cartesian-space molecular dynamics
+
+
 
 
 ### Comparative Modeling
