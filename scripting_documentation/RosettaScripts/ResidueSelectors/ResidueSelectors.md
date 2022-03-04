@@ -116,6 +116,10 @@ any ResidueSelector can be defined as a subtag of the Not selector.  You cannot,
 
 ### Conformation Independent Residue Selectors
 
+#### BlockSelector
+
+Selects regions of continuous blocks from an input selector.  See [[this page for details|rs_BlockSelector_type]].
+
 #### ChainSelector
 
     <Chain chains="(&string)"/>

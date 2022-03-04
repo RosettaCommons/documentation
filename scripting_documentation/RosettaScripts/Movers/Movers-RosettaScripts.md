@@ -138,14 +138,17 @@ Mover  | Description
 ------------ | -------------
 **[[Backrub|BackrubMover]]** | Makes local rotations around two backbone atoms
 **[[BackboneGridSampler|BackboneGridSamplerMover]]** | Generates a residue chain and samples torsion angles
+**[[CartesianMD|CartesianMD]]** | Brings concerted motion to backbone using Cartesian-space molecular dynamics
+**[[ConfChangeMover|ConfChangeMover]]** | Brings concerted motion to backbone using Markov Chain Monte Carlo (MCMC)
 **[[InitializeByBins|InitializeByBinsMover]]** | Randomizes stretches of backbone based on torsion bins
+**[[NormalModeRelax|NormalModeRelaxMover]]** | Brings concerted motion to backbones using Anisotropic Network Model (ANM)
 **[[PerturbByBins|PerturbByBinsMover]]** | Perturbs stretches of backbone based on torsion bins
 **[[RandomizeBBByRamaPrePro|RandomizeBBByRamaPreProMover]]** | Randomize the backbone of a given residue biased by its Ramachandran map
 **[[SetTorsion|SetTorsionMover]]** | Sets torsion to a specified or random value
 **[[Shear|ShearMover]]** | Makes shear-style torsion moves that minimize downstream propagation
 **[[Small|SmallMover]]** | Makes small-move-style torsion moves (no propagation minimization)
-**[[NormalModeRelax|NormalModeRelaxMover]]** | Brings concerted motion to backbones using Anisotropic Network Model (ANM)
-**[[CartesianMD|CartesianMD]]** | Brings concerted motion to backbones using Cartesian-space molecular dynamics
+
+
 
 
 ### Comparative Modeling
@@ -335,6 +338,7 @@ Mover  | Description
 **[[AddChainBreak|AddChainBreakMover]]** | Add a break at a specific position
 **[[BluePrintBDR|BluePrintBDRMover]]** | Make a centroid structure from a PDB file
 **[[CopyRotamer|CopyRotamerMover]]** | Copy a side-chain identity and/or conformation from one residue to another residue.
+**[[CycpepRigidBodyPerturbationMover]]** | Alter the position and orientation of a cyclic peptide so that it is superimposed on a permuted or inverse-permuted copy of itself.
 **[[DeclareBond]]** | Tell Rosetta that there exists a chemical bond between two residues.
 **[[Disulfidize|DisulfidizeMover]]** | Finds potential disulfide bond positions based on Calpha - Cbeta distance
 **[[Dssp|DsspMover]]** | Calculates secondary structure using dssp

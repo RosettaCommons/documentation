@@ -142,7 +142,7 @@ SimpleMetric  | Description | ResidueSelector Compatability?
 **[[SequenceSimilarityMetric]]** | Averages the BLOSUM62 score for selected residues. | Yes
 **[[TotalEnergyMetric]]** | Calculates the Total Energy of a pose using a Scorefunction OR the delta total energy between two poses. | Yes
 **[[TimingProfileMetric | TimingMetric]]** | Calculates the time passed in minutes or hours from from construction to apply (ie from when declared in the RS block to when it is run).  Useful for obtaining timing information of protocols. | No
-**[[simple_metric_SapScoreMetric_type]]**| Calculates SAP score | yes
+**[[SapScoreMetric|simple_metric_SapScoreMetric_type]]**| Calculates SAP score | yes
 
 
 ##StringMetrics
@@ -174,9 +174,9 @@ SimpleMetric  | Description
 **[[PerResidueEnergyMetric]]** | Calculate any energy term for each residue.  Total energy is default.  If a native or repose is given, can calculate the energy delta for each residue.
 **[[PerResidueRMSDMetric]]** | Calculate the RMSD for each residue between the input and either the native or a reference pose.
 **[[PerResidueSasaMetric]]** | Calculate the Solvent Accessible Surface Area (SASA) of each residue.
-**[[simple_metric_SidechainNeighborCountMetric_type]]** | Calculates each sidechains neighbors based on cones. This metric uses the same core code as the LayerSelector.
+**[[SidechainNeighborCountMetric|simple_metric_SidechainNeighborCountMetric_type]]** | Calculates each sidechains neighbors based on cones. This metric uses the same core code as the LayerSelector.
 **[[WaterMediatedHbondMetric]]** | A metric to measure hydrogen bonds between a set of residues that are water-mediated (bridged).  Can calculate different depths to traverse complex hbond networks.
-**[[simple_metric_PerResidueSapScoreMetric_type]]** | Calculates SAP score (~hydrophobicity) for each residue.
+**[[PerResidueSapScoreMetric|simple_metric_PerResidueSapScoreMetric_type]]** | Calculates SAP score (~hydrophobicity) for each residue.
 
 
 
@@ -190,6 +190,8 @@ These metrics calculate a set of named real numbers. All metric values in the co
 
 SimpleMetric  | Description | ResidueSelector Compatability?
 ------------ | ------------- | -------------
+**[[BlockwiseShapeCompMetric|simple_metric_BlockwiseShapeCompMetric_type]]** | Measures shape complementarity between blocks (contiguous stretches of amino acids). | Yes
+**[[BlockwisePoseCompMotifMetric|simple_metric_BlockwisePoseCompMotifMetric_type]]** | Calculate motif scores between blocks (contiguous stretches of amino acids). | Yes
 **[[CompositeEnergyMetric]]** | Calculates each individual scoreterm of a scorefunction or the DELTA of each scoreterm between two poses.  Each named value is the scoreterm | Yes
 **[[ElectrostaticComplementarityMetric | simple_metric_ElectrostaticComplementarityMetric_type ]]** | Calculates the McCoy, Chandana, Colman Electrostatic complementarity using APBS. | Yes
 
