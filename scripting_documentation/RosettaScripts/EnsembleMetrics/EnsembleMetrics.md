@@ -14,6 +14,7 @@ Just as [[SimpleMetrics]] measure some property of a pose, EnsembleMetrics measu
 EnsembleMetric | Description | MPI support?
 -------------- | ----------- | ------------
 **[[CentralTendency]]** | Takes a [[real-valued SimpleMetric|SimpleMetrics]], applies it to each pose in an ensemble, and returns measures of central tendency (mean, median, mode) and other measures of the distribution (standard deviation, standard error, etc.). | YES
+**[[PNear|PNearEnsembleMetric]]** | Based on a conformational ensemble, computes the propensity to favour a desired state or the lowest-energy state sampled. | YES
 
 ## 2. Usage modes
 
