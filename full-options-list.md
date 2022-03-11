@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2022-01-05
+Generated: 2022-03-08
 
 _Note that some application specific options may not be present in this list._
 
@@ -691,7 +691,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-rebuild_disulf</b> \<Boolean\></dt>
 <dd>Attempt to build correct disulfide geometry when converting from a centroid pose to a full atom pose. Disulfides must be previously annotated, either by enabling -detect_disulf or by specifying a file to -fix_disulf.<br/>Default: false<br/></dd>
 <dt><b>-preserve_header</b> \<Boolean\></dt>
-<dd>Maintain header info from input PDB when writing output PDBs<br/></dd>
+<dd>Maintain header info from input PDB when writing output PDBs<br/>Default: false<br/></dd>
 <dt><b>-suppress_checkpoints</b> \<Boolean\></dt>
 <dd>Override & switch off checkpoints.<br/></dd>
 <dt><b>-checkpoint</b> \<Boolean\></dt>
@@ -1292,6 +1292,12 @@ _Note that some application specific options may not be present in this list._
 <dd>outer limit for FadeFunc in HRF_MSLabeling score term<br/>Default: 10.0<br/></dd>
 <dt><b>-ms_fade_dist</b> \<Real\></dt>
 <dd>fade distance for FadeFunc in HRF_MSLabeling score term<br/>Default: 5.0<br/></dd>
+<dt><b>-ccs_exp</b> \<Real\></dt>
+<dd>Experimental CCS Data, in squared Angstroms, from IMMS for CCS_IMMSEnergy score term, this is a required input from the user<br/></dd>
+<dt><b>-ccs_prad</b> \<Real\></dt>
+<dd>Radius of probe, in Angstroms, for CCS calculation for CCS_IMMSEnergy score term, by default 1.0 Angstrom is used to predict CCS in helium buffer gas conditions<br/>Default: 1.0<br/></dd>
+<dt><b>-ccs_nrots</b> \<Integer\></dt>
+<dd>Number of random rotations, must be integers, for CCS calculation for CCS_IMMSEnergy score term<br/>Default: 300<br/></dd>
 <dt><b>-nmer_ref_energies</b> \<String\></dt>
 <dd>nmer ref energies database filename<br/></dd>
 <dt><b>-nmer_ref_energies_list</b> \<String\></dt>

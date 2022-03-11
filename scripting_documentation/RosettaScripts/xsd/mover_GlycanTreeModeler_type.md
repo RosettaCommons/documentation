@@ -24,7 +24,12 @@ layer conceptually and computationally, and allows them to be modeled together.
 --Residue Selection-- 
 
  You do not need a ResidueSelector passed in.  It will select all glycan residues automatically.
- However, if you do, you must only pass in glycan residues.   See the GlycanResidueSelector and the GlycanLayerSelector  for a very easy way to select specific glycan trees and residues.
+ However, if you do, you must only pass in glycan residues.   See the GlycanResidueSelector and the GlycanLayerSelector  for a very easy way to select specific glycan trees and residues. 
+
+References and author information for the GlycanTreeModeler mover:
+
+GlycanTreeModeler Mover's author(s):
+Jared Adolf-Bryfogle, Institute for Protein Innovation (IPI), Boston, MA [jadolfbr@gmail.com]
 
 ```xml
 <GlycanTreeModeler name="(&string;)" refine="(false &bool;)"
