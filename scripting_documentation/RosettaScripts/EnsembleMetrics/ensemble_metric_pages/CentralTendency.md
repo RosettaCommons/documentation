@@ -1,5 +1,5 @@
 # CentralTendency Ensemble Metric
-*Back to [[SimpleMetrics]] page.*
+*Back to [[EnsembleMetrics]] page.*
 ## CentralTendency Ensemble Metric
 
 [[_TOC_]]
@@ -37,4 +37,5 @@ The mode of a set of floating-point numbers can be thrown off by floating-point 
 
 * [[SimpleMetrics]]: Available SimpleMetrics.
 * [[EnsembleMetrics]]: Available EnsembleMetrics.
+* [[PNear ensemble metric|PNearEnsembleMetric]]: An ensemble metric that computes propensity to favour a desired conformation given a conformational ensemble.
 * [[I want to do x]]: Guide to choosing a tool in Rosetta.
