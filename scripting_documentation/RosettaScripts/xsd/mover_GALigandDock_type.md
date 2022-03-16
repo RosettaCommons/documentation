@@ -28,9 +28,9 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
         grid_bound_penalty="(&real;)" estimate_dG="(&bool;)"
         use_mean_maxRad="(&bool;)" stdev_multiplier="(&real;)"
         torsion_sampler_percentage="(&real;)" contact_distance="(&real;)"
-        freeze_ligand_backbone="(&bool;)" ngen="(&integer;)"
-        npool="(&non_negative_integer;)" pmut="(&real;)" smoothing="(&real;)"
-        rmsdthreshold="(&real;)" ramp_schedule="(&string;)"
+        freeze_ligand_backbone="(&bool;)" align_reference_atom_ids="(&string;)"
+        ngen="(&integer;)" npool="(&non_negative_integer;)" pmut="(&real;)"
+        smoothing="(&real;)" rmsdthreshold="(&real;)" ramp_schedule="(&string;)"
         maxiter="(&non_negative_integer;)"
         pack_cycles="(&non_negative_integer;)" >
     <Stage repeats="(&integer;)" npool="(&non_negative_integer;)"
@@ -89,6 +89,7 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 -   **torsion_sampler_percentage**: The percentage of the initial gene sampled by torsion sampler.
 -   **contact_distance**: Distance cutoff for determining if ligand is in contact with a residue sidechain. Default: 4.5
 -   **freeze_ligand_backbone**: Freeze peptide ligand backbone torsion, only works on peptide ligand. Default: false.
+-   **align_reference_atom_ids**: Atom ids to align after each cycle 'atom_num-residue_num,atom_num-residue_num,atom_num-residue_num...'
 -   **ngen**: number of generations
 -   **npool**: (default) pool size
 -   **pmut**: (default) probability of mutation
