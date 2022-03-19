@@ -11,12 +11,6 @@ Calculate DihedralDistance metric.
  Metric described in:
    North B, Lehmann A, Dunbrack RL. A new clustering of antibody CDR loop conformations. J Mol Biol 2011;406:228-256.
 
-
-References and author information for the DihedralDistanceMetric simple metric:
-
-DihedralDistanceMetric SimpleMetric's author(s):
-Jared Adolf-Bryfogle, Scripps Research Institute [jadolfbr@gmail.com]
-
 ```xml
 <DihedralDistanceMetric name="(&string;)" custom_type="(&string;)"
         include_omega="(false &bool;)" use_native="(false &bool;)"

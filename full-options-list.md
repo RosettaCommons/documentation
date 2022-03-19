@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2022-03-08
+Generated: 2022-03-18
 
 _Note that some application specific options may not be present in this list._
 
@@ -691,7 +691,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-rebuild_disulf</b> \<Boolean\></dt>
 <dd>Attempt to build correct disulfide geometry when converting from a centroid pose to a full atom pose. Disulfides must be previously annotated, either by enabling -detect_disulf or by specifying a file to -fix_disulf.<br/>Default: false<br/></dd>
 <dt><b>-preserve_header</b> \<Boolean\></dt>
-<dd>Maintain header info from input PDB when writing output PDBs<br/>Default: false<br/></dd>
+<dd>Maintain header info from input PDB when writing output PDBs<br/></dd>
 <dt><b>-suppress_checkpoints</b> \<Boolean\></dt>
 <dd>Override & switch off checkpoints.<br/></dd>
 <dt><b>-checkpoint</b> \<Boolean\></dt>

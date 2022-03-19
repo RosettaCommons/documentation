@@ -31,15 +31,6 @@ The trRosettaConstraintGenerator requires compilation with Tensorflow support.  
 4.  Compile Rosetta, appending extras=tensorflow (for CPU-only) or extras=tensorflow_gpu (for GPU) to your scons command.  For example:
 	./scons.py -j 8 mode=release extras=tensorflow bin
 
-
-References and author information for the trRosettaConstraintGenerator constraint generator:
-
-trRosetta Neural Network's citation(s):
-Yang J, Anishchenko I, Park H, Peng Z, Ovchinnikov S, and Baker D.  (2020).  Improved protein structure prediction using predicted interresidue orientations.  Proc Natl Acad Sci USA 117(3):1496-503.  doi: 10.1073/pnas.1914677117.
-
-trRosettaConstraintGenerator ConstraintGenerator's author(s):
-Vikram K. Mulligan, Systems Biology, Center for Computational Biology, Flatiron Institute [vmulligan@flatironinstitute.org]  (Integrated trRosetta into Rosetta, and wrote the trRosettaConstraintGenerator.)
-
 ```xml
 <trRosettaConstraintGenerator name="(&string;)" msa_file="(&string;)"
         generate_distance_constraints="(true &bool;)"

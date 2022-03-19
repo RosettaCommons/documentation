@@ -12,11 +12,6 @@ A cst generator that creates Dihedral constraints for specified residues using a
 
  Will only work on ONE type of dihedral angle to allow complete customization.
 
-References and author information for the DihedralConstraintGenerator constraint generator:
-
-DihedralConstraintGenerator ConstraintGenerator's author(s):
-Jared Adolf-Bryfogle, Institute for Protein Innovation [jadolfbr@gmail.com]  (Created the DihedralConstraintGenerator.)
-
 ```xml
 <DihedralConstraintGenerator name="(&string;)" dihedral="(&string;)"
         sd="(&real;)" dihedral_angle="(&string;)" dihedral_atoms="(&string;)"
