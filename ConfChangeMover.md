@@ -1,4 +1,4 @@
-#ConfChangeMover (docs in progress)
+#ConfChangeMover
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## ConfChangeMover
 
