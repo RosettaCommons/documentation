@@ -64,6 +64,7 @@ perl topcons2span.pl <TOPCONS topology file>
 Alternatively, a spanfile can be generated following these instructions https://new.rosettacommons.org/docs/wiki/application_documentation/membrane_proteins/RosettaMP-App-MPSpanFromPDB
 
 For soluble proteins, the 'score3' scoring function can be used.
+
 Fragments file can be obtained from http://old.robetta.org
 
 ## All options
