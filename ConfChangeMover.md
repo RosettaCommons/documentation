@@ -18,7 +18,7 @@ Mandatory XML options
      <ConfChangeMover name="&string" stage1_scorefxn="&sring" stage2_scorefxn="&string" /> 
 ```
 Stage1 and stage2 scoring functions need to be 'centroid'.
-Example of stage1 scoring function for membrane proteins used in the paper above:
+Example of stage1 scoring function for membrane proteins used in the CCM paper:
 ```
 hbond_sr_bb 1.17
 hbond_lr_bb 1.17
@@ -64,6 +64,7 @@ perl topcons2span.pl <TOPCONS topology file>
 Alternatively, a spanfile can be generated following these instructions https://new.rosettacommons.org/docs/wiki/application_documentation/membrane_proteins/RosettaMP-App-MPSpanFromPDB
 
 For soluble proteins, the 'score3' scoring function can be used.
+Fragments file can be obtained from http://old.robetta.org
 
 ## All options
 
