@@ -57,7 +57,7 @@ Stage2 requires the cart_bonded term to close gaps on loops.
 ```xml
          <ScoreFunction name="&string" weights="&real" >
                 <Reweight scoretype="cart_bonded" weight="&real" />
-                any other constraints like 'epr_deer_score', 'atom_pair_constraint' etc.>
+                any other constraints like 'epr_deer_score', 'atom_pair_constraint' etc.
         </ScoreFunction>
 ```
 
