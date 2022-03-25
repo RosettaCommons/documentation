@@ -44,7 +44,7 @@ Suggested weights for stage1 in the XML file:
 ```xml
          <ScoreFunction name="&string" weights="&string" >
                 <Reweight scoretype="dihedral_constraint" weight="1" />
-                <ANY CONSTRAINTS WEIGHT like 'epr_deer_score', 'atom_pair_constraint' etc./>
+                <CONSTRAINTS WEIGHT like 'epr_deer_score', 'atom_pair_constraint' etc./>
         </ScoreFunction>
 ```
 Suggested weights for stage2 in the XML file:
@@ -52,7 +52,7 @@ Suggested weights for stage2 in the XML file:
          <ScoreFunction name="&string" weights="&string" >
                 <Reweight scoretype="cart_bonded" weight="0.5" />
                 <Reweight scoretype="dihedral_constraint" weight="0.1" />
-                <ANY CONSTRAINTS WEIGHT like 'epr_deer_score', 'atom_pair_constraint' etc./>
+                <CONSTRAINTS WEIGHT like 'epr_deer_score', 'atom_pair_constraint' etc./>
         </ScoreFunction>
 ```
 
