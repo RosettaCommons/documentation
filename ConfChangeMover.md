@@ -46,7 +46,7 @@ Menv_termini 2.019
 Menv_tm_proj 2.019
 cen_hb 1
 ```
-CCM Stage1 requires dihedral constraints (automatically derived) and any other constraints to perform rigid-body movements of SSEs. Below how to add the corresponding weight terms in the XML file:
+Stage1 requires dihedral constraints (automatically derived) and any other constraints to perform rigid-body movements of SSEs. Below how to add the corresponding weight terms in the XML file:
 ```xml
          <ScoreFunction name="&string" weights="&string" >
                 <Reweight scoretype="dihedral_constraint" weight="1" />
