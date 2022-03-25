@@ -13,17 +13,19 @@ Documentation written by Davide Sala (davide.sala@uni-leipzig.de).
 Given a starting structure, ConfChangeMover perturbs the protein pose in two steps:                                       
 1. Secondary Structure Elements (SSEs) are roto-translated. Optionally, new dihedral angles are sampled through fragments insertion.
 2. Loops are closed with fragments insertion. In this step, the intensity of sampling new loops conformations can be tuned through the frequency of inserting fragments taken from the starting structure rather than from the PDB. Higher frequency means more starting conformation fragments and a more conservative sampling.                  
-## Usage
-PDB-derived fragments can be obtained from http://old.robetta.org
 
+## Usage
 Mandatory XML options
 ```xml
      <ConfChangeMover name="&string" stage1_scorefxn="&string" stage2_scorefxn="&string" /> 
 ```
 Stage1 and stage2 scoring functions must be 'centroid'.
+PDB-derived fragments can be obtained from http://old.robetta.org
 
+### Soluble Proteins
 For soluble proteins, the 'score3' scoring function can be used.
 
+### Membrane Proteins
 For membrane proteins, the centroid scoring function used in the CCM benchmark is reported below:
 ```
 hbond_sr_bb 1.17
