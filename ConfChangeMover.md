@@ -7,6 +7,7 @@ Samples new protein conformations as described in:
 Davide Sala, Diego del Alamo, Hassane S. Mchaourab, Jens Meiler
 https://doi.org/10.1101/2022.02.14.480383
 
+Documentation written by Davide Sala (davide.sala@uni-leipzig.de).
 ## Overview
 
 Given a starting structure, ConfChangeMover perturbs the protein pose in two steps:                                       
