@@ -18,7 +18,7 @@ PDB-derived fragments can be obtained from http://old.robetta.org
 
 Mandatory XML options
 ```xml
-     <ConfChangeMover name="&string" stage1_scorefxn="&sring" stage2_scorefxn="&string" /> 
+     <ConfChangeMover name="&string" stage1_scorefxn="&string" stage2_scorefxn="&string" /> 
 ```
 Stage1 and stage2 scoring functions must be 'centroid'.
 
@@ -48,16 +48,16 @@ cen_hb 1
 ```
 Stage1 requires dihedral constraints (automatically derived) and any other constraints to perform rigid-body movements of SSEs. Below how to add the corresponding weight terms in the XML file:
 ```xml
-         <ScoreFunction name="&string" weights="&string" >
-                <Reweight scoretype="dihedral_constraint" weight="1" />
-                <CONSTRAINTS WEIGHT like 'epr_deer_score', 'atom_pair_constraint' etc./>
+         <ScoreFunction name="&string" weights="&real" >
+                <Reweight scoretype="dihedral_constraint" weight="&real" />
+                any other constraints like 'epr_deer_score', 'atom_pair_constraint' etc.
         </ScoreFunction>
 ```
 Stage2 requires the cart_bonded term to close gaps on loops.
 ```xml
-         <ScoreFunction name="&string" weights="&string" >
-                <Reweight scoretype="cart_bonded" weight="0.5" />
-                <CONSTRAINTS WEIGHT like 'epr_deer_score', 'atom_pair_constraint' etc./>
+         <ScoreFunction name="&string" weights="&real" >
+                <Reweight scoretype="cart_bonded" weight="&real" />
+                any other constraints like 'epr_deer_score', 'atom_pair_constraint' etc.>
         </ScoreFunction>
 ```
 
