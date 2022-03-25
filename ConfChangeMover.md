@@ -68,6 +68,6 @@ For soluble proteins, the 'score3' scoring function can be used.
 
 Fragments file can be obtained from http://old.robetta.org
 
-## All options
+## Detailed control
 
 [[include:mover_ConfChangeMover_type]]
