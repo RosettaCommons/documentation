@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2022-03-18
+Generated: 2022-03-30
 
 _Note that some application specific options may not be present in this list._
 
@@ -2153,6 +2153,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Add Shannon entropy correction to rotamer energy: E = -logP + S<br/>Default: false<br/></dd>
 <dt><b>-no_autogen_cart_improper</b> \<Boolean\></dt>
 <dd>Ignore the auto parameter generation of improper torsions (undefined torsions) in CartesianBondedEnergy, generate_impropers_map_res.<br/></dd>
+<dt><b>-gridscore_outbox_penalty_weight</b> \<Real\></dt>
+<dd>The weight of the out-of-box penalty in gridscorer, i.e. out_of_bound_e_<br/>Default: 100<br/></dd>
 </dl>
 + <h3>-corrections:chemical</h3>
 <dl>
