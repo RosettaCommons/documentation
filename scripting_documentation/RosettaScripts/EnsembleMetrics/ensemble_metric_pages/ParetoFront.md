@@ -14,7 +14,7 @@ The Pareto front is the subset of elements in a set that are optimal for more th
 
 [[/images/ensemble_metrics/pareto_front/pareto_front.png]]
 
-In the plot above, a set of structures are plotted by Rosetta energy (horizontal axis) and solvent-exposed polar surface area (vertical axis).  If low energy and high exposed polar surface area were both desirable properties, the set of orange points, lying at the Pareto front, would be the ones of interest, since these are the ones in which one of these properties cannot be made better without sacrificing the other property.
+In the plot above, a set of structures is plotted by Rosetta energy (horizontal axis) and solvent-exposed polar surface area (vertical axis).  If low energy and high exposed polar surface area were both desirable properties, the set of orange points, lying at the Pareto front, would be the ones of interest, since these are the ones in which one of these properties cannot be made better without sacrificing the other property.
 
 #### Details
 
