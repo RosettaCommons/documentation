@@ -4,6 +4,10 @@
 
 [[_TOC_]]
 
+### Author and history
+
+Created Friday, 8 April 2022 by Vikram K. Mulligan, Center for Computational Biology, Flatiron Institute (vmulligan@flatironinstitute.org).  This was the fourth [[EnsembleMetric|EnsembleMetrics]] completed.
+
 ### Description
 
 The Pareto front is the subset of elements in a set that are optimal for more than one property, in the sense that no element in the set has a value that is more optimal for one property without also having a value that is less optimal for another property.  In other words, you can't make one property better without sacrificing another property.  When plotted in N-dimensional space (where N is the number of properties), the Pareto front is the "rim" of the point cloud, as shown below.  The ParetoFront ensemble metric identify the poses at the Pareto front for two or more properties (as measured by [[SimpleMetrics]]).  This is useful in situations in which one is seeking diverse structures optimized for more than one property, and the optimal trade-off between one property and another is unknown.  For example, if one were designing proteins to bind to a target, one might want the proteins to have low overall Rosetta scores in isolation, low interface interaction scores, and low numbers of buried unsatisfied hydrogen bond donors and acceptors.  In this case, the Pareto optimal designs would be the ones in which, for instance, one couldn't improve the Rosetta score without worsening either the interface score or the number of buried unsatisfied hydrogen bond donors/acceptors.
@@ -19,6 +23,12 @@ The ParetoFront ensemble metric accepts as input two or more real-valued [[Simpl
 - A table of those poses at the Pareto front, with the corresponding values of each [[SimpleMetric|SimpleMetrics]].
 - A table of _all_ poses seen with the values of each [[SimpleMetric|SimpleMetrics]] and a Boolean "TRUE" or "FALSE" indicating whether each is at the Pareto Front.
 - Optionally, a list of binary silent strings representing those poses at the Pareto front.  These can be copied into separate text files and converted to PDB files using Rosetta's [[extract_pdbs|Apps]] application.  Note that if this option is used, more memory is required.
+
+### Usage
+
+#### Interface
+
+[[include:ensemble_metric_ParetoFront_type]]
 
 #### Example configuration in RosettaScripts
 
@@ -251,14 +261,6 @@ L9cSSCvKwjA09CN/vF0zSC3g3mAUkeowvZ16RCXgGdBkMNjrPGMERCXek7AkHHn4PAg8SCLhBZ+zQjcQ
 [END 6: teststruct_0009]
 End full poses at pareto front
 ```
-
-### Author and history
-
-Created Friday, 8 April 2022 by Vikram K. Mulligan, Center for Computational Biology, Flatiron Institute (vmulligan@flatironinstitute.org).  This was the fourth [[EnsembleMetric|EnsembleMetrics]] completed.
-
-### Interface
-
-[[include:ensemble_metric_ParetoFront_type]]
 
 ### Named values produced
 
