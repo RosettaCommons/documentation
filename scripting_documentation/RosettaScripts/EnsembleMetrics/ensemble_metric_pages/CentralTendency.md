@@ -10,7 +10,7 @@ The Central Tendency metric accepts as input a real-valued [[SimpleMetric|Simple
 
 ### Author and history
 
-Created Tuesday, 8 February 2022 by Vikram K. Mulligan, Center for Computational Biology, Flatiron Institute (vmulligan@flatironinstitute.org).  This was the first [[EnsembleMetric|EnsembleMetrics]] implemented
+Created Tuesday, 8 February 2022 by Vikram K. Mulligan, Center for Computational Biology, Flatiron Institute (vmulligan@flatironinstitute.org).  This was the first [[EnsembleMetric|EnsembleMetrics]] implemented.
 
 ### Interface
 
@@ -37,4 +37,5 @@ The mode of a set of floating-point numbers can be thrown off by floating-point 
 
 * [[SimpleMetrics]]: Available SimpleMetrics.
 * [[EnsembleMetrics]]: Available EnsembleMetrics.
+* [[ParetoFront ensemble metric|ParetoFront]]: An ensemble metric that allows identification of poses at the Pareto front, given some [[simple metrics|SimpleMetrics]].
 * [[I want to do x]]: Guide to choosing a tool in Rosetta.
