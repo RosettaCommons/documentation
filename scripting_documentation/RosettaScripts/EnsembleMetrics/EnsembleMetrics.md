@@ -14,6 +14,7 @@ Just as [[SimpleMetrics]] measure some property of a pose, EnsembleMetrics measu
 EnsembleMetric | Description | MPI support?
 -------------- | ----------- | ------------
 **[[CentralTendency]]** | Takes a [[real-valued SimpleMetric|SimpleMetrics]], applies it to each pose in an ensemble, and returns measures of central tendency (mean, median, mode) and other measures of the distribution (standard deviation, standard error, etc.). | YES
+**[[ParetoFront]]** | Takes a set of [[real-valued SimpleMetrics|SimpleMetrics]], applies them to each pose in an ensemble, and returns a list of poses that are at the Pareto front, optimizing all of the properties measured by the [[SimpleMetrics]]. | YES
 
 ## 2. Usage modes
 
