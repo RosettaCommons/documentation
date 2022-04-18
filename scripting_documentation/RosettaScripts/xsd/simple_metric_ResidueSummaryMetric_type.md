@@ -10,11 +10,6 @@ A SimpleMetric that takes a PerResidueRealMetric and calculates different summar
 
   Be sure to set a custom_type to label the summary type in which you are calculating!.
 
-References and author information for the ResidueSummaryMetric simple metric:
-
-ResidueSummaryMetric SimpleMetric's author(s):
-Jared Adolf-Bryfogle, Scripps Research Institute [jadolfbr@gmail.com]
-
 ```xml
 <ResidueSummaryMetric name="(&string;)" custom_type="(&string;)"
         epsilon="(.0001 &real;)" metric="(&string;)"

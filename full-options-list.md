@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2022-03-08
+Generated: 2022-04-04
 
 _Note that some application specific options may not be present in this list._
 
@@ -691,7 +691,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-rebuild_disulf</b> \<Boolean\></dt>
 <dd>Attempt to build correct disulfide geometry when converting from a centroid pose to a full atom pose. Disulfides must be previously annotated, either by enabling -detect_disulf or by specifying a file to -fix_disulf.<br/>Default: false<br/></dd>
 <dt><b>-preserve_header</b> \<Boolean\></dt>
-<dd>Maintain header info from input PDB when writing output PDBs<br/>Default: false<br/></dd>
+<dd>Maintain header info from input PDB when writing output PDBs<br/></dd>
 <dt><b>-suppress_checkpoints</b> \<Boolean\></dt>
 <dd>Override & switch off checkpoints.<br/></dd>
 <dt><b>-checkpoint</b> \<Boolean\></dt>
@@ -2153,6 +2153,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Add Shannon entropy correction to rotamer energy: E = -logP + S<br/>Default: false<br/></dd>
 <dt><b>-no_autogen_cart_improper</b> \<Boolean\></dt>
 <dd>Ignore the auto parameter generation of improper torsions (undefined torsions) in CartesianBondedEnergy, generate_impropers_map_res.<br/></dd>
+<dt><b>-gridscore_outbox_penalty_weight</b> \<Real\></dt>
+<dd>The weight of the out-of-box penalty in gridscorer, i.e. out_of_bound_e_<br/>Default: 100<br/></dd>
 </dl>
 + <h3>-corrections:chemical</h3>
 <dl>
@@ -4882,6 +4884,26 @@ _Note that some application specific options may not be present in this list._
 <dd>The geometry of donor waters in lk_ball. Length along N-H vector<br/></dd>
 <dt><b>-lk_ball_bridge_angle_widthscale</b> \<Real\></dt>
 <dd>The width scaling on the angular component of lk_ball_bridge (lower = tighter)<br/>Default: 0.0<br/></dd>
+<dt><b>-lk_dome_max_angle</b> \<Real\></dt>
+<dd>The max angle for the lk_dome. 180 is as high as this can go.<br/>Default: 180<br/></dd>
+<dt><b>-lk_dome_min_angle</b> \<Real\></dt>
+<dd>The min angle for the lk_dome. 0 is as high as this can go.<br/>Default: 104.40720<br/></dd>
+<dt><b>-lk_dome_occlusion_min</b> \<Real\></dt>
+<dd>What is the minimum occlusion value below which lk_dome is full power.<br/>Default: 3.21592<br/></dd>
+<dt><b>-lk_dome_occlusion_max</b> \<Real\></dt>
+<dd>How occluded must the lk_ball water be before lk_dome turns off.<br/>Default: 5.09299<br/></dd>
+<dt><b>-lk_dome_h2o_radius</b> \<Real\></dt>
+<dd>Radius for lk_dome waters.<br/>Default: 1.4<br/></dd>
+<dt><b>-lk_dome_ramp_width_A2</b> \<Real\></dt>
+<dd>Width in squared angstroms for fall-off region of lk_dome from water.<br/>Default: 3.9<br/></dd>
+<dt><b>-lk_dome_overlap_width_A2</b> \<Real\></dt>
+<dd>Width in squared angstroms for the size of the water-water lk_dome interaction.<br/>Default: 5.0<br/></dd>
+<dt><b>-lk_dome_ball_overlap_width_A2</b> \<Real\></dt>
+<dd>Width in squared angstroms for the size of the water-water lk_ball_bridge2 interaction.<br/>Default: 5.0<br/></dd>
+<dt><b>-lk_dome_water_dist</b> \<Real\></dt>
+<dd>Distance from lk_ball water to lk_dome water<br/>Default: 2.7436<br/></dd>
+<dt><b>-lk_dome_water_adjust</b> \<Real\></dt>
+<dd>Adjustment to lk_ball water distance for lk_dome calcs.<br/>Default: -1.275<br/></dd>
 </dl>
 + <h3>-dna:design</h3>
 <dl>

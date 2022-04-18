@@ -7,11 +7,6 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 Modified: Vikram K. Mulligan (vmulligan@flatironinstitute.org) to add support for noncanonicals.
 This mover functions to thread the sequence of a region onto the given pose. Nothing fancy here. Useful when combined with -parser:string_vars option to replace strings within the RosettaScript. For more a more fancy comparative modeling protocol, please see the lovely RosettaCM
 
-References and author information for the SimpleThreadingMover mover:
-
-SimpleThreadingMover Mover's author(s):
-Jared Adolf-Bryfogle, The Scripps Research Institute, La Jolla, CA [jadolfbr@gmail.com]
-
 ```xml
 <SimpleThreadingMover name="(&string;)" pack_neighbors="(false &bool;)"
         neighbor_dis="(6.0 &real;)" start_position="(&string;)"

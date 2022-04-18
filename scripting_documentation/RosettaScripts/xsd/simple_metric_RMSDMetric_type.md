@@ -10,11 +10,6 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
    We match all corresponding atoms for each residue to match.   By default we do not fail and are robust to length mismatches - only matching what we can for each residue.
 
-References and author information for the RMSDMetric simple metric:
-
-RMSDMetric SimpleMetric's author(s):
-Jared Adolf-Bryfogle, Scripps Research Institute [jadolfbr@gmail.com]
-
 ```xml
 <RMSDMetric name="(&string;)" custom_type="(&string;)"
         reference_name="(&string;)" residue_selector="(&string;)"
