@@ -19,6 +19,7 @@ Fleishman SJ, Leaver-Fay A, Corn JE, Strauch EM, Khare SD, et al. (2011) Rosetta
 -   [[JumpSelectors |JumpSelectors]]
 -   [[PackerPalettes|PackerPalette]]
 -   [[SimpleMetrics]]
+-   [[EnsembleMetrics]]
 
 ---------------------
 

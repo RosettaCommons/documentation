@@ -11,8 +11,8 @@ This is a special mover that allows making a single compound mover and filter ve
         apply_probability="(&real;)" resume_support="(false &bool;)" >
     <Add mover_name="(&string;)" mover="(&string;)" filter_name="(&string;)"
             filter="(&string;)" metrics="(&string;)" labels="(&string;)"
-            apply_probability="(&real;)" report_at_end="(true &bool;)"
-            never_rerun_filter="(false &bool;)" />
+            ensemble_metrics="(&string;)" apply_probability="(&real;)"
+            report_at_end="(true &bool;)" never_rerun_filter="(false &bool;)" />
     <Filter Tag ... />
     <Mover Tag ... />
 </ParsedProtocol>
@@ -33,6 +33,7 @@ Subtag **Add**:   The steps to be applied.
 -   **filter**: The filter whose execution is desired
 -   **metrics**: A comma-separated list of metrics to run at this point.
 -   **labels**: A comma-separated list of labels to use for the provided metrics in the output. If empty/missing, use the metric names from the metrics setting. If '-', use the metric's default.
+-   **ensemble_metrics**: A comma-separated list of ensemble metrics to add at this point.  Ensemble metrics will collect information about the pose at this point, and will later report statistics about the ensemble of poses that they have seen.
 -   **apply_probability**: by default equal probability for all tags
 -   **report_at_end**: Report filter value via filter re-evaluation on final pose after conclusion of protocol. Otherwise report filter value as evaluated mid-protocol.
 -   **never_rerun_filter**: Never run this filter after the original apply-time run. Use this option to avoid expensive re-runs when reporting
