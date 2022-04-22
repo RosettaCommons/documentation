@@ -8,14 +8,14 @@ A metric for measuring sequence recovery and adding it to the resulting score fi
 There's several options for how the sequence recovery is calculated, depending on what parameters are set.
 Each metric is only calculated over the set of residues specified by the residue selector.
 
-* Standard - Used when PSSM isn't set but reference pose is
+\* Standard - Used when PSSM isn't set but reference pose is
      This is a strict match/no-match fraction.
-* Pass/Fail PSSM - Used when PSSM is set and use_ave_pssm is not (does not use reference pose)
+\* Pass/Fail PSSM - Used when PSSM is set and use_ave_pssm is not (does not use reference pose)
      This is the PSSM recovery metric from DeLuca, Dorr and Meiler 2011 Biochem 50(40):8521
      Residue identities with positive (or zero) values in the PSSM count as a match, those with negative vales as no-match.
-* Ave PSSM - Used when PSSM is set, use_ave_pssm is true, and no reference PDB is given
+\* Ave PSSM - Used when PSSM is set, use_ave_pssm is true, and no reference PDB is given
      This value is the average of the values in the PSSM matrix for the residue identities.
-* Delta PSSM - Used when PSSM is set, use_ave_pssm is true, and a reference PDB is provided.
+\* Delta PSSM - Used when PSSM is set, use_ave_pssm is true, and a reference PDB is provided.
      This value is the average of the change in value of the PSSM matrix (mut - ref)
 
 For PSSM metrics, it's assumed that the Pose numbering of both the main and reference structure matches the numbering of the PSSM.
