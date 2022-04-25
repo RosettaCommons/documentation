@@ -205,6 +205,7 @@ Mover  | Description
 **[[DockingInitialPerturbation|DockingInitialPerturbationMover]]** | Carries out the initial perturbation phase of the RosettaDock algorithm
 **[[DockingProtocol|DockingProtocolMover]]** | Performs full docking protocol with current defaults
 **[[FlexPepDock|FlexPepDockMover]]** | Performs ab initio or refinement peptide docking
+**[[GridDock|SixDoFGridDockMover]]** | Performs six degree of freedom grid docking
 
 ##### Docking with Mouse
 
