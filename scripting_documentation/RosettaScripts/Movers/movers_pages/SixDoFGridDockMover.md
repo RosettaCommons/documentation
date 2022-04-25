@@ -234,6 +234,7 @@ Note that this docking uses a centroid based score function. The centroid mode s
 		values_rot_axis_1 = "0"
 		values_rot_axis_2 = "0"
 		values_rot_axis_3 = "0" />
+
 	<FilterReportAsPoseExtraScoresMover name="save_f_cen_total_score" report_as="cen_total_score" filter_name="f_total_score"/>
 
 </MOVERS>
@@ -300,6 +301,7 @@ This docking protocol uses a centroid based score function. Thus, during the sta
 		range_rot_axis_1 = "-10,10,10"
 		range_rot_axis_2 = "0,180,20"
 		range_rot_axis_3 = "-10,10,10" />
+		
 	<FilterReportAsPoseExtraScoresMover name="save_f_cen_total_score" report_as="cen_total_score" filter_name="f_total_score"/>
 
 </MOVERS>
@@ -445,17 +447,17 @@ Below is an excerpt of an example three-stage script that selects the best poses
 		range_rot_axis_2 = "0,180,20"
 		range_rot_axis_3 = "-10,10,10" />
 
-		<FilterReportAsPoseExtraScoresMover name="save_f_cen_total_score" report_as="cen_total_score" filter_name="f_total_score"/>
+	<FilterReportAsPoseExtraScoresMover name="save_f_cen_total_score" report_as="cen_total_score" filter_name="f_total_score"/>
 
-		<FilterReportAsPoseExtraScoresMover name="save_f_cen_total_score_2" report_as="cen_total_score_2" filter_name="f_total_score"/>
+	<FilterReportAsPoseExtraScoresMover name="save_f_cen_total_score_2" report_as="cen_total_score_2" filter_name="f_total_score"/>
 
-		<DockSetupMover name="local_dock_setup" partners="A_B"/>
+	<DockSetupMover name="local_dock_setup" partners="A_B"/>
 
-		<DockingInitialPerturbation dock_pert="1" name="local_dock" randomize2="0" rot="5" trans="1"/>
+	<DockingInitialPerturbation dock_pert="1" name="local_dock" randomize2="0" rot="5" trans="1"/>
 
-		<FastDesign name="fast-design-1" relaxscript="MonomerDesign2019" repeats="1" scorefxn="sfxn_high-res" task_operations="NO_design_to,designable_to,ifcl_to,extra_chi"/>
+	<FastDesign name="fast-design-1" relaxscript="MonomerDesign2019" repeats="1" scorefxn="sfxn_high-res" task_operations="NO_design_to,designable_to,ifcl_to,extra_chi"/>
 
-		<InterfaceAnalyzerMover name="IfaceAnalyzer" scorefxn="sfxn_basic" packstat="1" interface_sc="false" pack_input="false" pack_separated="1" ligandchain="B" tracer="false" />
+	<InterfaceAnalyzerMover name="IfaceAnalyzer" scorefxn="sfxn_basic" packstat="1" interface_sc="false" pack_input="false" pack_separated="1" ligandchain="B" tracer="false" />
 
 </MOVERS>
 ```
@@ -498,7 +500,7 @@ Below is an excerpt of an example three-stage script that selects the best poses
 
 # Analyze output structures
 
-The output score file contains the following headers for the six DoFs: axis1_rot, axis1_trans, axis2_rot, axis2_trans, axis3_rot, and axis3_trans. Note, the headers appear alphabetically in the score file, not the order they are iterated through.  
+The output score file contains the following headers for the six DoFs: ```axis1_rot```, ```axis1_trans```, ```axis2_rot```, ```axis2_trans```, ```axis3_rot```, and ```axis3_trans```. Note, the headers appear alphabetically in the score file, not the order they are iterated through.  
 
 
 # Possible errors and their solutions
