@@ -82,14 +82,14 @@ Although any 3 residue selectors can be chosen, following the above recommendati
 
 ![](images/six_dof_grid_dock_mover/3CoordinateSystem.png)
 
-**User-selected residues ideally form a 90**°** angle.** In this model system, the dark grey helix will be docked within the green region of the light grey protein. The three colored spheres (blue, yellow, raspberry) represent the location of the three user-selected residues within the proteins (top) and the subsequent coordinate system (bottom). _Left_: The user selects 3 residues that form a 90° angle with res_2a (yellow) as the vertex. _Center_: The 3 residues form a 110° angle, which is acceptable but not ideal as Axis 2 does not align well with res_2b. _Right_: The 3 residues form a 50° angle, which is non-ideal and will cause the mover to exit unless the degree_check option is turned off by the user. Note that although an orthogonal coordinate system will be generated in every case, the user will have a more accurate intuition of the coordinate system, specifically Axis 2, if the selected residues form a 90° angle.
+**User-selected residues ideally form a 90° angle.** In this model system, the dark grey helix will be docked within the green region of the light grey protein. The three colored spheres (blue, yellow, raspberry) represent the location of the three user-selected residues within the proteins (top) and the subsequent coordinate system (bottom). _Left_: The user selects 3 residues that form a 90° angle with res_2a (yellow) as the vertex. _Center_: The 3 residues form a 110° angle, which is acceptable but not ideal as Axis 2 does not align well with res_2b. _Right_: The 3 residues form a 50° angle, which is non-ideal and will cause the mover to exit unless the degree_check option is turned off by the user. Note that although an orthogonal coordinate system will be generated in every case, the user will have a more accurate intuition of the coordinate system, specifically Axis 2, if the selected residues form a 90° angle.
 
 
 ## Search space dimensions for all six degrees of freedom
 
-This mover utilizes the basic six DoFs: translation and rotation around three axes. To run the mover, the user must provide **either** a user-specified range **or** a list of values for **each** DoF. When using the **range option**, the user provides a comma-separated list of the minimum, maximum, and step-size (in that order). In example, if the user provides [2, 8, 1], the mover will return the following search space: [2, 3, 4, 5, 6, 7, 8].
+This mover utilizes the basic six DoFs: translation and rotation around three axes. To run the mover, the user must provide **either** a user-specified range **or** a list of values for **each** DoF. When using the **range option**, the user provides a comma-separated list of the minimum, maximum, and step-size (in that order). In example, if the user provides ```2, 8, 1```, the mover will return the following search space: [2, 3, 4, 5, 6, 7, 8].
 
-Alternatively, when using the **value option**, the user provides a comma-separated list of specific values for search space. If the user provides [1, 2, 3], the mover will only sample those specific values for that specific DoF. 
+Alternatively, when using the **value option**, the user provides a comma-separated list of specific values for search space. If the user provides ```1, 2, 3```, the mover will only sample those specific values for that specific DoF. 
 
 💡 User Pro Tip: The user can mix and match the range or value options for any of the six DoFs. However, the user must provide only one option for each DoF.
 
@@ -207,7 +207,7 @@ Multistage Rosetta Scripts is used to easily direct the docking output into a de
 
 ### Example XML format
 
-Below is an example single-stage Multistage Rosetta Script that tests the translation range from -10 to 10 with a step size of 2 Angstroms for Axis 2. To “turn off” the other five DoFs, a value option of 0 was provided. All 11 possible trajectories are run, and all output poses are kept if they pass the filter. 
+Below is an excerpt of an example single-stage Multistage Rosetta Script that tests the translation range from -10 to 10 with a step size of 2 Angstroms for Axis 2. To “turn off” the other five DoFs, a value option of 0 was provided. All 11 possible trajectories are run, and all output poses are kept if they pass the filter. 
 
 Note that this docking uses a centroid based score function. The centroid mode score is reported to the output scorefile using the [FilterReportAsPoseExtraScoresMover](https://new.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/FilterReportAsPoseExtraScoresMover) as cen_total_score .
 
@@ -255,7 +255,7 @@ An advantage of a user-customized protocol is controlling the [roll](https://upl
 
 ### Example XML format
 
-Below is an example single-stage Multistage Rosetta Script that tests different combinations of all six DoFs - using the range option. As written, this sample space generates 2,430 output files. All 2,430 possible trajectories are run but only the top 1,000 poses sorted by score are kept.
+Below is an excerpt of an example single-stage Multistage Rosetta Script that tests different combinations of all six DoFs - using the range option. As written, this sample space generates 2,430 output files. All 2,430 possible trajectories are run but only the top 1,000 poses sorted by score are kept.
 
 This docking protocol uses a centroid based score function. Thus, during the stage, the input pose’s side chains are saved and the pose is converted to centroid mode.
 
@@ -305,7 +305,7 @@ The user can use a two-stage Multistage Rosetta Script to further explore the do
 
 ### Example XML format
 
-Below is an example two-stage script that selects the best poses from the previous stage then multiplies each pose by 10. The ensuing poses are made unique by slight random rotation and translation movements via the [DockingInitialPertubation](https://new.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/DockingInitialPerturbationMover) mover. 
+Below is an excerpt of an example two-stage script that selects the best poses from the previous stage then multiplies each pose by 10. The ensuing poses are made unique by slight random rotation and translation movements via the [DockingInitialPertubation](https://new.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/DockingInitialPerturbationMover) mover. 
 
 In this example, the first stage generated 2,430 output poses. A maximum of the best 1,000 poses could be carried into the next stage where they are given 10 chances at local docking expansion with 5 degree rotations and 1 Angstrom translations. The resulting best 100 poses are kept at the end of the second stage, sorted by score.
 
@@ -331,6 +331,7 @@ range_rot_axis_3 = "-10,10,10" />
 
 ```xml
 <PROTOCOLS>
+
 <Stage num_runs_per_input_struct="2430" total_num_results_to_keep="1000">
 <Add mover="sr_side_chains"/>
 <Add mover="full_centro"/>
@@ -340,6 +341,7 @@ range_rot_axis_3 = "-10,10,10" />
 <Add mover="sr_side_chains"/>
 <Sort negative_score_is_good="true" filter="f_total_score"/>        
 </Stage>
+
 <Stage num_runs_per_input_struct="10" total_num_results_to_keep="100">
 <Add mover="sr_side_chains"/>
 <Add mover="full_centro"/>
@@ -350,6 +352,7 @@ range_rot_axis_3 = "-10,10,10" />
 <Add mover="sr_side_chains"/>
 <Sort negative_score_is_good="true" filter="f_total_score"/>        
 </Stage>
+
 </PROTOCOLS>
 ```
 
@@ -373,7 +376,7 @@ Multistage Rosetta Scripts allows the user to apply filters within the stage (op
 
 ### Example XML format
 
-Below is an example three-stage script that selects the best poses from the two previous docking stage then sends them into a design stage that utilizes [FastDesign](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/FastDesignMover). The resulting best 10 poses are kept at the end of the second stage, sorted by score.
+Below is an excerpt of an example three-stage script that selects the best poses from the two previous docking stage then sends them into a design stage that utilizes [FastDesign](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/FastDesignMover). The resulting best 10 poses are kept at the end of the second stage, sorted by score.
 
 
 ```xml
@@ -399,6 +402,7 @@ range_rot_axis_3 = "-10,10,10" />
 
 ```xml
 <PROTOCOLS>
+
 <Stage num_runs_per_input_struct="2430" total_num_results_to_keep="1000">
 <Add mover="sr_side_chains"/>
 <Add mover="full_centro"/>
@@ -408,6 +412,7 @@ range_rot_axis_3 = "-10,10,10" />
 <Add mover="sr_side_chains"/>
 <Sort negative_score_is_good="true" filter="f_total_score"/>        
 </Stage>
+
 <Stage num_runs_per_input_struct="10" total_num_results_to_keep="10">
 <Add mover="sr_side_chains"/>
 <Add mover="full_centro"/>
@@ -417,6 +422,7 @@ range_rot_axis_3 = "-10,10,10" />
 <Add mover="centro_full"/> 
 <Add mover="sr_side_chains"/>
 <Sort negative_score_is_good="true" filter="f_total_score"/>        
+
 </Stage>
 <Stage num_runs_per_input_struct="1" total_num_results_to_keep="10" >
 <Add mover="bb_cst"/>
@@ -424,6 +430,7 @@ range_rot_axis_3 = "-10,10,10" />
 <Add mover="IfaceAnalyzer"/>
 <Sort negative_score_is_good="true" filter="f_total_score"/>
 </Stage>
+
 </PROTOCOLS>
 ```
 
