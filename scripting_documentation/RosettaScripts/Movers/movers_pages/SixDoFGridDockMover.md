@@ -226,6 +226,9 @@ values_rot_axis_2 = "0"
 values_rot_axis_3 = "0" />
 <FilterReportAsPoseExtraScoresMover name="save_f_cen_total_score" report_as="cen_total_score" filter_name="f_total_score"/>
 </MOVERS>
+```
+
+```xml
 <PROTOCOLS>
 <Stage num_runs_per_input_struct="11" total_num_results_to_keep="11">
 <Add mover="test_one_DoF"/>
@@ -275,6 +278,9 @@ range_rot_axis_2 = "0,180,20"
 range_rot_axis_3 = "-10,10,10" />
 <FilterReportAsPoseExtraScoresMover name="save_f_cen_total_score" report_as="cen_total_score" filter_name="f_total_score"/>
 </MOVERS>
+```
+
+```xml
 <PROTOCOLS>
 <Stage num_runs_per_input_struct="2430" total_num_results_to_keep="1000">
 <Add mover="sr_side_chains"/>
@@ -321,6 +327,9 @@ range_rot_axis_3 = "-10,10,10" />
 <DockSetupMover name="local_dock_setup" partners="A_B"/>
 <DockingInitialPerturbation dock_pert="1" name="local_dock" randomize2="0" rot="5" trans="1"/>
 </MOVERS>
+```
+
+```xml
 <PROTOCOLS>
 <Stage num_runs_per_input_struct="2430" total_num_results_to_keep="1000">
 <Add mover="sr_side_chains"/>
@@ -386,6 +395,9 @@ range_rot_axis_3 = "-10,10,10" />
 <FastDesign name="fast-design-1" relaxscript="MonomerDesign2019" repeats="1" scorefxn="sfxn_high-res" task_operations="NO_design_to,designable_to,ifcl_to,extra_chi"/>
 <InterfaceAnalyzerMover name="IfaceAnalyzer" scorefxn="sfxn_basic" packstat="1" interface_sc="false" pack_input="false" pack_separated="1" ligandchain="B" tracer="false" />
 </MOVERS>
+```
+
+```xml
 <PROTOCOLS>
 <Stage num_runs_per_input_struct="2430" total_num_results_to_keep="1000">
 <Add mover="sr_side_chains"/>
