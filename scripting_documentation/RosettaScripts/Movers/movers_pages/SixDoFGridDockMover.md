@@ -277,12 +277,14 @@ This docking protocol uses a centroid based score function. Thus, during the sta
 💡 User Pro Tip: To sample the [roll](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Roll_pitch_yaw_mnemonic.svg/440px-Roll_pitch_yaw_mnemonic.svg.png) (or the Axis 2 rotation in this example), the user set the rotation range from 0 to 180 with a step size of 20 degrees.
 
 
-```xml                                                                                                                                                                                                                                                                                             
+```xml                                                                                                                                                                                                                                                                                            
 <RESIDUE_SELECTORS>
 
-	<Index name="resA" resnums="66A"/>                                                                                                                                                                                                                                                                <Index name="resB1" resnums="43B"/>                                                                                                                                                                                                                                                               <Index name="resB2" resnums="54B"/>
+	<Index name="resA" resnums="66A"/>
+	<Index name="resB1" resnums="43B"/>
+	<Index name="resB2" resnums="54B"/>
 
-</RESIDUE_SELECTORS>                                                                                                                                                                                                                                                                               
+</RESIDUE_SELECTORS>                                                                                                                                                                                                                                                                             
 ```
 
 ```xml
@@ -334,49 +336,64 @@ Below is an excerpt of an example two-stage script that selects the best poses f
 
 In this example, the first stage generated 2,430 output poses. A maximum of the best 1,000 poses could be carried into the next stage where they are given 10 chances at local docking expansion with 5 degree rotations and 1 Angstrom translations. The resulting best 100 poses are kept at the end of the second stage, sorted by score.
 
+```xml
+<RESIDUE_SELECTORS>
+
+	<Index name="resA" resnums="66A"/>
+	<Index name="resB1" resnums="43B"/>
+	<Index name="resB2" resnums="54B"/>
+
+</RESIDUE_SELECTORS>
+```
 
 ```xml
 <MOVERS>
-<SixDoFGridDockMover name = "coarse_grid_dock"
-dof_residue_selector_1 = "resA"
-dof_residue_selector_2a = "resB1"
-dof_residue_selector_2b = "resB2"
-range_trans_axis_1 = "-5,5,5"
-range_trans_axis_2 = "-5,5,5"
-range_trans_axis_3 = "0,10,5"
-range_rot_axis_1 = "-10,10,10"
-range_rot_axis_2 = "0,180,20"
-range_rot_axis_3 = "-10,10,10" />
-<FilterReportAsPoseExtraScoresMover name="save_f_cen_total_score" report_as="cen_total_score" filter_name="f_total_score"/>
-<FilterReportAsPoseExtraScoresMover name="save_f_cen_total_score_2" report_as="cen_total_score_2" filter_name="f_total_score"/>
-<DockSetupMover name="local_dock_setup" partners="A_B"/>
-<DockingInitialPerturbation dock_pert="1" name="local_dock" randomize2="0" rot="5" trans="1"/>
+
+	<SixDoFGridDockMover name = "coarse_grid_dock"
+		dof_residue_selector_1 = "resA"
+		dof_residue_selector_2a = "resB1"
+		dof_residue_selector_2b = "resB2"
+		range_trans_axis_1 = "-5,5,5"
+		range_trans_axis_2 = "-5,5,5"
+		range_trans_axis_3 = "0,10,5"
+		range_rot_axis_1 = "-10,10,10"
+		range_rot_axis_2 = "0,180,20"
+		range_rot_axis_3 = "-10,10,10" />
+
+	<FilterReportAsPoseExtraScoresMover name="save_f_cen_total_score" report_as="cen_total_score" filter_name="f_total_score"/>
+
+	<FilterReportAsPoseExtraScoresMover name="save_f_cen_total_score_2" report_as="cen_total_score_2" filter_name="f_total_score"/>
+
+	<DockSetupMover name="local_dock_setup" partners="A_B"/>
+
+	<DockingInitialPerturbation dock_pert="1" name="local_dock" randomize2="0" rot="5" trans="1"/>
+
 </MOVERS>
 ```
 
 ```xml
 <PROTOCOLS>
 
-<Stage num_runs_per_input_struct="2430" total_num_results_to_keep="1000">
-<Add mover="sr_side_chains"/>
-<Add mover="full_centro"/>
-<Add mover="coarse_grid_dock"/>
-<Add mover="save_f_cen_total_score"/>
-<Add mover="centro_full"/> 
-<Add mover="sr_side_chains"/>
-<Sort negative_score_is_good="true" filter="f_total_score"/>        
-</Stage>
+	<Stage num_runs_per_input_struct="2430" total_num_results_to_keep="1000">
+	       <Add mover="sr_side_chains"/>
+	       <Add mover="full_centro"/>
+	       <Add mover="coarse_grid_dock"/>
+	       <Add mover="save_f_cen_total_score"/>
+	       <Add mover="centro_full"/> 
+	       <Add mover="sr_side_chains"/>
+	       <Sort negative_score_is_good="true" filter="f_total_score"/>        
+	</Stage>
 
-<Stage num_runs_per_input_struct="10" total_num_results_to_keep="100">
-<Add mover="sr_side_chains"/>
-<Add mover="full_centro"/>
-<Add mover="local_dock_setup"/>
-<Add mover="local_dock"/>
-<Add mover="save_f_cen_total_score_2"/>
-<Add mover="centro_full"/> 
-<Add mover="sr_side_chains"/>
-<Sort negative_score_is_good="true" filter="f_total_score"/>        
-</Stage>
+	<Stage num_runs_per_input_struct="10" total_num_results_to_keep="100">
+	       <Add mover="sr_side_chains"/>
+	       <Add mover="full_centro"/>
+	       <Add mover="local_dock_setup"/>
+	       <Add mover="local_dock"/>
+	       <Add mover="save_f_cen_total_score_2"/>
+	       <Add mover="centro_full"/> 
+	       <Add mover="sr_side_chains"/>
+	       <Sort negative_score_is_good="true" filter="f_total_score"/>        
+	</Stage>
 
 </PROTOCOLS>
 ```
@@ -405,56 +422,74 @@ Below is an excerpt of an example three-stage script that selects the best poses
 
 
 ```xml
+<RESIDUE_SELECTORS>
+
+	<Index name="resA" resnums="66A"/>
+	<Index name="resB1" resnums="43B"/>
+	<Index name="resB2" resnums="54B"/>
+	
+</RESIDUE_SELECTORS>
+```
+    
+```xml
 <MOVERS>
-<SixDoFGridDockMover name = "coarse_grid_dock"
-dof_residue_selector_1 = "resA"
-dof_residue_selector_2a = "resB1"
-dof_residue_selector_2b = "resB2"
-range_trans_axis_1 = "-5,5,5"
-range_trans_axis_2 = "-5,5,5"
-range_trans_axis_3 = "0,10,5"
-range_rot_axis_1 = "-10,10,10"
-range_rot_axis_2 = "0,180,20"
-range_rot_axis_3 = "-10,10,10" />
-<FilterReportAsPoseExtraScoresMover name="save_f_cen_total_score" report_as="cen_total_score" filter_name="f_total_score"/>
-<FilterReportAsPoseExtraScoresMover name="save_f_cen_total_score_2" report_as="cen_total_score_2" filter_name="f_total_score"/>
-<DockSetupMover name="local_dock_setup" partners="A_B"/>
-<DockingInitialPerturbation dock_pert="1" name="local_dock" randomize2="0" rot="5" trans="1"/>
-<FastDesign name="fast-design-1" relaxscript="MonomerDesign2019" repeats="1" scorefxn="sfxn_high-res" task_operations="NO_design_to,designable_to,ifcl_to,extra_chi"/>
-<InterfaceAnalyzerMover name="IfaceAnalyzer" scorefxn="sfxn_basic" packstat="1" interface_sc="false" pack_input="false" pack_separated="1" ligandchain="B" tracer="false" />
+
+	<SixDoFGridDockMover name = "coarse_grid_dock"
+		dof_residue_selector_1 = "resA"
+		dof_residue_selector_2a = "resB1"
+		dof_residue_selector_2b = "resB2"
+		range_trans_axis_1 = "-5,5,5"
+		range_trans_axis_2 = "-5,5,5"
+		range_trans_axis_3 = "0,10,5"
+		range_rot_axis_1 = "-10,10,10"
+		range_rot_axis_2 = "0,180,20"
+		range_rot_axis_3 = "-10,10,10" />
+
+		<FilterReportAsPoseExtraScoresMover name="save_f_cen_total_score" report_as="cen_total_score" filter_name="f_total_score"/>
+
+		<FilterReportAsPoseExtraScoresMover name="save_f_cen_total_score_2" report_as="cen_total_score_2" filter_name="f_total_score"/>
+
+		<DockSetupMover name="local_dock_setup" partners="A_B"/>
+
+		<DockingInitialPerturbation dock_pert="1" name="local_dock" randomize2="0" rot="5" trans="1"/>
+
+		<FastDesign name="fast-design-1" relaxscript="MonomerDesign2019" repeats="1" scorefxn="sfxn_high-res" task_operations="NO_design_to,designable_to,ifcl_to,extra_chi"/>
+
+		<InterfaceAnalyzerMover name="IfaceAnalyzer" scorefxn="sfxn_basic" packstat="1" interface_sc="false" pack_input="false" pack_separated="1" ligandchain="B" tracer="false" />
+
 </MOVERS>
 ```
 
 ```xml
 <PROTOCOLS>
 
-<Stage num_runs_per_input_struct="2430" total_num_results_to_keep="1000">
-<Add mover="sr_side_chains"/>
-<Add mover="full_centro"/>
-<Add mover="coarse_grid_dock"/>
-<Add mover="save_f_cen_total_score"/>
-<Add mover="centro_full"/> 
-<Add mover="sr_side_chains"/>
-<Sort negative_score_is_good="true" filter="f_total_score"/>        
-</Stage>
+	<Stage num_runs_per_input_struct="2430" total_num_results_to_keep="1000">
+	       <Add mover="sr_side_chains"/>
+	       <Add mover="full_centro"/>
+	       <Add mover="coarse_grid_dock"/>
+	       <Add mover="save_f_cen_total_score"/>
+	       <Add mover="centro_full"/> 
+	       <Add mover="sr_side_chains"/>
+	       <Sort negative_score_is_good="true" filter="f_total_score"/>        
+	</Stage>
 
-<Stage num_runs_per_input_struct="10" total_num_results_to_keep="10">
-<Add mover="sr_side_chains"/>
-<Add mover="full_centro"/>
-<Add mover="local_dock_setup"/>
-<Add mover="local_dock"/>
-<Add mover="save_f_cen_total_score_2"/>
-<Add mover="centro_full"/> 
-<Add mover="sr_side_chains"/>
-<Sort negative_score_is_good="true" filter="f_total_score"/>        
+	<Stage num_runs_per_input_struct="10" total_num_results_to_keep="10">
+	       <Add mover="sr_side_chains"/>
+	       <Add mover="full_centro"/>
+	       <Add mover="local_dock_setup"/>
+	       <Add mover="local_dock"/>
+	       <Add mover="save_f_cen_total_score_2"/>
+	       <Add mover="centro_full"/> 
+	       <Add mover="sr_side_chains"/>
+	       <Sort negative_score_is_good="true" filter="f_total_score"/>        
+	</Stage>
 
-</Stage>
-<Stage num_runs_per_input_struct="1" total_num_results_to_keep="10" >
-<Add mover="bb_cst"/>
-<Add mover="fast-design-1"/>
-<Add mover="IfaceAnalyzer"/>
-<Sort negative_score_is_good="true" filter="f_total_score"/>
-</Stage>
+	<Stage num_runs_per_input_struct="1" total_num_results_to_keep="10" >
+	       <Add mover="bb_cst"/>
+	       <Add mover="fast-design-1"/>
+	       <Add mover="IfaceAnalyzer"/>
+	       <Sort negative_score_is_good="true" filter="f_total_score"/>
+	</Stage>
 
 </PROTOCOLS>
 ```
