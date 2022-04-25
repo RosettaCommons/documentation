@@ -437,49 +437,60 @@ This section details some of the common errors that could occur when using this 
 
 * The user must provide exactly three residues to the mover, used to generate a unique coordinate system.
 
-ERROR: Please declare three residue selectors in the mover option.
-
-
+    ```
+    ERROR: Please declare three residue selectors in the mover option.
+    ```
 
 * When providing residue selectors, the mover will exit when the residue selectors are not within the ideal range of 60-120° with res_2a at the vertex. To override this check, set degree_check to false.
 
-ERROR: Poorly chosen residue selectors. Angle is outside the range of 60-120 degrees.
-
+    ```
+    ERROR: Poorly chosen residue selectors. Angle is outside the range of 60-120 degrees.
+    ```
+    
 **Defining range/value option:**
 
 
 
 * When using the range option, the user must provide a step size value greater than zero.
 
-ERROR: User has entered 0 for the step size. Change step size to a non-zero value.
+    ```
+    ERROR: User has entered 0 for the step size. Change step size to a non-zero value.
+    ```
 
-
+    ```
     ERROR: User has entered a value less than 0 for the step size. Change step size to a positive value greater than zero.
-
-
+    ```
 
 * When using the range option, the user must provide a comma-separated list of the minimum, maximum, and step-size (in that order).
 
+    ```
     ERROR: User has not provided three values for the range option as: minimum, maximum, and step size.
-
+    ```
+    
 * The user must provide either a range or value option for each DoF.
 
-ERROR: User cannot provide *both* a range option and a value option for a single DOF.
 
+    ```
+    ERROR: User cannot provide *both* a range option and a value option for a single DOF.
+    ```
 
+    ```
     ERROR: User must provide at least one option (either range option or value option) for each DOF to be sampled.
-
+    ```
+    
 **Defining Multistage Rosetta Script parameters:**
 
 
 
 * When using Multistage Rosetta Scripts in combination with this mover, it is important that the number of runs per input structure (num_runs_per_input_struct) cannot exceed the number of trajectories given the DoF values. Otherwise the run will fail at the end of the run with the following errors:
 
+    ```
     ERROR: Assertion `static_cast&lt; size_type >( i - l_ ) &lt; super::size()` failed.
-
-
+    ```
+    
+    ```
     ERROR:: Exit from: src/utility/vectorL.hh line: 431
-
+    ```
 
     Of note, if the num_runs_per_input_struct is less than the number of trajectories, the job will not fail but will also not run the remaining trajectories. Therefore, it is important to set num_runs_per_input_struct equal to the anticipated number of trajectories.
 
@@ -493,9 +504,9 @@ ERROR: User cannot provide *both* a range option and a value option for a single
 
     Note, Multistage Rosetta Scripts requires a similar but different parameter known as num_runs_per_input_struct that must be set to the _exact_ value of the expected sample size (the product of each dimension for all six DoFs).
 
-
+    ```
     ERROR: Based on user input DoF values, the scope of the search exceeds either the user input or default value (of 10,000) for the maximum number of samples. Exiting. Change max samples with the max_samples option.
-
+    ```
 
 **Running in traditional Rosetta:**
 
@@ -503,8 +514,9 @@ ERROR: User cannot provide *both* a range option and a value option for a single
 
 * The user must use the  -run:reinitialize_mover_for_each_job flag to sample the entire space when using traditional Rosetta scripts.
 
+    ```
     ERROR: When using the SixDoFGridDockMover with the jd2 job distributor, the user must include the -run:reinitialize_mover_for_each_job flag or the mover will not enumerate the full set of combinations.
-
+    ```
 
 
 # See also {#see-also}
