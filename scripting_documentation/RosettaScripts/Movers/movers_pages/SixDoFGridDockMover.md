@@ -211,30 +211,43 @@ Below is an excerpt of an example single-stage Multistage Rosetta Script that te
 
 Note that this docking uses a centroid based score function. The centroid mode score is reported to the output scorefile using the [FilterReportAsPoseExtraScoresMover](https://new.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/FilterReportAsPoseExtraScoresMover) as cen_total_score .
 
+```xml
+<RESIDUE_SELECTORS>
+
+	<Index name="resA" resnums="66A"/>
+	<Index name="resB1" resnums="43B"/>
+	<Index name="resB2" resnums="54B"/>
+
+</RESIDUE_SELECTORS>
+```    
 
 ```xml
 <MOVERS>
-<SixDoFGridDockMover name = "test_one_DoF"
-dof_residue_selector_1 = "resA"
-dof_residue_selector_2a = "resB1"
-dof_residue_selector_2b = "resB2"
-values_trans_axis_1 = "0"
-range_trans_axis_2 = "-10,10,2"
-values_trans_axis_3 = "0"
-values_rot_axis_1 = "0"
-values_rot_axis_2 = "0"
-values_rot_axis_3 = "0" />
-<FilterReportAsPoseExtraScoresMover name="save_f_cen_total_score" report_as="cen_total_score" filter_name="f_total_score"/>
+
+	<SixDoFGridDockMover name = "test_one_DoF"
+		dof_residue_selector_1 = "resA"
+		dof_residue_selector_2a = "resB1"
+		dof_residue_selector_2b = "resB2"
+		values_trans_axis_1 = "0"
+		range_trans_axis_2 = "-10,10,2"
+		values_trans_axis_3 = "0"
+		values_rot_axis_1 = "0"
+		values_rot_axis_2 = "0"
+		values_rot_axis_3 = "0" />
+	<FilterReportAsPoseExtraScoresMover name="save_f_cen_total_score" report_as="cen_total_score" filter_name="f_total_score"/>
+
 </MOVERS>
 ```
 
 ```xml
 <PROTOCOLS>
-<Stage num_runs_per_input_struct="11" total_num_results_to_keep="11">
-<Add mover="test_one_DoF"/>
-<Add mover="save_f_cen_total_score"/>
-<Sort negative_score_is_good="true" filter="f_total_score"/>
-</Stage>
+
+	<Stage num_runs_per_input_struct="11" total_num_results_to_keep="11">
+	       <Add mover="test_one_DoF"/>
+	       <Add mover="save_f_cen_total_score"/>
+	       <Sort negative_score_is_good="true" filter="f_total_score"/>
+	</Stage>
+
 </PROTOCOLS>
 ```
 
@@ -264,33 +277,45 @@ This docking protocol uses a centroid based score function. Thus, during the sta
 💡 User Pro Tip: To sample the [roll](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Roll_pitch_yaw_mnemonic.svg/440px-Roll_pitch_yaw_mnemonic.svg.png) (or the Axis 2 rotation in this example), the user set the rotation range from 0 to 180 with a step size of 20 degrees.
 
 
+```xml                                                                                                                                                                                                                                                                                             
+<RESIDUE_SELECTORS>
+
+	<Index name="resA" resnums="66A"/>                                                                                                                                                                                                                                                                <Index name="resB1" resnums="43B"/>                                                                                                                                                                                                                                                               <Index name="resB2" resnums="54B"/>
+
+</RESIDUE_SELECTORS>                                                                                                                                                                                                                                                                               
+```
+
 ```xml
 <MOVERS>
-<SixDoFGridDockMover name = "coarse_grid_dock"
-dof_residue_selector_1 = "resA"
-dof_residue_selector_2a = "resB1"
-dof_residue_selector_2b = "resB2"
-range_trans_axis_1 = "-5,5,5"
-range_trans_axis_2 = "-5,5,5"
-range_trans_axis_3 = "0,10,5"
-range_rot_axis_1 = "-10,10,10"
-range_rot_axis_2 = "0,180,20"
-range_rot_axis_3 = "-10,10,10" />
-<FilterReportAsPoseExtraScoresMover name="save_f_cen_total_score" report_as="cen_total_score" filter_name="f_total_score"/>
+
+	<SixDoFGridDockMover name = "coarse_grid_dock"
+		dof_residue_selector_1 = "resA"
+		dof_residue_selector_2a = "resB1"
+		dof_residue_selector_2b = "resB2"
+		range_trans_axis_1 = "-5,5,5"
+		range_trans_axis_2 = "-5,5,5"
+		range_trans_axis_3 = "0,10,5"
+		range_rot_axis_1 = "-10,10,10"
+		range_rot_axis_2 = "0,180,20"
+		range_rot_axis_3 = "-10,10,10" />
+	<FilterReportAsPoseExtraScoresMover name="save_f_cen_total_score" report_as="cen_total_score" filter_name="f_total_score"/>
+
 </MOVERS>
 ```
 
 ```xml
 <PROTOCOLS>
-<Stage num_runs_per_input_struct="2430" total_num_results_to_keep="1000">
-<Add mover="sr_side_chains"/>
-<Add mover="full_centro"/>
-<Add mover="coarse_grid_dock"/>
-<Add mover="save_f_cen_total_score"/>
-<Add mover="centro_full"/> 
-<Add mover="sr_side_chains"/>
-<Sort negative_score_is_good="true" filter="f_total_score"/>        
-</Stage>
+
+	<Stage num_runs_per_input_struct="2430" total_num_results_to_keep="1000">
+	       <Add mover="sr_side_chains"/>
+	       <Add mover="full_centro"/>
+	       <Add mover="coarse_grid_dock"/>
+	       <Add mover="save_f_cen_total_score"/>
+	       <Add mover="centro_full"/> 
+	       <Add mover="sr_side_chains"/>
+	       <Sort negative_score_is_good="true" filter="f_total_score"/>        
+	</Stage>
+
 </PROTOCOLS>
 ```
 
