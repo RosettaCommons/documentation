@@ -1,13 +1,8 @@
 # Grid Dock Mover
 
+[[_TOC_]]
 
-[TOC]
-
-
-	
-
-
-# Description {#description}
+# Description
 
 ![](images/six_dof_grid_dock_mover/1GraphicalAbstract.png)
 
@@ -18,10 +13,10 @@ This mover was written by Alice Peng and Odessa Goudy of Brian Kuhlman’s labor
 This documentation was last updated April 2022. Please send any questions to Brian Kuhlman at [bkuhlman@email.unc.edu](mailto:bkuhlman@email.unc.edu).
 
 
-# Definition {#definition}
+# Definition
 
 
-```
+```xml
 <SixDoFGridDockMover 
 name = "(&string;)"
 dof_residue_selector_1 = "(&string residue_selector;)"
@@ -65,10 +60,10 @@ degree_check = "(true &bool;)" />
 * **degree_check:** true (default) indicates the mover will exit when the residue selectors are not within the ideal range of 60-120° (with res_2a at the vertex). To override this check, set to false.
 
 
-# Required parameters {#required-parameters}
+# Required parameters
 
 
-## Residue selectors {#residue-selectors}
+## Residue selectors
 
 The user must select 3 residues that ideally form a 90° angle with res_2a as the vertex, based on the starting input pose. The carbon alpha atom coordinates of 3 residues create 3 orthogonal vectors. These vectors then define the axes of the docking coordinate system. 
 
@@ -90,7 +85,7 @@ Although any 3 residue selectors can be chosen, following the above recommendati
 **User-selected residues ideally form a 90**°** angle.** In this model system, the dark grey helix will be docked within the green region of the light grey protein. The three colored spheres (blue, yellow, raspberry) represent the location of the three user-selected residues within the proteins (top) and the subsequent coordinate system (bottom). _Left_: The user selects 3 residues that form a 90° angle with res_2a (yellow) as the vertex. _Center_: The 3 residues form a 110° angle, which is acceptable but not ideal as Axis 2 does not align well with res_2b. _Right_: The 3 residues form a 50° angle, which is non-ideal and will cause the mover to exit unless the degree_check option is turned off by the user. Note that although an orthogonal coordinate system will be generated in every case, the user will have a more accurate intuition of the coordinate system, specifically Axis 2, if the selected residues form a 90° angle.
 
 
-## Search space dimensions for all six degrees of freedom {#search-space-dimensions-for-all-six-degrees-of-freedom}
+## Search space dimensions for all six degrees of freedom
 
 This mover utilizes the basic six DoFs: translation and rotation around three axes. To run the mover, the user must provide **either** a user-specified range **or** a list of values for **each** DoF. When using the **range option**, the user provides a comma-separated list of the minimum, maximum, and step-size (in that order). In example, if the user provides [2, 8, 1], the mover will return the following search space: [2, 3, 4, 5, 6, 7, 8].
 
@@ -107,27 +102,27 @@ Below is an example set up for the 6 DoFs, which generates 504 poses (or, the pr
 **Custom user-provided search inputs for all six degrees of freedom.** In this example setup, the user mixed and matched range and value options for the six DoFs. The converted sample search space is listed beneath the input. To illustrate how the mover iterates through the sample space and assigns job indices, the resulting DoF values for first and last job are listed (grey inset).  
 
 
-# Optional parameters {#optional-parameters}
+# Optional parameters
 
 
-## Max samples check {#max-samples-check}
+## Max samples check
 
 max_samples: Maximum number of expected output structures. (The default value is set to 10,000.) Set max_samples to a value greater than or equal to the number of output structures expected. The mover will exit if the search space is larger than the maximum. (In example, if the user provides a combination of range and value options that yield a docking search space greater than 10,000, then the mover will exit.) To the user’s benefit, this option is provided to help prevent unintentionally massive search spaces. 
 
 Note, Multistage Rosetta Scripts requires a similar but different parameter known as num_runs_per_input_struct that must be set to the _exact_ value of the expected sample size (the product of each dimension for all six DoFs).
 
 
-## Disable degree check {#disable-degree-check}
+## Disable degree check
 
 degree_check: Boolean. If set to “true” (the default), the mover will automatically end the job if the three selected residues form an angle outside of the ideal range of 60-120° with res_2a at the vertex. The user can set the degree check to “false” to turn off the degree check causing the mover to continue even when the angle is outside of the ideal range. It is only recommended to disable this option if the user has limited residues to choose from, as could be the case if docking a small peptide.
 
 If the user disables the degree check, it is strongly recommended to first check how the mobile domain moves in the coordinate system.
 
 
-# Advanced description {#advanced-description}
+# Advanced description
 
 
-## Important information {#important-information}
+## Important information
 
 A principal advantage of grid docking is finding narrow energy wells that traditional Monte Carlo centroid-mode docking approaches could miss due to a biased centroid-mode score function. Furthermore, this mover allows the user to explicitly control the [roll](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Roll_pitch_yaw_mnemonic.svg/440px-Roll_pitch_yaw_mnemonic.svg.png) of the mobile domain - a rotation that is anecdotally observed to be under sampled in other docking protocols. However, disadvantages of this system include a predetermined sample space and the large number of output structures.
 
@@ -142,7 +137,7 @@ At the start of the Six Degree of Freedom Grid Dock protocol, this mover initial
 For each output pose, the sampled DoF values are reported within the output scorefile with the following column names: axis1_rot, axis2_rot, axis3_rot, axis1_trans, axis2_trans, axis3_trans. Following docking, the score is reported to the scorefile as defaultscorename. Including the mover [FilterReportAsPoseExtraScoresMover](https://new.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/FilterReportAsPoseExtraScoresMover) allows the user to report the filter’s value at the time it is called for later output to the scorefile.
 
 
-## Example XML files {#example-xml-files}
+## Example XML files
 
 To supplement this documentation, example Multistage Rosetta Scripts are provided at ______.
 
@@ -151,17 +146,17 @@ The main directory contains four subdirectories which correspond with the docume
 An example run command is: 
 
 
-## Under the hood {#under-the-hood}
+## Under the hood
 
 As a supplement to the source code, this section details how the mover maps each DoF combination to the correct job index.
 
 The total docking search space is the Cartesian product of the six DoF values. The mover stores the search space in a vector of vectors. Then, each job maps exactly one set of DoFs to the input pdb. Job indices are assigned to each set of DoFs using a for-loop like process. After, modular arithmetic is done on these job indices to apply the correct set of DoFs to each pose. 
 
 
-# How to run the mover {#how-to-run-the-mover}
+# How to run the mover
 
 
-## 1: Set up the input PDB and select residues using PyMol {#1-set-up-the-input-pdb-and-select-residues-using-pymol}
+## 1: Set up the input PDB and select residues using PyMol
 
 Before using the mover, position the two protein domains directly across from each other using PyMOL. Orient the two domains to easily choose ideal residues according to the [aforementioned recommendations](#residue-selectors). Below are a few helpful tips to move objects in PyMOL.
 
@@ -199,7 +194,7 @@ Fourth, export the new input pose as a new .pdb file.
 
 ![](images/six_dof_grid_dock_mover/13ExportSelection.png)
 
-## 2: Visualize the coordinate system {#2-visualize-the-coordinate-system}
+## 2: Visualize the coordinate system
 
 The user should now have an input pdb file containing the static and mobile domains and know which three residues will be used to generate the coordinate system. Next, to gain an understanding of the residue-based coordinate system, the user should run six simplified test runs. Each test run will only move the mobile domain along one degree of freedom. These quick runs will help the user understand the independent movement of each docking parameter in 3D space.  
 
@@ -210,14 +205,14 @@ Multistage Rosetta Scripts is used to easily direct the docking output into a de
 **User-controlled movement of each individual degree of freedom.** To highlight that the user can independently control the direction of each docking parameter, each of the six degrees of freedom are shown in a model system above. Translation (top) and rotation (bottom) of the helical mobile domain around three axes: Axis 1 (green, left), Axis 2 (purple, center), and Axis 3 (orange, right). Each helix is colored light to dark to represent the negative to positive values. For clarity, the images are not shown from the same angle - instead, the images highlight the movement of each DoF.
 
 
-### Example XML format  {#example-xml-format}
+### Example XML format
 
 Below is an example single-stage Multistage Rosetta Script that tests the translation range from -10 to 10 with a step size of 2 Angstroms for Axis 2. To “turn off” the other five DoFs, a value option of 0 was provided. All 11 possible trajectories are run, and all output poses are kept if they pass the filter. 
 
 Note that this docking uses a centroid based score function. The centroid mode score is reported to the output scorefile using the [FilterReportAsPoseExtraScoresMover](https://new.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/FilterReportAsPoseExtraScoresMover) as cen_total_score .
 
 
-```
+```xml
 <MOVERS>
 <SixDoFGridDockMover name = "test_one_DoF"
 dof_residue_selector_1 = "resA"
@@ -242,7 +237,7 @@ values_rot_axis_3 = "0" />
 
 
 
-## 3: Set a coarse-grain grid dock search space {#3-set-a-coarse-grain-grid-dock-search-space}
+## 3: Set a coarse-grain grid dock search space
 
 The user should now understand how the mobile domain moves relative to the static domain within the user-customized coordinate system. To test the docking search space with all six DoFs on, set up a coarse docking run. This step is important to check that the sample search parameters create a reasonable coarse-grain search space - it is easy to accidentally create too large of a search space. 
 
@@ -255,7 +250,7 @@ An advantage of a user-customized protocol is controlling the [roll](https://upl
 **User-controlled granularity for each degree of freedom. **To help the user visualize the step size of each docking parameter, an example translation (top) and rotation (bottom) at various step sizes (0.5, 1, 2) are shown above. In every example, 7 helices are colored red to purple to represent a new pose at each successive step.
 
 
-### Example XML format {#example-xml-format}
+### Example XML format
 
 Below is an example single-stage Multistage Rosetta Script that tests different combinations of all six DoFs - using the range option. As written, this sample space generates 2,430 output files. All 2,430 possible trajectories are run but only the top 1,000 poses sorted by score are kept.
 
@@ -266,7 +261,7 @@ This docking protocol uses a centroid based score function. Thus, during the sta
 💡 User Pro Tip: To sample the [roll](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Roll_pitch_yaw_mnemonic.svg/440px-Roll_pitch_yaw_mnemonic.svg.png) (or the Axis 2 rotation in this example), the user set the rotation range from 0 to 180 with a step size of 20 degrees.
 
 
-```
+```xml
 <MOVERS>
 <SixDoFGridDockMover name = "coarse_grid_dock"
 dof_residue_selector_1 = "resA"
@@ -297,19 +292,19 @@ range_rot_axis_3 = "-10,10,10" />
 💡 User Pro Tip: Large runs can take a while. To quickly check the progress of the run, look at the most recent output printed to the screen: “protocols.simple_moves.SixDoFGridDockMover: dof_sample_index547”, for example. At this moment, for example, the run would be on trajectory 547. 
 
 
-## 4: Expand the best grid docked poses with local docking {#4-expand-the-best-grid-docked-poses-with-local-docking}
+## 4: Expand the best grid docked poses with local docking
 
 The user can use a two-stage Multistage Rosetta Script to further explore the docking space by expanding the best designs from stage one while allowing slight random rotations and translations. 
 
 
-### Example XML format {#example-xml-format}
+### Example XML format
 
 Below is an example two-stage script that selects the best poses from the previous stage then multiplies each pose by 10. The ensuing poses are made unique by slight random rotation and translation movements via the [DockingInitialPertubation](https://new.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/DockingInitialPerturbationMover) mover. 
 
 In this example, the first stage generated 2,430 output poses. A maximum of the best 1,000 poses could be carried into the next stage where they are given 10 chances at local docking expansion with 5 degree rotations and 1 Angstrom translations. The resulting best 100 poses are kept at the end of the second stage, sorted by score.
 
 
-```
+```xml
 <MOVERS>
 <SixDoFGridDockMover name = "coarse_grid_dock"
 dof_residue_selector_1 = "resA"
@@ -353,7 +348,7 @@ range_rot_axis_3 = "-10,10,10" />
 💡 User Pro Tip: After the run completes, check how the centroid mode score changes between stage 1 and stage 2 (grid docking and local docking refinement, respectively) of a single construct which are reported as cen_total_score and cen_total_score_2, respectively. 
 
 
-## 5: Follow docking with design {#5-follow-docking-with-design}
+## 5: Follow docking with design
 
 The user should now have an optimized docking sample space that is ready to integrate into a design protocol. The following three-stage Multistage Rosetta Script can serve as a template for combining multiple docking protocols with a final design protocol. Multistage Rosetta Scripts is a time-efficient method to design only the best docked poses. 
 
@@ -362,17 +357,17 @@ The user should now have an optimized docking sample space that is ready to inte
 **Dock and design stages using Multistage Rosetta Scripts.** In this example, an input pose is docked and designed using three-stage Multistage Rosetta Script. The first stage (green) contains a docking step that expands the number of poses (black line) and ends with a filter step that eliminates poor-scoring poses. The remaining poses are funneled into the next stage. The second stage (teal) contains a docking step that again expands the number of poses and ends with a filtering step. The remaining output are directed to a design stage (purple) which ends with a final filtering step.
 
 
-### Suggested stage filters {#suggested-stage-filters}
+### Suggested stage filters
 
 Multistage Rosetta Scripts allows the user to apply filters within the stage (optional) and at the end of each stage, known as [sorting](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/multistage/StageOptions#stage-options_sort). In general, recommended filtering and sorting metrics include the total score, [distance constraints](https://www.rosettacommons.org/docs/latest/DistanceConstraintGenerator), the [number of contacts within a given region](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Filters/filter_pages/ResidueCountFilter), and/or [shape complementarity](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Filters/filter_pages/ShapeComplementarityFilter). Additionally, including the [InterfaceAnalyzerMover](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/analysis/InterfaceAnalyzerMover) after the design step is highly recommended.
 
 
-### Example XML format {#example-xml-format}
+### Example XML format
 
 Below is an example three-stage script that selects the best poses from the two previous docking stage then sends them into a design stage that utilizes [FastDesign](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/FastDesignMover). The resulting best 10 poses are kept at the end of the second stage, sorted by score.
 
 
-```
+```xml
 <MOVERS>
 <SixDoFGridDockMover name = "coarse_grid_dock"
 dof_residue_selector_1 = "resA"
@@ -422,12 +417,12 @@ range_rot_axis_3 = "-10,10,10" />
 
 
 
-# Analyze output structures {#analyze-output-structures}
+# Analyze output structures
 
 The output score file contains the following headers for the six DoFs: axis1_rot, axis1_trans, axis2_rot, axis2_trans, axis3_rot, and axis3_trans. Note, the headers appear alphabetically in the score file, not the order they are iterated through.  
 
 
-# Possible errors and their solutions {#possible-errors-and-their-solutions}
+# Possible errors and their solutions
 
 This section details some of the common errors that could occur when using this mover. 
 
@@ -519,7 +514,7 @@ This section details some of the common errors that could occur when using this 
     ```
 
 
-# See also {#see-also}
+# See also
 
 [Multistage Rosetta Scripts](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/multistage/MultistageRosettaScripts)
 
