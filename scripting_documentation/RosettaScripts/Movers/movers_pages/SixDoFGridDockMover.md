@@ -65,20 +65,20 @@ degree_check = "(true &bool;)" />
 
 ## Residue selectors
 
-The user must select 3 residues that ideally form a 90° angle with res_2a as the vertex, based on the starting input pose. The carbon alpha atom coordinates of 3 residues create 3 orthogonal vectors. These vectors then define the axes of the docking coordinate system. 
+The user must select 3 residues that ideally form a 90° angle with ```res_2a``` as the vertex, based on the starting input pose. The carbon alpha atom coordinates of 3 residues create 3 orthogonal vectors. These vectors then define the axes of the docking coordinate system. 
 
 ![](images/six_dof_grid_dock_mover/2ResSelectors.png)
 
 
 **User-selected residues generate an intuitive orthogonal coordinate system.** In this model, the dark grey helix will be docked within the green region of the light grey protein. The three colored spheres (blue, yellow, raspberry) represent the user-selected residues. _Left_: The user selects 3 residues. One residue is on the static domain within the green docking space while the other two residues are on the mobile helical domain. _Right_: Given the CA atoms of each residue, an orthogonal coordinate system is generated. Note that Axis 1 is orthogonal to both Axis 2 and Axis 3 (which are created first based on the user-selected residue coordinates).
 
-💡 User Pro Tip:  Set **res_1** as a residue on the **static** domain at the **center** of the docking interface. 
+💡 User Pro Tip:  Set ```res_1``` as a residue on the **static** domain at the **center** of the docking interface. 
 
-💡 User Pro Tip: Set **res_2a** as a **center** residue on the **mobile** domain that is directly across from res_1.
+💡 User Pro Tip: Set ```res_2a``` as a **center** residue on the **mobile** domain that is directly across from ```res_1```.
 
-💡 User Pro Tip: Set **res_2b** as a residue on the **mobile** domain taking care to ensure that the carbon-alpha is pointing **in the same direction** as that of res_2a.
+💡 User Pro Tip: Set ```res_2b``` as a residue on the **mobile** domain taking care to ensure that the carbon-alpha is pointing **in the same direction** as that of ```res_2a```.
 
-Although any 3 residue selectors can be chosen, following the above recommendations gives the user an intuition of how the domain will move even before the mover is implemented. The closer to a 90° angle (with res_2a at the vertex), the better the selected residues align with the resulting coordinate system.
+Although any 3 residue selectors can be chosen, following the above recommendations gives the user an intuition of how the domain will move even before the mover is implemented. The closer to a 90° angle (with ```res_2a``` at the vertex), the better the selected residues align with the resulting coordinate system.
 
 ![](images/six_dof_grid_dock_mover/3CoordinateSystem.png)
 
@@ -107,14 +107,14 @@ Below is an example set up for the 6 DoFs, which generates 504 poses (or, the pr
 
 ## Max samples check
 
-max_samples: Maximum number of expected output structures. (The default value is set to 10,000.) Set max_samples to a value greater than or equal to the number of output structures expected. The mover will exit if the search space is larger than the maximum. (In example, if the user provides a combination of range and value options that yield a docking search space greater than 10,000, then the mover will exit.) To the user’s benefit, this option is provided to help prevent unintentionally massive search spaces. 
+max_samples: Maximum number of expected output structures. (The default value is set to 10,000.) Set ```max_samples``` to a value greater than or equal to the number of output structures expected. The mover will exit if the search space is larger than the maximum. (In example, if the user provides a combination of range and value options that yield a docking search space greater than 10,000, then the mover will exit.) To the user’s benefit, this option is provided to help prevent unintentionally massive search spaces. 
 
-Note, Multistage Rosetta Scripts requires a similar but different parameter known as num_runs_per_input_struct that must be set to the _exact_ value of the expected sample size (the product of each dimension for all six DoFs).
+Note, Multistage Rosetta Scripts requires a similar but different parameter known as ```num_runs_per_input_struct``` that must be set to the _exact_ value of the expected sample size (the product of each dimension for all six DoFs).
 
 
 ## Disable degree check
 
-degree_check: Boolean. If set to “true” (the default), the mover will automatically end the job if the three selected residues form an angle outside of the ideal range of 60-120° with res_2a at the vertex. The user can set the degree check to “false” to turn off the degree check causing the mover to continue even when the angle is outside of the ideal range. It is only recommended to disable this option if the user has limited residues to choose from, as could be the case if docking a small peptide.
+degree_check: Boolean. If set to “true” (the default), the mover will automatically end the job if the three selected residues form an angle outside of the ideal range of 60-120° with ```res_2a``` at the vertex. The user can set the degree check to “false” to turn off the degree check causing the mover to continue even when the angle is outside of the ideal range. It is only recommended to disable this option if the user has limited residues to choose from, as could be the case if docking a small peptide.
 
 If the user disables the degree check, it is strongly recommended to first check how the mobile domain moves in the coordinate system.
 
@@ -124,7 +124,7 @@ If the user disables the degree check, it is strongly recommended to first check
 
 ## Important information
 
-A principal advantage of grid docking is finding narrow energy wells that traditional Monte Carlo centroid-mode docking approaches could miss due to a biased centroid-mode score function. Furthermore, this mover allows the user to explicitly control the [roll](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Roll_pitch_yaw_mnemonic.svg/440px-Roll_pitch_yaw_mnemonic.svg.png) of the mobile domain - a rotation that is anecdotally observed to be under sampled in other docking protocols. However, disadvantages of this system include a predetermined sample space and the large number of output structures.
+A principal advantage of grid docking is finding narrow energy wells that traditional Monte Carlo centroid-mode docking approaches could miss due to a biased centroid-mode score function. Furthermore, this mover allows the user to explicitly control the [roll](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Roll_pitch_yaw_mnemonic.svg/440px-Roll_pitch_yaw_mnemonic.svg.png) of the mobile domain - a rotation that is anecdotally observed, not exhaustively tested, to be under sampled in other docking protocols. However, disadvantages of this system include a predetermined sample space and the large number of output structures.
 
 To address this limitation and to decrease the number of output structures, this mover was designed to work within the [Multistage Rosetta Scripts](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/multistage/MultistageRosettaScripts) platform so the output can be easily filtered and directed to a subsequent design step.
 
@@ -134,7 +134,7 @@ At the start of the Six Degree of Freedom Grid Dock protocol, this mover initial
 
 **The order in which the six docking parameters are applied**. In this model system, the starting helix (dark grey) is first rotated around three axes (steps 1-3) and then translated (steps 4-6). In each successive panel, the N and N-1 poses are shown with arrows to show the movement; The N pose matches the docking parameter label color. The output pose is generated only after all six parameters have been applied. For clarity, the coordinate system is originally generated based on the starting helix (dark grey); each successive rotation and translation is iteratively applied to the input pose based on the original coordinate system. 
 
-For each output pose, the sampled DoF values are reported within the output scorefile with the following column names: axis1_rot, axis2_rot, axis3_rot, axis1_trans, axis2_trans, axis3_trans. Following docking, the score is reported to the scorefile as defaultscorename. Including the mover [FilterReportAsPoseExtraScoresMover](https://new.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/FilterReportAsPoseExtraScoresMover) allows the user to report the filter’s value at the time it is called for later output to the scorefile.
+For each output pose, the sampled DoF values are reported within the output scorefile with the following column names: ```axis1_rot```, ```axis2_rot```, ```axis3_rot```, ```axis1_trans```, ```axis2_trans```, ```axis3_trans```. Following docking, the score is reported to the scorefile as defaultscorename. Including the mover [FilterReportAsPoseExtraScoresMover](https://new.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/FilterReportAsPoseExtraScoresMover) allows the user to report the filter’s value at the time it is called for later output to the scorefile.
 
 
 ## Example XML files
@@ -178,7 +178,7 @@ In the 3-Button Editing mode, the extracted object can be translated in and out 
 
 ![](images/six_dof_grid_dock_mover/10TranslateCmds.png)
 
-💡 User Pro Tip: To **translate **in and out of the screen, press the **shift key + right click + drag the mouse up or down**.
+💡 User Pro Tip: To **translate** in and out of the screen, press the **shift key + right click + drag the mouse up or down**.
 
 💡 User Pro Tip: To **rotate** the domain, press the **shift key + left click + move the mouse in any direction**.
 
@@ -260,11 +260,11 @@ The user should now understand how the mobile domain moves relative to the stati
 
 An advantage of a user-customized protocol is controlling the [roll](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Roll_pitch_yaw_mnemonic.svg/440px-Roll_pitch_yaw_mnemonic.svg.png) (or the Axis 2 rotation in this example) of a good conformation that could benefit from additional rotation sampling to try different faces of the helix, in example.
 
-💡 User Pro Tip: To start a coarse-grain search, sampling with a translation step-size of 5 Angstroms and a rotational step-size of 10-20 degrees is recommended.
+💡 User Pro Tip: To start a coarse-grain search, sampling with a translation step-size of 5 Angstroms and a rotational step-size of 10-20° degrees is recommended.
 
 ![](images/six_dof_grid_dock_mover/15StepSize.png)
 
-**User-controlled granularity for each degree of freedom. **To help the user visualize the step size of each docking parameter, an example translation (top) and rotation (bottom) at various step sizes (0.5, 1, 2) are shown above. In every example, 7 helices are colored red to purple to represent a new pose at each successive step.
+**User-controlled granularity for each degree of freedom.** To help the user visualize the step size of each docking parameter, an example translation (top) and rotation (bottom) at various step sizes (0.5, 1, 2) are shown above. In every example, 7 helices are colored red to purple to represent a new pose at each successive step.
 
 
 ### Example XML format
@@ -273,7 +273,7 @@ Below is an excerpt of an example single-stage Multistage Rosetta Script that te
 
 This docking protocol uses a centroid based score function. Thus, during the stage, the input pose’s side chains are saved and the pose is converted to centroid mode.
 
-💡 User Pro Tip: Once the user sets up the DoFs, the user might not know how many given trajectories are possible. To determine the search space of a job, look for the output printed to the screen during the run: “Dim sizes: 3 3 3 3 10 3”, for example. For this run, this means that there are 3x3x3x3x10x3, or 2,430 possible trajectories.
+💡 User Pro Tip: Once the user sets up the DoFs, the user might not know how many given trajectories are possible. To determine the search space of a job, look for the output printed to the screen during the run: ```Dim sizes: 3 3 3 3 10 3```, for example. For this run, this means that there are 3x3x3x3x10x3, or 2,430 possible trajectories.
 
 💡 User Pro Tip: To sample the [roll](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Roll_pitch_yaw_mnemonic.svg/440px-Roll_pitch_yaw_mnemonic.svg.png) (or the Axis 2 rotation in this example), the user set the rotation range from 0 to 180 with a step size of 20 degrees.
 
@@ -324,7 +324,7 @@ This docking protocol uses a centroid based score function. Thus, during the sta
 ```
 
 
-💡 User Pro Tip: Large runs can take a while. To quickly check the progress of the run, look at the most recent output printed to the screen: “protocols.simple_moves.SixDoFGridDockMover: dof_sample_index547”, for example. At this moment, for example, the run would be on trajectory 547. 
+💡 User Pro Tip: Large runs can take a while. To quickly check the progress of the run, look at the most recent output printed to the screen: ```protocols.simple_moves.SixDoFGridDockMover: dof_sample_index547```, for example. At this moment, for example, the run would be on trajectory 547. 
 
 
 ## 4: Expand the best grid docked poses with local docking
@@ -401,7 +401,7 @@ In this example, the first stage generated 2,430 output poses. A maximum of the 
 ```
 
 
-💡 User Pro Tip: After the run completes, check how the centroid mode score changes between stage 1 and stage 2 (grid docking and local docking refinement, respectively) of a single construct which are reported as cen_total_score and cen_total_score_2, respectively. 
+💡 User Pro Tip: After the run completes, check how the centroid mode score changes between stage 1 and stage 2 (grid docking and local docking refinement, respectively) of a single construct which are reported as ```cen_total_score``` and ```cen_total_score_2```, respectively. 
 
 
 ## 5: Follow docking with design
@@ -517,7 +517,7 @@ This section details some of the common errors that could occur when using this 
     ERROR: Please declare three residue selectors in the mover option.
     ```
 
-* When providing residue selectors, the mover will exit when the residue selectors are not within the ideal range of 60-120° with res_2a at the vertex. To override this check, set degree_check to false.
+* When providing residue selectors, the mover will exit when the residue selectors are not within the ideal range of 60-120° with ```res_2a``` at the vertex. To override this check, set ```degree_check``` to false.
 
     ```
     ERROR: Poorly chosen residue selectors. Angle is outside the range of 60-120 degrees.
@@ -558,7 +558,7 @@ This section details some of the common errors that could occur when using this 
 
 
 
-* When using Multistage Rosetta Scripts in combination with this mover, it is important that the number of runs per input structure (num_runs_per_input_struct) cannot exceed the number of trajectories given the DoF values. Otherwise the run will fail at the end of the run with the following errors:
+* When using Multistage Rosetta Scripts in combination with this mover, it is important that the number of runs per input structure (```num_runs_per_input_struct```) cannot exceed the number of trajectories given the DoF values. Otherwise the run will fail at the end of the run with the following errors:
 
     ```
     ERROR: Assertion `static_cast&lt; size_type >( i - l_ ) &lt; super::size()` failed.
@@ -568,17 +568,17 @@ This section details some of the common errors that could occur when using this 
     ERROR:: Exit from: src/utility/vectorL.hh line: 431
     ```
 
-    Of note, if the num_runs_per_input_struct is less than the number of trajectories, the job will not fail but will also not run the remaining trajectories. Therefore, it is important to set num_runs_per_input_struct equal to the anticipated number of trajectories.
+    Of note, if the ```num_runs_per_input_struct``` is less than the number of trajectories, the job will not fail but will also not run the remaining trajectories. Therefore, it is important to set ```num_runs_per_input_struct``` equal to the anticipated number of trajectories.
 
-* When using Multistage Rosetta Scripts in combination with this mover, part or all of the output poses can be kept. To keep all output poses, set the total number of results to keep (total_num_results_to_keep) to the same value used for num_runs_per_input_struct.
+* When using Multistage Rosetta Scripts in combination with this mover, part or all of the output poses can be kept. To keep all output poses, set the total number of results to keep (```total_num_results_to_keep```) to the same value used for ```num_runs_per_input_struct```.
 
 **Setting the sample size:**
 
 
 
-* The user must provide a search space that generates less than 10,000 docked poses. Alternatively, the user must set max_samples to a value greater than the generated search space. Learn more about max_samples [here](#max-samples-check).
+* The user must provide a search space that generates less than 10,000 docked poses. Alternatively, the user must set ```max_samples``` to a value greater than the generated search space. Learn more about ```max_samples``` [here](#max-samples-check).
 
-    Note, Multistage Rosetta Scripts requires a similar but different parameter known as num_runs_per_input_struct that must be set to the _exact_ value of the expected sample size (the product of each dimension for all six DoFs).
+    Note, Multistage Rosetta Scripts requires a similar but different parameter known as ```num_runs_per_input_struct``` that must be set to the _exact_ value of the expected sample size (the product of each dimension for all six DoFs).
 
     ```
     ERROR: Based on user input DoF values, the scope of the search exceeds either the user input or default value (of 10,000) for the maximum number of samples. Exiting. Change max samples with the max_samples option.
@@ -588,7 +588,7 @@ This section details some of the common errors that could occur when using this 
 
 
 
-* The user must use the  -run:reinitialize_mover_for_each_job flag to sample the entire space when using traditional Rosetta scripts.
+* The user must use the  ```-run:reinitialize_mover_for_each_job``` flag to sample the entire space when using traditional Rosetta scripts.
 
     ```
     ERROR: When using the SixDoFGridDockMover with the jd2 job distributor, the user must include the -run:reinitialize_mover_for_each_job flag or the mover will not enumerate the full set of combinations.
