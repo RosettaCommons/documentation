@@ -25,6 +25,7 @@ Stage1 and stage2 scoring functions must be 'centroid'.
 
 ### Soluble Proteins
 For soluble proteins, the 'score3' scoring function can be used.
+A tutorial on modeling a conformational change with distance restraints can be found here https://www.rosettacommons.org/demos/latest/public/confchangemover_soluble/README
 
 ### Membrane Proteins
 For membrane proteins, the centroid scoring function used in the CCM benchmark is reported below:
@@ -71,6 +72,8 @@ perl topcons2span.pl <TOPCONS topology file>
 ```
 Alternatively, a span file can be generated following these instructions https://new.rosettacommons.org/docs/wiki/application_documentation/membrane_proteins/RosettaMP-App-MPSpanFromPDB
 
+A tutorial on modeling a conformational change with DEER distances can be found here 
+https://www.rosettacommons.org/demos/latest/public/confchangemover_membrane/README
 
 ## Detailed control
 
