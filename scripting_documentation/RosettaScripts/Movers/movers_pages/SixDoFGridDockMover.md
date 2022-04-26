@@ -214,9 +214,9 @@ Note that this docking uses a centroid based score function. The centroid mode s
 ```xml
 <RESIDUE_SELECTORS>
 
-	<Index name="resA" resnums="66A"/>
-	<Index name="resB1" resnums="43B"/>
-	<Index name="resB2" resnums="54B"/>
+	<Index name="res_1" resnums="66A"/>
+	<Index name="res_2a" resnums="43B"/>
+	<Index name="res_2b" resnums="54B"/>
 
 </RESIDUE_SELECTORS>
 ```    
@@ -225,9 +225,9 @@ Note that this docking uses a centroid based score function. The centroid mode s
 <MOVERS>
 
 	<SixDoFGridDockMover name = "test_one_DoF"
-		dof_residue_selector_1 = "resA"
-		dof_residue_selector_2a = "resB1"
-		dof_residue_selector_2b = "resB2"
+		dof_residue_selector_1 = "res_1"
+		dof_residue_selector_2a = "res_2a"
+		dof_residue_selector_2b = "res_2b"
 		values_trans_axis_1 = "0"
 		range_trans_axis_2 = "-10,10,2"
 		values_trans_axis_3 = "0"
@@ -281,9 +281,9 @@ This docking protocol uses a centroid based score function. Thus, during the sta
 ```xml                                                                                                                                                                                                                                                                                            
 <RESIDUE_SELECTORS>
 
-	<Index name="resA" resnums="66A"/>
-	<Index name="resB1" resnums="43B"/>
-	<Index name="resB2" resnums="54B"/>
+	<Index name="res_1" resnums="66A"/>
+	<Index name="res_2a" resnums="43B"/>
+	<Index name="res_2b" resnums="54B"/>
 
 </RESIDUE_SELECTORS>                                                                                                                                                                                                                                                                             
 ```
@@ -292,9 +292,9 @@ This docking protocol uses a centroid based score function. Thus, during the sta
 <MOVERS>
 
 	<SixDoFGridDockMover name = "coarse_grid_dock"
-		dof_residue_selector_1 = "resA"
-		dof_residue_selector_2a = "resB1"
-		dof_residue_selector_2b = "resB2"
+		dof_residue_selector_1 = "res_1"
+		dof_residue_selector_2a = "res_2a"
+		dof_residue_selector_2b = "res_2b"
 		range_trans_axis_1 = "-5,5,5"
 		range_trans_axis_2 = "-5,5,5"
 		range_trans_axis_3 = "0,10,5"
@@ -341,9 +341,9 @@ In this example, the first stage generated 2,430 output poses. A maximum of the 
 ```xml
 <RESIDUE_SELECTORS>
 
-	<Index name="resA" resnums="66A"/>
-	<Index name="resB1" resnums="43B"/>
-	<Index name="resB2" resnums="54B"/>
+	<Index name="res_1" resnums="66A"/>
+	<Index name="res_2a" resnums="43B"/>
+	<Index name="res_2b" resnums="54B"/>
 
 </RESIDUE_SELECTORS>
 ```
@@ -352,9 +352,9 @@ In this example, the first stage generated 2,430 output poses. A maximum of the 
 <MOVERS>
 
 	<SixDoFGridDockMover name = "coarse_grid_dock"
-		dof_residue_selector_1 = "resA"
-		dof_residue_selector_2a = "resB1"
-		dof_residue_selector_2b = "resB2"
+		dof_residue_selector_1 = "res_1"
+		dof_residue_selector_2a = "res_2a"
+		dof_residue_selector_2b = "res_2b"
 		range_trans_axis_1 = "-5,5,5"
 		range_trans_axis_2 = "-5,5,5"
 		range_trans_axis_3 = "0,10,5"
@@ -426,9 +426,9 @@ Below is an excerpt of an example three-stage script that selects the best poses
 ```xml
 <RESIDUE_SELECTORS>
 
-	<Index name="resA" resnums="66A"/>
-	<Index name="resB1" resnums="43B"/>
-	<Index name="resB2" resnums="54B"/>
+	<Index name="res_1" resnums="66A"/>
+	<Index name="res_2a" resnums="43B"/>
+	<Index name="res_2b" resnums="54B"/>
 	
 </RESIDUE_SELECTORS>
 ```
@@ -437,9 +437,9 @@ Below is an excerpt of an example three-stage script that selects the best poses
 <MOVERS>
 
 	<SixDoFGridDockMover name = "coarse_grid_dock"
-		dof_residue_selector_1 = "resA"
-		dof_residue_selector_2a = "resB1"
-		dof_residue_selector_2b = "resB2"
+		dof_residue_selector_1 = "res_1"
+		dof_residue_selector_2a = "res_2a"
+		dof_residue_selector_2b = "res_2b"
 		range_trans_axis_1 = "-5,5,5"
 		range_trans_axis_2 = "-5,5,5"
 		range_trans_axis_3 = "0,10,5"
