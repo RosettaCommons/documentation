@@ -20,7 +20,8 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
         turnon_flexscs_at_relax="(&bool;)" redefine_flexscs_at_relax="(&bool;)"
         exact="(&bool;)" debug="(&bool;)" use_pharmacophore="(&bool;)"
         initial_pool="(&string;)" multiple_ligands="(&string;)"
-        multiple_ligands_file="(&string;)" random_oversample="(&real;)"
+        multiple_ligands_file="(&string;)" ligand_structure_file="(&string;)"
+        ligand_structure_filelist="(&string;)" random_oversample="(&real;)"
         reference_oversample="(&real;)" reference_pool="(&string;)"
         reference_frac="(&real;)" reference_frac_auto="(&bool;)"
         sidechains="(&string;)" frozen_scs="(&string;)"
@@ -28,7 +29,8 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
         grid_bound_penalty="(&real;)" estimate_dG="(&bool;)"
         use_mean_maxRad="(&bool;)" stdev_multiplier="(&real;)"
         torsion_sampler_percentage="(&real;)" contact_distance="(&real;)"
-        freeze_ligand_backbone="(&bool;)" ngen="(&integer;)"
+        freeze_ligand_backbone="(&bool;)" macrocycle_ligand="(&bool;)"
+        align_reference_atom_ids="(&string;)" ngen="(&integer;)"
         npool="(&non_negative_integer;)" pmut="(&real;)" smoothing="(&real;)"
         rmsdthreshold="(&real;)" ramp_schedule="(&string;)"
         maxiter="(&non_negative_integer;)"
@@ -73,6 +75,8 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 -   **initial_pool**: Include these structures in the initial pool.
 -   **multiple_ligands**: Scan ligands with these residue types.
 -   **multiple_ligands_file**: Scan ligands with these residue types in a text file.
+-   **ligand_structure_file**: Scan ligands with these ligand structure files (pdb or silent file).
+-   **ligand_structure_filelist**: Scan ligands with ligand structure files (pdb or silent file) in a text file.
 -   **random_oversample**: scale factor to ntrial of initial random pool generation
 -   **reference_oversample**: scale factor to ntrial of initial reference pool generation
 -   **reference_pool**: Use this structures as _references_ to generate the initial pool.
@@ -89,6 +93,8 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 -   **torsion_sampler_percentage**: The percentage of the initial gene sampled by torsion sampler.
 -   **contact_distance**: Distance cutoff for determining if ligand is in contact with a residue sidechain. Default: 4.5
 -   **freeze_ligand_backbone**: Freeze peptide ligand backbone torsion, only works on peptide ligand. Default: false.
+-   **macrocycle_ligand**: If the ligand is macrocyle or cyclic peptide, if true, constraints will be added to ensure the ring closure. Default: false.
+-   **align_reference_atom_ids**: Atom ids to align after each cycle 'atom_num-residue_num,atom_num-residue_num,atom_num-residue_num...'
 -   **ngen**: number of generations
 -   **npool**: (default) pool size
 -   **pmut**: (default) probability of mutation
