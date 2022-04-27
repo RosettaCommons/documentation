@@ -15,6 +15,12 @@ Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
  Creates an N-Linked Sequence Motif by default using the non-enhanced motif.  This can be changed in options.
 
+
+References and author information for the CreateGlycanSequonMover mover:
+
+CreateGlycanSequonMover Mover's author(s):
+Jared Adolf-Bryfogle, The Scripps Research Institute, La Jolla, CA [jadolfbr@gmail.com]
+
 ```xml
 <CreateGlycanSequonMover name="(&string;)"
         basic_enhanced_n_sequon="(false &bool;)" c_linked_NxC="(false &bool;)"

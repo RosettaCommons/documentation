@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2022-04-04
+Generated: 2022-04-20
 
 _Note that some application specific options may not be present in this list._
 
@@ -691,7 +691,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-rebuild_disulf</b> \<Boolean\></dt>
 <dd>Attempt to build correct disulfide geometry when converting from a centroid pose to a full atom pose. Disulfides must be previously annotated, either by enabling -detect_disulf or by specifying a file to -fix_disulf.<br/>Default: false<br/></dd>
 <dt><b>-preserve_header</b> \<Boolean\></dt>
-<dd>Maintain header info from input PDB when writing output PDBs<br/></dd>
+<dd>Maintain header info from input PDB when writing output PDBs<br/>Default: false<br/></dd>
 <dt><b>-suppress_checkpoints</b> \<Boolean\></dt>
 <dd>Override & switch off checkpoints.<br/></dd>
 <dt><b>-checkpoint</b> \<Boolean\></dt>
@@ -2733,6 +2733,8 @@ _Note that some application specific options may not be present in this list._
 <dd>set membrane core thickness for Lazaridis-Karplus. default is 10A, i.e (-10, 10)<br/></dd>
 <dt><b>-steepness</b> \<Real\></dt>
 <dd>Control transition region between polar and nonpoar phases for the membrane model used by the high resolution energy function. Default = 10 gives a 6A transition region.<br/></dd>
+<dt><b>-geometry</b> \<String\></dt>
+<dd>Geometry of implicit membrane, default is slab. Other options include bicelle, vesicle, and double_vesicle. For a micelle like geometry, you can set the inner_radius for the bicelle geometry (using -mp:geo:bicelle_radius) to a relatively small value. See description of -mp:geo:bicelle_radius for more information.<br/></dd>
 <dt><b>-center_start</b> \<RealVector\></dt>
 <dd>Starting point for center search. Example: 3 2 4.<br/></dd>
 <dt><b>-center_delta</b> \<Real\></dt>
@@ -2859,6 +2861,17 @@ _Note that some application specific options may not be present in this list._
 <dd>Distances between boundary atoms longer than this cutoff (in 2D) will be cut in. Anything larger will be kept as boundary atoms.<br/>Default: 5.0<br/></dd>
 <dt><b>-tm_alpha</b> \<Boolean\></dt>
 <dd>Is the main secondary structure in the membrane helical?<br/>Default: true<br/></dd>
+</dl>
++ <h3>-mp:geo</h3>
+<dl>
+<dt><b>-geo</b> \<Boolean\></dt>
+<dd>geo option group<br/></dd>
+<dt><b>-bicelle_radius</b> \<Real\></dt>
+<dd>Inner radius of bicelle. The bicelle inner_radius is the radius of the flat cylinder of the bicelle shape, the outer radius is the inner_radius+membrane_thickness. Setting the bicelle_radius as 0, would create an ellipsoid with a radius=membrane_thickness (default 15). Keep in mind that when setting the bicelle_radius, the size of the bicelle created is not dependent on the size of the protein. You will want to take the size of your protein into account when setting the bicelle_radius.<br/></dd>
+<dt><b>-vesicle_radius</b> \<Real\></dt>
+<dd>Radius of vesicle. Distance from center of the vesicle/sphere to the center of the membrane.<br/></dd>
+<dt><b>-double_vesicle_distance</b> \<Real\></dt>
+<dd>Distance between outer edge of inner vesicle membrane and inner edge of outer vesicle membrane. <br/></dd>
 </dl>
 + <h3>-mp:transform</h3>
 <dl>
