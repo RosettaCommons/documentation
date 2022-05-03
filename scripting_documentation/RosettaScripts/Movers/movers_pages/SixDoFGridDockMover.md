@@ -139,12 +139,9 @@ For each output pose, the sampled DoF values are reported within the output scor
 
 ## Example XML files
 
-To supplement this documentation, example Multistage Rosetta Scripts are provided at ______.
+To supplement this documentation, example Multistage Rosetta Scripts are provided at ```Rosetta/main/rosetta_scripts_scripts/scripts/public/docking/grid_docking/```.
 
 The main directory contains four subdirectories which correspond with the documentation: [visualizing the coordinate system](#2-visualize-the-coordinate-system), [a coarse-grain grid dock](#3-set-a-coarse-grain-grid-dock-search-space), [following grid dock with local dock](#4-expand-the-best-grid-docked-poses-with-local-docking), and [combining docking with design](#5-follow-docking-with-design). Each subdirectory contains the input files (pdb and flags files) and the xml script necessary to run each job. 
-
-An example run command is: 
-
 
 ## Under the hood
 
