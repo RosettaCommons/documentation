@@ -185,7 +185,7 @@ In addition to an amide bond connecting the N- and C-termini, it is possible to 
 
 Note that the **-cyclic_peptide:require_symmetry_repeats** and **-cyclic_peptide:cyclic_permutations** flags are incompatible with isopeptide lariats.  Also note that the **simple\_cycpep\_predict** application does _not_ use the GLX, ASX, or LYX residue types.  Sequence files and native PDB files must specify GLU, ASP, and LYS, respectively.
 
-## Additional flags for predicting structures of thioethe-bonded lariat peptides
+## Additional flags for predicting structures of thioether-bonded lariat peptides
 
 In addition to an amide bond connecting the N- and C-termini, it is possible to synthesize peptides in which a thiol-containing side-chain forms an amide bond with an N-teminal residue bearing a 2-chloroacetyl group (a strategy popularized by PeptiDream). These one-tailed lariat structures can also be predicted with **simple\_cycpep\_predict**.  The relevant flags are as follows:
 
