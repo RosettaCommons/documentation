@@ -322,7 +322,7 @@ Note that each type of crosslinker can link different types of side-chains:
 | trigonal\_planar\_metal | virtual atoms representing a metal (note: no new residue is placed ) | 3 | L-histidine (HIS, HIS_D), D-histidine (DHI), L-aspartate (ASP), D-asparate (DAS), L-glutamate (GLU), D-glutamate (DGU) | C3, asymmetric |
 | TBMB | 1,3,5-tris(bromomethyl)benzene | 3 | L-cysteine (CYS), D-cysteine (DCY) | C3, asymmetric |
 | 1_4_BBMB | 1,4-bis(bromomethyl)benzene | 2 | L-cysteine (CYS), D-cysteine (DCY) | S2, C2, asymmetric |
-| thioether  | N-terminal thioether lariat | 2 | Anything (N-terminus) to L-cysteine (CYS) or D-cysteine (DCY) side-chain | asymmetric |
+| thioether  | N-terminal thioether lariat (note: no new residue is placed) | 2 | Anything (N-terminus) to L-cysteine (CYS) or D-cysteine (DCY) side-chain | asymmetric |
 | TMA  | trimesic acid                  | 3 | L-lysine (LYS), D-lysine (DLY), L-ornithine (ORN), D-ornithine (DOR), L-2,4-diaminobutyric acid (DAB), D-2,4-diaminobutyric acid (DDA), L-2,3-diaminopropanoic acid (DPP), D-2,3-diaminopropanoic acid (DDP) | C3, asymmetric |
 
 ## Auto-generated documentation
