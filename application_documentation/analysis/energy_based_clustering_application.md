@@ -1,6 +1,6 @@
 # energy_based_clustering
 
-This page was created 23 October 2017 by Vikram K. Mulligan (vmullig@uw.edu).  It was last modified on 8 May 2019 by Vikram K. Mulligan (vmulligan@flatironinstitute.org).
+This page was created 23 October 2017 by Vikram K. Mulligan (vmullig@uw.edu/vmulligan@flatironinstitute.org).  It was last modified on 26 May 2022 by Paul Eisenhuth (eisenhuth@informatik.uni-leipzig.de).
 
 Back to [[Application Documentation]].
 
@@ -26,10 +26,11 @@ Clustering is the process of taking a large group of structures and sorting them
      * Optional Ramachandran bin analysis, carried out concurrently with clustering (only for alpha-amino acids and peptoids).
   * Homo-oligomers:
      * Support for considering all permutations of oligomers during clustering.
+  * Usage of alternative scores
 
 # The algorithm
 
-The `energy_based_clustering` application imports a list of structures from any Rosetta-compatible file format (currently mmCIF, PDB, or Rosetta silent format), scores each, and stores only the information relevant for clustering (thereby conserving memory) in an unclustered structure list.  It then uses a very simple "cookie-cutter" algorithm to cluster the structures.  The steps are:
+The `energy_based_clustering` application imports a list of structures from any Rosetta-compatible file format (currently mmCIF, PDB, or Rosetta silent format), scores each or loads a list of alternative scores, and stores only the information relevant for clustering (thereby conserving memory) in an unclustered structure list.  It then uses a very simple "cookie-cutter" algorithm to cluster the structures.  The steps are:
 
 1.  Select the lowest-energy structure remaining in the unclustered list as the centre of the current cluster.  This structure is removed from the unclustered list.
 2.  Construct an RMSD vector between the current cluster centre and all remaining structures in the unclustered list.  The RMSD can be based on mainchain Cartesian coordinates or on backbone dihedral values.
@@ -75,6 +76,7 @@ The output is, by default, a set of PDB files with names of format `c.<cluster #
 | cluster:<br/>energy_based_clustering:<br/>rebuild_all_in_dihedral_mode | (boolean) If true, full poses are rebuilt for output when clustering in dihedral mode.  If false, only backbones are written out.  True by default. | true |
 | cluster:<br/>energy_based_clustering:<br/>prerelax | (boolean) Should imported structures be subjected to a round of fast relaxation? | false |
 | cluster:<br/>energy_based_clustering:<br/>relax_rounds | (integer) The number of fastrelax rounds to apply if the -prerelax option is used. | 1 |
+| cluster:<br/>energy_based_clustering:<br/>alternative_score_file | (string) Path to a file containing one line for each input structure, starting with input structures name and followed separated by whitespace one number to be used as a score. See examples below. | \<empty string\> |
 | in:<br/>file:<br/>s | (string vector) List of PDB files to import. | \<empty vector\> |
 | in:<br/>file:<br/>l | (string vector) List of text files containing lists of PDB files to import. | \<empty vector\> |
 | in:<br/>file:<br/>silent | (string vector) List of Rosetta silent files to import. | \<empty vector\> |
@@ -106,9 +108,26 @@ The contents of `inputs/rosetta.flags` is as follows:
 -cluster:energy_based_clustering:cluster_cyclic_permutations true
 ```
 
+# Score file example
+Given input files pose_001.pdb, pose_002.pdb, pose_003.pdb, and pose_004.pdb, this is how a score file could look:
+```
+pose_001.pdb -24.5764
+pose_002.pdb -14.4574
+pose_003.pdb -19.0286
+pose_004.pdb -15.3209
+```
+It is possible to have duplicates in there, so multiple score for the same file name. In that case only the last score will be used. Furthermore, filenames can be followed by a ':' and any arbitrary other string as long as is does not include whitespace and look like
+```
+pose_001.pdb:dG_cross -24.5764
+```
+This is to allow easy creation of score files for pdb files resulting from Rosetta runs through a single command:
+```
+grep "pdb:dG_cross " *.pdb > scores_dG_cross.txt 
+```
+
 # Notes on development history
 
-This application began life as `vmullig/bettercluster.cc`, a pilot application created on 6 May 2013.  Many features have been added since then, including cyclic permutations, support for internal peptide symmetry, and support for non-canonicals.  A few features have also been removed, such as principal component analysis (PCA) on each cluster.  On 23 October 2017, a heavily cleaned-up version was added to the Rosetta public applications repository for general use.  On 8 May 2019, an option was added to allow Ramachandran bin analysis to be performed on-the-fly, during clustering.  (Previously, this analysis was performed after the fact with a Python script.)
+This application began life as `vmullig/bettercluster.cc`, a pilot application created on 6 May 2013.  Many features have been added since then, including cyclic permutations, support for internal peptide symmetry, and support for non-canonicals.  A few features have also been removed, such as principal component analysis (PCA) on each cluster.  On 23 October 2017, a heavily cleaned-up version was added to the Rosetta public applications repository for general use.  On 8 May 2019, an option was added to allow Ramachandran bin analysis to be performed on-the-fly, during clustering.  (Previously, this analysis was performed after the fact with a Python script.) On 26 May 2022, an option was added to load a custom score file and use whatever score is listed in there instead of scoring each input.
 
 # References
 
