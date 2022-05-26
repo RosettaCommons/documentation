@@ -76,7 +76,7 @@ The output is, by default, a set of PDB files with names of format `c.<cluster #
 | cluster:<br/>energy_based_clustering:<br/>rebuild_all_in_dihedral_mode | (boolean) If true, full poses are rebuilt for output when clustering in dihedral mode.  If false, only backbones are written out.  True by default. | true |
 | cluster:<br/>energy_based_clustering:<br/>prerelax | (boolean) Should imported structures be subjected to a round of fast relaxation? | false |
 | cluster:<br/>energy_based_clustering:<br/>relax_rounds | (integer) The number of fastrelax rounds to apply if the -prerelax option is used. | 1 |
-| cluster:<br/>energy_based_clustering:<br/>alternative_score_file | (string) Path to a file containing one line for each input structure, starting with input structures name and followed separated by whitespace one number to be used as a score. See examples below. | \<empty string\> |
+| cluster:<br/>energy_based_clustering:<br/>alternative_score_file | (string) Path to a file containing one line for each input structure, starting with input structures name and followed separated by whitespace one number to be used as a score. See examples below. **Warning:** The usage of this option can increase the memory consumption greatly when used for over a million input structures | \<empty string\> |
 | in:<br/>file:<br/>s | (string vector) List of PDB files to import. | \<empty vector\> |
 | in:<br/>file:<br/>l | (string vector) List of text files containing lists of PDB files to import. | \<empty vector\> |
 | in:<br/>file:<br/>silent | (string vector) List of Rosetta silent files to import. | \<empty vector\> |
