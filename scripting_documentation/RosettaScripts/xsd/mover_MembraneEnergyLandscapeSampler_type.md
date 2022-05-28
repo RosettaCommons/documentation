@@ -8,12 +8,17 @@ Sample the membrane energy function landscape using a given energy function
 ```xml
 <MembraneEnergyLandscapeSampler name="(&string;)" scorefxn="(&string;)"
         sfxn_weights="(&string;)" rotation_type="(&string;)"
-        interface="(&bool;)" />
+        interface="(&bool;)" start_z="(&real;)" end_z="(&real;)"
+        flag_axis="(&real;)" azimuthal_delta="(&real;)" />
 ```
 
 -   **scorefxn**: Name of score function to use
 -   **sfxn_weights**: Energy function weights file
 -   **rotation_type**: Rotation axis: XY, XZ, or YZ
 -   **interface**: Should I treat this like an interface landscape scanning problem?
+-   **start_z**: lower limit of z-coord
+-   **end_z**: upper limit of z-coord
+-   **flag_axis**: select the axis of rotation
+-   **azimuthal_delta**: select the frequency of azimuthal/rotation angle
 
 ---

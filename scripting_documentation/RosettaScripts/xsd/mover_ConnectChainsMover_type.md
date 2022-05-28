@@ -12,7 +12,11 @@ only allow loops from the most frequent abegos
         resAdjustmentRangeSide2="(-3,3 &int_cslist;)"
         resAdjustmentRangeSide1_sheet="(-1,1 &int_cslist;)"
         resAdjustmentRangeSide2_sheet="(-1,1 &int_cslist;)"
-        allowed_loop_abegos="(&string;)" chain_connections="(&string;)" />
+        allowed_loop_abegos="(&string;)" label_loop="(&string;)"
+        chain_connections="(&string;)" reletter_chains="(false &bool;)"
+        fragment_store="(&string;)" fragment_store_format="(hashed &string;)"
+        numb_stubs_to_consider="(1 &non_negative_integer;)"
+        fragment_store_compression="(all &string;)" />
 ```
 
 -   **loopLengthRange**: Loops can range from 1 to 5 residue
@@ -22,6 +26,12 @@ only allow loops from the most frequent abegos
 -   **resAdjustmentRangeSide1_sheet**: residue adjustment applied before the loop if sheet
 -   **resAdjustmentRangeSide2_sheet**: residue adjustment applied after the loop if sheet
 -   **allowed_loop_abegos**: comma seperated string of allowed abegos, default=empty all abegos
+-   **label_loop**: label loop in pdb_info object
 -   **chain_connections**: (REQUIRED) what chains to connect
+-   **reletter_chains**: what chains to connect
+-   **fragment_store**: path to fragment store. Note:All fragment stores use the same database
+-   **fragment_store_format**: Options:hashed,unhashed new format is unhashed
+-   **numb_stubs_to_consider**: number of stubs to consider. Fewer-faster, higher-increased accuracy
+-   **fragment_store_compression**: Options:helix_shortLoop,sheet_shortLoop,all
 
 ---

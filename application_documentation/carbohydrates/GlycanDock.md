@@ -6,9 +6,11 @@ GlycanDock
 MetaData
 ========
 
-Application created by Morgan Nance (morganlnance(at)gmail(dot)com) with the original version created by Dr. Jason Labonte (JWLabonte@jhu.edu). See https://doi.org/10.1002/jcc.24679 for the details on the original `glycan_dock` application.
+Application created by Morgan Nance with the original version created by Dr. Jason Labonte. See https://doi.org/10.1002/jcc.24679 for the details on the original `glycan_dock` application.
 
-PIs: Dr. Jeffrey Gray (jgray@jhu.edu)
+Please cite: _Development and Evaluation of GlycanDock: A Protein-Glycoligand Docking Refinement Algorithm in Rosetta_; DOI: [10.1021/acs.jpcb.1c00910](10.1021/acs.jpcb.1c00910)
+
+PIs: Dr. Jeffrey Gray (jgray [at] jhu [dot] edu)
 
 
 Description
@@ -31,92 +33,75 @@ Algorithm
 Rigid-body sampling consists of uniform perturbations to the glycoligands center-of-mass as well as occasional translation of the glycoligand toward the protein receptor’s center-of-mass. This latter “sliding” step ensures that the glycoligand does not drift far away from the protein during the docking trajectory. Glycosidic-linkage sampling includes performing uniform and non-uniform perturbations of various magnitudes on randomly selected glycosidic torsion angles. 
 
 Full Description:
-MLN TODO–
+
 ```
-///@brief Main mover for GlycanDock
+///@brief Main mover for GlycanDockProtocol using default behavior and settings
 ///
 /// Outer cycles controlling score term ramping
-///   Cycle 1: fa_atr XXX  fa_rep XXX
+///   Cycle 1: fa_atr 1.0 * 3.25  fa_rep 0.55 * 0.45455
 ///   ...
 ///.  Cycle 10: fa_atr 1.0  fa_rep 0.55 (default REF2015 values as of Feb 2021)
 ///
 /// Inner cycles controlling glycoligand sampling and optimization
 ///   Cycle 1-10: Either
-///                 8 rigid-body perturbations followed by 8 glycosidic torsion angle perturbations
-///              or 8 glycosidic torsion angle perturbations followed by 8 rigid-body perturbations
-///             After each single perturbation
-///               packing
-///                 First 7 perturbations call RotamerTrialsMover for packing
-///                 PackRotamersMover called after the 8th perturbation
-///             After every other perturbation
-///               minimization
-///                 MinMover
+///                  8 rigid-body perturbations followed by 8 glycosidic torsion angle perturbations
+///                or 8 glycosidic torsion angle perturbations followed by 8 rigid-body perturbations
+///               After each single rigid-body or glycosidic torsion angle perturbation
+///                pack side-chain rotamers
+///                  RotamerTrialsMover at interface for rounds 1–7
+///                  RotamerTrialsMover at interface for round 8
+///               After every other rigid-body or glycosidic torsion angle perturbation perturbation
+///                minimize entire complex
+///                  MinMover (glycoligand backbone + sidechains + protein sidechains + docking interface
 ///             
 ///   Weights and Movers for rigid-body sampling
 ///    0.67 RigidBodyPerturbMover (rot = X, ang = Y)
 ///    0.33 the above and followed by FaDockingSlideIntoContact
 ///
 ///   Weights and Movers for glycosidic torsion angle sampling
-///    .XX Phi/Psi Sugar BB Sampling
-///    .YY abc
-///    .ZZ Small BB Sampling - equal weight to phi, psi, or omega
-///      -> .XX +/- 15 degrees
-///      -> .YY +/- 45 degrees
-///      -> .ZZ +/- 90 degrees
+///    0.45 Phi/Psi Sugar BB Sampling
+///    0.3 Small BB Sampling - equal weight to phi, psi, or omega
+///      -> 0.171429 +/- 15 degrees
+///      -> 0.0857143 +/- 45 degrees
+///      -> 0.0428571 +/- 90 degrees
+///    0.2 Shear BB Sampling
+///    0.0.5 RingPlaneFlipMover
 ///
 ```
 
-Options
+Options and Scripting
 =======
 
- - Option Group: ```carbohydrates:GlycanDock```
- 
-```
-MLN TODO–GlycanRelax example flag
--glycan_relax_test, 'Boolean',
-    default = false
-    desc = Indicates to go into testing mode for Glycan Relax.  
-           Will try all torsions in a given PDB in a linear fashion
+ - Option Group: ```carbohydrates:glycan_dock```
+ - See the auto-generated [[ RosettaScripts schema for GlycanDockProtocol | mover_GlycanDockProtocol_type]]
 
-```
+
 
 Tips
 ====
-MLN TODO–Lessons from benchmarking
+See [[Working With Glycans | WorkingWithGlycans ]] for more information on carbohydrate modeling in Rosetta.
 
 
 Typical Use
 ===========
-Here, the input `prot_glyc_complex.pdb` is a putative complex of a protein (chain A) and a glycoligand (chain X) where the lines defining the coordinates for each atom of the glycoligand is found at the bottom of the PDB file (this is to ensure proper setup of the [[FoldTree | FoldTree-file]]. The `-refine_only` flag is used to allow for only "small" perturbations of the glycosidic torsion angles during local docking. for The `-auto_detect_glycan_connections` flag tells Rosetta to determine the connections (_i.e._, the atomic bonds) between each carbohydrate residue of the glycoligand. In this way, Rosetta will create the necessary `HETNAM` and `LINK` records for the .pdb file.
+Here, the input `prot_glyc_complex.pdb` is a putative complex of a protein (chain A) and a glycoligand (chain X) where the lines defining the coordinates for each atom of the glycoligand is found at the bottom of the PDB file (this is to ensure proper setup of the [[FoldTree | FoldTree-file]]). The `-refine_only` flag is used to allow for only "small" perturbations of the glycosidic torsion angles during local docking. for The `-auto_detect_glycan_connections` flag tells Rosetta to determine the connections (_i.e._, the atomic bonds) between each carbohydrate residue of the glycoligand. In this way, Rosetta will create the necessary `HETNAM` and `LINK` records for the .pdb file.
 
 ```
-GlycanDock.default.macosclangrelease -include_sugars -auto_detect_glycan_connections
--in:file:s prot_glyc_complex.pdb -nstruct 10 -carbohydrates:GlycanDock:refine_only true
+/Rosetta/main/source/bin/./GlycanDock.default.macosclangrelease -include_sugars -auto_detect_glycan_connections -in:file:s prot_glyc_complex.pdb -nstruct 10 -carbohydrates:glycan_dock:refine_only true
 ```
 
-Scripting
-=========
-MLN TODO–RosettaScripts? PyRosetta?
 
 <!--- END_INTERNAL -->
 
-## See Also
-* [[WorkingWithGlycans]]
-
-- ### Apps
+See Also
+========
+* [[WorkingWithGlycans]] - Working with carbohydrates in Rosetta
 * [[GlycanInfo]] - Get information on all glycan trees within a pose
 * [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 * [[GlycanRelax]] - Sample potential conformational states of a glycan chain, either attached to a protein or free.
-
-- ### RosettaScript Components
 * [[SimpleGlycosylateMover]] - Glycosylate poses with glycan trees.  
 * [[GlycanTreeSelector]] - Select individual glcyan trees or all of them
 * [[GlycanResidueSelector]] - Select specific residues of each glycan tree of interest.
-
-- ### Other
-* [[Application Documentation]]: List of Rosetta applications
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
-* [[Comparing structures]]: Essay on comparing structures
-* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
 * [[Commands collection]]: A list of example command lines for running Rosetta executable files

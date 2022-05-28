@@ -5,6 +5,8 @@
 
 Replace a region of a pose with another. 
 
+[[include:mover_ReplaceRegionMover_type]]
+
 ##See Also
 * [[DeleteRegionMover]]
 * [[KeepRegionMover]]

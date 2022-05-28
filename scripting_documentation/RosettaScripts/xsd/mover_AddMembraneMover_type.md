@@ -14,7 +14,7 @@ Add membrane to a pose
         span_starts="(&residue_number_cslist;)"
         span_ends="(&residue_number_cslist;)" span_starts_num="(&string;)"
         span_ends_num="(&string;)" span_orientations="(&string;)"
-        center="(&string;)" normal="(&string;)" >
+        transition_geometry="(&string;)" center="(&string;)" normal="(&string;)" >
     <Span start="(&non_negative_integer;)" end="(&non_negative_integer;)"
             orientation="(&string;)" />
 </AddMembraneMover>
@@ -35,6 +35,7 @@ Add membrane to a pose
 -   **span_starts_num**: comma separated list of span starting residues, in rosetta numbering
 -   **span_ends_num**: comma separated list of span ending residues in rosetta_numbering
 -   **span_orientations**: comma separated list of span orientations, only in2out or out2in allowed
+-   **transition_geometry**: Geometry of implicit membrane
 -   **center**: Position of center of membrane in format x,y,z
 -   **normal**: Membrane normal vector in format x,y,z
 

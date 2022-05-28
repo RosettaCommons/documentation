@@ -1,12 +1,12 @@
 # Covalent Labeling MS Score Terms
 
 Creator Names:
-* Sarah Biehn (biehn.4@osu.edu)
-* Melanie Aprahamian (aprahamian.4@osu.edu)
+* Sarah Biehn (biehn.4@osu.edu) (`hrf_dynamics` and `depc_ms`)
+* Melanie Aprahamian (aprahamian.4@osu.edu) (`covalent_labeling` and `hrf_ms_labeling` and the `per_residue_solvent_exposure` application)
 * PI: Steffen Lindert (lindert.1@osu.edu)
 
 Date created: July 27, 2018
-Updated: February 24, 2021 
+Updated: June 29, 2021
 
 ## Covalent Labeling Mass Spectrometry
 Covalent labeling (sometimes referred to as “protein footprinting”) involves exposing a protein in solution to a small labeling reagent that will covalently bond to select amino acid side chains that are exposed to solvent, whereas side chains buried within the core of the protein or occluded by interacting protein subunits will not get labeled. This provides information about the relative location of certain amino acids with respect to the solvent (either on the surface and solvent exposed or buried within the protein or protein complex structure). A variety of different labeling reagents exist and some are highly specific as to which amino acid(s) can react with the reagent and others have a much broader range of potential target residues.
@@ -15,15 +15,18 @@ On its own, covalent labeling MS experiments do not provide enough information t
 
 Experimental results are typically represented in the form of protection factors (PF). We define the protection factor as the ratio of the relative intrinsic reactivity for residue i divided by the experimentally determined labeling rate constant k. The natural logarithm of the PFs provide a quantitative measure that correlates to a residue's relative solvent exposure (which can easily be determined within Rosetta).
 
-HRF Publication: [Biehn and Lindert, _Nat. Comm._ 2021] (https://www.nature.com/articles/s41467-020-20549-7).
-Please see Supplementary Note 1 in the publication for an in-depth tutorial with corresponding command lines.
+**HRPF Publication**: [Biehn and Lindert, _Nat. Comm._ 2021] (https://www.nature.com/articles/s41467-020-20549-7).
+Please see Supplementary Note 1 in the publication for an in-depth tutorial of ab initio model generation and score term usage with corresponding command lines.
 
-## Hydroxyl Radical Footprinting (HRF)
-We have developed the `hrf_dynamics` score term that uses lnPF data from HRF MS experiments to reward models that agree with experimental data.
+**DEPC Publication**: [Biehn, Limpikirati, Vachet, and Lindert, _Anal. Chem._ 2021] (https://pubs.acs.org/doi/full/10.1021/acs.analchem.1c00395).
+Please see Supplementary Note 1 in the publication for an in-depth tutorial of homology model generation and score term usage with corresponding command lines.
+
+## Hydroxyl Radical Protein Footprinting (HRPF)
+We have developed the `hrf_dynamics` score term that uses lnPF data from HRPF MS experiments to reward models that agree with experimental data.
 
 The energy method is located in `Rosetta/main/source/src/core/energy_methods/HRFDynamicsEnergy.cc`.
 
-### Per Residue Solvent Exposure for HRF
+### Per Residue Solvent Exposure for HRPF
 In order to calculate a residue's relative solvent exposure in a given model, we identified a prediction equation that relates conical neighbor count calculated from 30 mover models and experimental input data in the form of lnPF. This neighbor count calculation uses a logistic function with a distance midpoint of `9.0`, distance steepness of `1.0`, angle midpoint of `pi/2`, and angle steepness of `2pi`. To determine the neighbor count, a simple application was written to read in a pdb and output a per residue neighbor count: `Rosetta/main/source/src/apps/public/analysis/per_residue_solvent_exposure.cc`.
 
 ### Usage
@@ -41,9 +44,9 @@ The associated weights file, `hrf_dynamics.wts`, gives this score a weight of `1
 
 Command line usage for rescoring models:
 ```
-~/Rosetta/main/source/bin/score.linuxgccrelease \
-   -database /path/to/rosetta/main/database \
-   -in:file:s S_000001.pdb \
+~/Rosetta/main/source/bin/score.linuxgccrelease 
+   -database /path/to/rosetta/main/database 
+   -in:file:s S_000001.pdb 
    -score:hrf_dynamics_input labeling_input_file.txt
    -score:weights hrf_dynamics.wts 
 ```
@@ -56,8 +59,33 @@ Command line usage for mover model generation:
 ```
 Mover models can then be scored with `hrf_dynamics`.
 
-###Previous work
-Information regarding the previous score term,  `hrf_ms_labeling`, can be found in the following publication: [Aprahamian et. al., Anal. Chem. 2018](https://pubs.acs.org/doi/abs/10.1021/acs.analchem.8b01624)
+## Covalent Labeling with Diethylpyrocarbonate (DEPC)
+We have developed the `depc_ms` score term that uses DEPC labeling data as label status (`L` for labeled, `U` for unlabeled) and residue numbers to reward models that agree with experimental data. Serine, threonine, and tyrosine residues with 5-35% relative SASA are rewarded if they are labeled and have more hydrophobic neighbors or if they are unlabeled and have less hydrophobic neighbors. DEPC-labeled histidine and lysine residues are rewarded for having higher relative SASA.
+
+The energy method is located in `Rosetta/main/source/src/core/energy_methods/DEPC_MS_Energy.cc`.
+
+### Usage
+To use `depc_ms`, an input text file containing the label status (`L` or `U`) along with the corresponding residue number for residue types H, K, S, T, and Y is required. The general format for this input file is:
+
+```
+#Residue number, Label Status
+3	L
+16      L
+24      L
+39      U
+...
+```
+
+The associated weights file, `depc_ms.wts`, gives this score a weight of `9.0`. This was optimized based solely on rescoring pre-generated _ab initio_ models. More work needs to be done to optimize for use with [Abinitio Relax](https://www.rosettacommons.org/docs/wiki/application_documentation/structure_prediction/abinitio-relax).
+
+Command line usage for rescoring models:
+```
+~/Rosetta/main/source/bin/score.linuxgccrelease 
+   -database /path/to/rosetta/main/database 
+   -in:file:s S_000001.pdb 
+   -score:depc_ms_input labeling_input_file.txt
+   -score:weights depc_ms.wts 
+```
 
 ## General Covalent Labeling
 

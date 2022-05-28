@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2021-05-26
+Generated: 2022-04-20
 
 _Note that some application specific options may not be present in this list._
 
@@ -118,6 +118,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Database file input search paths.  If the database is not found the ROSETTA3_DB environment variable is tried.<br/></dd>
 <dt><b>-database_cache_dir</b> \<Path\></dt>
 <dd>Which directory to use when caching processed database files.<br/></dd>
+<dt><b>-bcl</b> \<PathVector\></dt>
+<dd>Path to the BCL submodule in Rosetta. Must lead to a valid BCL submodule. If the BCL is not found then we attempt to resolve the path relative to the Rosetta database.<br/></dd>
 </dl>
 + <h3>-in:file</h3>
 <dl>
@@ -689,7 +691,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-rebuild_disulf</b> \<Boolean\></dt>
 <dd>Attempt to build correct disulfide geometry when converting from a centroid pose to a full atom pose. Disulfides must be previously annotated, either by enabling -detect_disulf or by specifying a file to -fix_disulf.<br/>Default: false<br/></dd>
 <dt><b>-preserve_header</b> \<Boolean\></dt>
-<dd>Maintain header info from input PDB when writing output PDBs<br/></dd>
+<dd>Maintain header info from input PDB when writing output PDBs<br/>Default: false<br/></dd>
 <dt><b>-suppress_checkpoints</b> \<Boolean\></dt>
 <dd>Override & switch off checkpoints.<br/></dd>
 <dt><b>-checkpoint</b> \<Boolean\></dt>
@@ -1118,6 +1120,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Apply a bonus factor to hydrogen bonds accross chains. Remember to set this negative.<br/>Default: 0<br/></dd>
 <dt><b>-approximate_buried_unsat_penalty_hbond_bonus_ser_to_helix_bb</b> \<Real\></dt>
 <dd>Apply a bonus factor to the classic SER/THR i - i-4 h-bond. OG/OG1 - O. Set this positive to penalize.<br/>Default: 0<br/></dd>
+<dt><b>-approximate_buried_unsat_penalty_lys_ok_with_1</b> \<Boolean\></dt>
+<dd>Make LYS N work like carbonyl O where it prefers 1 or 2 h-bonds.<br/>Default: false<br/></dd>
 <dt><b>-target_clash_pdb</b> \<String\></dt>
 <dd>The target pdb file for clashing check with the target_clash score term.<br/>Default: ""<br/></dd>
 <dt><b>-aspartimide_penalty_value</b> \<Real\></dt>
@@ -1288,6 +1292,12 @@ _Note that some application specific options may not be present in this list._
 <dd>outer limit for FadeFunc in HRF_MSLabeling score term<br/>Default: 10.0<br/></dd>
 <dt><b>-ms_fade_dist</b> \<Real\></dt>
 <dd>fade distance for FadeFunc in HRF_MSLabeling score term<br/>Default: 5.0<br/></dd>
+<dt><b>-ccs_exp</b> \<Real\></dt>
+<dd>Experimental CCS Data, in squared Angstroms, from IMMS for CCS_IMMSEnergy score term, this is a required input from the user<br/></dd>
+<dt><b>-ccs_prad</b> \<Real\></dt>
+<dd>Radius of probe, in Angstroms, for CCS calculation for CCS_IMMSEnergy score term, by default 1.0 Angstrom is used to predict CCS in helium buffer gas conditions<br/>Default: 1.0<br/></dd>
+<dt><b>-ccs_nrots</b> \<Integer\></dt>
+<dd>Number of random rotations, must be integers, for CCS calculation for CCS_IMMSEnergy score term<br/>Default: 300<br/></dd>
 <dt><b>-nmer_ref_energies</b> \<String\></dt>
 <dd>nmer ref energies database filename<br/></dd>
 <dt><b>-nmer_ref_energies_list</b> \<String\></dt>
@@ -1854,7 +1864,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-glycan_dock</b> \<Boolean\></dt>
 <dd>glycan_dock option group<br/></dd>
 <dt><b>-n_repeats</b> \<Integer\></dt>
-<dd>Number of times to run the GlycanDock protocol on a protein-glycoligand system if the final docked structure does not pass the quality filter (< 0 Rosetta interaction energy). Default = 1<br/>Default: 1<br/></dd>
+<dd>Number of times to restart the GlycanDock algorithm starting at Stage 2 if the final docked model does not pass the quality filter (< 0 Rosetta interaction energy). Default = 3<br/>Default: 3<br/></dd>
 <dt><b>-refine_only</b> \<Boolean\></dt>
 <dd>Perform refinement of the input putative complex only. Skips Stage 1 (conformational initialization via a random perturbation) and, during Stage 2, do not perform large perturbations in glycosidic torsion angle space. Default = false<br/>Default: false<br/></dd>
 <dt><b>-prepack_only</b> \<Boolean\></dt>
@@ -2143,6 +2153,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Add Shannon entropy correction to rotamer energy: E = -logP + S<br/>Default: false<br/></dd>
 <dt><b>-no_autogen_cart_improper</b> \<Boolean\></dt>
 <dd>Ignore the auto parameter generation of improper torsions (undefined torsions) in CartesianBondedEnergy, generate_impropers_map_res.<br/></dd>
+<dt><b>-gridscore_outbox_penalty_weight</b> \<Real\></dt>
+<dd>The weight of the out-of-box penalty in gridscorer, i.e. out_of_bound_e_<br/>Default: 100<br/></dd>
 </dl>
 + <h3>-corrections:chemical</h3>
 <dl>
@@ -2721,6 +2733,8 @@ _Note that some application specific options may not be present in this list._
 <dd>set membrane core thickness for Lazaridis-Karplus. default is 10A, i.e (-10, 10)<br/></dd>
 <dt><b>-steepness</b> \<Real\></dt>
 <dd>Control transition region between polar and nonpoar phases for the membrane model used by the high resolution energy function. Default = 10 gives a 6A transition region.<br/></dd>
+<dt><b>-geometry</b> \<String\></dt>
+<dd>Geometry of implicit membrane, default is slab. Other options include bicelle, vesicle, and double_vesicle. For a micelle like geometry, you can set the inner_radius for the bicelle geometry (using -mp:geo:bicelle_radius) to a relatively small value. See description of -mp:geo:bicelle_radius for more information.<br/></dd>
 <dt><b>-center_start</b> \<RealVector\></dt>
 <dd>Starting point for center search. Example: 3 2 4.<br/></dd>
 <dt><b>-center_delta</b> \<Real\></dt>
@@ -2805,6 +2819,8 @@ _Note that some application specific options may not be present in this list._
 <dd>scoring option group<br/></dd>
 <dt><b>-hbond</b> \<Boolean\></dt>
 <dd>Hydrogen bonding energy correction for membrane proteins<br/>Default: false<br/></dd>
+<dt><b>-analytic_membetable_evaluation</b> \<Boolean\></dt>
+<dd>If true, membrane solvation energies will be calculated analytically, instead of ahead of time and stored in memb_etable<br/>Default: true<br/></dd>
 </dl>
 + <h3>-mp:setup</h3>
 <dl>
@@ -2845,6 +2861,17 @@ _Note that some application specific options may not be present in this list._
 <dd>Distances between boundary atoms longer than this cutoff (in 2D) will be cut in. Anything larger will be kept as boundary atoms.<br/>Default: 5.0<br/></dd>
 <dt><b>-tm_alpha</b> \<Boolean\></dt>
 <dd>Is the main secondary structure in the membrane helical?<br/>Default: true<br/></dd>
+</dl>
++ <h3>-mp:geo</h3>
+<dl>
+<dt><b>-geo</b> \<Boolean\></dt>
+<dd>geo option group<br/></dd>
+<dt><b>-bicelle_radius</b> \<Real\></dt>
+<dd>Inner radius of bicelle. The bicelle inner_radius is the radius of the flat cylinder of the bicelle shape, the outer radius is the inner_radius+membrane_thickness. Setting the bicelle_radius as 0, would create an ellipsoid with a radius=membrane_thickness (default 15). Keep in mind that when setting the bicelle_radius, the size of the bicelle created is not dependent on the size of the protein. You will want to take the size of your protein into account when setting the bicelle_radius.<br/></dd>
+<dt><b>-vesicle_radius</b> \<Real\></dt>
+<dd>Radius of vesicle. Distance from center of the vesicle/sphere to the center of the membrane.<br/></dd>
+<dt><b>-double_vesicle_distance</b> \<Real\></dt>
+<dd>Distance between outer edge of inner vesicle membrane and inner edge of outer vesicle membrane. <br/></dd>
 </dl>
 + <h3>-mp:transform</h3>
 <dl>
@@ -3039,6 +3066,10 @@ _Note that some application specific options may not be present in this list._
 <dd>Use the old approach to symmetric minimization<br/>Default: false<br/></dd>
 <dt><b>-debug_inaccurate_G</b> \<Boolean\></dt>
 <dd>Debug innacurate G messages<br/>Default: false<br/></dd>
+<dt><b>-cmaes_rgsigma</b> \<Real\></dt>
+<dd>CMAES initial coordinate wise standard deviation (step size)<br/>Default: 0.3<br/></dd>
+<dt><b>-cmaes_lambda</b> \<Integer\></dt>
+<dd>CMAES population size, default is defined as a function of dimension size (N) (i.e. 4+(int)(3*log((double)N))), set default using value < 2<br/>Default: 0<br/></dd>
 </dl>
 + <h2>-orbitals</h2>
 <dl>
@@ -4416,7 +4447,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-cyclic_peptide</b> \<Boolean\></dt>
 <dd>cyclic_peptide option group<br/></dd>
 <dt><b>-cyclization_type</b> \<String\></dt>
-<dd>The type of cyclization for the peptide (e.g. N-to-C amide bond, terminal disulfide, isopeptide N-terminal lariat, etc.<br/>Default: "n_to_c_amide_bond"<br/></dd>
+<dd>The type of cyclization for the peptide (e.g. N-to-C amide bond, terminal disulfide, thioether lariat, isopeptide N-terminal lariat, etc.<br/>Default: "n_to_c_amide_bond"<br/></dd>
 <dt><b>-use_chainbreak_energy</b> \<Boolean\></dt>
 <dd>If true, then the chainbreak energy is used to preserve any N-to-C peptide bond (assuming that this is an N-to-C cyclic peptide).  If false, then constraints are used instead.  True by default.<br/>Default: true<br/></dd>
 <dt><b>-rand_checkpoint_file</b> \<String\></dt>
@@ -4866,6 +4897,26 @@ _Note that some application specific options may not be present in this list._
 <dd>The geometry of donor waters in lk_ball. Length along N-H vector<br/></dd>
 <dt><b>-lk_ball_bridge_angle_widthscale</b> \<Real\></dt>
 <dd>The width scaling on the angular component of lk_ball_bridge (lower = tighter)<br/>Default: 0.0<br/></dd>
+<dt><b>-lk_dome_max_angle</b> \<Real\></dt>
+<dd>The max angle for the lk_dome. 180 is as high as this can go.<br/>Default: 180<br/></dd>
+<dt><b>-lk_dome_min_angle</b> \<Real\></dt>
+<dd>The min angle for the lk_dome. 0 is as high as this can go.<br/>Default: 104.40720<br/></dd>
+<dt><b>-lk_dome_occlusion_min</b> \<Real\></dt>
+<dd>What is the minimum occlusion value below which lk_dome is full power.<br/>Default: 3.21592<br/></dd>
+<dt><b>-lk_dome_occlusion_max</b> \<Real\></dt>
+<dd>How occluded must the lk_ball water be before lk_dome turns off.<br/>Default: 5.09299<br/></dd>
+<dt><b>-lk_dome_h2o_radius</b> \<Real\></dt>
+<dd>Radius for lk_dome waters.<br/>Default: 1.4<br/></dd>
+<dt><b>-lk_dome_ramp_width_A2</b> \<Real\></dt>
+<dd>Width in squared angstroms for fall-off region of lk_dome from water.<br/>Default: 3.9<br/></dd>
+<dt><b>-lk_dome_overlap_width_A2</b> \<Real\></dt>
+<dd>Width in squared angstroms for the size of the water-water lk_dome interaction.<br/>Default: 5.0<br/></dd>
+<dt><b>-lk_dome_ball_overlap_width_A2</b> \<Real\></dt>
+<dd>Width in squared angstroms for the size of the water-water lk_ball_bridge2 interaction.<br/>Default: 5.0<br/></dd>
+<dt><b>-lk_dome_water_dist</b> \<Real\></dt>
+<dd>Distance from lk_ball water to lk_dome water<br/>Default: 2.7436<br/></dd>
+<dt><b>-lk_dome_water_adjust</b> \<Real\></dt>
+<dd>Adjustment to lk_ball water distance for lk_dome calcs.<br/>Default: -1.275<br/></dd>
 </dl>
 + <h3>-dna:design</h3>
 <dl>
@@ -5222,6 +5273,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Only include sidechain atoms in atom mask<br/>Default: false<br/></dd>
 <dt><b>-render_density</b> \<Boolean\></dt>
 <dd>render electron density in graphics mode build<br/>Default: false<br/></dd>
+<dt><b>-periodicity</b> \<Boolean\></dt>
+<dd>calculate density scores with periodic boundaries<br/>Default: true<br/></dd>
 </dl>
 + <h2>-enzdes</h2>
 <dl>
@@ -5852,6 +5905,12 @@ _Note that some application specific options may not be present in this list._
 <dd>Filename of a file specfying the sequence, as a series of whitespace-separated full residue names (e.g. ALA LYS DARG DPRO HYP).  Required input for the simple_cycpep_predict app unless -in:file:fasta is provided.<br/></dd>
 <dt><b>-helix_assignment_file</b> \<File\></dt>
 <dd>A file containing information about the helix types and helical regions within a helical bundle.<br/>Default: ""<br/></dd>
+<dt><b>-psipred_file</b> \<File\></dt>
+<dd>A file produced by PsiPred, with columns indicating position, alpha helix probability, beta strand probability, and random coil probability.  An alternative to helix_assignment_file for canonical amino acid predictions.<br/>Default: ""<br/></dd>
+<dt><b>-psipred_alpha_helix_prob_cutoff</b> \<Real\></dt>
+<dd>The probability cutoff above which a position is assigned to be alpha helical when using a PsiPred file.  Default 0.75.<br/>Default: 0.75<br/></dd>
+<dt><b>-psipred_beta_strand_prob_cutoff</b> \<Real\></dt>
+<dd>The probability cutoff above which a position is assigned to be in a beta strand conformation when using a PsiPred file.  Default 0.75.<br/>Default: 0.75<br/></dd>
 <dt><b>-num_simulated_annealing_rounds_centroid</b> \<Integer\></dt>
 <dd>Number of rounds of simulated annealing in centroid mode.<br/>Default: 3<br/></dd>
 <dt><b>-num_steps_per_simulated_annealing_round_centroid</b> \<Integer\></dt>

@@ -3,9 +3,11 @@
 
 SimpleMetrics are a new way to do analysis and data reporting in RosettaScripts, and have replaced the old Filter system for that purpose. SimpleMetrics can be run at different points in a protocol, such as before and after a particular mover or set of movers. They are declared in the `<SIMPLE_METRICS>` block of RosettaScripts and are available in Rosetta versions after April 10th, 2018. 
 
+**Please cite:** [this paper](https://doi.org/10.1101/2021.09.27.462000) if you use SimpleMetrics. 
+
 There are two ways of outputting the data calculated by SimpleMetrics to a scorefile. The first and most flexible is with the [[RunSimpleMetrics]] mover. See the documentation page for [[RunSimpleMetrics]] for more on the syntax of how to include it in your protocol.
 
-The other (available after Oct 15th, 2010) is to use the `metrics` option in the [[PROTOCOLS|RosettaScripts#rosettascript-sections_protocols]] section. This option takes a comma-separated list of metric names (previously defined in the SIMPLE_METRICS section) to apply at that point of the protocol and to report to the scorefile. By default, this approach uses the name of the metric as the output label, rather than the metric-specified custom types. You can specify a different output label using the `labels` option of the PROTOCOLS section (which also takes a comma-separated list). The label `-` is special-cased to give you the name of the metric you would otherwise get with RunSimpleMetrics. 
+The other (available after Oct 15th, 2021) is to use the `metrics` option in the [[PROTOCOLS|RosettaScripts#rosettascript-sections_protocols]] section. This option takes a comma-separated list of metric names (previously defined in the SIMPLE_METRICS section) to apply at that point of the protocol and to report to the scorefile. By default, this approach uses the name of the metric as the output label, rather than the metric-specified custom types. You can specify a different output label using the `labels` option of the PROTOCOLS section (which also takes a comma-separated list). The label `-` is special-cased to give you the name of the metric you would otherwise get with RunSimpleMetrics. 
 
 All SimpleMetrics can also be used as Filters, using the [[SimpleMetricFilter]].
  
@@ -53,6 +55,10 @@ Framework Author:
 [[_TOC_]]
 
 
+##General SimpleMetric Reference
+**Growing Glycans in Rosetta: Accurate de novo glycan modeling, density fitting, and rational sequon design**
+Jared Adolf-Bryfogle, J. W Labonte, J. C Kraft, M. Shapavolov, S. Raemisch, T. Lutteke, F. Dimaio, C. D Bahl, J. Pallesen, N. P King, J. J Gray, D. W Kulp, W. R Schief
+_bioRxiv_ 2021.09.27.462000; [[https://doi.org/10.1101/2021.09.27.462000]]
 
 ##Effective use of SimpleMetrics
 
@@ -136,7 +142,7 @@ SimpleMetric  | Description | ResidueSelector Compatability?
 **[[SequenceSimilarityMetric]]** | Averages the BLOSUM62 score for selected residues. | Yes
 **[[TotalEnergyMetric]]** | Calculates the Total Energy of a pose using a Scorefunction OR the delta total energy between two poses. | Yes
 **[[TimingProfileMetric | TimingMetric]]** | Calculates the time passed in minutes or hours from from construction to apply (ie from when declared in the RS block to when it is run).  Useful for obtaining timing information of protocols. | No
-
+**[[SapScoreMetric|simple_metric_SapScoreMetric_type]]**| Calculates SAP score | yes
 
 
 ##StringMetrics
@@ -168,7 +174,12 @@ SimpleMetric  | Description
 **[[PerResidueEnergyMetric]]** | Calculate any energy term for each residue.  Total energy is default.  If a native or repose is given, can calculate the energy delta for each residue.
 **[[PerResidueRMSDMetric]]** | Calculate the RMSD for each residue between the input and either the native or a reference pose.
 **[[PerResidueSasaMetric]]** | Calculate the Solvent Accessible Surface Area (SASA) of each residue.
+**[[SidechainNeighborCountMetric|simple_metric_SidechainNeighborCountMetric_type]]** | Calculates each sidechains neighbors based on cones. This metric uses the same core code as the LayerSelector.
 **[[WaterMediatedHbondMetric]]** | A metric to measure hydrogen bonds between a set of residues that are water-mediated (bridged).  Can calculate different depths to traverse complex hbond networks.
+**[[PerResidueSapScoreMetric|simple_metric_PerResidueSapScoreMetric_type]]** | Calculates SAP score (~hydrophobicity) for each residue.
+
+
+
 
 ##PerResidueStringMetrics
 These metrics output a single string for each residue of a residue selector. 
@@ -179,6 +190,8 @@ These metrics calculate a set of named real numbers. All metric values in the co
 
 SimpleMetric  | Description | ResidueSelector Compatability?
 ------------ | ------------- | -------------
+**[[BlockwiseShapeCompMetric|simple_metric_BlockwiseShapeCompMetric_type]]** | Measures shape complementarity between blocks (contiguous stretches of amino acids). | Yes
+**[[BlockwisePoseCompMotifMetric|simple_metric_BlockwisePoseCompMotifMetric_type]]** | Calculate motif scores between blocks (contiguous stretches of amino acids). | Yes
 **[[CompositeEnergyMetric]]** | Calculates each individual scoreterm of a scorefunction or the DELTA of each scoreterm between two poses.  Each named value is the scoreterm | Yes
 **[[ElectrostaticComplementarityMetric | simple_metric_ElectrostaticComplementarityMetric_type ]]** | Calculates the McCoy, Chandana, Colman Electrostatic complementarity using APBS. | Yes
 

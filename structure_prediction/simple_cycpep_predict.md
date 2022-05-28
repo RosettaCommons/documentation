@@ -2,7 +2,7 @@
 
 Back to [[Application Documentation]].
 
-Created 24 October 2015 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).  Last updated 27 September 2019.<br/><br/>
+Created 24 October 2015 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).  Last updated 24 May 2022.<br/><br/>
 <b><i>If you use this application, please cite:</i><br/>
 Bhardwaj, G., V.K. Mulligan, C.D. Bahl, J.M. Gilmore, P.J. Harvey, O. Cheneval, G.W. Buchko, S.V.S.R.K. Pulavarti, Q. Kaas, A. Eletsky, P.-S. Huang, W.A. Johnsen, P. Greisen, G.J. Rocklin, Y. Song, T.W. Linsky, A. Watkins, S.A. Rettie, X. Xu, L.P. Carter, R. Bonneau, J.M. Olson, E. Coutsias, C.E. Correnti, T. Szyperski, D.J. Craik, and D. Baker. 2016.  <u>Accurate de novo design of hyperstable constrained peptides.</u> *Nature.* 538(7625):329-35.</b><br/>
 (<a href="http://www.ncbi.nlm.nih.gov/pubmed/27626386">Link</a> to article).
@@ -47,7 +47,7 @@ See the [[Build Documentation]] for details on the MPI (Message Passing Interfac
 
 3.  All other inputs are based on flags.  (See the MPI section, below for additional flags specific to that version.)  Relevant flags for the non-MPI version are:<br/><br/>
 **-cyclic_peptide:sequence_file \<filename\>** Mandatory input.  The sequence file, described above.<br/><br/>
-**-cyclic_peptide:cyclization_type \<string\>** Optional input.  The type of cyclization.  Current options are "n_to_c_amide_bond" (the default, which sets up a terminal amide bond), "terminal_disulfide" (which cyclizes a linear peptide through a side-chain disulfide), "nterm_isopeptide_lariat", "cterm_isopeptide_lariat", and "sidechain_isopeptide".  If the "terminal_disulfide" option is used, the cyclization is performed through a disulfide linking the two disulfide-forming residues closest to the N- and C-termini (though these need not be _at_ the termini).  The "terminal_disulfide" option may be used with the "-cyclic_peptide:require_disulfides" option, in which case disulfide combinations between internal (_i.e._ non-terminal) disulfide-forming residues will be considered.  The "terminal_disulfide" option is _not_ compatible with cyclic permutations, nor with quasi-symmetric sampling.  For more information on isopeptide lariats, see the relevant section below.<br/><br/>
+**-cyclic_peptide:cyclization_type \<string\>** Optional input.  The type of cyclization.  Current options are "n_to_c_amide_bond" (the default, which sets up a terminal amide bond), "terminal_disulfide" (which cyclizes a linear peptide through a side-chain disulfide), "thioether_lariat" (which cyclizes a linear peptide through the conjugation of a cysteine SG and the alpha carbon of an N-terminal acetyl group), "nterm_isopeptide_lariat", "cterm_isopeptide_lariat", and "sidechain_isopeptide".  If the "terminal_disulfide" option is used, the cyclization is performed through a disulfide linking the two disulfide-forming residues closest to the N- and C-termini (though these need not be _at_ the termini).  The "terminal_disulfide" option may be used with the "-cyclic_peptide:require_disulfides" option, in which case disulfide combinations between internal (_i.e._ non-terminal) disulfide-forming residues will be considered.  The "terminal_disulfide" option is _not_ compatible with cyclic permutations, nor with quasi-symmetric sampling.  For more information on isopeptide lariats, see the relevant section below.<br/><br/>
 **-cyclic_peptide:use_chainbreak_energy \<bool\>** If true (the default), then the chainbreak energy is used to enforce the cyclic geometry of an N-to-C amide bond during minimization.  If false, then constraints are added instead.  Note that the chainbreak approach allows rotation of the terminal phi and psi angles, while the constraint approach currently does not.<br/><br/>
 **-out:nstruct \<int\>** The number of structures that the application will attempt to generate.  Since closed conformations satisfying hydrogen bonding criteria might not be found for every attempt, the actual number of structures produced will be less than or equal to this number.<br/><br/>
 **-cyclic_peptide:genkic_closure_attempts \<int\>**  For each structure attempted, how many times should the application try to find a closed conformation?  Default 10,000.  Values from 250 to 50,000 could be reasonable, depending on the peptide.<br/><br/>
@@ -184,6 +184,16 @@ In addition to an amide bond connecting the N- and C-termini, it is possible to 
 **-cyclic_peptide:sidechain_isopeptide_indices \<int\> \<int\>** If the "sidechain_isopeptide" cyclization type is specified, then these are the indices of the residues that are linked by a sidechain-sidechain isopeptide bond to make the loop.  If this option is not used, then the residues furthest apart of appropriate types are used.  Note that exactly two indices must be given.
 
 Note that the **-cyclic_peptide:require_symmetry_repeats** and **-cyclic_peptide:cyclic_permutations** flags are incompatible with isopeptide lariats.  Also note that the **simple\_cycpep\_predict** application does _not_ use the GLX, ASX, or LYX residue types.  Sequence files and native PDB files must specify GLU, ASP, and LYS, respectively.
+
+## Additional flags for predicting structures of thioether-bonded lariat peptides
+
+In addition to an amide bond connecting the N- and C-termini, it is possible to synthesize peptides in which a thiol-containing side-chain forms an amide bond with an N-teminal residue bearing a 2-chloroacetyl group (a strategy popularized by PeptiDream). These one-tailed lariat structures can also be predicted with **simple\_cycpep\_predict**.  Note that a number of bugfixes for this feature were merged into the master branch of Rosetta on 24 May 2022, and are only available in versions of the software released after this date.  The relevant flags are as follows:
+
+**-cyclic_peptide:cyclization_type \<string\>**  This flag, mentioned earlier, must be set to "thioether_lariat" for a sidechain-to-N-terminus thioether lariat.
+
+**-cyclic_peptide:lariat_sidechain_index \<int\>** This is the residue that provides the side-chain that connects to the N-terminus of the peptide.  If not specified, the residue of appropriate type closest to the C-terminus is used.
+
+Note that the **-cyclic_peptide:require_symmetry_repeats** and **-cyclic_peptide:cyclic_permutations** flags are incompatible with thioether lariats.  Also note that the **simple\_cycpep\_predict** application does _not_ use the CYX residue type. Sequence files and native PDB files must specify CYS.
 
 ## Additional flags for oligourea or peptoid residues
 

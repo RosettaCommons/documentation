@@ -64,7 +64,8 @@ Options:
 
 * loops_file: The path to a loops file specifying which regions of backbone to 
   model.  Note that this option will be silently ignored if one or more Loop 
-  subtags are given.
+  subtags are given. Cut points may need to be provided in the loops file or loop subtags for initialization, 
+  but this will be overridden during the simulation.
 
 * fast: If enabled, the simulation will use a severely reduced number of 
   cycles.  Only meant to be used for debugging.

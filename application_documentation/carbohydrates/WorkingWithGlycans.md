@@ -18,6 +18,9 @@ Jason W. Labonte  Jared Adolf‐Bryfogle  William R. Schief  Jeffrey J. Gray
 _Journal of Computational Chemistry_, 11/30/2016
 [[https://doi.org/10.1002/jcc.24679]]
 
+**Growing Glycans in Rosetta: Accurate de novo glycan modeling, density fitting, and rational sequon design**
+Jared Adolf-Bryfogle, J. W Labonte, J. C Kraft, M. Shapavolov, S. Raemisch, T. Lutteke, F. Dimaio, C. D Bahl, J. Pallesen, N. P King, J. J Gray, D. W Kulp, W. R Schief
+_bioRxiv_ 2021.09.27.462000; [[https://doi.org/10.1101/2021.09.27.462000]]
 
 **Automatically Fixing Errors in Glycoprotein Structures with Rosetta**
 Brandon Frenz, Sebastian Rämisch, Andrew J. Borst, Alexandra C. Walls
@@ -45,6 +48,10 @@ PDBs from the RCSB should be able to be read in by default.  However, in order t
 * Reading in most PDB files will require an option to map the non-specific HETNAM IDs to chemically accurate identifiers:  
 
         -alternate_3_letter_codes pdb_sugar
+
+* In order to round-trip PDB glycans, use the option to write PDB codes instead of Rosetta:
+
+        -write_glycan_pdb_codes
 
 * When loading a file from the PDB, the order of HETATM and LINK records is important for reading it into Rosetta. Since pdb files are usually not formatted for Rosetta-compatibility, connections can be determined internally, ignoring the order of records. Instead atom distances are used to determine protein-sugar and sugar-sugar connections.  
 
@@ -118,6 +125,8 @@ Applications
 
 [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
 
+[[GlycanDock]] - Dock free glycans onto protein surfaces
+
 RosettaScript Components
 ========================
 [[GlycanTreeModeler ]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
@@ -153,16 +162,17 @@ Although an app is planned, one can use the `CreateGlycanSequonMover` in order t
 
 Glycosylating Structures
 =======================
-Structures can be glycosylated either through a function accessible to PyRosetta or via RosettaScripts.
-## RosettaScripts
+Structures can be glycosylated either through a function accessible to PyRosetta or via RosettaScripts as covered below.
+
+### RosettaScripts
 
 See the [[SimpleGlycosylateMover]] documentation
 
-## PyRosetta
+### PyRosetta
 Here is an example of adding a man9 to the pose.
 This can now be done in two ways within PyRosetta, either via the core function, or the class wrapper. 
 
-### Base Function
+#### Base Function
 The following uses a function to glycosylate a pose using the IUPAC name:
 ```
 /// @brief  Glycosylate the Pose at the given sequence position using an IUPAC sequence.
@@ -189,7 +199,7 @@ print p.chain_sequence()
 ```
  
  
-### SimpleGlycosylateMover
+#### SimpleGlycosylateMover
 This mover is accessible both in PyRosetta and RosettaScripts. It was written by Jared Adolf-Bryfogle.
 
 see [[SimpleGlycosylateMover]] for a full description.
@@ -219,12 +229,12 @@ Glycans can be built by themselves (IE NOT attached to a protein) using PyRosett
 Glycans are creating using their IUPAC names. 
 
 To properly build an oligosaccharide, Rosetta must know the following details about each sugar residue being created in the following order:
--	Main-chain connectivity — →2) (->2)), →4) (->4)), →6) (->6)), etc.; default value is ->4)-
--	Anomeric form — α (a or alpha) or β (b or beta); default value is alpha
--	Enantiomeric form — l (L) or d (D); default value is D
+-	Main-chain connectivity — →2) (`->2)`), →4) (`->4)`), →6) (`->6)`), ↔1) (`<->1)`), etc.; default value is `->4)-`
+-	Anomeric form — α (`a` or `alpha`) or β (`b` or `beta`); default value is `alpha`
+-	Enantiomeric form — `l` (L) or `d` (D); default value is D
 -	3-Letter code — required; uses sentence case
 -	Ring form code — f (for a furanose/5-membered ring), p (for a pyranose/6-membered ring); required
-Residues must be separated by hyphens. Glycosidic linkages can be specified with full IUPAC notation, e.g., -(1->4)- for “-(1→4)-”. Rosetta will assume -(1-> for aldoses and -(2-> for ketoses. Note that the standard is to write the IUPAC sequence of a saccharide chain in reverse order from how they are numbered.
+Residues must be separated by hyphens. Glycosidic linkages can be specified with full IUPAC notation, e.g., `-(1->4)-` for “-(1→4)-”. Rosetta will assume `-(1->` for aldoses and `-(2->` for ketoses. Note that the standard is to write the IUPAC sequence of a saccharide chain in reverse order from how they are numbered. Bidirectional linkages use a double-headed arrow, e.g., `-(1<->1)-` for “-(1↔1)-”.
 
 
 The following example creates a pose from the IUPAC saccharide name:
@@ -245,15 +255,11 @@ print lactose.chain_sequence()
 
 ```
 
-
-
-
-
 ## See Also
-
 ### Apps
 * [[GlycanInfo]] - Get information on all glycan trees within a pose
 * [[GlycanClashCheck]] - Obtain data on model clashes with and between glycans, or between glycans and other protein chains.
+* [[GlycanDock]] - Dock free glycans onto protein surfaces
 
 ### RosettaScript Components
 * [[GlycanTreeModeler]] - Model glycan trees using known carbohydrate information.  Works for full denovo modeling or refinement.
