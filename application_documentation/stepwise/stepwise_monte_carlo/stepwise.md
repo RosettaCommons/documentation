@@ -26,32 +26,31 @@ A full accounting of options you may want to use is [[also available|stepwise-op
 
 Commonly used options
 ---------------------
-
--s                                              Input file(s). For motifs that connect multiple helices like two- or three-way junctions, one may
-                                                consider providing helices as distinct input files; the algorithm will allow them to move relative to
-                                                each other.
--in:fasta                                       Fasta-formatted sequence file. [FileVector]
--extra_minimize_res                             List of residues (either Rosetta numbering or resnum-chain (A:1-5) which may be minimized despite 
-                                                being provided as part of the 'starting structure'
--terminal_res                                   List of residues (either Rosetta numbering or resnum-chain (A:1-5) which are the terminal residues of
-                                                the starting structure(s) provided
--motif_mode                                     If provided, Rosetta will automatically compute -extra_minimize_res and -terminal_res
--score:rna_torsion_potential RNA11_based_new    Provided by default; use an updated torsional potential.
--chemical::enlarge_H_lj                         Use a physically realistic H LJ radius, preventing collapse of RNA helices.
--out:file:silent                                Name of output file [scores and torsions, compressed format]. default="default.out" [String]
--in:native                                      Native PDB filename. [File].
--out:nstruct                                    Number of models to make. default: 1. [Integer]
--score:weights                                  Scoring function (weights file) to use. The official 'best practice' at the moment is to use 
-                                                -score:weights stepwise/rna/rna_res_level_energy4.wts -restore_talaris_behavior; currently in development
-                                                is stepwise/rna/rna_res_level_energy7beta.wts, which does not require -restore_talaris_behavior.
+```
+-s                                  Input file(s). For motifs that connect multiple helices like two- or three-way junctions, one may
+                                    consider providing helices as distinct input files; the algorithm will allow them to move relative to
+                                    each other.
+-in:fasta                           Fasta-formatted sequence file. [FileVector]
+-extra_minimize_res                 List of residues (either Rosetta numbering or resnum-chain (A:1-5) which may be minimized despite 
+                                    being provided as part of the 'starting structure'
+-terminal_res                       List of residues (either Rosetta numbering or resnum-chain (A:1-5) which are the terminal residues of
+                                    the starting structure(s) provided
+-motif_mode                         If provided, Rosetta will automatically compute -extra_minimize_res and -terminal_res
+-chemical::enlarge_H_lj             Use a physically realistic H LJ radius, preventing collapse of RNA helices.
+-out:file:silent                    Name of output file [scores and torsions, compressed format]. default="default.out" [String]
+-in:native                          Native PDB filename. [File].
+-out:nstruct                        Number of models to make. default: 1. [Integer]
+-score:weights                      Scoring function (weights file) to use. The official 'best practice' at the moment is to use 
+                                    -score:weights stepwise/rna/rna_res_level_energy4.wts -restore_talaris_behavior; currently in development
+                                    is stepwise/rna/rna_res_level_energy7beta.wts, which does not require -restore_talaris_behavior.
 
 Useful options
 --------------
--monte_carlo:submotif_frequency                 Adjust the frequency of 'submotif moves' (taken from a database of native structures). When 
-                                                benchmarking, it can be useful to set this to 0.0 to ensure no part of the target loop is being built
-                                                from a native.
--cycles                                         Number of Monte Carlo cycles.[default 50]. [Integer]
-
+-monte_carlo:submotif_frequency     Adjust the frequency of 'submotif moves' (taken from a database of native structures). When 
+                                    benchmarking, it can be useful to set this to 0.0 to ensure no part of the target loop is being built
+                                    from a native.
+-cycles                             Number of Monte Carlo cycles.[default 50]. [Integer]
+```
 
 Limitations
 ===========
@@ -128,6 +127,15 @@ A sample command line is the following:
 ```
 stepwise -fasta 1zih.fasta -s start_helix.pdb  -out:file:silent swm_rebuild.out
 ```
+
+This assumes that you've set up 1zih.fasta to match, in sequence and numbering, residues 3-10 of 1zih.pdb:
+```
+>1zih A:3-10
+gcgcaagc
+```
+
+Such a fasta would demand a starting PDB numbered `A:3-4 A:9-10` that contains a `gc/gc` A-form helix.
+
 The code takes about 3 minutes to generate one model, using 50 cycles of stepwise monte carlo. Running more cycles (up to 500) essentially guarantees the solution of this problem, even on a single laptop. 
 
 Here's an animation that reaches the known experimental structure. 
@@ -147,6 +155,14 @@ Design is accomplished simply by specifying n ('unknown nucleotide') in the fast
 ```
 stepwise -fasta NNNN.fasta -s start_helix.pdb  -out:file:silent swm_design.out  -cycles 500 -extra_min_res 4 9
 ```
+
+In contrast to the structure prediction example above, the supplied fasta file includes `n` to represent unknown nucleotides (an IUPAC standard), but is otherwise identical:
+```
+>1zih A:3-10
+gcnnnngc
+```
+
+This design strategy generalizes: IUPAC supports ambiguous nucleic acid single letter codes that have been incorporated into Rosetta, as well. Beyond `n`, Rosetta also supports `b`, `d`, `h`, and `v` (for 'not a', 'not c', 'not g', and 'not t/u'); `r` and `y` (for purines `g/a` and pyrimidines `u/c`); `w` and `s` (for weak base pairers `a/u` and strong base pairers `g/c`); `k` and `m` (for keto bases `g/u` and amine bases `a/c`).
 
 Note the specification of additional cycles (500 instead of 50). This is necessary to ensure closed, convergent solutions, as the search conformation space is larger in design cases than pure structure prediction cases.
 
