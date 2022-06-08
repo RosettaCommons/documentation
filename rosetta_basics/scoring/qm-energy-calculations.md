@@ -39,6 +39,8 @@ All Rosetta QM calculations are performed through calls to third-party quantum c
 
 To use GAMESS with Rosetta... TODO
 
+#### Compiling GAMESS
+
 #### Using GAMESS with Rosetta
 
 ##### Point energy calculations with GAMESS within a Rosetta protocol
