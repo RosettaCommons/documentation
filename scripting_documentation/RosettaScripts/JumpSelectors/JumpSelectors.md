@@ -111,6 +111,45 @@ any JumpSelector can be defined as a subtag of the Not selector.  You cannot, ho
 -   `allow_multiple_results`: If false, we will assert that every residue passed in is built by the same jump
 
 
+#### JumpForResidue
+
+```xml
+    <ExclusivelySharedJumpSelector name="name" residue_selector="sele"/
+```
+
+-   ExclusivelySharedJumpSelector selects the jump that builds ALL and ONLY the residues passed in
+
+Example:
+```xml
+<ROSETTASCRIPTS>
+  <RESIDUE_SELECTORS>
+    <Chain name="sele" chains="1,3"/>
+  </RESIDUE_SELECTORS>
+
+  <MOVERS>
+    <EnsureExclusivelySharedJumpMover name="ensure_jump" residue_selector="sele"/> 
+  </MOVERS>
+
+  <JUMP_SELECTORS>
+    <ExclusivelySharedJumpSelector name="js" residue_selector="sele"/>
+  </JUMP_SELECTORS>
+
+  <RESIDUE_SELECTORS>
+    <JumpDownstream name="downstream" jump_selector="js"/>
+  </RESIDUE_SELECTORS>
+
+  <SIMPLE_METRICS>
+    <SelectedResiduesPyMOLMetric name="starting_pymol_selection" residue_selector="sele" custom_type="start"/>
+    <SelectedResiduesPyMOLMetric name="final_pymol_selection" residue_selector="downstream" custom_type="final"/>
+  </SIMPLE_METRICS>
+
+  <PROTOCOLS>
+    <Add mover_name="ensure_jump"/>
+    <Add metrics="starting_pymol_selection,final_pymol_selection" />
+  </PROTOCOLS>
+</ROSETTASCRIPTS>
+```
+
 ####See Also
 
 * [[MoveMapFactory |MoveMapFactories-RosettaScripts]]
