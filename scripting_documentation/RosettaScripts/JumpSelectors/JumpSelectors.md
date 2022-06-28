@@ -116,7 +116,7 @@ any JumpSelector can be defined as a subtag of the Not selector.  You cannot, ho
 #### ExclusivelySharedJumpSelector
 
 ```xml
-    <ExclusivelySharedJumpSelector name="name" residue_selector="sele"/
+    <ExclusivelySharedJumpSelector name="name" residue_selector="sele"/>
 ```
 
 -   ExclusivelySharedJumpSelector selects the jump that builds ALL and ONLY the residues passed in
