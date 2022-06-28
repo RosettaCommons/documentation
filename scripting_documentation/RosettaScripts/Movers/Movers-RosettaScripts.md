@@ -335,7 +335,7 @@ Mover  | Description
 **[[DeclareBond]]** | Tell Rosetta that there exists a chemical bond between two residues.
 **[[Disulfidize|DisulfidizeMover]]** | Finds potential disulfide bond positions based on Calpha - Cbeta distance
 **[[Dssp|DsspMover]]** | Calculates secondary structure using dssp
-**[[EnsureExclusivelySharedJumpMover]]** Change the fold tree to guarantee there is a jump that builds the selected residues and only the selected residues
+**[[EnsureExclusivelySharedJumpMover]]** | Change the fold tree to guarantee there is a jump that builds the selected residues and only the selected residues
 **[[FavorNativeResidue|FavorNativeResidueMover]]** | Constrains the residue type by favoring the type present when applied
 **[[FavorSequenceProfile|FavorSequenceProfileMover]]** | Constrains the residue type using one of several profiles
 **[[FlipChirality|FlipChiralityMover]]** | Mirrors a selection in pose
