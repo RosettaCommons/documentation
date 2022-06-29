@@ -15,7 +15,7 @@ The CustomRealValueMetric allows a user to add an arbitrary floating-point value
 ```xml
 <ROSETTASCRIPTS>
 	<SIMPLE_METRICS>
-            <CustomRealValueMetric name="my_metric" value="%%extrernal_val%%" />
+            <CustomRealValueMetric name="my_metric" value="%%external_val%%" />
 	</SIMPLE_METRICS>
 	<PROTOCOLS>
             <Add metrics="my_metric" />
