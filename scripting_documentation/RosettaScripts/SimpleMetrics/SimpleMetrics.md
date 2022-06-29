@@ -131,6 +131,8 @@ These metrics calculate a single real number (or integer).
 SimpleMetric  | Description | ResidueSelector Compatability?
 ------------ | ------------- | -------------
 **[[CalculatorMetric]]** | Combine multiple RealMetrics with a mathematical expression. | No
+**[[CustomRealValueMetric]]** | Add an arbitrary floating-point value to a pose with a user-defined label. | No/no need
+**[[CustomStringValueMetric]]** | Add an arbitrary string to a pose with a user-defined label. | No/no need
 **[[DihedralDistanceMetric]]** | Calculates the normalized dihedral angle distance in degrees from directional statistics on a set of dihedrals/residues of two poses or two regions of a pose.  | Yes
 **[[InteractionEnergyMetric]]** | Calculates the (long range and short range) interaction energy between a selection and all other residues or another selection. Can be set to only calculate short or long or only use certain score terms such as fa_rep. | Yes
 **[[ResidueSummaryMetric]]** | A metric that takes a _PerResidueRealMetric_ and summarizes the data in different ways, such as the sum, mean, or the number of residues that match a certain criteria. Can use cached data. | Yes
