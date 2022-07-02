@@ -336,6 +336,9 @@ Component | Description
 ### Residue Solvent Exposure
 - [[PerResidueSolventExposure|PerResidueSolventExposure]] - Calculate the per residue solvent exposure in the form of a neighbor count
 
+### Surface-induced dissociation (SID) energy-resolved mass spectrometry (ERMS) data prediction
+- [[SID_ERMS_prediction|SID_ERMS_prediction]] - Predict SID ERMS for a protein complex.
+
 ##UI <a name="UI" />
 
 [[Workbench|/internal_documentation/ui/workbench]] - UI front end to submit Rosetta jobs from desktop client
