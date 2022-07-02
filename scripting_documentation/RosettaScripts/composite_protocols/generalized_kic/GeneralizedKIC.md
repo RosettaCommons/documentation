@@ -2,7 +2,7 @@
 
 [[Return to RosettaScripts|RosettaScripts]]
 
-By Vikram K. Mulligan, Flatiron Institute (vmulligan@flatironinstitute.org).  Documentation written 4 April 2014, and last updated on 26 Nay 2021.
+By Vikram K. Mulligan, Flatiron Institute (vmulligan@flatironinstitute.org).  Documentation written 4 April 2014, and last updated on 26 May 2021.
 
 [[_TOC_]]
 
