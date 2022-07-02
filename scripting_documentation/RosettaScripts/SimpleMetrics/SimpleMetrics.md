@@ -131,9 +131,10 @@ These metrics calculate a single real number (or integer).
 SimpleMetric  | Description | ResidueSelector Compatability?
 ------------ | ------------- | -------------
 **[[CalculatorMetric]]** | Combine multiple RealMetrics with a mathematical expression. | No
+**[[CustomRealValueMetric]]** | Add an arbitrary floating-point value to a pose with a user-defined label. | No/no need
+**[[CustomStringValueMetric]]** | Add an arbitrary string to a pose with a user-defined label. | No/no need
 **[[DihedralDistanceMetric]]** | Calculates the normalized dihedral angle distance in degrees from directional statistics on a set of dihedrals/residues of two poses or two regions of a pose.  | Yes
 **[[InteractionEnergyMetric]]** | Calculates the (long range and short range) interaction energy between a selection and all other residues or another selection. Can be set to only calculate short or long or only use certain score terms such as fa_rep. | Yes
-**[[MouseTotalEnergy]]** | Evaluate your interface using Mouse. | Yes
 **[[ResidueSummaryMetric]]** | A metric that takes a _PerResidueRealMetric_ and summarizes the data in different ways, such as the sum, mean, or the number of residues that match a certain criteria. Can use cached data. | Yes
 **[[RMSDMetric]]** | Calculates the RMSD between two poses or on a subset of residues.  Many options for RMSD including bb, heavy, all, etc. | Yes 
 **[[SasaMetric]]** | Calculates the Solvent Accessible Surface Area (sasa). | Yes
@@ -168,7 +169,6 @@ SimpleMetric  | Description
 ------------ | -------------
 **[[HbondMetric]]** | Calculate number of hydrogen bonds between residues in a selector or between two selectors
 **[[PeptideInternalHbondsMetric]]** | Calculate the number of hydrogen bonds in a single selection or pose, excluding bonds between residues within a threshold distance of each other in terms of covalent connectivity.
-**[[MousePerResidueEnergy]]** | Evaluate your interface using Mouse. 
 **[[PerResidueDensityFitMetric]]** | Calculate the Fit of a  model to the loaded density either by Correlation or a Zscore.
 **[[PerResidueClashMetric]]** | Calculates the number of atomic clashes per residue using two residue selectors. Clashes are calculated through the leonard jones radius of each atom type.
 **[[PerResidueEnergyMetric]]** | Calculate any energy term for each residue.  Total energy is default.  If a native or repose is given, can calculate the energy delta for each residue.

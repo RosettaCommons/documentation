@@ -3,9 +3,9 @@
 ## ConfChangeMover
 
 Samples new protein conformations as described in:                     
-[Modeling of protein conformational changes with Rosetta guided by limited experimental data](https://www.biorxiv.org/content/10.1101/2022.02.14.480383v1) (2022)                                          
+[Modeling of protein conformational changes with Rosetta guided by limited experimental data] Structure (2022)                                          
 Davide Sala, Diego del Alamo, Hassane S. Mchaourab, Jens Meiler
-https://doi.org/10.1101/2022.02.14.480383
+https://doi.org/10.1016/j.str.2022.04.013
 
 Documentation written by Davide Sala (davide.sala@uni-leipzig.de).
 ## Overview
