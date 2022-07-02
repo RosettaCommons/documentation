@@ -8,7 +8,7 @@ The GeneralizedKIC mover allows a user to define a chain of atoms whose conforma
 References and author information for the GeneralizedKIC mover:
 
 GeneralizedKIC Mover's citation(s):
-*Bhardwaj G, *Mulligan VK, *Bahl G, Gilmore JM, Harvey PJ, Cheneval O, Buchko GW, Pulavarti SVSRK, Kaas Q, Eletsky A, Huang P-S, Johnsen PS, Greisen P Jr., Rocklin GJ, Song Y, Linsky TW, Watkins A, Rettie SA, Xu X, Carter LP, Bonneau R, Olson JM, Coutsias E, Correnti CE, Szyperski T, Craik DJ, and Baker D.  (2016).  Accurate de novo design of hyperstable constrained peptides.  Nature 538(7625):329-35.  doi: 10.1038/nature19791.  (*Co-primary authors.)
+\*Bhardwaj G, \*Mulligan VK, \*Bahl G, Gilmore JM, Harvey PJ, Cheneval O, Buchko GW, Pulavarti SVSRK, Kaas Q, Eletsky A, Huang P-S, Johnsen PS, Greisen P Jr., Rocklin GJ, Song Y, Linsky TW, Watkins A, Rettie SA, Xu X, Carter LP, Bonneau R, Olson JM, Coutsias E, Correnti CE, Szyperski T, Craik DJ, and Baker D.  (2016).  Accurate de novo design of hyperstable constrained peptides.  Nature 538(7625):329-35.  doi: 10.1038/nature19791.  (\*Co-primary authors.)
 
 ```xml
 <GeneralizedKIC name="(&string;)" low_memory_mode="(&bool;)"

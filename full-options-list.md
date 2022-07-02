@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2022-03-08
+Generated: 2022-04-20
 
 _Note that some application specific options may not be present in this list._
 
@@ -2153,6 +2153,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Add Shannon entropy correction to rotamer energy: E = -logP + S<br/>Default: false<br/></dd>
 <dt><b>-no_autogen_cart_improper</b> \<Boolean\></dt>
 <dd>Ignore the auto parameter generation of improper torsions (undefined torsions) in CartesianBondedEnergy, generate_impropers_map_res.<br/></dd>
+<dt><b>-gridscore_outbox_penalty_weight</b> \<Real\></dt>
+<dd>The weight of the out-of-box penalty in gridscorer, i.e. out_of_bound_e_<br/>Default: 100<br/></dd>
 </dl>
 + <h3>-corrections:chemical</h3>
 <dl>
@@ -2731,6 +2733,8 @@ _Note that some application specific options may not be present in this list._
 <dd>set membrane core thickness for Lazaridis-Karplus. default is 10A, i.e (-10, 10)<br/></dd>
 <dt><b>-steepness</b> \<Real\></dt>
 <dd>Control transition region between polar and nonpoar phases for the membrane model used by the high resolution energy function. Default = 10 gives a 6A transition region.<br/></dd>
+<dt><b>-geometry</b> \<String\></dt>
+<dd>Geometry of implicit membrane, default is slab. Other options include bicelle, vesicle, and double_vesicle. For a micelle like geometry, you can set the inner_radius for the bicelle geometry (using -mp:geo:bicelle_radius) to a relatively small value. See description of -mp:geo:bicelle_radius for more information.<br/></dd>
 <dt><b>-center_start</b> \<RealVector\></dt>
 <dd>Starting point for center search. Example: 3 2 4.<br/></dd>
 <dt><b>-center_delta</b> \<Real\></dt>
@@ -2857,6 +2861,17 @@ _Note that some application specific options may not be present in this list._
 <dd>Distances between boundary atoms longer than this cutoff (in 2D) will be cut in. Anything larger will be kept as boundary atoms.<br/>Default: 5.0<br/></dd>
 <dt><b>-tm_alpha</b> \<Boolean\></dt>
 <dd>Is the main secondary structure in the membrane helical?<br/>Default: true<br/></dd>
+</dl>
++ <h3>-mp:geo</h3>
+<dl>
+<dt><b>-geo</b> \<Boolean\></dt>
+<dd>geo option group<br/></dd>
+<dt><b>-bicelle_radius</b> \<Real\></dt>
+<dd>Inner radius of bicelle. The bicelle inner_radius is the radius of the flat cylinder of the bicelle shape, the outer radius is the inner_radius+membrane_thickness. Setting the bicelle_radius as 0, would create an ellipsoid with a radius=membrane_thickness (default 15). Keep in mind that when setting the bicelle_radius, the size of the bicelle created is not dependent on the size of the protein. You will want to take the size of your protein into account when setting the bicelle_radius.<br/></dd>
+<dt><b>-vesicle_radius</b> \<Real\></dt>
+<dd>Radius of vesicle. Distance from center of the vesicle/sphere to the center of the membrane.<br/></dd>
+<dt><b>-double_vesicle_distance</b> \<Real\></dt>
+<dd>Distance between outer edge of inner vesicle membrane and inner edge of outer vesicle membrane. <br/></dd>
 </dl>
 + <h3>-mp:transform</h3>
 <dl>
@@ -4882,6 +4897,26 @@ _Note that some application specific options may not be present in this list._
 <dd>The geometry of donor waters in lk_ball. Length along N-H vector<br/></dd>
 <dt><b>-lk_ball_bridge_angle_widthscale</b> \<Real\></dt>
 <dd>The width scaling on the angular component of lk_ball_bridge (lower = tighter)<br/>Default: 0.0<br/></dd>
+<dt><b>-lk_dome_max_angle</b> \<Real\></dt>
+<dd>The max angle for the lk_dome. 180 is as high as this can go.<br/>Default: 180<br/></dd>
+<dt><b>-lk_dome_min_angle</b> \<Real\></dt>
+<dd>The min angle for the lk_dome. 0 is as high as this can go.<br/>Default: 104.40720<br/></dd>
+<dt><b>-lk_dome_occlusion_min</b> \<Real\></dt>
+<dd>What is the minimum occlusion value below which lk_dome is full power.<br/>Default: 3.21592<br/></dd>
+<dt><b>-lk_dome_occlusion_max</b> \<Real\></dt>
+<dd>How occluded must the lk_ball water be before lk_dome turns off.<br/>Default: 5.09299<br/></dd>
+<dt><b>-lk_dome_h2o_radius</b> \<Real\></dt>
+<dd>Radius for lk_dome waters.<br/>Default: 1.4<br/></dd>
+<dt><b>-lk_dome_ramp_width_A2</b> \<Real\></dt>
+<dd>Width in squared angstroms for fall-off region of lk_dome from water.<br/>Default: 3.9<br/></dd>
+<dt><b>-lk_dome_overlap_width_A2</b> \<Real\></dt>
+<dd>Width in squared angstroms for the size of the water-water lk_dome interaction.<br/>Default: 5.0<br/></dd>
+<dt><b>-lk_dome_ball_overlap_width_A2</b> \<Real\></dt>
+<dd>Width in squared angstroms for the size of the water-water lk_ball_bridge2 interaction.<br/>Default: 5.0<br/></dd>
+<dt><b>-lk_dome_water_dist</b> \<Real\></dt>
+<dd>Distance from lk_ball water to lk_dome water<br/>Default: 2.7436<br/></dd>
+<dt><b>-lk_dome_water_adjust</b> \<Real\></dt>
+<dd>Adjustment to lk_ball water distance for lk_dome calcs.<br/>Default: -1.275<br/></dd>
 </dl>
 + <h3>-dna:design</h3>
 <dl>

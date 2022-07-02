@@ -8,7 +8,7 @@ The BundleGridSampler is a mover that generates helical bundles using the Crick 
 References and author information for the BundleGridSampler mover:
 
 BundleGridSampler Mover's citation(s):
-*Dang B, *Wu H, *Mulligan VK, Mravic M, Wu Y, Lemmin T, Ford A, Silva D-A, Baker D, and DeGrado WF.  (2017).  De novo design of covalently constrained mesosize protein scaffolds with unique tertiary structures.  Proc Natl Acad Sci USA 114(41):10852–10857.  doi: 10.1073/pnas.1710695114.  (*Co-primary authors.)
+\*Dang B, \*Wu H, \*Mulligan VK, Mravic M, Wu Y, Lemmin T, Ford A, Silva D-A, Baker D, and DeGrado WF.  (2017).  De novo design of covalently constrained mesosize protein scaffolds with unique tertiary structures.  Proc Natl Acad Sci USA 114(41):10852–10857.  doi: 10.1073/pnas.1710695114.  (\*Co-primary authors.)
 
 ```xml
 <BundleGridSampler name="(&string;)" scorefxn="(&string;)"

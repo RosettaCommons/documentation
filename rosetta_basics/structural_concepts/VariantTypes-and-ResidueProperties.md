@@ -28,4 +28,7 @@ Variants:
 -	 Variants are NOT directly synonymous with patches:
 	- It is possible for several patch files to be of the same variant. For example, the way to make a LOWER_TERMINUS variant of an AA residue is very different from how one makes a LOWER_TERMINUS of an NA residue.
 	- It should NOT be possible for a single base residue to have more than one patch file specifying the same variant type!
-
+-        If you are looking to fix issues related to terminus types in your pose, consider:
+	- Editing of variant types (including termini): [[ModifyVariantTypeMover|scripting_documentation/RosettaScripts/Movers/movers_pages/ModifyVariantTypeMover]]
+	- If you want to remove termini: [[MutateResidueMover|scripting_documentation/RosettaScripts/Movers/movers_pages/MutateResidueMover]] with "mutate_self"
+	- If you want to add termini: [[DeclareBondMover|scripting_documentation/RosettaScripts/Movers/movers_pages/DeclareBond]] with "add_termini"
