@@ -57,17 +57,21 @@ Input Files
 
 Before using the ResidueDisorder application to predict intrinsic disorder from sequence, structures models must be generated using Rosetta ab initio folding (100 recommended), RoseTTAFold (at least one recommended), or AlphaFold (5 recommended). The only input needed to run the application is the generated structures (using the `in:file:l` flag is recommended).
 
-Before using the ResidueDisorder application to measure disorder from structure, each structure must be pre-relaxed. The only input needed to run the application is the relaxed generated structures (using the `in:file:l flag` is recommended). If event detection is performed, it is crucial that these structures be input in the correct order. 
+Before using the ResidueDisorder application to measure disorder from structure, each structure must be pre-relaxed. The only input needed to run the application is the relaxed generated structures (using the `in:file:l` flag is recommended). If event detection is performed, it is crucial that these structures be input in the correct order. 
 
 
 Tips
 ====
 
-While ResidueDisorder can be run with any number of folded structures, 100 is highly recommended. 
+For predicting intrinsic disorder from sequence (default behavior of application), ResidueDisorder can be run with any number of folded structures, but recommended numbers are shown above. To use the AlphaFold parameters, include the `-AF` flag. The default output is ResidueDisorder_default.out, but the output file can be specified using `out:file:o`.
 
-The current implementation is calibrated to be used with talaris2014, so the flag `-restore_talaris_behavior` must be given.
+For measuring disorder from structure, the flag `measure_disorder_from_structure` must be given. This will treat every input structure separately rather than averaging the ensemble. The default prefix for the output files (one for each structure input) is ResidueDisorder_default_, but the prefix can be specified with `out:prefix`.
 
-Also, make sure that all input structures are of the same sequence (and length) and contain only a single chain.
+To predict events, make sure the structures are input in the correct order. The flags `measure_disorder_from_structure` and `predict_events` must be given. To specify the prefix for the output of each structure, use `out:prefix`. To specify the output file containing the events, use `out:file:o` (ResidueDisorder_events_default.out is the default output).
+
+Also, make sure that all input structures are of the same sequence (and length, must contain at least 10 residues) and contain only a single chain.
+
+For measuring disorder and predicting events, the current implementation is calibrated to be used with Talaris2014, so the flag `restore_talaris_behavior` must be given. However, for prediction of intrinsic disorder, REF2015 can be used (see table above in Algorithm section for specific flags for each implementation).
 
 Limitations
 ===========
@@ -77,11 +81,17 @@ Currently, Rosetta ResidueDisorder can only predict order for monomers. Input st
 Expected Outputs
 ================
 
-ResidueDisorder will output (on screen) the calculated per-residue scores for each pose and the average per-residue scores (over all 100 poses). For the initial prediction, ResidueDisorder will output the order score and prediction (order or disorder) for each residue. If terminal optimization is necessary (less that 60% disordered), ResidueDisorder will output the terminal optimization order scores, predictions, and final cutoffs. Finally, ResidueDisorder outputs the final predictions in tabular format to an output file (name is `ResidueDisorder_default.out` by default, but output file name can be specified using the `-out:file:o` flag). The tabulated final results contain the prediction, order score, and raw average residue score.
+ResidueDisorder will output (on screen) the calculated per-residue scores for each pose and the average per-residue scores (over all poses if predicting intrinsic disorder from sequence). For the initial prediction, ResidueDisorder will output the order score and prediction (order or disorder) for each residue. If terminal optimization is necessary (less that TPC% disordered), ResidueDisorder will output the terminal optimization order scores, predictions, and final cutoffs. 
+
+If predicting intrinsic disorder from sequence (default behavior), ResidueDisorder outputs the final predictions in tabular format to an output file (name is `ResidueDisorder_default.out` by default, but output file name can be specified using the `out:file:o` flag). The tabulated final results contain the prediction, order score, and raw average residue score.
+
+If measuring disorder from structure (measure_disorder_from_structure), ResidueDisorder outputs the final predictions in tabular format to an output file for each input structure (prefix is `ResidueDisorder_default_` by default, but file prefix can be specified using the `-out:prefix` flag). The tabulated final results contain the prediction, order score, and raw average residue score.
+
+If event detection is performed (`measure_disorder_from_structure` and `predict_events`), in addition to the output results for each structure (see above), an additional output file is created containing the detected events (`ResidueDisorder_events_default` by default, but can be specified using the `-out:file:o` flag).
+
 
 New things since last release
 =============================
 
-This is the first release.
-
+Since the first release, the "measure disorder from structure" and "predict events" capabilities have been added as well as parameters for predicting disorder using AlphaFold structures.
 
