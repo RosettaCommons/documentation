@@ -42,12 +42,12 @@ If the protein is more than terminal percentage cutoff (TPC) percent disordered 
 
 The algorithm contains parameters for modeling using the Talaris2014 and REF2015 scoring functions, as shown in the table below. AlphaFold with REF2015 is recommended for best prediction results.
 
-Model generation method | Rosetta scoring function | WS | CV | TPC | TS | TCV
------------- | ------------- | ------------ | ------------ | ------------ | ------------ | ------------
-Rosetta ab initio or RoseTTAFold | Talaris2014 | 5 | -1.0 | 60% | 13% | -0.3
-Rosetta ab initio or RoseTTAFold | REF2015 | 10 | -1.5 | 40% | 34% | -0.8
-AlphaFold | Talaris2014 | 5 | -1.2 | NA | NA | NA
-AlphaFold | REF2015 | 10 | -1.8 | NA | NA | NA
+Model generation method | Rosetta scoring function | WS | CV | TPC | TS | TCV | Flags to run
+------------ | ------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ 
+Rosetta ab initio or RoseTTAFold | Talaris2014 | 5 | -1.0 | 60% | 13% | -0.3 | `restore_talaris_behavior`
+Rosetta ab initio or RoseTTAFold | REF2015 | 10 | -1.5 | 40% | 34% | -0.8 | No additional
+AlphaFold | Talaris2014 | 5 | -1.2 | NA | NA | NA | `restore_talaris_behavior` and `AF`
+AlphaFold | REF2015 | 10 | -1.8 | NA | NA | NA | `AF`
 
 If event prediction is performed (from frames of an MD trajectory), the difference in the average disorder for 25 steps before that timepoint and 25 steps after that timepoint is calculated. A cutoff line for the absolute value of the difference is instituted, above which an event is defined, representing a significant change in disorder at that timepoint. This cutoff line is defined as 60% of the largest difference for the system. If the disorder increases during the event, it is defined as an unfolding event and if the disorder decreases during an event, it is defined as a folding event. If events are detected in adjacent timesteps, they are combined to form a single event in the center of the range.
 
@@ -55,7 +55,10 @@ If event prediction is performed (from frames of an MD trajectory), the differen
 Input Files
 ===========
 
-Before using the ResidueDisorder application, 100 de novo models must be generated using Rosetta _ab initio_ folding (see the demo or paper for flags used). The only input needed to run the application is the 100 generated structures (using the `in:file:l` flag is recommended).
+Before using the ResidueDisorder application to predict intrinsic disorder from sequence, structures models must be generated using Rosetta ab initio folding (100 recommended), RoseTTAFold (at least one recommended), or AlphaFold (5 recommended). The only input needed to run the application is the generated structures (using the `in:file:l` flag is recommended).
+
+Before using the ResidueDisorder application to measure disorder from structure, each structure must be pre-relaxed. The only input needed to run the application is the relaxed generated structures (using the `in:file:l flag` is recommended). If event detection is performed, it is crucial that these structures be input in the correct order. 
+
 
 Tips
 ====
