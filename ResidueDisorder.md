@@ -22,7 +22,7 @@ References
 ==========
 Kim, S.S.; Seffernick, J.T.; Lindert,S., Accurately Predicting Disordered Regions of Proteins Using Rosetta ResidueDisorder Application. _J. Phys. Chem. B._ **2018**;122,3029-30930.
 
-Seffernick, J.T.; Canfield, S.M.; Kim, S.S.; Lindert, S., Measuring Intrinsic Disorder and Tracking Conformational Transitions Using Rosetta ResidueDisorder. _J. Phys. Chem. B._ **2019**;123 (33), 7103–7112.
+Seffernick, J.T.; Ren, H.; Kim, S.S.; Lindert, S., Measuring Intrinsic Disorder and Tracking Conformational Transitions Using Rosetta ResidueDisorder. _J. Phys. Chem. B._ **2019**;123 (33), 7103–7112.
 
 Purpose
 =======
