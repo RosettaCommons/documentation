@@ -1,26 +1,28 @@
 #ResidueDisorder: Predicting order/disorder of residues in a protein.
 Metadata
 ========
-Method developed by Stephanie Kim (kim.6088@osu.edu).
+Method developed by Stephanie Kim (kim.6088@osu.edu) and Justin Seffernick (seffernick.9@osu.edu).
 
-Code and documentation by Justin Seffernick (seffernick.9@osu.edu).
+Code and documentation by Justin Seffernick.
 
 The PI was Steffen Lindert (lindert.1@osu.edu).
 
-Last updated March 2018 by Justin Seffernick. 
+Last updated August 2021 by Justin Seffernick. 
 
 Code
 ====
 
 Application resides at `Rosetta/main/source/src/apps/public/analysis/ResidueDisorder.cc`.
 
-There is a demo at `Rosetta/demos/public/ResidueDisorder`.
+There is a demo for disorder prediction using _ab initio_ structures at `Rosetta/demos/public/ResidueDisorder`.
 
-Note that to run ResidueDisorder, _ab initio_ structure prediction must first be performed (more details in demo).
+Note that to run ResidueDisorder for intrinsic disorder prediction from sequence, structure prediction must first be performed prior. This can be done using Rosetta ab initio, RoseTTAFold, or AlphaFold. Structures must be relaxed prior to input. To run ResidueDisorder for measuring disorder from structure, each input structure must also be relaxed.
 
 References
 ==========
-Kim, S.S.; Seffernick, J.T.; Lindert,S., Accurately Predicting Disordered Regions of Proteins Using Rosetta ResidueDidorder Application. _J. Phys. Chem. B._: **2018**;122,3029-30930.
+Kim, S.S.; Seffernick, J.T.; Lindert,S., Accurately Predicting Disordered Regions of Proteins Using Rosetta ResidueDisorder Application. _J. Phys. Chem. B._ **2018**;122,3029-30930.
+
+Seffernick, J.T.; Canfield, S.M.; Kim, S.S.; Lindert, S., Measuring Intrinsic Disorder and Tracking Conformational Transitions Using Rosetta ResidueDisorder. _J. Phys. Chem. B._ **2019**;123 (33), 7103–7112.
 
 Purpose
 =======
