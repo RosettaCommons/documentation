@@ -42,6 +42,11 @@ If the protein is more than terminal percentage cutoff (TPC) percent disordered 
 
 The algorithm contains parameters for modeling using the Talaris2014 and REF2015 scoring functions, as shown in the table below. AlphaFold with REF2015 is recommended for best prediction results.
 
+Model generation method | Rosetta scoring function | WS | CV | TPC | TS | TCV
+------------ | ------------- | ------------ | ------------ | ------------ | ------------ | ------------
+Rosetta ab initio or RoseTTAFold | Talaris2014 | 5 | -1.0 | 60% | 13% | -0.3
+
+
 Input Files
 ===========
 
