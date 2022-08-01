@@ -49,6 +49,7 @@ Rosetta ab initio or RoseTTAFold | REF2015 | 10 | -1.5 | 40% | 34% | -0.8
 AlphaFold | Talaris2014 | 5 | -1.2 | NA | NA | NA
 AlphaFold | REF2015 | 10 | -1.8 | NA | NA | NA
 
+If event prediction is performed (from frames of an MD trajectory), the difference in the average disorder for 25 steps before that timepoint and 25 steps after that timepoint is calculated. A cutoff line for the absolute value of the difference is instituted, above which an event is defined, representing a significant change in disorder at that timepoint. This cutoff line is defined as 60% of the largest difference for the system. If the disorder increases during the event, it is defined as an unfolding event and if the disorder decreases during an event, it is defined as a folding event. If events are detected in adjacent timesteps, they are combined to form a single event in the center of the range.
 
 
 Input Files
