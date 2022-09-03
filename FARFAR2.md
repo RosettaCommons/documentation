@@ -16,7 +16,7 @@ For a 'minimal' demo example of the RNA fragment assembly and full-atom minimiza
 # References
 Watkins, A. M.; Rangan, R.; Das, R. “FARFAR2: Improved de novo Rosetta prediction of complex global RNA folds.” Structure, 2020, 28: 963-976. [Link.](https://doi.org/10.1016/j.str.2020.05.011)
 
-#Algorithm
+# Algorithm
 
 Algorithmic description of FARFAR (i.e., Fragment Assembly of RNA with Full Atom Refinement) as a whole can be found [[here|rna-denovo]]. There are several distinctions that inaugurate FARFAR2 as a method appropriate for large RNA structure prediction.
 
@@ -26,13 +26,13 @@ Algorithmic description of FARFAR (i.e., Fragment Assembly of RNA with Full Atom
 
 -   The original FARFAR method used a fragment library from 2009; we have updated it to 2018 and added flags for excluding fragments from any supplied `-native` structure to simulate benchmark-like conditions.
 
-#Limitations
+# Limitations
 
 -   Sufficiently large RNAs are still hard to sample completely. Obviously, use templates if they are available, even for small portions of your target! Experimental data can help (see [[earlier work with the previous code|rna-assembly]]), as can [[strategies for building up models gradually|rna-denovo-setup], or solving small motifs first with [[stepwise]].
 
 -   As with most other modes in Rosetta, the final ensemble of models is not guaranteed to be a Boltzmann ensemble. There is some progress happening in that direction for RNA with the [[recces]] application.
 
-#Modes
+# Modes
 
 
 -   By default, the code runs Monte Carlo fragment assembly, optimized in a knowledge-based low-resolution potential.
@@ -49,7 +49,7 @@ FARNA (rna_denovo) can accept sequence and secondary structure from command line
 
 ## Optional additional files:
 
--   The [[fasta file]]: it is a sequence file for your RNA. Its header lines can specify chains and numbering for the output structures, too.
+-   The [[RNA fasta file]]: it is a sequence file for your RNA. Its header lines can specify chains and numbering for the output structures, too. *This differs from the ordinary FASTA format you may be familiar with and is required to specify chemically modified nucleotides.*
 
 -   The [[secondary structure file|rna-secondary-structure-file]]: holds the secondary structure for the RNA in dot-parens notation, if known.
 
@@ -135,117 +135,6 @@ Advanced
 -close_loops                                     Attempt closure across chainbreaks by cyclic coordinate descent after fragment moves [Boolean] Defaults to true.
 ```
 
-## Supported chemically modified nucleotides
-
-ICY - isocytidine  
-IGU - isoguanidine  
-INO - inosine  
-
-### 2'OMe
-A2M - 2'-O-methyladenosine  
-OMC - 2'-O-methylcytidine  
-OMG - 2'-O-methylguanosine  
-OMU - 2'-O-methyluridine  
-
-### Other 2' modifications
-5JO - 2'-O-prop-2-yn-1-yladenosine  
-A44 - 2'-O-methoxyethyladenosine  
-C43 - 2'-O-methoxyethylcytidine  
-C5L - 2'-O-methoxyethyl-5-methylcytidine  
-G48 - 2'-O-methoxyethylguanosine  
-U36 - 2'-O-methoxyethyluridine  
-
-### 2'F
-FMA - 2'-fluoroadenosine  
-FMC - 2'-fluorocytidine  
-FMG - 2'-fluoroguanosine  
-FMU - 2'-fluorouridine  
-
-### OP1 => SP1
-SRA - adenosine-thiomonophosphate (enantiomer 1)  
-SRC - cytidine-thiomonophosphate (enantiomer 1)  
-SRG - guanosine-thiomonophosphate (enantiomer 1)  
-SRU - uridine-thiomonophosphate (enantiomer 1)  
-
-### OP1 => SP2
-SSA - adenosine-thiomonophosphate (enantiomer 2)  
-SSC - cytidine-thiomonophosphate (enantiomer 2)  
-SSG - guanosine-thiomonophosphate (enantiomer 2)  
-SSU - uridine-thiomonophosphate (enantiomer 2)  
-
-
-### Modified bases
-1AP - 2,6-diaminopurine  
-1MA - 1-methyl-6-hydroadenosine  
-2MA - 2-methyladenosine  
-2MG - 2-methylguanosine  
-2MU - 2'O-,5-dimethyluridine  
-4OC - 2'O-,5-dimethylcytidine  
-5MC - 5-methylcytidine  
-5MU - 5-methyluridine  
-BRU - 5-bromo-2'O-deoxyuridine  
-5BU - 5-bromouridine  
-7MG - 7-methyl-8-hydroguanosine  
-G7M - 7-methyl-guanosine  
-7DA - 7-deaza-2'O-deoxyadenosine  
-M2G - 2-dimethylguanosine  
-MA6 - 6-dimethyladenosine  
-PSU - pseudouridine  
-UR3 - 3-methyluridine  
-6MZ - 6-methyladenosine  
-1MG - 1-methylguanosine  
-4SU - 4-thiouridine  
-3TD - 3-methylpseudouridine  
-H2U - dihydrouridine  
-MIA - 2-methylthio-6-isopentenyladenosine  
-5FU - 5-fluorouridine  
-5IU - 5-iodouridine  
-2AP - 2-aminopurine  
-PUR - purine  
-6MG - 6-methylguanosine  
-5FC - 5-fluorocytidine  
-8OG - 8-oxo-2'-deoxyguanosine  
-OMI - 2'O-methylinosine  
-CFM - 2'O-methyl-5-formylcytidine  
-PPU - puromycin  
-AET - N6-methyl,N6-carbamoylthreonyladenosine  
-T6A - N6-carbamoylthreonyladenosine  
-3MC - 3-methylcytidine  
-52C - 2',5-methylcytidine  
-RIA - 2'-(5'-phospho)ribosyladenosine  
-QUO - queuesine  
-YYG - wybutosine  
-O2W - 2'-methylwybutosine  
-NMT - 2'-methylcarbamoyl-5-methyluridine  
-M3G - 2,2,2'-trimethylguanosine  
-<!-- residue_types/nucleic/rna_nonnatural/1PU.params -->
-<!-- residue_types/nucleic/rna_nonnatural/2ST.params -->
-<!-- residue_types/nucleic/rna_nonnatural/2SU.params -->
-<!-- residue_types/nucleic/rna_nonnatural/31U.params -->
-<!-- residue_types/nucleic/rna_nonnatural/52U.params -->
-<!-- residue_types/nucleic/rna_nonnatural/I6A.params -->
-<!-- residue_types/nucleic/rna_nonnatural/M1I.params -->
-<!-- residue_types/nucleic/rna_nonnatural/MPU.params -->
-<!-- residue_types/nucleic/rna_nonnatural/S2C.params -->
-<!-- residue_types/nucleic/rna_nonnatural/A4C.params -->
-<!-- residue_types/nucleic/rna_nonnatural/K2C.params -->
-<!-- residue_types/nucleic/rna_nonnatural/F5C.params -->
-<!-- residue_types/nucleic/rna_nonnatural/IHA.params -->
-<!-- residue_types/nucleic/rna_nonnatural/NST.params -->
-<!-- residue_types/nucleic/rna_nonnatural/C5T.params -->
-<!-- residue_types/nucleic/rna_nonnatural/CMT.params -->
-<!-- residue_types/nucleic/rna_nonnatural/MOT.params -->
-<!-- residue_types/nucleic/rna_nonnatural/MST.params -->
-<!-- residue_types/nucleic/rna_nonnatural/CNT.params -->
-<!-- residue_types/nucleic/rna_nonnatural/CNS.params -->
-<!-- residue_types/nucleic/rna_nonnatural/CNM.params -->
-<!-- residue_types/nucleic/rna_nonnatural/APU.params -->
-<!-- residue_types/nucleic/rna_nonnatural/OAU.params -->
-<!-- residue_types/nucleic/rna_nonnatural/MOU.params -->
-<!-- residue_types/nucleic/rna_nonnatural/MHU.params -->
-<!-- residue_types/nucleic/rna_nonnatural/M26.params -->
-<!-- residue_types/nucleic/rna_nonnatural/2FU.params -->
-
 # Tips
 
 ## File Format 
@@ -291,6 +180,10 @@ or
 using the flag `-bps_moves` will trigger moves that substitute sequence-matched fragments for the nucleotides at (2,3,8,11). This happens if on at least one strand, the base pair step involves residues that are immediately contiguous (2 and 3 in this example). On the other strand, the base pair step must involve residues that are contiguous are have no more than 3 intervening 'bulge' residues (8 and 11 in this example). Note that these base pair steps will generally include noncanonical pairs.  There's a demo of this functionality applied to model the sarcin/ricin loop in `demos/public/RNA_Denovo_with_base_pair_steps/`
 
 Note: For noncanonical pairs, we don't allow specification of edges and orientations at the moment -- the database gets pretty sparse with that level of specification. Also note: If there is a base pair step that includes a pair both inside a Watson/Crick stem and a more general 'obligate pair', the stem pairing may actually come out as non-Watson-Crick, which often happens anyway for base pairs at the edge of stems.
+
+## Can I specify chemically modified nucleotides?
+
+You can and should! Please see the documentation for the [[RNA fasta file]] format for details.
 
 ## See Also
 
