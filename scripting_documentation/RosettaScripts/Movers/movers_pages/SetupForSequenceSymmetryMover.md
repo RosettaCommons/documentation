@@ -77,7 +77,7 @@ Say you have a 7 chain protein: 2 dimers and a trimer, where you want to enforce
 Introduced in PR 4260, updated in PR 5168.
 
 ## See Also
-
+* [[FavorSymmetricSequence]]
 * [[SymDofMover]]
 * [[SymMinMover]]
 * [[SymPackRotamersMover]]
