@@ -2,7 +2,7 @@
 
 Back to [[Application Documentation]].
 
-Created 24 October 2015 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).  Last updated 27 September 2019.<br/><br/>
+Created 24 October 2015 by Vikram K. Mulligan, Baker laboratory (vmullig@uw.edu).  Last updated 24 May 2022.<br/><br/>
 <b><i>If you use this application, please cite:</i><br/>
 Bhardwaj, G., V.K. Mulligan, C.D. Bahl, J.M. Gilmore, P.J. Harvey, O. Cheneval, G.W. Buchko, S.V.S.R.K. Pulavarti, Q. Kaas, A. Eletsky, P.-S. Huang, W.A. Johnsen, P. Greisen, G.J. Rocklin, Y. Song, T.W. Linsky, A. Watkins, S.A. Rettie, X. Xu, L.P. Carter, R. Bonneau, J.M. Olson, E. Coutsias, C.E. Correnti, T. Szyperski, D.J. Craik, and D. Baker. 2016.  <u>Accurate de novo design of hyperstable constrained peptides.</u> *Nature.* 538(7625):329-35.</b><br/>
 (<a href="http://www.ncbi.nlm.nih.gov/pubmed/27626386">Link</a> to article).
@@ -185,9 +185,9 @@ In addition to an amide bond connecting the N- and C-termini, it is possible to 
 
 Note that the **-cyclic_peptide:require_symmetry_repeats** and **-cyclic_peptide:cyclic_permutations** flags are incompatible with isopeptide lariats.  Also note that the **simple\_cycpep\_predict** application does _not_ use the GLX, ASX, or LYX residue types.  Sequence files and native PDB files must specify GLU, ASP, and LYS, respectively.
 
-## Additional flags for predicting structures of thioethe-bonded lariat peptides
+## Additional flags for predicting structures of thioether-bonded lariat peptides
 
-In addition to an amide bond connecting the N- and C-termini, it is possible to synthesize peptides in which a thiol-containing side-chain forms an amide bond with an N-teminal residue bearing a 2-chloroacetyl group (a strategy popularized by PeptiDream). These one-tailed lariat structures can also be predicted with **simple\_cycpep\_predict**.  The relevant flags are as follows:
+In addition to an amide bond connecting the N- and C-termini, it is possible to synthesize peptides in which a thiol-containing side-chain forms an amide bond with an N-teminal residue bearing a 2-chloroacetyl group (a strategy popularized by PeptiDream). These one-tailed lariat structures can also be predicted with **simple\_cycpep\_predict**.  Note that a number of bugfixes for this feature were merged into the master branch of Rosetta on 24 May 2022, and are only available in versions of the software released after this date.  The relevant flags are as follows:
 
 **-cyclic_peptide:cyclization_type \<string\>**  This flag, mentioned earlier, must be set to "thioether_lariat" for a sidechain-to-N-terminus thioether lariat.
 

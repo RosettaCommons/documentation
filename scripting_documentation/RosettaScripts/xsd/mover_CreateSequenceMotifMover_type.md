@@ -10,6 +10,12 @@ SequenceMotifTaskOperation.  Uses psueo-regular expressions to define the motif.
 @details Simply calls the packer using the operation, optionally packing neighbor residues as it does so.
  If you need something more complex, use the SequenceMotifTaskOperation directly.
 
+
+References and author information for the CreateSequenceMotifMover mover:
+
+CreateSequenceMotifMover Mover's author(s):
+Jared Adolf-Bryfogle, The Scripps Research Institute, La Jolla, CA [jadolfbr@gmail.com]
+
 ```xml
 <CreateSequenceMotifMover name="(&string;)" motif="(&string;)"
         pack_neighbors="(true &bool;)" design_neighbors="(false &bool;)"
