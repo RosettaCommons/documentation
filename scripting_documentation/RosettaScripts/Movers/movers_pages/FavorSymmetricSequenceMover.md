@@ -13,6 +13,6 @@ The total constraint score is listed as 'res\_type\_linking\_constraint'
 
 
 ##See Also
-
+* [[SetupForSequenceSymmetryMover]]/[[KeepSequenceSymmetry]]
 * [[ResidueTypeConstraintMover]]
 * [[I want to do x]]: Guide to choosing a mover
