@@ -1,4 +1,4 @@
-#Remodeling RNA crystallographic models with electron density constraint (ERRASER: Enumerative Real-Space Refinement ASsitted by Electron density under Rosetta)
+# Remodeling RNA crystallographic models with electron density constraint (ERRASER: Enumerative Real-Space Refinement ASsitted by Electron density under Rosetta)
 
 Metadata
 ========
@@ -9,6 +9,10 @@ Mar. 2012 by Fang-Chieh Chou (fcchou [at] stanford.edu).
 
 Code and Demo
 =============
+
+## We do not recommend running ERRASER with ~current versions of Rosetta (post-2016) or in conjunction wtih ~current versions of PHENIX.
+
+### Please use older releases of Rosetta (~3.4 and 3.5 have been tested and work well) with contemporaneous PHENIX, or (preferred) use the ROSIE server at https://rosie.graylab.jhu.edu/erraser, which allows you to keep your data totally private if desired.
 
 The full ERRASER pipeline is controlled by a set of python codes in `       src/apps/public/ERRASER/      ` . The main applications being used are *erraser\_minimizer* , *swa\_rna\_analytical\_closure* and *swa\_rna\_main* . The central codes for SWA (StepWise Assembly) applications are in `       src/protocols/stepwise/legacy/rna/      ` . The electron density scoring function used in ERRASER is in `       src/core/scoring/electron_density_atomwise/      ` .
 

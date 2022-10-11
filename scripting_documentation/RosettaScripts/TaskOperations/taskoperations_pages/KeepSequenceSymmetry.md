@@ -68,7 +68,7 @@ Enabling this task operation will construct the SequenceSymmetricAnnealer.
 Introduced in PR 4260, updated in PR 5168. 
 
 ##See Also
-
+* [[FavorSymmetricSequence]]
 * [[RosettaScripts|RosettaScripts]]: Using RosettaScripts
 * [[Task Operations | TaskOperations-RosettaScripts]]: Other TaskOperations in RosettaScripts
 * [[Conventions in RosettaScripts|RosettaScripts-Conventions]]
