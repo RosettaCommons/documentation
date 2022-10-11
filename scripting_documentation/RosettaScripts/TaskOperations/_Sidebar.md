@@ -19,6 +19,8 @@
    * [[Task Operations|TaskOperations-RosettaScripts]]
 
    * [[Simple Metrics | SimpleMetrics]]
+
+   * [[Ensemble Metrics|EnsembleMetrics]]
    
    * [[Filters|Filters-RosettaScripts]]
 

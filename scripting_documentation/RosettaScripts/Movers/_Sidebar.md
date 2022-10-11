@@ -20,6 +20,8 @@
 
    * [[Simple Metrics | SimpleMetrics]]
 
+   * [[Ensemble Metrics|EnsembleMetrics]]
+
    * [[Filters|Filters-RosettaScripts]]
 
    * [[FeaturesReporters|Features-reporter-overview]]
