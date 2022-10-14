@@ -14,6 +14,10 @@
 
    * [[Filters|Filters-RosettaScripts]]
 
+   * [[Simple Metrics|SimpleMetrics]]
+
+   * [[Ensemble Metrics|EnsembleMetrics]]
+
    * [[Residue Selectors|ResidueSelectors]]
 
    * [[PackerPalettes|PackerPalette]]

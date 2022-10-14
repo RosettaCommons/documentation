@@ -37,6 +37,7 @@ Filter  | Description
 **[[CompoundStatement|CompoundStatementFilter]]** | Uses previously defined filters with logical operations to construct a compound filter.
 **[[CombinedValue|CombinedValueFilter]]** | Weighted sum of multiple filters.
 **[[CalculatorFilter]]** | Combine multiple filters with a mathematical expression.
+**[[EnsembleFilter]]** | Filter based, not on a property of a single pose, but on a property of an _ensemble_ of many poses.
 **[[ReplicateFilter]]** | Repeat a filter multiple times and average.
 **[[Boltzmann|BoltzmannFilter]]** | Boltzmann weighted sum of positive/negative filters.
 **[[MoveBeforeFilter]]** | Apply a mover before applying the filter.
