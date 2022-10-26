@@ -78,7 +78,7 @@ ggcgcguX[4SU]aacaaagcggX[H2U]X[H2U]auguagcggaX[PSU]ugcaX[MIA]aX[PSU]ccgucuaguccg
 AKGEFIRTKPHVNVGTIGHVDHGKTTLTAALTYVAAAENPNVEVKDYGDIDKAPEERARGITINTAHVEYETAKRHYSHVDCPGHADYIKNMITGAAQMDGAILVVSAADGPMPQTREHILLARQVGVPYIVVFMNKVDMVDDPELLDLVEMEVRDLLNQYEFPGDEVPVIRGSALLALEEMHKNPKTKRGENEWVDKIWELLDAIDEYIPTPVRDVDKPFLMPVEDVFTITGRGTVATGRIERGKVKVGDEVEIVGLAPETRKTVVTGVEMHRKTLQEGIAGDNVGLLLRGVSREEVERGQVLAKPGSITPHTKFEASVYILKKEEGGRHTGFFTGYRPQFYFRTTDVTGVVRLPQGVEMVMPGDNVTFTVELIKPVALEEGLRFAIREGGRTVGAGVVTKILE
 ```
 
-Note the provision of residue and chain information in the title line, and the specification of chemically modified residues using X and then the PDB three letter code in brackets. This type of FASTA file may be generated using the `pdb2fasta.py` script provided in the Rosetta `tools/rna_tools/pdb_util` directory.
+Note the provision of residue and chain information in the title line, and the specification of chemically modified residues using X and then the PDB three letter code in brackets. This type of FASTA file may be generated using the `pdb2fasta.py` script provided in the Rosetta `tools/rna_tools/pdb_util` directory. Please refer to the page on [[RNA fasta file]]s for more details and examples.
 
 The flags file might contain some optional arguments:
 

@@ -140,6 +140,7 @@ Mover  | Description
 **[[BackboneGridSampler|BackboneGridSamplerMover]]** | Generates a residue chain and samples torsion angles
 **[[CartesianMD|CartesianMD]]** | Brings concerted motion to backbone using Cartesian-space molecular dynamics
 **[[ConfChangeMover|ConfChangeMover]]** | Brings concerted motion to backbone using Markov Chain Monte Carlo (2022)
+**[[CrankshaftFlip|CrankshaftFlipMover]]** | Perform crankshaft flip moves, an inversion of a phi dihedral with the following omega flipping between cis/trans
 **[[InitializeByBins|InitializeByBinsMover]]** | Randomizes stretches of backbone based on torsion bins
 **[[NormalModeRelax|NormalModeRelaxMover]]** | Brings concerted motion to backbones using Anisotropic Network Model (ANM)
 **[[PerturbByBins|PerturbByBinsMover]]** | Perturbs stretches of backbone based on torsion bins
@@ -205,14 +206,7 @@ Mover  | Description
 **[[DockingInitialPerturbation|DockingInitialPerturbationMover]]** | Carries out the initial perturbation phase of the RosettaDock algorithm
 **[[DockingProtocol|DockingProtocolMover]]** | Performs full docking protocol with current defaults
 **[[FlexPepDock|FlexPepDockMover]]** | Performs ab initio or refinement peptide docking
-
-##### Docking with Mouse
-
-Mover  | Description
------------- | -------------
-**[[MouseSetupMover]]** | Setup Rosetta for Mouse calculations
-**[[MouseSpyDockingProtocol|MouseSpyDockingProtocolMover]]** | Drop-in replacement for [[DockingProtocol|DockingProtocolMover]], but gives larger interfaces that are slightly more stable per residue.
-**[[MouseFinalizeMover]]** | Spin down after Mouse calculations
+**[[GridDock|SixDoFGridDockMover]]** | Performs six degree of freedom grid docking
 
 ### Fragment Insertion
 
@@ -342,6 +336,7 @@ Mover  | Description
 **[[DeclareBond]]** | Tell Rosetta that there exists a chemical bond between two residues.
 **[[Disulfidize|DisulfidizeMover]]** | Finds potential disulfide bond positions based on Calpha - Cbeta distance
 **[[Dssp|DsspMover]]** | Calculates secondary structure using dssp
+**[[EnsureExclusivelySharedJumpMover]]** | Change the fold tree to guarantee there is a jump that builds the selected residues and only the selected residues
 **[[FavorNativeResidue|FavorNativeResidueMover]]** | Constrains the residue type by favoring the type present when applied
 **[[FavorSequenceProfile|FavorSequenceProfileMover]]** | Constrains the residue type using one of several profiles
 **[[FlipChirality|FlipChiralityMover]]** | Mirrors a selection in pose
