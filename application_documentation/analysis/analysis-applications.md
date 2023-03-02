@@ -19,6 +19,7 @@
 * [[RECCES]]: RNA free energy calculation with comprehensive sampling.
 * [[shobuns]]: Buried unsatisfied polar atoms for the SHO solvation model.
 * [[PerResidueSolventExposure]]: Quantify solvent exposure on a per residue basis.
+* [[HDXEnergy]]: Score a protein structure with HDX data.
 
 ##See Also
 
