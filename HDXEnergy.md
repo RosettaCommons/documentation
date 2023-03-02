@@ -15,4 +15,4 @@ Reference: https://doi.org/10.1016/j.str.2021.10.006
 
 ### Usage
 
-
+To use the application, the following command line options need to be specified: 
