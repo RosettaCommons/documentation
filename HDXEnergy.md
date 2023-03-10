@@ -9,13 +9,15 @@ Creator Names:
 
 Date created: February 22, 2022
 
-Evaluate a protein structure with HDX data.
+Use Hydrogen-deuterium exchange (HDX) data measured by nuclear magnetic resonance (NMR) to evaluate protein structural information and to supplemented computational prediction methods with a scoring function to quantify the agreement with HDX data.
+
+Reference: https://doi.org/10.1016/j.str.2021.10.006
 
 ### Categorical
 
 ### Numerical
 
-Reference: https://doi.org/10.1016/j.str.2021.10.006
+Use quantitative protection factors (PFs) from HDX-NMR.
 
 ### Usage
 
