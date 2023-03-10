@@ -45,7 +45,7 @@ To use the application, the following command line options need to be specified:
 -dist_steepness           steepness of distance calculation curve (default = 1.0)
 -angle_midpoint           midpoint of angle calculation (default = pi/4)
 -angle_steepness          steepness of angle calculation curve (default = 2pi)
--bbamide                  use the N-H Vector instead of the CA-CB vector (only in FA mode and not with -neighbor_closest_atom flag)
+-bbamide                  use N-H instead of CA-CB vector (only in FA mode, not with -neighbor_closest_atom)
 ```
 
 Expected output will be written to TR and list the residue numbers and their respective neighbor counts.
