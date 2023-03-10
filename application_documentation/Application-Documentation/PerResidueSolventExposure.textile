@@ -30,6 +30,8 @@ Calculating the neighbor count in FA mode is identical to that of centroid, but 
  * Cone Method with Closest Atom (distance = CA to closest, angle between CA-CB and CA-closest)
  * Cone Method with CB Atom (distance = CA to CB, angle between CA-CB and CA-CB)
 
+Calculate the Residue Neighbor Count for the Backbone Amide (N-H instead of CA-CB) by adding the "-bbamide" flag when using the "cone" method. (Not available when running in centroid mode or closest atom mode.)
+
 The various methods can be specified through command line options when running the application.
 
 ### Usage
@@ -38,12 +40,12 @@ To use the application, the following command line options need to be specified:
 -centroid_version         use flag if centroid mode is desired (FA is default)
 -in:file:centroid         use this flag if centroid mode calculations are being done!
 -neighbor_closest_atom    use flag if FA calculation requires the nearest neighbor (default behavior is to use CB)
--sphere_method            use flag if you want to use the sphere method
--cone_method              use flag if you want to use the cone method
+-solvent_exposure:method  use flag to set the neighbor count method to "sphere" (default) or "cone"
 -dist_midpoint            midpoint of distance calculation (default = 9.0)
 -dist_steepness           steepness of distance calculation curve (default = 1.0)
 -angle_midpoint           midpoint of angle calculation (default = pi/4)
 -angle_steepness          steepness of angle calculation curve (default = 2pi)
+-bbamide                  use the N-H Vector instead of the CA-CB vector (only in FA mode and not with -neighbor_closest_atom flag)
 ```
 
 Expected output will be written to TR and list the residue numbers and their respective neighbor counts.
