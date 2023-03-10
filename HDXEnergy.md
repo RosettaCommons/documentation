@@ -11,9 +11,9 @@ Date created: February 22, 2022
 
 Evaluate a protein structure with HDX data.
 
-## Categorical
+### Categorical
 
-## Numerical
+### Numerical
 
 Reference: https://doi.org/10.1016/j.str.2021.10.006
 
