@@ -37,6 +37,7 @@ The various methods can be specified through command line options when running t
 ### Usage
 To use the application, the following command line options need to be specified:
 ```
+-in:file:s                pdb file(s) to calculate solvent exposure for
 -centroid_version         use flag if centroid mode is desired (FA is default)
 -in:file:centroid         use this flag if centroid mode calculations are being done!
 -neighbor_closest_atom    use flag if FA calculation requires the nearest neighbor (default behavior is to use CB)
