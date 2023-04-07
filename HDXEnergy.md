@@ -17,7 +17,7 @@ Reference: https://doi.org/10.1016/j.str.2021.10.006
 
 Use strength categories that corresponded to HDX rates (rather than the quantitative exchange rates) to score.
 
-### Numerical
+### Quantitative
 
 Use quantitative protection factors (PFs) from HDX-NMR for scoring.
 
@@ -25,7 +25,16 @@ Use quantitative protection factors (PFs) from HDX-NMR for scoring.
 
 To use the application, the following command line options can be specified: 
 ```
--StrongRes     Used if strong residue categorical list is provided.
--ResPF         Used if protection factors are included for each residue.
+./HDXEnergy.linuxgccrelease -in:file:s 1a2p_A.pdb -in::file::HDX 1a2p_pf.txt -out::file::o 1a2p_test.out -ResPF           
 ```
+### Example
+
+```
+-in:file:s 1a2p_A.pdb
+-in::file::HDX 1a2p_pf.txt
+-ResPF
+-out::file::o 1a2p_test.out
+
+```
+
 
