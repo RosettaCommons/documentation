@@ -35,7 +35,7 @@ Calculate the Residue Neighbor Count for the Backbone Amide (N-H instead of CA-C
 The various methods can be specified through command line options when running the application.
 
 ### Usage
-To use the application, the following command line options need to be specified:
+To use the application, the following command line options can be specified:
 ```
 -in:file:s                pdb file(s) to calculate solvent exposure for
 -centroid_version         use flag if centroid mode is desired (FA is default)
