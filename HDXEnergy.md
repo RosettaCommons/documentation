@@ -15,9 +15,11 @@ Reference: https://doi.org/10.1016/j.str.2021.10.006
 
 ### Categorical
 
+Use strength categories that corresponded to HDX rates (rather than the quantitative exchange rates) to score.
+
 ### Numerical
 
-Use quantitative protection factors (PFs) from HDX-NMR.
+Use quantitative protection factors (PFs) from HDX-NMR for scoring.
 
 ### Usage
 
