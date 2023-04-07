@@ -49,4 +49,10 @@ To use the application, the following command line options need to be specified:
 -bbamide                  use N-H instead of CA-CB vector (only in FA mode, not with -neighbor_closest_atom)
 ```
 
-Expected output will be written to TR and list the residue numbers and their respective neighbor counts.
+Expected output will be written to a file and list the residue numbers and their respective neighbor counts.
+
+### Example
+
+```
+./per_residue_solvent_exposure.linuxgccrelease -in:file:s 1dwr_A.pdb
+```
