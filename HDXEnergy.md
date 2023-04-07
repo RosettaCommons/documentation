@@ -23,4 +23,9 @@ Use quantitative protection factors (PFs) from HDX-NMR for scoring.
 
 ### Usage
 
-To use the application, the following command line options need to be specified: 
+To use the application, the following command line options can be specified: 
+```
+-StrongRes     Used if strong residue categorical list is provided.
+-ResPF         Used if protection factors are included for each residue.
+```
+
