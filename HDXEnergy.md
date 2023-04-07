@@ -24,10 +24,6 @@ Use quantitative protection factors (PFs) from HDX-NMR for scoring.
 ### Usage
 
 To use the application, the following command line options can be specified: 
-```
-./HDXEnergy.linuxgccrelease -in:file:s 1a2p_A.pdb -in::file::HDX 1a2p_pf.txt -out::file::o 1a2p_test.out -ResPF           
-```
-### Example
 
 ```
 -in:file:s 1a2p_A.pdb
@@ -37,4 +33,9 @@ To use the application, the following command line options can be specified:
 
 ```
 
+### Example
+
+```
+./HDXEnergy.linuxgccrelease -in:file:s 1a2p_A.pdb -in::file::HDX 1a2p_pf.txt -out::file::o 1a2p_test.out -ResPF           
+```
 
