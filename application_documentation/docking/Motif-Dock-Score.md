@@ -26,7 +26,7 @@ To run docking in Motif Dock Score mode, type the following in a commandline:
 [path to executable]/docking_protocol.[platform|linux/mac][compile|gcc/ixx]release –database [path to database] -mh:path:scores_BB_BB [path to score tables + score table prefix] -mh:score:use_ss1 false -mh:score:use_ss2 false -mh:score:use_aa1 true -mh:score:use_aa2 true -docking_low_res_score motif_dock_score @options
 ```
 
-Note: default argument for -mh:path:scores_BB_BB is: [path to Rosetta main]/database/protocol_data/motif_dock/xh_16_
+Note: default argument for -mh:path:scores_BB_BB is: [path to Rosetta main]/database/additional_protocol_data/motif_dock/xh_16_
 
 Note: code currently resides in branch: ssrb19/ensembledock_separate, to be merged into master in Fall 2017.
 
