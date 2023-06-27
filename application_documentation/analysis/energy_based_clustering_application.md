@@ -30,7 +30,9 @@ Clustering is the process of taking a large group of structures and sorting them
 
 # The algorithm
 
-The `energy_based_clustering` application imports a list of structures from any Rosetta-compatible file format (currently mmCIF, PDB, or Rosetta silent format), scores each or loads a list of alternative scores, and stores only the information relevant for clustering (thereby conserving memory) in an unclustered structure list.  It then uses a very simple "cookie-cutter" algorithm to cluster the structures.  The steps are:
+The `energy_based_clustering` application implements an incremental clustering approach, (sometimes termed "leader-follower clustering"), where entries are ordered by energy.
+
+Specifically, it first imports a list of structures from any Rosetta-compatible file format (currently mmCIF, PDB, or Rosetta silent format), scores each or loads a list of alternative scores, and stores only the information relevant for clustering (thereby conserving memory) in an unclustered structure list.  It then uses a very simple "cookie-cutter" algorithm to cluster the structures.  The steps are:
 
 1.  Select the lowest-energy structure remaining in the unclustered list as the centre of the current cluster.  This structure is removed from the unclustered list.
 2.  Construct an RMSD vector between the current cluster centre and all remaining structures in the unclustered list.  The RMSD can be based on mainchain Cartesian coordinates or on backbone dihedral values.
