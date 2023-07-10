@@ -33,6 +33,7 @@ These applications are specifically designed to work with RNA or RNA-protein com
 * [[RNA threading|rna-thread]] - Thread a new nucleotide sequence on an existing RNA structure.  
 * [[Sample around nucleobase]]: Generates tables of interaction energies between an adenosine nucleobase and a user-specified probe.
 * [[RNA score]]: a simple scoring application with hooks into preferred RNA workflows. Not superior to `score_jd2` intrinsically, but usually more convenient.
+* [[RNA chemical modifications]]: discussion of how to model RNAs with chemically modified nucleotides.
 
 ##See Also
 * [RiboKit](https://ribokit.github.io) General workflows for RNA modeling & analysis
