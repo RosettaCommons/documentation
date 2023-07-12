@@ -1,6 +1,6 @@
-# PerResidueEsmProbabilitiesMetric
+# PseudoPerplexityMetric
 *Back to [[SimpleMetrics]] page.*
-## PerResidueEsmProbabilitiesMetric
+## PseudoPerplexityMetric
 
 
 ### General description
