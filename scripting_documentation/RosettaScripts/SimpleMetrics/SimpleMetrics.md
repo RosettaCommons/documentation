@@ -135,6 +135,7 @@ SimpleMetric  | Description | ResidueSelector Compatability?
 **[[CustomStringValueMetric]]** | Add an arbitrary string to a pose with a user-defined label. | No/no need
 **[[DihedralDistanceMetric]]** | Calculates the normalized dihedral angle distance in degrees from directional statistics on a set of dihedrals/residues of two poses or two regions of a pose.  | Yes
 **[[InteractionEnergyMetric]]** | Calculates the (long range and short range) interaction energy between a selection and all other residues or another selection. Can be set to only calculate short or long or only use certain score terms such as fa_rep. | Yes
+**[[PseudoPerplexityMetric]]** | A metric that takes a _PerResidueProbabilitiesMetric_ and calculates the psueod-perplexity from it (a score describing the likelihood of a given sequence). | No/no need
 **[[ResidueSummaryMetric]]** | A metric that takes a _PerResidueRealMetric_ and summarizes the data in different ways, such as the sum, mean, or the number of residues that match a certain criteria. Can use cached data. | Yes
 **[[RMSDMetric]]** | Calculates the RMSD between two poses or on a subset of residues.  Many options for RMSD including bb, heavy, all, etc. | Yes 
 **[[SasaMetric]]** | Calculates the Solvent Accessible Surface Area (sasa). | Yes
@@ -204,6 +205,13 @@ SimpleMetric  | Description | ResidueSelector Compatability?
 ------------ | ------------- | -------------
 **[[ProtocolSettingsMetric]]** | Outputs currently set user options (cmd-line,xml, or both).  Allows one to only output specific metrics or set a tag for the particular experiment.  Useful for benchmarking/plotting or historical preservation of options tied to a pose  | No
 
+##PerResidueProbabilitiesMetrics
+These metrics calculate multiple real numbers (probabilities) for every Residue selected by a residue selector. They are used in the context of machine learning models which, for a particular position, predict probabilities for all possible amino acids for that position (e.g. is my residue at position 10 more likely to be a Tryptophan or an Alanine).
+Default is to calculate on ALL residues. **All accept ResidueSelectors.**  Output can be in Rosetta or PDB Numbering.
+
+SimpleMetric  | Description 
+------------ | -------------
+**[[PerResidueEsmProbabilitiesMetric]]** | Uses the ESM (Evolutionary Scale Modeling) protein language model family to predict amino acid probabilities (requires tensorflow).
 
 ##See Also
 
