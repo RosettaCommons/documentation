@@ -4,12 +4,15 @@
 
 
 ### General description
-Uses the Evolutionary Scale Modeling (ESM) protein language model family to predict amino acid probabilities for a given selection.
+Uses the Evolutionary Scale Modeling (ESM) protein language model family to predict amino acid probabilities for a given selection. The prediction is based on the chain sequence of the selected residue.
 
 ### Details
 The metric requires Rosetta to be build using `extras=tensorflow` (for compilation details see [[trRosettaProtocol]]). The smallest base model is already present but larger models need to be downloaded once, you can do this either by setting the `-auto_download` flag or following the instructions printed by the metric. Non-canonical amino acids can be present in the sequence that is used for prediction, however, they will be set to the "unknown" token, you might additionally want to use the `attention_mask_selection` to prevent them from altering your prediction.
 
 [[include:simple_metric_PerResidueEsmProbabilitiesMetric_type]]
+
+### Available models
+Currently available models are: `esm2_t6_8M_UR50D`, `esm2_t12_35M_UR50D`, `esm2_t30_150M_UR50D`, `esm2_t33_650M_UR50D`
 
 ### Example
 This example predicts the probabilities for the complete chain A while masking the position 25 using the esm2_t6_8M_UR50D model. The `multirun` option controls whether all positions are getting predicted in one inference pass or one by one (you would instead set this to false if you run out of memory). Additionally it specifies to output a position-specific-scoring-matrix (PSSM) in psi-blast format containing the predicted probabilities as logit, which can be used with the [[FavorSequenceProfileMover]] to constrain a design run. Lastly, it uses the [[PseudoPerplexityMetric]] to calculate a single score from all predicted probabilities, describing the likelihood of the overall sequence.
