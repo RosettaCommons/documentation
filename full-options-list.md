@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2022-04-20
+Generated: 2023-07-13
 
 _Note that some application specific options may not be present in this list._
 
@@ -54,14 +54,20 @@ _Note that some application specific options may not be present in this list._
 <dd>Apply a very small offset to the glycan virtual positions to avoid collinearity in the angle minimization.<br/>Default: 0<br/></dd>
 <dt><b>-membrane</b> \<Boolean\></dt>
 <dd>Initialize pose as a membrane protein using specified membrane parameters. Default is false<br/>Default: false<br/></dd>
+<dt><b>-tuning_param</b> \<Real\></dt>
+<dd>Specify the tuning parameter to modulate lowres and highres score functions.<br/>Default: 1.0<br/></dd>
 <dt><b>-remember_unrecognized_res</b> \<Boolean\></dt>
 <dd>Ignore unrecognized residues, but remember them in PDBInfo.<br/>Default: false<br/></dd>
 <dt><b>-remember_unrecognized_water</b> \<Boolean\></dt>
 <dd>Remember waters along with other unrecognized residues.<br/>Default: false<br/></dd>
 <dt><b>-preserve_crystinfo</b> \<Boolean\></dt>
 <dd>Preserve information important for crystal refinement (B factors +CRYST1 line)<br/>Default: false<br/></dd>
+<dt><b>-fast_restyping</b> \<Boolean\></dt>
+<dd>Use a faster version of residue typing when reading input files. This assumes that the three letter code stands for the 'standard' residue type, or that the proper type has been specified in the HETNAM records. This should work with Rosetta outputs and most (unedited/uncleaned) direct-from-wwPDB structures, with caveats.<br/>Default: false<br/></dd>
 <dt><b>-detect_oops</b> \<Boolean\></dt>
 <dd>Detect oligooxopiperazines (oops) and add required constraints<br/>Default: false<br/></dd>
+<dt><b>-obey_ssbond</b> \<Boolean\></dt>
+<dd>When true, defer to the SSBOND records in the PDB for disulfide specification.When false, use -detect_disulf settings to determine disulfide bonding.<br/>Default: false<br/></dd>
 <dt><b>-detect_disulf</b> \<Boolean\></dt>
 <dd>Forcably enable or disable disulfide detection. When unspecified, rosetta conservatively detects disulfides in full atom input based on SG distance, but will not form centroid disulfides.  Setting '-detect_disulf true' will force aggressive disulfide detection in centroid poses based on CB distance.  Setting '-detect_disulf false' disables all detection, even in full atom poses.  Note that disabling disulfides causes severe clashes for native disulfides.<br/></dd>
 <dt><b>-detect_disulf_tolerance</b> \<Real\></dt>
@@ -177,6 +183,8 @@ _Note that some application specific options may not be present in this list._
 <dd>.params file(s) for new residue types (e.g. ligands)<br/>Default: []<br/></dd>
 <dt><b>-extra_res_fa</b> \<FileVector\></dt>
 <dd>.params file(s) for new fullatom residue types (e.g. ligands)<br/>Default: []<br/></dd>
+<dt><b>-override_database_params</b> \<Boolean\></dt>
+<dd>Use input .params file(s) instead of database if residue name is found in residue set<br/>Default: false<br/></dd>
 <dt><b>-extra_res_mol</b> \<FileVector\></dt>
 <dd>.mol file(s) for new fullatom residue types (e.g. ligands)<br/>Default: []<br/></dd>
 <dt><b>-extra_res_mmCIF</b> \<FileVector\></dt>
@@ -924,6 +932,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Include cutpoint variants in the pose during linear chainbreak<br/>Default: false<br/></dd>
 <dt><b>-score</b> \<Boolean\></dt>
 <dd>scorefunction option group<br/></dd>
+<dt><b>-lowres_weights</b> \<String\></dt>
+<dd>Name of lowres weights file (without extension .wts)<br/>Default: "interchain_cen"<br/></dd>
 <dt><b>-weights</b> \<String\></dt>
 <dd>Name of weights file (without extension .wts)<br/>Default: "ref2015"<br/></dd>
 <dt><b>-set_weights</b> \<StringVector\></dt>
@@ -2173,6 +2183,8 @@ _Note that some application specific options may not be present in this list._
 <dl>
 <dt><b>-genpotential</b> \<Boolean\></dt>
 <dd>genpotential option group<br/></dd>
+<dt><b>-quick_lookup</b> \<Boolean\></dt>
+<dd>Use quick lookup in lookup_tors_params<br/>Default: false<br/></dd>
 <dt><b>-set_torsion_params</b> \<StringVector\></dt>
 <dd>Modify generic_bonded_potential torsion parameters (the ones in generic_bonded.round6p.txt) from the command line. Format is: -corrections:genpotential:set_torsion_params <atom-set1>:<atom_name1>:<atom_name2>:<atom_name3>:<atom_name4><param1>:<setting1>:<param2>:<setting2> ... For example: '-corrections:genpotential:set_torsion_params fa_standard:C*:CS:CS:C*:k1:0.0:k2:0.0:k3:0.077 fa_standard:CD:CS:CS:CD:k1:0.435:k2:0.039:k3:0.070' <br/></dd>
 <dt><b>-set_special_torsion_params</b> \<StringVector\></dt>
@@ -2721,6 +2733,13 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-chains</b> \<String\></dt>
 <dd>Chains over which the statistics are taken, can be multiple. Example: 'AEF'. If not given, takes statistics over unique chains in the PDB.<br/></dd>
 </dl>
++ <h2>-machine_learning</h2>
+<dl>
+<dt><b>-machine_learning</b> \<Boolean\></dt>
+<dd>machine_learning option group<br/></dd>
+<dt><b>-auto_download</b> \<Boolean\></dt>
+<dd>Automatically download machine learning models if missing. Defaults to false.<br/>Default: false<br/></dd>
+</dl>
 + <h2>-mp</h2>
 <dl>
 <dt><b>-mp</b> \<Boolean\></dt>
@@ -2828,6 +2847,10 @@ _Note that some application specific options may not be present in this list._
 <dd>setup option group<br/></dd>
 <dt><b>-spanfiles</b> \<StringVector\></dt>
 <dd>Spanning topology file from Octopus<br/></dd>
+<dt><b>-span1</b> \<String\></dt>
+<dd>Spanning topology file for partner 1<br/></dd>
+<dt><b>-span2</b> \<String\></dt>
+<dd>Spanning topology file for partner 2<br/></dd>
 <dt><b>-spans_from_structure</b> \<Boolean\></dt>
 <dd>Uses spanning topology computed from the PDB; requires the protein to be transformed into the membrane coordinate frame!<br/></dd>
 <dt><b>-lipsfile</b> \<String\></dt>
@@ -4110,6 +4133,8 @@ _Note that some application specific options may not be present in this list._
 <dd>A list of additional atoms to use in the RMSD calculation, each in the format residue:atomname separated by whitespace.  For example, -extra_rms_atoms 7:SG 12:CG 12:CD 12:CE 12:NZ 14:OG.  Default empty list.<br/></dd>
 <dt><b>-rebuild_all_in_dihedral_mode</b> \<Boolean\></dt>
 <dd>If true, full poses are rebuilt for output when clustering in dihedral mode.  If false, only backbones are written out.  True by default.<br/>Default: true<br/></dd>
+<dt><b>-alternative_score_file</b> \<File\></dt>
+<dd>A file containing one line per Structure with the pose input file name and an alternative score to sort by seperated by whitespace.<br/></dd>
 </dl>
 + <h2>-partial_thread</h2>
 <dl>
@@ -6908,6 +6933,74 @@ _Note that some application specific options may not be present in this list._
 <dd>skip the bump check when making the rotamers that will be tested for motif interactions, makes code much slower, but it is advised to increase the max_rotbump_energy to at least 10.0 instead of the default of 5.0 if bump_check is being used<br/>Default: false<br/></dd>
 <dt><b>-ligand_motif_sphere</b> \<Real\></dt>
 <dd>option to specify radius of motif search around ligand<br/>Default: 6.0<br/></dd>
+<dt><b>-output_build_positions_only</b> \<Boolean\></dt>
+<dd>intended to trigger to only spit out build positions for protein and stop the program if true<br/>Default: false<br/></dd>
+<dt><b>-specific_build_position</b> \<Real\></dt>
+<dd>read in for when collecting relevant motifs per build position, only collect motifs for this build position; intended for long motif lists where it will be best to run motif collection per build position in parallel<br/>Default: 0<br/></dd>
+<dt><b>-verbosity</b> \<Boolean\></dt>
+<dd>Boolean to indicate whether the user wants verbose output on motifs that are rejected in single_ligand_motif_from_stream from motif_utils.cc. This is for the version that does not kill the istream when a bad motif is encountered<br/>Default: false<br/></dd>
+<dt><b>-params_directory_path</b> \<String\></dt>
+<dd>User-inputted path to a directory where params files are located to be read into a script<br/>Default: " "<br/></dd>
+<dt><b>-sdf_directory_path</b> \<String\></dt>
+<dd>User-inputted path to a directory where sdf files are located to be read into a script<br/>Default: " "<br/></dd>
+<dt><b>-mol2_directory_path</b> \<String\></dt>
+<dd>User-inputted path to a directory where mol2 files are located to be read into a script<br/>Default: " "<br/></dd>
+<dt><b>-mol2_file</b> \<String\></dt>
+<dd>User-inputted name of mol2 file to be converted into a params file. Path to file can be included.<br/>Default: " "<br/></dd>
+<dt><b>-mol2_amino_acid</b> \<String\></dt>
+<dd>set up params file for modified amino acid; .mol2 only; edit chis afterward.<br/></dd>
+<dt><b>-params_custom_file_name</b> \<String\></dt>
+<dd>String to be the name of the output params file (include any extension and pathing in this flag)<br/></dd>
+<dt><b>-ligand_3_letter_code</b> \<String\></dt>
+<dd>Custom 3 letter code for ligand (will take first 3 letters from mol2 file otherwise)<br/></dd>
+<dt><b>-ligand_1_letter_code</b> \<String\></dt>
+<dd>Custom 1 letter code for ligand (will take first letter from mol2 file otherwise)<br/></dd>
+<dt><b>-ligand_full_name</b> \<String\></dt>
+<dd>Custom name of ligand<br/></dd>
+<dt><b>-write_param_to_pdb</b> \<Boolean\></dt>
+<dd>Bool to use in params file generation script to indicate to make a pdb file of the ligand (to compare to original mol2 and confirm successful translation)<br/>Default: false<br/></dd>
+<dt><b>-protein_discovery_locus</b> \<Real\></dt>
+<dd>Value to indicate the index/locus that a user wants to run ligand discovery for on a protein<br/>Default: 0<br/></dd>
+<dt><b>-fa_rep_cutoff</b> \<Real\></dt>
+<dd>Value for ligand discovery cutoff for fa_rep score<br/>Default: 0<br/></dd>
+<dt><b>-fa_atr_cutoff</b> \<Real\></dt>
+<dd>Value for ligand discovery cutoff for fa_atr score<br/>Default: 0<br/></dd>
+<dt><b>-output_ligand_pdb</b> \<Boolean\></dt>
+<dd>Optional flag to choose to output read in ligands back out as pdb files. Useful for debugging as well as getting an original ligand in the original placement location for the RMSD calculations<br/>Default: false<br/></dd>
+<dt><b>-check_new_param_file</b> \<Boolean\></dt>
+<dd>Decide whether to test a generated params file and make sure it was accurately converted (time consumming operation)<br/>Default: false<br/></dd>
+<dt><b>-ddg_cutoff</b> \<Real\></dt>
+<dd>Real value to be used as a cutoff for keeping placed ligands. Optimized placement must be better (smaller) than cutoff. Using very large default value for ease in implementing the filter variable<br/>Default: 1000000<br/></dd>
+<dt><b>-best_pdbs_to_keep</b> \<Integer\></dt>
+<dd>Size to determine the number of placed ligands to keep and output as pdbs. Default value of 0 indicates to keep any that make it to ddg evaluation (could be a lot)<br/>Default: 0<br/></dd>
+<dt><b>-resolution_scale_factor</b> \<Integer\></dt>
+<dd>Scale for resolution of holes analysis protocol. Resolution is defaulted to 1 cubic angstrom. This variable is inversely proportional to the linear magnitude of the resolution. I.e. factor = 1 --> resolution = 1A^3 (cube side length = 1/1); factor = 2 --> resolution = 0.125A^3 (cube side length = 1/2) <br/>Default: 1<br/></dd>
+<dt><b>-x_min_holes</b> \<Real\></dt>
+<dd>If going to investigate a sub_region of a pdb, this defines the min x value of the region<br/></dd>
+<dt><b>-x_max_holes</b> \<Real\></dt>
+<dd>If going to investigate a sub_region of a pdb, this defines the max x value of the region<br/></dd>
+<dt><b>-y_min_holes</b> \<Real\></dt>
+<dd>If going to investigate a sub_region of a pdb, this defines the min y value of the region<br/></dd>
+<dt><b>-y_max_holes</b> \<Real\></dt>
+<dd>If going to investigate a sub_region of a pdb, this defines the max y value of the region<br/></dd>
+<dt><b>-z_min_holes</b> \<Real\></dt>
+<dd>If going to investigate a sub_region of a pdb, this defines the min z value of the region<br/></dd>
+<dt><b>-z_max_holes</b> \<Real\></dt>
+<dd>If going to investigate a sub_region of a pdb, this defines the max z value of the region<br/></dd>
+<dt><b>-highresdocker_allow_minimization</b> \<Boolean\></dt>
+<dd>Bool to indicate whether to allow (true) minimization or not (false) in the apply function of HighResDocker<br/>Default: true<br/></dd>
+<dt><b>-highresdocker_allow_repacking</b> \<Boolean\></dt>
+<dd>Boolean in ligand_docking/HighResDocker to prevent apply function from repacking. Often want value to be true, but this allows option to make it false.<br/>Default: true<br/></dd>
+<dt><b>-highresdocker_use_all_residues</b> \<Boolean\></dt>
+<dd>Boolean in ligand_docking/HighResDocker to determine whether to use all residues in generation of packer_task.<br/>Default: false<br/></dd>
+<dt><b>-ligand_motif_output_directory_name</b> \<String\></dt>
+<dd>Name the directory to which motif pdbs will be outputted to, default of location where script is called. Follow a directory name with a /.<br/>Default: ""<br/></dd>
+<dt><b>-ligand_motif_output_file_name</b> \<String\></dt>
+<dd>Name the file to which motifs will be outputted to, default of a local directory named AllMattMotifs.motifs. If file type extension not specified (identified as the last period encountered), will output to a file type ending in .motifs<br/>Default: "AllMattMotifs.motifs"<br/></dd>
+<dt><b>-output_motifs_as_pdb</b> \<Boolean\></dt>
+<dd>Output generated motifs as pdb files<br/>Default: true<br/></dd>
+<dt><b>-output_motifs</b> \<Boolean\></dt>
+<dd>Output generated motifs as .motifs file and to a MotifLibrary<br/>Default: true<br/></dd>
 </dl>
 + <h2>-ms</h2>
 <dl>
@@ -10148,4 +10241,11 @@ _Note that some application specific options may not be present in this list._
 <dd>Cause Rosetta to exit immediately with an error.<br/>Default: false<br/></dd>
 <dt><b>-INTEGRATION_TEST</b> \<Boolean\></dt>
 <dd>Meta flag for best-practices flags in integration tests. Don't use on actual runs.<br/>Default: false<br/></dd>
+</dl>
++ <h2>-solvent_exposure</h2>
+<dl>
+<dt><b>-solvent_exposure</b> \<Boolean\></dt>
+<dd>solvent_exposure option group<br/></dd>
+<dt><b>-method</b> \<String\></dt>
+<dd>Method to calculate neighbor count, sphere or cone.<br/>Default: "sphere"<br/></dd>
 </dl>

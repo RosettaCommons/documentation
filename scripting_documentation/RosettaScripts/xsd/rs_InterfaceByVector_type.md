@@ -9,6 +9,7 @@ Measures an interface by creating two vectors.One vector is between Ca - to Cb o
 It should be noted that 
   1) GRP1 to GRP2 is slightly different than GRP2 to GRP1
   2) before using the vector, we use the nearby_atom_cut to select nearby atoms as well.
+  3) this selector only functions on PROTEIN ResidueTypes (without checks). Use selectors that do not include non-PROTEIN-type residues (ligands, glycans, etc).
 
 ```xml
 <InterfaceByVector name="(&string;)" cb_dist_cut="(11.0 &real;)"

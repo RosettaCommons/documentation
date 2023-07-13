@@ -8,7 +8,7 @@ Sets residue type constraints (SequenceProfileConstraint) on the pose according 
 ```xml
 <FavorSequenceProfile name="(&string;)" weight="(1 &real;)"
         scorefxns="(&string;)" use_native="(&bool;)" use_fasta="(&bool;)"
-        use_starting="(&bool;)" use_current="(&bool;)" pdbname="(&bool;)"
+        use_starting="(&bool;)" use_current="(&bool;)" pdbname="(&string;)"
         pssm="(&string;)" chain="(&non_negative_integer;)"
         scaling="(prob &favor_seqprof_scaling_type;)"
         matrix="(BLOSUM62 &string;)" exclude_resnums="(&string;)"

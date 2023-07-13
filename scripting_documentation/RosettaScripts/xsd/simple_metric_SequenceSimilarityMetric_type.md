@@ -8,7 +8,7 @@ A metric for measuring sequence similarity between the trajectry pose and the na
 References and author information for the SequenceSimilarityMetric simple metric:
 
 SequenceSimilarityMetric SimpleMetric's author(s):
-Jack Maguire, University of North Carolina at Chapel Hill [jackmaguire1444@gmail.com]
+Jack Maguire, University of North Carolina at Chapel Hill
 
 ```xml
 <SequenceSimilarityMetric name="(&string;)" custom_type="(&string;)"
