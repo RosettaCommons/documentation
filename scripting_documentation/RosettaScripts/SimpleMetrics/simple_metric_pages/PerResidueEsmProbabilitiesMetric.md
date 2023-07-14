@@ -2,14 +2,13 @@
 *Back to [[SimpleMetrics]] page.*
 ## PerResidueEsmProbabilitiesMetric
 
+[[include:simple_metric_PerResidueEsmProbabilitiesMetric_type]]
 
 ### General description
 Uses the Evolutionary Scale Modeling (ESM) protein language model family to predict amino acid probabilities for a given selection. The prediction is based on the chain sequence of the selected residue.
 
 ### Details
 The metric requires Rosetta to be build using `extras=tensorflow` (for compilation details see [[trRosettaProtocol]]). The smallest base model is already present but larger models need to be downloaded once, you can do this either by setting the `-auto_download` flag or following the instructions printed by the metric. Non-canonical amino acids can be present in the sequence that is used for prediction, however, they will be set to the "unknown" token, you might additionally want to use the `attention_mask_selection` to prevent them from altering your prediction.
-
-[[include:simple_metric_PerResidueEsmProbabilitiesMetric_type]]
 
 ### Available models
 Currently available models are: `esm2_t6_8M_UR50D`, `esm2_t12_35M_UR50D`, `esm2_t30_150M_UR50D`, `esm2_t33_650M_UR50D`
