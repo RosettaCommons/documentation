@@ -68,6 +68,59 @@ cartesian_ddg.linuxgccrelease
 
 For ddg:mut_file format, please refer to [[here | ddg-monomer]]. Note that this file contains the mutations you want to introduce at once, which means, specifying more than one mutation in a single file will try to mutate all together at same time. Scanning over separate mutations (e.g. ALA scanning) will therefore require running this app separately using different mut_file as input.
 
+### Frenz et. al (2020) version. (cartddg2020)
+
+## Prep:
+
+```
+ROSETTASCRIPTS>
+    <SCOREFXNS>
+        <ScoreFunction name="fullatom" weights="ref2015_cart" symmetric="0">
+        </ScoreFunction>
+	</SCOREFXNS>
+	<MOVERS>
+        <FastRelax name="fastrelax" scorefxn="fullatom" cartesian="1" repeats="4"/> 
+	</MOVERS>
+	<PROTOCOLS>
+        <Add mover="fastrelax"/>
+    </PROTOCOLS>
+    <OUTPUT scorefxn="fullatom"/>
+</ROSETTASCRIPTS>
+```
+
+rosetta_scripts.static.release \
+    -database $ROSETTA_DATABASE \
+    -s /workdir/input.pdb\
+    -parser:protocol /workdir/relax.xml\
+    -default_max_cycles 200\
+    -missing_density_to_jump\
+    -ignore_zero_occupancy false\
+    -fa_max_dis 9
+
+## Run:
+
+```
+#!/bin/bash
+cartesian_ddg\
+    -database $ROSETTA3_DB\
+    -s ${input.pdb}\
+    -ddg::iterations 5\
+    -ddg::score_cutoff 1.0\
+    -ddg::dump_pdbs false\
+    -ddg::bbnbrs 1\
+    -score:weights ref2015_cart\
+    -ddg::mut_file ${mutfile.mut}\
+    -ddg:frag_nbrs 2\
+    -ignore_zero_occupancy false\
+    -missing_density_to_jump \
+    -ddg:flex_bb false\
+    -ddg::force_iterations false\
+    -fa_max_dis 9.0\
+    -ddg::json true\
+    -ddg:legacy false
+```
+
+
 ### Interface mode
 
 This app can do PPI and Protein small molecule simulation (not well tested).
