@@ -103,6 +103,7 @@ ROSETTASCRIPTS>
 </ROSETTASCRIPTS>
 ```
 
+```
 rosetta_scripts.static.release \
     -database $ROSETTA_DATABASE \
     -s /workdir/input.pdb\
@@ -111,6 +112,7 @@ rosetta_scripts.static.release \
     -missing_density_to_jump\
     -ignore_zero_occupancy false\
     -fa_max_dis 9
+```
 
 ## Run:
 
