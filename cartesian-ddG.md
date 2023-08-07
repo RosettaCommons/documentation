@@ -68,6 +68,20 @@ cartesian_ddg.linuxgccrelease
 
 For ddg:mut_file format, please refer to [[here | ddg-monomer]]. Note that this file contains the mutations you want to introduce at once, which means, specifying more than one mutation in a single file will try to mutate all together at same time. Scanning over separate mutations (e.g. ALA scanning) will therefore require running this app separately using different mut_file as input.
 
+
+### Interface mode
+
+This app can do PPI and Protein small molecule simulation (not well tested).
+
+Optional options:
+```
+-mut_only #skip native structure
+-interface_ddg -1 #jump number for interface (-1 means the last jump)
+```
+
+Here the app calculate difference in energy by detaching "the part in pose defined by the last jump" from the rest of pose; the easiest way of doing this is to edit the input pdb so that the ligand (either protein or small molecule)
+locates at its end. One can check whether it is working properly by running with an optional flag "-ddg:dump_pdbs", which will output *_bj.pdb (before dissociation) and *_aj.pdb (after dissociation). 
+
 Frenz et. al flags and options (cartddg2020)
 ==========================================
 
@@ -122,18 +136,6 @@ cartesian_ddg\
 ```
 
 
-### Interface mode
-
-This app can do PPI and Protein small molecule simulation (not well tested).
-
-Optional options:
-```
--mut_only #skip native structure
--interface_ddg -1 #jump number for interface (-1 means the last jump)
-```
-
-Here the app calculate difference in energy by detaching "the part in pose defined by the last jump" from the rest of pose; the easiest way of doing this is to edit the input pdb so that the ligand (either protein or small molecule)
-locates at its end. One can check whether it is working properly by running with an optional flag "-ddg:dump_pdbs", which will output *_bj.pdb (before dissociation) and *_aj.pdb (after dissociation). 
 
 Expected Outputs & post-processing
 ===============
