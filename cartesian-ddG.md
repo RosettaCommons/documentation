@@ -68,7 +68,8 @@ cartesian_ddg.linuxgccrelease
 
 For ddg:mut_file format, please refer to [[here | ddg-monomer]]. Note that this file contains the mutations you want to introduce at once, which means, specifying more than one mutation in a single file will try to mutate all together at same time. Scanning over separate mutations (e.g. ALA scanning) will therefore require running this app separately using different mut_file as input.
 
-### Frenz et. al (2020) version. (cartddg2020)
+Frenz et. al (2020) version. (cartddg2020)
+==========================================
 
 ## Prep:
 
