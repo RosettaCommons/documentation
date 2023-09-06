@@ -53,14 +53,17 @@ For having both TensorFlow and PyTorch support, follow the download and setup in
 Note: You can use both `extras=tensorflow` and `extras=tensorflow_gpu` with any of the downloaded versions, there is no check whether its connected to the respective library. However, it enables you to have binaries for both.
 
 ## To compile with PyTorch support:
-1. Download Libtorch from https://pytorch.org/get-started/locally/
-2. unzip to `rosetta/source/external`
+1. Download Libtorch from https://pytorch.org/get-started/locally/  
+    e.g. for the cpu version:
+    ```
+    wget https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.13.1%2Bcpu.zip -O libtorch.zip
+    ```
+2. unzip to `rosetta/main/source/external`
+    ```
+    cd Rosetta/main/source
+    unzip libtorch.zip -d external/ && rm libtorch.zip
+    ```
 3. compile with extras=pytorch
-
-for example:
-```
-cd rosetta/source/
-wget https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.13.1%2Bcpu.zip -O libtorch.zip
-unzip libtorch.zip -d external/ && rm libtorch.zip
-./scons.py -j 8 mode=release extras=pytorch
-```
+    ```
+    ./scons.py -j 8 mode=release extras=pytorch
+    ```
