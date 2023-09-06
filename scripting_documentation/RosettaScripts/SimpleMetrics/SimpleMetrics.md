@@ -168,6 +168,7 @@ Default is to calculate on ALL residues.
 
 SimpleMetric  | Description 
 ------------ | -------------
+**[[CurrentProbabilityMetric]]** | Return just the probability for the amino acid identities currently present in the pose from a PerResidueProbabilitiesMetric. 
 **[[HbondMetric]]** | Calculate number of hydrogen bonds between residues in a selector or between two selectors
 **[[PeptideInternalHbondsMetric]]** | Calculate the number of hydrogen bonds in a single selection or pose, excluding bonds between residues within a threshold distance of each other in terms of covalent connectivity.
 **[[PerResidueDensityFitMetric]]** | Calculate the Fit of a  model to the loaded density either by Correlation or a Zscore.
@@ -176,6 +177,7 @@ SimpleMetric  | Description
 **[[PerResidueRMSDMetric]]** | Calculate the RMSD for each residue between the input and either the native or a reference pose.
 **[[PerResidueSasaMetric]]** | Calculate the Solvent Accessible Surface Area (SASA) of each residue.
 **[[PTMPredictionMetric]]** | Predict the probability of different post-translational modifications.
+**[[ProbabilityConservationMetric]]** | Calculates the conservation of a position given some predicted probabilities (using the relative Shannon Entropy).
 **[[SidechainNeighborCountMetric|simple_metric_SidechainNeighborCountMetric_type]]** | Calculates each sidechains neighbors based on cones. This metric uses the same core code as the LayerSelector.
 **[[WaterMediatedHbondMetric]]** | A metric to measure hydrogen bonds between a set of residues that are water-mediated (bridged).  Can calculate different depths to traverse complex hbond networks.
 **[[PerResidueSapScoreMetric|simple_metric_PerResidueSapScoreMetric_type]]** | Calculates SAP score (~hydrophobicity) for each residue.
@@ -192,6 +194,7 @@ These metrics calculate a set of named real numbers. All metric values in the co
 
 SimpleMetric  | Description | ResidueSelector Compatability?
 ------------ | ------------- | -------------
+**[[BestMutationsFromProbabilitiesMetric]]**| Calculates mutations with the highest delta probability to the current residues from a PerResidueProbabilitiesMetric. | No
 **[[BlockwiseShapeCompMetric|simple_metric_BlockwiseShapeCompMetric_type]]** | Measures shape complementarity between blocks (contiguous stretches of amino acids). | Yes
 **[[BlockwisePoseCompMotifMetric|simple_metric_BlockwisePoseCompMotifMetric_type]]** | Calculate motif scores between blocks (contiguous stretches of amino acids). | Yes
 **[[CompositeEnergyMetric]]** | Calculates each individual scoreterm of a scorefunction or the DELTA of each scoreterm between two poses.  Each named value is the scoreterm | Yes
@@ -213,6 +216,7 @@ SimpleMetric  | Description
 ------------ | -------------
 **[[AverageProbabilitiesMetric]]** | Average multiple PerResidueProbabilitiesMetrics.
 **[[PerResidueEsmProbabilitiesMetric]]** | Uses the ESM (Evolutionary Scale Modeling) protein language model family to predict amino acid probabilities (requires tensorflow).
+**[[ProteinMPNNProbabilitiesMetric]]** | Uses the ProteinMPNN moodel to predict amino acid probabilities (requires pytorch).
 
 ##See Also
 
