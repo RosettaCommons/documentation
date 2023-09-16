@@ -9,7 +9,7 @@ A metric for estimating the probability of an amino acid at a given position, as
 
 ### Example
 The example predicts the amino acid identities for chain A using only the coordinates of chain A, while masking the sequence of position 25 and uses the predicted probabilities to score the sequence. 
-```
+```xml
 <ROSETTASCRIPTS>
     <RESIDUE_SELECTORS>
         <Chain name="res" chains="A" />
