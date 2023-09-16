@@ -10,7 +10,7 @@ A metric for calculating the conservation of a position given some predicted pro
 
 ### Example
 This example predicts the amino acid probabilities for chain A of our protein using ProteinMPNN and then calculates the conservation from them. Additionally it uses the `metric_to_bfactor` option of the [[RunSimpleMetrics]] mover which enables easy visualization of the values in ChimeraX/PyMol.
-```
+```xml
 <ROSETTASCRIPTS>
     <RESIDUE_SELECTORS>
         <Chain name="res" chains="A" />
