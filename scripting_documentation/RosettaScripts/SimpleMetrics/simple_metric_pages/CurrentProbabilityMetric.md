@@ -10,7 +10,7 @@ A PerResidueRealMetric that returns just the probability for the sequence curren
 
 ### Example
 This example predicts the amino acid probabilities for chain A of our protein using ProteinMPNN and then returns just the probabilities for the current sequence from them. Additionally it uses the metric_to_bfactor option of [[RunSimpleMetrics]] mover which enables easy visualization of the values in ChimeraX/PyMol. 
-```
+```xml
 <ROSETTASCRIPTS>
     <RESIDUE_SELECTORS>
         <Chain name="res" chains="A" />
