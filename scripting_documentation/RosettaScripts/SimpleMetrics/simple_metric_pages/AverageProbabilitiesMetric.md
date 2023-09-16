@@ -12,7 +12,7 @@ Like other `PerResidueProbabilitiesMetrics` the probabilities can be output as l
 
 ### Example
 In this example we predict the amino acid probabilities for chain A of our protein using ProteinMPNN and ESM, average both predictions and use the average probabilities to calculate a single score for our protein.
-```
+```xml
 <ROSETTASCRIPTS>
     <RESIDUE_SELECTORS>
         <Chain name="res" chains="A" />
