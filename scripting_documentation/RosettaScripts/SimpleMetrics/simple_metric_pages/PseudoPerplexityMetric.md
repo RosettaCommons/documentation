@@ -11,7 +11,7 @@ Calculate the pseudo-perplexity from a _PerResidueProbabilitiesMetric_, which is
 ### Example
 
 
-```
+```xml
 <ROSETTASCRIPTS>
     <RESIDUE_SELECTORS>
         <Chain name="res" chains="A" />
