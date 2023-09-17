@@ -210,7 +210,6 @@ SimpleMetric  | Description | ResidueSelector Compatability?
 
 ##PerResidueProbabilitiesMetrics
 These metrics calculate multiple real numbers (probabilities) for every Residue selected by a residue selector. They are used in the context of machine learning models which, for a particular position, predict probabilities for all possible amino acids for that position (e.g. is my residue at position 10 more likely to be a Tryptophan or an Alanine).
-Default is to calculate on ALL residues. **All accept ResidueSelectors.**  Output can be in Rosetta or PDB Numbering.
 
 SimpleMetric  | Description 
 ------------ | -------------
