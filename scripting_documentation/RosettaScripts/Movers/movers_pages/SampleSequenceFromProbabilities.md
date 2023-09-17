@@ -4,7 +4,7 @@
 
 
 ### General description
-Sample sequences from a specified PerResidueProbabilitiesMetric and thread them onto the pose.
+Sample whole sequences or a specified number of mutations from a PerResidueProbabilitiesMetric and thread them onto the pose.
 
 [[include:mover_SampleSequenceFromProbabilities_type]]
 
