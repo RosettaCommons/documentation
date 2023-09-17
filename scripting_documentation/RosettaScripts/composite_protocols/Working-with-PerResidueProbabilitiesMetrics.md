@@ -187,7 +187,7 @@ A [[metric|BestMutationsFromProbabilitiesMetric]] for calculating mutations with
     </PROTOCOLS>
 </ROSETTASCRIPTS>
 ```
-##Sample a sequence/mutations from probabilities
+##Sample a sequence/mutations from probabilities and thread onto pose
 The predicted probabilities can be used to design (change) the whole sequence of a pose or a user-specified amount of mutations, starting from positions that differ the most from the predictions using [[this mover|SampleSequenceFromProbabilities]]. In the example below, we sample ten mutations from ESM predicted probabilities, where each mutation needs have at least a probability of 0.0001 and a delta probability to current of 0.0 (meaning at least as likely as the current amino acid at a particular position). There is a temperature option for both the choice of position and amino acids, where T<1 leads to more deterministic behavior and T>1 to more diversity. We also restrict the choice of mutations with a resfile specifying packing behavior of residues and/or amino acids. 
 ```xml
 <ROSETTASCRIPTS>
