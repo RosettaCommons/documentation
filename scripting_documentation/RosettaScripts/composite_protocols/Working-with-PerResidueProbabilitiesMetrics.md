@@ -257,8 +257,6 @@ Another way to inform Rosetta of the predicted probabilities is to turn them int
 	<PackRotamersMover name="design" scorefxn="beta_cst"/>
     </MOVERS>
     <PROTOCOLS>
-        <Add mover_name="inference"/>
-        <Add mover_name="save"/>
         <Add mover_name="favor"/>
         <Add mover_name="design"/>
     </PROTOCOLS>
