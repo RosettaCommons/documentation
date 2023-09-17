@@ -188,7 +188,79 @@ A [[metric|BestMutationsFromProbabilitiesMetric]] for calculating mutations with
 </ROSETTASCRIPTS>
 ```
 ##Sample a sequence/mutations from probabilities
+The predicted probabilities can be used to design (change) the whole sequence of a pose or a user-specified amount of mutations, starting from positions that differ the most from the predictions using [[this mover|SampleSequenceFromProbabilities]]. In the example below, we sample ten mutations from ESM predicted probabilities, where each mutation needs have at least a probability of 0.0001 and a delta probability to current of 0.0 (meaning at least as likely as the current amino acid at a particular position). There is a temperature option for both the choice of position and amino acids, where T<1 leads to more deterministic behavior and T>1 to more diversity. We also restrict the choice of mutations with a resfile specifying packing behavior of residues and/or amino acids. 
+```xml
+<ROSETTASCRIPTS>
+    <TASKOPERATIONS>
+        <ReadResfile name="rrf" filename="./resfile.resfile"/>
+    </TASKOPERATIONS>
+    <RESIDUE_SELECTORS>
+        <Chain name="res" chains="A" />
+    </RESIDUE_SELECTORS>
+    <SIMPLE_METRICS>
+        ----------------- Define model to use for prediction -----------------------------
+        <PerResidueEsmProbabilitiesMetric name="esm" residue_selector="res" model="esm2_t30_150M_UR50D" multirun="true"/>
+    </SIMPLE_METRICS>
+    <FILTERS>
+    </FILTERS>
+    <MOVERS>
+        ----------------------- Sample mutations ------------------------------------------
+        <SampleSequenceFromProbabilities name="sample" metric="esm" pos_temp="1.0" aa_temp="1.0" prob_cutoff="0.0001" delta_prob_cutoff="0.0" max_mutations="10" task_operations="rrf" use_cached_data="true"/>
+        <RunSimpleMetrics name="run" metrics="esm"/>
+    </MOVERS>
+    <PROTOCOLS>
+        <Add mover_name="run"/>
+        <Add mover_name="sample"/>
+    </PROTOCOLS>
+</ROSETTASCRIPTS>
+```
 
 ##Restrict available amino acids during design based on probabilities
-
+In order to limit the search space during design, amino acids predicted as unlikely can be turned of using this [[TaskOperation|RestrictAAsFromProbabilities]]. The example below loads probabilities from a weights file and restricts to amino acids that have at least a probability of 0.0001 and a delta probability of 0 (meaning at least as likely as the current amino acid at that position). 
+```xml
+<ROSETTASCRIPTS>
+    <RESIDUE_SELECTORS>
+    </RESIDUE_SELECTORS>
+    <SIMPLE_METRICS>
+        <LoadedProbabilitiesMetric name="loaded_probs" filename="probs.weights"/>
+    </SIMPLE_METRICS>
+    <TASKOPERATIONS>
+        <RestrictAAsFromProbabilities name="restrict_to_probs" metric="loaded_probs" prob_cutoff="0.0001" delta_prob_cutoff="0.0" use_cached_data="true"/>
+    </TASKOPERATIONS>
+    <FILTERS>
+    </FILTERS>
+    <MOVERS>
+        <PackRotamersMover name="design" scorefxn="beta" task_operations="restrict_to_probs" />
+    </MOVERS>
+    <PROTOCOLS>
+        <Add mover_name="load"/>
+        <Add mover_name="design"/>
+    </PROTOCOLS>
+</ROSETTASCRIPTS>
+```
 ##Restrain design using probabilities
+Another way to inform Rosetta of the predicted probabilities is to turn them into ResidueType constraints. Therefore a PerResidueProbabilitiesMetric should be saved as a psi-blast style PSSM which can be used with the [[FavorSequenceProfileMover]], e.g.:
+```xml
+<ROSETTASCRIPTS>
+    <SCOREFXNS>
+        --------------- Setup a scorefunction with ResidueType constraints turned on -------------
+	<ScoreFunction name="beta" weights="beta"/>
+	<ScoreFunction name="beta_cst" weights="beta">
+		<Reweight scoretype="res_type_constraint" weight="1.0"/>
+	</ScoreFunction>
+    </SCOREFXNS>
+    <MOVERS>
+        -------------------------- Setup ResidueType constraints ----------------------------
+	<FavorSequenceProfile name="favor" scaling="global" weight="15" pssm="probabilities.pssm" scorefxns="beta_cst" chain="1"/>
+        -------------------------- Setup your favorite design mover -------------------------
+	<PackRotamersMover name="design" scorefxn="beta_cst"/>
+    </MOVERS>
+    <PROTOCOLS>
+        <Add mover_name="inference"/>
+        <Add mover_name="save"/>
+        <Add mover_name="favor"/>
+        <Add mover_name="design"/>
+    </PROTOCOLS>
+    <OUTPUT scorefxn="beta" />
+</ROSETTASCRIPTS>
+```
