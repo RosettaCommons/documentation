@@ -215,8 +215,9 @@ Default is to calculate on ALL residues. **All accept ResidueSelectors.**  Outpu
 SimpleMetric  | Description 
 ------------ | -------------
 **[[AverageProbabilitiesMetric]]** | Average multiple PerResidueProbabilitiesMetrics.
+**[[LoadedProbabilitiesMetric]]** | Load saved probabilities from a weights file.
 **[[PerResidueEsmProbabilitiesMetric]]** | Uses the ESM (Evolutionary Scale Modeling) protein language model family to predict amino acid probabilities (requires tensorflow).
-**[[ProteinMPNNProbabilitiesMetric]]** | Uses the ProteinMPNN moodel to predict amino acid probabilities (requires pytorch).
+**[[ProteinMPNNProbabilitiesMetric]]** | Uses the ProteinMPNN model to predict amino acid probabilities (requires pytorch).
 
 ##See Also
 
