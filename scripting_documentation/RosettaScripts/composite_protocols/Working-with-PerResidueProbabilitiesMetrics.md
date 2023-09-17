@@ -187,7 +187,8 @@ A [[metric|BestMutationsFromProbabilitiesMetric]] for calculating mutations with
     </PROTOCOLS>
 </ROSETTASCRIPTS>
 ```
-##Sample a sequence/mutations from probabilities and thread onto pose
+##Using predicted probabilities for protein design
+###Sample a sequence/mutations from probabilities and thread onto pose
 The predicted probabilities can be used to design (change) the whole sequence of a pose or a user-specified amount of mutations, starting from positions that differ the most from the predictions using [[this mover|SampleSequenceFromProbabilities]]. In the example below, we sample ten mutations from ESM predicted probabilities, where each mutation needs have at least a probability of 0.0001 and a delta probability to current of 0.0 (meaning at least as likely as the current amino acid at a particular position). There is a temperature option for both the choice of position and amino acids, where T<1 leads to more deterministic behavior and T>1 to more diversity. We also restrict the choice of mutations with a resfile specifying packing behavior of residues and/or amino acids. 
 ```xml
 <ROSETTASCRIPTS>
@@ -215,7 +216,7 @@ The predicted probabilities can be used to design (change) the whole sequence of
 </ROSETTASCRIPTS>
 ```
 
-##Restrict available amino acids during design based on probabilities
+###Restrict available amino acids during design based on probabilities
 In order to limit the search space during design, amino acids predicted as unlikely can be turned of using this [[TaskOperation|RestrictAAsFromProbabilities]]. The example below loads probabilities from a weights file and restricts to amino acids that have at least a probability of 0.0001 and a delta probability of 0 (meaning at least as likely as the current amino acid at that position). 
 ```xml
 <ROSETTASCRIPTS>
@@ -238,7 +239,7 @@ In order to limit the search space during design, amino acids predicted as unlik
     </PROTOCOLS>
 </ROSETTASCRIPTS>
 ```
-##Restrain design using probabilities
+###Restrain design using probabilities
 Another way to inform Rosetta of the predicted probabilities is to turn them into ResidueType constraints. Therefore a PerResidueProbabilitiesMetric should be saved as a psi-blast style PSSM which can be used with the [[FavorSequenceProfileMover]], e.g.:
 ```xml
 <ROSETTASCRIPTS>
