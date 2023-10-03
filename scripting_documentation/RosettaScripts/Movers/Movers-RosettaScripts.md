@@ -192,6 +192,7 @@ Mover  | Description
 **[[SegmentedAtomPairConstraintGenerator]]** | Generates differently specified distance constraints among residues in a range and between residues in different ranges.  
 **[[CoordinateConstraintGenerator]]** | Generates coordinate constraints for residues in a subset
 **[[DistanceConstraintGenerator]]** | Generates constraints to enforce a distance between residues in two subsets.
+**[[DihedralConstraintGenerator]]** | Generates constraints to enforce a dihedral angle.
 **[[FileConstraintGenerator]]** | Generates, adds, and removes constraints from a file
 **[[HydrogenBondConstraintGenerator]]** | Generates constraints to enforce hydrogen bonding between residues
 **[[SheetConstraintGenerator]]** | Generates constraints for proper hydrogen bonding in beta-sheets
