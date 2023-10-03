@@ -32,7 +32,7 @@ Jared Adolf-Bryfogle, Institute for Protein Innovation [jadolfbr@gmail.com]  (Cr
 
 ##See Also
 
-* [[DistanceConstraintsGenerator]]
+* [[DistanceConstraintGenerator]]
 * [[AddConstraintsMover]]
 * [[RemoveConstraintsMover]]
 * [[Constraints file format|constraint-file]]
