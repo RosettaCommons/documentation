@@ -5,10 +5,10 @@
 [[include:simple_metric_PerResidueEsmProbabilitiesMetric_type]]
 
 ### General description
-Uses the Evolutionary Scale Modeling (ESM) protein language model family to predict amino acid probabilities for a given selection. The prediction is based on the chain sequence of the selected residue.
+Uses the Evolutionary Scale Modeling (ESM) protein language model family to predict amino acid probabilities for a given selection. The prediction is based on the chain sequence of the selected residue. It will mask and predict each residues selected by the `residue_selector`, the `attention_mask_selection` can be used to hide other parts of the sequence (but is NOT the way you specify residues for prediction!). 
 
 ### Details
-The metric requires Rosetta to be build using `extras=tensorflow` (for compilation details see [[Building Rosetta with TensorFlow and PyTorch]]). The smallest base model is already present but larger models need to be downloaded once, you can do this either by setting the `-auto_download` flag or following the instructions printed by the metric. Non-canonical amino acids can be present in the sequence that is used for prediction, however, they will be set to the "unknown" token, you might additionally want to use the `attention_mask_selection` to prevent them from altering your prediction.
+The metric requires Rosetta to be build using `extras=tensorflow` (for compilation details see [[Building Rosetta with TensorFlow and PyTorch]]). The smallest base model is already present but larger models need to be downloaded once, you can do this either by setting the `-auto_download` flag or following the instructions printed by the metric. Non-canonical amino acids can be present in the sequence that is used for prediction, however, they will be set to the "unknown" token, you might additionally want to use the `attention_mask_selection` to prevent them from altering your prediction. 
 
 ### Available models
 Currently available models are: `esm2_t6_8M_UR50D`, `esm2_t12_35M_UR50D`, `esm2_t30_150M_UR50D`, `esm2_t33_650M_UR50D`
@@ -20,10 +20,9 @@ This example predicts the probabilities for the complete chain A while masking t
 <ROSETTASCRIPTS>
     <RESIDUE_SELECTORS>
         <Chain name="res" chains="A" />
-        <Index name="mask" resnums="25"/>
     </RESIDUE_SELECTORS>
     <SIMPLE_METRICS>
-        <PerResidueEsmProbabilitiesMetric name="prediction" residue_selector="res" attention_mask_selection="mask"  write_pssm="test.pssm" model="esm2_t6_8M_UR50D" multirun="true"/>
+        <PerResidueEsmProbabilitiesMetric name="prediction" residue_selector="res" write_pssm="test.pssm" model="esm2_t6_8M_UR50D" multirun="true"/>
         <PseudoPerplexityMetric name="perplex" metric="prediction"/>
     </SIMPLE_METRICS>
     <FILTERS>
