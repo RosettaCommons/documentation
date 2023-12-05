@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2023-07-13
+Generated: 2023-12-05
 
 _Note that some application specific options may not be present in this list._
 
@@ -2893,6 +2893,8 @@ _Note that some application specific options may not be present in this list._
 <dd>Inner radius of bicelle. The bicelle inner_radius is the radius of the flat cylinder of the bicelle shape, the outer radius is the inner_radius+membrane_thickness. Setting the bicelle_radius as 0, would create an ellipsoid with a radius=membrane_thickness (default 15). Keep in mind that when setting the bicelle_radius, the size of the bicelle created is not dependent on the size of the protein. You will want to take the size of your protein into account when setting the bicelle_radius.<br/></dd>
 <dt><b>-vesicle_radius</b> \<Real\></dt>
 <dd>Radius of vesicle. Distance from center of the vesicle/sphere to the center of the membrane.<br/></dd>
+<dt><b>-double_vesicle_inner_radius</b> \<Real\></dt>
+<dd>Sets the radius of the inner vesicle. This is the distance form the center of the vesicle to the center of the inner membrane. The outer radius is determined by the double_vesicle_distance option.<br/></dd>
 <dt><b>-double_vesicle_distance</b> \<Real\></dt>
 <dd>Distance between outer edge of inner vesicle membrane and inner edge of outer vesicle membrane. <br/></dd>
 </dl>

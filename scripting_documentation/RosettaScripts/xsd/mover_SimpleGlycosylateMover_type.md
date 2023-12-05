@@ -16,15 +16,16 @@ Jared Adolf-Bryfogle, The Scripps Research Institute, La Jolla, CA [jadolfbr@gma
         glycosylations="(&string;)"
         position="(&refpose_enabled_residue_number;)"
         positions="(&refpose_enabled_residue_number_cslist;)"
-        weights="(&delimited_real_list;)" strip_existing="(&bool;)"
-        ref_pose_name="(&string;)" idealize_glycosylation="(&bool;)"
-        residue_selector="(&string;)" />
+        atom_name="(&string;)" weights="(&delimited_real_list;)"
+        strip_existing="(&bool;)" ref_pose_name="(&string;)"
+        idealize_glycosylation="(&bool;)" residue_selector="(&string;)" />
 ```
 
 -   **glycosylation**: String specifying the glycosylation to add to this pose (IUPAC Glycan String) (or a file name containing the glycosylation with a .iupac name)
 -   **glycosylations**: String or file name specifying multiple possible glycosylations to add to this pose (IUPAC Glycan String) (or a file name containing the glycosylation with a .iupac name) (will be sampled randomly
 -   **position**: Position to add glycosylation
 -   **positions**: Positions to add glycosylations
+-   **atom_name**: Atom to which glycan is chemically linked
 -   **weights**: Sampling weights corresponding to the provided set of glycans
 -   **strip_existing**: Strip existing glycosylations from the pose
 -   **ref_pose_name**: Name of saved reference pose

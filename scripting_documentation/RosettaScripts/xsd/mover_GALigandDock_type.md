@@ -23,6 +23,7 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
         turnon_flexscs_at_relax="(&bool;)" redefine_flexscs_at_relax="(&bool;)"
         exact="(&bool;)" debug="(&bool;)" use_pharmacophore="(&bool;)"
         aligner_fastmode="(&bool;)" initial_pool="(&string;)"
+        template_pool="(&string;)" n_template="(&non_negative_integer;)"
         multiple_ligands="(&string;)" multiple_ligands_file="(&string;)"
         ligand_structure_file="(&string;)"
         ligand_structure_filelist="(&string;)" random_oversample="(&real;)"
@@ -31,6 +32,9 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
         sidechains="(&string;)" frozen_scs="(&string;)"
         sc_edge_buffer="(&real;)" fa_rep_grid="(&real;)"
         grid_bound_penalty="(&real;)" estimate_dG="(&bool;)"
+        entropy_method="(&string;)" estimate_buns="(&bool;)"
+        use_dalphaball="(&bool;)" hb_resids="(&string;)"
+        hb_resids_include_bb="(&bool;)" hb_resids_metric="(&string;)"
         use_mean_maxRad="(&bool;)" stdev_multiplier="(&real;)"
         torsion_sampler_percentage="(&real;)" contact_distance="(&real;)"
         freeze_ligand_backbone="(&bool;)" freeze_ligand="(&bool;)"
@@ -89,6 +93,8 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 -   **use_pharmacophore**: Use pharmacophore info at initial pool generation.
 -   **aligner_fastmode**: Use fast mode in aligner.
 -   **initial_pool**: Include these structures in the initial pool.
+-   **template_pool**: Use the template structure for MCSAligner to generate the starting pool.
+-   **n_template**: The number of copies of the template structure in the intial pool.
 -   **multiple_ligands**: Scan ligands with these residue types.
 -   **multiple_ligands_file**: Scan ligands with these residue types in a text file.
 -   **ligand_structure_file**: Scan ligands with these ligand structure files (pdb or silent file).
@@ -104,6 +110,12 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 -   **fa_rep_grid**: Repulsion weight at grid scoring stage
 -   **grid_bound_penalty**: Penalty factor when ligand atm gets out of boundary
 -   **estimate_dG**: Estimate dG of binding on lowest-energy docked pose. Default: false
+-   **entropy_method**: Entropy method name. Default: MCEntropy
+-   **estimate_buns**: Estimate buried unstatsified hydrogen bonds of the lowest-energy docked pose. Default: false
+-   **use_dalphaball**: If or not use dalphaball to compute SASA. Default: false
+-   **hb_resids**: Residue indices to calculate the number of hydrogen bonds with the ligand.
+-   **hb_resids_include_bb**: If include backbone atoms when calculating the number of hydrogen bonds with the ligand. Default: false
+-   **hb_resids_metric**: The method used to calculate the number of hydrogen bonds with the ligand, default or simple. Default: default.
 -   **use_mean_maxRad**: Use mean maxRad for multi ligands? Default: false
 -   **stdev_multiplier**: Standard deviation multiplier for mean_maxRad. Default: 1.0
 -   **torsion_sampler_percentage**: The percentage of the initial gene sampled by torsion sampler.
