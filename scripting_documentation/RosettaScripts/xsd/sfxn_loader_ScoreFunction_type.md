@@ -109,8 +109,8 @@ Subtag **Set**:
 -   **hbonds__measure_sp3acc_BAH_from_hvy**: XRW TO DO
 -   **hbonds__fade_energy**: XRW TO DO
 -   **hbonds__exclude_ether_oxygens**: XRW TO DO
--   **hbonds__Mbhbond**: XRW TO DO
--   **hbonds__mphbond**: XRW TO DO
+-   **hbonds__Mbhbond**: XRW TO DO: pba
+-   **hbonds__mphbond**: Membrane framework hbonding correction
 -   **lj_hbond_OH_donor_dis**: Lennard Jones sigma value for O in OH donor groups
 -   **lj_hbond_hdis**: Lennard Jones sigma value for hatms, classically it's been at 1.95 but the average A-H distance for hydrogen bonding is 1.75 from crystal structures
 -   **fa_max_dis**: Max distance for energy function calculations, in angstroms
