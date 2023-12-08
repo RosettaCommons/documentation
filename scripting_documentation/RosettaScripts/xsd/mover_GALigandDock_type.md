@@ -8,9 +8,9 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 ```xml
 <GALigandDock name="(&string;)" scorefxn="(&string;)"
         scorefxn_relax="(&string;)" runmode="(&string;)"
-        top_pose_metric="(&string;)" sample_ring_conformers="(&bool;)"
-        rotprob="(&real;)" rotEcut="(&real;)" ligand="(&string;)"
-        nativepdb="(&string;)" favor_native="(&real;)"
+        top_pose_metric="(&string;)" debug_report="(&bool;)"
+        sample_ring_conformers="(&bool;)" rotprob="(&real;)" rotEcut="(&real;)"
+        ligand="(&string;)" nativepdb="(&string;)" favor_native="(&real;)"
         optimize_input_H="(&bool;)" pre_optH_relax="(&bool;)"
         grid_radius="(&real;)" grid_step="(&real;)" padding="(&real;)"
         hashsize="(&real;)" subhash="(&non_negative_integer;)"
@@ -61,6 +61,7 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 -   **scorefxn_relax**: weights file
 -   **runmode**: run mode [dock/dockPH/refine/optligand]
 -   **top_pose_metric**: top_pose_metric [score/dH/best]
+-   **debug_report**: Use this flag to output more information. Default: false
 -   **sample_ring_conformers**: Allow ring conformer sampling if defined in params.
 -   **rotprob**: max cumulative rotamer probability
 -   **rotEcut**: rotamer 1b energy
