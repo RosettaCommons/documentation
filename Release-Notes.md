@@ -58,7 +58,9 @@ New Movers, Filters, etc:
     * [[ProbabilityConservationMetric]]
     * [[BestMutationsFromProbabilitiesMetric]]
     * [[MIFSTProbabilitiesMetric]]	
+
 Performance:
+
 * `-never_rerun_filters` option to avoid final rerun of options with RosettaScripts
 * Bin transitions (e.g. for [[GenKIC]]) are laziliy loaded in a threadsafe manner
 * Only generate and validate the XML schema once
