@@ -5,25 +5,11 @@
 ##Introduction
 
 
-This is the front page for the internal portion of the Rosetta documentation wiki.
-It provides convenient access to documentation pages which aren't yet ready for public release.
-(If a page will never be in a state to be released to the public, consider putting it on the 
-internal RosettaCommons wiki instead.)
+This is the front page for the "internal" portion of the Rosetta documentation wiki.
+It provides convenient access to documentation pages which are primarily intended for the RosettaCommons community, but can be publically released.
+This is usually either things of primarily historical significance, developmental minutia, or in-work documentation which isn't ready for general consumption.
 
-All files stored under the `internal_documents/` folder (use the rename function to move), 
-as well as everything which is placed between
-
-```
-<!--- BEGIN_INTERNAL -->
-```
-
-and
-
-```
-<!--- END_INTERNAL -->
-```
-
-comment tags will be stripped from the documentation prior to being provided as a public release.
+Documentation which is "internal-only" in nature should be placed on the internal password-protected RosettaCommons wiki (MediaWiki) instead.
 
 See [[how to write documentation|how-to-write-documentation]] for more details.
 
