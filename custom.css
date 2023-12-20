@@ -4,6 +4,11 @@ pre.highlight {
   white-space: pre;
 }
 
+.markdown-body {
+  padding: 1em 1em 1em 1em;
+  background-color: coral;
+}
+
 .markdown-body table {
   font-size: 0.8em;
 }

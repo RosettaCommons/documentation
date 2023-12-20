@@ -5,6 +5,12 @@
   color: #555;
 }
 
+/* To give a margin between the sidebar and the content */
+.markdown-body {
+  padding:1em 1em 1em 1em;
+  background-color: coral;
+}
+
 /*
   gollum.css
   A basic stylesheet for Gollum
@@ -90,7 +96,7 @@ a:hover, a:visited {
 }
 
 .has-sidebar #wiki-body {
-  width: 68%;
+  width: 66%;
 }
 
 /* @section toc */
@@ -124,7 +130,6 @@ a:hover, a:visited {
   background-color: #f7f7f7;
   border: 1px solid #ddd;
   font-size: 13px;
-  padding: 7px;
   width: 25%;
   color: #555;
 

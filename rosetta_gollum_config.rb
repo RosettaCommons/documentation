@@ -18,6 +18,9 @@ WIKI_OPTIONS = {
   :sidebar => :left,
   :mathjax => true,
   :css => true,
+  :hyphened_tag_lookup => true,
+  :case_insensitive_tag_lookup => true,
+  :global_tag_lookup => true,
 }
 
 Precious::App.set(:default_markup, :markdown)
