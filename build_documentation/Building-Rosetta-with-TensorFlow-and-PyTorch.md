@@ -50,14 +50,16 @@ For having both TensorFlow and PyTorch support, follow the download and setup in
     ./scons.py -j 8 mode=release extras=tensorflow bin
     ```
 
-Note: You can use both `extras=tensorflow` and `extras=tensorflow_gpu` with any of the downloaded versions, there is no check whether its connected to the respective library. However, it enables you to have binaries for both.
+Note: You can use both `extras=tensorflow` and `extras=tensorflow_gpu` with any of the downloaded versions, there is no check whether its connected to the respective library. However, it enables you to have binaries for both. If you have trouble combining the right GPU version with CUDA, take a look at [this table here](https://www.tensorflow.org/install/source#gpu).
 
 ## To compile with PyTorch support:
-1. Download Libtorch from https://pytorch.org/get-started/locally/  
+1. Download Libtorch from https://pytorch.org/get-started/locally/.
     e.g. for the cpu version:
     ```
     wget https://download.pytorch.org/libtorch/cpu/libtorch-cxx11-abi-shared-with-deps-1.13.1%2Bcpu.zip -O libtorch.zip
     ```
+   For the moment the LibTorch CPU version should not be higher than 2.0.1, as later versions require C++17 
+   which is currently not set in the scons pytorch build. This will change soon.
 2. unzip to `rosetta/main/source/external`
     ```
     cd Rosetta/main/source
