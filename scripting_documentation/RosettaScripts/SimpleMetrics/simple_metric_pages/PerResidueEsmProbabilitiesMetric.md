@@ -14,7 +14,7 @@ The metric requires Rosetta to be build using `extras=tensorflow` (for compilati
 Currently available models are: `esm2_t6_8M_UR50D`, `esm2_t12_35M_UR50D`, `esm2_t30_150M_UR50D`, `esm2_t33_650M_UR50D`
 
 ### Example
-This example predicts the probabilities for the complete chain A while masking the position 25 using the esm2_t6_8M_UR50D model. The `multirun` option controls whether all positions are getting predicted in one inference pass or one by one (you would instead set this to false if you run out of memory). Additionally it specifies to output a position-specific-scoring-matrix (PSSM) in psi-blast format containing the predicted probabilities as logit, which can be used with the [[FavorSequenceProfileMover]] to constrain a design run. Lastly, it uses the [[PseudoPerplexityMetric]] to calculate a single score from all predicted probabilities, describing the likelihood of the overall sequence.
+This example predicts the probabilities for the complete chain A using the esm2_t6_8M_UR50D model. The `multirun` option controls whether all positions are getting predicted in one inference pass or one by one (you would instead set this to false if you run out of memory). Additionally it specifies to output a position-specific-scoring-matrix (PSSM) in psi-blast format containing the predicted probabilities as logit, which can be used with the [[FavorSequenceProfileMover]] to constrain a design run. Lastly, it uses the [[PseudoPerplexityMetric]] to calculate a single score from all predicted probabilities, describing the likelihood of the overall sequence.
 
 ```xml
 <ROSETTASCRIPTS>
