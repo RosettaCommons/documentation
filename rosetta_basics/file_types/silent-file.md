@@ -39,8 +39,21 @@ Binary Silent Struct File is very useful to compress multiple pdbs and save comp
     ```
     Binary contents
     ```
+## Extracting other file types from silent file
 
-Silent files can be converted into PDB files using the `extract_pdbs` application. Information about the options can be found in the integration test folder /Rosetta/main/tests/integration/tests/extract_pdbs/.
+### Extracting PDB from silent
+
+The `extract_pdbs` application can convert silent files into PDB files. Information about the options can be found in the integration test folder /Rosetta/main/tests/integration/tests/extract_pdbs/. 
+
+### Extracting silent from silent
+
+One can use methods native to Linux to extract specific poses from a silent file. For example:
+
+    #Getting the header of silent file
+    -n 3 file.silent > new.silent 
+
+    #Appending data from pose with tag 'result_0001' to the new silent file
+    grep 'result_0001' file.silent >> new.silent
 
 ##See Also
 
