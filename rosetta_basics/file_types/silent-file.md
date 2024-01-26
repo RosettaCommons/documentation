@@ -50,7 +50,7 @@ The `extract_pdbs` application can convert silent files into PDB files. Informat
 One can use methods native to Linux to extract specific poses from a silent file. For example:
 
     #Getting the header of silent file
-    -n 3 file.silent > new.silent 
+    head -3 file.silent > new.silent 
 
     #Appending data from pose with tag 'result_0001' to the new silent file
     grep 'result_0001' file.silent >> new.silent
