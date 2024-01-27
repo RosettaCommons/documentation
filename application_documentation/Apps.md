@@ -28,7 +28,7 @@ Selects the first 400 models for creating clusters based on CA distance accordin
 ### [[combine_silent]]
 Combines multiple silent files into one.
 
-### [[extract_pdbs]]
+### [[extract_pdbs|extract-pdbs]]
 Extracts the models with provided tags from a silent file into a PDB file.
 
 ### [[fragment_picker|app-fragment-picker]]
