@@ -172,6 +172,7 @@ SimpleMetric  | Description
 **[[HbondMetric]]** | Calculate number of hydrogen bonds between residues in a selector or between two selectors
 **[[PeptideInternalHbondsMetric]]** | Calculate the number of hydrogen bonds in a single selection or pose, excluding bonds between residues within a threshold distance of each other in terms of covalent connectivity.
 **[[PerResidueDensityFitMetric]]** | Calculate the Fit of a  model to the loaded density either by Correlation or a Zscore.
+**[[PerResidueBfactorMetric]]** | Get the per residue b factor for a given atom (default CA). Skips residues without that atom. 
 **[[PerResidueClashMetric]]** | Calculates the number of atomic clashes per residue using two residue selectors. Clashes are calculated through the leonard jones radius of each atom type.
 **[[PerResidueEnergyMetric]]** | Calculate any energy term for each residue.  Total energy is default.  If a native or repose is given, can calculate the energy delta for each residue.
 **[[PerResidueRMSDMetric]]** | Calculate the RMSD for each residue between the input and either the native or a reference pose.
