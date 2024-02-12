@@ -1,13 +1,13 @@
-#Github Workflow for Rosetta
+#GitHub Workflow for Rosetta
 
 
 [[_TOC_]]
 
 ##Executive Summary
 
-We use a common github repository, [[RosettaCommons/rosetta|http://github.com/RosettaCommons/rosetta]], as our primary development repository. This contains the Rosetta source code, as well as accessory parts which are tightly coupled to the state of the source code (e.g. the tests and the database). In addition to this primary repository, we also use a number of other repos as "submodules" within the primary repository, which contain components which are either loosely coupled to the source code, or which are too large to reasonable be stored in the primary repository.
+We use a common GitHub repository, [[RosettaCommons/rosetta|http://github.com/RosettaCommons/rosetta]], as our primary development repository. This contains the Rosetta source code, as well as accessory parts which are tightly coupled to the state of the source code (e.g. the tests and the database). In addition to this primary repository, we also use a number of other repos as "submodules" within the primary repository, which contain components which are either loosely coupled to the source code, or which are too large to reasonably be stored in the primary repository.
 
-For working with the Rosetta repositories, we use a fork-and-PR model. Each developer creates their own fork of the Rosetta repository, in which they make their changes. Once they have something they want to contribute back to main Rosetta, they open a "Pull Request" (PR) on the Github interface with the branch containing their code improvements. This PR gets reviewed, and if it passes quality and administrative checks it will be merged back into the main Rosetta codebase 
+For working with the Rosetta repositories, we use a fork-and-PR model. Each developer creates their own fork of the Rosetta repository, in which they make their changes. Once they have something they want to contribute back to main Rosetta, they open a "Pull Request" (PR) on the GitHub interface with the branch containing their code improvements. This PR gets reviewed, and if it passes quality and administrative checks it will be merged back into the main Rosetta codebase.
 
 To be clear on terms: GIT is a distributed version control system that you install on your computer to manage the Rosetta code you are developing/compiling/using locally.  GITHUB is a website that offers a friendly interface to add communication features around the git codebase (so we can strive together to improve it) and tools to pull together the code, the test server, etc. 
 
@@ -20,7 +20,7 @@ To be clear on terms: GIT is a distributed version control system that you insta
 Git is a widely used, fast, flexible and robust distributed source control management (SCM) system. 
 Unlike centralized SCM solutions like subversion, each working copy of the code is a full-fledged repository. 
 Each repository contains the complete history of the project, including branches from the main development line, which is typically called "main".  
-The revision history in a repository is represented as a graph -- specifically, as a directed acyclic graph (DAG).  When a revision is committed to a repository, it is saved as a node in a with an edge indicating the previous revision.  A "branch" is a named revision at the terminal vertex of a DAG; the branch name always references the most recent revision in a branch.  Non-terminal revisions can be named using [[tags|http://git-scm.com/book/en/Git-Basics-Tagging]].  Each branch can be traced back to the root vertex and thus each branch can be thought of as a possible, reasonable trace through the revision history.  An interesting effect of this design is that all paths through the history (i.e. all branches) are equally valid. 
+The revision history in a repository is represented as a graph -- specifically, as a directed acyclic graph (DAG).  When a revision is committed to a repository, it is saved as a node with an edge indicating the previous revision.  A "branch" is a named revision at the terminal vertex of a DAG; the branch name always references the most recent revision in a branch.  Non-terminal revisions can be named using [[tags|http://git-scm.com/book/en/Git-Basics-Tagging]].  Each branch can be traced back to the root vertex and thus each branch can be thought of as a possible, reasonable trace through the revision history.  An interesting effect of this design is that all paths through the history (i.e. all branches) are equally valid. 
 The "main" branch, by convention, is the one we think of as the official branch, what we would call "trunk" in SVN.
 
 A common metaphor used to describe the structure of a git repository is the hydra.  There are many heads (branches), but there is only one body (repository).  At any one time, only one branch can be "checked out."  The files in that branch can be examined and edited exactly as you would expect to edit them.  You'll make your modifications, you'll commit them to your checked-out branch, and then, if you check out another branch, all of the modifications you made to your first branch will disappear from the source tree. 
@@ -40,11 +40,11 @@ Branching and merging is the preferred development pattern in git, and because t
 
 ###Getting started
 
-* You need a Github account to work with the Rosetta codebase. If you don't have one already, you can get one for free at <https://github.com/> by clicking the button in the upper right.
-    * When picking an account name, we recommend a "professional" sounding one -- your Github user name will be listed on all your Github-related communications. (But don't worry too much about your funky username if you already have an established Github account.)
-    * Please fill out your [Github profile](https://github.com/settings/profile) with full name and affiliation (institution & lab)
+* You need a GitHub account to work with the Rosetta codebase. If you don't have one already, you can get one for free at <https://github.com/> by clicking the button in the upper right.
+    * When picking an account name, we recommend a "professional" sounding one -- your GitHub user name will be listed on all your GitHub-related communications. (But don't worry too much about your funky username if you already have an established GitHub account.)
+    * Please fill out your [GitHub profile](https://github.com/settings/profile) with full name and affiliation (institution & lab).
     * Under [Emails](https://github.com/settings/emails), uncheck "Keep my email address private", so the Rosetta testing server can properly link your account to your contributions.
-* We highly recommend using SSH keys for working with Github repos. You can find instructions for this [[here|https://help.github.com/articles/generating-ssh-keys]]. Note that id_rsa.pub and id_dsa.pub can be used interchangeably at this point, although the instructions use id_rsa.pub.
+* We highly recommend using SSH keys for working with GitHub repos. You can find instructions for this [[here|https://help.github.com/articles/generating-ssh-keys]]. Note that id_rsa.pub and id_dsa.pub can be used interchangeably at this point, although the instructions use id_rsa.pub.
     * You will need to pre-accept GitHub's RSA key fingerprint by following [[the last step of the SSH instructions|https://help.github.com/articles/generating-ssh-keys]].
 * People contributing code will need to sign either the [developer agreement]() (for members of a RosettaCommons member lab) or the [Contributor Licensing Agreement](insert link) before their PRs can be accepted.
     * Members of RosettaCommons labs should consult the internal wiki for more details on getting set up as a RosettaCommons member. (Ask other lab members for the website and login info.)
@@ -63,7 +63,7 @@ However, if you are doing any development with Rosetta you will likely want to c
 
 ###Recommended Workflow
 
-With the publically accessible Rosetta repository, we're using the now-standard Fork-and-PR model for development. The benefits of this model is that it's standard for many Open Source projects, so there's plenty of documentation out there for it. (See the [Github Documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests) for a start.) It also allows potential contributions by people who aren't members of the RosettaCommons, and who do not have write access to the Rosetta repositories.
+With the publicly accessible Rosetta repository, we're using the now-standard Fork-and-PR model for development. The benefits of this model is that it's standard for many Open Source projects, so there's plenty of documentation out there for it. (See the [GitHub Documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests) for a start.) It also allows potential contributions by people who aren't members of the RosettaCommons, and who do not have write access to the Rosetta repositories.
 
 A basic development flow would proceed as follows:
 
@@ -73,21 +73,21 @@ A basic development flow would proceed as follows:
     If you already have a local clone of the RosettaCommons/rosetta repo, you can convert it to reference your fork (see below).
 
 3. Create a development branch in your local repository
-    Your fork is your own personal workspace, so feel free to name your branch whatever you want -- you do not need to namespace it with your Github username
+    Your fork is your own personal workspace, so feel free to name your branch whatever you want -- you do not need to namespace it with your GitHub username
     Just keep in mind that the branch name will be visible to others when you eventually make a PR
 
 4. Code, Code, Code
     Make your changes in the local repository
 
 5. Create tests for your new code
-    Run the tests locally. Also check the existing tests to make sure you didn't accidentally break anyting.
+    Run the tests locally. Also check the existing tests to make sure you didn't accidentally break anything.
 
-6. Push your branch to your Github fork
+6. Push your branch to your GitHub fork
     Your changes will stay within your fork until you release them, so feel free to stash whatever you like there.
 
 7. Repeat 4-6 until your branch is ready
 
-8. Open a PR against the Main RosettaCommons/rosetta repo using the Github interface
+8. Open a PR against the Main RosettaCommons/rosetta repo using the GitHub interface
     A PR is your way of giving back your code changes to the community.
 
 9. Your PR will be reviewed by other members of the RosettaCommons
@@ -100,9 +100,9 @@ A basic development flow would proceed as follows:
 
 #### Create a Fork
 
-To create a fork, go to <https://github.com/RosettaCommons/rosetta> and click the "Fork" button in the upper right. (See [Github documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) for more)
+To create a fork, go to <https://github.com/RosettaCommons/rosetta> and click the "Fork" button in the upper right. (See [GitHub documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) for more)
 
-NOTE: The Rosetta license allows you to make Forks through the Github website, and interact with those forks on your local machine. The license does not permit (publicly) re-hosting the Rosetta repositories on other websites. Do not re-host Rosetta on other services (Gitlab, Bitbucket, etc.)
+NOTE: The Rosetta license allows you to make Forks through the GitHub website, and interact with those forks on your local machine. The license does not permit (publicly) re-hosting the Rosetta repositories on other websites. Do not re-host Rosetta on other services (Gitlab, Bitbucket, etc.)
 
 #### Cloning your fork
 
@@ -113,7 +113,7 @@ Once you have a fork, you can clone from your own copy of Rosetta
 The difference between cloning from the primary RosettaCommons version and your forked version is simply which repo is listed as `origin` in your local clone. You can change that later:
 
         git remote add upstream git@github.com:RosettaCommons/rosetta.git  
-        git remote set-url origin git@github.com:YOUR_GITHUB_USERNAME/rosetta.git
+        git remote set-url origin git@github.com:GITHUB_USERNAME/rosetta.git
 
 (The first command may be useful even if you've originally cloned your fork.)
 
@@ -123,15 +123,15 @@ Unless you have a particular revision you want to start with, we recommend creat
 
         git checkout -b <BRANCH_NAME> origin/main
 
-You can substitute whatever branch name you want. But it likely should be descriptivem, as the branch name will be visible to others when you eventually make a PR.
+You can substitute whatever branch name you want. But it likely should be descriptive, as the branch name will be visible to others when you eventually make a PR.
 
 Note the above command will create the branch based on what the local repo thinks the state of origin/main is. 
 This may or may not be up-to-date, depending on when you last updated.
 
-In particular, your Github fork does not automatically keep up to date with the primary RosettaCommons/rosetta repository.
-If the `main` branch of your fork is behind the `main` branch of RosettaCommons/rosetta, when you go to the Github webpage for your fork (https://github.com/GITHUB_USERNAME/rosetta), 
+In particular, your GitHub fork does not automatically keep up to date with the primary RosettaCommons/rosetta repository.
+If the `main` branch of your fork is behind the `main` branch of RosettaCommons/rosetta, when you go to the GitHub webpage for your fork (https://github.com/GITHUB_USERNAME/rosetta), 
 there should be a banner near the top telling you "This branch is XYZ commits behind RosettaCommons/rosetta:main", and giving you a "Sync Fork" button.
-Pressing this button will update the Github version of your fork's `main` branch with the updated state of the RosettaCommons/rosetta `main` branch.
+Pressing this button will update the GitHub version of your fork's `main` branch with the updated state of the RosettaCommons/rosetta `main` branch.
 
 After you've done this, you can update the local version of `origin/main` by running:
 
@@ -145,9 +145,9 @@ See the [[RosettaAcademy]] documentation for more help on working with the Roset
 
 #### Create Tests
 
-Making tests for your new feature or bug fix will help with maintenace and making sure things don't break in the future. See the [[RosettaAcademy]] documentation for more help on writing tests
+Making tests for your new feature or bug fix will help with maintenance and making sure things don't break in the future. See the [[RosettaAcademy]] documentation for more help on writing tests.
 
-Additionally, you'll want to run the existing tests locally to make sure you didn't inadvertantly break something. See [[Development Documentation]] for more info on how to run tests locally.
+Additionally, you'll want to run the existing tests locally to make sure you didn't inadvertently break something. See [[Development Documentation]] for more info on how to run tests locally.
 
 #### Push your changes
 
@@ -178,11 +178,11 @@ Whenever your PR gets merged, all the complex history of the branch will get squ
 
 #### Open a PR
 
-Once you're done with your changes (or at the very least are complete enough for reasonable feedback), you can open a PR. See the [Github documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/] for more details.
+Once you're done with your changes (or at the very least are complete enough for reasonable feedback), you can open a PR. See the [GitHub documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/] for more details.
 
-*Don't open "in-progress" PRs against the main RosettaCommons/rosetta repo.* To keep the reviewing interaction with PRs somewhat clean, please wait until your PR is "ready to review". -- Your fork is a private workspace, and contains all the functionality of the main RosettaCommons/rosetta repo. If you wish to have draft or placeholder PRs, you can always change the dropdowns and open a PR against the GITHUB_USERNAME/rosetta::main branch, which should keep the PR local to your branch. Once it's ready to go, don't merge, but instead make a new PR with the branch against RosettaCommons/rosetta:main Alternatively, you can also use the "project" feature of Github to keep track of in-progress work.
+*Don't open "in-progress" PRs against the main RosettaCommons/rosetta repo.* To keep the reviewing interaction with PRs somewhat clean, please wait until your PR is "ready to review". -- Your fork is a private workspace, and contains all the functionality of the main RosettaCommons/rosetta repo. If you wish to have draft or placeholder PRs, you can always change the dropdowns and open a PR against the GITHUB_USERNAME/rosetta:main branch, which should keep the PR local to your branch. Once it's ready to go, don't merge, but instead make a new PR with the branch against RosettaCommons/rosetta:main. Alternatively, you can also use the "project" feature of GitHub to keep track of in-progress work.
 
-Generally, they'll be a banner on the webpage for your fork (https://github.com/GITHUB_USERNAME/rosetta) whenever you've pushed new commits to a branch which will allow you to open a PR for that branch. Alternatively, if you go to that webpage and find the branch of interest in the dropdown box, there should be a "Contribute" button which will allow you to open a Pull Request.
+Generally, there will be a banner on the webpage for your fork (https://github.com/GITHUB_USERNAME/rosetta) whenever you've pushed new commits to a branch which will allow you to open a PR for that branch. Alternatively, if you go to that webpage and find the branch of interest in the dropdown box, there should be a "Contribute" button which will allow you to open a Pull Request.
 
 *Important Points when Opening a PR*
 
@@ -198,7 +198,7 @@ Please leave the "Allow edits by maintainers" box checked. We generally leave th
 
 If you know someone who might be a relevant reviewer, feel free to add them. (But keep in mind they might not be able to, due to being busy.)
 
-Consult the Labels drop-down and add any you think relevant. Only users with appropriate permissions on the repository (e.g. certain members of RosettaCommons) can apply labels. 
+Consult the Labels drop-down and add any you think are relevant. Only users with appropriate permissions on the repository (e.g. certain members of RosettaCommons) can apply labels. 
 
 #### Review and merging
 
@@ -209,18 +209,18 @@ The attention of people who have merging authority is limited, and if others can
 
 ##### Legal/Administrative issues
 
-One important thing that will be checked is if you've properly siged the Developer Agreement or the Contributor Licensing Agreement. As Rosetta is also distributed commercially, we need to make sure we have the proper rights to do so. The Developer and Contributor Licensing Agreements make sure we're squared away.
+One important thing that will be checked is if you've properly signed the Developer Agreement or the Contributor Licensing Agreement. As Rosetta is also distributed commercially, we need to make sure we have the proper rights to do so. The Developer and Contributor Licensing Agreements make sure we're squared away.
 
 * The Developer Agreement is for people who are members of RosettaCommons labs. Consult the RosettaCommons internal wiki for more information. (Ask other lab members or your PI for the website and login info.)
 * The [Contributor's Licensing Agreement](INSERT LINK) is for people who are not members of RosettaCommons. It basically asserts that you are properly authorized to contribute the code you are contributing, and that you do not have any legal objections for the RosettaCommons to redistribute that code as part of the Rosetta software package, including under its commercial use license.
 
 (Note that while the Contributor's Licensing Agreement allows RosettaCommons to distribute your contributed code, you still retain rights to it, and can redistribute and relicense it on your own, provided it does not contain any pre-existing RosettaCommons code. See the text of the Contributor's Licensing Agreement (CLA.md in the root directory of Rosetta) for exact details.)
 
-Another legal thing checked is to make sure that no code incompatible with the Rosetta License is merged. Existing in both non-commercial use only and commercial use forms, the Rosetta license is incompatible with the licenses of certain other software packages. In particular, licenses with terms incompatible with "non-commercial use only" restrictions or those with "share alike" provisions, like the GPL (GNU Public License), are incompatible with Rosetta and code with such licenses cannot be combined with the Rosetta software. *This restriction includes any redistribution of the combined package, including posting such combination to a Github fork.* (Note this restriction doesn't come from the Rosetta License -- it's principly a violation of the license for the GPLed software.)
+Another legal thing checked is to make sure that no code incompatible with the Rosetta License is merged. Existing in both non-commercial use only and commercial use forms, the Rosetta license is incompatible with the licenses of certain other software packages. In particular, licenses with terms incompatible with "non-commercial use only" restrictions or those with "share alike" provisions, like the GPL (GNU Public License), are incompatible with Rosetta and code with such licenses cannot be combined with the Rosetta software. *This restriction includes any redistribution of the combined package, including posting such combination to a GitHub fork.* (Note this restriction doesn't come from the Rosetta License -- it's principally a violation of the license for the GPL'ed software.)
 
 ##### Testing
 
-Part of the review process will be to queue tests onto the test server (<https://benchmark.graylab.jhu.edu/>) and make sure there are no inadvertant breakages of the tests. If any tests come back with issues - including ones you didn't intend to change - you'll likely be asked to track down the issues and make sure the branch is fixed.
+Part of the review process will be to queue tests onto the test server (<https://benchmark.graylab.jhu.edu/>) and make sure there are no inadvertent breakages of the tests. If any tests come back with issues - including ones you didn't intend to change - you'll likely be asked to track down the issues and make sure the branch is fixed.
 
 If you anticipate tests changing, it's worth mentioning that in the pull request description.
 
@@ -229,7 +229,7 @@ If you anticipate tests changing, it's worth mentioning that in the pull request
 Once your code passes all checks, and tests cleanly, your PR will get merged into RosettaCommons/rosetta:main  
 Only RosettaCommons members with write access to the RosettaCommons/rosetta repo can do this merge, so instead of you doing it yourself, someone else will push the merge button for you.
 
-To keep the (already too large) repository at a managable size, we use a squash merge system. This means that each PR will be re-written automatically by the Github interface to consist of a single commit with all of the changes. One implication is that all the commit messages in your branch history will no longer be availible from the history of the RosettaCommons/rosetta:main branch. Instead, a new commit message summarizing the entire PR will be made. To make sure that message is as accurate as possible, please keep the PR description up-to-date and accurate about the content of the PR. The person merging the PR will use the PR description for the new commit message.
+To keep the (already too large) repository at a manageable size, we use a squash merge system. This means that each PR will be re-written automatically by the GitHub interface to consist of a single commit with all of the changes. One implication is that all the commit messages in your branch history will no longer be available from the history of the RosettaCommons/rosetta:main branch. Instead, a new commit message summarizing the entire PR will be made. To make sure that message is as accurate as possible, please keep the PR description up-to-date and accurate about the content of the PR. The person merging the PR will use the PR description for the new commit message.
 
 ### Submodules
 
@@ -237,7 +237,7 @@ Rosetta uses submodules extensively for bits which are not tightly coupled with 
 
 Submodules are separate repositories that can be subdirectories of existing repositories. Submodules are in a 'detached head' state, meaning they belong to a specific commit to which the HEAD pointer is not updated when other people push to main. Quick example: `Rosetta/tests/scientific` is in the `rosetta` repository and the `data` directory in there is it's own submodule. The contents of `data` are not automatically updated when pulling from main (using `git pull`). Instead, you need to update the contents of the directory with one of the `git submodule` commands (for example, `git submodule update --init --recursive`). 
 
-**Question**: I always update all submodules using `git submodule update --init --recursive` but I actually only use the scientific data one and don't care about all of the other ones (maybe `tools`). How can I keep the others in whatever state they are at a certain point and not touch them without them constantly showing up as changes in git status ? How do you do that? What's the workflow and the commands?
+**Question**: I always update all submodules using `git submodule update --init --recursive` but I actually only use the scientific data one and don't care about all of the other ones (maybe `tools`). How can I keep the others in whatever state they are at a certain point and not touch them without them constantly showing up as changes in git status? How do you do that? What's the workflow and the commands?
 
 **Rocco's answer**: The short answer is don't init modules you don't need. You can update modules specifically by giving their path (e.g. `git submodule update --init -- tests/scientific/data/` to just update the scientific benchmark data one.). If you already have a module init-ed, you can remove the contents to cause git to ignore it. (e.g. `rm -r source/src/python/PyRosetta/binder/*` if you don't do any PyRosetta building, and don't want binder changes to show up on your pulls. Note: that's a plain `rm` and NOT a `git rm`). An empty working directory for a submodule will act like a "no changes" signal for git. If you do want it later, you can always do a `git submodule update --init -- source/src/python/PyRosetta/binder/`. The data for the submodule is stored externally to the working directory, so it's actually not that heavy-weight to do the rm/init.)
 
@@ -261,11 +261,11 @@ So if you have changes to a submodule:
 
 4. Add your fork as a remote repository (e.g. `git remote add fork git@github.com:GITHUB_USERNAME/SUBMODULE_NAME.git` )
     You don't have to (shouldn't) change the .gitmodules file to point to your fork.
-    The addresses there are only used to init the submodule, and when developing you want both the official repo and the fork to be availible.
+    The addresses there are only used to init the submodule, and when developing you want both the official repo and the fork to be available.
 
 5. Make a new branch for your changes, based on the current state of the submodule (e.g. `git checkout -b BRANCHNAME`)
 
-6. Make your changes to the submodule and commmit them like you normally would (with `git add` and `git commit`).
+6. Make your changes to the submodule and commit them like you normally would (with `git add` and `git commit`).
 
 7. While in the submodule directory you can push your branch to your fork of the submodule repository (e.g. `git push -u fork`)
 
@@ -282,7 +282,7 @@ So if you have changes to a submodule:
     Github will automatically recognize descriptions like "RosettaCommons/tools#14" as a cross-link to PR #14 in the RosettaCommons/tools repository.
     (You can check the "Preview" pane to check the linkage.)
 
-Github doesn't really handle coordinating merging submodule changes with PRs. 
+GitHub doesn't really handle coordinating merging submodule changes with PRs. 
 Additionally, since git identifies the submodule state with a combination of repository URL and SHA1, in order for things to work, we need the specified repository (RosettaCommons/submodule) to hold the proper SHA1 state (the version you submitted to your fork). This means that when merging we need to merge your submodule PR to the RosettaCommons submodule repo prior to merging the PR in the `rosetta` repo.
 
 Note that testing of your `rosetta` PR will be broken until the submodule PR gets merged. Depending on how integral the changes you've made to the submodule are to testing, we may ask you to re-target your submodule PR against a development branch we'll create for you, rather than `RosettaCommons/submodule:main`. That way your changes can be merged to the RosettaCommons version of the submodule to permit proper testing, and if it's successful we can merge that developmental branch to `main` when we merge the branch in `rosetta`.
@@ -354,14 +354,14 @@ you can now stage and commit your changes in your new branch
 
 ###Working on multiple machines###
 
-git is a distributed version control system, which means that no central repository is necessary.  As a result, it is possible to set one computer as a remote of another and collaborate without using github.
+git is a distributed version control system, which means that no central repository is necessary.  As a result, it is possible to set one computer as a remote of another and collaborate without using GitHub.
 
-However, for several reasons we strongly recommend against this workflow.  Instead, you should use a "star shaped" topology, with github as a remote for all clones.  To sync data between machines, push and pull from github. 
+However, for several reasons we strongly recommend against this workflow.  Instead, you should use a "star shaped" topology, with GitHub as a remote for all clones.  To sync data between machines, push and pull from GitHub. 
 
 There are a few reasons for doing this.   
 
-1. data integrity - work performed on RosettaCommons projects should be backed up.  By pushing to and from github, you are insuring that
-2. collaboration - by pushing your work to github, you make it possible for other users to tell that your work exists, which is critical in a collaborative community such as this one
+1. data integrity - work performed on RosettaCommons projects should be backed up.  By pushing to and from GitHub, you are ensuring that
+2. collaboration - by pushing your work to GitHub, you make it possible for other users to tell that your work exists, which is critical in a collaborative community such as this one
 3. workflow simplicity.  an A->B->C workflow is more complex to manage than an A->C, B->C workflow, as every node in the system has a path length of 1. There are entire categories of caveats to using git that do not exist if you stick to a star shape topology.
 
 ###Recommended tools
@@ -387,11 +387,11 @@ There are many commands in git which have identical names, however the functiona
 
 ## Workflow for using GitHub
 
-(This section is entirely about stuff you do on the github website.  None of this works without internet).
+(This section is entirely about stuff you do on the GitHub website.  None of this works without internet).
 
 ###What is GitHub?
 [[GitHub (wikipedia link)|https://en.wikipedia.org/wiki/GitHub]] is a website that:
-1. remotely and securely hosts our git-enabled code base
+1. remotely and securely hosts our git-enabled codebase
 2. enables communications about said codebase
 
 On point 1 - We need a way for our computers to communicate about what the code is.  Git means that everyone has a copy of all the branches, but we still need some way to get everyone's computer to communicate to share those branches.  Instead of having everyone run servers on their laptops constantly, we let GitHub centralize the process.
