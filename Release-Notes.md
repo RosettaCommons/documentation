@@ -4,6 +4,8 @@
 
 ## Rosetta 3.14
 
+* Numerous changes have been made to support the [open repository](https://github.com/RosettaCommons/rosetta) for Rosetta.
+
 * The worst9mer filter in RosettaScripts has been renamed to [[Worst9mer]]. 
 
 New tools and apps:
@@ -132,6 +134,10 @@ Updates:
 * Add `metric_to_bfactor` option to [[RunSimpleMetricsMover]] to assign a per residue metric to the Bfactor
 * Add `use_pose_name` option to [[DumpPDB]] mover
 * Add `delta_metrics` option to [[InterfaceAnalyzerMover]]
+* Custom torsions can now be controlled with the [[DihedralConstraintGenerator]]
+* Tar file support added for params file reading.
+* The franklin2019 scorefunction has been updated according to [Samanta & Gray](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10327106/)
+* The integration with [[BCL]] has been updated to use the most recent version of BCL.
 
 Bugfixes:
 * Avoid errant 0 return on rmsfitca2() 
