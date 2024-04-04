@@ -8,7 +8,7 @@
 A metric for averaging multiple `PerResidueProbabilitiesMetrics`.
 
 ### Details
-Like other `PerResidueProbabilitiesMetrics` the probabilities can be output as logits in a psi-blast style PSSM using the [[SaveProbabilitiesMetricMover]], and used as input for the [[FavorSequenceProfileMover]]. This metric alone does not require compilation with `extras=tensorflow,torch` but the model predictions that are typically input do. See [[Building Rosetta with TensorFlow and PyTorch]] for the compilation setup.
+Like other `PerResidueProbabilitiesMetrics` the probabilities can be output as logits in a psi-blast style PSSM using the [[SaveProbabilitiesMetricMover]], and used as input for the [[FavorSequenceProfileMover]]. This metric alone does not require compilation with `extras=tensorflow,torch` but the model predictions that are typically input do. See [[Building Rosetta with TensorFlow and Torch]] for the compilation setup.
 
 ### Example
 In this example we predict the amino acid probabilities for chain A of our protein using ProteinMPNN and ESM, average both predictions and use the average probabilities to calculate a single score for our protein.
