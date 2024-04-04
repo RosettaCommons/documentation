@@ -5,7 +5,7 @@
 [[include:simple_metric_ProteinMPNNProbabilitiesMetric_type]]
 
 ### General description
-A metric for estimating the probability of an amino acid at a given position, as predicted by the ProteinMPNN model. This metric requires to be build with `extras=torch`, see [[Building Rosetta with TensorFlow and PyTorch]] for the compilation setup.
+A metric for estimating the probability of an amino acid at a given position, as predicted by the ProteinMPNN model. This metric requires to be build with `extras=torch`, see [[Building Rosetta with TensorFlow and Torch]] for the compilation setup.
 
 ### Example
 The example predicts the amino acid identities for chain A using only the coordinates of chain A, while masking the sequence of position 25 and uses the predicted probabilities to score the sequence. 
