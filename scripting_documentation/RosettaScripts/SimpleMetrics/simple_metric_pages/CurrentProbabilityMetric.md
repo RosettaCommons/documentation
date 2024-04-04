@@ -5,7 +5,7 @@
 [[include:simple_metric_CurrentProbabilityMetric_type]]
 
 ### General description
-A PerResidueRealMetric that returns just the probability for the sequence currently present in the pose from a PerResidueProbabilitiesMetric (going from length\*20 to length\*1 probabilities). Useful for filtering or visualization of probabilities. This metric alone does not require compilation with `extras=tensorflow,torch` but the model predictions that are typically input do. See [[Building Rosetta with TensorFlow and PyTorch]] for the compilation setup.
+A PerResidueRealMetric that returns just the probability for the sequence currently present in the pose from a PerResidueProbabilitiesMetric (going from length\*20 to length\*1 probabilities). Useful for filtering or visualization of probabilities. This metric alone does not require compilation with `extras=tensorflow,torch` but the model predictions that are typically input do. See [[Building Rosetta with TensorFlow and Torch]] for the compilation setup.
 
 
 ### Example
