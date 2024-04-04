@@ -5,7 +5,7 @@
 [[include:simple_metric_MIFSTProbabilitiesMetric_type]]
 
 ### General description
-A metric for estimating the probability of an amino acid at a given position, as predicted by the Masked Inverse Folding with Sequence Transfer (MIF-ST) model from [Yang et al.](https://doi.org/10.1101/2022.05.25.493516). This metric requires to be build with `extras=pytorch`, see [[Building Rosetta with TensorFlow and PyTorch]] for the compilation setup.
+A metric for estimating the probability of an amino acid at a given position, as predicted by the Masked Inverse Folding with Sequence Transfer (MIF-ST) model from [Yang et al.](https://doi.org/10.1101/2022.05.25.493516). This metric requires to be build with `extras=torch`, see [[Building Rosetta with TensorFlow and PyTorch]] for the compilation setup.
 
 ### Example
 The example predicts the amino acid probabilities for chain A using only the coordinates and sequence of chain A.It does so by running one prediction for each position while masking its residue type. With `multirun=true` & `use_gpu=true` all predictions are batched together and run on the GPU (if available). Lastly it uses these predictions to score the current sequence using the pseudo-perplexity metric.
