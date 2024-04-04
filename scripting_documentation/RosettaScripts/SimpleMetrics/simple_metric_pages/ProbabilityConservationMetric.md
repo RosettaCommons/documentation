@@ -5,7 +5,7 @@
 [[include:simple_metric_ProbabilityConservationMetric_type]]
 
 ### General description
-A metric for calculating the conservation of a position given some predicted probabilities (using the relative Shannon Entropy). The returned value is between 0 (no conservation, all amino acids are equally likely) to 1 (fully conserved, only one amino acid is predicted). This metric alone does not require compilation with `extras=tensorflow,torch` but the model predictions that are typically input do. See [[Building Rosetta with TensorFlow and PyTorch]] for the compilation setup.
+A metric for calculating the conservation of a position given some predicted probabilities (using the relative Shannon Entropy). The returned value is between 0 (no conservation, all amino acids are equally likely) to 1 (fully conserved, only one amino acid is predicted). This metric alone does not require compilation with `extras=tensorflow,torch` but the model predictions that are typically input do. See [[Building Rosetta with TensorFlow and Torch]] for the compilation setup.
 
 
 ### Example
