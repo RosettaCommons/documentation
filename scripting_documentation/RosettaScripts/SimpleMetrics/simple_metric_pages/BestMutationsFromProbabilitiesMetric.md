@@ -5,7 +5,7 @@
 [[include:simple_metric_BestMutationsFromProbabilitiesMetric_type]]
 
 ### General description
-A metric for calculating mutations with the highest delta probability to the current residues from a `PerResidueProbabilitiesMetric`. Returns the most likely positions and their delta probability as CurrentAA-Position-MutationAA (e.g. A89T) in **pose numbering**. This metric alone does not require compilation with `extras=tensorflow,pytorch` but the model predictions that are typically input do. See [[Building Rosetta with TensorFlow and PyTorch]] for the compilation setup.
+A metric for calculating mutations with the highest delta probability to the current residues from a `PerResidueProbabilitiesMetric`. Returns the most likely positions and their delta probability as CurrentAA-Position-MutationAA (e.g. A89T) in **pose numbering**. This metric alone does not require compilation with `extras=tensorflow,torch` but the model predictions that are typically input do. See [[Building Rosetta with TensorFlow and PyTorch]] for the compilation setup.
 
 ### Example
 The examples uses the ESM language model to predict amino acid probabilities, and then gets the ten most likely mutations that are at least as likely as the currently present amino acid.
