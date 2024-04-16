@@ -39,8 +39,12 @@ You have multiple options for compiling Rosetta 3 with SCons. You can build eith
 
     -    Build a specific binary
 
-        -   `          ./scons.py -j<number_of_processors_to_use> bin/rosetta_scripts.linuxgccdebug         `
-        -   `          ./scons.py -j<number_of_processors_to_use> mode=release bin/rosetta_scripts.linuxgccrelease         `
+        Just passing the name works:
+        -   `          ./scons.py -j<num_of_proc> mode=release extras=hdf5 rosetta_scripts         `
+
+        If you specify the path with `bin/` you must also pass the correct extension:
+        -   `          ./scons.py -j<num_of_proc> bin/rosetta_scripts.linuxgccdebug         `
+        -   `          ./scons.py -j<num_of_proc> mode=release bin/rosetta_scripts.linuxgccrelease         `
 
     - Build libraries only
 

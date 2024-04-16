@@ -28,7 +28,7 @@ Selects the first 400 models for creating clusters based on CA distance accordin
 ### [[combine_silent]]
 Combines multiple silent files into one.
 
-### [[extract_pdbs]]
+### [[extract_pdbs|extract-pdbs]]
 Extracts the models with provided tags from a silent file into a PDB file.
 
 ### [[fragment_picker|app-fragment-picker]]
@@ -347,6 +347,9 @@ Alignment, O2' packing, RMSD, mutation, slicing, silent file creation, and minim
 
 ### [[stepwise]]
 General code that will perform Monte Carlo stepwise assembly on anything.
+
+### [[trRosetta]]
+Neural network-enhanced protein structure prediction, using a multiple sequence alignment as input.  Requires extras=tensorflow during compilation.
 
 ### [[revert_design_to_native|RosettaScripts#revert_design_to_wt-application]]
 If a design is sufficiently comparable to the native score, we revert 

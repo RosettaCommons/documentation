@@ -7,31 +7,52 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 
 ```xml
 <GALigandDock name="(&string;)" scorefxn="(&string;)"
-        scorefxn_relax="(&string;)" runmode="(&string;)" altcrossover="(&bool;)"
+        scorefxn_relax="(&string;)" runmode="(&string;)"
+        top_pose_metric="(&string;)" debug_report="(&bool;)"
         sample_ring_conformers="(&bool;)" rotprob="(&real;)" rotEcut="(&real;)"
         ligand="(&string;)" nativepdb="(&string;)" favor_native="(&real;)"
-        optimize_input_H="(&bool;)" grid_step="(&real;)" padding="(&real;)"
+        optimize_input_H="(&bool;)" pre_optH_relax="(&bool;)"
+        grid_radius="(&real;)" grid_step="(&real;)" padding="(&real;)"
         hashsize="(&real;)" subhash="(&non_negative_integer;)"
         nrelax="(&non_negative_integer;)" nreport="(&non_negative_integer;)"
         final_exact_minimize="(&string;)" cartmin_lig="(&bool;)"
         premin_ligand="(&bool;)" min_neighbor="(&bool;)"
+        auto_final_optH="(&bool;)" final_optH_mode="(&non_negative_integer;)"
         full_repack_before_finalmin="(&bool;)" final_solvate="(&bool;)"
         fastrelax_script="(&string;)" move_water="(&bool;)"
-        redefine_flexscs_at_relax="(&bool;)" exact="(&bool;)" debug="(&bool;)"
-        use_pharmacophore="(&bool;)" initial_pool="(&string;)"
-        multiple_ligands="(&string;)" random_oversample="(&real;)"
+        turnon_flexscs_at_relax="(&bool;)" redefine_flexscs_at_relax="(&bool;)"
+        exact="(&bool;)" debug="(&bool;)" use_pharmacophore="(&bool;)"
+        aligner_fastmode="(&bool;)" initial_pool="(&string;)"
+        template_pool="(&string;)" n_template="(&non_negative_integer;)"
+        multiple_ligands="(&string;)" multiple_ligands_file="(&string;)"
+        ligand_structure_file="(&string;)"
+        ligand_structure_filelist="(&string;)" random_oversample="(&real;)"
         reference_oversample="(&real;)" reference_pool="(&string;)"
         reference_frac="(&real;)" reference_frac_auto="(&bool;)"
-        sidechains="(&string;)" sc_edge_buffer="(&real;)" fa_rep_grid="(&real;)"
-        grid_bound_penalty="(&real;)" estimate_dG="(&bool;)" ngen="(&integer;)"
+        sidechains="(&string;)" frozen_scs="(&string;)"
+        sc_edge_buffer="(&real;)" fa_rep_grid="(&real;)"
+        grid_bound_penalty="(&real;)" estimate_dG="(&bool;)"
+        entropy_method="(&string;)" estimate_buns="(&bool;)"
+        use_dalphaball="(&bool;)" hb_resids="(&string;)"
+        hb_resids_include_bb="(&bool;)" hb_resids_metric="(&string;)"
+        use_mean_maxRad="(&bool;)" stdev_multiplier="(&real;)"
+        torsion_sampler_percentage="(&real;)" contact_distance="(&real;)"
+        freeze_ligand_backbone="(&bool;)" freeze_ligand="(&bool;)"
+        macrocycle_ligand="(&bool;)" shuffle_ligands="(&non_negative_integer;)"
+        align_reference_atom_ids="(&string;)" init_dens_weight="(&real;)"
+        skeleton_threshold_const="(&real;)"
+        neighborhood_size="(&non_negative_integer;)"
+        print_initial_pool="(&bool;)" rtmutationRate="(&real;)"
+        rotmutWidth="(&real;)" transmutWidth="(&real;)"
+        calculate_native_density="(&bool;)" ngen="(&integer;)"
         npool="(&non_negative_integer;)" pmut="(&real;)" smoothing="(&real;)"
         rmsdthreshold="(&real;)" ramp_schedule="(&string;)"
         maxiter="(&non_negative_integer;)"
-        pack_cycles="(&non_negative_integer;)" >
+        pack_cycles="(&non_negative_integer;)" output_ligand_only="(&bool;)" >
     <Stage repeats="(&integer;)" npool="(&non_negative_integer;)"
             smoothing="(&real;)" elec_scale="(&real;)" pmut="(&real;)"
-            rb_maxrank="(&integer;)" rmsdthreshold="(&real;)"
-            ramp_schedule="(&string;)" maxiter="(&non_negative_integer;)"
+            rmsdthreshold="(&real;)" ramp_schedule="(&string;)"
+            maxiter="(&non_negative_integer;)"
             pack_cycles="(&non_negative_integer;)" />
 </GALigandDock>
 ```
@@ -39,14 +60,17 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 -   **scorefxn**: weights file
 -   **scorefxn_relax**: weights file
 -   **runmode**: run mode [dock/dockPH/refine/optligand]
--   **altcrossover**: Use alternate xover.
+-   **top_pose_metric**: top_pose_metric [score/dH/best]
+-   **debug_report**: Use this flag to output more information. Default: false
 -   **sample_ring_conformers**: Allow ring conformer sampling if defined in params.
 -   **rotprob**: max cumulative rotamer probability
 -   **rotEcut**: rotamer 1b energy
--   **ligand**: ligand residue id (if not specified default to last residue)
+-   **ligand**: ligand residue ids (if not specified default to last residue)
 -   **nativepdb**: name of native pdb
 -   **favor_native**: give a bonus score to the input rotamer
 -   **optimize_input_H**: do not optimize H at the begining (which is used for grid construction)
+-   **pre_optH_relax**: relax structure before optimize hydrogen in final exact minimization
+-   **grid_radius**: Grid radius (A) for grid-based scoring
 -   **grid_step**: Grid step (A) for grid-based scoring
 -   **padding**: Padding (A) step for grid-based scoring
 -   **hashsize**: Width of hash bins (A)
@@ -57,26 +81,59 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 -   **cartmin_lig**: Cartmin ligand-only before and after final relax
 -   **premin_ligand**: Cartmin ligand-only at the beginning
 -   **min_neighbor**: If cartmin is enabled, also cartmin SCs before and after final relax.
+-   **auto_final_optH**: Automatically determine if optimize hydrogen before final relax
+-   **final_optH_mode**: final optH mode, 0: on optH 1: fully 2: flex sidechains 3: redefined sidechains using contact distance. Default: 1
 -   **full_repack_before_finalmin**: Full repack before final relax.
--   **final_solvate**: Solvate pose (via WaterBoxMover) in final optimize. Default: false
+-   **final_solvate**: Solvate pose (via ExplicitWaterMover) in final optimize. Default: false
 -   **fastrelax_script**: FastRelax script file for exact minimize.
 -   **move_water**: Move water at final relaxation.
+-   **turnon_flexscs_at_relax**: Turn on movable residues at final relaxation.
 -   **redefine_flexscs_at_relax**: Redefine movable residues at final relaxation.
 -   **exact**: Use exact scoring.
 -   **debug**: Debug grid scoring: report both exact and grid scores.
 -   **use_pharmacophore**: Use pharmacophore info at initial pool generation.
+-   **aligner_fastmode**: Use fast mode in aligner.
 -   **initial_pool**: Include these structures in the initial pool.
+-   **template_pool**: Use the template structure for MCSAligner to generate the starting pool.
+-   **n_template**: The number of copies of the template structure in the intial pool.
 -   **multiple_ligands**: Scan ligands with these residue types.
+-   **multiple_ligands_file**: Scan ligands with these residue types in a text file.
+-   **ligand_structure_file**: Scan ligands with these ligand structure files (pdb or silent file).
+-   **ligand_structure_filelist**: Scan ligands with ligand structure files (pdb or silent file) in a text file.
 -   **random_oversample**: scale factor to ntrial of initial random pool generation
 -   **reference_oversample**: scale factor to ntrial of initial reference pool generation
 -   **reference_pool**: Use this structures as _references_ to generate the initial pool.
 -   **reference_frac**: If reference pool is provided, the fraction of structures from the reference pool.
 -   **reference_frac_auto**: Select Nstruct to sample by reference automatically
 -   **sidechains**: Sidechains to move: none, auto, or residue IDs.
+-   **frozen_scs**: Sidechains to freeze: list of residue IDs.
 -   **sc_edge_buffer**: Scaling factor of maxdistance when deciding to include sc as movable
 -   **fa_rep_grid**: Repulsion weight at grid scoring stage
 -   **grid_bound_penalty**: Penalty factor when ligand atm gets out of boundary
 -   **estimate_dG**: Estimate dG of binding on lowest-energy docked pose. Default: false
+-   **entropy_method**: Entropy method name. Default: MCEntropy
+-   **estimate_buns**: Estimate buried unstatsified hydrogen bonds of the lowest-energy docked pose. Default: false
+-   **use_dalphaball**: If or not use dalphaball to compute SASA. Default: false
+-   **hb_resids**: Residue indices to calculate the number of hydrogen bonds with the ligand.
+-   **hb_resids_include_bb**: If include backbone atoms when calculating the number of hydrogen bonds with the ligand. Default: false
+-   **hb_resids_metric**: The method used to calculate the number of hydrogen bonds with the ligand, default or simple. Default: default.
+-   **use_mean_maxRad**: Use mean maxRad for multi ligands? Default: false
+-   **stdev_multiplier**: Standard deviation multiplier for mean_maxRad. Default: 1.0
+-   **torsion_sampler_percentage**: The percentage of the initial gene sampled by torsion sampler.
+-   **contact_distance**: Distance cutoff for determining if ligand is in contact with a residue sidechain. Default: 4.5
+-   **freeze_ligand_backbone**: Freeze peptide ligand backbone torsion, only works on peptide ligand. Default: false.
+-   **freeze_ligand**: Freeze ligand internal torsions. Default: false.
+-   **macrocycle_ligand**: If the ligand is macrocyle or cyclic peptide, if true, constraints will be added to ensure the ring closure. Default: false.
+-   **shuffle_ligands**: Non negative interger, if larger than 0, it will random choose N ligands to dock, 0 means no random pick. Default: 0
+-   **align_reference_atom_ids**: Atom ids to align after each cycle 'atom_num-residue_num,atom_num-residue_num,atom_num-residue_num...'
+-   **init_dens_weight**: density weight used during initial perturbation scoring
+-   **skeleton_threshold_const**: constant value used to calculate threshold for density skeleton.
+-   **neighborhood_size**: size of a neighborhood for ligand density erosion. Should be 7, 19, or 27. Default: 27
+-   **print_initial_pool**: Dump pdbs in the initial docking pool. Default: false
+-   **rtmutationRate**: probability of rigid body rotation and translation mutation
+-   **rotmutWidth**: maximum angle of rigid body mutation
+-   **transmutWidth**: maximum translation distance of rigid body mutation
+-   **calculate_native_density**: Find the density correlation for the native pose and exit. Default: false
 -   **ngen**: number of generations
 -   **npool**: (default) pool size
 -   **pmut**: (default) probability of mutation
@@ -85,6 +142,7 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 -   **ramp_schedule**: (default) During minimization, ramp fa_rep according to this schedule
 -   **maxiter**: (default) maxiter for minimizer
 -   **pack_cycles**: (default) pack for (N x #res) cycles
+-   **output_ligand_only**: Only output docked ligand structure. default: false
 
 
 Subtag **Stage**:   Per-stage parameters
@@ -94,7 +152,6 @@ Subtag **Stage**:   Per-stage parameters
 -   **smoothing**: Grid smoothing in this stage
 -   **elec_scale**: Scale of elec and hbond terms at this stage
 -   **pmut**: Sampling frequency weight for this template
--   **rb_maxrank**: superimpose sampled pose to motifs of topN parent structures
 -   **rmsdthreshold**: symmdef file associated with this template (only if using symmetry)
 -   **ramp_schedule**: comma-seprated list of chains to randomize - not documented
 -   **maxiter**: maxiter for minimizer

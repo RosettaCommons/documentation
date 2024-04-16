@@ -81,10 +81,10 @@ The default is that it will start searching at all positions in the monomeric Po
 
 #### Designing networks around a polar small molecule ligand
 If your goal is to design a network that satisfies a polar small molecule, use ```start_selector``` to start at the ligand (and any first shell contacts you might want to keep).  One challenge that arose in these design cases is that HBNet only searches for networks among packable/designable positions, but often users want to keep the ligand and some first-shell contacts fixed (NATRO or PreventRepacking).  To solve this issue, we added the option ```use_only_input_rot_for_start_res```, which if true, takes the ```start_selector``` positions, fixes their identity, turns on proton Chi sampling, but otherwise fixes their rotamer.  This allows for more h-bonding possibilities by sampling multiple Hpol positions.  (Option added together with Benjamin Basanta; commutativity logic reworked by Vikram K. Mulligan.)
-**NOTE:** ```use_only_input_rot_for_start_res``` only works if set to true and if the start selector is set to be packable.
+**NOTE:** ```use_only_input_rot_for_start_res``` only works if set to true and if the start selector is set to be packable. If using an abnormal starting rotamer, [[IncludeCurrent|IncludeCurrentOperation]] is recommended to ensure that this flag will not cause your start vector to be empty.
 
 ```xml
-<HBNet name="hbnet_ligand" scorefxn="standardfxn" hb_threshold="-0.5" start_selector="ligand" design_residues="STNQYW" write_cst_files="False" write_network_pdbs="False" store_subnetworks="False" minimize="False" min_network_size="3" max_unsat_Hpol="0" task_operations="no_design_or_pack,limitAroChi" use_only_input_rot_for_start_res="True"/>
+<HBNet name="hbnet_ligand" scorefxn="standardfxn" hb_threshold="-0.5" start_selector="ligand" design_residues="STNQYW" write_cst_files="False" write_network_pdbs="False" store_subnetworks="False" minimize="False" min_network_size="3" max_unsat_Hpol="0" task_operations="no_design_or_pack,limitAroChi,includeCurrent" use_only_input_rot_for_start_res="True"/>
 ```
 
 ###FAQ

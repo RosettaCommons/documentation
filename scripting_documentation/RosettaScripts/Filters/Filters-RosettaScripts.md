@@ -16,6 +16,7 @@ Filters can be run on arbitrary [[SimpleMetrics]], which will eventually replace
 
 If confidence is 1.0, then the filter is evaluated as in predicate logic (T/F). If the value is less than 0.999, then the filter is evaluated as fuzzy, so that it will return True in (1.0 - confidence) fraction of times it is probed. This should be useful for cases in which experimental data are ambiguous or uncertain.
 
+After the end of the protocols code block, the filters will be run _again_ to report the most up-to-date values to the pose. The run at the end can be avoided, while still retaining filtering, by appending the option: `report_at_end=“false”`.
 [[_TOC_]]
 
 ## Predefined Filters
@@ -164,8 +165,9 @@ Filter  | Description
 **[[HbondsToResidue|HbondsToResidueFilter]]** | Filter on number of h-bonding partners to a residue.
 **[[SimpleHbondsToAtom|SimpleHbondsToAtomFilter]]** | Filter on number of h-bonding partners to an atom(s) with significantly simpler logic than HbondsToAtom.
 **[[HbondsToAtom|HbondsToAtomFilter]]** | Filter on number of h-bonding partners to an atom(s).
+**[[PeptideInternalHbondsFilter]]** | Filter on the number of hydrogen bonds in a single selection or pose, excluding bonds between residues within a threshold distance of each other in terms of covalent connectivity.
 **[[BuriedUnsatHbonds|BuriedUnsatHbondsFilter]]** | Filter on maximum number of buried unsatisfied h-bonds.
-**[[BuriedUnsatHbonds2|BuriedUnsatHbonds2Filter]]** | Filter on number of unsatisfied h-bonds at interfaces (different algorithm from filter above, currently devel only).
+**[[BuriedUnsatHbonds2|BuriedUnsatHbonds2Filter]]** | Filter on number of unsatisfied h-bonds at interfaces (different algorithm from filter above).
 **[[OversaturatedHbondAcceptorFilter]]** | Filter on number of hydrogen bond acceptors that are receiving hydrogen bonds from more than the allowed number of donors.
 **[[DisulfideFilter]]** | Filter based on the presence of a disulfide across an interface.
 **[[AveragePathLength|AveragePathLengthFilter]]** | Compute shortest graph path length where residues are nodes and covalent bonds are edges.

@@ -2,11 +2,14 @@
 
 The AMBRose python module was developed by Maria Szegedy (Khare Lab), Kristin Blacklock (Khare Lab), and Hai Nguyen (Case Lab) at Rutgers University.
 
-Last updated May 23, 2019. 
+Last updated August 28, 2019. 
 
 For questions please contact: 
 - [Maria Szegedy](https://github.com/mszegedy) ([mszegedy2@gmail.com](mszegedy2@gmail.com))
 - Corresponding PI: Sagar D. Khare ([khare@chem.rutgers.edu](khare@chem.rutgers.edu))
+
+## Why AMBRose?
+Have you ever wanted Rosetta to seamlessly make an MD simulation of your structure and use frames from it in your protocol? Or just wished you could automate the creation of MD input files? If so, AMBRose is the PyRosetta companion module for you. With AMBRose, obtaining MD data can be as easy as setting up a mover! Download AMBRose today and see what MD can do for _your_ project. (No actual movers were harmed in the making of this software.)
 
 ## Description
 This module provides several functions for intercompatibility between AMBER and Rosetta, with major functions being:
@@ -14,22 +17,23 @@ This module provides several functions for intercompatibility between AMBER and 
 - The dumping of LEaP-safe PDB files from poses
 - The minimization and simulation of poses in sander/PMEMD without having to explicitly work with AMBER constructs
 - The conversion of trajectories to series of poses
+
 For the full API, see the docstrings of AMBRose's modules and objects. These will be turned into readthedocs.io documentation eventually.
 
 ## System Requirements
-- Python 3.5+
+- Python 3.6+
 - [[PyRosetta|http://www.pyrosetta.org/]] (Python module)
-- AmberTools (version >= 16) with pytraj (Python module)
-- AMBER16+ executables, particularly:
-  - sander
-  - PMEMD
+- AmberTools (version >= 16) with [[pytraj|https://amber-md.github.io/pytraj/latest/installation.html#install]] (Python module)
+- Working versions of some [[AMBER16+|http://ambermd.org/GetAmber.php]] executables, particularly:
+  - pmemd.cuda
   - tleap
 
-### For legacy only (but also planned for future versions):
+Make sure your environment variable `$AMBERHOME` is set to the directory where AMBER lives. (This is the directory where `bin/pmemd.CUDA` lives, where `amber.sh` lives, et cetera.)
+
+### For legacy only:
 - AmberTools (version >= 16) with pytraj and sander (Python module)
 - [[mpi4py|https://mpi4py.readthedocs.io/en/stable/install.html]] (Python module)
 
-Involving mpi4py is a top priority in AMBRose development. Involving the sander module less so.
 
 ## The limitations of AMBRose
 
@@ -40,11 +44,11 @@ AMBRose can work with (i.e. convert from one medium to another) any of three thi
 
 Anything beyond this (ligands, noncanonical residues, most post-translational modifications) will almost certainly fail to be converted.
 
-AMBRose also currently only runs on one core, including any of its sander/PMEMD calls. This issue is currently priority number one in AMBRose development, because MD is very slow when it's only running on one core.
+AMBRose's movers currently only run minimizations and simulations on the GPU, with pmemd.cuda. This is not a huge problem, because GPU computation is the state of the art for AMBER, and all the AMBER devs are currently focused on it. However, if for whatever reason you need CPU computation instead, they can be set to do that, but they will only be able to run on one core in most cases. This issue is not likely to be solved.
 
 ## How to install AMBRose
 ### Automatically
-Currently, you can install AMBRose with anything capable of handling a `setup.py` script, such as `pip`. If you are taking this route, you must be in the directory [`tools/AmbRose`](https://github.com/RosettaCommons/tools/tree/master/AmbRose). Here, run
+Currently, you can install AMBRose with anything capable of handling a `setup.py` script, such as `pip`. If you are taking this route, you must first clone [RosettaCommons/tools,](https://github.com/RosettaCommons/tools) and then navigate to the directory [`tools/AmbRose`](https://github.com/RosettaCommons/tools/tree/master/AmbRose). Here, run
 
 ```
 $ pip install --user .

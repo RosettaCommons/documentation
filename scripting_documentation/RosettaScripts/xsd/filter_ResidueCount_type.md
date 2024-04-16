@@ -22,7 +22,7 @@ Filters structures based on the total number of residues in the structure.
 -   **include_property**: Comma-separated list of which properties. (e.g. "D_AA,POLAR" ). Only residues with type names matching those in the list will be counted.
 -   **task_operations**: A comma-separated list of TaskOperations to use.
 -   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
--   **residue_selector**: Restrict counting to a set of residues
+-   **residue_selector**: Restrict counting to a set of residues. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **packable**: ? This parameter seems to do nothing at all ?
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 

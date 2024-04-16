@@ -12,8 +12,10 @@ Performs the fast relax protocol
         task_factory="(&string;)" packer_palette="(&named_packer_palette;)"
         repeats="(5 &integer;)" relaxscript="(default &string;)"
         cst_file="(&string;)" batch="(false &bool;)" cartesian="(false &bool;)"
-        dualspace="(false &bool;)" ramp_down_constraints="(false &bool;)"
-        bondangle="(false &bool;)" bondlength="(false &bool;)"
+        dualspace="(false &bool;)"
+        movemap_disables_packing_of_fixed_chi_positions="(false &bool;)"
+        ramp_down_constraints="(false &bool;)" bondangle="(false &bool;)"
+        bondlength="(false &bool;)"
         min_type="(lbfgs_armijo_nonmonotone &minimizer_type;)"
         delete_virtual_residues_after_FastRelax="(&bool;)"
         movemap_factory="(&string;)" >
@@ -22,6 +24,8 @@ Performs the fast relax protocol
         <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />
         <Span begin="(&non_negative_integer;)" end="(&non_negative_integer;)"
                 chi="(&bool;)" bb="(&bool;)" bondangle="(&bool;)" bondlength="(&bool;)" />
+        <ResidueSelector selector="(&string;)" chi="(&bool;)" bb="(&bool;)"
+                bondangle="(&bool;)" bondlength="(&bool;)" />
     </MoveMap>
 </FastRelax>
 ```
@@ -37,6 +41,7 @@ Performs the fast relax protocol
 -   **batch**: Perform BatchRelax?
 -   **cartesian**: Use cartesian minimization
 -   **dualspace**: Use dualspace minimization
+-   **movemap_disables_packing_of_fixed_chi_positions**: If true, positions that are prohibited from undergoing sidechain minimization by the movemap are ALSO prohibited from packing.  False by default.
 -   **ramp_down_constraints**: Ramp down constraint weights over the course of the protocol
 -   **bondangle**: Minimize bond angles
 -   **bondlength**: Minimize bond lengths
@@ -67,6 +72,14 @@ Subtag **Span**:   XRW TO DO, probably a user-defined region of the Pose
 
 -   **begin**: (REQUIRED) beginning of span
 -   **end**: (REQUIRED) end of span
+-   **chi**: (REQUIRED) move sidechain chi torsions?
+-   **bb**: (REQUIRED) move backbone torsions?
+-   **bondangle**: move 3-body angles?
+-   **bondlength**: move 2-body lengths?
+
+Subtag **ResidueSelector**:   Residue selector defined region of the Pose.
+
+-   **selector**: (REQUIRED) Residue selector
 -   **chi**: (REQUIRED) move sidechain chi torsions?
 -   **bb**: (REQUIRED) move backbone torsions?
 -   **bondangle**: move 3-body angles?

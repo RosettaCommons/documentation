@@ -1,0 +1,1 @@
+[[scripting_documentation/RosettaScripts/xsd/mover_DeleteChainsMover_type]]

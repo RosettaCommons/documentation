@@ -4,6 +4,17 @@ The following set of movers are aimed at creating and manipulating symmetric pos
 
 Notice that symmetric poses must be scored with symmetric score functions. See the 'symmetric' tag in the RosettaScripts score function documentation.
 
+> **segmentation fault**
+>
+> If you run into a segfault, you might need to add a \<OUTPUT\> section with a symmetric scorefunction.
+
+```
+    ...
+    </PROTOCOLS>
+    <OUTPUT scorefxn="my_sym_scorefxn"/>
+</ROSETTASCRIPTS>
+```
+
 ## Example: Symmetric FastRelax
 
 The following RosettaScript runs a protocol similar to Rosetta's symmetric fast relax using the symmetric pack rotamers and symmetric min mover (note that the fastrelax mover respects symmetric poses, this example is merely done to illustrate the symmetric movers).

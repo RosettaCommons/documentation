@@ -7,11 +7,13 @@ Select residues that can be glycosylated, based on a known sequence motif. Defau
 
 ```xml
 <GlycanSequonsSelector name="(&string;)" NxST="(true &bool;)"
-        NxC="(false &bool;)" WxxW="(false &bool;)" WSTxC="(false &bool;)" />
+        NxC="(false &bool;)" NxV="(false &bool;)" WxxW="(false &bool;)"
+        WSTxC="(false &bool;)" />
 ```
 
 -   **NxST**: Use N-notP-S/T glycosylation motif
 -   **NxC**: Use N-X-C glycosylation motif
+-   **NxV**: Use N-X-V glycosylation motif
 -   **WxxW**: Use W-X-X-W mannosylation motif
 -   **WSTxC**: Use W-S/T-X-C mannosylation motif
 

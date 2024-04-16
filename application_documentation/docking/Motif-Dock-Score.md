@@ -26,16 +26,16 @@ To run docking in Motif Dock Score mode, type the following in a commandline:
 [path to executable]/docking_protocol.[platform|linux/mac][compile|gcc/ixx]release –database [path to database] -mh:path:scores_BB_BB [path to score tables + score table prefix] -mh:score:use_ss1 false -mh:score:use_ss2 false -mh:score:use_aa1 true -mh:score:use_aa2 true -docking_low_res_score motif_dock_score @options
 ```
 
-Note: default argument for -mh:path:scores_BB_BB is: [path to Rosetta main]/database/protocol_data/motif_dock/xh_16_
+Note: default argument for -mh:path:scores_BB_BB is: [path to Rosetta main]/database/additional_protocol_data/motif_dock/xh_16_ *Note: updated path on 4/17/2023
 
-Note: code currently resides in branch: ssrb19/ensembledock_separate, to be merged into master in Fall 2017.
+Note: code currently resides in branch: ssrb19/ensembledock_separate, to be merged into master in Fall 2017. *Note that code is merged sometime previously to 4/17/2023.
 
 References
 ==========
 
 We recommend the following articles for further studies of RosettaDock methodology and applications:
 
--   Marze, N. A.; Roy Burman, S. S.; Sheffler, W.; Baker, D.; Gray, J. J., Successful docking of moderately flexible proteins using a fast, coarse-grained score function and enhanced conformer selection. In preparation.
+-   Marze, N. A.; Roy Burman, S. S.; Sheffler, W.; Gray, J. J. (2018) Efficient flexible backbone protein–protein docking for challenging targets. Bioinformatics 34(20), pp 3461–3469
 
 Application purpose
 ===========================================

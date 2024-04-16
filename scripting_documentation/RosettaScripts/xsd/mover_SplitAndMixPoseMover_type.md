@@ -17,6 +17,6 @@ Splits a Pose into requested pieces and joins them together. Allows to swap orde
 -   **try_all_pairs**: When true, all the pieces are merged as a single chain
 -   **exclude_consecutive**: When true, and try_all_pairs true, it will avoit trying consecutive subposes. Only applies when try_all_pairs=True.
 -   **max_distance**: When positive, and try_all_pairs true, limits the distance between N-term and C-term to generate a pair. Only applies when try_all_pairs=True.
--   **residue_selector**: (REQUIRED) ResidueSelector to define the regions of the pose to keep
+-   **residue_selector**: (REQUIRED) ResidueSelector to define the regions of the pose to keep The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 
 ---

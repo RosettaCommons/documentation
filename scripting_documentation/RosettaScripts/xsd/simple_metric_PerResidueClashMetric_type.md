@@ -12,18 +12,18 @@ DETAILS:
 
 ```xml
 <PerResidueClashMetric name="(&string;)" custom_type="(&string;)"
-        output_as_pdb_nums="(&string;)" residue_selector="(&string;)"
+        output_as_pdb_nums="(false &bool;)" residue_selector="(&string;)"
         use_hydrogens="(false &bool;)" soft_clash="(true &bool;)"
         dampening_percent="(.33 &real;)" residue_selector2="(&string;)" />
 ```
 
 -   **custom_type**: Allows multiple configured SimpleMetrics of a single type to be called in a single RunSimpleMetrics and SimpleMetricFeatures. 
  The custom_type name will be added to the data tag in the scorefile or features database.
--   **output_as_pdb_nums**: If outputting to scorefile use PDB numbering instead of Rosetta (default)
--   **residue_selector**: If a residue selector is present, we only calculate and output metrics for the subset of residues selected.
+-   **output_as_pdb_nums**: If outputting to scorefile use PDB numbering+chain instead of Rosetta (1 - N numbering)
+-   **residue_selector**: If a residue selector is present, we only calculate and output metrics for the subset of residues selected. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **use_hydrogens**: Use Hydrogens OR calculate only heavy atom clashes
 -   **soft_clash**: IF TRUE, soften the clashing by a percent (dampening_percent).  When we calculate atom-atom distances using LJ distances, clash if distance less_than (atomI_LJ + atomJ_LJ)*(1 - dampening_percent)
 -   **dampening_percent**: If we use soft_clash, dampen by this percent.  Number is between 0 and .99. IE- When we calculate atom-atom distances using LJ distances, clash if distance less_then (atomI_LJ + atomJ_LJ)*(1 - dampening_percent)
--   **residue_selector2**: The residue selector to use for calculating clashes TO for each residue of the primary selector.  Default is to calculate clashes of each residue to ALL OTHER residues (including those in the primary selector)
+-   **residue_selector2**: The residue selector to use for calculating clashes TO for each residue of the primary selector.  Default is to calculate clashes of each residue to ALL OTHER residues (including those in the primary selector). The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 
 ---

@@ -18,6 +18,10 @@ If using the approximate_buried_unsat_penalty, it would be wise to set this to t
 * atomic_depth_cutoff - Atomic depth at which atoms are considered buried.
 * Minimum energy (out of the typical rosetta -2.0) for a hbond to be considered to satisfy a polar.
 
+##Known limitations
+
+This task operation does not currently support symmetric poses.
+
 ##Credit
 * Longxing Cao came up with the idea
 * Brian Coventry coded it

@@ -11,7 +11,7 @@ Generates a contact map between specified regions
         row_format="(false &bool;)" distance_matrix="(false &bool;)"
         region1="(&contact_map_region_string;)"
         region2="(&contact_map_region_string;)"
-        ligand="(&contact_map_region_string;)" />
+        ligand="(&contact_map_region_string;)" reference_name="(&string;)" />
 ```
 
 -   **distance_cutoff**: Maximum distance between two atoms that will be considered a contact
@@ -23,5 +23,6 @@ Generates a contact map between specified regions
 -   **region1**: Region definition for region1 of the contact map in format start-end or chainID
 -   **region2**: Region definition for region2 of the contact map
 -   **ligand**: Sequence position or chainID of a ligand
+-   **reference_name**: Reference pose to use when building the initial contact map description (defaults to input pose).
 
 ---

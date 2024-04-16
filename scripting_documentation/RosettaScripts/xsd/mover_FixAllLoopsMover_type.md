@@ -13,7 +13,11 @@ Connects chains using a very fast RMSD lookback. Only works for chains less than
         resAdjustmentRangeSide2_sheet="(-1,1 &string;)"
         residue_range="(1,999999 &string;)" max_vdw_change="(10.0 &real;)"
         ideal="(false &bool;)" refix_loops="(false &bool;)"
-        allowed_loop_abegos="(&string;)" reject_failed_loops="(true &bool;)" />
+        allowed_loop_abegos="(&string;)" reject_failed_loops="(true &bool;)"
+        label_loop="(&string;)" fragment_store="(&string;)"
+        fragment_store_format="(hashed &string;)"
+        fragment_store_compression="(all &string;)"
+        numb_stubs_to_consider="(1 &non_negative_integer;)" />
 ```
 
 -   **loopLengthRange**: Loops can range from 1 to 5 residue
@@ -28,5 +32,10 @@ Connects chains using a very fast RMSD lookback. Only works for chains less than
 -   **refix_loops**: refixes all loops in the residue range even if their rms is below the threshold
 -   **allowed_loop_abegos**: comma seperated string of allowed abegos, default=empty all abegos
 -   **reject_failed_loops**: allows the program to crash if the loops can't be fixed
+-   **label_loop**: label loop in pdb_info object
+-   **fragment_store**: path to fragment store. Note:All fragment stores use the same database
+-   **fragment_store_format**: Options:hashed,unhashed new format is unhashed
+-   **fragment_store_compression**: Options:helix_shortLoop,sheet_shortLoop,all
+-   **numb_stubs_to_consider**: number of stubs to consider. Fewer-faster, higher-increased accuracy
 
 ---

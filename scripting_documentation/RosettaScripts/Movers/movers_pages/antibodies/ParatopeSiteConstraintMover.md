@@ -21,7 +21,7 @@ Will only add the constraint if not already present.Uses a Linear Harmonic at 0,
 Constraint that a residue interacts with some other chain or region. SiteConstraints are a set of ambiguous atom-pair constraints that evaluate whether a residue interacts with some other chain or region - roughly, that it is (or is not) in a binding site. More specifically, if we have a SiteConstraint on a particular residue, that SiteConstraint consists of a set of distance constraints on the C-alpha from that residue to the C-alpha of all other residues in a set, typically the set being specific residues on another chain or chains. After each constraint is evaluated, only the constraint giving the lowest score is used as the SiteConstraint energy for that residue.
 
 ```xml
-<ParatopeSiteConstraintMover paratope_cdrs="(&string (ex: L1,L1,L3))" interface_dis="(&real)" />
+<ParatopeSiteConstraintMover paratope_cdrs="(&string (ex: L1,L1,L3))" interface_distance="(&real)" />
 ```
 
 ###Optional
@@ -34,7 +34,7 @@ Constraint that a residue interacts with some other chain or region. SiteConstra
 #### Etc.
 
 -   antigen_chains (&string) (Default=all non Ab chains): Specify the particular antigen to create the SiteConstraint to.  
--   interface_dis (&real) (Default=10): Distance in Angstroms for the interface, which effects when the SiteConstraint penalty begins. 
+-   interface_distance (&real) (Default=10): Distance in Angstroms for the interface, which effects when the SiteConstraint penalty begins. 
 
 
 ##See Also

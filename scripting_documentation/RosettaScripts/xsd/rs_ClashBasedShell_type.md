@@ -19,7 +19,7 @@ The ClashBasedShellSelector identifies all residues that clash with at least one
 -   **scorefxn**: Name of score function to use
 -   **task_operations**: A comma-separated list of TaskOperations to use.
 -   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
--   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
+-   **residue_selector**: . The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **resnums**: The residues to build the shell around.  These can also be specified via the 'selector' or 'task_operations' options, or via a ResidueSelector subtag.
 -   **invert**: Select the residues that @b aren't part of the clash-based shell.
 -   **num_shells**: The number of shells to calculate.

@@ -3,6 +3,7 @@
 ##RosettaScripts
  
 * [[Overview|RosettaScripts]]
+* [[Using RosettaScripts with VSCode|Using-RosettaScripts-with-VSCode]]
 * [Introductory Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/scripting_with_rosettascripts/scripting_with_rosettascripts)
 
 ---------------------------------
@@ -34,6 +35,7 @@
 
 ##See Also
 
+* [[RosettaScripts-JD3]]: Application to run RosettaScripts per-job
 * [[I want to do x]]: Guide for making specific structural perturbations using RosettaScripts
 * [[Getting Started]]: A page for people new to Rosetta
 * [[Application Documentation]]: Links to documentation for a variety of Rosetta applications

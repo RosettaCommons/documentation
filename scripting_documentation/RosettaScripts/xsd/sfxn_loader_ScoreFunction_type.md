@@ -12,6 +12,7 @@ XRW TO DO
     <Set exclude_DNA_DNA_hbond="(&bool;)" use_hb_env_dep_DNA="(&bool;)"
             use_hb_env_dep="(&bool;)" smooth_hb_env_dep="(&bool;)"
             decompose_bb_hb_into_pair_energies="(&bool;)"
+            hbonds__hb_max_energy="(&real;)"
             hbonds__exclude_DNA_DNA_hbond="(&bool;)"
             hbonds__use_hb_env_dep_DNA="(&bool;)"
             hbonds__put_intra_into_total="(&bool;)"
@@ -48,12 +49,19 @@ XRW TO DO
             approximate_buried_unsat_penalty_burial_resolution="(&real;)"
             approximate_buried_unsat_penalty_oversat_penalty="(&real;)"
             approximate_buried_unsat_penalty_assume_const_backbone="(&bool;)"
+            approximate_buried_unsat_penalty_natural_corrections1="(&bool;)"
+            approximate_buried_unsat_penalty_hbond_bonus_cross_chain="(&real;)"
+            approximate_buried_unsat_penalty_hbond_bonus_ser_to_helix_bb="(&real;)"
+            approximate_buried_unsat_penalty_lys_ok_with_1="(&bool;)"
             buried_unsatisfied_penalty_cone_angle_exponent="(&real;)"
             buried_unsatisfied_penalty_cone_angle_shift_factor="(&real;)"
             buried_unsatisfied_penalty_cone_dist_exponent="(&real;)"
             buried_unsatisfied_penalty_cone_dist_midpoint="(&real;)"
             buried_unsatisfied_penalty_burial_threshold="(&real;)"
             buried_unsatisfied_penalty_hbond_energy_threshold="(&real;)"
+            target_clash_pdb="(&string;)" dump_trajectory_prefix="(&string;)"
+            dump_trajectory_gz="(&bool;)"
+            dump_trajectory_stride="(&positive_integer;)"
             voids_penalty_energy_containing_cones_cutoff="(&non_negative_integer;)"
             voids_penalty_energy_voxel_size="(&real;)"
             voids_penalty_energy_voxel_grid_padding="(&real;)"
@@ -83,6 +91,7 @@ Subtag **Set**:
 -   **use_hb_env_dep**: Enable environmental dependent weighting of hydrogen bond terms
 -   **smooth_hb_env_dep**: Smooth environmental dependence of hbond term
 -   **decompose_bb_hb_into_pair_energies**: Should backbone-backbone hydrogen bonds be split between the two participating residues?
+-   **hbonds__hb_max_energy**: Max possible hbond energy. Under nearly all circumstances this should be set to 0.0.
 -   **hbonds__exclude_DNA_DNA_hbond**: Same as exclude_DNA_DNA_hbond
 -   **hbonds__use_hb_env_dep_DNA**: Same as use_hb_env_dep_DNA
 -   **hbonds__put_intra_into_total**: Include intra-res hbond score in total
@@ -100,8 +109,8 @@ Subtag **Set**:
 -   **hbonds__measure_sp3acc_BAH_from_hvy**: XRW TO DO
 -   **hbonds__fade_energy**: XRW TO DO
 -   **hbonds__exclude_ether_oxygens**: XRW TO DO
--   **hbonds__Mbhbond**: XRW TO DO
--   **hbonds__mphbond**: XRW TO DO
+-   **hbonds__Mbhbond**: XRW TO DO: pba
+-   **hbonds__mphbond**: Membrane framework hbonding correction
 -   **lj_hbond_OH_donor_dis**: Lennard Jones sigma value for O in OH donor groups
 -   **lj_hbond_hdis**: Lennard Jones sigma value for hatms, classically it's been at 1.95 but the average A-H distance for hydrogen bonding is 1.75 from crystal structures
 -   **fa_max_dis**: Max distance for energy function calculations, in angstroms
@@ -135,12 +144,20 @@ Subtag **Set**:
 -   **approximate_buried_unsat_penalty_burial_resolution**: The resolution for the atomic depth calculation.
 -   **approximate_buried_unsat_penalty_oversat_penalty**: The penalty between atoms that both satisfy the same atom. If we let X = weight_of_approximate_buried_unsat_penalty. Then in general, a buried unsat is worth X, a satisfied unsat is worth 0, a doubly satisfied unsat is worth X * ( setting-1.0 ), a triply satisfied unsat is worth X * ( -2 + 3 * setting ), a N-ly satisfied unsat is worth X * ( 1 - N + 0.5 * N * (N - 1) ).
 -   **approximate_buried_unsat_penalty_assume_const_backbone**: Should we assume that the backbone atoms will not change during a packing trajectory? (i.e. no positions that include normal aa and proline or n-methyl) If set to false, this energy method takes longer to compute. (~ 2X as long)
+-   **approximate_buried_unsat_penalty_natural_corrections1**: Apply the following corrections to buried unsat penalty: nh2_wants_2, nh1_wants_1, hydroxyl_wants_h, carboxyl_wants_2
+-   **approximate_buried_unsat_penalty_hbond_bonus_cross_chain**: Apply a bonus factor to hydrogen bonds accross chains.
+-   **approximate_buried_unsat_penalty_hbond_bonus_ser_to_helix_bb**: Apply a bonus factor to the classic SER/THR i - i-4 h-bond. OG/OG1 - O. Set this positive to penalize.
+-   **approximate_buried_unsat_penalty_lys_ok_with_1**: Make LYS N work like carbonyl O where it prefers 1 or 2 h-bonds.
 -   **buried_unsatisfied_penalty_cone_angle_exponent**: The angle exponent for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
 -   **buried_unsatisfied_penalty_cone_angle_shift_factor**: The angle shift factor for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
 -   **buried_unsatisfied_penalty_cone_dist_exponent**: The distance exponent for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
 -   **buried_unsatisfied_penalty_cone_dist_midpoint**: The distance midpoint for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
 -   **buried_unsatisfied_penalty_burial_threshold**: The number of cones in which a point must lie to be considered buried by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
 -   **buried_unsatisfied_penalty_hbond_energy_threshold**: The energy threshold above which a hydrogen bond is not counted, used by the BuriedUnsatPenalty energy.
+-   **target_clash_pdb**: The target pdb file for clash checking.
+-   **dump_trajectory_prefix**: If the dump_trajectory scoreterm is used, this is the prefix for the filename to which we're dumping.
+-   **dump_trajectory_gz**: If the dump_trajectory scoreterm is used, this determines whether we write to gzipped files.  False by defualt.
+-   **dump_trajectory_stride**: If the dump_trajectory scoreterm is used, this is the frequency with which we write.  Every Nth evaluation of the score term, a pose will be written.  Default 1.
 -   **voids_penalty_energy_containing_cones_cutoff**: The minimum number of sidechain cones in which a voxel must lie in order for that voxel to be considered to be buried.  Defaults to 6 cones.
 -   **voids_penalty_energy_voxel_size**: The voxel size (in Angstroms) used in the voids_penalty score term's calculation.  Default 0.5 Angstroms.
 -   **voids_penalty_energy_voxel_grid_padding**: The voxel grid padding (in Angstroms) used in the voids_penalty score term's calculation.  The bounding box for the pose is enlarged on every side by this amount.  Default 1.0 Angstroms.

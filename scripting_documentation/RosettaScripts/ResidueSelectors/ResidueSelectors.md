@@ -49,6 +49,15 @@ A mover that can handle ResidueSelectors will take the following option:
 
 ### Logical ResidueSelectors
 
+Note that Logic is now integrated into all rosetta script components that accept a residue selector. 
+The syntax is the same as DesignRestrictions.  For example, `selector="SEL1 and SEL2 and not(SEL3)"` is something that can be passed and parsed.  You can also use the Logic selector to combine this logic instead of using separate logical selectors reviewed below. 
+
+#### LogicSelector
+
+    <Logic name="(&string)" selector="SEL1 and SEL2 and (not SEL3) or SEL4"/>
+
+- See the [[LogicSelector| rs_Logic_type]] info for more information:
+
 #### NotResidueSelector
 
     <Not name="(&string)" selector="(&string)">
@@ -106,6 +115,10 @@ any ResidueSelector can be defined as a subtag of the Not selector.  You cannot,
     ```
 
 ### Conformation Independent Residue Selectors
+
+#### BlockSelector
+
+Selects regions of continuous blocks from an input selector.  See [[this page for details|rs_BlockSelector_type]].
 
 #### ChainSelector
 
@@ -214,11 +227,11 @@ Selects CDR residues in an antibody or camelid antibody.
 - PIs: Dr. Roland Dunbrack and Dr. William Schief
 
 ```xml
-    <CDR name="(&string)" cdrs="(&string,&string)" numbering_scheme="(&string)" cdr_definition="(&string)" />
+    <CDR name="(&string)" cdrs="(&string,&string)" input_ab_scheme="(&string)" cdr_definition="(&string)" />
 ```
 
 -   _cdrs (&string,&string)_ (default=all cdrs):  Select the set of CDRs you wish to restrict to (ex: H1 or h1) 
--   _numbering_scheme (&string)_:  Set the antibody numbering scheme.  Must also set the cdr_definition XML option. Both options can also be set through the command line (recommended).  See [[General Antibody Tips | General-Antibody-Options-and-Tips]] for more info.
+-   _input_ab_scheme (&string)_:  Set the antibody numbering scheme.  Must also set the cdr_definition XML option. Both options can also be set through the command line (recommended).  See [[General Antibody Tips | General-Antibody-Options-and-Tips]] for more info.
 -   _cdr_definition (&string)_: Set the cdr definition you want to use.  Must also set the numbering_scheme XML option. 
 
 -  See Also:
@@ -290,6 +303,20 @@ The BondedResidueSelector can also take a residue selector as a subtag:
 ```
 Only one residue selector may be provided, and it is mutually exclusive with the resnum list.
 
+#### CloseContactResidueSelector
+    <CloseContact name=(%string) residue_selector=(%string) contact_threshold=(4.5%float)/>
+
+or
+
+    <CloseContact name=(%string) contact_threshold=(4.5%float)>
+       <Selector ... />
+    </CloseContact>
+
+-   The CloseContactResidueSelector selects all the residues within a certain distance cutoff of a focused set of residues. This is similar to the NeighborhoodResidueSelector (below) except that the distances measured are atom-to-atom distances. The CloseContact selector is sensitive to which rotamer is placed at a certain residue (e.g. if the tyrosine rotamer points to the left, then its close contacts are found on the left); the Neighborhood selector, in contrast, selects residues within a sphere centered at the CBeta atom.
+-   It sets each position in the ResidueSubset that corresponds to a residue within a certain distance of the focused set of residues __as well as the residues in the focused set__ to true, and sets all other positions to false.
+-   The set of focused residues can be specified in one of two (mutually exclusive) ways: through a previously-declared ResidueSelector using the "residue_selector" option, or by defining a subtag that declares an anonymous ResidueSelector.
+
+
 #### HBondSelector
 
 HBondSelector selects all residues with hydrogen bonds to the residues specified in the input (either by a comma-separated resnum list or by a residue selector). If no input residues are selected, then all residues in the pose forming hydrogen bonds stronger than the specified energy cutoff are selected.
@@ -345,7 +372,7 @@ Options:
 
 SASA-specific options:
 - ball_radius=(2.0 &Real): The radius for the rolling ball algorithm used to pick residues by SASA.
-- core_cutoff=(20.0 &Real), surface_cutoff=(40.0 &Real):  The SASA values (as a percentage of total surface area) below which a residue is sorted into the core group, or above which a residue is sorted into the surface group.  Note that setting use_sidechain_neighbors=false alters the default values of core_cutoff and surface_cutoff.
+- core_cutoff=(20.0 &Real), surface_cutoff=(40.0 &Real):  The SASA values (in units of A^2) below which a residue is sorted into the core group, or above which a residue is sorted into the surface group.  Note that setting use_sidechain_neighbors=false alters the default values of core_cutoff and surface_cutoff.
 
 Sidechain neighbor-specific options:
 - core_cutoff=(5.2 &Real), surface_cutoff=(2.0 &Real):  The number of sidechain neighbors (weighted counts -- see below) above which a residue is sorted into the core group, or below which a residue is sorted into the surface group.
@@ -410,7 +437,7 @@ or
 -   Now uses the 10A neighbor graph embedded in the pose after scoring to increase speed of calculation.  Useful for many calls, or when this selector is used as a TaskOperation using the OperateOnResidueSubset operation (Jared Adolf-Bryfogle, June '16).
 -  __include_focus_in_subset__ (&bool) (default = True)  Set this option to false to only include neighbor residues.    
 -   atom_names_for_distance_measure (&string)  Comma separated list of names of atoms to be used instead of the default neighbor atom per focus residue. This should come in handy to select around a particular ligand atom or a polar atom of a residue. __The number of atom names should be equal to the number of focus residues__, otherwise an error will be thrown during the apply time.
--   NeighborhoodResidueSelector does __NOT__ select across symmetrical chains by default. You can use SymmetricalResidueSelector to symmetrize the selection you pass into NeighborhoodResidueSelector to get the expected behavior.
+-   NeighborhoodResidueSelector does __NOT__ select across symmetrical chains by default. You can use SymmetricalResidueSelector to symmetrize the selection you pass into NeighborhoodResidueSelector to get the expected behavior __in some cases__.
 
 #### NumNeighborsSelector
 
@@ -429,11 +456,11 @@ or
 ```xml
      <Phi name="(&string)" select_positive_phi="(true &bool)" ignore_unconnected_upper="(true &bool)" />
 ```
-- select_positive_phi: If true (the default), alpha-amino acids with phi values greater than or equal to zero are selected.  If false, alpha-amino acids with phi values less than zero are selected.
+- select_positive_phi: If true (the default), alpha- and beta-amino acids with phi values greater than or equal to zero are selected.  If false, alpha- and beta-amino acids with phi values less than zero are selected.
 - ignore_unconnected_upper: If true (the default) then C-terminal residues and other residues with nothing connected at the upper connection are not selected.  If false, then these residues can be selected, depending on their phi values.  Note that anything lacking a lower connection is <i>never</i> selected.
 
 
-     The PhiSelector selects alpha-amino acids that are in either the positive phi or negative phi region of Ramachandran space.  Ligands and polymeric residues that are not alpha-amion acids are never selected.  Alpha-amino acids with no lower connection (or nothing connected at the lower connection) are also never selected.  By default, alpha-amino acids with no upper connection are not selected, though this can be disabled.
+     The PhiSelector selects alpha- and beta-amino acids that are in either the positive phi or negative phi region of Ramachandran space.  Ligands and polymeric residues that are not alpha- or beta-amino acids are never selected.  Alpha- or beta-amino acids with no lower connection (or nothing connected at the lower connection) are also never selected.  By default, alpha- or beta-amino acids with no upper connection are not selected, though this can be disabled.
 
      The PhiSelector is convenient for:
 
@@ -441,6 +468,14 @@ or
 - Restricting positive-phi positions to be glycine, and negative-phi positions to be L-amino acids, when doing canonical design of conventional proteins.
 - Limiting the number of L-amino acids in the positive-phi region of Ramachandran space, in conjunction with the aa_composition score term.
 - Restricting residues in the positive-phi region to be D-amino acids and residues in the negative-phi region to be L-amino acids when doing mixed D/L design of synthetic peptides.
+
+The following example uses ResiduePropertySelectors and And selectors in combination with the PhiSelector to  select only alpha-amino acids with positive phis:
+
+```xml
+<Phi name="posPhi" select_positive_phi="true" />
+<ResiduePropertySelector name="all_alphas" properties="ALPHA_AA"/>
+<And name="alphas_posPhi" selectors="posPhi,all_alphas" />
+```
 
 #### PairedSheetResidueSelector
 
@@ -700,7 +735,41 @@ or
 -   selector - the name of a predefined selector that defines a subset of residues to restrict selection.
 
 
-####See Also
+###LogicBased
+
+####Slice
+Residue selector that allows slicing of the selection of other residue selections. Also allows negative indexing. 1 is the first residue and -1 is the last.
+
+    <Slice name=(%string) selector=(%string,"") from=(%int, 0) to=(%int, 1)
+                indices=(%string,"") 
+                slice_mode=(%string,"SPARSE") oob_mode=(%string,"ERROR")/>
+
+ - selector - The selector to slice from.
+ - from - Range selection: This is the first residue of the range to select.
+ - to - Range selection: This is the last residue of the range to select.
+ - indices - Index selection: Comma separated list of indices. May not use this with from-to
+ - slice_mode - How should the previous residue selector be represented? SPARSE: all gaps are removed from the previous selection. If residues 101 and 200 are selected, only indices 1 and 2 are valid. CONTIGUOUS - gaps from previous selection are included in indices. If residues 101 and 200 are selected, all indices from 1 to 100 are valid.
+ - oob_mode - If an index is out of bounds, how should this be handled? ERROR: Quit and display error message. WARN: Display error message. IGNORE: Ignore.
+
+Examples:
+
+Selecting residue 8 on chain B:
+```xml
+<Chain name="chainB" chain="B" />
+<Slice name="8B" selector="chainB" indices="8" />
+```
+
+Select all residues between the 2nd and 3rd CYS:
+```xml
+<ResidueName name="cys" residue_name3="CYS" />
+<Slice name="cys_2_and_3" selector="cys" indices="2,3" slice_mode="SPARSE" />
+<Slice name="from_cys2_to_cys3" selector="cys_2_and_3" from="1" to="-1" slice_mode="CONTIGUOUS" />
+```
+
+
+
+
+###See Also
 
 * [[StoreTaskMover]]
 * [[StoreCompoundTaskMover]]

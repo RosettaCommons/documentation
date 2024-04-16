@@ -73,20 +73,21 @@ Modes
 -----
 
 -   **Pre-pack mode** ( -flexpep\_prepack flag):
-     The pre-packing mode optimizes the side-chains of each monomer according to the [[Rosetta energy function|score-types]]. Unless you know what you are doing, we strongly recommend pre-packing the input structures, and applying one of the peptide docking protocols to the resulting pre-packed structures, as this can improve model selection considerably (see below). However, in cases where side-chains have been previously optimized by Rosetta using the same scoring function, this step can be skipped.
+     The pre-packing mode optimizes the side-chains of each monomer according to the [[Rosetta energy function|score-types]]. Unless you know what you are doing, we strongly recommend pre-packing the input structures, and applying one of the peptide docking protocols to the resulting pre-packed structures, as this can improve model selection considerably (see below at *More tips*). However, in cases where side-chains have been previously optimized by Rosetta using the same scoring function, this step can be skipped.
 
 -   **Low-resolution *ab-initio* mode** (-lowres\_abinitio flag):
-     This is the main part of the *ab-initio* peptide docking protocol, for simultaneous *ab-initio* folding and docking of the peptide over the protein surface. This mode is typicalled used together with the refinement mode ( -pep\_refine flag) - in this case, the peptide is first folded *de-novo* and then refined.
+     This is the main part of the *ab-initio* peptide docking protocol, for simultaneous *ab-initio* folding and docking of the peptide over the protein surface. This mode is typically used together with the refinement mode ( -pep\_refine flag) - in this case, the peptide is first folded *de-novo* and then refined.
 
 -   **Refinement mode** ( -pep\_refine flag)
-     High-resolution refinement, starting from a coarse model of the complex. This protocol may be used together with the lowres\_preoptimize flag, see below. It is also used for refining the low-resolution structure that results from the low-resolution *ab-initio* protocol (these two modes can be used together)
-     Important note: for most input files, we strongly recommend running the prepack mode (below) before running the *ab-initio* or Refinement protocols.
+     High-resolution refinement, starting from a coarse model of the complex. This protocol may be used together with the lowres\_preoptimize flag, see below. It is also used for refining the low-resolution structure that results from the low-resolution *ab-initio* protocol (these two modes can be used together)  
+
+     _Important note: for most input files, we strongly recommend running the prepack mode (below) before running the *ab-initio* or Refinement protocols._
 
 -   **Rescoring mode** (-flexpep\_score\_only)
      This mode rescores the input PDB structures, and outputs elaborate statistics about them in the score file.
 
 -   **Minimization mode** (-flexPepDockingMinimizeOnly)
-     Perform a short minimization of the peptide protein interface without going into the docking simulation (including all side-chain torsion angles ; all peptide backbone torsion angles ; and the rigid body orientation of the peptide relative to the receptor)
+     Perform a short minimization of the peptide protein interface without going into the docking simulation (including all side-chain torsion angles ; all peptide backbone torsion angles ; and the rigid body orientation of the peptide relative to the receptor). *For minimization, no prepack is required.*
 
 For the refinement step in PIPER-FlexPepDock use:
 
@@ -147,23 +148,24 @@ I. Common FlexPepDock flags:
 |-flexPepDockingMinimizeOnly| Minimization mode. Perform only a short minimization of the input complex|Boolean|false|
 | -ref_startstruct| Alternative start structure for scoring statistics,instead of the original start structure (useful as reference for rescoring previous runs with the -flexpep_score_only flag.)| File| N/A|
 |-peptide_anchor| Set the peptide anchor residue manually. It is recommended to override the default value only if one strongly suspects the critical region for peptide binding is extremely remote from its center of mass.| Integer| Residue nearest to the peptide center of mass.|
+|-design_peptide | Within refinement, design protein-facing peptide positions | Boolean| False |
 
 II. Relevant Common Rosetta flags
 ---------------------------------
 
 More information on common Rosetta flags can be found in the [[relevant rosetta manual pages|Rosetta-Basics]]. In particular, flags related to the job-distributor (jd2), scoring function, constraint files and packing resfiles are identical to those in any other Rosetta protocol).
 
-|  Flag  |  Description  |
-|:-------|:--------------|
-| -in::file::s  Or -in:file:silent| Specify starting structure (in::file::s for PDB format, in:file:silent for silent file format).|
-| -in::file::silent_struct_type  -out::file::silent_struct_type|Format of silent file to be read in/out. For silent output, use the binary file type since other types may not support ideal form|
-|-native|Specify the native structure for which to compare in RMSD calculations. This is a required flag. When the native is not given, the starting structure is used for reference.|
-|-nstruct|Number of models to create in the simulation|
-|-unboundrot|Add the position-sepcific rotamers of the specified structure to the rotamer library (usually used to include rotamers of unbound receptor)|
-|-use_input_sc|Include rotamer conformations from the input structure during side-chain repacking. Unlike the -unboundrot flag, not all rotamers from the input structure are added each time to the rotamer library, only those conformations accepted at the end of each round are kept and the remaining conformations are lost.|
-|-ex1/-ex1aro -ex2/-ex2aro -ex3 -ex4|Adding extra side-chain rotamers (highly   recommended). The -ex1 and -ex2aro flags were used in our own tests, and therefore are recommended as default values.|
-|-database|The Rosetta database|
-|-frag3 / -flexPepDocking:frag5 / -frag9|3mer / 5mer / 9mer fragments files for ab-initio peptide docking (9mer fragments for peptides longer than 9).|
+|  Flag  |  Description  |  Type  |  Default  |
+|:-------|:--------------|:-------|:----------|
+| -in::file::s  Or -in:file:silent| Specify starting structure (in::file::s for PDB format, in:file:silent for silent file format).| File | N/A |
+| -in::file::silent_struct_type  -out::file::silent_struct_type|Format of silent file to be read in/out. For silent output, use the binary file type since other types may not support ideal form| String | N/A |
+|-native|Specify the native structure for which to compare in RMSD calculations. When the native is not given, the starting structure is used for reference.| File | N/A |
+|-nstruct|Number of models to create in the simulation| Number | 1 |
+|-unboundrot|Add the position-sepcific rotamers of the specified structure to the rotamer library (usually used to include rotamers of unbound receptor)| File | N/A |
+|-use_input_sc|Include rotamer conformations from the input structure during side-chain repacking. Unlike the -unboundrot flag, not all rotamers from the input structure are added each time to the rotamer library, only those conformations accepted at the end of each round are kept and the remaining conformations are lost.| Boolean | False |
+|-ex1/-ex1aro -ex2/-ex2aro -ex3 -ex4|Adding extra side-chain rotamers (highly   recommended). The -ex1 and -ex2aro flags were used in our own tests, and therefore are recommended as default values.| Boolean | False |
+|-database|The Rosetta database | Directory | N/A |
+|-frag3 / -flexPepDocking:frag5 / -frag9|3mer / 5mer / 9mer fragments files for ab-initio peptide docking (9mer fragments for peptides longer than 9).| File | N/A |
 
 III. Expert flags
 -----------------

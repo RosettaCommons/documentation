@@ -4,7 +4,7 @@
 
 ##Metadata
 
-Author: Kalli Kappel (kappel at stanford dot edu)  
+Author: Kalli Kappel (kkappel at alumni dot stanford dot edu)  
 Last updated: July 2018
 
 ##Application purpose
