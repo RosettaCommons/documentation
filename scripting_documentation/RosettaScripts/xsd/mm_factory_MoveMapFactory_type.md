@@ -28,23 +28,23 @@ A MoveMapFactory can be used to restrict conformational flexibility to a specifi
 Subtag **Backbone**:   
 
 -   **enable**: Enable this DOF? (false for disable)
--   **residue_selector**: (REQUIRED) The name of the already defined ResidueSelector that will be used by this object
+-   **residue_selector**: (REQUIRED) The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **bb_tor_index**: If this option is set, then this element will apply to only a particular backbone index; e.g. 3. Indices that are out-of-bounds (e.g.'10' for a residue with 3 backbone dihedrals) have no effect
 
 Subtag **Chi**:   
 
 -   **enable**: Enable this DOF? (false for disable)
--   **residue_selector**: (REQUIRED) The name of the already defined ResidueSelector that will be used by this object
+-   **residue_selector**: (REQUIRED) The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 
 Subtag **Nu**:   
 
 -   **enable**: Enable this DOF? (false for disable)
--   **residue_selector**: (REQUIRED) The name of the already defined ResidueSelector that will be used by this object
+-   **residue_selector**: (REQUIRED) The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 
 Subtag **Branches**:   
 
 -   **enable**: Enable this DOF? (false for disable)
--   **residue_selector**: (REQUIRED) The name of the already defined ResidueSelector that will be used by this object
+-   **residue_selector**: (REQUIRED) The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 
 Subtag **Jumps**:   
 

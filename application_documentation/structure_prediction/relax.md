@@ -67,7 +67,7 @@ Options specific to relax
    -relax:thorough           Do a preset, large cycle number (15) fast relax
 
    Advanced Options:
-   -relax:script <file>      Do custom script relax (you can supply a custom script file)
+   -relax:script <file>      Do custom script relax (you can supply a custom script file or a filename from database)
      -relax:jump_move false    Set all jumps to unmovable during minimization. 
      -relax:bb_move false      Set all backbone torsion angles to unmovable during minimization. 
      -relax:chi_move false     Set all chi torsion angles to unmovable during minimization. 
@@ -120,7 +120,7 @@ The repulsive contribution to the total energy is scaled to 2%, 25%, 55% and 100
 FastRelax is a more modern version of the initial fast relax algotihm which is more flexible and allows definition of a specific script of relax events (how exactly the repack and minimisation cycles are interlaced and what paramters they should take). This is defined in a script file. An example script file looks like this:
 
 ```
-repeat 15
+repeat 5
 ramp_repack_min 0.02  0.01
 ramp_repack_min 0.250 0.01
 ramp_repack_min 0.550 0.01
@@ -129,9 +129,45 @@ accept_to_best
 endrepeat
 ```
 
-The above command chain would do 15 repeats of a ramp-profile of 0.02, 0.25, 0.550 and 1.0 of the repulsive weight. At each step a repack is followed by a minimisation with a tolerance of 0.01,0.01,0.01 and 0.00001 respectively. Over all the weight would pulse in this order 0.02, 0.25, 0.550, 1.0, 0.02, 0.25, 0.550, 1.0, 0.02, 0.25, 0.550, 1.0, 0.02, 0.25, 0.550, 1.0 ... The lowest energy structure encountered at the full weight is reported back at the end.
+The above command chain would do 5 repeats of a ramp-profile of 0.02, 0.25, 0.550 and 1.0 of the repulsive weight. At each step a repack is followed by a minimisation with a tolerance of 0.01,0.01,0.01 and 0.00001 respectively. Over all the weight would pulse in this order 0.02, 0.25, 0.550, 1.0, 0.02, 0.25, 0.550, 1.0, 0.02, 0.25, 0.550, 1.0, 0.02, 0.25, 0.550, 1.0 ... The lowest energy structure encountered at the full weight is reported back at the end.
+
+The above command was the default script until Aug 13, 2019,
+when it then switched to this:
+
+```
+repeat 5
+coord_cst_weight 1.0
+scale:fa_rep 0.040
+repack
+scale:fa_rep 0.051
+min 0.01
+coord_cst_weight 0.5
+scale:fa_rep 0.265
+repack
+scale:fa_rep 0.280
+min 0.01
+coord_cst_weight 0.0
+scale:fa_rep 0.559
+repack
+scale:fa_rep 0.581
+min 0.01
+coord_cst_weight 0.0
+scale:fa_rep 1
+repack
+min 0.00001
+accept_to_best
+endrepeat
+```
 
 NOTE: It should virtually never be necessary to mess with the preset script or parameters! Dont touch unless you know what you're doing!
+
+You can run non-default relax scripts using the `-relax:script` option:
+
+```sh
+relax.linuxgccrelease -relax:script ./my_relax_script # local file
+
+relax.linuxgccrelease -relax:script KillA2019 # database file (see below)
+```
 
 Relax Script Format description:
 ================================
@@ -250,7 +286,7 @@ exit
 
 will quit with immediate effect
 
-A typical FastRelax script is: (this in fact is the default command script)
+A typical FastRelax script is:
 
 ```
 repeat 5
@@ -261,6 +297,13 @@ ramp_repack_min 1     0.00001  0.0
 accept_to_best
 endrepeat
 ```
+
+Relax Scripts In Rosetta's Database
+===================================
+
+For a list of relax scripts in the database,
+[click here](https://www.rosettacommons.org/docs/latest/scripting_documentation/RosettaScripts/Movers/movers_pages/RelaxScript).
+
 
 Special Notes on BatchRelax
 ===========================

@@ -7,11 +7,13 @@ Adds constraints from a constraint file to the pose.
 
 ```xml
 <ConstraintSetMover name="(&string;)" cst_file="(&string;)"
-        cst_fa_file="(&string;)" add_constraints="(false &bool;)" />
+        cst_fa_file="(&string;)" cst_map_file="(&string;)"
+        add_constraints="(false &bool;)" />
 ```
 
 -   **cst_file**: (implicitly centroid compatible) constraint file; attempts to autodetect if pose is centroid and uses these
 -   **cst_fa_file**: (implicitly fullatom compatible) constraint file; attempts to autodetect if pose is fullatom and uses these.  If not supplied, uses the value in cst_file
+-   **cst_map_file**: A file to map constraint sets to input tags. With one entry per line, the format is: /path/to/cst/file.cst tag
 -   **add_constraints**: if True, ADD these constraints to the existing ConstraintSet in the Pose; if False, REPLACE the constraints in the Pose with these.
 
 ---

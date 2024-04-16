@@ -12,15 +12,15 @@ XRW TO DO
         verbose="(false &bool;)" ramp_cart="(false &bool;)" />
 ```
 
--   **scorefxn**: XRW TO DO
--   **pack_scorefxn**: XRW TO DO
--   **min_scorefxn**: XRW TO DO
--   **ncyc**: XRW TO DO
--   **nexp**: XRW TO DO
--   **K**: XRW TO DO
--   **max_iter**: XRW TO DO
+-   **scorefxn**: Sets the scorefxn for both pack and min stages.
+-   **pack_scorefxn**: Sets the scorefxn for both packing only.
+-   **min_scorefxn**: Sets the scorefxn for min only
+-   **ncyc**: Number of cycles to perform localrelax
+-   **nexp**: Number of expansions to perform
+-   **K**: K is added to NBR_RADIUS-i and NBR_RADIUS-j to determine the size of the packing/minimization shells
+-   **max_iter**: maximum iterations to perform in minimization
 -   **ramp_schedule**: XRW TO DO
--   **verbose**: XRW TO DO
+-   **verbose**: not really verbose, just dump intermediate files to the local directory
 -   **ramp_cart**: XRW TO DO
 
 ---

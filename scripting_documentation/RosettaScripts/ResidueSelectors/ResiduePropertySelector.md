@@ -4,7 +4,6 @@ ResiduePropertySelector
 MetaData
 ========
 
-Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 
 [[include:rs_ResiduePropertySelector_type]]

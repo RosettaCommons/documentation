@@ -7,9 +7,10 @@ Counts sidechain carbon-carbon contacts among the specified residues under the g
 
 ```xml
 <AtomicContactCount name="(&string;)" distance="(4.5 &real;)"
-        partition="(none &partition_types;)" normalize_by_sasa="(0 &bool;)"
-        normalize_by_carbon_count="(0 &bool;)" ss_only="(0 &bool;)"
-        taskA="(&task_operation_comma_separated_list;)"
+        non_local="(false &bool;)" res_contact="(false &bool;)"
+        count_SD_NE1="(false &bool;)" partition="(none &partition_types;)"
+        normalize_by_sasa="(0 &bool;)" normalize_by_carbon_count="(0 &bool;)"
+        ss_only="(0 &bool;)" taskA="(&task_operation_comma_separated_list;)"
         taskB="(&task_operation_comma_separated_list;)"
         task_operations="(&task_operation_comma_separated_list;)"
         packer_palette="(&named_packer_palette;)"
@@ -18,6 +19,9 @@ Counts sidechain carbon-carbon contacts among the specified residues under the g
 ```
 
 -   **distance**: Distance across which to count a contact
+-   **non_local**: Detect only non-local contacts, i.e., sequence distance more than 2. Positions in separate chains are automatically considered non-local
+-   **res_contact**: Only count one atom contact per residue. This option ignores normalize_by_sasa and normalize_by_carbon_count
+-   **count_SD_NE1**: In addition to carbon atoms, count methionine SD and tryptophan NE1
 -   **partition**: Partition across which to define contacts
 -   **normalize_by_sasa**: Normalize contacts by sasa
 -   **normalize_by_carbon_count**: Normalize contacts by number of carbons

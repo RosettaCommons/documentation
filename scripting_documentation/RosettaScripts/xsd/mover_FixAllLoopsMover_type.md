@@ -12,18 +12,30 @@ Connects chains using a very fast RMSD lookback. Only works for chains less than
         resAdjustmentRangeSide1_sheet="(-1,1 &string;)"
         resAdjustmentRangeSide2_sheet="(-1,1 &string;)"
         residue_range="(1,999999 &string;)" max_vdw_change="(10.0 &real;)"
-        ideal="(false &bool;)" reject_failed_loops="(true &bool;)" />
+        ideal="(false &bool;)" refix_loops="(false &bool;)"
+        allowed_loop_abegos="(&string;)" reject_failed_loops="(true &bool;)"
+        label_loop="(&string;)" fragment_store="(&string;)"
+        fragment_store_format="(hashed &string;)"
+        fragment_store_compression="(all &string;)"
+        numb_stubs_to_consider="(1 &non_negative_integer;)" />
 ```
 
--   **loopLengthRange**: XSD_XRW: TO DO
--   **RMSthreshold**: XSD_XRW: TO DO
--   **resAdjustmentRangeSide1**: XSD_XRW: TO DO
--   **resAdjustmentRangeSide2**: XSD_XRW: TO DO
--   **resAdjustmentRangeSide1_sheet**: XSD_XRW: TO DO
--   **resAdjustmentRangeSide2_sheet**: XSD_XRW: TO DO
--   **residue_range**: XSD_XRW: TO DO
--   **max_vdw_change**: XSD_XRW: TO DO
--   **ideal**: XSD_XRW: TO DO
--   **reject_failed_loops**: XSD_XRW: TO DO
+-   **loopLengthRange**: Loops can range from 1 to 5 residue
+-   **RMSthreshold**: loop must be within 0.4 angsrom to a pdb in the VALL
+-   **resAdjustmentRangeSide1**: residue adjustment applied before the loop
+-   **resAdjustmentRangeSide2**: residue adjustment applied after the loop
+-   **resAdjustmentRangeSide1_sheet**: residue adjustment applied before the loop if sheet
+-   **resAdjustmentRangeSide2_sheet**: residue adjustment applied after the loop if sheet
+-   **residue_range**: range to fix all loops
+-   **max_vdw_change**: prunes out clashing loop
+-   **ideal**: requires all the bonds to be perfect length and usees kic to perform final closure. Not recomended
+-   **refix_loops**: refixes all loops in the residue range even if their rms is below the threshold
+-   **allowed_loop_abegos**: comma seperated string of allowed abegos, default=empty all abegos
+-   **reject_failed_loops**: allows the program to crash if the loops can't be fixed
+-   **label_loop**: label loop in pdb_info object
+-   **fragment_store**: path to fragment store. Note:All fragment stores use the same database
+-   **fragment_store_format**: Options:hashed,unhashed new format is unhashed
+-   **fragment_store_compression**: Options:helix_shortLoop,sheet_shortLoop,all
+-   **numb_stubs_to_consider**: number of stubs to consider. Fewer-faster, higher-increased accuracy
 
 ---

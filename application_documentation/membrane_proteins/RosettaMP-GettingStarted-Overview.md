@@ -33,16 +33,22 @@ The major aspects of this implementation are the following:
 
 ## Contact
 
-- Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
 - Rebecca Alford ([rfalford12@gmail.com](rfalford12@gmail.com))
+- Julia Koehler Leman ([julia.koehler1982@gmail.com](julia.koehler1982@gmail.com))
 - Corresponding PI: Jeffrey J. Gray ([jgray@jhu.edu](jgray@jhu.edu))
 
-## Reference
+## References
 
-Alford RF, Koehler Leman J, Weitzner BD, Duran A, Tiley DC, Gray JJ (2015). An integrated framework advancing membrane protein modeling and design. PLoS Comput. Biol. - In Press
+#### Main RosettaMP Reference
+* Alford RF*, Koehler Leman J*, Weitzner BD, Duran AM, Tilley DC, Elazar A, et al. (2015) An Integrated Framework Advancing Membrane Protein Modeling and Design. PLoS Comput Biol 11(9): e1004398. (*equal contribution authors)
 
-## References for original RosettaMembrane
+#### Rosetta All-atom membrane energy function
+* Alford RF, Fleming PJ, Fleming KG, Gray JJ (2019) "Protein structure prediction and design in a biologically-realistic implicit membrane" BioRxiv 
 
+#### New Applications that use RosettaMP
+* Koehler Leman J, Mueller BK, Gray JJ (2018) "Expanding the toolkit for membrane protein modeling in Rosetta" Bioinformatics 33 (5), 754-756
+
+#### References for RosettaMembrane (mostly deprecated)
 * Yarov-Yarovoy V, Schonbrun J, Baker D. (2006 Mar 1) Multipass membrane protein structure prediction using Rosetta. Proteins. 62(4):1010-25.
 * Barth P, Schonbrun J, Baker D. (2007 Oct 2) Toward high-resolution prediction and design of transmembrane helical protein structures. Proc Natl Acad Sci U S A. 104(40):15682-7.
 * Barth P, Wallner B, Baker D. (2009 Feb 3) Prediction of membrane protein structures with complex topologies using limited constraints. Proc Natl Acad Sci U S A. 106(5):1409-14.

@@ -1,9 +1,5 @@
 # EnzymaticMovers
 
-Documentation created 5 April 2019 by Jason W. Labonte <JWLabonte@jhu.edu>.
-
-## Description
-
 `EnzymaticMover`s are a subclass of `Mover` specifically designed to simulate 
 the action of a virtual enzyme on a substrate, the `Pose`. The enzyme may be a 
 biologically real enzyme or entirely hypothetical or constructed.
@@ -13,6 +9,9 @@ particular sequence site at which to make its modification, based on enzyme
 data. For each site found, it will either make the modification or not, based
 upon its set "efficiency".
 
+[[_TOC_]]
+
+## Description
 The main difference between most `Mover`s and an `EnzymaticMover` is that a
 standard `Mover` makes a change to the 3D conformation of a `Pose`, but the 
 identity of that `Pose`'s `Residue`s remain unchanged. An `EnzymaticMover`, on
@@ -48,18 +47,20 @@ say, _E. coli_.
 The `EnzymaticMover` framework was conceived of and implemented by Jason W.
 Labonte <JWLabonte@jhu.edu>. Please contact him with any questions or criticism.
 
-[[_TOC_]]
-
 ## Types
-
-Currently, only two `EnzymaticMover`s are written, but many more can and will be
+Currently, four `EnzymaticMover`s are written, but many more can and will be
 added to the Rosetta code base.
-
+* [[DNAMethyltransferaseMover]]<br />
+  Simulates the activity of specific biological DNA methyltransferases by
+  methylating a DNA-containing Pose.
 * [[GlycosyltransferaseMover]]<br />
   Simulates the activity of specific biological glycosyltransferases and
-  oligosaccharyltrasferases by glycosylating a Pose.
+  oligosaccharyltrasferases by glycosylating a `Pose`.
 * [[KinaseMover]]<br />
-  Simulates the activity of specific biological kinase by phosphorylating a Pose.
+  Simulates the activity of specific biological kinases by phosphorylating a `Pose`.
+* [[NTerminalAcetyltransferaseMover]]<br />
+  Simulates the activity of specific biological N-terminal acetyltransferases by
+  acetylating a `Pose` at the N-terminus.
 
 ## Usage
 
@@ -67,7 +68,7 @@ For the most part, `EnzymaticMover`s work like any other `Mover`, and any of the
 three main Rosetta interfaces can be used. The major difference is that an
 `EnzymaticMover` relies on the presence of enzyme data in the database. **If you
 wish to use an `EnzymaticMover` for a particular enzyme, ensure that the data for
-that enzyme is presence in the database!** (See below for example enzyme data
+that enzyme is present in the database!** (See below for example enzyme data
 files.)
 
 ### C++ & PyRosetta Code
@@ -79,7 +80,7 @@ respectively.
 `set_efficiency()` can be used to override the efficiency of the
 enzyme as provided by the enzyme file in the database. A value of 1.00
 corresponds to 100%. If set to 0.5 for example, the `Mover` will only make a
-change to any positions
+change to any positions 50% of the time.
 
 `exclude_site()` and `set_excluded_sites()` can be used to pass the sequence
 position(s) of (a) site(s) that cannot be modified. Perhaps there is a known
@@ -155,15 +156,34 @@ co-substrates. This is the default behavior.
 
 ### Command-Line Applications
 
-Two Rosetta options flags are used specifically for interfacing with
+Three Rosetta options flags are used specifically for interfacing with
 `EnzymaticMover`s used in any protocols.
 
 * `-enzymes:species` is used to set the species name of any simulated enzymes
 used by the protocol.
 * `-enzymes:enzyme` is used to set the specific name of any simulated enzymes
 used by the protocol.
+* `-enzymes:efficiencty` is used to override the efficiency of any simulated enzymes
+used by the protocol.
 
-## Enzyme Date Files
+#### Current Apps
+* [[DNA_methylation]]
+* [[glycosyltransfer]]
+* [[phosphorylation]]
+* [[N-terminal_acetylation]]
+
+#### Example Command Lines
+```
+$ DNA_methylation -s input/1ABC.pdb -enzymes:species h_sapiens -enzymes:efficiency 0.75 -nstruct 3
+
+$ glycosyltransfer -s input/2DEF.pdb -include_sugars -enzymes:species h_sapiens -enzymes:enzyme OGT -nstruct 5
+
+$ phosphorylation -s input/3GHI.pdb -enzymes:species h_sapiens -nstruct 1
+
+$ N-terminal_acetylation -s input/4JKL.pdb -nstruct 1
+```
+
+## Enzyme Data Files
 
 `EnzymaticMover`s rely on the database to function properly. All enzyme data
 files have the following format:
@@ -183,7 +203,25 @@ PROTONTORPEDO
 The first line is assumed to contain a whitespace-delimited list of the
 following, all of which are required:
 * Consensus sequence &mdash; This may be a 1-letter-code AA or NA sequence or an
-IUPAC carbohydrate sequence. Use the format "(X/Y)" to specify alternatives.
+IUPAC carbohydrate sequence.
+  * Amino-acid Residue Sequences
+    * The parser recognizes the IUPAC-approved one-letter codes `B`, `J`, `O`, `U`, and `Z`,
+    which code for Asx, Xle, Pyl, Sec, and Glx, respectively.
+    * `X` alone is recognized to be any of the 20 canonical amino acids; `X` followed
+    by square brackets specifies a single non-canonical amino acid by 3-letter
+    code. For example, `X[SEP]` specifies phosphoserine.
+    * Parentheses are used to specify multiple possible residue types at that
+    site, separated by forward slashes, _e.g._, `(A/G)` specifies either Ala or Gly at
+    that position.
+    * A `<` in the first position indicates that the sequon must be located at the 
+    N-terminus.
+    * A `>` in the final position indicates that the sequon must be located at the 
+    C-terminus.
+  * Nucleic-acid Residue Sequences
+    * In addition to the standard A, C, G, T, and U one-letter codes, the parser
+    recognizes B, D, H, and V for _not_ A, C, G, or U, respectively; K for G or U;
+    M for A or C; N for any of the four RnA bases; R for any of the puRines;
+    S for any of the "Strong" nucleobases; and W for any of the "Weak" ones.
 * Sequence type &mdash; This value must be `AA`, `NA`, or `SACCHARIDE`, for the 
 three types of sequences accepted.
 * Residue of CS to modify &mdash; An integer representing the sequence position
@@ -245,7 +283,7 @@ DNALigaseMover::provide_xml_schema( utility::tag::XMLSchemaDefinition & xsd )
 }
 ```
 
-* ...must implement the protected `perform_reaction()` method, which modifies, adds, or
+* ...implement the protected `perform_reaction()` method, which modifies, adds, or
   removes (a) Residue(s).<br />
   For example:
 ```c++
@@ -278,7 +316,7 @@ All enzyme data for `EnzymaticMovers` should be located in the
 `database/virtual_enzymes/` folder.
 
 Every child `EnzymaticMover` should have a subdirectory corresponding to the 
-enzyme family of that `Mover`, which much match the family provided to the 
+enzyme family of that `Mover`, which must match the family provided to the 
 `EnzymaticMover` constructor. (See above.) For example, data for the 
 `MethylaseMover` should be stored in `database/virtual_enzymes/methylases/`.
 
@@ -291,3 +329,7 @@ non-human sources.
 Every species subdirectory must include a `generic` enzyme data file as a
 default example of this this family of enzymes. Generally, this data will
 provide a minimal sequon, have 100% efficiency, and not be promiscuous.
+
+----------
+Documentation created 5 April 2019 by Jason W. Labonte <JWLabonte@jhu.edu>.
+Documentation updated 26 February 2020 by Jason W. Labonte <JWLabonte@jhu.edu>.

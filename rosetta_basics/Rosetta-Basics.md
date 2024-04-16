@@ -11,7 +11,7 @@
 - [[Graphics output and GUIs | graphics-and-guis]]
     * [[PyMOL]]
     * [[PyRosetta Toolkit GUI]]
-    * [[Fold-It|foldit]]
+    * [[Foldit|foldit]]
 - [[Scripting Rosetta|Scripting-Documentation]]
     * [[RosettaScripts]]
     * [[PyRosetta]]

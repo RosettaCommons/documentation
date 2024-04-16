@@ -15,7 +15,6 @@ XRW TODO
         strategy="(&strategy_type;)"
         rsd_wdw_to_refine="(&non_negative_integer;)" score_threshold="(&real;)"
         cumulate_prob="(&bool;)" automode_scorecut="(&real;)"
-        dump_pdb="(&bool;)" dump_pdb_tag="(&string;)"
         wdw_to_freeze="(&integer;)" freeze_endpoints="(&bool;)"
         residues="(&resnum_list_with_ranges;)" loops_in="(&string;)"
         residues_to_include="(&resnum_list_with_ranges;)"
@@ -32,9 +31,9 @@ XRW TODO
 -   **mcscorefxn**: Monte Carlo (?) scorefunction
 -   **debug**: XRW TODO
 -   **fullatom**: XRW TODO
--   **bbmove**: XRW TODO
+-   **bbmove**: Allow/disalllow bb minimization during min.
 -   **temp**: XRW TODO
--   **rms**: XRW TODO
+-   **rms**: Maximum RMS deviation of fragment insertion
 -   **nminsteps**: XRW TODO
 -   **overlap**: XRW TODO
 -   **ncycles**: XRW TODO
@@ -43,17 +42,15 @@ XRW TODO
 -   **force_ss**: XRW TODO
 -   **strategy**: fragment bias strategies.  This string is a comma-separated list; allowed values include 'user', 'uniform', 'auto', 'density', 'density_nbr', 'geometry', 'rama', 'bfactors', 'chainbreak'
 -   **rsd_wdw_to_refine**: residue window to refine
--   **score_threshold**: XRW TODO
+-   **score_threshold**: Sets the FragmentBiasAssigner score_threshold
 -   **cumulate_prob**: XRW TODO
 -   **automode_scorecut**: XRW TODO
--   **dump_pdb**: XRW TODO
--   **dump_pdb_tag**: XRW TODO
 -   **wdw_to_freeze**: XRW TODO
 -   **freeze_endpoints**: XRW TODO
--   **residues**: List of residue numbers to use
+-   **residues**: The residues to set as equal probability (1.0) ONLY IF strategy is 'user'
 -   **loops_in**: XRW TODO.  Looks for a Loops object in the DataMap with this name. 'residues' and 'loops_in' are mutually exclusive.
--   **residues_to_include**: List of residue numbers to use
--   **residues_to_exclude**: List of residue numbers to use
+-   **residues_to_include**: Sets the residues to probability of 1.0 AFTER fragment bias strategy is applied
+-   **residues_to_exclude**: Sets the residues to probability of 1.0 AFTER fragment bias strategy and residues_to_include is applied
 -   **reference_model**: XRW TODO; if 'input' uses the Pose from apply(); otherwise loads this pdb file
 -   **reference_cst_wt**: XRW TODO
 -   **reference_cst_maxdist**: XRW TODO

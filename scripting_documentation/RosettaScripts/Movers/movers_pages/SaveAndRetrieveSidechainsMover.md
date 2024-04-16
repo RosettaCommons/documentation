@@ -4,7 +4,7 @@
 
 To be used after an ala pose was built (and the design moves are done) to retrieve the sidechains from the input pose that were set to Ala by build\_Ala\_pose. OR, to be used inside mini to recover sidechains after switching residue typesets. By default, sidechains that are different than Ala will not be changed, **unless** allsc is true. Please note that naming your mover "SARS" is almost certainly bad luck and strongly discouraged.
 
-    <SaveAndRetrieveSidechains name="(save_and_retrieve_sidechains &string)" allsc="(0 &bool)" task_operations="('' &string)" two_step="(0&bool)" multi_use="(0&bool)"/>
+[[include:mover_SaveAndRetrieveSidechains_type]]
 
 -   task\_operations: see [RepackMinimize](#RepackMinimize)
 -   two\_step: the first call to SARS only saves the sidechains, second call retrieves them. If this is false, the sidechains are saved at parse time.

@@ -11,7 +11,7 @@ TaskOperation to allow only conservative mutations at designable residues
         data_source="(blosum62 &string;)" include_native_aa="(true &bool;)" />
 ```
 
--   **residue_selector**: Residue selector that indicates to which residues the operation will be applied.
+-   **residue_selector**: Residue selector that indicates to which residues the operation will be applied. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **data_source**: Set the source of the data used to define what is conservative. Options are: chothia_76 and the Blosum matrices from 30 to 100; designated as blosum30, 62, etc. Default is blosum62.  The higher the number, the more conservative the set of mutations (numbers are sequence identity cutoffs).
 -   **include_native_aa**: Include native amino acid in the allowed_aas list
 

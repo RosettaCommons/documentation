@@ -11,6 +11,11 @@ In the above, the '##', '#', and 'scores_from_program: 0' lines _must_ be presen
 * The first five characters are used to identify which input PDB is to be aligned.
 * The full name is used for the output file
 
+* first sequence = target sequence
+* second sequence = template sequence
+
+**Note:** The application will put the .pdb for your template.  You should not have this in the alignment file. 
+
 **Note:**  The output files will be named after the corresponding name in the Grishin alignment file. Furthermore, this name has to be at least 5 characters long. If your name in the alignment file is the same as your input file name, **the input file will be overwritten!** Thus, it is recommended to use "XXXXX_thread" in the alignment file, where 'XXXXX.pdb' is the pdb file of the template; the **partial_thread** application will then produce XXXXX_thread.pdb.
 
 Multiple alignments may be concatenated in a single file:
@@ -31,7 +36,7 @@ Multiple alignments should be written to the _same_ alignment file.
 
 If your alignment starts at a different position in the template, you can change the numbers at left of the format or add - where they need to be.
 
-    ## 1xxx 1yyy.pdb
+    ## 1xxx 1yyy
     # hhsearch
     scores_from_program: 1.0 0.0
     7 AAAAAAA
@@ -40,7 +45,7 @@ If your alignment starts at a different position in the template, you can change
 
 Alternately, you can add the N term residues unaligned to the ali file:
 
-    ## 1xxx 1yyy.pdb
+    ## 1xxx 1yyy
     # hhsearch
     scores_from_program: 1.0 0.0
     0 AAAAAAAAAAAAAA

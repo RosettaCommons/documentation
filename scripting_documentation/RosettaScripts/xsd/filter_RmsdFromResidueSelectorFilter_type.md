@@ -19,8 +19,8 @@ Filter based on the C-alpha RMSD to a reference structure. ResiduesSelectors can
 -   **count_residues**: When true (default; recomended) enforce the same number of residues for both query and reference.
 -   **threshold**: Threshold in RMSD above which the filter fails
 -   **reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
--   **reference_selector**: (REQUIRED) Selector specifying residues to take into account in the reference pose
--   **query_selector**: (REQUIRED) Selector specifying residues to take into account in the query pose
+-   **reference_selector**: (REQUIRED) Selector specifying residues to take into account in the reference pose The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
+-   **query_selector**: (REQUIRED) Selector specifying residues to take into account in the query pose The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

@@ -2,6 +2,8 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## FastRelax
 
+[[_TOC_]]
+
 **Temporary Note:** The increased repulsive feature presented at Rosettacon2018 can be [[found here|RelaxScript]].
 
 Performs the fast relax protocol.  This finds low-energy backbone and side-chain conformations near a starting conformations by performing many rounds of packing and minimizing, with the repulsive weight in the scoring function gradually increased from a very low value to the normal value from one round to the next.
@@ -16,9 +18,9 @@ The MoveMap (for FastRelax) is initially set to minimize all degrees of freedom.
 
 For a list of relax scripts in the database, [[click here|RelaxScript]].
 
-### Relevant command-line options
+### Irrelevant command-line options
 
-See the [[relax application|Relax]] page for more information on these options.
+See the [[relax application|Relax]] page for more information on these options.  These options ARE NOT INTERPRETED by the FastRelax Mover; they are interpreted by wrapping code in the relax protocol instead.  If you are using FastRelax in XML you will need several other movers to achieve this effect.
 
 - `-relax:constrain_relax_to_start_coords`
 - `-relax:constrain_relax_to_native_coords`
@@ -27,6 +29,15 @@ See the [[relax application|Relax]] page for more information on these options.
 ### Caveats
 
 - Although the [[relax application|Relax]] can read a movemap from the `-in:file:movemap` option, the RosettaScripts mover ignores it.  Instead you must use the `<MoveMap>` syntax described above.
+- cartesian: To enable Cartesian minimization (i.e if you get the `ERROR: Scorefunction not set up for nonideal/Cartesian scoring`) you must set `cart_bonded` to 0.5 and `pro_close` to 0.0.
+
+### Symmetry
+
+FastRelax is fully symmetry compatible and no special considerations are needed.
+
+### Deprecated behaviours
+
+Until 8 February 2020, the default behaviour of FastRelax was to disable packing at all positions for which side-chain minimization was disabled by the MoveMap.  This is counter-intuitive, since in all other cases, MoveMaps control only minimization, and not packing.  (Packing is normally controlled by TaskOperations).   This behaviour has therefore been deprecated.  It can still be re-enabled using the `movemap_disables_packing_of_fixed_chi_positions="true"` option in RosettaScripts.
 
 ##See Also
 * [[FastDesignMover]]

@@ -1,7 +1,7 @@
 ## AddMHCEpitopeConstraintMover
 
 Documentation created by Brahm Yachnin (brahm.yachnin@rutgers.edu), Khare laboratory and Chris Bailey-Kellogg (cbk@cs.dartmouth.edu).  Parts of this documentation are copied/adapted from Vikram K. Mulligan's (vmullig@uw.edu) design-centric guidance documentation.
-Last edited November 15, 2018.
+Last edited May 8, 2019.
 
 [[_TOC_]]
 
@@ -16,6 +16,12 @@ Generally speaking, the `AddMHCEpitopeConstraintMover` will de-immunize a pose o
 You can also use `AddMHCEpitopeConstraintMover` to add a second epitope prediction method to the entire pose by applying it without a selector.
 
 Note that for the constraint to be function, YOU MUST USE A SCOREFUNCTION WITH `mhc_epitope` WEIGHTED TO SOMETHING OTHER THAN 0.  The `weight` parameter passed to the constraint mover will be multiplied by scorefunction weight to give you the "net weight."  If you scorefunction has `mhc_epitope` weighted to 0, it will therefore have a net weight of 0.
+
+##Citation Information
+
+Please see the main [[MHCEpitopeEnergy|MHCEpitopeEnergy#citation-information]] page for complete citation information if you use the `AddMHCEpitopeConstraintMover`.  Users should cite the following paper, plus papers corresponding to Predictors that are used as described in the main page:
+
+Yachnin BJ, Mulligan VK, Khare SD, and Bailey-Kellogg C.  (2021).  MHCEpitopeEnergy, a flexible Rosetta-based biotherapeutic deimmunization platform.  J Chem Inf Model 61(5):2368-2382.  doi: 10.1021/acs.jcim.1c00056.  https://pubmed.ncbi.nlm.nih.gov/33900750/
 
 ##Usage
 

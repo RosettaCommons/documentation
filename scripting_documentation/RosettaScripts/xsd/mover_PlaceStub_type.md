@@ -18,7 +18,8 @@ The Hotspot-based sidechain placement. This is the main workhorse of the hot-spo
         post_placement_sdev="(1.0 &real;)" place_scaffold="(false &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
         packer_palette="(&named_packer_palette;)"
-        allowed_host_res="(&resnum_list_with_ranges;)" >
+        allowed_host_res="(&resnum_list_with_ranges;)"
+        reference_name="(&string;)" >
     <StubMinimize >
         <Add mover_name="(&string;)" bb_cst_weight="(10.0 &real;)" />
     </StubMinimize>
@@ -51,6 +52,7 @@ The Hotspot-based sidechain placement. This is the main workhorse of the hot-spo
 -   **task_operations**: A comma-separated list of TaskOperations to use.
 -   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **allowed_host_res**: List of residue numbers to use
+-   **reference_name**: The reference pose to use for finalizing the stub sets (defaults to input pose).
 
 
 Subtag **StubMinimize**:   Defines Movers used to minimize w/r/t stub placement

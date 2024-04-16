@@ -14,6 +14,8 @@ Do a Roberto Chica inspired random atom coordinate perturbation followed by (Car
         <Chain number="(&non_negative_integer;)" chi="(&bool;)" bb="(&bool;)" />
         <Span begin="(&non_negative_integer;)" end="(&non_negative_integer;)"
                 chi="(&bool;)" bb="(&bool;)" bondangle="(&bool;)" bondlength="(&bool;)" />
+        <ResidueSelector selector="(&string;)" chi="(&bool;)" bb="(&bool;)"
+                bondangle="(&bool;)" bondlength="(&bool;)" />
     </MoveMap>
 </PertMinMover>
 ```
@@ -21,7 +23,7 @@ Do a Roberto Chica inspired random atom coordinate perturbation followed by (Car
 -   **pert_size**: How large a perturbation to make
 -   **uniform**: Do the perturbation in a uniform sphere, rather than Gaussian
 -   **sc_only**: Only do the perturbations on sidechain atoms (not backbone)
--   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
+-   **residue_selector**: . The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **scorefxn**: Name of score function to use
 
 
@@ -47,6 +49,14 @@ Subtag **Span**:   XRW TO DO, probably a user-defined region of the Pose
 
 -   **begin**: (REQUIRED) beginning of span
 -   **end**: (REQUIRED) end of span
+-   **chi**: (REQUIRED) move sidechain chi torsions?
+-   **bb**: (REQUIRED) move backbone torsions?
+-   **bondangle**: move 3-body angles?
+-   **bondlength**: move 2-body lengths?
+
+Subtag **ResidueSelector**:   Residue selector defined region of the Pose.
+
+-   **selector**: (REQUIRED) Residue selector
 -   **chi**: (REQUIRED) move sidechain chi torsions?
 -   **bb**: (REQUIRED) move backbone torsions?
 -   **bondangle**: move 3-body angles?

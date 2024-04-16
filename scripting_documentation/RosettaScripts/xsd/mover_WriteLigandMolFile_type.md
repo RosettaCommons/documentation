@@ -7,12 +7,14 @@ Output a V2000 mol file record containing all atoms of the specified ligand chai
 
 ```xml
 <WriteLigandMolFile name="(&string;)" hash_file_names="(false &string;)"
-        chain="(&string;)" directory="(&string;)" prefix="(&string;)" />
+        chain="(&string;)" directory="(&string;)" prefix="(&string;)"
+        use_residue_name="(false &bool;)" />
 ```
 
 -   **hash_file_names**: Seems to be unused.
 -   **chain**: (REQUIRED) The PDB chain ID of the ligand to be output.
 -   **directory**: (REQUIRED) The directory all mol records will be output to. Directory will be created if it does not exist.
--   **prefix**: (REQUIRED) Set a file prefix for the output files.
+-   **prefix**: Set a file prefix for the output files.
+-   **use_residue_name**: Use the residue name as part of the prefix for the output files.
 
 ---

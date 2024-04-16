@@ -14,8 +14,8 @@ Counts the number of hydrophobic residues on the target that have at least a cer
         confidence="(1.0 &real;)" />
 ```
 
--   **target_selector**: (REQUIRED) Which residues should be counted as hydrophobic target residues?
--   **binder_selector**: (REQUIRED) Which residues are part of the binder so that the interface can be defined?
+-   **target_selector**: (REQUIRED) Which residues should be counted as hydrophobic target residues? The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
+-   **binder_selector**: (REQUIRED) Which residues are part of the binder so that the interface can be defined? The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **scorefxn**: (REQUIRED) Which scorefunction do you want to use? Only fa_rep, fa_sol, and fa_atr will be kept.
 -   **threshold**: How many hydrophobic residues should have at least the score cutoff?
 -   **score_cut**: What score cut should be used to determine whether a hydrophobic residue is contacted?

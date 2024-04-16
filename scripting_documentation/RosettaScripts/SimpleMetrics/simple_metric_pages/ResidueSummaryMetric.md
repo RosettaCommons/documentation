@@ -2,7 +2,6 @@
 *Back to [[SimpleMetrics]] page.*
 ## ResidueSummaryMetric
 
-Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 The **ResidueSummaryMetric** takes a [[PerResidueRealMetric | SimpleMetrics#PerResidueRealMetric]] and summarizes the data in various ways, such as the mean, sum, or the number of residues above, below, or equal to a certain value. This Metric is itself a [[RealMetric | SimpleMetrics#RealMetric]] and can be used as such in filters, features reporters, etc.
 

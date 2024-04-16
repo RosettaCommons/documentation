@@ -3,7 +3,10 @@
 *Back to [[Filters | Filters-RosettaScripts]] page.*
 ## SimpleMetricFilter
 
-Author: Jared Adolf-Bryfogle (jadolfbr@gmail.com)
+## Reference
+**Growing Glycans in Rosetta: Accurate de novo glycan modeling, density fitting, and rational sequon design**
+Jared Adolf-Bryfogle, J. W Labonte, J. C Kraft, M. Shapavolov, S. Raemisch, T. Lutteke, F. Dimaio, C. D Bahl, J. Pallesen, N. P King, J. J Gray, D. W Kulp, W. R Schief
+_bioRxiv_ 2021.09.27.462000; [[https://doi.org/10.1101/2021.09.27.462000]]
 
 Run an arbitrary [[Simple Metric | SimpleMetrics]] and filter based on the value or values calculated. Please use the [[RunSimpleMetrics]] mover to report values into a scorefile.  
 
@@ -48,7 +51,7 @@ Acceptable options are:
 composite_action  | Description 
 ------------ | ------------- 
 `any` | Filter on ANY metric in the composite.  For example, if we have lt, and cutoff as 5, than if ANY metric is less than 5, we return True.
-`all` | Filter on ALL metrics.  For examle, if we use the same example as above with ALL, then ALL metrics in the composite must be less than 5 to pass the filter
+`all` | Filter on ALL metrics.  For example, if we use the same example as above with ALL, then ALL metrics in the composite must be less than 5 to pass the filter
 `metric_name` | This can be any composite name.  See the individual composite for more.  For the case of the [[CompositeEnergyMetric]] this can be any scoreterm name.  This allows us to filter on any metric name calculated by the composite metric. 
 
 

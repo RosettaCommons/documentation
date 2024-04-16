@@ -4,7 +4,7 @@ Metadata
 
 Author: Andrea Bazzoli (ndrbzz [at] gmail.com)
 
-Last updated: April 2017
+Last updated: March 2020
 
 Code
 ====
@@ -94,4 +94,4 @@ A52(12) O   Esho:0.571469 #hb:0  (wEhb:0 wEsho+wEhb: 0.535752)
 
 References
 ==========
-[1] Bazzoli A, Karanicolas J. _"Solvent hydrogen-bond occlusion": A new model of polar desolvation for biomolecular energetics_ . J Comput Chem. 2017 Mar 20. doi: 10.1002/jcc.24740. 
+[1] Bazzoli A, Karanicolas J. _"Solvent hydrogen-bond occlusion": A new model of polar desolvation for biomolecular energetics_ (2017) J Comput Chem 38:1321–1331. 

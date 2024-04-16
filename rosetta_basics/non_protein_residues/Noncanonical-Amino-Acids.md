@@ -93,7 +93,7 @@ ROTWELLS 1 3  60 180 300
 ROTWELLS 2 3  60 180 300
 ```
 
-If you want to generate an approximate "density-style" rotamer library for semirotameric amino acids, add a SEMIROTAMERIC line to the above file and run it separately to create a file with a continuous representation of the terminal, nonrotameric chi.
+If you want to generate an approximate "density-style" rotamer library for semirotameric amino acids, add a SEMI_ROTAMERIC line to the above file and run it separately to create a file with a continuous representation of the terminal, nonrotameric chi.
 
 ## References
 

@@ -9,7 +9,8 @@ Mover to generate backbones for de novo design
 <BuildDeNovoBackboneMover name="(&string;)"
         build_overlap="(&non_negative_integer;)" start_segments="(&string;)"
         stop_segments="(&string;)"
-        iterations_per_phase="(&non_negative_integer;)" dump_pdbs="(&bool;)" >
+        iterations_per_phase="(&non_negative_integer;)" dump_pdbs="(&bool;)"
+        debug="(&bool;)" >
     <DenovoArchitect pairings Tags ... />
     <RemodelLoopMoverPoseFolder scorefxn="(&string;)" />
     <RandomTorsionPoseFolder />
@@ -32,6 +33,7 @@ Mover to generate backbones for de novo design
 -   **stop_segments**: Set names of segments to be included in the final build phase
 -   **iterations_per_phase**: Number of iterations per build phase
 -   **dump_pdbs**: Dump output to PDB files?
+-   **debug**: Dump debugging PDBs?
 
 
 "DenovoArchitect pairings Tags": Any of the [[DenovoArchitects|BuildDeNovoBackboneMover]]

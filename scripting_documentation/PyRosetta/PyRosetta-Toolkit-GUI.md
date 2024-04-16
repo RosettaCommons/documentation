@@ -7,6 +7,7 @@ Jared Adolf-Bryfogle (jadolfbr@gmail.com)
 
 Metadata
 -------
+*Deprecated*
 
 Last edited 10/1/18. Code by Jared Adolf-Bryfogle \< [jadolfbr@gmail.com](mailto:jadolfbr@gmail.com) \>. 
 

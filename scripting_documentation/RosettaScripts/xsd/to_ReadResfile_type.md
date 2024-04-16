@@ -10,6 +10,6 @@ Read a resfile.
 ```
 
 -   **filename**: If a filename is given, read from that file. Otherwise, read the file specified on the commandline with -packing:resfile.
--   **selector**: Optionally, a previously-defined ResidueSelector may be specified using the selector=(some string) option. If this is used, then the ResidueSelector is used as a mask, and the ReadResfile TaskOperation is applied only to those residues selected by the ResidueSelector, even if the resfile lists other residues as well.
+-   **selector**: Optionally, a previously-defined ResidueSelector may be specified using the selector=(some string) option. If this is used, then the ResidueSelector is used as a mask, and the ReadResfile TaskOperation is applied only to those residues selected by the ResidueSelector, even if the resfile lists other residues as well. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 
 ---

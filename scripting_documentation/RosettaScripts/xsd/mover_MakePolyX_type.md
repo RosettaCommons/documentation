@@ -8,13 +8,14 @@ Convert pose into poly XXX ( XXX can be any amino acid )
 ```xml
 <MakePolyX name="(&string;)" aa="(ALA &string;)" keep_pro="(false &bool;)"
         keep_gly="(true &bool;)" keep_disulfide_cys="(false &bool;)"
-        residue_selector="(&string;)" />
+        set_chis="(&string;)" residue_selector="(&string;)" />
 ```
 
 -   **aa**: using amino acid type for converting
 -   **keep_pro**: Pro is not converted to XXX
 -   **keep_gly**: Gly is not converted to XXX
 -   **keep_disulfide_cys**: disulfide CYS is not converted to XXX
--   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
+-   **set_chis**: Set these chis for every residue placed. Must specify same number of chis as in rotamer
+-   **residue_selector**: . The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 
 ---

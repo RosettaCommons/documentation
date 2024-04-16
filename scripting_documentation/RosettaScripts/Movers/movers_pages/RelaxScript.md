@@ -8,7 +8,8 @@
 
 | Script Name | Description |
 | ----------- | ----------- |
-| default     | The traditional relax script used for the past few years |
+| default     | Currently an alias for MonomerRelax2019 or MonomerDesign2019 (if you are designing) |
+| legacy      | The default relax script used until August 13, 2019 |
 | no_cst_ramping | |
 | rosettacon2018 | **(deprecated)** Slightly stronger repulsive term in the early rounds. This script was created for people to play with but has since been optimized (see below). Send questions to jack@med.unc.edu |
 | MonomerRelax2019 | Same family as rosettacon2018, optimized for non-interface relax runs |
