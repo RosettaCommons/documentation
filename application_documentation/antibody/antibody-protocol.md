@@ -1,7 +1,8 @@
-#RosettaAntibody3: Protocol Workflow
+RosettaAntibody3: Protocol Workflow
+====================================
 
 Metadata
-========
+--------
 
 Author: Jianqing Xu (xubest@gmail.com), Daisuke Kuroda (dkuroda1981@gmail.com), Oana Lungu (olungu@utexas.edu), Jeffrey Gray (jgray@jhu.edu)
 
@@ -10,7 +11,7 @@ Corresponding PI Jeffrey Gray (jgray@jhu.edu).
 Last edited 5/17/2020 by Jeliazko Jeliazkov (jeliazkov@jhu.edu) and 5/29/2020 by Rahel Frick (rahel.frick@jhu.edu)
 
 References
-==========
+----------
 
 We recommend the following articles for further studies of RosettaAntibody methodology and applications:
 
@@ -22,7 +23,7 @@ We recommend the following articles for further studies of RosettaAntibody metho
 -   A. Sivasubramanian,\* A. Sircar,\* S. Chaudhury & J. J. Gray, "Toward high-resolution homology modeling of antibody Fv regions and application to antibody-antigen docking," Proteins 74(2), 497&ndash;514 (2009)
 
 Overview
-========
+--------
 
 **Please realize this the overview is to speed you up to run the protocol asap with minimum knowledge. For details of each steps, please check:**
 
@@ -32,7 +33,7 @@ Overview
 Rosetta Antibody can model both antibodies (consisting of the heavy and light chain variable region) and nanobodies (consisting of only the heavy chain variable region). To run the protocol, one needs:
 
 1. The sequence of interest in FASTA format, with a description lines preceding the sequence and indicating either ">heavy" or ">light".
-2. BLAST+ (version 2.2.28 or later).
+2. NCBI BLAST+ (version 2.2.28 or later).
 3. Rosetta (the latest if possible, officially supported in 3.7).
 4. The antibody database contained in the Rosetta/tools repository (as up-to-date as possible).
 
@@ -138,7 +139,7 @@ flags:
 
 
 Post Processing
-===============
+---------------
 
 You can use a set of decoys simultaneously for antibody-antigen docking simulations, such as SnugDock and EnsembleDock.
 
