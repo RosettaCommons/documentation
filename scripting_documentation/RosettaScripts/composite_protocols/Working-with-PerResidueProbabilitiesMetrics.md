@@ -7,7 +7,7 @@
 This page describes workflows using PerResidueProbabilitiesMetrics, which provide predicted amino acid probabilities from e.g. ProteinMPNN or the ESM language family. For example, they can be used to score a given protein structure, to analyze conservation of residues, or to directly sample mutations from.
 
 ##Build setup
-In order to run ML models you will have to compile with `extras=torch,tensorflow`, for details see [[Building Rosetta with TensorFlow and Torch]]. All other metrics/movers/taskops do no require extras per se.
+In order to run ML models you will have to compile with `extras=pytorch,tensorflow`, for details see [[Building Rosetta with TensorFlow and Torch]]. All other metrics/movers/taskops do no require extras per se.
 
 ##Prediction using ML models
 Currently available models are [[ProteinMPNN|ProteinMPNNProbabilitiesMetric]] and the [[ESM language model family|PerResidueEsmProbabilitiesMetric]]. Both models predict amino acid probabilities for a given residue selection, with ESM only using the sequence and ProteinMPNN using both backbone and sequence to make predictions. For more details on available options and paper references see the individual documentation.
