@@ -13,7 +13,8 @@ This mover reports scores and statistics useful for judging the quality of prote
         interface_sc="(false &bool;)" tracer="(false &bool;)"
         use_jobname="(false &bool;)" fixedchains="(&string;)"
         interface="(&string;)" ligandchain="(&string;)"
-        jump="(&non_negative_integer;)" scorefile_reporting_prefix="(&string;)" />
+        jump="(&non_negative_integer;)" scorefile_reporting_prefix="(&string;)"
+        delta_metrics="(&string;)" />
 ```
 
 -   **scorefxn**: Name of score function to use
@@ -29,5 +30,6 @@ This mover reports scores and statistics useful for judging the quality of prote
 -   **ligandchain**: Move ONLY this PDB chain.  Notice that 'jump', 'interface', 'fixedchains', and 'ligandchain' are all mutually exclusive.
 -   **jump**: Residues upstream/downstream of this Jump are on opposite sides of the interface; this Jump moves in the separation step.  Notice that 'jump', 'interface', 'fixedchains', and 'ligandchain' are all mutually exclusive.
 -   **scorefile_reporting_prefix**: Prefix to add to column names for the values that are put in the Pose for eventual output into a score file. An extra underscore is added between the value specified here and the standard column names if this option is used.
+-   **delta_metrics**: A comma separated list of RealMetrics to calculate the difference between complexed and single state for.
 
 ---

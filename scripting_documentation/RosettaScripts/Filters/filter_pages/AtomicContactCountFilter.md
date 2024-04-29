@@ -49,6 +49,14 @@ To count atomic contacts between aromatic and apolar residues, an OperateOnCerta
          <Add filter_name="cc_jump_norm"/>
        </PROTOCOLS>
 
+Additinal options:
+
+* non_local: Detect only non-local contacts, i.e., sequence distance more than 2. Positions in separate chains are automatically considered non-local.
+* res_contact: Only count one atom contact per residue. This option ignores normalize_by_sasa and normalize_by_carbon_count.
+* count_SD_NE1: In addition to carbon atoms, count methionine SD and tryptophan NE1.
+
+To obtain the same behavior as the "hphob_sc_contacts" metric published in "Global analysis of protein folding using massively parallel design, synthesis, and testing" (Science, 2017) keep defaults, except for: distance=4.3, non_local=True, res_contact=True, count_SD_NE1=True, and make only hydrophobic amino-acids (FILMVYW) packable.
+
 ## See Also
 
 * [[AtomicContactFilter]]

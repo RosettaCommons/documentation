@@ -68,6 +68,7 @@ cartesian_ddg.linuxgccrelease
 
 For ddg:mut_file format, please refer to [[here | ddg-monomer]]. Note that this file contains the mutations you want to introduce at once, which means, specifying more than one mutation in a single file will try to mutate all together at same time. Scanning over separate mutations (e.g. ALA scanning) will therefore require running this app separately using different mut_file as input.
 
+
 ### Interface mode
 
 This app can do PPI and Protein small molecule simulation (not well tested).
@@ -80,6 +81,63 @@ Optional options:
 
 Here the app calculate difference in energy by detaching "the part in pose defined by the last jump" from the rest of pose; the easiest way of doing this is to edit the input pdb so that the ligand (either protein or small molecule)
 locates at its end. One can check whether it is working properly by running with an optional flag "-ddg:dump_pdbs", which will output *_bj.pdb (before dissociation) and *_aj.pdb (after dissociation). 
+
+Frenz et. al flags and options (cartddg2020)
+==========================================
+
+## Prep:
+
+```
+ROSETTASCRIPTS>
+    <SCOREFXNS>
+        <ScoreFunction name="fullatom" weights="ref2015_cart" symmetric="0">
+        </ScoreFunction>
+	</SCOREFXNS>
+	<MOVERS>
+        <FastRelax name="fastrelax" scorefxn="fullatom" cartesian="1" repeats="4"/> 
+	</MOVERS>
+	<PROTOCOLS>
+        <Add mover="fastrelax"/>
+    </PROTOCOLS>
+    <OUTPUT scorefxn="fullatom"/>
+</ROSETTASCRIPTS>
+```
+
+```
+rosetta_scripts.static.release \
+    -database $ROSETTA_DATABASE \
+    -s /workdir/input.pdb\
+    -parser:protocol /workdir/relax.xml\
+    -default_max_cycles 200\
+    -missing_density_to_jump\
+    -ignore_zero_occupancy false\
+    -fa_max_dis 9
+```
+
+## Run:
+
+```
+#!/bin/bash
+cartesian_ddg\
+    -database $ROSETTA3_DB\
+    -s ${input.pdb}\
+    -ddg::iterations 5\
+    -ddg::score_cutoff 1.0\
+    -ddg::dump_pdbs false\
+    -ddg::bbnbrs 1\
+    -score:weights ref2015_cart\
+    -ddg::mut_file ${mutfile.mut}\
+    -ddg:frag_nbrs 2\
+    -ignore_zero_occupancy false\
+    -missing_density_to_jump \
+    -ddg:flex_bb false\
+    -ddg::force_iterations false\
+    -fa_max_dis 9.0\
+    -ddg::json true\
+    -ddg:legacy false
+```
+
+
 
 Expected Outputs & post-processing
 ===============

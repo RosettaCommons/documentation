@@ -13,7 +13,8 @@ Jared Adolf-Bryfogle, The Scripps Research Institute, La Jolla, CA [jadolfbr@gma
 
 ```xml
 <RunSimpleMetrics name="(&string;)" metrics="(&string;)" prefix="(&string;)"
-        suffix="(&string;)" override="(false &bool;)" >
+        suffix="(&string;)" override="(false &bool;)"
+        metric_to_bfactor="(&string;)" >
     <Simple Metric Tag ... />
 </RunSimpleMetrics>
 ```
@@ -22,6 +23,7 @@ Jared Adolf-Bryfogle, The Scripps Research Institute, La Jolla, CA [jadolfbr@gma
 -   **prefix**: Prefix tag for the values to be added to the output score file for these metrics. (prefix + custom_type + _ + metric_name + suffix)
 -   **suffix**: suffix tag for the values to be added to the output score file for these metrics. (prefix + custom_type + _ + metric_name + suffix)
 -   **override**: Should we override any existing data?
+-   **metric_to_bfactor**: Name of a PerResidueRealMetric which values will be written to the b factor column.
 
 
 "Simple Metric Tag": Any of the [[SimpleMetrics]]

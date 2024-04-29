@@ -109,6 +109,7 @@ TaskOp  | Description
 **[[SelectResiduesWithinChain|SelectResiduesWithinChainOperation]]** | Do not pack/design residues based on their position in a chain.
 **[[SelectBySASA|SelectBySASAOperation]]** | Repack residue based on surface exposure.
 **[[SetCatalyticResPackBehavior|SetCatalyticResPackBehaviorOperation]]** | Turn of packing or design for residues in [[enzdes constraints|match-cstfile-format]]. 
+**[[RestrictAAsFromProbabilities]]** | Restrict AAs based on a PerResidueProbabilitiesMetric.
 **[[RestrictToTermini|RestrictToTerminiOperation]]** | Only repack termini.
 
 <!--- BEGIN_INTERNAL -->

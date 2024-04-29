@@ -71,6 +71,7 @@ Mover  | Description
 **[[ReportXYZ|ReportXYZ]]** | Report X Y Z of specific residue to score line
 **[[ResetBaseline|ResetBaselineMover]]** | Reset the baseline (not needed for MC)
 **[[SavePoseMover]]** | Save or retrieve a pose for use in another mover/filter.
+**[[SaveProbabilitiesMetricMover]]** | Save a PerResidueProbabilitiesMetric as weights or pssm file.
 **[[SilentTrajectoryRecorder|SilentTrajectoryRecorderMover]]** | Records a trajectory in a silent file
 **[[StorePoseSnapshot|StorePoseSnapshotMover]]** | Store a snapshot of the current residue numbering in the pose as a named reference pose, so that subsequent movers can use the current state's residue numbering even if residue numbering has changed.
 **[[TrajectoryReportToDB|TrajectoryReportToDBMover]]** | Reports multiple structures to an output forming a trajectory
@@ -191,6 +192,7 @@ Mover  | Description
 **[[SegmentedAtomPairConstraintGenerator]]** | Generates differently specified distance constraints among residues in a range and between residues in different ranges.  
 **[[CoordinateConstraintGenerator]]** | Generates coordinate constraints for residues in a subset
 **[[DistanceConstraintGenerator]]** | Generates constraints to enforce a distance between residues in two subsets.
+**[[DihedralConstraintGenerator]]** | Generates constraints to enforce a dihedral angle.
 **[[FileConstraintGenerator]]** | Generates, adds, and removes constraints from a file
 **[[HydrogenBondConstraintGenerator]]** | Generates constraints to enforce hydrogen bonding between residues
 **[[SheetConstraintGenerator]]** | Generates constraints for proper hydrogen bonding in beta-sheets
@@ -349,6 +351,7 @@ Mover  | Description
 **[[ModifyVariantType|ModifyVariantTypeMover]]** | Adds or removes variant types of a set of residues
 **[[PeptideStubMover]]** | Add new residues to a pose
 **[[PeptideCyclizeMover]]** | Closes two ends of a selection in a pose
+**[[SampleSequenceFromProbabilities]]** | Sample a whole sequence or a specified amount of mutations from a PerResidueProbabilitiesMetric.
 **[[SegmentHybridize|SegmentHybridizeMover]]** | Closes loops using fragment insertion and cartesian minimization
 **[[Superimpose|SuperimposeMover]]** | Superimpose the current pose on another stored pose
 **[[SetSecStructEnergies|SetSecStructEnergiesMover]]** | Biases the score toward particular secondary structural elements

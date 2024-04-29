@@ -2,7 +2,7 @@
 *Back to [[Mover|Movers-RosettaScripts]] page.*
 ## AtomPairConstraintGenerator
 
-[[include:constraint_generator_AtomPairConstraintGenerator_complex_type]]
+[[include:constraint_generator_AtomPairConstraintGenerator_type]]
 
 Generates atom pair distance constraints to restrain pairs of atoms in the pose based on their distance. Constraints can be generated according to the state of the pose at apply time, or optionally, based on a separate native pose.
 

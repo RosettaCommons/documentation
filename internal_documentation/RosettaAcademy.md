@@ -1,3 +1,5 @@
+#RosettaAcademy
+
 This page is geared towards new members of the Rosetta community as a "fast" way to learn about Rosetta, how to use it and how to develop in Rosetta, if needed. The page is organized by increasing difficulty, starting out with basic tools needed, then tutorials for users and later for developers. If you are going through and find that important parts are missing, please add them to the page!
 
 [[_TOC_]]
@@ -77,20 +79,15 @@ Lectures on Rosetta (closely following the PyRosetta book): http://goo.gl/GuUNDK
 ## Download and compile Rosetta, git version control
 If you won't be developing in Rosetta, you can download the release version here : https://www.rosettacommons.org/
 
-Most likely, you will be developing or at least running new code. In this case you have to download and compile the developers version of Rosetta. But before you do that, please follow the instructions here: https://wiki.rosettacommons.org/index.php/NewNewDevelopersPage#Administrative_-_take_care_of_these_IMMEDIATELY, especially:
-* signing the developers agreement
-* signing up for the mailing list
-* creating a github account
-
-After you have done that, follow the instructions on how to download and compile Rosetta here: 
+But if you're reading this, you will most likely be developing or at least running new code. In this case you have to download and compile Rosetta from Github. Follow the instructions on how to download and compile Rosetta here: 
 https://wiki.rosettacommons.org/index.php/GithubWorkflow
-You might want to look at the test-server (http://rosettatests.graylab.jhu.edu/revs) to figure out the latest revision for which all tests are running and get this revision. If you get the latest revision, it might be that not all tests are running so you might be downloading a 'broken' version. If you don't really understand much about git and github yet, don't worry, you will be going into much more detail later once you are actively developing in Rosetta (see below).
+
+You might want to look at the test-server (https://benchmark.graylab.jhu.edu/) to figure out the latest revision for which all tests are running and get this revision. If you get the latest revision, it might be that not all tests are running so you might be downloading a 'broken' version. If you don't really understand much about git and github yet, don't worry, you will be going into much more detail later once you are actively developing in Rosetta (see below).
 
 ## Meilerlab tutorials (put together by Jens Meiler's lab, Vanderbilt University)
 The Meiler lab has hosted one-week workshop in the past (usually some time in the spring) for members of the community, outside people and people from industry. The are an excellent starting point on how to run Rosetta, give plenty of information on how to prepare input files and how to process Rosetta output. The zip folder can be downloaded and unpacked - it contains subfolders for several Rosetta applications, including protein folding, docking, design, ligand docking, and loop modeling. Input files are provided and only minimal previous knowledge is assumed to go through these (like PyMol or Linux). You need to download and compile Rosetta to run these applications!
 
-Download the tutorials from 
-* http://structbio.vanderbilt.edu/comp/workshops/rosetta_13/tutorials_2013.tar.gz (download takes a while)
+Download the tutorials from <https://meilerlab.org/tutorials/>
 
 ## Demos
 Once you downloaded and compiled Rosetta, you can also check out the demos folder at `Rosetta/demos`. This folder contains subfolders with easy-to-follow demonstrations and protocol captures on specific applications. Input files, readme's and commandlines are available in the folders. 
@@ -114,30 +111,24 @@ If you want to develop in Rosetta, you need to learn C++. If you have never scri
 * book: Sam's teach yourself C++ in 21 days: http://www.amazon.com/Sams-Teach-Yourself-Edition-ebook/dp/B0028CK0GW/ref=sr_1_1?ie=UTF8&qid=1375469877&sr=8-1&keywords=c%2B%2B+sams+5th+edition
 
 ## ROSIE (set up by Sergey Lyskov, Jeff Gray's lab, Johns Hopkins)
-ROSIE is an abbreviation for "Rosetta Online Server that Includes Everyone". It is a server that runs several Rosetta applications without requiring the knowledge of Python, C++ or anything difficult. Perfect to use for the Newbie, however, only few applications are available and some of them are very specialized - more to come in the future. Check it out at http://antibody.graylab.jhu.edu/. Also, if you are a developer and are planning on setting up a server on ROSIE for your own application, contact Sergey Lyskov at sergey.lyskov[at]gmail.com and he will give you instructions on how to do it. It should be pretty quick and easy with about two pages of code or less!
+ROSIE is an abbreviation for "Rosetta Online Server that Includes Everyone". It is a server that runs several Rosetta applications without requiring the knowledge of Python, C++ or anything difficult. Perfect to use for the Newbie, however, only few applications are available and some of them are very specialized - more to come in the future. Check it out at https://rosie.rosettacommons.org/. Also, if you are a RosettaCommons developer and are planning on setting up a server on ROSIE for your own application, contact Sergey Lyskov at sergey.lyskov[at]gmail.com and he will give you instructions on how to do it. It should be pretty quick and easy with about two pages of code or less!
 
 ## PyRosetta (developed by Jeff Gray's lab, Johns Hopkins)
-If you know Python and you are planning on creating your own protocols, PyRosetta (developed in Jeffrey Gray's lab at Johns Hopkins) is an excellent way of using Rosetta and manipulating protein structures (If you don't know Python, it is much easier if you learn it before diving into PyRosetta). PyRosetta is basically a Python wrapper around the Rosetta C++ code so you can do pretty much everything with Python without knowing C++. For rewriting code, however, it is recomended to do that in C++. The tutorials for PyRosetta can be found at http://www.pyrosetta.org/tutorials with the password here: https://wiki.rosettacommons.org/index.php/PyRosetta
+If you know Python and you are planning on creating your own protocols, PyRosetta (developed in Jeffrey Gray's lab at Johns Hopkins) is an excellent way of using Rosetta and manipulating protein structures (If you don't know Python, it is much easier if you learn it before diving into PyRosetta). PyRosetta is basically a Python wrapper around the Rosetta C++ code so you can do pretty much everything with Python without knowing C++. For rewriting code, however, it is recomended to do that in C++. The tutorials for PyRosetta can be found at <https://www.pyrosetta.org/documentation/tutorials>
 
 ## RosettaScripts and RosettaDiagrams (developed by Sarel Fleishman's lab, Weizmann Institute, Israel)
-RosettaScripts is an XML-scriptable interface that allows users to mix and match protocols and carry out customizable tasks for various protocols. Detailed instructions on how to set them up are available at 
-https://wiki.rosettacommons.org/index.php/RosettaScripts
 
-An extension of RosettaScripts is available with RosettaDiagrams that should make it even easier to use and write your own protocols. It is basically a drag-and-click web interface where the user/developer can put together protocols from different movers, filters, and task operations. Information can be found at:
-* http://www.rosettadiagrams.org/
-* https://github.com/LiorZ/RosettaDiagrams
-* http://rosettadiagrams.org/app.html
+RosettaScripts is an XML-scriptable interface that allows users to mix and match protocols and carry out customizable tasks for various protocols. Detailed instructions on how to set them up are available at [[RosettaScripts]]
 
-Both RosettaScripts and RosettaDiagrams require a certain knowledge about Rosetta, which movers, filters, and task operations should be used in which order to obtain a certain outcome. 
-
-## CS-Rosetta (developed by Oliver Lange's lab, TU Munich, Germany)
+## CS-Rosetta (developed by Oliver Lange's lab, TU Munich, Germany & Nik Sgourakis, UCSC & Children's Hospital of Philadelphia )
 CS-Rosetta is a version of Rosetta that uses NMR chemical shift restraints for ab initio folding or structure prediction. The toolbox of CS-Rosetta also includes automatic assignment of NOE resonances.
 * http://www.csrosetta.org/
+* https://csrosetta.chemistry.ucsc.edu/
 
 ## Version control
 If you are planning to develop in Rosetta and want to put together your own protocols and write code, now is the time to learn more about version control and all that comes with it. Version control is basically a history of the code base (similar to when you hit the 'save' button in a document) which is needed when over 100 developers are working on the code from all over the world at the same time. It makes it much easier to resolve coding conflicts (when multiple people are working on the same code) and much more difficult to "break" Rosetta - even though it is not completely impossible. ;o)
 
-Extended information from the above intro is available here: https://wiki.rosettacommons.org/index.php/Github but it is suggested to become intimately familiar with various git commands. Several online resources are available, among them:
+Extended information from the above intro is available here: [[GithubWorkflow]] but it is suggested to become intimately familiar with various git commands. Several online resources are available, among them:
 * nicely explained, not too long: http://gitref.org/
 * shorter cheat sheet: https://www.kernel.org/pub/software/scm/git/docs/everyday.html
 * short videos: http://www.youtube.com/GitHubGuides
@@ -153,15 +144,21 @@ Talk to your mentor which program s/he thinks is best so s/he can also give you 
 
 ## Coding conventions
 Now that you know about version control, have set up your IDE and are knowledgeable about C++, you should read through the coding conventions and comply with them - no excuse!!! This will make it much easier in the long run for other people (and yourself) to read, understand and use your code in the way it is intended for. This also applies for Python code:
-* https://wiki.rosettacommons.org/index.php/Coding_Convention_and_Examples
+* [[Coding-Conventions]]
 
 ## How to find stuff in Rosetta
-When you download Rosetta, it will automatically set up three independent github directories in Rosetta: 
-* demos
-* main
+When you download Rosetta, there will be a number of different top-level directories
+* source
+* database
+* tests
 * tools
+* documentation
+* demos
+* rosetta_scripts_scripts
+* PyRosetta.notebooks
+* pyrosetta_scripts
 
-The executables are located in main/source/bin - they are links from executables somewhere deeper in the code
+The executables are located in Rosetta/source/bin - they are links from executables somewhere deeper in the code
 
 For Rosetta, people always say "The code is the documentation" - which is nice if you know how to read code, but not so nice, if you don't. Therefore, when you write code: document it in two places: 
 * developer documentation: within the code with comments for doxygen to create html documentation
@@ -173,12 +170,12 @@ Write the documentation such that people who are not familiar with every detail 
 User level documentation is a useful resource for learning how protocols in Rosetta work and how to use them. However, as developers it is important to also maintain more detailed documentation of the API (Application Programming Interface) which details how to navigate specific concepts and methods in the Rosetta library. 
 
 We maintain API documentation using Doxygen - a software package that will parse the Rosetta source code and generates html documentation from in-code documentation. This can be done by using specialized tags (i.e. @brief, @details, @author, @note, etc) when commenting code. Details for writing doxygen documentation in-code can be found at: 
-* http://graylab.jhu.edu/Rosetta.Developer.Documentation/core+protocols/d3/ddc/doxygen_tips.html
+* [[Doxygen tips]]
 * https://wiki.rosettacommons.org/index.php/Tools:Doxygen
 
 ## Useful links
 There are plenty of useful links available that are connected with Rosetta, in addition to the ones described above:
-* New new developers page: https://wiki.rosettacommons.org/index.php/NewNewDevelopersPage
+* New developers page: (For RosettaCommons internal people only) https://wiki.rosettacommons.org/NewDevelopersPage
 
 * Robetta server - online server for several applications: http://robetta.bakerlab.org/
 	
@@ -191,14 +188,12 @@ There are plenty of useful links available that are connected with Rosetta, in a
 * Rosetta@home - donate computer time to solve scientific problems to RosettaCommons when you are not using your computer: http://boinc.bakerlab.org/rosetta/
 	
 * source code on github - requires a github account: https://github.com/organizations/RosettaCommons
-	
-* bugtracker - to keep track of bugs in the code using Mantis Bugtracker (hosted at Vanderbilt): http://bugs.rosettacommons.org/
 
 
 # 7. More Rosetta for developers
 
 ## [[Code Template Generation | code_templates ]] 
-How to generate code templates of common Rosetta classes/apps/unit tests to save development time.  Seriously, want to write a mover?  Start here! ```Rosetta/main/source/code_templates```
+How to generate code templates of common Rosetta classes/apps/unit tests to save development time.  Seriously, want to write a mover?  Start here! ```Rosetta/source/code_templates```
 
 Here is an example of creating a new mover for carbohydrates:
 ```
@@ -206,18 +201,13 @@ Here is an example of creating a new mover for carbohydrates:
 ```
 
 ## Licensing
-To get Rosetta as a developer, you signed the developers agreement (http://rosettadesign.med.unc.edu/agreement/agreements.html) which also contained some information about licensing third party software. Please also check out the wiki page here (https://wiki.rosettacommons.org/index.php/Licensing). A good rule of thumb is NOT to use anything under GPL or LGPL license.
 
-For the general public:
+Rosetta is currently licensed on a free-for-noncommercial use basis. Licensing fees for for-profit use of Rosetta help to fund the development & maintenance of Rosetta, as well as funding the scientific mission of the RosettaCommons. For a commercial license, see the information at  https://www.rosettacommons.org/software/license-and-download
 
-Rosetta can be licensed here:   https://els.comotion.uw.edu/express_license_technologies/rosetta
-
-PyRosetta can be licensed here: https://els.comotion.uw.edu/express_license_technologies/pyrosetta
+As such, any code you add to Rosetta must be compatible with those terms. To get the ability to add code to Rosetta as a developer, you signed the developers agreement (http://rosettadesign.med.unc.edu/agreement/agreements.html) or a Contributor Licensing Agreement (insert link) which also contained some information about licensing third party software. Please also check out the wiki page here (https://wiki.rosettacommons.org/index.php/Licensing). A good rule of thumb is NOT to use anything under GPL or LGPL license.
 
 ## Bootcamp (put together by Andrew Leaver-Fay and other members of the Commons)
 The Rosetta Bootcamp was given in April 2013 for the first time as a one-week workshop for beginning Rosetta developers. It contained both lectures as well as labs where participants applied their just-learned knowledge under the supervision of several Rosetta developers.
-
-Tutorials: https://drive.google.com/folderview?id=0B7YNPpJXYWK8bEEwWnFqSkIzRnc&usp=sharing#grid
 
 The full 24-hour material (split up into lectures/labs up to 90mins videos) can be watched on youtube:
 	https://www.youtube.com/watch?v=2qQLdc0tmdg&list=PLaF-DHLR9l7wGTMldDNnZK7nA00eFHEH6
@@ -265,7 +255,7 @@ Below are the contents of the individual lectures/labs:
 * make it a habit to add a new file to git immediately after you create it in source, this will make it much easier once you want to commit
 
 ## Where to put your new code
-When you are starting a coding project, make a new branch (git personal-tracked-branch mynewbranch) and start coding. **DO NOT PUT YOUR CODE IN /devel/ AS IT WILL BE PHASED OUT!!!** If you don't want your code to be released yet, just keep it in your branch until you are ready to merge your branch to master.
+When you are starting a coding project, make a new branch and start coding. **DO NOT PUT YOUR CODE IN /devel/ AS IT WILL BE PHASED OUT!!!** If you don't want your code to be released yet, just keep it in your branch until you are ready to merge your branch to main.
 
 If you are writing a completely new framework, it MIGHT make sense to create a subdirectory in /core/. Also, be sure to consider which other code or libraries you are using in your code because they need to be compiled BEFORE any of your code will be compiled, otherwise you will run into unresolvable errors at compile time. If you are unsure, ask someone. 
 
@@ -420,8 +410,7 @@ The options system is very useful for switching on/off parameters in protocols a
 
 The resource manager is Rosetta's solution to this problem. By defining your resources initially in a resource definition file, Rosetta will load these resources once and provide you access to them whenever needed. 
 
-More info can be found about the Resource manager and how to integrate it into your code can be found here: 
-https://www.rosettacommons.org/docs/wiki/development_documentation/tutorials/ResourceManager
+More info can be found about the Resource manager and how to integrate it into your code can be found here: [[ResourceManager]]
 
 
 ## Tests: unit tests, integration tests, scientific tests
@@ -442,16 +431,16 @@ Note: All unit tests run **every time** modifications are made to the master cod
 
 ### Integration tests
 Integration tests check how your piece of code "integrates" into the rest of Rosetta. While running an integration test, the output of the code BEFORE the change is compared to the output of the code AFTER the change. Since Rosetta developers cannot understand all 3 million lines of code, integration tests only serve to test whether there is an expected change in output or not. They do NOT test whether the functions do what they are supposed to do (this is what unit tests are for) NOR do they tell you whether the output of a protocol is scientifically valid (this is what scientific tests are for).
-* https://www.rosettacommons.org/docs/wiki/development_documentation/test/integration-tests
-* https://www.rosettacommons.org/docs/wiki/development_documentation/test/Writing-MPI-Integration-Tests
+* [[Integration tests]]
+* [[Writing MPI Integration Tests]]
 
 Note: All integration tests run **every time** modifications are made to the master code base
 
 ### Scientific tests
 Scientific tests (or benchmarks) are required to test whether the output of a protocol is scientifically sound. If you are refining a protocol, you want to make sure that the results you are getting aren't any worse than from the previous implementation of the protocol. Likewise, when you are implementing a new protocol, you want to see how good or bad your results are and how they compare to other methods.
-* https://www.rosettacommons.org/docs/wiki/development_documentation/test/Scientific-Benchmarks
+* [[Scientific Benchmarks]]
 
 Note: Scientific tests are run every two weeks
 
 ## Merging code to master
-Once you have branched Rosetta, developed your feature and **fully tested** it, you are ready to contribute it to master - the main Rosetta code base. To do so, you have probably already reviewed the Rosetta Git conventions [Rosetta GitHub Practices]( https://www.rosettacommons.org/docs/wiki/internal_documentation/GithubWorkflow) (if not, do so now!). However, this page links to the **required** detailed process for committing code to Rosetta master: [Rosetta Wiki Page: Committing Code](https://wiki.rosettacommons.org/index.php/Committing_code)
+Once you have branched Rosetta, developed your feature and **fully tested** it, you are ready to contribute it to the main Rosetta code base. To do so, you have probably already reviewed the Rosetta Git conventions Rosetta [[GithubWorkflow]] (if not, do so now!). However, this page links to the **required** detailed process for committing code to Rosetta master: [Rosetta Wiki Page: Committing Code](https://wiki.rosettacommons.org/index.php/Committing_code)
