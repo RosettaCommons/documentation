@@ -33,11 +33,11 @@ All Rosetta QM calculations are performed through calls to third-party quantum c
 
 ### The General Atomic and Molecular Electronic Structure System (GAMESS)
 
-[[GAMESS|https://www.msg.chem.iastate.edu/index.html]] is a versatile quantum chemistry package written in FORTRAN, and developed by the [[Gordon group at Iowa State University|https://www.msg.chem.iastate.edu/group/members.html]].  Users may agree to the licence agreement and obtain the software from [[the GAMESS download page|https://www.msg.chem.iastate.edu/gamess/download.html]].
+[GAMESS](https://www.msg.chem.iastate.edu/index.html) is a versatile quantum chemistry package written in FORTRAN, and developed by the [Gordon group at Iowa State University](https://www.msg.chem.iastate.edu/group/members.html).  Users may agree to the licence agreement and obtain the software from [the GAMESS download page](https://www.msg.chem.iastate.edu/gamess/download.html).
 
 #### Installation and setup
 
-To use GAMESS with Rosetta... TODO
+Here we give an example of installing `GAMESS version September 30, 2023 R2 for 64 bit x86_64 under Linux using GNU compilers`. After submitting the request to download, it takes around ???? to receive an email with the link. 
 
 #### Compiling GAMESS
 
