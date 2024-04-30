@@ -97,3 +97,9 @@ TODO
 ### NWChem
 
 TODO
+
+# Common issues
+
+||Problem | Reason| Solution |
+|--|----|-----|----|
+|1|Errors about charge and multiplicity with FMO | open termini | The -ignore_zero_occupancy false flag is often needed. |
