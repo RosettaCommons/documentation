@@ -9,6 +9,8 @@ Page created 16 November 2021 by Vikram K. Mulligan, Flatiron Institute (vmullig
 
 Traditionally, Rosetta has used a quasi-Newtonian force field for energy calculations.  This has allowed Rosetta protocols to score a large macromolecular structure rapidly (typically in milliseconds) and repeatedly, permitting large-scale sampling of conformation and/or sequence space.  The downside, however, has been that force fields are of finite accuracy.  In late 2021, we added support for carrying out quantum mechanical energy and geometry optimization calculations in the context of a Rosetta protocol, by calling out to a third-party quantum chemistry software package.  This page summarizes how to set up and use this functionality.
 
+The protocols in RosettaQM use **Single point energy calculation** , **Geometry optimization** or a combination of them. 
+
 ## Important considerations
 
 ### Molecular system size, level of theory, and computation time
@@ -42,6 +44,28 @@ Here we give an example of installing `GAMESS version September 30, 2023 R2 for 
 #### Compiling GAMESS
 
 #### Using GAMESS with Rosetta
+
+You need to set `gamess_executable_version` and `gamess_path` tags in xml file. `gamess_path` 
+is the directory that contains gamess executable. In this directory you will find a file with format `gamess.$$.x` where `$$` is the executable version. 
+
+An example of using these tags in code (note that this is not a real case, and you need to use other tags to set the basis set and other configurations.)
+```
+<ROSETTASCRIPTS>
+    <SCOREFXNS>
+        <ScoreFunction name="gamess_energy" weights="empty" >
+            <Reweight scoretype="gamess_qm_energy" weight="1.0" />
+            <Set 
+                gamess_path="<path-to-gamess-directory>"
+                gamess_executable_version="<version>"
+            />
+        </ScoreFunction>
+    </SCOREFXNS>
+    <PROTOCOLS>
+        <Add metrics="gamess_energy" />
+    </PROTOCOLS>
+</ROSETTASCRIPTS>
+```
+
 
 ##### Point energy calculations with GAMESS within a Rosetta protocol
 
@@ -98,7 +122,7 @@ TODO
 
 TODO
 
-# Common issues
+## Common issues
 
 ||Problem | Reason| Solution |
 |--|----|-----|----|
