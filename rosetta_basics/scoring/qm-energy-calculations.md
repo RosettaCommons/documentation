@@ -21,7 +21,7 @@ The protocols in RosettaQM use **Single point energy calculation** , **Geometry 
 
 ### Molecular system size, level of theory, and computation time
 
-TODO
+GAMESS can only process 2000 atoms at time. Therefore, for systems with larger than 2000 atoms, the molecule needs to be fragmented through FMO. This limit can be increased, but it is not recommended. 
 
 ### Computer memory
 
