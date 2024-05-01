@@ -5,6 +5,13 @@ Page created 16 November 2021 by Vikram K. Mulligan, Flatiron Institute (vmullig
 
 [[_TOC_]]
 
+## Citation
+GAMESS needs to be cited while using RosettaQM:
+```
+[https://doi.org/10.1063/5.0005188](https://doi.org/10.1063/5.0005188)
+1 Barca, G. M. J. et al. The Journal of Chemical Physics 152, 154102 (2020)
+```
+
 ## Summary
 
 Traditionally, Rosetta has used a quasi-Newtonian force field for energy calculations.  This has allowed Rosetta protocols to score a large macromolecular structure rapidly (typically in milliseconds) and repeatedly, permitting large-scale sampling of conformation and/or sequence space.  The downside, however, has been that force fields are of finite accuracy.  In late 2021, we added support for carrying out quantum mechanical energy and geometry optimization calculations in the context of a Rosetta protocol, by calling out to a third-party quantum chemistry software package.  This page summarizes how to set up and use this functionality.
@@ -39,9 +46,35 @@ All Rosetta QM calculations are performed through calls to third-party quantum c
 
 #### Installation and setup
 
-Here we give an example of installing `GAMESS version September 30, 2023 R2 for 64 bit x86_64 under Linux using GNU compilers`. After submitting the request to download, it takes around ???? to receive an email with the link. 
+Here we give an example of installing *GAMESS version September 30, 2023 R2 for 64 bit x86_64 under Linux using GNU compilers*. After submitting the request to download, it takes around a day or less to receive an email with the link. After downloading the *.tar.gz file, transfer it 
+to the desired node if needed. Unzip the file with following command:
+
+`tar -xzvf <file-name>`
+
+It will create a directory named `gamess` with files and subfolders inside it. Change the directory to this folder with `cd gamess`. The instructions for installation are provided in `README.md` file. 
+
+Run executable `config` file with `./config`. It will ask you questions about your system. You need to open a new terminal window, to search the answers for those questions. Here are the questions:
+
+| Question | Recommended answer |
+| ------- | -------------------- |
+|What is the type of your machine?|type `uname -a` in the new window. Here we use Linux, so the answer is `linux64`. All possible options are provided as a list on the left column. |
+|Where is the GAMESS software located on your system?| Press enter for default |
+|GAMESS build directory?|This can be the same as where gamess is located. So we provide the same path again.|
+|Please provide a version number for the GAMESS executable.|Press enter for default|
+|Are you building for a specific HPC system?|Press enter for none (unless you use a specific one)|
+|Please enter your choice of FORTRAN:|gfortran|
+|Please enter only the first decimal place, such as 8.2 or 11.2:|type `gfortran -v` in the new window. the last line shows version as `gcc version xx.x.x `, enter the version with first decimal place as an answer.|
+|Enter your math library choice from one of the options below:|These libraries might be installed through modules, so it would be advised to search for them through `module spider <library-name>` and choose the best available one. The path to root can also be found through `module show <library-name>`|
+|communication library|We recommend using `sockets`.|
+|Optional: Build LibXC interface?|If your gcc version was higher that 5.5, then answer `yes`.|
+|Do you want to use LIBCCHEM 2.0?|`no`|
+|other questions|Based on your liking and system. None of them are required though.|
+
+YAY! Now you have all configurations set, and it can be found in `gamess/install.info`. Some options can still be edited, as mentioned above. 
 
 #### Compiling GAMESS
+
+Use `make` or `make -j(number_of_processors)`. You can find the number of processors in your linux system by typing `nproc` in command line. 
 
 #### Using GAMESS with Rosetta
 
