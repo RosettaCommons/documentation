@@ -7,10 +7,9 @@ Page created 16 November 2021 by Vikram K. Mulligan, Flatiron Institute (vmullig
 
 ## Citation
 GAMESS needs to be cited while using RosettaQM:
-```
-[https://doi.org/10.1063/5.0005188](https://doi.org/10.1063/5.0005188)
-1 Barca, G. M. J. et al. The Journal of Chemical Physics 152, 154102 (2020)
-```
+
+[Barca, G. M. J. et al. The Journal of Chemical Physics 152, 154102 (2020)](https://doi.org/10.1063/5.0005188)
+
 
 ## Summary
 
