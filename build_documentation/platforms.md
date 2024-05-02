@@ -86,7 +86,7 @@ To assist in checking for compatibility, we have put together a small Python tes
 downloadable from <https://raw.githubusercontent.com/RosettaCommons/rosetta_clone_tools/master/rosetta_compiler_test.py>
 
 Note: Even if the default compiler is a version without support, often there will be an updated compiler available on the system.
-Talk to your system administrator for more details, and see [the build documentation](Build-Documentation#setting-up-rosetta-3_alternative-setup-for-individual-workstations_scons-mac-linux) 
+Talk to your system administrator for more details, and see [the build documentation](Building-Rosetta#setting-up-rosetta-3_alternative-setup-for-individual-workstations_scons-mac-linux) 
 for compiling with a non-default compiler.
 In worse-case scenarios, the weekly releases of Rosetta 2015.39 and before may be compatible with older compilers.
 

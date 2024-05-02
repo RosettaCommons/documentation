@@ -117,7 +117,7 @@ The Features Reporters can be run in parallel either through MPI or through a ba
 MPI
 ---
 
-For MPI-based runs, make sure to [[ compile MPI-mode Rosetta | Build-Documentation#setting-up-rosetta-3_alternative-setup-for-individual-workstations_message-passing-interface-mpi ]]. 
+For MPI-based runs, make sure to [[ compile MPI-mode Rosetta | Building-Rosetta#setting-up-rosetta-3_alternative-setup-for-individual-workstations_message-passing-interface-mpi ]]. 
 
 
 ### Sqlite3

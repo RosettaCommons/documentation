@@ -91,7 +91,7 @@ After downloading Rosetta, go through [these detailed tutorials](https://www.ros
 Local installation implies that one will be using Rosetta through a [[command line interface (or terminal)|http://en.wikipedia.org/wiki/Command-line_interface]].
 For local users, you are unlikely to want to install Rosetta to the entire system.
 Rosetta is quite happy to be compiled and installed by regular users without administrative rights — this is how the developers use it.
-You may need administrative rights to install [[dependencies|Build-Documentation#dependencies]].
+You may need administrative rights to install [[dependencies|Building-Rosetta#dependencies]].
 
 * First untar/uncompress your downloaded copy of the code (`tar -xvzf Rosetta[releasenumber].tar.gz`).
 
@@ -103,7 +103,7 @@ You may need administrative rights to install [[dependencies|Build-Documentation
 Replace <number_of_processors_to_use> with a number one processor fewer than your computer has.
 Expect compilation to take a while (hours on one processor).
 
-See our extensive [[build documentation|Build-Documentation#compiling-rosetta-3]] for further instructions and troubleshooting.
+See our extensive [[build documentation|Building-Rosetta#compiling-rosetta-3]] for further instructions and troubleshooting.
 
 ###Windows
 Unfortunately, we are not currently able to support the whole of Rosetta on Windows.

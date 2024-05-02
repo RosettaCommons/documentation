@@ -951,7 +951,7 @@ Enzyme specificity re-design (using coupled_moves) ([http://www.ncbi.nlm.nih.gov
 * Multiple refactorings in the chemistry layers, allowing:
     * Poses with carbohydrates
     * Better support for ribonucleoprotein
-    * Support for all ligands in the PDB’s chemical dictionary (note you must [install that dictionary separately](build_documentation/Build-Documentation#setting-up-rosetta-3_obtaining-additional-files_pdb-chemical-components-dictionary))
+    * Support for all ligands in the PDB’s chemical dictionary (note you must [install that dictionary separately](build_documentation/Building-Rosetta#setting-up-rosetta-3_obtaining-additional-files_pdb-chemical-components-dictionary))
     * Support for runtime manipulation of chemistry (adding/removing atoms)
     * Support for rotamer libraries with arbitrary numbers of backbone torsion dependencies
     * Automatic setup of bonds to [metal ions](rosetta_basics/non_protein_residues/Metals).  

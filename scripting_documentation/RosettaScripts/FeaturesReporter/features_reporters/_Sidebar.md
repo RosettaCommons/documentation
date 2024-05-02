@@ -1,6 +1,6 @@
 [[Getting Started]]
 
-[[Build Documentation|build_documentation/Build-Documentation]]
+[[Build Documentation|build_documentation/Building-Rosetta]]
 
 [[Rosetta Basics|rosetta_basics/Rosetta-Basics]]
 
