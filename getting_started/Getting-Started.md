@@ -103,7 +103,7 @@ You may need administrative rights to install [[dependencies|Building-Rosetta#de
 Replace <number_of_processors_to_use> with a number one processor fewer than your computer has.
 Expect compilation to take a while (hours on one processor).
 
-See our extensive [[build documentation|Building-Rosetta#compiling-rosetta-3]] for further instructions and troubleshooting.
+See our extensive [[Building Rosetta|Building-Rosetta#compiling-rosetta-3]] for further instructions and troubleshooting.
 
 ###Windows
 Unfortunately, we are not currently able to support the whole of Rosetta on Windows.
@@ -136,7 +136,7 @@ Developers can update these doc pages through our [interactive wiki](https://www
 
 * [Introductory Rosetta Tutorials](https://www.rosettacommons.org/demos/latest/Home#tutorials)
 * [[Resources for learning biophysics and computational modeling]]
-* [[Build Documentation]]: Information on setting up Rosetta
+* [[Building Rosetta]]: Information on setting up Rosetta
 * [[I want to do x]]: Guides to specific types of structural perturbations using RosettaScripts
 * [[Application Documentation]]: Links to documentation for a variety of Rosetta applications
 * [[Analyzing Results]]: Tips for analyzing results generated using Rosetta

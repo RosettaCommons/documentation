@@ -785,7 +785,7 @@ A new Job Distributor, JD3, is ready for use.  This is mostly invisible to end u
 Although most improvements were in Rosetta3.7, we continue to improve the fraction of unmodified PDBs Rosetta can handle.  (Don't worry - we've always been able to handle canonical protein well - but we are doing an ever-improving job with strange stuff like the GFP fluorophore, chemically concatenated ligands, glycans, RNA, etc).
 
 ###Cxx11 builds
-Rosetta turned on Cxx11 features in its C++.  This deprecates the compatibility of a lot of older compilers. See <https://www.rosettacommons.org/docs/latest/build_documentation/Cxx11Support> for more information.
+Rosetta turned on Cxx11 features in its C++.  This deprecates the compatibility of a lot of older compilers. See <https://www.rosettacommons.org/docs/latest/Building_Rosetta/Cxx11Support> for more information.
 
 ###Executable naming
 We've tweaked the build system such that the built executables are named a little more simply.  The tripartite names (rosetta_scripts.default.linuxgccrelease) will work as before, but now the two-part names rosetta_scripts.linuxgccrelease) will always point towards the default build, instead of the most recent build.
@@ -951,7 +951,7 @@ Enzyme specificity re-design (using coupled_moves) ([http://www.ncbi.nlm.nih.gov
 * Multiple refactorings in the chemistry layers, allowing:
     * Poses with carbohydrates
     * Better support for ribonucleoprotein
-    * Support for all ligands in the PDB’s chemical dictionary (note you must [install that dictionary separately](build_documentation/Building-Rosetta#setting-up-rosetta-3_obtaining-additional-files_pdb-chemical-components-dictionary))
+    * Support for all ligands in the PDB’s chemical dictionary (note you must [install that dictionary separately](Building_Rosetta/Building-Rosetta#setting-up-rosetta-3_obtaining-additional-files_pdb-chemical-components-dictionary))
     * Support for runtime manipulation of chemistry (adding/removing atoms)
     * Support for rotamer libraries with arbitrary numbers of backbone torsion dependencies
     * Automatic setup of bonds to [metal ions](rosetta_basics/non_protein_residues/Metals).  

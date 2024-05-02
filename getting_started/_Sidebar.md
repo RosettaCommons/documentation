@@ -14,7 +14,7 @@
 
 * [[Rosetta canon]]
 
-[[Build Documentation|build_documentation/Building-Rosetta]]
+[[Building Rosetta|Building_Rosetta/Building-Rosetta]]
 
 [[Rosetta Tutorials| https://www.rosettacommons.org/demos/latest/Home#tutorials ]]
 

@@ -26,7 +26,7 @@ Only those tests that have a `command.mpi` file will run in this mode.
 
 * [[Integration tests]]: General information on Rosetta's integration tests
 * [[Running Rosetta in MPI mode|running-rosetta-with-options#mpi]]
-* [[Build Documentation]]: Find instructions for building Rosetta mpi executables here
+* [[Building Rosetta]]: Find instructions for building Rosetta mpi executables here
 * [[Testing server]]: Server that can be used to run Rosetta integration tests automatically
   * [[Running Tests on the Test Server]]: Instructions for using the testing server
 * [[Testing home page|rosetta-tests]]

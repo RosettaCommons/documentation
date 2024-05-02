@@ -109,5 +109,5 @@ For RosettaCommons developers, we have a version of the Doxygen documentation wh
 * [[PyRosetta]]: Wiki page for PyRosetta, the independent Python interface to Rosetta
 * [[Rosetta Timeline]]: History of Rosetta
 * [[Getting Started]]: A page for people new to Rosetta
-* [[Build Documentation]]: Information on building Rosetta
+* [[Building Rosetta]]: Information on building Rosetta
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables

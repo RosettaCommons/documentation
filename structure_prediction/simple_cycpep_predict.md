@@ -37,7 +37,7 @@ The application is also available in MPI form for sampling large numbers of conf
 mpirun -np 25 /my_rosetta_path/main/source/bin/simple_cycpep_predict.mpi.linuxgccrelease -cyclic_peptide:MPI_processes_by_level 1 24 -cyclic_peptide:MPI_batchsize_by_level 10 -cyclic_peptide:MPI_output_fraction 0.1 -nstruct 2500 -cyclic_peptide:sequence_file inputs/seq.txt -cyclic_peptide:genkic_closure_attempts 1000 -cyclic_peptide:min_genkic_hbonds 2 -mute all -unmute protocols.cyclic_peptide_predict.SimpleCycpepPredictApplication_MPI_summary -in:file:native inputs/native.pdb -out:file:silent output.silent
 ```
 
-See the [[Build Documentation]] for details on the MPI (Message Passing Interface) build, and the MPI section below for more information about the MPI-specific options.
+See the [[Building Rosetta]] for details on the MPI (Message Passing Interface) build, and the MPI section below for more information about the MPI-specific options.
 
 # Full inputs
 

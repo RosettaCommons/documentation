@@ -1,6 +1,6 @@
 [[Getting Started]]
 
-[[Build Documentation|build_documentation/Building-Rosetta]]
+[[Building Rosetta|Building_Rosetta/Building-Rosetta]]
 
 * [[Supported platforms|platforms]]
 

@@ -29,7 +29,7 @@ path_to/some_rosetta_app.linuxgccrelease -database path/to/rosetta/Rosetta/main/
 For a few examples, see the [[commands collection]] page.
 
 ##Location of Rosetta Executables
-After Rosetta is [[compiled | build_documentation/Building-Rosetta ]], links to binary executables are copied to the Rosetta/main/source/bin directory. (This is the bin/ directory off of the directory where you compiled the code.) **Full paths** to these executables need to be given when running Rosetta, _unless_ this directory is added to the **PATH** variable in your shell profile (~/.bashrc (linux), ~/.bash_profile (mac), etc). <code> export PATH=$PATH:/path/to/rosetta/bin </code>
+After Rosetta is [[compiled | Building_Rosetta/Building-Rosetta ]], links to binary executables are copied to the Rosetta/main/source/bin directory. (This is the bin/ directory off of the directory where you compiled the code.) **Full paths** to these executables need to be given when running Rosetta, _unless_ this directory is added to the **PATH** variable in your shell profile (~/.bashrc (linux), ~/.bash_profile (mac), etc). <code> export PATH=$PATH:/path/to/rosetta/bin </code>
 
 
 ##[[Rosetta Database|database]]
@@ -257,7 +257,7 @@ Rosetta is a highly versatile piece of software, and both its options system and
 
 * [[Fixing errors]]: Troubleshooting common errors in Rosetta
 * [[Getting Started]]: A page for people new to Rosetta. New users start here.
-* [[Build Documentation]]: Information on setting up Rosetta
+* [[Building Rosetta]]: Information on setting up Rosetta
 * [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
 * [[TACC]]: Information for running Rosetta on the TACC/Stampede cluster.
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
