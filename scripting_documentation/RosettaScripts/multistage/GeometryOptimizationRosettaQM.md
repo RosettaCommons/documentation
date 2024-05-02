@@ -103,18 +103,6 @@ For each region, a different score function needs to be used. The following tabl
 
 ```
 <SIMPLE_METRICS>
-    <SequenceMetric 
-        name="output_seq_selected2" 
-        custom_type="QM2_Seq" 
-        output_mode="oneletter"
-        residue_selector="qm_region2"
-    />
-    <SequenceMetric 
-        name="output_seq_selected1" 
-        custom_type="QM1_Seq" 
-        output_mode="oneletter"  
-        residue_selector="qm_region1"
-    />
     <TotalEnergyMetric 
         name="gamess_point_energy_subset" 
         scorefxn="multi_score_fxn" 
@@ -129,23 +117,11 @@ For each region, a different score function needs to be used. The following tabl
         msfxn_name="multi_score_fxn" 
         msfxn_classical_cartmin="true" 
     />
-    <RunSimpleMetrics 
-        name="run_seq_metric2" 
-        metrics="output_seq_selected2" 
-        prefix="RESIDUES_"
-    />
-    <RunSimpleMetrics 
-        name="run_seq_metric1" 
-        metrics="output_seq_selected1" 
-        prefix="RESIDUES_"
-    />
     
 </MOVERS>
 
 <PROTOCOLS>
     <Add mover="qm_geo_opt_msfxn"/>
     <Add metrics="gamess_point_energy_subset"/>
-    <Add mover="run_seq_metric2"/>
-    <Add mover="run_seq_metric1"/>
 </PROTOCOLS>
 ```
