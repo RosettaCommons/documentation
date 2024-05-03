@@ -58,7 +58,7 @@ The following table gives a summary of that.
 |-------------|----------------|
 | qm\_region1 | HF/3-21G |
 | qm\_region2 | HF-3c/FMO|
-| region3 (not explicitly defined) | Rosetta ref2015 |
+| region3     | Rosetta ref2015 |
 <br />
 <br />
 ```xml
