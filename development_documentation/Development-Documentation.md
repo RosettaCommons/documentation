@@ -7,6 +7,7 @@
 - [[Doxygen tips]] - How to work with Rosetta's in-code documentation.
 - [[Writing an app]] - How to write your own Rosetta-based application.
 - [[Making rosetta robust for running on large number of inputs|robust]]
+- [[Ensuring that Rosetta modules provide their own citations in Rosetta output|CitationManager]]
 
 ##Where is the documentation for the various Rosetta libraries?
 The documentation for the various libraries is a bit scattered.  Here is a partially-complete list:
