@@ -11,8 +11,9 @@ In this case, we have part of a zinc-finger protein. We want to optimize the geo
 
 <figure align="center"> 
 <img src="../../../images/GeometryOptimizationRosettaQM_region1.png" alt="drawing" width="600"/> 
-<figcaption>Figure 1. Atomistic view of region 1 is shown, where the zinc atom is surrounded by two cystein residues and two histidine residues. </figcaption> 
+<figcaption>Figure 1. Atomistic view of region 1 is shown, where the zinc atom is surrounded by two cystein residues and two histidine residues.</figcaption> 
 </figure> 
+ 
 Therefore, the protein will be seperated into three regions, which will be called `qm_region1`, `qm_region2` and `region3` (that will not be explicitly defined), respectively. 
 
 Then, different score function will be applied to each reigon with capping rules. 
