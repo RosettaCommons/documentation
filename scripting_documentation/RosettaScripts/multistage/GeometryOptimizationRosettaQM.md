@@ -13,22 +13,22 @@ In this case, we have part of a zinc-finger protein. We want to optimize the geo
 <img src="../../../images/GeometryOptimizationRosettaQM_region1.png" alt="drawing" width="600"/> 
 <figcaption>Figure 1. Atomistic view of region 1 is shown, where the zinc atom is surrounded by two cystein residues and two histidine residues. </figcaption> 
 </figure> 
-<br />
 Therefore, the protein will be seperated into three regions, which will be called `qm_region1`, `qm_region2` and `region3` (that will not be explicitly defined), respectively. 
-<br />
-Then, different score function will be applied to each reigon with capping rules.
-<br />
+
+Then, different score function will be applied to each reigon with capping rules. 
+
 And then finally geometry optimization will be applied based on the regions and the capping rules applied for each region. 
-<br />
+
 Residue selectors ae used to specify each region.qm_region1 is selected by residue numbers, and qm_region2 is selected by Neighborhood selector. 
-This selector compares the distance between beta carbons of selection (in this case, qm_region1). 
-If the distance is less than or equal to the threshold (in this case, 6.0A) it selects that residue. 
-This is selected with the tag `distance` and setting to 6.0 (units for this tag are in angstroms). 
-Setting the include_focus_in_subset tag to false means that qm_region2 excludes qm_region1. Figure 2. highights qm_region1 with orange, and qm_region2 with red and the remaining region (region3) with blue. 
-Note that `region3` is not defined because the MultiScoreFunction will automatically define what is remaining and define that as region3.
+
+This selector compares the distance between beta carbons of selection (in this case, qm_region1).  
+If the distance is less than or equal to the threshold (in this case, 6.0A) it selects that residue.  
+This is selected with the tag `distance` and setting to 6.0 (units for this tag are in angstroms).  
+Setting the include_focus_in_subset tag to false means that qm_region2 excludes qm_region1. Figure 2. highights qm_region1 with orange, and qm_region2 with red and the remaining region (region3) with blue.  
+Note that `region3` is not defined because the MultiScoreFunction will automatically define what is remaining and define that as region3.  
 
 
-Therefore, the residue selector block looks like this
+Therefore, the residue selector block looks like this:  
 
 ```xml
     <RESIDUE_SELECTORS>
