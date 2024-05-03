@@ -54,8 +54,8 @@ For each region, a different score function needs to be used. The following tabl
 
 | Region's name | Score function |
 |-------------|----------------|
-| reg1 | |
-| reg2 | 
+| qm\_region1 | HF/3-21G |
+| qm\_region2 | HF-3c/FMO|
 | reg3 | Rosetta ref2015 |
 
 
