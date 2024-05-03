@@ -148,10 +148,14 @@ For more on how to setup:
     </MOVERS>
 ```
 
-Next we are goint to set up the `PROTOCOLS` block. In this block we are calling the Geometry
+Next we are goint to set up the `PROTOCOLS` block. In this block we are calling the FastRelax and then the GamessQMGeometryOptimizationMover sequentially. 
+So once FastRelax is done Rosetta will pass the Rosetta relaxed structure to GamessQMGeometryOptimizationMover for QM + RosettaMM geometry optimization. 
 
 ```xml
     <PROTOCOLS>
-        Add mover="qm_geo_opt_msfxn"/>
+        <Add mover="fast_relax" />
+        <Add mover="qm_geo_opt_msfxn"/>
     </PROTOCOLS>
 ```
+
+
