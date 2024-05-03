@@ -5,7 +5,7 @@ Metadata
 
 Author: Jason Fell (jsfell@ucdavis.edu)
 
-This document was mostly written by Jason Fell (jsfell@ucdavis.edu), last updated October 2019. Other contributors are Stephanie C. Contreras, Steve J. Bertolani and Justin B. Siegel. 
+This document was mostly written by Jason Fell (jsfell@ucdavis.edu), last updated May 2020. Other contributors are Stephanie C. Contreras, Steve J. Bertolani and Justin B. Siegel. 
 
 Code and Demo
 =============
@@ -19,7 +19,7 @@ Input files that are needed:
 
 -   a cleaned pdb for each template
 -   a file containing all catalytic residues for each template
--   an aligned fasta file with all template and target sequences
+-   a file containing aligned sequences of all templates and targets in fasta format
 
 Setup
 =====
@@ -47,6 +47,19 @@ Command line options are:
 -a aligned fasta sequences
 -n optional name for output
 ```
+
+Template names need to be consistent in all locations (pdb files, in alignment, and in catalytic residue file).
+
+####Catalytic Residue Syntax
+
+A file containing the catalytic residue information should be written as:
+
+```
+TEMPLATE RES1,RES2,RES3
+TEMPLATE RES1,RES2,RES3
+```
+
+Where TEMPLATE is the name of your template (no .pdb required), and each catalytic residue is comma separated and capitalized.
 
 References
 ========

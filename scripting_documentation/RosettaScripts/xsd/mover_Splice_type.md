@@ -16,8 +16,9 @@ XRW TO DO
         delete_hairpin_c="(13 &non_negative_integer;)" tail_segment="(&n_or_c;)"
         protein_family="(&string;)"
         source_pdb_to_res="(&refpose_enabled_residue_number;)"
-        skip_alignment="(false &bool;)" use_sequence_profile="(&bool;)"
-        scorefxn="(&string;)" add_sequence_constraints_only="(false &bool;)"
+        skip_alignment="(false &bool;)" reference_name="(&string;)"
+        use_sequence_profile="(&bool;)" scorefxn="(&string;)"
+        add_sequence_constraints_only="(false &bool;)"
         template_file="(&string;)" set_fold_tree_only="(false &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
         packer_palette="(&named_packer_palette;)"
@@ -63,6 +64,7 @@ XRW TO DO
 -   **protein_family**: XRW TO DO
 -   **source_pdb_to_res**: XRW TO DO
 -   **skip_alignment**: XRW TO DO
+-   **reference_name**: Use the reference pose as the 'start' pose (and a template pose if template_file is not given.
 -   **use_sequence_profile**: XRW TO DO
 -   **scorefxn**: Name of score function to use
 -   **add_sequence_constraints_only**: XRW TO DO

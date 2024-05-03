@@ -4,7 +4,7 @@ Metadata
 
 Author: Andrea Bazzoli (ndrbzz [at] gmail.com)
 
-Last updated: December 2019
+Last updated: July 2020
 
 Code
 ====
@@ -13,7 +13,7 @@ The application's code lives in `src/apps/public/constel.cc`.
 
 Application's purpose
 ===================
-Extracts "constellations" of atoms from a protein structure. A constellation is defined as the arrangement of atoms that are lost by a group of spatially contiguous residues upon mutation to a smaller residue. (Two residues are defined to be "spatially contiguous" if their side-chains interact with an unweighted attractive van der Waals energy [fa_atr] lower than –0.375.)
+Extracts "constellations" of atoms from a protein structure. A constellation is defined as the 3D arrangement of atoms that are lost by a group of spatially contiguous residues upon mutation to a smaller residue. (Two residues are defined to be "spatially contiguous" if their side-chains interact with an unweighted attractive van der Waals energy [fa_atr] lower than –0.375.)
 
 Once extracted, constellations may serve as templates for compounds to rescue the structure and activity of the mutated protein or protein complex.
 
@@ -189,5 +189,4 @@ ATOM     15  OH  TYR A  92      23.886  22.013   9.152  1.00 11.00           O
 
 References
 ==========
-Khowsathit J, Bazzoli A, Cheng H, and Karanicolas J. _Allosteric control of antibody activity by
-deletion and rescue of a complex structural constellation._ 2019. Submitted.
+Khowsathit J, Bazzoli A, Cheng H, and Karanicolas J. _Computational design of an allosteric antibody switch by deletion and rescue of a complex structural constellation_ (2020) ACS Cent Sci 6(3):390–403. https://doi.org/10.1021/acscentsci.9b01065 

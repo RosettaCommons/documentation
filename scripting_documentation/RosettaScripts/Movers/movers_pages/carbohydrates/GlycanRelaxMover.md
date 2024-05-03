@@ -11,9 +11,13 @@ Mover/Application created by Dr. Jared Adolf-Bryfogle (jadolfbr@gmail.com) and D
 
 PIs: Dr. William Schief (schief@scripps.edu) and Dr. Jeffrey Gray (jgray@jhu.edu)
 
-This is still an in-development, unnpublished application.  If you use this in your publication, please email the authors!
 
 The `GlycanSampler` is the main sampling component of the [[GlycanTreeModeler]]
+
+##Reference
+**Growing Glycans in Rosetta: Accurate de novo glycan modeling, density fitting, and rational sequon design**
+Jared Adolf-Bryfogle, J. W Labonte, J. C Kraft, M. Shapavolov, S. Raemisch, T. Lutteke, F. Dimaio, C. D Bahl, J. Pallesen, N. P King, J. J Gray, D. W Kulp, W. R Schief
+_bioRxiv_ 2021.09.27.462000; [[https://doi.org/10.1101/2021.09.27.462000]]
 
 ##Details
 

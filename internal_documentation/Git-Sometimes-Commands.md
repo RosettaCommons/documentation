@@ -16,6 +16,8 @@ If your branch is fully merged and complete and you're done with it, you can del
 
 The first commit deletes it locally, and the second deletes it remotely. The first will fail if you have unmerged changes.
 
+You can also delete the branch associated with a PR once it is merged by using the button on the PR page. (That only works for the remote branch -- the local branch will still exist.)
+
 ##Reverting commits
 
 Occasionally a faulty commit will be pushed to the GitHub repository.  Git allows commits to be deleted, which is perfectly fine when you are working in your personal repository with commits that have not been shared.  However, after the commits have been shared (pushed), deleting a commit results in repositories having divergent history.  This is where git revert comes in.  Git revert can revert a revision, multiple revisions or even a range of revisions.

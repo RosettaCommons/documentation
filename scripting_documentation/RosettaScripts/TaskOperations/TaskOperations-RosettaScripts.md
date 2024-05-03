@@ -10,6 +10,7 @@ There exist certain commonly-used TaskOperations that one usually should include
 
 This section defines instances of the TaskOperation class hierarchy when used in the context of the Parser/RosettaScripts. They become available in the DataMap.
 
+[[Residue Level Task Operations|Residue-Level-TaskOperations]] are also available to control the packer at residue level.
 
 [[_TOC_]]
 
@@ -108,6 +109,7 @@ TaskOp  | Description
 **[[SelectResiduesWithinChain|SelectResiduesWithinChainOperation]]** | Do not pack/design residues based on their position in a chain.
 **[[SelectBySASA|SelectBySASAOperation]]** | Repack residue based on surface exposure.
 **[[SetCatalyticResPackBehavior|SetCatalyticResPackBehaviorOperation]]** | Turn of packing or design for residues in [[enzdes constraints|match-cstfile-format]]. 
+**[[RestrictAAsFromProbabilities]]** | Restrict AAs based on a PerResidueProbabilitiesMetric.
 **[[RestrictToTermini|RestrictToTerminiOperation]]** | Only repack termini.
 
 <!--- BEGIN_INTERNAL -->

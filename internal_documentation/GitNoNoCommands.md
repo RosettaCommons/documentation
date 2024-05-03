@@ -32,6 +32,8 @@ A---B---C---D <master>
 
 There are circumstances when rebases are useful, however if a rebase is performed, every user who has cloned the repository must be aware of the rebase before they pull, or duplicated commits and inconsistent history can occur.  To avoid these problems, do not use git rebase or git pull --rebase with Rosetta git repositories.  Having a non-linear revision history is a feature of git, rather than something to be avoided. 
 
+Note that with the squash-merge approach we now take with the RosettaCommons/rosetta repository, most of the issues with Git rebase goes away. (Although it's still worth being careful for in submodules.)
+
 ###--force
 
 by default, any commit being pushed must be a child (and not a parent) of an existing commit. 
@@ -52,7 +54,7 @@ but you cannot push changes to commits A, B, or C.
 
 The push  --force command disables the check that rejects changes to A, B and C, effectively allowing history to be rewritten. 
 
-This flag is sometimes necessary if large amounts of unnecessary binary data are committed, however, it is a very dangerous command as it rewrites history, and thus requires that the entire community be aware of its use.  If you have reason to suspect that a push --force operation is necessary, email the list to confirm.  This command is very rarely necessary and can be avoided.
+This flag is sometimes necessary if large amounts of unnecessary binary data are committed, however, it is a very dangerous command as it rewrites history, and thus requires that the entire community be aware of its use when used on shared branches. 
 
 Note that
   git add --force
@@ -60,7 +62,9 @@ may also have undesirable effects such as adding otherwise ignored files. These 
 
 ###--squash
 
-git merge --squash branch_name will merge branch_name into the currently checked out branch, and combine all of the commits in branch_name into a single "squashed" commit. This might appear desirable as it makes the commit history "neater".  However, git handles large numbers of small commits very well, and the test server only tests the merge commit to master, and none of the intermediate commits, so squashing commits is not necessary. If you do not squash your commits, debugging is easier, as the complete granular history of the development is maintained.  Additionally, there are circumstances in which applying squash to previously pushed commits can result in inconsistent history, and for this reason you should not use it with rosetta repositories. 
+git merge --squash branch_name will merge branch_name into the currently checked out branch, and combine all of the commits in branch_name into a single "squashed" commit. This might appear desirable as it makes the commit history "neater".  However, git handles large numbers of small commits very well, so squashing development branches is not necessary. If you do not squash your commits, debugging is easier, as the complete granular history of the development is maintained.
+
+Note that when your development branch gets merged to master, it will be squashed then, so there isn't much call for squashing during development.
 
 ###filter-branch
 

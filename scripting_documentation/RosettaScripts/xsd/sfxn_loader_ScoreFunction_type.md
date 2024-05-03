@@ -52,13 +52,15 @@ XRW TO DO
             approximate_buried_unsat_penalty_natural_corrections1="(&bool;)"
             approximate_buried_unsat_penalty_hbond_bonus_cross_chain="(&real;)"
             approximate_buried_unsat_penalty_hbond_bonus_ser_to_helix_bb="(&real;)"
+            approximate_buried_unsat_penalty_lys_ok_with_1="(&bool;)"
             buried_unsatisfied_penalty_cone_angle_exponent="(&real;)"
             buried_unsatisfied_penalty_cone_angle_shift_factor="(&real;)"
             buried_unsatisfied_penalty_cone_dist_exponent="(&real;)"
             buried_unsatisfied_penalty_cone_dist_midpoint="(&real;)"
             buried_unsatisfied_penalty_burial_threshold="(&real;)"
             buried_unsatisfied_penalty_hbond_energy_threshold="(&real;)"
-            dump_trajectory_prefix="(&string;)" dump_trajectory_gz="(&bool;)"
+            target_clash_pdb="(&string;)" dump_trajectory_prefix="(&string;)"
+            dump_trajectory_gz="(&bool;)"
             dump_trajectory_stride="(&positive_integer;)"
             voids_penalty_energy_containing_cones_cutoff="(&non_negative_integer;)"
             voids_penalty_energy_voxel_size="(&real;)"
@@ -107,8 +109,8 @@ Subtag **Set**:
 -   **hbonds__measure_sp3acc_BAH_from_hvy**: XRW TO DO
 -   **hbonds__fade_energy**: XRW TO DO
 -   **hbonds__exclude_ether_oxygens**: XRW TO DO
--   **hbonds__Mbhbond**: XRW TO DO
--   **hbonds__mphbond**: XRW TO DO
+-   **hbonds__Mbhbond**: XRW TO DO: pba
+-   **hbonds__mphbond**: Membrane framework hbonding correction
 -   **lj_hbond_OH_donor_dis**: Lennard Jones sigma value for O in OH donor groups
 -   **lj_hbond_hdis**: Lennard Jones sigma value for hatms, classically it's been at 1.95 but the average A-H distance for hydrogen bonding is 1.75 from crystal structures
 -   **fa_max_dis**: Max distance for energy function calculations, in angstroms
@@ -145,12 +147,14 @@ Subtag **Set**:
 -   **approximate_buried_unsat_penalty_natural_corrections1**: Apply the following corrections to buried unsat penalty: nh2_wants_2, nh1_wants_1, hydroxyl_wants_h, carboxyl_wants_2
 -   **approximate_buried_unsat_penalty_hbond_bonus_cross_chain**: Apply a bonus factor to hydrogen bonds accross chains.
 -   **approximate_buried_unsat_penalty_hbond_bonus_ser_to_helix_bb**: Apply a bonus factor to the classic SER/THR i - i-4 h-bond. OG/OG1 - O. Set this positive to penalize.
+-   **approximate_buried_unsat_penalty_lys_ok_with_1**: Make LYS N work like carbonyl O where it prefers 1 or 2 h-bonds.
 -   **buried_unsatisfied_penalty_cone_angle_exponent**: The angle exponent for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
 -   **buried_unsatisfied_penalty_cone_angle_shift_factor**: The angle shift factor for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
 -   **buried_unsatisfied_penalty_cone_dist_exponent**: The distance exponent for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
 -   **buried_unsatisfied_penalty_cone_dist_midpoint**: The distance midpoint for calculating burial by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
 -   **buried_unsatisfied_penalty_burial_threshold**: The number of cones in which a point must lie to be considered buried by the method of sidechain neighbor cones, used by the BuriedUnsatPenalty energy.
 -   **buried_unsatisfied_penalty_hbond_energy_threshold**: The energy threshold above which a hydrogen bond is not counted, used by the BuriedUnsatPenalty energy.
+-   **target_clash_pdb**: The target pdb file for clash checking.
 -   **dump_trajectory_prefix**: If the dump_trajectory scoreterm is used, this is the prefix for the filename to which we're dumping.
 -   **dump_trajectory_gz**: If the dump_trajectory scoreterm is used, this determines whether we write to gzipped files.  False by defualt.
 -   **dump_trajectory_stride**: If the dump_trajectory scoreterm is used, this is the frequency with which we write.  Every Nth evaluation of the score term, a pose will be written.  Default 1.

@@ -9,7 +9,8 @@ XRW TO DO
 <AtomTree name="(&string;)" start_tree_at_chain="(&char;)"
         ab_fold_tree="(false &bool;)" host_chain="(&non_negative_integer;)"
         fold_tree_file="(&string;)" docking_ft="(0 &bool;)"
-        simple_ft="(0 &bool;)" jump="(1 &non_negative_integer;)"
+        partners="(_ &string;)" simple_ft="(0 &bool;)"
+        jump="(1 &non_negative_integer;)"
         resnum="(&refpose_enabled_residue_number;)"
         pdb_num="(&refpose_enabled_residue_number;)" connect_to="(&string;)"
         anchor_res="(&string;)" connect_from="(&string;)"
@@ -22,6 +23,7 @@ XRW TO DO
 -   **host_chain**: Chain that isn't part of the antibody, which only matters if ab_fold_tree is true -- nonetheless, typically 2 if ab_fold_tree is false
 -   **fold_tree_file**: Foldtree may be read in from a file, if desired
 -   **docking_ft**: Use a classic docking foldtree
+-   **partners**: Chain IDs of docking partners across which to make the 'docking_ft' (e.g. A_X)
 -   **simple_ft**: Impose the simplest possible foldtree
 -   **jump**: If the docking foldtree is desired, over which jump should it apply?
 -   **resnum**: Residue central to this AtomTree resetting

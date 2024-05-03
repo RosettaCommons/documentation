@@ -1,4 +1,4 @@
-### ### #Application Documentation
+#Application Documentation
 
 Below is a list of the currently released applications containing developer documentation. Click on an application to
 see a more detailed description of the purpose and for detailed examples. If a released application is missing, please
@@ -22,6 +22,7 @@ A collection of example command lines can be found [[here|commands-collection]].
 
 ##Scripting interfaces to Rosetta functionality <a name="scripting" />
 - [[RosettaScripts]]: An XML-based scripting interface
+- [[RosettaScripts-JD3]]: RosettaScripts that can be run for different inputs and settings in a single job
 - [[The Topology Broker|BrokeredEnvironment]]: Rapid protocol prototyping in C++, [[PyRosetta]], and [[RosettaScripts]]
 - [[PyRosetta]]: Python wrappings for Rosetta
 
@@ -45,6 +46,7 @@ While most of these applications focus on prediction, many have options which wi
 - [[Relax]] - "Locally" optimize structures, including assigning sidechain positions.
 - [ RNA ](#RNA) - see below for apps, including FARFAR & ERRASER (crystallographic refinement).  
 - [[Simple Cyclic Peptide Prediction|simple_cycpep_predict]] - Prediction of structures of small (~5-20 residue) backbone-cyclized peptides consisting of any mixture of L- and D-amino acids.
+- [[trRosetta application|trRosetta]] - Predict structures of canonical single-chain proteins without fragments, using the trRosetta neural network and gradient-descent minimization.
 - [[RosettaNMR with Paramagnetic Restraints|RosettaNMR with Paramagnetic Restraints]] - Structure prediction in RosettaNMR using backbone chemical shifts and paramagnetic restraints derived from metal ion tags.
   
 --------------------------
@@ -333,6 +335,9 @@ Component | Description
 
 ### Residue Solvent Exposure
 - [[PerResidueSolventExposure|PerResidueSolventExposure]] - Calculate the per residue solvent exposure in the form of a neighbor count
+
+### Surface-induced dissociation (SID) energy-resolved mass spectrometry (ERMS) data prediction
+- [[SID_ERMS_prediction|SID_ERMS_prediction]] - Predict SID ERMS for a protein complex.
 
 ##UI <a name="UI" />
 

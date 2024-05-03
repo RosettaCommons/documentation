@@ -49,7 +49,7 @@ end
 # OmniAuth, to leverage GitHub's team member authentication.
 
 map '/docs/wiki' do
-  host = 'https://www.rosettacommons.org'
+  host = ENV["RC_HOST"] || 'https://www.rosettacommons.org'
   # need to set this or else it uses http (no 's'), which causes github to give a bad URL error
   OmniAuth.config.full_host = host
   

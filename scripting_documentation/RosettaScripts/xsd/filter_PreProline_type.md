@@ -13,7 +13,7 @@ Helical space (ABEGO type A) is strongly disfavored before a proline, and Rosett
 
 -   **threshold**: Returns true if the value of the spline function is less than or equal to the threshold
 -   **use_statistical_potential**: If true, the bicublic spline fit to the statistical potential of Ramachandran space will be used to evaluate the torsions. If false, residues in potentially bad torsion bins will be counted. (default = false)
--   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
+-   **residue_selector**: . The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

@@ -8,7 +8,8 @@ A PlacementAuctionMover pays increasing prices to put hotspots in place on a cha
 ```xml
 <Auction name="(&string;)" chain_to_design="(2 &non_negative_integer;)"
         max_cb_dist="(3.0 &real;)" cb_force="(0.5 &real;)"
-        stubscorefxn="(backbone_stub_constraint &string;)" >
+        stubscorefxn="(backbone_stub_constraint &string;)"
+        reference_name="(&string;)" >
     <StubSets >
         <Add stubfile="(&string;)" />
     </StubSets>
@@ -19,6 +20,7 @@ A PlacementAuctionMover pays increasing prices to put hotspots in place on a cha
 -   **max_cb_dist**: Maximum distance from ideal placement that is nonetheless considered a hit
 -   **cb_force**: Force to apply to CB atoms
 -   **stubscorefxn**: Scoring function to apply to the stubs being placed
+-   **reference_name**: The reference pose to use for finalizing the stub sets (defaults to input pose).
 
 
 Subtag **StubSets**:   A container for tags that indicate stubfiles to be loaded

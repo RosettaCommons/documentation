@@ -16,7 +16,7 @@ This filter computes the total buried surface area for a pose or a subset of a p
 -   **filter_out_low**: If true (the default), then poses with buried surface area below the cutoff are rejected.  If false, then poses with buried surface area above the cutoff are rejected.
 -   **cutoff_buried_surface_area**: The buried surface area below which (or above which, if "filter_out_low" is false) a pose is rejected.  Defaults to 500 square Angstroms, an arbitrarily-chosen value.
 -   **atom_mode**: The subset of atoms to use in the calculation.  Defaults to "all_atoms", but allowed values also include "hydrophobic_atoms" and "polar_atoms".
--   **residue_selector**: An optional, previously-defined residue selector.  If provided, then only the selected residues are used in computing buried surface area.  If not provided, then all residues are used.
+-   **residue_selector**: An optional, previously-defined residue selector.  If provided, then only the selected residues are used in computing buried surface area.  If not provided, then all residues are used. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

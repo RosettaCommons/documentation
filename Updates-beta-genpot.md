@@ -14,6 +14,9 @@ An alternate atom typing scheme has been introduced.  An alternate param file ge
 * A generic torsional potential, _gen_bonded_ has been added using these new types. This potential is _undefined (returning 0) for non-ligand residues_. 
 * LK and LJ parameters have been fit for these new atom types using a combination of small molecule crystal data and ligand-bound protein structures.
 
+### Generalized torsion term
+A generalized torsion term called "gen_bonded", a component of the generalized energy function, is defined according to the atom types and bond types at the torsion axis. It uses the common functional form used in regular force field, representing torsional preference as a series of cosine functions up to 4-th order. The parameters associated with the term can be found from the file located at the Rosetta database: database/scoring/score_functions/generic_potential/generic_bonded.round6p.txt
+
 ## Ligand docking
 
 A new ligand docking protocol has been added, [[GALigandDock]], that takes advantage of this new generic potential. It combines fast scoring on a precomputed grid with a genetic algorithm to allow very accurate ligand docking in 3-10 CPU minutes total per target (fixed sidechain) or 10-30 CPU minutes total (flexible sidechain).

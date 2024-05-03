@@ -12,7 +12,8 @@ XRW TO DO
         rate_threshold="(0.0 &real;)"
         mutation_threshold="(100 &non_negative_integer;)"
         report_mutations="(0 &bool;)" verbose="(0 &bool;)"
-        write2pdb="(0 &bool;)" confidence="(1.0 &real;)" />
+        write2pdb="(0 &bool;)" reference_name="(&string;)"
+        confidence="(1.0 &real;)" />
 ```
 
 -   **task_operations**: A comma-separated list of TaskOperations to use.
@@ -23,6 +24,7 @@ XRW TO DO
 -   **report_mutations**: Decide pass/fail based on the mutation threshold, not the rate threshold
 -   **verbose**: Give a lot more logging output
 -   **write2pdb**: Write each mutation as a string to the output PDB
+-   **reference_name**: Name of reference pose to use (Use the SavePoseMover to create a reference pose)
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

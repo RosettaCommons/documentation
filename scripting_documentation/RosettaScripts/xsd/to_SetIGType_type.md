@@ -7,11 +7,13 @@ Task operation to set interaction graph type -linmem, lazy or double lazy.
 
 ```xml
 <SetIGType name="(&string;)" lin_mem_ig="(false &bool;)"
-        lazy_ig="(false &bool;)" double_lazy_ig="(false &bool;)" />
+        lazy_ig="(false &bool;)" double_lazy_ig="(false &bool;)"
+        precompute_ig="(false &bool;)" />
 ```
 
 -   **lin_mem_ig**: Interaction graph type lin_mem-ig.
 -   **lazy_ig**: Interaction graph type lazy_ig.
 -   **double_lazy_ig**: Interaction graph type double_lazy_ig.
+-   **precompute_ig**: Interaction graph type precompute_ig.
 
 ---

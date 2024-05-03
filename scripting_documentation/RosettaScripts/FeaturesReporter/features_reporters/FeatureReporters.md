@@ -4,7 +4,7 @@
 [[_TOC_]]
 
 ##[[SimpleMetricFeatures]]
-* Calcualte and output arbitrary [[SimpleMetrics]]
+* Calculate and output arbitrary [[SimpleMetrics]]
 
 ##[[Meta|MetaFeaturesReporters]]   
 * Information about the batch of structures and the protocol that was used to generate it

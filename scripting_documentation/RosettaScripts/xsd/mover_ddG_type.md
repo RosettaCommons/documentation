@@ -15,7 +15,7 @@ This mover is useful for reporting the total or per-residue ddgs in cases where 
         filter="(&string;)" chain_num="(&string;)" chain_name="(&string;)"
         solvate="(false &bool;)" solvate_unbound="(false &bool;)"
         solvate_rbmin="(false &bool;)" min_water_jump="(true &bool;)"
-        compute_rmsd="(false &bool;)" />
+        compute_rmsd="(false &bool;)" dump_pdbs="(false &bool;)" />
 ```
 
 -   **scorefxn**: Name of score function to use
@@ -37,5 +37,6 @@ This mover is useful for reporting the total or per-residue ddgs in cases where 
 -   **solvate_rbmin**: Use rigid-body minimization following solvation
 -   **min_water_jump**: Include waters in rigid-body minimization following solvation and packing
 -   **compute_rmsd**: Compute the rmsd both with and without superimposing -- requires in:file:native to be supplied
+-   **dump_pdbs**: Dump debugging PDB files. Dumps 6 pdbs per instance: BOUND_before_repack, BOUND_after_repack, BOUND_after_relax, UNBOUND_before_repack, UNBOUND_after_repack, and UNBOUND_after_relax.
 
 ---

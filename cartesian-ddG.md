@@ -12,21 +12,26 @@ The algorithm is developed by Phil Bradley and Yuan Liu. Details about the metho
 
 Hahnbeom Park, Philip Bradley, Per Greisen Jr., Yuan Liu, Vikram Khipple Mulligan, David E Kim, David Baker, and Frank DiMaio (2016) "Simultaneous optimization of biomolecular energy function on features from small molecules and macromolecules", JCTC.
 
+Additional improvements and benchmarking has been described in:
+
+Frenz, Brandon, Steven M. Lewis, Indigo King, Frank DiMaio, Hahnbeom Park, and Yifan Song. 2020. “Prediction of Protein Mutational Free Energy: Benchmark and Sampling Improvements Increase Classification Accuracy.” Frontiers in Bioengineering and Biotechnology 8 (October): 558247.
 
 Command Line Options
 ====================
-First, input pdb should be properly relaxed in cartesian space with restrained backbone and sidechain coordinates. Please refer to [[here|relax]] for more information; also see an example command line:
+First, input pdb should be properly relaxed in cartesian space with unrestrained backbone and sidechain coordinates. ***note: unrestrainted relax has been found to produce fewer errors in classification. See the Frenz et al. paper for details. This represents a change from previous version***
+
+Please refer to [[here|relax]] for more information; also see an example command line:
 
 ```
 This is the command line we used for preminimization:
 
 $ROSETTABIN/relax -s $pdb -use_input_sc \
--constrain_relax_to_start_coords -ignore_unrecognized_res \
+-ignore_unrecognized_res \
 -nstruct 20 \
--relax:coord_constrain_sidechains  \
 -relax:cartesian-score:weights ref2015_cart \
 -relax:min_type lbfgs_armijo_nonmonotone \
--relax:script cart2.script
+-relax:script cart2.script \
+-fa_max_dis 9.0 # modify fa_atr and fa_sol behavior, really important for protein stability (default: 6). This flag needs to match what is used in the cartesian ddg options below.
 
 with file "cart2.script":
 
@@ -50,14 +55,19 @@ cartesian_ddg.linuxgccrelease
  -s [inputpdb]
  -ddg:mut_file [mutfile] # same syntax with what being used in ddg-monomer application.
  -ddg:iterations 3 # can be flexible; 3 is fast and reasonable
+ -force_iterations false (default True) #If this flag is on the protocol will stop when the results converge on a score
+ -ddg::score_cutoff 1.0 #If the lowest energy scores are within this cutoff the protocol will end early.
  -ddg::cartesian
  -ddg::dump_pdbs false # you can save mutants pdb if you want
  -bbnbr 1 # bb dof, suggestion: i-1, i, i+1
  -fa_max_dis 9.0 # modify fa_atr and fa_sol behavior, really important for protein stability (default: 6)  
- -[scorefunction option]: any other options for score function containing cart_bonded term, for example, -beta_cart or -score:weights talaris2014_cart]
+ -[scorefunction option]: any other options for score function containing cart_bonded term, for example, -beta_cart or 
+ -score:weights talaris2014_cart]
+ -ddg::legacy false #Using the latest version of the code
 ```
 
 For ddg:mut_file format, please refer to [[here | ddg-monomer]]. Note that this file contains the mutations you want to introduce at once, which means, specifying more than one mutation in a single file will try to mutate all together at same time. Scanning over separate mutations (e.g. ALA scanning) will therefore require running this app separately using different mut_file as input.
+
 
 ### Interface mode
 
@@ -72,6 +82,63 @@ Optional options:
 Here the app calculate difference in energy by detaching "the part in pose defined by the last jump" from the rest of pose; the easiest way of doing this is to edit the input pdb so that the ligand (either protein or small molecule)
 locates at its end. One can check whether it is working properly by running with an optional flag "-ddg:dump_pdbs", which will output *_bj.pdb (before dissociation) and *_aj.pdb (after dissociation). 
 
+Frenz et. al flags and options (cartddg2020)
+==========================================
+
+## Prep:
+
+```
+ROSETTASCRIPTS>
+    <SCOREFXNS>
+        <ScoreFunction name="fullatom" weights="ref2015_cart" symmetric="0">
+        </ScoreFunction>
+	</SCOREFXNS>
+	<MOVERS>
+        <FastRelax name="fastrelax" scorefxn="fullatom" cartesian="1" repeats="4"/> 
+	</MOVERS>
+	<PROTOCOLS>
+        <Add mover="fastrelax"/>
+    </PROTOCOLS>
+    <OUTPUT scorefxn="fullatom"/>
+</ROSETTASCRIPTS>
+```
+
+```
+rosetta_scripts.static.release \
+    -database $ROSETTA_DATABASE \
+    -s /workdir/input.pdb\
+    -parser:protocol /workdir/relax.xml\
+    -default_max_cycles 200\
+    -missing_density_to_jump\
+    -ignore_zero_occupancy false\
+    -fa_max_dis 9
+```
+
+## Run:
+
+```
+#!/bin/bash
+cartesian_ddg\
+    -database $ROSETTA3_DB\
+    -s ${input.pdb}\
+    -ddg::iterations 5\
+    -ddg::score_cutoff 1.0\
+    -ddg::dump_pdbs false\
+    -ddg::bbnbrs 1\
+    -score:weights ref2015_cart\
+    -ddg::mut_file ${mutfile.mut}\
+    -ddg:frag_nbrs 2\
+    -ignore_zero_occupancy false\
+    -missing_density_to_jump \
+    -ddg:flex_bb false\
+    -ddg::force_iterations false\
+    -fa_max_dis 9.0\
+    -ddg::json true\
+    -ddg:legacy false
+```
+
+
+
 Expected Outputs & post-processing
 ===============
 
@@ -83,7 +150,7 @@ COMPLEX: RoundX: [WT or MUT\_XXXX]: [totalscore] fa_atr: [fa\_atr] .....
 
 ```
 
-In the paper, the difference in totalscores averaged over 3 rounds for WT and MUT is taken as ddG:
+In the paper, the difference in totalscores averaged over 3 rounds for WT and MUT is taken as ddG. Using the lowest scores from each round works equally well as shown in the Frenz 2020 paper, as does running until the scores converge to within 1 REU:
 
 ```
 ddG = avrg(MUT totalscore) - avrg(WT totalscore)

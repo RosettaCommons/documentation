@@ -12,7 +12,7 @@ Moves the side chain for a set of residues identified by a task operation in a m
         ntrials="(10000 &non_negative_integer;)"
         preserve_detailed_balance="(1 &bool;)" prob_uniform="(0.0 &real;)"
         prob_withinrot="(0.0 &real;)" prob_random_pert_current="(0.0 &real;)"
-        change_chi_without_replacing_residue="(0.0 &real;)" />
+        change_chi_without_replacing_residue="(false &bool;)" />
 ```
 
 -   **task_operations**: A comma-separated list of TaskOperations to use.

@@ -19,7 +19,8 @@ Align + combine parts of the pdb
         init_overlap_sequence="(input_pose &init_overlap_sequence_type;)"
         scorefxn="(&string;)" output_only_first="(false &bool;)"
         output_overlap_positions="(false &bool;)" do_design="(true &bool;)"
-        clash_threshold="(10 &real;)"
+        clash_threshold="(10 &real;)" residue_selector_cmd_pose="(&string;)"
+        residue_selector_xml_pose="(&string;)"
         task_operations="(&task_operation_comma_separated_list;)"
         packer_palette="(&named_packer_palette;)" />
 ```
@@ -44,6 +45,8 @@ Align + combine parts of the pdb
 -   **output_overlap_positions**: outputs overlap positions
 -   **do_design**: Perform design on sequence
 -   **clash_threshold**: score0 clash threshold
+-   **residue_selector_cmd_pose**: Use residue_selector to determine how far to scan the cmdLine input pose
+-   **residue_selector_xml_pose**: Use residue_selector to determine how far to scan the xml input pose
 -   **task_operations**: A comma-separated list of TaskOperations to use.
 -   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 

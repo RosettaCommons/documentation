@@ -1,11 +1,11 @@
-#FARFAR2: Homology modeling and ab initio prediction of whole RNA 3D structures
+# FARFAR2: Homology modeling and ab initio prediction of whole RNA 3D structures
 
-#Application purpose
+# Application purpose
 To produce <i>de novo</i> models of RNA structures up to around 250nt, or homology models of RNA structures where up to about 80 nt are not in known templates or A-form helices, through a parameter-optimized version of Fragment Assembly of RNA with Full Atom Refinement (FARFAR), which we're calling FARFAR2.
 
 Note that most of the functionality of FARFAR2 is now available on a [ROSIE FARFAR server](http://rosie.rosettacommons.org/farfar2), if you want to do some easy tests.
 
-#Code and Demo
+# Code and Demo
 
 The central code for the *rna\_denovo* application is in `       src/protocols/rna/denovo/RNA_DeNovoProtocol.cc      ` .
 
@@ -13,10 +13,10 @@ For a 'minimal' demo example of the RNA fragment assembly and full-atom minimiza
 
 `       demos/public/FARFAR2      `
 
-#References
-Watkins, A. M.; Das, R. “FARFAR2: Improved de novo Rosetta prediction of complex global RNA folds.” bioRxiv, 2019. [Link.](https://doi.org/10.1101/764449)
+# References
+Watkins, A. M.; Rangan, R.; Das, R. “FARFAR2: Improved de novo Rosetta prediction of complex global RNA folds.” Structure, 2020, 28: 963-976. [Link.](https://doi.org/10.1016/j.str.2020.05.011)
 
-#Algorithm
+# Algorithm
 
 Algorithmic description of FARFAR (i.e., Fragment Assembly of RNA with Full Atom Refinement) as a whole can be found [[here|rna-denovo]]. There are several distinctions that inaugurate FARFAR2 as a method appropriate for large RNA structure prediction.
 
@@ -26,13 +26,13 @@ Algorithmic description of FARFAR (i.e., Fragment Assembly of RNA with Full Atom
 
 -   The original FARFAR method used a fragment library from 2009; we have updated it to 2018 and added flags for excluding fragments from any supplied `-native` structure to simulate benchmark-like conditions.
 
-#Limitations
+# Limitations
 
 -   Sufficiently large RNAs are still hard to sample completely. Obviously, use templates if they are available, even for small portions of your target! Experimental data can help (see [[earlier work with the previous code|rna-assembly]]), as can [[strategies for building up models gradually|rna-denovo-setup], or solving small motifs first with [[stepwise]].
 
 -   As with most other modes in Rosetta, the final ensemble of models is not guaranteed to be a Boltzmann ensemble. There is some progress happening in that direction for RNA with the [[recces]] application.
 
-#Modes
+# Modes
 
 
 -   By default, the code runs Monte Carlo fragment assembly, optimized in a knowledge-based low-resolution potential.
@@ -40,22 +40,22 @@ Algorithmic description of FARFAR (i.e., Fragment Assembly of RNA with Full Atom
 -   It is strongly suggested that you run with "-minimize\_rna", which permits the refinement in the high-resolution Rosetta potential, and results in models with few steric clashes and 'cleaner' hydrogen bonds.
 
 
-#Input Files
+# Input Files
 
 
-##Required file
+## Required file
 
 FARNA (rna_denovo) can accept sequence and secondary structure from command line, and does not require any files. However, using file input can help with organizing runs.
 
-##Optional additional files:
+## Optional additional files:
 
--   The [[fasta file]]: it is a sequence file for your RNA. Its header lines can specify chains and numbering for the output structures, too.
+-   The [[RNA fasta file]]: it is a sequence file for your RNA. Its header lines can specify chains and numbering for the output structures, too. *This differs from the ordinary FASTA format you may be familiar with and is required to specify chemically modified nucleotides.*
 
 -   The [[secondary structure file|rna-secondary-structure-file]]: holds the secondary structure for the RNA in dot-parens notation, if known.
 
 -   Native pdb file, if all-heavy-atom rmsd's are desired. Must be in Rosetta's [PDB format for RNA](#File-Format).
 
-##How to include these files.
+## How to include these files.
 
 A sample command line is the following:
 
@@ -73,7 +73,7 @@ The code takes about 1 minute to generate two models.
 
 The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. Example fasta and secstruct files are available in `       demos/public/rna_denovo      ` .
 
-#Options
+# Options
 ## Commonly used options
 ```
 -in:fasta                                        Fasta-formatted sequence file. [FileVector]
@@ -134,10 +134,10 @@ Advanced
 -staged_constraints                              Apply constraints in stages depending on sequence separation
 -close_loops                                     Attempt closure across chainbreaks by cyclic coordinate descent after fragment moves [Boolean] Defaults to true.
 ```
-#Tips
 
+# Tips
 
-##File Format 
+## File Format 
 <a name="File-Format" />
 
 Note that in older versions of Rosetta, the PDBs may have residue types marked as rA, rC, rG, and rU and unusual atom names. Versions of Rosetta released after 3.5 have residue and atom names matching BMRB/NDB standard nomenclature. If you have a "standard" PDB file, there is a python script available to convert it to current Rosetta format:
@@ -146,7 +146,7 @@ Note that in older versions of Rosetta, the PDBs may have residue types marked a
 tools/rna_tools/bin/make_rna_rosetta_ready.py <pdb file>
 ```
 
-##Can I specify non-Watson-Crick pairs? 
+## Can I specify non-Watson-Crick pairs? 
 <a name="Can-I-specify-non-Watson-Crick-pairs?" />
 
 You can also specify base pairs that must be forced, even at the expense of creating temporary chainbreaks, in the params file, with a flag like
@@ -163,7 +163,7 @@ When specifying pairs, if there are not sufficient strand breaks to allow all th
 -cutpoint_closed 6
 ```
 
-##Can I use fragments that take advantage of our rich database of base pairings? 
+## Can I use fragments that take advantage of our rich database of base pairings? 
 
 Yes, by using the flags `-bps_moves`, you can ask the application to try to  draw from a database of "base pair steps". There are two kinds of those steps. 
 
@@ -181,7 +181,11 @@ using the flag `-bps_moves` will trigger moves that substitute sequence-matched 
 
 Note: For noncanonical pairs, we don't allow specification of edges and orientations at the moment -- the database gets pretty sparse with that level of specification. Also note: If there is a base pair step that includes a pair both inside a Watson/Crick stem and a more general 'obligate pair', the stem pairing may actually come out as non-Watson-Crick, which often happens anyway for base pairs at the edge of stems.
 
-##See Also
+## Can I specify chemically modified nucleotides?
+
+You can and should! Please see the documentation for the [[RNA fasta file]] format for details.
+
+## See Also
 
 * [RiboKit](https://ribokit.github.io/workflows/3D_modeling/): Workflows for experimentally-guided RNA 3D modeling.
 * [[RNA applications]]: The RNA applications home page

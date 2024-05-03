@@ -14,6 +14,8 @@ Adds a chainbreak at the specified position
 -   distance\_cutoff: the distance cutoff between subsequent C and N atoms at which to decide that a cutpoint exists.
 -   remove: if true remove the chainbreak from the specified position rather than add it.
 
+[[include:mover_AddChainBreak_type]]
+
 ##See Also
 
 * [[I want to do x]]: Guide to choosing a mover

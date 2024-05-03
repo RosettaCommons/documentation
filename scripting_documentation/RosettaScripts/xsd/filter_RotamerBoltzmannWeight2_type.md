@@ -17,7 +17,7 @@ XRW TO DO
 -   **score_type**: The method used to combine the rotamer probabilities into the single number reported by the filter. Available score types are: MEAN_PROBABILITY -- Returns the mean of all computed probabilities. MAX_PROBABILITY -- Returns the maximum of all computed probabilities. MIN_PROBABILITY -- Returns the minimum of all computed probabilities. PROBABILITY -- Returns the product of all computed probabilities. MODIFIED_DDG -- Returns a ddG value weighted by the rotamer probabilities as described in Fleishman et al. (2011) Protein Sci. 20:753.
 -   **lambda**: The "lambda" value to be used in computing "nearness" to the input state during rotamer probability calculation. This is only used if "PNEAR" is the probability method.
 -   **temperature**: The temperature to be used in computing rotamer probabilities
--   **residue_selector**: XRW TO DO
+-   **residue_selector**: XRW TO DO. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **scorefxn**: Name of score function to use
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 

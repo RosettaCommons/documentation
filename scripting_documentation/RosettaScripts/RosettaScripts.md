@@ -5,6 +5,7 @@ Fleishman SJ, Leaver-Fay A, Corn JE, Strauch EM, Khare SD, et al. (2011) Rosetta
 
 ===
 
+-   [[Using RosettaScripts with VSCode|Using-RosettaScripts-with-VSCode]]
 -   [Introductory Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/scripting_with_rosettascripts/scripting_with_rosettascripts)
 -   [Advanced Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/advanced_scripting_with_rosettascripts/advanced_scripting_with_rosettascripts)
 
@@ -443,6 +444,18 @@ Always returns false. Can be explicitly specified with the name "false\_filter".
 
 #RosettaScript Sections
 
+##PROTOCOLS
+
+The PROTOCOLS section is the "main" section of the XML which actually specifies how the protocol will be run. Internally, it's implemented with the [[ParsedProtocolMover]], so more details of the subtag syntax can be found there.
+
+Generally, the PROTOCOLS section will be a series of `<Add ../>` tags. Each tag will specify a mover, filter and/or simple metric to apply. The RosettaScript protocol steps through each subtag in order, applying each entry.
+
+Typical parameters for each Add tag:
+
+-  `mover` or `mover_name` -- Specify a [[mover|Movers-RosettaScripts]] (defined previously in the MOVERS section) to apply at this stage of the protocol. The current pose (structure) being simulated will be modified by that mover and become the input structure to the next mover/filter/metric/etc. in the list.
+-  `filter` or `filter_name` -- Specify a [[filter|Filters-RosettaScripts]] (defined previously in the FILTERS section) to applied to the pose being simulated. Filters will not modify the pose, but will produce a pass/fail result. If the pose passes, it moves on to the next step. If the pose fails, the current simulation will be discarded, and the simulation will be restarted from the top of the PROTOCOLS section. Most filters will also calculate an associated value, and filters specified in the PROTOCOLS section will report that value to the scorefile (under the name of the filter). NOTE: By default the score thus reported is recalculated for the structure being output. You can change this to be for the evaluation mid-protocol by setting the option `report_at_end="false"` in the Add tag for that filer. (Though for reporting purposes, the metrics option is preferred.)
+-  `metrics` -- (Post 15-Oct-2020 releases) Specify a comma-separated list of [[SimpleMetrics]] to calculate at this stage of the protocol and add to the scorefile. By default, the metrics will be added to the scorefile under the name of the metric, as specified in the `metrics` option. You can change this with the `labels` option, which takes a comma-separated list of names. The label `-` is special cased to give you the same name as you would have typically gotten withthe RunSimpleMetrics mover. (The [[RunSimpleMetrics]] mover provides more options in running SimpleMetrics.)
+
 ##SCOREFUNCTIONS
 
 The SCOREFXNS section defines scorefunctions that will be used in Filters and Movers. This can be used to define any of the scores defined in the path/to/rosetta/main/database
@@ -869,40 +882,17 @@ Note that as of April, 2019, the `OUTPUT` tag is required for RosettaScripts to 
 APPLY\_TO\_POSE (Deprecated)
 ---------------
 
-This is a section that is used to change the input structure. The most likely use for this is to define constraints to a structure that has been read from disk.
+This is a section that was used to change the input structure. This is much better handled by applying the corresponding mover with the PROTOCOLS section. See the page [[Updating RosettaScripts]] for more info on how to adjust XMLs to remove this section.
 
-#### Sequence-profile Constraints
+## Troubleshooting RosettaScripts
 
-Sets constraints on the sequence of the pose that can be based on a sequence alignment or an amino-acid transition matrix.
+RosettaScripts is under continuing development. In conjuction with this, there are occasionally changes which cause older scripts to break. Sometimes this will be a small change in required options for a particular RosettaScripts object. These should (hopefully) be documented on the documentation pages for the individual movers. See [[Updating RosettaScripts]] for information about changes which are more far reaching and affect multiple RosettaScripts objects. 
 
-```xml
-<profile weight="(0.25 &Real)" file_name="(<input file name >.cst &string)"/>
-```
+### Troubleshooting hints.
 
-sets residue\_type type constraints to the pose based on a sequence profile. file\_name defaults to the input file name with the suffix changed to ".cst". So, a file called xxxx\_yyyy.25.jjj.pdb would imply xxxx\_yyyy.cst. To generate sequence-profile constraint files with these defaults use DockScripts/seq\_prof/seq\_prof\_wrapper.sh
+The first thing to do when getting an error with RosettaScripts is to check the documentation for each of the RosettaScripts objects which you are using. Pay particular attention to those options and settings which the object mentions as being required. Often times it's not just an in-XML parameter which will need to be changed in order to address the error. You may also need to add various command line parameters to your RosettaScript runs in order to get the results you're expecting.
 
-#### SetupHotspotConstraints (formerly hashing\_constraints)
-
-```xml
-<SetupHotspotConstraintsMover stubfile="stubs.pdb" redesign_chain="2" cb_force="0.5" worst_allowed_stub_bonus="0.0" apply_stub_self_energies="1" apply_stub_bump_cutoff="10.0" pick_best_energy_constraint="1" backbone_stub_constraint_weight="1.0">
-<HotspotFiles>
-<HotspotFile file_name="hotspot1.pdb" nickname="hp1" stub_num="1"/>
-...
-</HotspotFiles>
-</SetupHotspotConstraintsMover>
-```
-
--   stubfile: a pdb file containing the hot-spot residues
--   redesign\_chain: which is the host\_chain for design. Anything other than chain 2 has not been tested.
--   cb\_force: the Hooke's law spring constant to use in setting up the harmonic restraints on the Cb atoms.
--   worst\_allowed\_stub\_bonus: triage stubs that have energies higher than this cutoff.
--   apply\_stub\_self\_energies: evaluate the stub's energy in the context of the pose.
--   pick\_best\_energy\_constraint: when more than one restraint is applied to a particular residue, only sum the one that makes the highest contribution.
--   backbone\_stub\_constraint\_weight: the weight on the score-term in evaluating the constraint. Notice that this weight can be overridden in the individual scorefxns.
--   HotspotFiles: You can specify a set of hotspot files to be read individually. Each one is associated with a nickname for use in the placement movers/filters. You can set to keep in memory only a subset of the read stubs using stub\_num. If stubfile in the main branch is not specified, only the stubs in the leaves will be used.
-
-
-
+Another good troubleshooting tool is to simplify your XML. Try creating a stripped-down verison of your XML with only a handful of Movers. Test that and make sure it's behaving as you expect. Slowly reenable your movers and other RosettaScripts objects a few at a time, checking at each stage that the behavior is as you expect it to be. Also try simplifying the settings to your movers, using the defaults as much as possible. Check to make sure that each additional change to the defaults is causing the behavioral change you would expect it to. This progressive approach can often help you narrow down where the exact cause of your issues lie.
 
 ##See Also
 

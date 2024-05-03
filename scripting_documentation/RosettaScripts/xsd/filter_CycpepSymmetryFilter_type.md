@@ -15,7 +15,7 @@ The CycpepSymmetryFilter examines a cyclic peptide for internal backbone symmetr
 -   **symmetry_repeats**: The number of repeats in this type of symmetry.  For example, for c3 symmetry, one would provide "3" as input.  Defaults to 2 (for c2 symmetry).
 -   **mirror_symmetry**: Is this a type of cyclic symmetry with mirror operations, such as s2, s4, or s6 symmetry?  If true, symmetry_repeats must be a multiple of 2.  Defaults to false (for c2 symmetry -- i.e. not s2 symmetry).
 -   **angle_threshold**: The cutoff, in degrees, for the difference between two dihedral angles before they are considered "different" angles.  This is used when comparing mainchain torsion values of differet residues.  Defaults to 10.0 degrees.
--   **residue_selector**: An optional residue selector set to select the cyclic peptide.  If not provided, the whole pose is used.
+-   **residue_selector**: An optional residue selector set to select the cyclic peptide.  If not provided, the whole pose is used. The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---

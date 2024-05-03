@@ -3,7 +3,7 @@
 
 _Note that as of January 2019, LayerDesign no longer supports noncanonical design.  For noncanonical design, please use the [[Layer|ResidueSelectors#residueselectors_conformation-dependent-residue-selectors_layerselector]] ResidueSelector._
 
-_Also note that we plan to deprecate LayerDesign outright before long.  Please update your scripts to use the [[Layer|ResidueSelectors#residueselectors_conformation-dependent-residue-selectors_layerselector]] ResidueSelector instead._
+_Also note that we plan to deprecate LayerDesign outright before long.  Please update your scripts to use the [[Layer|ResidueSelectors#residueselectors_conformation-dependent-residue-selectors_layerselector]] ResidueSelector ans and [[DesignRestrictions|DesignRestrictionsOperation]] TaskOperation instead_
 
 Layer design is used to control which amino acids are available for design at each residue position depending on the local context, _e_._g_. solvent exposure and secondary structure. Each residue is assigned to one of three layers: core, boundary, or surface.  The two methods of determining solvent accessibility are: SASA (solvent accessible surface area of mainchain + CB) and side chain neighbors (number of amino acid side chains in a cone extending along the CA-CB vector).  When using SASA, the solvent exposure of the designed position depends on the conformation of neighboring side chains; this is useful when you are making one or two mutations and not changing many neighboring amino acids.  When using side chain neighbors, solvent exposure depends on which direction the amino acid side chain is pointed; this is useful for _de novo_ design or protocols where many amino acids will be designed simultaneously.
 

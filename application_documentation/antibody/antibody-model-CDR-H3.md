@@ -59,12 +59,13 @@ Input
      * a). The input antibody file needs to be Chothia numbered.
      * b). It can be an crystal structure
      * c). or homology model (check Work Flow and Graft Protocol)
-2.  constraint file, optional, but recommended (e.g. cter\_constraint)
-     * a). Purpose: provide constraints potential to constraint H3 cterminal
 
 Flags
 =====
 
+Sample command line (as of May 17th, 2020): `antibody_H3.macosclangrelease @flags`.
+
+flags:
 ```
 # input grafted model
 -s grafting/model-0.relaxed.pdb
@@ -72,16 +73,13 @@ Flags
 # recommended number of structs
 -nstruct 1000 
 
-# enable contraints (probably should just detect weight in future)
--antibody:constrain_cter
+# constraints are enabled by default, so flags are shown just to indicate that they can be turned off
+# recommended as kink is present in 90% of Abs and as VH-VL Q-Q is present in 808%
+-antibody:h3_loop_csts_lr true
+-antibody:h3_loop_csts_hr true
+-antibody:auto_generate_h3_kink_constraint true
+-antibody:constrain_vlvh_qq true
 -constraints:cst_weight 1.0
-
-# recommended kink cst, kink present in 90% of Abs
--antibody:auto_generate_kink_constraint 
--antibody:all_atom_mode_kink_constraint
-
-# recommended VH-VL Q-Q constraint, you must manually specify the file (see integration test)
--antibody:constrain_vlvh_qq
 
 # standard settings, for packages used by antibody_H3
 -ex1
@@ -98,7 +96,7 @@ Flags
 -out:path:pdb H3_modeling 
 ```
 
-**Detailed Description of Flags:**
+**Detailed Description of Flags (may not have been included above):**
 
 ```
 -antibody::snugfit
@@ -111,20 +109,19 @@ Flags
      * true (default) or false
 
 ```
--antibody:constrain_cter
-
--antibody:auto_generate_kink_constraint 
--antibody:all_atom_mode_kink_constraint
-
--antibody:constrain_vlvh_qq
--constraints:cst_file ./constraint_file
+-antibody:h3_loop_csts_lr true
+-antibody:h3_loop_csts_hr true
+-antibody:auto_generate_h3_kink_constraint true
+-antibody:constrain_vlvh_qq true
 ```
 
+-   Note all these flags are true by default as they implements constraints to known antibody motifs. The kink is observed in ~90% of antibody CDR H3 loops and the VL-VH QQ h-bond is observed in ~80% of structures.
 -   Description:
-     * a). "-antibody:constrain\_cter" enables constraints
-     * b). "-antibody:auto\_generate\_kink\_constraint" and "-antibody:all\_atom\_mode\_kink\_constraint" setup the correct weights and constraints to emulate the kink observed in 90\% of all antibodies (see Weitzner and Gray, J. Immunol. 2016 paper).
-     * c). “-antibody:constrain\_vlvh\_qq” must be specified in order to use a prepared constraint file. We use this to minimize the breaking a VH--VL Q--Q bond that occurs in \~90\% off all antibodies.
-     * d). "-constraints:cst_file ./constraint_file" specifies the constraints. Currently Q-Q bond constraints must be manually specified as (for example):
+     * a). "-antibody:h3\_loop\_csts\_lr" enables constraints in the low-resolution stage. Can be manually specified constraints or automatically generated ones.
+     * b). "-antibody:h3\_loop\_csts\_hr" enables constraints in the **high**-resolution stage. Can be manually specified constraints or automatically generated ones.
+     * c). "-antibody:auto\_generate\_h3\_kink\_constraint" sets up the correct weights and constraints to emulate the kink observed in 90\% of all antibodies (see Weitzner and Gray, J. Immunol. 2016 paper).
+     * d). “-antibody:constrain\_vlvh\_qq” the VH--VL Q--Q hydrogen bond(s) that occur(s) in \~0\% off all antibodies.
+     * e). "-constraints:cst_file ./constraint_file" specifies constraints. Q-Q bond constraints used to be manually specified as (for example):
      ```
      AtomPair CD 38L CD 39H LINEAR\_PENALTY 4.1 0 0.4 400
      ```

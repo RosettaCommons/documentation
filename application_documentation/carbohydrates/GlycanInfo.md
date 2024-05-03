@@ -6,6 +6,12 @@ MetaData
 ========
 App created by Dr. Jared-Adolf-Bryfogle (jadolfbr@gmail.com); Lab of Dr. William Schief (schief@scripps.edu), in collaboration with Dr. Sebastian Raemisch (raemisch@scripps.edu) and Dr. Jason W. Labonte (JWLabonte@JHU.edu); Lab of Dr. Jeff Gray (jgray@jhu.edu) 
 
+Reference
+=========
+**Growing Glycans in Rosetta: Accurate de novo glycan modeling, density fitting, and rational sequon design**
+Jared Adolf-Bryfogle, J. W Labonte, J. C Kraft, M. Shapavolov, S. Raemisch, T. Lutteke, F. Dimaio, C. D Bahl, J. Pallesen, N. P King, J. J Gray, D. W Kulp, W. R Schief
+_bioRxiv_ 2021.09.27.462000; [[https://doi.org/10.1101/2021.09.27.462000]]
+
 Description
 ===========
 The app prints out information for each glycan tree, including rosetta numbering, pdb numbering, internal-glycan numbering, and the connections of every residue in the tree.  It is very useful when dealing with more than one glycan tree, or when one needs to work with particular components of the glycan.

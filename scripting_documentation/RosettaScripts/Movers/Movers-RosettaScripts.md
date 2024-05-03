@@ -71,6 +71,7 @@ Mover  | Description
 **[[ReportXYZ|ReportXYZ]]** | Report X Y Z of specific residue to score line
 **[[ResetBaseline|ResetBaselineMover]]** | Reset the baseline (not needed for MC)
 **[[SavePoseMover]]** | Save or retrieve a pose for use in another mover/filter.
+**[[SaveProbabilitiesMetricMover]]** | Save a PerResidueProbabilitiesMetric as weights or pssm file.
 **[[SilentTrajectoryRecorder|SilentTrajectoryRecorderMover]]** | Records a trajectory in a silent file
 **[[StorePoseSnapshot|StorePoseSnapshotMover]]** | Store a snapshot of the current residue numbering in the pose as a named reference pose, so that subsequent movers can use the current state's residue numbering even if residue numbering has changed.
 **[[TrajectoryReportToDB|TrajectoryReportToDBMover]]** | Reports multiple structures to an output forming a trajectory
@@ -85,6 +86,7 @@ Mover  | Description
 Mover  | Description
 ------------ | -------------
 **[[SetupPoissonBoltzmannPotential|SetupPoissonBoltzmannPotentialMover]]** | Runtime environment initialization for the PB solver (ddG mover)
+**[[SetupForDensityScoringMover]]** | Set up the pose for using Electron Density Scoring 
 
 
 ## "Best Practices" Movers
@@ -107,6 +109,12 @@ Mover  | Description
 **[[LoopAnalyzerMover]]** | Computes protein loop-specific metrics
 **[[InterfaceAnalyzerMover]]** | Computes protein-protein interface metrics
 **[[RunSimpleMetrics]]** | Mover to run a set of [[SimpleMetrics]], which enables robust analysis in Rosetta.
+
+### Structure Prediction Protocols
+
+Mover  | Description
+------------ | -------------
+**[[trRosettaProtocolMover|trRosettaProtocol]]** | Uses the trRosetta neural network to predict protein structure.  Note special compilation requirements!
 
 ### Simple Sequence Design
 
@@ -131,14 +139,18 @@ Mover  | Description
 ------------ | -------------
 **[[Backrub|BackrubMover]]** | Makes local rotations around two backbone atoms
 **[[BackboneGridSampler|BackboneGridSamplerMover]]** | Generates a residue chain and samples torsion angles
+**[[CartesianMD|CartesianMD]]** | Brings concerted motion to backbone using Cartesian-space molecular dynamics
+**[[ConfChangeMover|ConfChangeMover]]** | Brings concerted motion to backbone using Markov Chain Monte Carlo (2022)
+**[[CrankshaftFlip|CrankshaftFlipMover]]** | Perform crankshaft flip moves, an inversion of a phi dihedral with the following omega flipping between cis/trans
 **[[InitializeByBins|InitializeByBinsMover]]** | Randomizes stretches of backbone based on torsion bins
+**[[NormalModeRelax|NormalModeRelaxMover]]** | Brings concerted motion to backbones using Anisotropic Network Model (ANM)
 **[[PerturbByBins|PerturbByBinsMover]]** | Perturbs stretches of backbone based on torsion bins
 **[[RandomizeBBByRamaPrePro|RandomizeBBByRamaPreProMover]]** | Randomize the backbone of a given residue biased by its Ramachandran map
 **[[SetTorsion|SetTorsionMover]]** | Sets torsion to a specified or random value
 **[[Shear|ShearMover]]** | Makes shear-style torsion moves that minimize downstream propagation
 **[[Small|SmallMover]]** | Makes small-move-style torsion moves (no propagation minimization)
-**[[NormalModeRelax|NormalModeRelaxMover]]** | Brings concerted motion to backbones using Anisotropic Network Model (ANM)
-**[[CartesianMD|CartesianMD]]** | Brings concerted motion to backbones using Cartesian-space molecular dynamics
+
+
 
 
 ### Comparative Modeling
@@ -158,6 +170,7 @@ Mover  | Description
 **[[AddConstraintsToCurrentConformationMover]]** | Adds constraints based on the current conformation
 **[[AddNetChargeConstraintMover]]** | Adds sequence constraints to penalize deviation from a desired net charge, enforced by the [[netcharge score term|NetChargeEnergy]].
 **[[AddMHCEpitopeConstraintMover]]** | Adds sequence-based constraints to penalize immunogenic epitopes, enforced by the [[mhc_epitope scoreterm|MHCEpitopeEnergy]].
+**[[AddResidueCouplingConstraint]]** | Adds co-evolutionary constraints to favor more natural sequences and to retain function during design
 **[[AtomCoordinateCstMover]]** | Adds coordinate constraints for Relax
 **[[ClearConstraintsMover]]** | Removes all constraints (geometric and sequence) from the pose
 **[[ReleaseConstraintFromResidueMover]]** | The same as [[ClearConstraintsMover]] but only for selected residues
@@ -165,6 +178,7 @@ Mover  | Description
 **[[ConstraintSetMover]]** | Adds constraints to the pose using a constraints file
 **[[FavorSymmetricSequence|FavorSymmetricSequenceMover]]** | Adds constraints to prefer symmetric sequences
 **[[ResidueTypeConstraintMover]]** | Constrains residue type
+**[[RemoveMetalConnectionsMover]]** | Removes covalent bonds to metal ions that were added with the SetupMetalsMover or -auto_setup_metals
 **[[SetupMetalsMover]]** | Adds covalent bonds and distance/angle constraints to metal ions
 **[[TaskAwareCsts|TaskAwareCstsMover]]** | Adds constraints to residues designated by task_operations
 **[[AddConstraints|AddConstraintsMover]]** | Uses a constraint generator to add constraints to the pose
@@ -178,10 +192,12 @@ Mover  | Description
 **[[SegmentedAtomPairConstraintGenerator]]** | Generates differently specified distance constraints among residues in a range and between residues in different ranges.  
 **[[CoordinateConstraintGenerator]]** | Generates coordinate constraints for residues in a subset
 **[[DistanceConstraintGenerator]]** | Generates constraints to enforce a distance between residues in two subsets.
+**[[DihedralConstraintGenerator]]** | Generates constraints to enforce a dihedral angle.
 **[[FileConstraintGenerator]]** | Generates, adds, and removes constraints from a file
 **[[HydrogenBondConstraintGenerator]]** | Generates constraints to enforce hydrogen bonding between residues
 **[[SheetConstraintGenerator]]** | Generates constraints for proper hydrogen bonding in beta-sheets
 **[[TerminiConstraintGenerator]]** | Generates atom pair constraints between N- and C- termini
+**[[trRosettaConstraintGenerator]]** | Generates inter-residue distance and orientation constraints given a multiple sequence alignment, using the trRosetta neural network.  Note special compilation requirements.
 
 
 ### Docking/Assembly
@@ -192,14 +208,7 @@ Mover  | Description
 **[[DockingInitialPerturbation|DockingInitialPerturbationMover]]** | Carries out the initial perturbation phase of the RosettaDock algorithm
 **[[DockingProtocol|DockingProtocolMover]]** | Performs full docking protocol with current defaults
 **[[FlexPepDock|FlexPepDockMover]]** | Performs ab initio or refinement peptide docking
-
-##### Docking with Mouse
-
-Mover  | Description
------------- | -------------
-**[[MouseSetupMover]]** | Setup Rosetta for Mouse calculations
-**[[MouseSpyDockingProtocol|MouseSpyDockingProtocolMover]]** | Drop-in replacement for [[DockingProtocol|DockingProtocolMover]], but gives larger interfaces that are slightly more stable per residue.
-**[[MouseFinalizeMover]]** | Spin down after Mouse calculations
+**[[GridDock|SixDoFGridDockMover]]** | Performs six degree of freedom grid docking
 
 ### Fragment Insertion
 
@@ -309,6 +318,13 @@ Mover  | Description
 **[[PeriodicBoxMover]]** | Mover that allows to run MC simulation in a periodic box, for instance liquid simulation.  
 
 
+### Pose Creation
+
+Mover  | Description
+------------ | -------------
+**[[PoseFromSequenceMover]]**  | Create a pose from a sequence or multiple chains from sequences.
+
+
 ### Other Pose Manipulation
 
 Mover  | Description
@@ -318,9 +334,11 @@ Mover  | Description
 **[[AddChainBreak|AddChainBreakMover]]** | Add a break at a specific position
 **[[BluePrintBDR|BluePrintBDRMover]]** | Make a centroid structure from a PDB file
 **[[CopyRotamer|CopyRotamerMover]]** | Copy a side-chain identity and/or conformation from one residue to another residue.
+**[[CycpepRigidBodyPermutationMover]]** | Alter the position and orientation of a cyclic peptide so that it is superimposed on a permuted or inverse-permuted copy of itself.
 **[[DeclareBond]]** | Tell Rosetta that there exists a chemical bond between two residues.
 **[[Disulfidize|DisulfidizeMover]]** | Finds potential disulfide bond positions based on Calpha - Cbeta distance
 **[[Dssp|DsspMover]]** | Calculates secondary structure using dssp
+**[[EnsureExclusivelySharedJumpMover]]** | Change the fold tree to guarantee there is a jump that builds the selected residues and only the selected residues
 **[[FavorNativeResidue|FavorNativeResidueMover]]** | Constrains the residue type by favoring the type present when applied
 **[[FavorSequenceProfile|FavorSequenceProfileMover]]** | Constrains the residue type using one of several profiles
 **[[FlipChirality|FlipChiralityMover]]** | Mirrors a selection in pose
@@ -333,6 +351,7 @@ Mover  | Description
 **[[ModifyVariantType|ModifyVariantTypeMover]]** | Adds or removes variant types of a set of residues
 **[[PeptideStubMover]]** | Add new residues to a pose
 **[[PeptideCyclizeMover]]** | Closes two ends of a selection in a pose
+**[[SampleSequenceFromProbabilities]]** | Sample a whole sequence or a specified amount of mutations from a PerResidueProbabilitiesMetric.
 **[[SegmentHybridize|SegmentHybridizeMover]]** | Closes loops using fragment insertion and cartesian minimization
 **[[Superimpose|SuperimposeMover]]** | Superimpose the current pose on another stored pose
 **[[SetSecStructEnergies|SetSecStructEnergiesMover]]** | Biases the score toward particular secondary structural elements
@@ -511,7 +530,8 @@ Mover  | Description
 **[[AddSidechainConstraintsToHotspots|AddSidechainConstraintsToHotspotsMover]]** | Adds constraints to sidechain atoms in preparation for affinity maturation
 **[[MSDMover|MSDMover]]** | Runs protein multistate design using the RECON protocol
 **[[FindConsensusSequence|FindConsensusSequence]]** | Finds a consensus sequence from candidates generated by RECON protocol. To be used with MSDMover.
-
+**[[SetupHotspotConstraints]]** | Apply hotspot constraints to a pose.
+**[[Sequence profile Constraints]]** | Apply sequence profile constraints to a pose.
 
 ### Placement and Placement-associated Movers & Filters
 

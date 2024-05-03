@@ -20,3 +20,4 @@ This page includes documentation for specialized RosettaScripts-based protocols.
 -   [[Functional Folding and Design | FunFolDes]]
     -   [[Running FunFolDes|RunningFunFolDes]]
     -   [[Reloading FunFolDes|ReloadingFunFolDes]]
+-   [[Working with PerResidueProbabilitiesMetrics]]

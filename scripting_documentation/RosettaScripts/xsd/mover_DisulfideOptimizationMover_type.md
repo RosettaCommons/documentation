@@ -11,7 +11,7 @@ Optimize the pair of disulfide-bonded residues indicated in the residue selector
         interaction_graph_threads="(1 &positive_integer;)" />
 ```
 
--   **residue_selector**: The name of the already defined ResidueSelector that will be used by this object
+-   **residue_selector**: . The name of a previously declared residue selector or a logical expression of AND, NOT (!), OR, parentheses, and the names of previously declared residue selectors. Any capitalization of AND, NOT, and OR is accepted. An exclamation mark can be used instead of NOT. Boolean operators have their traditional priorities: NOT then AND then OR. For example, if selectors s1, s2, and s3 have been declared, you could write: 's1 or s2 and not s3' which would select a particular residue if that residue were selected by s1 or if it were selected by s2 but not by s3.
 -   **final_optimization**: Number of iterations of final optimization (minimization and three more rounds of repack-minimize)
 -   **interaction_graph_threads**: Number of threads to request for packer interaction graph precalculation.  Only works in multi-threaded Rosetta builds (extras=cxx11threads during compilation).
 

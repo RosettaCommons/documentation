@@ -18,9 +18,9 @@ The MoveMap (for FastRelax) is initially set to minimize all degrees of freedom.
 
 For a list of relax scripts in the database, [[click here|RelaxScript]].
 
-### Relevant command-line options
+### Irrelevant command-line options
 
-See the [[relax application|Relax]] page for more information on these options.
+See the [[relax application|Relax]] page for more information on these options.  These options ARE NOT INTERPRETED by the FastRelax Mover; they are interpreted by wrapping code in the relax protocol instead.  If you are using FastRelax in XML you will need several other movers to achieve this effect.
 
 - `-relax:constrain_relax_to_start_coords`
 - `-relax:constrain_relax_to_native_coords`
