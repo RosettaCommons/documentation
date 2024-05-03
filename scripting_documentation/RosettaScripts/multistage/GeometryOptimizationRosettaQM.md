@@ -58,6 +58,10 @@ The following table gives a summary of that.
 <br />
 <br />
 
+The following SCOREFXNS shows how each of the ScoreFunction block is set up for each region and how the MultiScoreFunction blocks are set up. To learn more about: 
+- ScoreFunction block: [Go here]
+- MultiScoreFunction block: [Go here]
+
 ```xml
         <SCOREFXNS>
             <!-- In order to do multi-scale modeling, we need to set up the different score function that will used for the different regions of your system.  -->
