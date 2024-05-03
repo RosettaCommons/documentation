@@ -78,7 +78,7 @@ ld write: 's1 or s2 and not s3' which would select a particular residue if that 
 |`peptide_nterm_cap="acetyl"`|The type of capping group to add to peptide bonds that are open at the N-terminus.|"leave_open", "hydrogen", "acetyl" (default), "methyl"|
 |`peptide_cterm_cap="methylamide"`|The type of capping group to add to peptide bonds that are open at the C-terminus.|"leave_open", "hydrogen", "methylamide" (default)|
 |`thiol_cap="sulfhydryl"`|The type of capping group to add to disulfide bond forming groups that have an open bond.|"leave_open", "sulfhydryl" (default)|
-|`other_cap="methyl"`|The type of capping group to add to other open bonds.|"leave_open", ???|
+|`other_cap="leave_open"`|The type of capping group to add to other open bonds.|For now only "leave_open" is allowed|
 |`name="<name>"`|The name given to this instance.|any string|
 
 ## Detailed control
