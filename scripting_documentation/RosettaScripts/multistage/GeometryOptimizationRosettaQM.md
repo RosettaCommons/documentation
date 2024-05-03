@@ -24,8 +24,8 @@ And then finally geometry optimization will be applied based on the regions and 
 <br />
 Residue selectors ae used to specify each region.`qm_region1` is selected by residue numbers, and `qm_region2` is selected by `Neighborhood` selector.<br /> 
 This selector compares the distance between beta carbons of selection (in this case, `qm_region1`). <br />
-If the distance is less than or equal to the threshold (in this case, 10A) it selects that residue. <br />
-This is selected with the tag `distance` and setting to 10 (units are in angstroms). 
+If the distance is less than or equal to the threshold (in this case, 6.0A) it selects that residue. <br />
+This is selected with the tag `distance` and setting to 6.0 (units for this tag are in angstroms). 
 
 <br />
 The `include_focus_in_subset=\"false\" ` tag means `qm_region2` excludes `qm_region1`. Figure 2. highights `qm_region1` with orange, and `qm_region2` with red and the remaining region (region3) with blue. 
@@ -40,8 +40,8 @@ Therefore, the residue selector block looks like this
         <!-- qm_region1 is the region where the most computationally expensive calculation is going to take place. -->
         <Index name="qm_region1" resnums="8,11,24,28,29"/>
         <!-- qm_region2 is the region where the second most computationally expensive calculation is going to take place. -->
-        <!-- Within the Neighborhood qm_region2 defines the region that is within 10.0 from qm_region1 and not including the atoms in qm_region1 (which is done using the tag include_focus_in_subset  -->
-        <Neighborhood name="qm_region2" selector="qm_region1" distance="10.0" include_focus_in_subset="false" />
+        <!-- Within the Neighborhood qm_region2 defines the region that is within 6.0 from qm_region1 and not including the atoms in qm_region1 (which is done using the tag include_focus_in_subset  -->
+        <Neighborhood name="qm_region2" selector="qm_region1" distance="6.0" include_focus_in_subset="false" />
     </RESIDUE_SELECTORS>
 ```
 
