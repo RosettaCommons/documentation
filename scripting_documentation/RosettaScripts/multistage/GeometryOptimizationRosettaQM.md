@@ -45,7 +45,7 @@ Therefore, the residue selector block looks like this
 <img src="../../../images/GeometryOptimizationRosettaQM_region2.png" alt="drawing" width="600"/>
 <figcaption>Figure 2. Different regions of the multiscore function are shown here. qm_region1 defined with qm_hf is shown in orange. qm_region2 defined with qm_hf3c_fmo is shown in red and remaining region defined with Ref2015 is shown in blue. </figcaption>
 </figure>
-For each region, a different method defined within the `ScoreFunction` of `` SCOREFXNS `` of RosettaScripts needs to be used. 
+For each region, a different method defined within the ScoreFunction of SCOREFXNS of RosettaScripts needs to be used. 
 The following table gives a summary of that. 
 <br />
 
