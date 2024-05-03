@@ -118,3 +118,12 @@ The following SCOREFXNS shows how each of the ScoreFunction block is set up for 
 
         </SCOREFXNS>
 ```
+ 
+Next we are going to set up the `MOVERS` block. This is where we will call the `GamessQMGeometryOptimizationMover` and pass the MultiScoreFunction to the mover. We do this as follows: 
+```xml
+    <MOVERS>
+        <GamessQMGeometryOptimizationMover name="qm_geo_opt_msfxn" gamess_threads="%%threads%%" msfxn_name="msfxn" msfxn_classical_cartmin="true" />
+    </MOVERS>
+```
+
+
