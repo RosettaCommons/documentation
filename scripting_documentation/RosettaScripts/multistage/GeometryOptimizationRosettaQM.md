@@ -158,4 +158,88 @@ So once `FastRelax` is done Rosetta will pass the Rosetta relaxed structure to `
     </PROTOCOLS>
 ```
 
+The full RosettaScripts looks like this:
 
+```xml
+
+<ROSETTASCRIPTS>
+        <RESIDUE_SELECTORS>
+        <!-- Define regions of interest -->
+        <!-- qm_region1 is the region where the most computationally expensive calculation is going to take place. -->
+        <Index name="qm_region1" resnums="8,11,24,28,29"/>
+        <!-- qm_region2 is the region where the second most computationally expensive calculation is going to take place. -->
+        <!-- Within the Neighborhood qm_region2 defines the region that is within 6.0A from qm_region1 and not including the atoms in qm_region1 (which is done using the tag include_focus_in_subset  -->
+        <Neighborhood name="qm_region2" selector="qm_region1" distance="6.0" include_focus_in_subset="false" />
+        </RESIDUE_SELECTORS>
+        <SCOREFXNS>
+            <!-- In order to do multi-scale modeling, we need to set up the different score function that will used for the different regions of your system.  -->
+
+            <!-- Here we define ref15 aka Rosetta's score function -->
+            <ScoreFunction name="r15" weights="ref2015_cart.wts"/>
+            <!-- Here we define the score function with RosettaQM setting for the most rigorous part aka qm_region1  -->
+            <!-- Although note that we don't mention qm_region1 in our score function. That is later.-->
+            <ScoreFunction name="qm_hf" weights="empty" >
+                <Reweight scoretype="gamess_qm_energy" weight="1.0" />
+                <Set gamess_electron_correlation_treatment="HF"
+                    gamess_ngaussian="3" gamess_basis_set="N21"
+                    gamess_npfunc="1" gamess_ndfunc="1"
+                    gamess_threads="%%threads%%" gamess_use_scf_damping="true"
+                    gamess_use_smd_solvent="true" gamess_max_scf_iterations="%%scf_iter%%"
+                    gamess_multiplicity="1" />
+            </ScoreFunction>
+
+            <!-- Here we define the score function with RosettaQM setting for the second rigorous part aka qm_region2  -->
+            <!-- Although note that we don't mention qm_region2 in our score function. That is later.-->
+            <!-- Also note that here we are using hybrid molecular orbital approx (HMO) -->
+            <ScoreFunction name="qm_hf3c_fmo" weights="empty" >
+                <Reweight scoretype="gamess_qm_energy" weight="1.0" />
+                <Set gamess_electron_correlation_treatment="SE"
+                    gamess_basis_set="HF-3C" gamess_use_smd_solvent="true"
+                    gamess_use_scf_damping="true"
+                    gamess_use_h_bond_length_constraints="true"
+                    gamess_h_bond_length_constraint_force="10"
+                    gamess_threads="%%threads%%" gamess_max_scf_iterations="%%scf_iter%%"
+                    gamess_multiplicity="1" gamess_fmo_calculation="true" gamess_hybrid_molecular_orbital="HF-3c"
+                    gamess_hybrid_molecular_orbital_file="/mnt/home/bturzo/ceph/Applications/gamess/tools/fmo/HMO/HMOs.txt"
+                    gamess_max_fmo_monomer_scf_iterations="%%scf_iter%%" />
+            </ScoreFunction>
+
+            <!-- In the MucltiScoreFunction block is where you tell which region is going to be treated with which level calculation-->
+            <!-- Since this a onion layer style calculation dump_pdbs="true" option will dump out all the layers of system that has been defined-->
+            <MultiScoreFunction name="msfxn" dump_pdbs="true" >
+                <!-- SimpleCombinationRule is how to combine the region. And how to subtract of the energies from each region in order avoid double counting-->
+                <!-- There are other more complicated rules but that will not be discussed here and is a treat for another tutorial-->
+                <SimpleCombinationRule />
+                <!-- CappedBondResolutionRule by default does sensible capping, other capping rules available and can be passed with options-->
+                <Region scorefxn="qm_hf" residue_selector="qm_region1" >
+                    <CappedBondResolutionRule/>
+                </Region>
+                <!--Same CappedBondResolutionRule for qm_region2-->
+                <Region scorefxn="qm_hf3c_fmo" residue_selector="qm_region2">
+                    <CappedBondResolutionRule/>
+                </Region>
+                <!-- Whatever region is left after qm_region2 automatically gets defined to region3 and is now scored with r15 (as in rosetta score function) -->
+                <Region scorefxn="r15" >
+                    <CappedBondResolutionRule/>
+                </Region>
+            </MultiScoreFunction>
+
+        </SCOREFXNS>
+        <TASKOPERATIONS>
+            <IncludeCurrent name="include_current_rotamer" />
+            <!-- EXTRA ROTAMERS GENERIC during fast relax ex1 and ex2 adjust number of extra chi cuttoff-->
+            <ExtraRotamersGeneric name="extra_sample_rotamers" ex1="1" ex2="1" ex1aro="1" ex2aro="1"/>
+        </TASKOPERATIONS>        
+        <SIMPLE_METRICS>
+        </SIMPLE_METRICS>
+        <MOVERS>
+            <FastRelax name="fast_relax" scorefxn="r15" disable_design="true" task_operations="include_current_rotamer,extra_sample_rotamers" repeats="100" relaxscript="default" min_type="lbfgs_armijo_nonmonotone"/>
+            <GamessQMGeometryOptimizationMover name="qm_geo_opt_msfxn" gamess_threads="%%threads%%" msfxn_name="msfxn" msfxn_classical_cartmin="true" />
+        </MOVERS>
+        <PROTOCOLS>
+            <Add mover="fast_relax" />
+            <Add mover="qm_geo_opt_msfxn"/>
+        </PROTOCOLS>
+</ROSETTASCRIPTS>
+
+```
