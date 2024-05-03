@@ -119,12 +119,39 @@ The following SCOREFXNS shows how each of the ScoreFunction block is set up for 
 
         </SCOREFXNS>
 ```
- 
-Next we are going to set up the `MOVERS` block. This is where we will call the `GamessQMGeometryOptimizationMover` and pass the MultiScoreFunction to the mover. We do this as follows: 
+
+Next we are going to set up TASKOPERATIONS block that we will later use to do a quick FastRelax (defined in the MOVERS block) in Rosetta before QM geometry optimization. 
+
+For mone on how to setup: 
+- TASKOPERATIONS: [Go here] 
+- IncludeCurrent: [Go here] 
+- ExtraRotamersGeneric: [Go here] 
+
+```xml
+    <TASKOPERATIONS>
+        <IncludeCurrent name="include_current_rotamer" />
+        <!-- EXTRA ROTAMERS GENERIC during fast relax ex1 and ex2 adjust number of extra chi cuttoff-->
+        <ExtraRotamersGeneric name="extra_sample_rotamers" ex1="1" ex2="1" ex1aro="1" ex2aro="1"/>
+    </TASKOPERATIONS>
+```
+
+
+Next we are going to set up the `MOVERS` block. This is where we will call the FastRelax. We will also call the `GamessQMGeometryOptimizationMover` and pass the MultiScoreFunction to the mover. We do this as follows: 
+For more on how to setup:
+- FastRelax: [Go here]
+- GamessQMGeometryOptimizationMover: [Go here]
+
 ```xml
     <MOVERS>
+        <FastRelax name="fast_relax" scorefxn="r15" disable_design="true" task_operations="include_current_rotamer,extra_sample_rotamers" repeats="100" relaxscript="default" min_type="lbfgs_armijo_nonmonotone"/>
         <GamessQMGeometryOptimizationMover name="qm_geo_opt_msfxn" gamess_threads="%%threads%%" msfxn_name="msfxn" msfxn_classical_cartmin="true" />
     </MOVERS>
 ```
 
+Next we are goint to set up the `PROTOCOLS` block. In this block we are calling the Geometry
 
+```xml
+    <PROTOCOLS>
+        Add mover="qm_geo_opt_msfxn"/>
+    </PROTOCOLS>
+```
