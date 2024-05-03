@@ -76,7 +76,7 @@ The following SCOREFXNS shows how each of the ScoreFunction block is set up for 
                 <Set gamess_electron_correlation_treatment="HF"
                     gamess_ngaussian="3" gamess_basis_set="N21"
                     gamess_npfunc="1" gamess_ndfunc="1"
-                    gamess_threads="%%threads%%" gamess_use_scf_damping="true"
+                    gamess_threads="4" gamess_use_scf_damping="true"
                     gamess_use_smd_solvent="true" gamess_max_scf_iterations="%%scf_iter%%"
                     gamess_multiplicity="1" />
             </ScoreFunction>
@@ -91,7 +91,7 @@ The following SCOREFXNS shows how each of the ScoreFunction block is set up for 
                     gamess_use_scf_damping="true"
                     gamess_use_h_bond_length_constraints="true"
                     gamess_h_bond_length_constraint_force="10"
-                    gamess_threads="%%threads%%" gamess_max_scf_iterations="%%scf_iter%%"
+                    gamess_threads="4" gamess_max_scf_iterations="%%scf_iter%%"
                     gamess_multiplicity="1" gamess_fmo_calculation="true" gamess_hybrid_molecular_orbital="HF-3c"
                     gamess_hybrid_molecular_orbital_file="/mnt/home/bturzo/ceph/Applications/gamess/tools/fmo/HMO/HMOs.txt"
                     gamess_max_fmo_monomer_scf_iterations="%%scf_iter%%" />
@@ -144,7 +144,7 @@ For more on how to setup:
 ```xml
     <MOVERS>
         <FastRelax name="fast_relax" scorefxn="r15" disable_design="true" task_operations="include_current_rotamer,extra_sample_rotamers" repeats="100" relaxscript="default" min_type="lbfgs_armijo_nonmonotone"/>
-        <GamessQMGeometryOptimizationMover name="qm_geo_opt_msfxn" gamess_threads="%%threads%%" msfxn_name="msfxn" msfxn_classical_cartmin="true" />
+        <GamessQMGeometryOptimizationMover name="qm_geo_opt_msfxn" gamess_threads="4" msfxn_name="msfxn" msfxn_classical_cartmin="true" />
     </MOVERS>
 ```
 
@@ -183,7 +183,7 @@ The full RosettaScripts looks like this:
                 <Set gamess_electron_correlation_treatment="HF"
                     gamess_ngaussian="3" gamess_basis_set="N21"
                     gamess_npfunc="1" gamess_ndfunc="1"
-                    gamess_threads="%%threads%%" gamess_use_scf_damping="true"
+                    gamess_threads="4" gamess_use_scf_damping="true"
                     gamess_use_smd_solvent="true" gamess_max_scf_iterations="%%scf_iter%%"
                     gamess_multiplicity="1" />
             </ScoreFunction>
@@ -198,7 +198,7 @@ The full RosettaScripts looks like this:
                     gamess_use_scf_damping="true"
                     gamess_use_h_bond_length_constraints="true"
                     gamess_h_bond_length_constraint_force="10"
-                    gamess_threads="%%threads%%" gamess_max_scf_iterations="%%scf_iter%%"
+                    gamess_threads="4" gamess_max_scf_iterations="%%scf_iter%%"
                     gamess_multiplicity="1" gamess_fmo_calculation="true" gamess_hybrid_molecular_orbital="HF-3c"
                     gamess_hybrid_molecular_orbital_file="/mnt/home/bturzo/ceph/Applications/gamess/tools/fmo/HMO/HMOs.txt"
                     gamess_max_fmo_monomer_scf_iterations="%%scf_iter%%" />
@@ -234,7 +234,7 @@ The full RosettaScripts looks like this:
         </SIMPLE_METRICS>
         <MOVERS>
             <FastRelax name="fast_relax" scorefxn="r15" disable_design="true" task_operations="include_current_rotamer,extra_sample_rotamers" repeats="100" relaxscript="default" min_type="lbfgs_armijo_nonmonotone"/>
-            <GamessQMGeometryOptimizationMover name="qm_geo_opt_msfxn" gamess_threads="%%threads%%" msfxn_name="msfxn" msfxn_classical_cartmin="true" />
+            <GamessQMGeometryOptimizationMover name="qm_geo_opt_msfxn" gamess_threads="4" msfxn_name="msfxn" msfxn_classical_cartmin="true" />
         </MOVERS>
         <PROTOCOLS>
             <Add mover="fast_relax" />
@@ -257,7 +257,6 @@ In order to run this we will run it with `rosetta_scripts.cxx11thread.linuxgccre
 -out:prefix ./geom_opt_
 -out:file:scorefile ./geom_opt.sc
 -parser:protocol ./geom_opt2.xml
--parser:script_vars threads=4
 -parser:script_vars scf_iter=50
 -rosetta_GAMESS_bridge_temp_directory ./temp/
 -quantum_mechanics:GAMESS:gamess_error_on_nonideal_bond_length_after_opt false
@@ -266,5 +265,4 @@ In order to run this we will run it with `rosetta_scripts.cxx11thread.linuxgccre
 -GAMESS:default_max_scf_iterations 50
 -GAMESS:GAMESS_path ./gamess_openmp_2023_09/
 -GAMESS:GAMESS_executable_version 00
--GAMESS:GAMESS_threads 4
 ```
