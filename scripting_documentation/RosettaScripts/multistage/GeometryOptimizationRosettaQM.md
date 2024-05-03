@@ -9,14 +9,13 @@ In this case, we have part of a zinc-finger protein. We want to optimize the geo
 * its neighbourhood with a lower level of theory quantum mechanics,
 * and the rest of protein with Rosetta's score function.
 
-<figure align="center">
-<img src="../../../images/GeometryOptimizationRosettaQM_region1.png" alt="drawing" width="200"/>
-<figcaption>Figure 1. Atomistic view of region 1 is shown, where the zinc atom is surrounded by two cystein residues and two histidine residues. </figcaption>
+<figure align="center"> 
+<img src="../../../images/GeometryOptimizationRosettaQM_region1.png" alt="drawing" width="200"/> 
+<figcaption>Figure 1. Atomistic view of region 1 is shown, where the zinc atom is surrounded by two cystein residues and two histidine residues. </figcaption> 
 </figure> 
+ <br />
+ <br />
  
-
- 
-
 Therefore, the protein will be seperated into three regions, which will be called reg1, reg2 and reg3, respectively. Then, different score function will be applied to each reigon with capping rules. And then finally geometry optimization will be applied based on the regions and the capping rules applied for each region.
 
 Residue selectors ae used to specify each region.`reg1` is selected by residue numbers, and `reg2` is selected by `Neighborhood` selector. This selector compares the distance between beta carbons of selection (in this case, `reg1`) with beta carbons of other residues. If the distance i
