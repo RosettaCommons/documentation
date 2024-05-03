@@ -16,10 +16,15 @@ In this case, we have part of a zinc-finger protein. We want to optimize the geo
  <br />
  <br />
  
-Therefore, the protein will be seperated into three regions, which will be called reg1, reg2 and reg3, respectively. Then, different score function will be applied to each reigon with capping rules. And then finally geometry optimization will be applied based on the regions and the capping rules applied for each region.
+Therefore, the protein will be seperated into three regions, which will be called qm_region1, qm_region2 and region3 (that will not be explicitly defined), respectively. 
+<br />
+Then, different score function will be applied to each reigon with capping rules.
+<br />
+And then finally geometry optimization will be applied based on the regions and the capping rules applied for each region.
 
-Residue selectors ae used to specify each region.`reg1` is selected by residue numbers, and `reg2` is selected by `Neighborhood` selector. This selector compares the distance between beta carbons of selection (in this case, `reg1`) with beta carbons of other residues. If the distance i
-s less than or equal to the threshold (in this case, 10A) it selects that residue. The `include_focus_in_subset="false"` tag means `reg2` excludes `reg1`. Figure 2. highights `reg1` with dark blue, and `reg2` with light blue. `reg3` is not defined because the MultiScoreFunction will automatically define what is remaining and define that as region 3..
+Residue selectors ae used to specify each region.`qm_region1` is selected by residue numbers, and `qm_region2` is selected by `Neighborhood` selector. This selector compares the distance between beta carbons of selection (in this case, `qm_region1`). If the distance is less than or equal to the threshold (in this case, 10A) it selects that residue. This is selected with the tag `distance` and setting to 10 (units are in angstroms). 
+<br />
+The `include_focus_in_subset="false"` tag means `qm_region2` excludes `qm_region1`. Figure 2. highights `qm_region1` with red, and `reg2` with yellow and the remaining region (region3) with blue. Note that `region3` is not defined because the MultiScoreFunction will automatically define what is remaining and define that as region3.
 
 
 Therefore, the residue selector block looks like this
