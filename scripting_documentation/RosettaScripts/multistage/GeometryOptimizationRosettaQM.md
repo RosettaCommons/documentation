@@ -10,7 +10,7 @@ In this case, we have part of a zinc-finger protein. We want to optimize the geo
 * and the rest of protein with Rosetta's score function.
 
 <figure align="center">
-<img src="../../../images/region1.png" alt="drawing" width="200"/>
+<img src="../../../images/GeometryOptimizationRosettaQM_region1.png" alt="drawing" width="200"/>
 <figcaption>Figure 1.</figcaption>
 </figure>
 
@@ -22,17 +22,17 @@ s less than or equal to the threshold (in this case, 10A) it selects that residu
 
 Therefore, the residue selector block looks like this
 ```
-        <RESIDUE_SELECTORS>
-        <!-- Define regions of interest -->
-        <!-- qm_region1 is the region where the most computationally expensive calculation is going to take place. -->
-        <Index name="qm_region1" resnums="8,11,24,28,29"/>
-        <!-- qm_region2 is the region where the second most computationally expensive calculation is going to take place. -->
-        <!-- Within the Neighborhood qm_region2 defines the region that is within 10.0 from qm_region1 and not including the atoms in qm_region1 (which is done using the tag include_focus_in_subset  -->
-        <Neighborhood name="qm_region2" selector="qm_region1" distance="10.0" include_focus_in_subset="false" />
-        </RESIDUE_SELECTORS>
+<RESIDUE_SELECTORS>
+    <!-- Define regions of interest -->
+    <!-- qm_region1 is the region where the most computationally expensive calculation is going to take place. -->
+    <Index name="qm_region1" resnums="8,11,24,28,29"/>
+    <!-- qm_region2 is the region where the second most computationally expensive calculation is going to take place. -->
+    <!-- Within the Neighborhood qm_region2 defines the region that is within 10.0 from qm_region1 and not including the atoms in qm_region1 (which is done using the tag include_focus_in_subset  -->
+    <Neighborhood name="qm_region2" selector="qm_region1" distance="10.0" include_focus_in_subset="false" />
+</RESIDUE_SELECTORS>
 ```
 <figure align="center">
-<img src="../../../images/GeometryOptimizationRosettaQM_image2.png" alt="drawing" width="200"/>
+<img src="../../../images/GeometryOptimizationRosettaQM_image1.png" alt="drawing" width="200"/>
 <figcaption>Figure 2.</figcaption>
 </figure>
 
