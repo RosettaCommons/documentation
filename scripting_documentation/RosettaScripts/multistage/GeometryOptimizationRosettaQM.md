@@ -266,3 +266,8 @@ In order to run this we will run it with `rosetta_scripts.cxx11thread.linuxgccre
 -GAMESS:GAMESS_path ./gamess_openmp_2023_09/
 -GAMESS:GAMESS_executable_version 00
 ```
+So we can save the above flags in `flags file` called `QMGEOMOPT.flags` and excute the command as such:
+```
+rosetta_scripts.cxx11thread.linuxgccrelease QMGEOMOPT.flags
+```
+
