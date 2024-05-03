@@ -243,3 +243,28 @@ The full RosettaScripts looks like this:
 </ROSETTASCRIPTS>
 
 ```
+
+
+In order to run this we will run it with the following flags:
+```
+-in:file:fullatom
+-in:auto_setup_metals true
+-relax:constrain_relax_to_start_coords true
+-coord_constrain_sidechains false
+-ramp_constraints false
+-in:file:s ./ZF_Cys2His2_0001_0001.pdb
+-in:file:native ./ZF_Cys2His2_0001_0001.pdb
+-out:prefix ./geom_opt_
+-out:file:scorefile ./geom_opt.sc
+-parser:protocol ./geom_opt2.xml
+-parser:script_vars threads=4
+-parser:script_vars scf_iter=50
+-rosetta_GAMESS_bridge_temp_directory ./temp/
+-quantum_mechanics:GAMESS:gamess_error_on_nonideal_bond_length_after_opt false
+-clean_rosetta_GAMESS_bridge_temp_directory false
+-GAMESS:gamess_qm_energy_geo_opt true
+-GAMESS:default_max_scf_iterations 50
+-GAMESS:GAMESS_path ./gamess_openmp_2023_09/
+-GAMESS:GAMESS_executable_version 00
+-GAMESS:GAMESS_threads 4
+```
