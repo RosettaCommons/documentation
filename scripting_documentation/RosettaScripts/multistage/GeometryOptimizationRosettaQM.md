@@ -46,7 +46,7 @@ Therefore, the residue selector block looks like this
 ```
 
 <figure align="center">
-<img src="../../../images/GeometryOptimizationRosettaQM_image2.png" alt="drawing" width="200"/>
+<img src="../../../images/GeometryOptimizationRosettaQM_region2.png" alt="drawing" width="200"/>
 <figcaption>Figure 2. Different regions of the multiscore function are shown here. `qm_region1` defined with `qm_hf` is shown in orange. `qm_region2` defined with `qm_hf3c_fmo` is shown in red and remaining region defined with `Ref2015` is shown in blue. </figcaption>
 </figure>
 
