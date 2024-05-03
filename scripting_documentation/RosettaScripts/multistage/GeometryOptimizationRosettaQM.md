@@ -28,7 +28,7 @@ If the distance is less than or equal to the threshold (in this case, 6.0A) it s
 This is selected with the tag `distance` and setting to 6.0 (units for this tag are in angstroms). 
 
 <br />
-The `include_focus_in_subset=\"false\" ` tag means `qm_region2` excludes `qm_region1`. Figure 2. highights `qm_region1` with orange, and `qm_region2` with red and the remaining region (region3) with blue. 
+The include_focus_in_subset="false" tag means `qm_region2` excludes `qm_region1`. Figure 2. highights `qm_region1` with orange, and `qm_region2` with red and the remaining region (region3) with blue. 
 Note that `region3` is not defined because the MultiScoreFunction will automatically define what is remaining and define that as region3.
 
 
@@ -49,9 +49,7 @@ Therefore, the residue selector block looks like this
 <img src="../../../images/GeometryOptimizationRosettaQM_region2.png" alt="drawing" width="600"/>
 <figcaption>Figure 2. Different regions of the multiscore function are shown here. `qm_region1` defined with `qm_hf` is shown in orange. `qm_region2` defined with `qm_hf3c_fmo` is shown in red and remaining region defined with `Ref2015` is shown in blue. </figcaption>
 </figure>
-<br />
 For each region, a different method defined within the `ScoreFunction` of `` SCOREFXNS `` of RosettaScripts needs to be used. 
-<br />
 The following table gives a summary of that. <br />
 | Region's name                       | Score function   |
 |-------------------------------------|------------------|
@@ -59,9 +57,6 @@ The following table gives a summary of that. <br />
 | qm\_region2 (red)                  | HF-3c/FMO        |
 | region3 (blue, not explicitly defined) | Rosetta ref2015 |
 
-
-<br />
-<br />
 ```xml
         <SCOREFXNS>
             <!-- In order to do multi-scale modeling, we need to set up the different score function that will used for the different regions of your system.  -->
