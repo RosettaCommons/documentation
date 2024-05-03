@@ -136,10 +136,10 @@ For mone on how to setup:
 ```
 
 
-Next we are going to set up the `MOVERS` block. This is where we will call the FastRelax. We will also call the `GamessQMGeometryOptimizationMover` and pass the MultiScoreFunction to the mover. We do this as follows: 
+Next we are going to set up the `MOVERS` block. This is where we will call the `FastRelax`. We will also call the `GamessQMGeometryOptimizationMover` and pass the `MultiScoreFunction` that we named `msfxn` to the mover. We do this as follows: 
 For more on how to setup:
-- FastRelax: [Go here]
-- GamessQMGeometryOptimizationMover: [Go here]
+- `FastRelax`: [Go here]
+- `GamessQMGeometryOptimizationMover`: [Go here]
 
 ```xml
     <MOVERS>
@@ -148,8 +148,8 @@ For more on how to setup:
     </MOVERS>
 ```
 
-Next we are goint to set up the `PROTOCOLS` block. In this block we are calling the FastRelax and then the GamessQMGeometryOptimizationMover sequentially. 
-So once FastRelax is done Rosetta will pass the Rosetta relaxed structure to GamessQMGeometryOptimizationMover for QM + RosettaMM geometry optimization. 
+Next we are goint to set up the `PROTOCOLS` block. In this block we are calling the `FastRelax` and then the `GamessQMGeometryOptimizationMover` sequentially. 
+So once `FastRelax` is done Rosetta will pass the Rosetta relaxed structure to `GamessQMGeometryOptimizationMover` for QM + RosettaMM geometry optimization. 
 
 ```xml
     <PROTOCOLS>
