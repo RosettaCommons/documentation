@@ -21,7 +21,8 @@ s less than or equal to the threshold (in this case, 10A) it selects that residu
 
 
 Therefore, the residue selector block looks like this
-```
+
+```xml
 <RESIDUE_SELECTORS>
     <!-- Define regions of interest -->
     <!-- qm_region1 is the region where the most computationally expensive calculation is going to take place. -->
@@ -31,6 +32,7 @@ Therefore, the residue selector block looks like this
     <Neighborhood name="qm_region2" selector="qm_region1" distance="10.0" include_focus_in_subset="false" />
 </RESIDUE_SELECTORS>
 ```
+
 <figure align="center">
 <img src="../../../images/GeometryOptimizationRosettaQM_image1.png" alt="drawing" width="200"/>
 <figcaption>Figure 2.</figcaption>
@@ -45,7 +47,7 @@ For each region, a different score function needs to be used. The following tabl
 | reg3 | Rosetta ref2015 |
 
 
-```
+```xml
         <SCOREFXNS>
             <!-- In order to do multi-scale modeling, we need to set up the different score function that will used for the different regions of your system.  -->
 
