@@ -54,11 +54,11 @@ For each region, a different method defined within the `ScoreFunction` of `` SCO
 <br />
 The following table gives a summary of that.
 <br />
-| Region's name | Score function |
-|-------------|----------------|
-| qm\_region1 | HF/3-21G |
-| qm\_region2 | HF-3c/FMO|
-| region3     | Rosetta ref2015 |
+| Region's name                       | Score function   |
+|-------------------------------------|------------------|
+| qm\_region1 (orange)               | HF/3-21G         |
+| qm\_region2 (red)                  | HF-3c/FMO        |
+| region3 (blue, not explicitly defined) | Rosetta ref2015 |
 <br />
 <br />
 ```xml
