@@ -10,7 +10,7 @@ In this case, we have part of a zinc-finger protein. We want to optimize the geo
 * and the rest of protein with Rosetta's score function.
 
 <figure align="center"> 
-<img src="../../../images/GeometryOptimizationRosettaQM_region1.png" alt="drawing" width="200"/> 
+<img src="../../../images/GeometryOptimizationRosettaQM_region1.png" alt="drawing" width="600"/> 
 <figcaption>Figure 1. Atomistic view of region 1 is shown, where the zinc atom is surrounded by two cystein residues and two histidine residues. </figcaption> 
 </figure> 
  <br />
