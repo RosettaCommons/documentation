@@ -245,7 +245,7 @@ The full RosettaScripts looks like this:
 ```
 
 
-In order to run this we will run it with the following flags:
+In order to run this we will run it with `rosetta_scripts.cxx11thread.linuxgccrelease` executable found in the bin folder (once Rosetta has been compiled) with the following flags:
 ```
 -in:file:fullatom
 -in:auto_setup_metals true
