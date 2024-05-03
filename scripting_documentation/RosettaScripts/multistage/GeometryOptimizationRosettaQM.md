@@ -56,9 +56,9 @@ The following table gives a summary of that.
 <br />
 | Region's name | Score function |
 |-------------|----------------|
-| qm\_region1 (orange) | HF/3-21G |
-| qm\_region2 (red) | HF-3c/FMO|
-| region3 (blue, not explicitly defined) | Rosetta ref2015 |
+| qm\_region1 | HF/3-21G |
+| qm\_region2 | HF-3c/FMO|
+| region3 (not explicitly defined) | Rosetta ref2015 |
 <br />
 <br />
 ```xml
