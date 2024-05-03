@@ -52,8 +52,7 @@ Therefore, the residue selector block looks like this
 <br />
 For each region, a different method defined within the `ScoreFunction` of `` SCOREFXNS `` of RosettaScripts needs to be used. 
 <br />
-The following table gives a summary of that.
-<br />
+The following table gives a summary of that. <br />
 | Region's name                       | Score function   |
 |-------------------------------------|------------------|
 | qm\_region1 (orange)               | HF/3-21G         |
