@@ -28,7 +28,7 @@ If the distance is less than or equal to the threshold (in this case, 10A) it se
 This is selected with the tag `distance` and setting to 10 (units are in angstroms). 
 
 <br />
-The `include_focus_in_subset="false"` tag means `qm_region2` excludes `qm_region1`. Figure 2. highights `qm_region1` with orange, and `qm_region2` with red and the remaining region (region3) with blue. 
+The `include_focus_in_subset=\"false\" ` tag means `qm_region2` excludes `qm_region1`. Figure 2. highights `qm_region1` with orange, and `qm_region2` with red and the remaining region (region3) with blue. 
 Note that `region3` is not defined because the MultiScoreFunction will automatically define what is remaining and define that as region3.
 
 
