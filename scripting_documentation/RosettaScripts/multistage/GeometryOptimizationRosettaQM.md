@@ -19,10 +19,10 @@ Then, different score function will be applied to each reigon with capping rules
 <br />
 And then finally geometry optimization will be applied based on the regions and the capping rules applied for each region. 
 <br />
-Residue selectors ae used to specify each region.`qm_region1` is selected by residue numbers, and `qm_region2` is selected by `Neighborhood` selector.  
-This selector compares the distance between beta carbons of selection (in this case, `qm_region1`). 
-If the distance is less than or equal to the threshold (in this case, 6.0A) it selects that residue. 
-This is selected with the tag `distance` and setting to 6.0 (units for this tag are in angstroms). 
+Residue selectors ae used to specify each region.`qm_region1` is selected by residue numbers, and `qm_region2` is selected by `Neighborhood` selector. <br /> 
+This selector compares the distance between beta carbons of selection (in this case, `qm_region1`). <br />
+If the distance is less than or equal to the threshold (in this case, 6.0A) it selects that residue. <br />
+This is selected with the tag `distance` and setting to 6.0 (units for this tag are in angstroms). <br />
 
 <br />
 The include_focus_in_subset="false" tag means `qm_region2` excludes `qm_region1`. Figure 2. highights `qm_region1` with orange, and `qm_region2` with red and the remaining region (region3) with blue. 
