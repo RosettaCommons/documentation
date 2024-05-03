@@ -35,19 +35,19 @@ Note that `region3` is not defined because the MultiScoreFunction will automatic
 Therefore, the residue selector block looks like this
 
 ```xml
-<RESIDUE_SELECTORS>
-    <!-- Define regions of interest -->
-    <!-- qm_region1 is the region where the most computationally expensive calculation is going to take place. -->
-    <Index name="qm_region1" resnums="8,11,24,28,29"/>
-    <!-- qm_region2 is the region where the second most computationally expensive calculation is going to take place. -->
-    <!-- Within the Neighborhood qm_region2 defines the region that is within 10.0 from qm_region1 and not including the atoms in qm_region1 (which is done using the tag include_focus_in_subset  -->
-    <Neighborhood name="qm_region2" selector="qm_region1" distance="10.0" include_focus_in_subset="false" />
-</RESIDUE_SELECTORS>
+    <RESIDUE_SELECTORS>
+        <!-- Define regions of interest -->
+        <!-- qm_region1 is the region where the most computationally expensive calculation is going to take place. -->
+        <Index name="qm_region1" resnums="8,11,24,28,29"/>
+        <!-- qm_region2 is the region where the second most computationally expensive calculation is going to take place. -->
+        <!-- Within the Neighborhood qm_region2 defines the region that is within 10.0 from qm_region1 and not including the atoms in qm_region1 (which is done using the tag include_focus_in_subset  -->
+        <Neighborhood name="qm_region2" selector="qm_region1" distance="10.0" include_focus_in_subset="false" />
+    </RESIDUE_SELECTORS>
 ```
 
 <figure align="center">
-<img src="../../../images/GeometryOptimizationRosettaQM_image1.png" alt="drawing" width="200"/>
-<figcaption>Figure 2. Different regions of the multiscore function are shown here. `qm_region1` defined with `qm_hf` is shown in orange. `qm_region2` </figcaption>
+<img src="../../../images/GeometryOptimizationRosettaQM_image2.png" alt="drawing" width="200"/>
+<figcaption>Figure 2. Different regions of the multiscore function are shown here. `qm_region1` defined with `qm_hf` is shown in orange. `qm_region2` defined with `qm_hf3c_fmo` is shown in red and remaining region defined with `Ref2015` is shown in blue. </figcaption>
 </figure>
 
 For each region, a different score function needs to be used. The following table gives a summary of that.
