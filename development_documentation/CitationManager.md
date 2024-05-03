@@ -273,6 +273,19 @@ Manuscripts under review may also be added.  In this case, the Journal and volum
 [END_CITATION]
 ```
 
+To add a citation to the `rosetta_citations.txt` file, the preferred method is to use the `add_citation_by_pubmed_id.py` script located in `Rosetta/main/source/code_templates`.  After doing this, it is generally necessary to edit the `rosetta_citations.txt` file and add authors' first names, and to commit the changes to one's branch and to push, but this saves work and avoids errors.  The `rosetta_citations.txt` file can also be edited manually, but this is not preferred.
+
+To use the `add_citation_by_pubmed_id.py` script:
+
+```
+add_citation_by_pubmed_id.py [-h] [--database DATABASE] [--pmid PMID]
+
+optional arguments:
+  -h, --help           show this help message and exit
+  --database DATABASE  Path to the Rosetta/main/database/ directory. Not required if this script is run from the Rosetta/main/source/ directory.
+  --pmid PMID          The PubMed ID of the citation to add to the dataase.
+```
+
 ### 2.3 Adding citation information to a non-RosettaScripts module
 
 If you write a module that is not one of the RosettaScripts classes that automatically register themselves if the `provide_citation_info` is implemented, an additional step is needed to register it with the CitationManager.
