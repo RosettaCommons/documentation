@@ -27,6 +27,6 @@ gamess_qm_energy 1.0
 
 In the first block, `BEGIN_GAMESS_SETTINGS ... END_GAMESS_SETTINGS` you can use any tag that is used in `<Set/>` section in Rosetta scripts. 
 
-In the second block, `BEGIN_GAMESS_QM_CONFIGURATION ... END_GAMESS_QM_CONFIGURATION` you can list all setting related to gamess configurations. (similar to what in scripts??)
+In the second block, `BEGIN_GAMESS_QM_CONFIGURATION ... END_GAMESS_QM_CONFIGURATION` you can use any tag that is used in `<QMConfiguration …/>` section in Rosetta scripts. 
 
 The last section `gamess_qm_energy 1.0` set a weight of `1.0` for `gamess_qm_energy` score term. This number will be multiplied by the output of `gamess_qm_energy` to give a final score. Therefore, setting it to `1.0` will give the original score. One might change it to change the scale of score for different reasons. Note that the output of RosettaQM has a unit of **kcal/mol**.
