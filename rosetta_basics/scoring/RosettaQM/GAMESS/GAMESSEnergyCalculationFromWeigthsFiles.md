@@ -2,7 +2,7 @@
 
 ## 
 
-There are different ways to set a scoring function. One can also use a weights file for this purpose. You will need to create a file with `.wts` format in directory `to be written`. Here is an example of content in this file:
+There are different ways to set a scoring function. One can also use a weights file for this purpose. You will need to create a file with `.wts` format in directory `<path-to-Rostta>/main/database/scoring/weights`. Here is an example of content in this file:
 
 ```
 BEGIN_GAMESS_SETTINGS
