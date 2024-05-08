@@ -25,17 +25,31 @@ The initial block of a score function in RosettaScripts looks something like thi
 </SCOREFXNS>
 ```
 In the above example RosettaScripts block, we define the main Score Function block as ```<SCOREFXNS> ... </SCOREFXNS>``` and then within this block we define the rosetta default scorefunction ref2015 with the sub-block ```<ScoreFunction>``` 
-In the ``` <ScoreFunction> ``` sub-block we have the first tag ``` name ``` which is used to give this score function a name that we can use within our full protocol later on. In this case we are calling ``` r15 ```. 
-The next tag is the ```weights``` tag. This is important and this is where we are telling which weights file to pick. Here the ```ref2015_cart.wts``` refers to the ref2015 weights file. More weights file can be found in here 
-``` ```
+In the ``` <ScoreFunction> ``` sub-block we have the first tag ``` name ``` which is used to give this score function a name that we can use within our full protocol later on. In this case we are calling it ``` r15 ```. 
+The next tag is the ```weights``` tag. This is important and this is where we are telling which weights file to pick. Here the ```ref2015_cart.wts``` refers to the ref2015 weights file. More weights file can be found in this part of your Rosetta directory ``` main/database/scoring/weights ```. 
+
+Similarly you can also create a RosettaQM scorefunction with slightly more options. A template for setting up RosettaQM scorefunction is shown below:  
+
+```xml
+<SCOREFXNS>
+    <ScoreFunction name="sfxn_qm" weights="empty" >
+        <Reweight scoretype="gamess_qm_energy" weight="1.0"/>
+        <Set gamess_electron_correlation_treatment="HF"
+             gamess_ngaussian="3" gamess_basis_set="N21"
+             gamess_npfunc="1" gamess_ndfunc="1"
+             gamess_threads="4" gamess_use_scf_damping="true"
+             gamess_use_smd_solvent="true" gamess_max_scf_iterations="50"
+             gamess_multiplicity="1" />
+    </ScoreFunction>
+</SCOREFXNS>
+```
+In the above xml block. We are now defining a ScoreFunction block named `sfxn_qm` where we first assign an empty weights, so that no Rosetta energy weights is passed and then we reweight it with the option "gamess_qm_energy" that is energy method defined for the QM software package GAMESS (installed externally by the user). 
+Next we set up the QM method (Hartree Fock [HF]) with the basis set 3-21gand to run that in parallel over 4 threads. We are using the smd solvation model and a max SCF iterations of 50. Here the multiplicity is set to 1.  
+All these options are system dependent and the above template is an example of what needs to be done to set up a QM scorefunction. This SHOULD NOT be used as default settings to run RosettaQM.  
+
+To get a list of all the available tags and options for ScoreFunction you can excute the rosettascripts executable with the `-info ScoreFunction` flag. So it will look something like this: 
+
+``` rosetta_scripts.linuxgccrelease -info ScoreFunction ```
 
 
-To use this term, it must be turned on by reweighting `netcharge` to a non-zero value, either in the weights file used to set up the scorefunction, or in the scorefunction definition in RosettaScripts, in PyRosetta, or in C++ code.
-
-This scoring term is controlled by ```.charge``` files, which define the desired charge in a pose or a sub-region of a pose defined by residue selectors.  If no ```.charge``` files are provided, then the `netcharge` score term always returns a score of zero.  The ```.charge``` file(s) to use can be provided to Rosetta in three ways:
-- The user can provide one or more ```.charge``` files as input at the command line with the ```-netcharge_setup_file <filename1> <filename2> <filename3> ...``` flag.  The charge specifications will be applied globally, to the whole pose, whenever it is scored with the `netcharge` score term.
-- The user can provide one or more ```.charge``` files when setting up a particular scorefunction in RosettaScripts (or in PyRosetta or C++ code), using the ```<Set>``` tag to modify the scorefunction.  The charge specification will be applied globally, to the whole pose, whenever this particular scorefunction is used.  For example:
-
-Some hand-written text describing the ScoreFunction.
 [[include:sfxn_loader_ScoreFunction_type]]
-More hand-written text.
