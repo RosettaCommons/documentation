@@ -2,11 +2,12 @@
 
 Back to [[Rosetta basics|Rosetta-Basics]].
 Page created 16 November 2021 by Vikram K. Mulligan, Flatiron Institute (vmulligan@flatironinstitute.org).
+Fleshed out 1 May 2024 by Noora Azadvari, University of Oregon (eazadvar@uoregon.edu).
 
 [[_TOC_]]
 
 ## Citation
-GAMESS needs to be cited while using RosettaQM:
+GAMESS needs to be cited when using RosettaQM:
 
 [Barca, G. M. J. et al. The Journal of Chemical Physics 152, 154102 (2020)](https://doi.org/10.1063/5.0005188)
 
@@ -159,3 +160,4 @@ TODO
 ||Problem | Reason| Solution |
 |--|----|-----|----|
 |1|Errors about charge and multiplicity with FMO | open termini | The -ignore_zero_occupancy false flag is often needed. |
+|2|Errors with the `-auto_setup_metals` flag (see the page on tge [[-auto_setup_metals flag|Metals]]) or the [[SetupMetalsMover]], especially with histidine.|Incorrect tautomerization of histidines that coordinate metals can result in the proton being removed from neutral histidine, yielding an improbable negatively-charged histidine and an incorrect electronic configuration of the system.|Use the [[MutateResidueMover]] to manually mutate histidine residues to either "HIS" (protonated on the epsilon nitrogen) or "HIS_D" (protonated on the delta nitrogen) tautomer, to ensure that the proton is on the nitrogen that is _not_ coordinating the metal.  Do this _prior_ to using the [[SetupMetalsMover]]|
