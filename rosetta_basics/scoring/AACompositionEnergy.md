@@ -93,6 +93,12 @@ Here's an example ```.comp``` file that penalizes deviations from having 10% aro
 # This penalty definition block specifies that, for aromatics, there will be a 100-point penalty for
 # having ANY fewer or ANY more than the desired number of aromatic residues.
 
+# Note that this is a slightly artificial case for demonstration purposes.  Generally, when designing,
+# one wants quadratically-ramping penalties as one deviates from the desired amino acid composition.
+# Quadratically-ramping penalties help to guide the packer to the desired amino acid composition.  Constant
+# penalties of zero are usually used at most on one side or the other if one wants to indicate that one
+# wants at most or at least a certain number or fraction to be a particular amino acid.
+
 PENALTY_DEFINITION
 
 # Define residue types to control
@@ -129,6 +135,7 @@ Here's a more complicated .comp file that imposes the requirement that the prote
 ```
 # This is a .comp file for requiring that a structure be ten percent aromatic.
 # File created 21 July 2015 by Vikram K. Mulligan (vmullig@uw.edu), Baker laboratory.
+# Edited 30 May 2024 by Vikram K. Mulligan (vmulligan@flatironinstitute.org), Flatiron Institute.
 PENALTY_DEFINITION
 OR_PROPERTIES AROMATIC ALIPHATIC
 NOT_TYPE LEU
@@ -136,8 +143,8 @@ FRACT_DELTA_START -0.05
 FRACT_DELTA_END 0.05
 PENALTIES 100 0 100 # The above two lines mean that if we're 5% below or 5% above the desired content, we get a 100-point penalty.
 FRACTION 0.4 # Forty percent aromatic or aliphatic, but not leucine
-BEFORE_FUNCTION CONSTANT
-AFTER_FUNCTION CONSTANT
+BEFORE_FUNCTION QUADRATIC
+AFTER_FUNCTION QUADRATIC
 END_PENALTY_DEFINITION
 
 PENALTY_DEFINITION
@@ -146,8 +153,8 @@ DELTA_START -1
 DELTA_END 1
 PENALTIES 100 0 100
 FRACTION 0.05 # Five percent leucine
-BEFORE_FUNCTION CONSTANT
-AFTER_FUNCTION CONSTANT
+BEFORE_FUNCTION QUADRATIC
+AFTER_FUNCTION QUADRATIC
 
 END_PENALTY_DEFINITION
 ```
