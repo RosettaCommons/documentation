@@ -29,7 +29,7 @@ Most modern processors should be suitable. The one limitation you may run into i
 
 #### How do I compile Rosetta?
 
-Please see the page [[Build Documentation]] or the [Installation tutorial](https://www.rosettacommons.org/demos/latest/tutorials/install_build/install_build) for instructions on how to compile and install Rosetta.
+Please see the page [[Building Rosetta]] or the [Installation tutorial](https://www.rosettacommons.org/demos/latest/tutorials/install_build/install_build) for instructions on how to compile and install Rosetta.
 
 #### Where can I learn how to use Rosetta?
 

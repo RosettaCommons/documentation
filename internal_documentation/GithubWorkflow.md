@@ -48,7 +48,7 @@ Branching and merging is the preferred development pattern in git, and because t
     * You will need to pre-accept GitHub's RSA key fingerprint by following [[the last step of the SSH instructions|https://help.github.com/articles/generating-ssh-keys]].
 * People contributing code will need to sign either the [developer agreement]() (for members of a RosettaCommons member lab) or the [Contributor Licensing Agreement](insert link) before their PRs can be accepted.
     * Members of RosettaCommons labs should consult the internal wiki for more details on getting set up as a RosettaCommons member. (Ask other lab members for the website and login info.)
-* You will need some of the standard [[Rosetta external dependencies|Build-Documentation]] like a compiler, etc.
+* You will need some of the standard [[Rosetta external dependencies|Building-Rosetta]] like a compiler, etc.
 
 ####Obtaining Rosetta.
 
