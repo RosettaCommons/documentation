@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2023-12-05
+Generated: 2024-06-12
 
 _Note that some application specific options may not be present in this list._
 
@@ -4567,6 +4567,10 @@ _Note that some application specific options may not be present in this list._
 <dd>If a lariat cyclization type is specified (e.g. nterm_isopeptide_lariat, cterm_isopeptide_lariat), then this is the residue that provides the side-chain that connects to the N- or C-terminus of the peptide.  If not specified, the residue of appropriate type closest to the other end is used.<br/>Default: 0<br/></dd>
 <dt><b>-sidechain_isopeptide_indices</b> \<IntegerVector\></dt>
 <dd>If the sidechain_isopeptide cyclization type is specified, these are the indices of the residues that are linked by a sidechain-sidechain isopeptide bond to make the loop.  If not specified, the residues furthest apart of appropriate types are used.  Note that exactly two indices must be given.<br/></dd>
+<dt><b>-lanthionine_positions</b> \<IntegerVector\></dt>
+<dd>If provided, then these positions will be linked by a lanthionine, crosslinker.  2 positions must be specified, and this group of two will be linked.  Unused if not specified.<br/></dd>
+<dt><b>-lariat_sample_cis</b> \<Boolean\></dt>
+<dd>If true(default), then thioether_lariats will sample cis peptide bonds at the N terminus, trans if false.<br/>Default: true<br/></dd>
 <dt><b>-paraBBMB_positions</b> \<IntegerVector\></dt>
 <dd>If provided, then these positions will be linked by a 1,4-bis(bromomethyl)benzene, or para-BBMB, crosslinker.  2N positions must be specified, and every group of two will be linked.  Unused if not specified.<br/></dd>
 <dt><b>-use_paraBBMB_filters</b> \<Boolean\></dt>
