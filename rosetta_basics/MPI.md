@@ -9,7 +9,7 @@ Certain protocols (listed below) use MPI non-trivially. These protocols do use (
 
 ## Building Rosetta with MPI
 
-* See Also [[Build Documentation]]
+* See Also [[Building Rosetta]]
 
 In order to enable MPI runs, you need to have Rosetta compiled with MPI support.
 
@@ -60,5 +60,5 @@ TODO
 
 * [[JD2]]: The Job Distributor, commonly used when running MPI protocols
 * [[Running Rosetta with options]]
-* [[Build Documentation]]: Information on building Rosetta
+* [[Building Rosetta]]: Information on building Rosetta
 * [[Rosetta Basics]]
