@@ -2,6 +2,8 @@
 
 For having both TensorFlow and Torch support, follow the download and setup instructions below and then compile with `extras=tensorflow,torch` (e.g. `./scons.py -j 24 mode=release extras=tensorflow,torch`).
 
+
+
 ## To compile with Tensorflow support:
 
 1. Download the Tensorflow 1.15 precompiled libraries for your operating system from one of the following:   
@@ -53,6 +55,11 @@ For having both TensorFlow and Torch support, follow the download and setup inst
 Note: You can use both `extras=tensorflow` and `extras=tensorflow_gpu` with any of the downloaded versions, there is no check whether its connected to the respective library. However, it enables you to have binaries for both. If you have trouble combining the right GPU version with CUDA, take a look at [this table here](https://www.tensorflow.org/install/source#gpu).
 
 ## To compile with Torch support:
+
+NOTE 1: Rosetta uses the C++ level libTorch library, *not* PyTorch. Command line Rosetta cannot use a version of PyTorch installed with Conda, pip or similar.
+
+NOTE 2: While current versions use `extras=torch`, prior versions (including Rosetta 3.14) used `extras=pytorch` instead. Installation should be similar, except for the change of extras designation and the corresponding executable name.
+
 1. Download Libtorch from https://pytorch.org/get-started/locally/.
     e.g. for the cpu version:
     ```
