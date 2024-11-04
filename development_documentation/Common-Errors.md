@@ -97,6 +97,6 @@ PhenixInterface::setAlgorithm(
 ##See Also
 
 * [[Development Documentation]]
-* [[Build Documentation]]
+* [[Building Rosetta]]
 * [[Scons Overview and Specifics]]: Detailed information on the Scons compiling system
 * [[FAQ]]

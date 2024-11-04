@@ -58,7 +58,7 @@ Rosetta uses Doxygen to produce documentation. [[Tips for writing doxygen docume
 Compiling the Rosetta library and application using SCons
 =========================================================
 
-[[A Guide to Using SCons to Build Rosetta|Build-Documentation]] demonstrates some simple features of the build system followed by a more detailed discussion of the build system structure and how it can be extended. Rosetta uses a custom SCons builder. The builder allows multiple build configurations.
+[[A Guide to Using SCons to Build Rosetta|Building-Rosetta]] demonstrates some simple features of the build system followed by a more detailed discussion of the build system structure and how it can be extended. Rosetta uses a custom SCons builder. The builder allows multiple build configurations.
 
 Running and Writing Unit, Integration, Performance, and Scientific Tests
 ========================================================================
