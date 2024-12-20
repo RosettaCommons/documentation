@@ -1,79 +1,71 @@
 #AppName application
 
-
-AppName should match the C++ application if applicable. If the document is an extension of a particular app, the c++ application should be within AppName (fixbb vs fixbb\_with\_hpatch)
+SID_ERMS_Rescore
 
 Metadata
 ========
 
-Author: DOCUMENTATION AUTHOR GOES HERE
-
-State when the documentation was last updated, by whom. State the PI for this application and their email address. They are the corresponding author.
+Method, code, and documentation by Robert Bolz (bolz.13@osu.edu). The PI was Steffen Lindert (lindert.1@osu.edu). Last updated Jan 2025 by Robert Bolz. 
 
 Code and Demo
 =============
 
-Put where the code's application is, where its major protocol Mover is (if applicable), and where the integration tests and/or demos are. Your demo should be set up as a fast-running "try me" version, and this documentation should contain instructions for more serious 'production' runs.
+Application resides at Rosetta/main/source/src/apps/public/analysis/SID_ERMS_Rescore.cc. A tutorial for using the application can be found below.
+
+First subunits must be generated either from Alphafold2 or from the PDB subunit structure. The subunits should then be docked using RosettaDock (detailed in the methods section) to generate 10,000 models. From there, SID_ERMS_Rescore can be run on those 10,000 docked models. 
+This application relies on the ERMS prediction application, SID_ERMS_prediction, to simulate the ERMS data. As such, all file constraints from that application still apply to this one to correctly simulate the ERMS data. See the tutorial located in the supplemental section of that publication1 and the Rosetta documentation page for more information on the SID_ERMS_prediction application, https://www.rosettacommons.org/docs/latest/application_documentation/Application-Documentation/SID_ERMS_prediction.
+
+Flags for input for the SID_ERMS_Rescore application:
+-in:file:l: To input your models for rescoring. Must be a list of file paths to your pdb files. 
+-ERMS: The experimental ERMS data for use in rescoring. Must be a tab separated file (.tsv).
+-RMSE: Boolean flag to calculate RMSE. (Used in the SID_ERMS_prediction1 portion of the application, see https://www.rosettacommons.org/docs/latest/application_documentation/Application-Documentation/SID_ERMS_prediction).
+-complex_type: File to describe the interfaces of the complex (Used in the SID_ERMS_prediction portion of the application, for example files and formatting instructions see  https://www.rosettacommons.org/docs/latest/application_documentation/Application-Documentation/SID_ERMS_prediction).
+-out:file:o: Flag to specify output file name and location. File will contain the name of the file, original score of the structure (using the ref152 score function), and the rescored value of the complex. 
+
+Example command: 
+*Rosetta path*/main/source/bin/SID_ERMS_Rescore.default.linuxgccrelease 
+	-in:file:l *file containing list of paths to pdb files* 
+        -complex_type *path to complex type file*
+	-ERMS *path to tsv file*
+	-RMSE
+	-out:file:o *name of output file*
+
+Output: The output file will contain four pieces of information. The name of the file inputs to the application, the RMSE of the ERMS prediction, the score of the input structures (from the ref15 score function), and the rescore values using the ERMS data. 
+
 
 References
 ==========
 
-Note references associated with this publication. Also note if they contain implementation details that function as documentation.
+1.	Seffernick, J. T. et al. Simulation of energy-resolved mass spectrometry distributions from surface-induced dissociation. Anal. Chem. 94, 10506–10514 (2022).
+2.	Alford, R. F. et al. The Rosetta all-atom energy function for macromolecular modeling and design. J. Chem. Theory Comput. 13, 3031–3048 (2017).
+
+For the SID_ERMS_prediction portion of the application, example files and formatting instructions see  https://www.rosettacommons.org/docs/latest/application_documentation/Application-Documentation/SID_ERMS_prediction).
 
 Purpose
 =======
 
-What is this code supposed to do? What sorts of problems does it solve?
-
-Algorithm
-=========
-
-Broadly, how does this code work? Does it have a centroid phase? A fullatom phase? Does it run repacking every so often?
-
-Limitations
-===========
-
-What does this code NOT do? You'll find a lot of academic users try to get code to do things it was never intended to do, warn them off here.
-
-Modes
-=====
-
-If your protocol is a massive multimodal beast (loop modeling, etc), then describe the different modes here. All sections below this should be split for each mode as necessary. You may have only one major mode (fixbb).
+This application rescores and ranks input PDB structures using input SID-ERMS data
 
 Input Files
 ===========
 
-If there are any special input file types, describe them here.
-
--   Common file types (loop file, fragment files, etc) will be described in a common place; link to those documents with the ATref command.
--   Uncommon and app-specific file types should be described here.
--   Link to (or at least give paths to) examples of each from your integration test/demo.
--   Mention what you expect the input structure to be: if it's loop modeling, does the loop need to be present, or will it build from scratch? If it's ligand binding, does there need to be a copy of the ligand in the input structure?
+-in:file:l: To input your models for rescoring. Must be a list of file paths to your pdb files. 
+-ERMS: The experimental ERMS data for use in rescoring. Must be a tab separated file (.tsv).
+-complex_type: File to describe the interfaces of the complex (Used in the SID_ERMS_prediction portion of the application, for example files and formatting instructions see  https://www.rosettacommons.org/docs/latest/application_documentation/Application-Documentation/SID_ERMS_prediction).
 
 Options
 =======
 
-Describe the options your protocol uses.
+-RMSE: Boolean flag to calculate RMSE. (Used in the SID_ERMS_prediction1 portion of the application, see https://www.rosettacommons.org/docs/latest/application_documentation/Application-Documentation/SID_ERMS_prediction).
+-out:file:o: Flag to specify output file name and location. File will contain the name of the file, original score of the structure (using the ref15 score function), and the rescored value of the complex. 
 
--   First, describe protocol-specific options, in deep detail. Give the value ranges used in 'production' runs for publication, and recommended minima/maxima where possible.
--   Next, describe the application's general-Rosetta options of particular interest. Less detail is necessary for options like nstruct, but be sure to mention all the important ones.
-
-Tips
-====
-
-Describe how to get the best use out of the protocol. Does it not require constraints, but work better with them? Do you need to remember -ex1 -ex2 to get much out of it?
 
 Expected Outputs
 ================
 
-What does your protocol produce? Usually it will be just a PDB and a scorefile, but note if there should be more. Note what the normal exit status of the protocol is (for example, "You'll see the jd2 x jobs completed in y seconds message if successfully completed".)
+The output file will contain four pieces of information. The name of the file inputs to the application, the RMSE of the ERMS prediction, the score of the input structures (from the ref15 score function), and the rescore values using the ERMS data. 
 
-Post Processing
-===============
-
-What post processing steps are typical? Are score vs RMSD plots useful? Are structures clustered (if so, give a command line)? Is it obvious when either the application has succeeded or if it has failed (e.g. if the protocol makes predictions like "This is the docked conformation of proteins A and B"). In the case of designs, how should designs be selected?
 
 New things since last release
 =============================
-
-If you've made improvements, note them here.
+This is the first release.
