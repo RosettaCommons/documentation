@@ -1,6 +1,6 @@
 #AppName application
 
-SID_ERMS_Rescore
+Name: SID_ERMS_Rescore
 
 Metadata
 ========
