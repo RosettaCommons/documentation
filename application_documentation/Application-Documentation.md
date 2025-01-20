@@ -273,7 +273,7 @@ Component | Description
  - Domain assembly:
     * [[mp_domain_assembly|RosettaMP-DomainAssembly]] - Create full-length model of a membrane protein from known domain structures
  - RosettaEvolutionaryLigand:
-    * [[revold|REvoLd]] - Optimize small molecule ligands through an evolutionary algorithm sampling from combinatorial libraries like Enamine REAL. Preprint: [[https://arxiv.org/abs/2404.17329|REvoLd]]
+    * [[REvoLd|revold]] - Optimize small molecule ligands through an evolutionary algorithm sampling from combinatorial libraries like Enamine REAL.
 
 ##Utilities
 
