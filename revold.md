@@ -10,7 +10,7 @@ We highly recommend running REvoLd only with MPI support through mpirun/mpiexec/
 
 # Reference
 
-[[Preprint paper|https://arxiv.org/abs/2404.17329]]
+Eisenhuth, Paul, et al. "REvoLd: Ultra-Large Library Screening with an Evolutionary Algorithm in Rosetta." arXiv preprint arXiv:2404.17329 (2024). [[Preprint paper|https://arxiv.org/abs/2404.17329]]
 
 # Input
 
