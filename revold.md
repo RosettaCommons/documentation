@@ -72,7 +72,7 @@ After running REvoLd you will find several files in your run directory:
 
 # Algorithm Description
 
-Details can be found in the publication. In short, REvoLd starts with a population of ligands (default 200) randomly sampled from the combinatorial input space. Each ligand is added to a copy of the target pose and placed at the specified xyz position. The docking protocol is applied n times (default 150). Each apply is followed by scoring the protein-ligand pose with the specified main scoring function. The resulting scores are used to calculate the REvoLd specific scores, further referred to as fitness scores:
+Details can be found in the publication. In short, REvoLd starts with a population of ligands (default 200) randomly sampled from the combinatorial input space. Each ligand is added to a copy of the target pose and placed at the specified xyz position. The docking protocol is applied n_scoring_runs times (default 150). Each apply is followed by scoring the protein-ligand pose with the specified main scoring function. The resulting scores are used to calculate the REvoLd specific scores, further referred to as fitness scores:
 
 1. total_REU: Rosetta energy of the entire complex
 2. ligand_interface_delta: Difference between bound and unbound complex. The unbound complex energy is calculated by moving the ligand 500A away from the protein target and rescoring without additional relaxation.
@@ -85,6 +85,8 @@ The specified main term (default lid_root2) is used to select the fittest dockin
 Each generation starts with selecting individuals from the current population to produce offspring. This can be flexibly modified through combinations of selectors and offspring factories. The resulting offspring can be the same as their parents to preserve well fit ligands for future generations, mutations switching only a single fragment or crossover between two parents combining fragments from both.
 
 # vHTS Option
+
+REvoLd can also be used score a list of smiles distributed over multiple processors if the aforementioned options external_scoring and smiles_file are set. Each processor from the mpirun call will select its own equally sized chunk of smiles from the smiles_file, turn each smiles into a protein-ligand complex, place it at the specified xyz position and apply the specified RosettaScript n_scoring_runs times. No pdbs will be written during vHTS to reduce the disk space requirements, but each process will create a file called external_results_<procID>.csv. This file will contain as many lines as defined by external_scoring for each ligand corresponding to the n best results from docking. Each line looks like smiles;term1;term2;...;termN
 
 # Evolutionary Script
 
