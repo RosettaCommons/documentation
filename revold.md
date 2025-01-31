@@ -14,7 +14,7 @@ Eisenhuth, Paul, et al. "REvoLd: Ultra-Large Library Screening with an Evolution
 
 # Input
 
-REvoLd requires a single protein structure as target. Additionally, you need the definition of the combinatorial space to sample from. This requires two files, one defining reactions and one defining reagents (or fragments and rules how to link them). They can be obtained under a NDA from vendors like Enamine or from any other source including self made. The definition consists of two white-space separated files with header lines including the following fields:
+REvoLd requires a single protein structure as target. Remember to [[prepare|rosetta_basics/preparation/preparing-structures]] it. Additionally, you need the definition of the combinatorial space to sample from. This requires two files, one defining reactions and one defining reagents (or fragments and rules how to link them). They can be obtained under a NDA from vendors like Enamine or from any other source including self made. The definition consists of two white-space separated files with header lines including the following fields:
 
 1. reactions: reaction_id (a name or number to identify the reaction), components (number of fragments participating in the reaction), Reaction (smarts string defining the reaction or fragment coupling)
 
@@ -149,6 +149,7 @@ There are extensive checks included when you parse a new evolutionary protocol i
 
 # See Also
 
+* [[Structure prep|rosetta_basics/preparation/preparing-structures]]
 * [[RosettaLigand|application_documentation/docking/ligand-dock]]
 * [[Transform Mover|scripting_documentation/RosettaScripts/Movers/movers_pages/TransformMover]]
 * [[HighRes Mover|scripting_documentation/RosettaScripts/Movers/movers_pages/HighResDockerMover]]
