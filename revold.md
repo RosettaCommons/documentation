@@ -52,21 +52,37 @@ Lastly, REvoLd requires a RosettaScript which will be applied multiple times to 
 # Example
 
 ```
-mpirun -np 20 bin/revold.mpi.linuxgccrelease        \
-       -in:auto_setup_metals                        \
-       -in:file:s 5ZBQ_0001_A.pdb                   \
-       -parser:protocol docking_perturb.xml         \
-       -ligand_evolution:xyz -46.972 -19.708 70.869 \
-       -main_scfx hard_rep                          \
-       -reagent_file reagents_short.txt             \
-       -reaction_file reactions_short.txt           \
+mpirun -np 20 bin/revold.mpi.linuxgccrelease               \
+       -in:auto_setup_metals                               \
+       -in:file:s 5ZBQ_0001_A.pdb                          \
+       -parser:protocol docking_perturb.xml                \
+       -ligand_evolution:xyz -46.972 -19.708 70.869        \
+       -ligand_evolution:main_scfx hard_rep                \
+       -ligand_evolution:reagent_file reagents_short.txt   \
+       -ligand_evolution:reaction_file reactions_short.txt \
 ```
 
 # Results
 
+After running REvoLd you will find several files in your run directory:
+
+1. 1,000-4,000 pdb files with a numerical code as file names. These are the best scoring complexes calculated through your defined docking script for each ligand considered during optimization.
+2. **ligands.tsv** - _This is the main result of REvoLd_. It contains all information about every ligand docked during optimization sorted by the main score term (default lid_root2). The numerical id corresponds to the pdb file name
+3. population.tsv - This file can be ignored in most cases. It contains population information if someone tries to analyze the dynamics of the evolutionary optimization, but it is not straight forward to read as it is intended for dev purposes only. It is seperated into three blocks, each with their own header. First a map to turn the numerical ids of ligands (same as pdb) into ids of individuals. Second, edge information for the family tree and third a list of all populations existing during the optimization.
+
 # Algorithm Description
 
-Different scores
+Details can be found in the publication. In short, REvoLd starts with a population of ligands (default 200) randomly sampled from the combinatorial input space. Each ligand is added to a copy of the target pose and placed at the specified xyz position. The docking protocol is applied n times (default 150). Each apply is followed by scoring the protein-ligand pose with the specified main scoring function. The resulting scores are used to calculate the REvoLd specific scores, further referred to as fitness scores:
+
+1. total_REU: Rosetta energy of the entire complex
+2. ligand_interface_delta: Difference between bound and unbound complex. The unbound complex energy is calculated by moving the ligand 500A away from the protein target and rescoring without additional relaxation.
+3. ligand_interface_delta_EFFICIENCY: The ligand interface delta (lid) scores divided by the number of non-hydrogen atoms in the ligand
+4. lid_root2: Same as efficiency, but the square-root of number of non-hydrogen atoms is used
+5. lid_root3: Same as lid_root2, but cube-root instead square-root
+
+The specified main term (default lid_root2) is used to select the fittest docking result for each ligand and the corresponding pose is written to file. It's score is also used as fitness for the ligand. After scoring each ligand, the population needs to be shrunk to simulate selective pressure (default to a size of 50 ligand). This is done through a selector (default tournament selection). Finally, the evolutionary optimization cycle starts and is repeated until the maximum number of generations is reached (default 30). After each generation all ligand information is saved.
+
+Each generation starts with selecting individuals from the current population to produce offspring. This can be flexibly modified through combinations of selectors and offspring factories. The resulting offspring can be the same as their parents to preserve well fit ligands for future generations, mutations switching only a single fragment or crossover between two parents combining fragments from both.
 
 # vHTS Option
 
