@@ -90,6 +90,67 @@ REvoLd can also be used score a list of smiles distributed over multiple process
 
 # Evolutionary Script
 
+REvoLd evolutionary optimization cycle is very modular and can be changed. However, this option is usually not important if you want to use REvoLd. The default settings are benchmarked and have shown reliable performance. However, if you want to change it, use -ligand_evolution:options to specify a xml file:
+
+```xml
+<Population main_selector="std_tournament" supported_size="50"/>
+<PopulationInit init_type="random" size="200"/>
+<PopulationInit init_type="best_loaded" size="25" selection="1000"/>
+
+<Scorer similarity_penalty="0.5" similarity_penalty_threshold="0.95"/>
+
+<Selector name="remove_elitist" type="elitist" size="15" remove="True"/>
+<Selector name="std_tournament" type="tournament" size="15" remove="False" tournament_size="15" acceptance_chance="0.75"/>
+<Selector name="std_roulette" type="roulette" size="15" remove="False" consider_positive="False"/>
+
+<Factory name="std_mutator" type="mutator" size="30" reaction_weight="1.0" reagent_weight="2.0" min_similarity="0.6" max_similarity="0.99"/>
+<Factory name="drastic_mutator" type="mutator" size="30" reaction_weight="0.0" reagent_weight="1.0" min_similarity="0.0" max_similarity="0.25"/>
+<Factory name="reaction_mutator" type="mutator" size="30" reaction_weight="1.0" reagent_weight="0.0" min_similarity="0.6" max_similarity="0.99"/>
+<Factory name="large_crossover" type="crossover" size="60"/>
+<Factory name="std_identity" type="identity" size="15"/>
+
+<!--order is important here-->
+<EvolutionProtocol selector="std_roulette" factory="std_mutator"/>
+<EvolutionProtocol selector="std_roulette" factory="large_crossover"/>
+<EvolutionProtocol selector="std_roulette" factory="drastic_mutator"/>
+<EvolutionProtocol selector="std_roulette" factory="reaction_mutator"/>
+<EvolutionProtocol selector="remove_elitist" factory="std_identity"/>
+<EvolutionProtocol selector="std_roulette" factory="std_mutator"/>
+<EvolutionProtocol selector="std_roulette" factory="large_crossover"/>
+```
+
+The tags are explain in more detail:
+
+* Population
+    * Defines how selective pressure is applied when advancing generations
+    * main_selector: Name of one of the defined selectors
+    * supported_size: Maximum number of individuals to advance to the next generation
+* PopulationInit
+    * Defines an operator to generate the initial population
+    * random: Draws <size> ligands randomly from the combinatorial library
+    * best_loaded: Needs a sore_memory to be defined. First, it elects the <selection> best ligands from that list and then randomly samples <size> numbers of ligands from it
+* Scorer
+    * Defines how similarity between molecules will be penalized to enforce diverse molecules within each population
+    * similarity_penalty: Flat penalty which will be added to the calculated fitness for each molecule with higher fitness surpassing the similarity_penalty_threshold (RDKit Fingerprint Tanimoto Similarity)
+* Selector
+    * Selects <size> individuals from a population to pass them into an offspring factory. If <remove> is true, the selected individuals are removed from the current population and can not produce offspring again.
+    * elitist: Simply selects the best ligands
+    * roulette: Each ligand has a chance proportional to its relative fitness, e.g. a ligand with lid_root2 of -4.0 is twice as likely to be selected than one with -2.0. <consider_positive> triggers a linear transformation of all scores into a negative range, but this can have undesired impact and should not be used.
+    * tournament: Considers only the ranking of ligands instead of their relative score difference. <size> consecutive tournaments are played and each winner gets passed to the offspring factory. For a tournament <tournament_size> random ligands are selected to participate. Next, they are ordered by fitness and the first ligand gets offered to win. It has an acceptance chance of <acceptance_chance>. If the win is accepted, the tournament is over and the next starts with the last winner banned from participating. If the win is declined, it is offered to the second ligand, then to the third and so on.
+* Factory
+    * Receives a set of parent ligand which will be used to generate <size> new molecules without altering the parents
+    * identity: Simply copies the parent ligand. This in combination with the elitist selector for example allows the best molecules to persist through generations.
+    * mutator: Takes one parent and either changes the reaction or one of the fragments. <reaction_weight> and <reagent_weight> specify how likely which operation is. If the reaction is changed, the most similar reagents to the parent are searched in the new reaction. If a fragment is changed, all suitable replacements are considered as long as they are below <max_similarity> and above <min_similarity> to the parent
+    * crossover: Combines fragment from two randomly paired parents to produce a new ligand
+* EvolutionProtocol:
+    * Each tag defines in order which selector will be applied to the current population and to which factory they will be passed. All offspring will be stored in a temporary population and replace the current population as soon as all protocol steps have finished.
+
+There are extensive checks included when you parse a new evolutionary protocol including informative error outputs. We suggest to simply play around with this system if you are interested in writing your own protocol.
+
 # See Also
 
-RosettaLigand
+* [[RosettaLigand|application_documentation/docking/ligand-dock]]
+* [[Transform Mover|scripting_documentation/RosettaScripts/Movers/movers_pages/TransformMover]]
+* [[HighRes Mover|scripting_documentation/RosettaScripts/Movers/movers_pages/HighResDockerMover]]
+* [[Final Minimizer|scripting_documentation/RosettaScripts/Movers/movers_pages/FinalMinimizerMover]]
+* [[InterfaceScoreCalculator|scripting_documentation/RosettaScripts/Movers/movers_pages/InterfaceScoreCalculatorMover]]
