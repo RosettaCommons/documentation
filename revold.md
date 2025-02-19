@@ -6,11 +6,37 @@ RosettaEvolutionaryLigand (REvoLd) is an evolutionary algorithm to efficiently s
 
 REvoLd is typically run multiple times with independent starts to sample the chemical space better. Each run finds different low-energy binders. A single run samples between 1,000 and 4,000 ligands. Depending on your available hardware and time, I suggest 10 to 20 runs.
 
-We highly recommend running REvoLd only with MPI support through mpirun/mpiexec/srun/... after compiling it with extras=mpi. 
-
 # Reference
 
 Eisenhuth, Paul, et al. "REvoLd: Ultra-Large Library Screening with an Evolutionary Algorithm in Rosetta." arXiv preprint arXiv:2404.17329 (2024). [[Preprint paper|https://arxiv.org/abs/2404.17329]]
+
+# Installation
+
+We highly recommend running REvoLd only with MPI support through mpirun/mpiexec/srun/etc. Depending on the size of your combinatorial library you might need 200-300GB RAM. We recommend using 50-60 CPUs per run.
+
+### Compile
+
+Make sure you cloned the latest Rosetta version and have a MPI compiler available (for example mpiCC).
+
+```
+# navigate into your local Rosetta clone
+cd Path/to/rosetta/source
+# overwrite compile settings
+cp tools/build/site.settings.release tools/build/site.settings
+# start compile
+./scons.py -j <num of processors> revold mode=release extras=mpi
+```
+
+#### Troubleshooting
+
+It might happen that you run into issues of mpi versions or that SCons is giving you an error “mpiCC not found”. In such cases, uncomment two lines in tools/build/site.settings under the "override" portion and change the path to your correct version of mpi:
+
+```
+"cxx" : "/path/to/mpicxx",
+"cc"  : "/path/to/mpicc",
+```
+
+Additionally, make sure SCons tries to use the correct mpi compiler available on your machine. If you have mpicc available, but SCons tries to use mpiCC, it will crash. In that case, open tools/build/basics.settings and change all occurrences of mpiCC to mpicc.
 
 # Input
 
@@ -20,9 +46,11 @@ REvoLd requires a single protein structure as target. Remember to [[prepare|rose
 
 2. reagents: SMILES (defining the reagent), synton_id (unique identifier for the reagent), synton# (specifiyng the position when applying the SMARTS reaction, [1,...,components]), reaction_id (matching identifier to link the reagent to a reaction)
 
-Lastly, REvoLd requires a RosettaScript which will be applied multiple times to each protein-ligand complex for docking and scoring.
+Lastly, REvoLd requires a RosettaScript which will be applied multiple times to each protein-ligand complex for docking and scoring. We are using the RosettaLigand script [[xml file|rosettaligand_cleaned_dock]] [paper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0132508)
 
 # Command Line Options
+
+You can use any Rosetta options on the command line or as a flags file. Following are the required options for REvoLd and its specific optional settings.
 
 ### Required options
 
@@ -61,6 +89,8 @@ mpirun -np 20 bin/revold.mpi.linuxgccrelease               \
        -ligand_evolution:reagent_file reagents_short.txt   \
        -ligand_evolution:reaction_file reactions_short.txt \
 ```
+
+**Important**: Never start multiple REvoLd runs in the same directory, as they will overwrite each others results.
 
 # Results
 
