@@ -1,4 +1,4 @@
-```
+```xml
 <!--- This XML script represents the Transform/MCM protocol described in the manuscript. See manuscript for detailed explanation of protocol -->
 <ROSETTASCRIPTS>
     <SCOREFXNS>
