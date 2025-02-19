@@ -46,7 +46,7 @@ REvoLd requires a single protein structure as target. Remember to [[prepare|rose
 
 2. reagents: SMILES (defining the reagent), synton_id (unique identifier for the reagent), synton# (specifiyng the position when applying the SMARTS reaction, [1,...,components]), reaction_id (matching identifier to link the reagent to a reaction)
 
-Lastly, REvoLd requires a RosettaScript which will be applied multiple times to each protein-ligand complex for docking and scoring. We are using the RosettaLigand script [[xml file|rosettaligand_cleaned_dock]] [paper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0132508)
+Lastly, REvoLd requires a RosettaScript which will be applied multiple times to each protein-ligand complex for docking and scoring. We are using the RosettaLigand script [[xml file|rosettaligand-cleaned-dock]] [paper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0132508)
 
 # Command Line Options
 
