@@ -46,7 +46,7 @@ REvoLd requires a single protein structure as target. Remember to [[prepare|rose
 
 2. reagents: SMILES (defining the reagent), synton_id (unique identifier for the reagent), synton# (specifiyng the position when applying the SMARTS reaction, [1,...,components]), reaction_id (matching identifier to link the reagent to a reaction)
 
-Lastly, REvoLd requires a RosettaScript which will be applied multiple times to each protein-ligand complex for docking and scoring. We are using the RosettaLigand script [[xml file|rosettaligand-cleaned-dock]] [paper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0132508)
+Lastly, REvoLd requires a RosettaScript which will be applied multiple times to each protein-ligand complex for docking and scoring. We are using the RosettaLigand script ([[xml file|rosettaligand-cleaned-dock]] [paper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0132508)). The xml file is slightly changed from the original publication to fix some syntax errors and provide a binding site large enough to fit most small molecules. You might want to change [[box_size in the Tranform tag|scripting_documentation/RosettaScripts/Movers/movers_pages/TransformMover]] and [[width in the ScoringGrid tag|https://docs.rosettacommons.org/docs/wiki/scripting_documentation/RosettaScripts/RosettaScripts#rosettascript-sections_ligands_scoringgrids]] to suite your goals. 
 
 # Command Line Options
 
@@ -66,7 +66,7 @@ You can use any Rosetta options on the command line or as a flags file. Followin
 ### Additional options
 
 ```
--ligand_evolution:options                Path to the options file, allows changing the evolutionary optimization, detailed below
+-ligand_evolution:options                Path to the REvoLd evolution options file, allows changing the evolutionary optimization, detailed below
 -ligand_evolution:external_scoring       Triggers vHTS mode, detailed below
 -ligand_evolution:smiles_file            Triggers vHTS mode, detailed below
 -ligand_evolution:n_scoring_runs         How often should the scoring protocol be applied to each complex. Defaults to 150.
