@@ -10,9 +10,23 @@ REvoLd is typically run multiple times with independent starts to sample the che
 
 Eisenhuth, Paul, et al. "REvoLd: Ultra-Large Library Screening with an Evolutionary Algorithm in Rosetta." arXiv preprint arXiv:2404.17329 (2024). [[Preprint paper|https://arxiv.org/abs/2404.17329]]
 
-# Installation
+# Quick Start
 
-We highly recommend running REvoLd only with MPI support through mpirun/mpiexec/srun/etc. Depending on the size of your combinatorial library you might need 200-300GB RAM. We recommend using 50-60 CPUs per run.
+This section is intended to allow you to run REvoLd as fast as possible and provide you with all information needed. However, a lot of this depends on work outside the scope of REvoLd, so it might change without being updated here. If you struggle to compile REvoLd or retrieve the Rosetta code, please contact the RosettaCommons. If you can't acquire the combinatorial library through BioSolveIt, contact Enamine directly, use any other provider, or create one yourself.
+
+We highly recommend running REvoLd only with MPI support through mpirun/mpiexec/srun/etc. Depending on the size of your combinatorial library you might need 200-300GB RAM (in total, not per CPU). We recommend using 50-60 CPUs per run.
+
+### Code
+
+The code is available through github: https://github.com/RosettaCommons/rosetta
+
+You can download it with:
+
+```
+git clone https://github.com/RosettaCommons/rosetta.git
+```
+
+This will create a directory called rosetta at your current work directory containing the code.
 
 ### Compile
 
@@ -46,7 +60,13 @@ REvoLd requires a single protein structure as target. Remember to [[prepare|rose
 
 2. reagents: SMILES (defining the reagent), synton_id (unique identifier for the reagent), synton# (specifiyng the position when applying the SMARTS reaction, [1,...,components]), reaction_id (matching identifier to link the reagent to a reaction)
 
-Lastly, REvoLd requires a RosettaScript which will be applied multiple times to each protein-ligand complex for docking and scoring. We are using the RosettaLigand script ([[xml file|rosettaligand-cleaned-dock]] [paper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0132508)). The xml file is slightly changed from the original publication to fix some syntax errors and provide a binding site large enough to fit most small molecules. You might want to change [[box_size in the Tranform tag|scripting_documentation/RosettaScripts/Movers/movers_pages/TransformMover]] and [[width in the ScoringGrid tag|https://docs.rosettacommons.org/docs/wiki/scripting_documentation/RosettaScripts/RosettaScripts#rosettascript-sections_ligands_scoringgrids]] to suite your goals. 
+Lastly, REvoLd requires a RosettaScript which will be applied multiple times to each protein-ligand complex for docking and scoring. We are using the RosettaLigand script ([[xml file|rosettaligand-cleaned-dock]] [paper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0132508)). The xml file is slightly changed from the original publication to fix some syntax errors and provide a binding site large enough to fit most small molecules. You might want to change [[box_size in the Tranform tag|scripting_documentation/RosettaScripts/Movers/movers_pages/TransformMover]] and [[width in the ScoringGrid tag|https://docs.rosettacommons.org/docs/wiki/scripting_documentation/RosettaScripts/RosettaScripts#rosettascript-sections_ligands_scoringgrids]] to suite your goals.
+
+Summary:
+1. Protein structure, [[prepared|rosetta_basics/preparation/preparing-structures]]
+2. Reactions file
+3. Reagents file
+4. Docking xml script
 
 # Command Line Options
 
