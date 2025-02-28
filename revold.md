@@ -16,6 +16,12 @@ This section is intended to allow you to run REvoLd as fast as possible and prov
 
 We highly recommend running REvoLd only with MPI support through mpirun/mpiexec/srun/etc. Depending on the size of your combinatorial library you might need 200-300GB RAM (in total, not per CPU). We recommend using 50-60 CPUs per run.
 
+### Combinatorial Library
+
+We are using the Enamine REAL space in our paper and in drug discovery campaign we are participating in. However, any combinatorial library is suitable. The required fields are mentioned under input.
+
+Enamine Ltd. has outsourced the licensing of their REAL space input data to BioSolveIt. You can contact them here https://www.biosolveit.de/contact/. Based on our experience, if you plan to use the REAL input data exclusively for academic research, the NDA process is straightforward and generally unproblematic. Feel free to mention Leipzig University and your plan to use REvoLd for your academic research.
+
 ### Code
 
 The code is available through github: https://github.com/RosettaCommons/rosetta
@@ -62,7 +68,8 @@ REvoLd requires a single protein structure as target. Remember to [[prepare|rose
 
 Lastly, REvoLd requires a RosettaScript which will be applied multiple times to each protein-ligand complex for docking and scoring. We are using the RosettaLigand script ([[xml file|rosettaligand-cleaned-dock]] [paper](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0132508)). The xml file is slightly changed from the original publication to fix some syntax errors and provide a binding site large enough to fit most small molecules. You might want to change [[box_size in the Tranform tag|scripting_documentation/RosettaScripts/Movers/movers_pages/TransformMover]] and [[width in the ScoringGrid tag|https://docs.rosettacommons.org/docs/wiki/scripting_documentation/RosettaScripts/RosettaScripts#rosettascript-sections_ligands_scoringgrids]] to suite your goals.
 
-Summary:
+Summary required files:
+
 1. Protein structure, [[prepared|rosetta_basics/preparation/preparing-structures]]
 2. Reactions file
 3. Reagents file
