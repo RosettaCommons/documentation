@@ -4,7 +4,7 @@
 Database Drivers
 ----------------
 
-Rosetta has support for interacting with SQLite3, MySQL and PostgreSQL database backends. This page describes the backends, how to get started using them, and what has already been done. The SQLite3 backend is tested extensively in the *integration\_tests* with every commit, and the PostgreSQL and MySQL support is tested through the BuildBot framework ( [PostgreSQL](http://buildbot.graylab.jhu.edu:8010/builders/UNC.Mac.PostgreSQL.tests) , MySQL).
+Rosetta has support for interacting with SQLite3, MySQL and PostgreSQL database backends. This page describes the backends, how to get started using them, and what has already been done. The SQLite3 backend is tested extensively in the *integration\_tests* with every commit, and the PostgreSQL and MySQL support is tested through the [Rosetta test server](https://benchmark.graylab.jhu.edu/).
 
 -   **SQLite3**
     -   [SQLite3](http://www.sqlite.org/) is a light-weight database engine that stores each database as a file in the filesystem, and is optimized for single connections to database stored on a local drive.

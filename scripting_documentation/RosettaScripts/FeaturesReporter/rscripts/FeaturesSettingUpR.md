@@ -7,7 +7,7 @@ The Features Scientific Benchmark requires R version 2.11 or higher.
 
         > install.packages("package_name")
 
- Alternatively to install everything from source see below. For more information see the [R Installation and Administration](http://cran.r-project.org/doc/manuals/R-admin.html) page or the [Comprehensive R Archive Network](http://cran.fhcrc.org/) .
+ Alternatively to install everything from source see below. For more information see the [R Installation and Administration](http://cran.r-project.org/doc/manuals/R-admin.html) page or the [Comprehensive R Archive Network](https://cran.r-project.org/) .
 
         cd /tmp
         wget http://mirrors.ibiblio.org/pub/mirrors/CRAN/src/base/R-2/R-2.12.1.tar.gz

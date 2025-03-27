@@ -140,9 +140,9 @@ Part of the RosettaAntibody and RosettaAntibodyDesign (RAbD) Framework
 
 **References**
 
-Adolf-Bryfogle J,  Xu Q,  North B, Lehmann A,  Roland L. Dunbrack Jr, [PyIgClassify: a database of antibody CDR structural classifications](http://nar.oxfordjournals.org/cgi/reprint/gku1106?ijkey=mLgOMi7GHwYPx77&keytype=ref) , Nucleic Acids Research 2014
+Adolf-Bryfogle J,  Xu Q,  North B, Lehmann A,  Roland L. Dunbrack Jr, [PyIgClassify: a database of antibody CDR structural classifications](https://doi.org/10.1093/nar/gku1106) , Nucleic Acids Research 2014
 
-North B, Lehmann A, Dunbrack R, [A new clustering of antibody CDR loop conformations](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3065967/pdf/nihms-249534.pdf) (2011). JMB 406(2): 228-256.
+North B, Lehmann A, Dunbrack R, [A new clustering of antibody CDR loop conformations](https://pmc.ncbi.nlm.nih.gov/articles/PMC3065967/) (2011). JMB 406(2): 228-256.
 
 
 **Overview**
@@ -491,7 +491,7 @@ The PoseConformationFeatures reporter measures the conformation level informatio
 
 **Overview**
 
-Measure the radius of gyration for each structure. The radius of gyration measure of how compact a structure is in O(n). It is the expected displacement of mass from the center of mass. The Wikipedia page is has some [information](http://en.wikipedia.org/wiki/Radius_of_gyration) . Also see, Lobanov MY, Bogatyreva NS, Galzitskaya OV. [Radius of gyration as an indicator of protein structure compactness](http://www.springerlink.com/content/v01q1r143528u261/) . Molecular Biology. 2008;42(4):623-628.
+Measure the radius of gyration for each structure. The radius of gyration measure of how compact a structure is in O(n). It is the expected displacement of mass from the center of mass. The Wikipedia page is has some [information](http://en.wikipedia.org/wiki/Radius_of_gyration) . Also see, Lobanov MY, Bogatyreva NS, Galzitskaya OV. [Radius of gyration as an indicator of protein structure compactness](https://doi.org/10.1134/S0026893308040195) . Molecular Biology. 2008;42(4):623-628.
 
 -   **radius\_of\_gyration** :
     -   *radius\_of\_gyration* : Let *C* be the center of mass and *ri* be the position of residue *i'* th of *n* residues, then the radius of gyration is defined to be *Rg = SQRT{SUM\_{ri}(ri-C)\^2/(n-1)}* . Note: the normalizing factor is *n-1* to be consistent with r++. Atoms with variant type "REPLONLY" are ignored.
@@ -529,7 +529,7 @@ Report continuous segments of secondary structure. DSSP is used to define second
 
 **Overview**
 
-Record a set of geometric parameters defined by two pieces of adjacent secondary structure. More information can be found here: [http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1000750](http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1000750)
+Record a set of geometric parameters defined by two pieces of adjacent secondary structure. More information can be found here: <https://doi.org/10.1371/journal.pcbi.1000750>
 
 
 **Tables**

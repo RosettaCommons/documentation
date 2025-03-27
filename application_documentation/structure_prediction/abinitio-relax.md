@@ -48,12 +48,12 @@ Input Files
 
 -   Fasta file. Contains the amino acid protein sequence in fasta format. Example: `        rosetta_demos/abinitio/input_files/1elwA.fasta       ` .
 
--   Fragments files. Generate structural fragment libraries using either the publicly available webserver ( [http://robetta.bakerlab.org/fragmentsubmit.jsp](http://robetta.bakerlab.org/fragmentsubmit.jsp) ) or a local installation of the rosetta\_fragments package. Example: `        rosetta_demos/abinitio/input_files/aa1elwA03_05.200_v1_3       ` and `        rosetta_demos/abinitio/input_files/aa1elwA09_05.200_v1_3       ` .
+-   Fragments files. Generate structural fragment libraries using either the publicly available webserver ( <http://old.robetta.org/> ) or a local installation of the rosetta\_fragments package. Example: `        rosetta_demos/abinitio/input_files/aa1elwA03_05.200_v1_3       ` and `        rosetta_demos/abinitio/input_files/aa1elwA09_05.200_v1_3       ` .
 
 -   Native structure (optional). The native PDB structure may be used for benchmarking. When used, the RMSD to native is calculated for each model and provided as an extra column in the score line. Example: `        rosetta_demos/abinitio/input_files/1elw.pdb       `
 
 -   Psipred secondary structure prediction psipred\_ss2 file (optional). The Psipred secondary structure prediction file is necessary when the -use\_filters and -kill\_hairpins options are used (see below). Note: the fragment webserver runs Psipred and provides the psipred\_ss2 output file. Example: `        rosetta_demos/abinitio/input_files/1elwA.psipred_ss2. `
-Please note that the file format for these options has changed between Rosetta3.4 and 3.5 (the demo is also out of date).  Please see  [this](https://www.rosettacommons.org/content/killhairpin-error) post for more information.
+Please note that the file format for these options has changed between Rosetta3.4 and 3.5 (the demo is also out of date).  Please see  [this](https://forum.rosettacommons.org/content/killhairpin-error) post for more information.
 
 Options <a name="Options" />
 =======

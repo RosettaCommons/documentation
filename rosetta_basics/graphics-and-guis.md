@@ -30,7 +30,7 @@ which will prime your PyMol session to receive and display the coordinates sent 
 [[See RosettaScripts Documentation | Movers-RosettaScripts#PyMolMover]]
 
 ####PyRosetta
-[See PyRosetta Documentation](http://www.pyrosetta.org/tutorials#TOC-PyMOL_Mover)
+[See PyRosetta/PyMOL Documentation](https://www.pyrosetta.org/documentation/pymol_mover-tutorial)
 
 ####Command Line
 

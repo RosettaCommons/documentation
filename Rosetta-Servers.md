@@ -1,7 +1,7 @@
 Rosetta servers
 ===============
 
-The [[RosettaCommons (external link)|https://www.rosettacommons.org/about]] (the group of labs that maintain Rosetta) maintains a number of [[servers for free public academic use (external link)|https://www.rosettacommons.org/software/servers]]. Servers for commercial use are also availible from an external provider.
+The [[RosettaCommons (external link)|https://www.rosettacommons.org/about]] (the group of labs that maintain Rosetta) maintains a number of [servers for free public academic use (external link)](https://rosettacommons.org/software/getting-started/). Servers for commercial use are also availible from an external provider.
 
 ###Public Servers
 
@@ -24,8 +24,6 @@ It also provides [[interface alanine scanning|interface analyzer]] and [[DNA int
 * The [FlexPepDock server](http://flexpepdock.furmanlab.cs.huji.ac.il/) provides access to Rosetta's refinement and ab-initio peptide docking within a receptor pocket [[flex-pep-dock]].
 
 * The [PIPER-FlexPepDock server ](http://piperfpd.furmanlab.cs.huji.ac.il/) provides access to Rosetta's global docking of a peptide onto a receptor (where the binding pocket is unknown).
-
-* [RosettaDiagrams](http://www.rosettadiagrams.org/) provides a graphical interactive service to produce [[RosettaScripts]] XML files, with some ability to run the scripts as well.
 
 * [[FunHunt|http://funhunt.furmanlab.cs.huji.ac.il/]], short for funnel hunt, tries to distinguish correct protein-protein complex orientations from decoy orientations.
 It searches for [[energy landscape|Glossary#general-terms_energy-landscape]] funnels using Rosetta's docking code.

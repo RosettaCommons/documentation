@@ -10,7 +10,7 @@ This application matches each CDR of an antibody to North/Dunbrack CDR clusters 
 
 # References
 
-Adolf-Bryfogle J,  Xu Q,  North B, Lehmann A,  Roland L. Dunbrack Jr, [PyIgClassify: a database of antibody CDR structural classifications](http://nar.oxfordjournals.org/cgi/reprint/gku1106?ijkey=mLgOMi7GHwYPx77&keytype=ref) , Nucleic Acids Research 2014
+Adolf-Bryfogle J,  Xu Q,  North B, Lehmann A,  Roland L. Dunbrack Jr, [PyIgClassify: a database of antibody CDR structural classifications](https://doi.org/10.1093/nar/gku1106) , Nucleic Acids Research 2014
 
 North B, Lehmann A, Dunbrack R, [A new clustering of antibody CDR loop conformations](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3065967/pdf/nihms-249534.pdf) (2011). JMB 406(2): 228-256.
 
