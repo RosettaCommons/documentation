@@ -14,10 +14,7 @@ The documentation for the various libraries is a bit scattered.  Here is a parti
 
 **Internal libraries:**
 
-- Publicly available [Doxygen code documentation](https://www.rosettacommons.org/manuals/latest/main/) describing the interface to Rosetta objects and functions
-- Historical version of the documentation, including both user manual and code documentation.
-    - The [Rosetta 3.5 user manual](https://www.rosettacommons.org/manuals/archive/rosetta3.5_user_guide/), with documentation for the core and protocols libraries; curiously, this lacks RosettaScripts documentation
-    - The [Rosetta 3.4 user manual](https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/), with documentation for the core and protocols libraries and on RosettaScripts (an older version, for historical reference only)
+- Publicly available [Doxygen code documentation](https://docs.rosettacommons.org/manuals/latest/) describing the interface to Rosetta objects and functions
 
 <!--- BEGIN_INTERNAL -->
 For RosettaCommons developers, we have a version of the Doxygen documentation which also includes code. (Password protected access).

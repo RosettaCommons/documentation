@@ -66,7 +66,7 @@ Skip conformer generation! You don't need it anymore. Any single conformation is
 
 #### HOW TO MAKE A PROPER MOL2 FILE
 **1. If your input is in pdb or mol2 format**
-Requires installation of OpenBabel (http://openbabel.org/wiki/Main_Page). If it is pdb format, first strip ligand part in your pdb file as "ligand.pdb", then run:
+Requires installation of [OpenBabel](http://openbabel.org/). If it is pdb format, first strip ligand part in your pdb file as "ligand.pdb", then run:
 ```
 obabel -i pdb ligand.pdb -o mol2 -O ligand.mol2 
 ```

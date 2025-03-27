@@ -228,7 +228,7 @@ The features scientific benchmark can be run locally or on a MPI-based cluster. 
 
 -   **Feature Extraction** : Computational cost and space requirements for extracting features depends upon which *FeaturesReporters* are used. The default features for the *top8000* sample source use \~1Mb per structure.
 -   **Feature Analysis** : Each feature analysis script makes a database query and then preforms the analysis. depending on how efficiently the database can be accessed and the complexity of the feature analysis and plot generation, each analysis usually takes between a minute or two to tens of minutes.
--   **Batch Generation** : Prediction protocols to generate batches of structures are usually very computationally intensive, ranging from hundreds to thousands of CPU hours. Das and Baker have a nice [review](http://depts.washington.edu/bakerpg/drupal/system/files/das08A_0.pdf) of the Rosetta prediction protocols. Consult the documentation for specific protocol for more information.
+-   **Batch Generation** : Prediction protocols to generate batches of structures are usually very computationally intensive, ranging from hundreds to thousands of CPU hours. Das and Baker have a nice [review](https://doi.org/10.1146/annurev.biochem.77.062906.171838) of the Rosetta prediction protocols. Consult the documentation for specific protocol for more information.
 
 
 Batch Requirements

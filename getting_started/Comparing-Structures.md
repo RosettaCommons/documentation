@@ -42,7 +42,7 @@ significant than overlapping two proteins of length 100 to 7 angstroms
 resolution? There are a variety of ways to try to normalize these.
 Skolnick has some useful suggestions. Mammoth has it's own built in. But
 an extremely easy to grasp, quick and dirty measure is the RMS100
-([http://www.proteinscience.org/cgi/content/full/10/7/1470](http://www.proteinscience.org/cgi/content/full/10/7/1470)).
+(<https://doi.org/10.1110/ps.690101>).
 This renormalizes any RSMD to the the value it would have if the
 proteins were of length 100 and at the same level of statistical
 significance. I recommend using this before trying anything fancy.

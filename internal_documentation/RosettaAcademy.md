@@ -12,10 +12,10 @@ Most people in the community are using PyMol (download from http://www.pymol.org
 * http://pymol.sourceforge.net/newman/userman.pdf 
 * https://pymolwiki.org/index.php/Practical_Pymol_for_Beginners
 
-Some people are using Chimera (http://www.cgl.ucsf.edu/chimera/), which seems to have some additional functionality for density maps if you are working with X-ray electron density maps or Cryo-EM maps. Tutorials can be found at http://www.cgl.ucsf.edu/chimera/docs/UsersGuide/frametut.html.
+Some people are using Chimera (http://www.cgl.ucsf.edu/chimera/), which seems to have some additional functionality for density maps if you are working with X-ray electron density maps or Cryo-EM maps. Tutorials can be found at https://www.cgl.ucsf.edu/chimera/tutorials.html
 
 There is also the Discovery Studio Visualizer for Scientific Linux and Windows systems:
-* http://accelrys.com/products/collaborative-science/biovia-discovery-studio/visualization-download.php 
+* https://discover.3ds.com/discovery-studio-visualizer-download 
 
 ## Basic biochemistry
 To work in Rosetta, you need to know some basic biochemistry about amino acids and protein structure. You can learn this by picking up a biochemistry book (such as Voet & Voet: Biochemistry) or look at:
@@ -25,10 +25,10 @@ To work in Rosetta, you need to know some basic biochemistry about amino acids a
 ## Foldit (developed by Center for Game Science at UW, Bakerlab, and UMass Dartmouth (Firas Khatib))
 Foldit is a videogame created for the general public to solve real-life scientific puzzles involving protein structure and function. It is an excellent starting point to learn about protein structure as it does not require any previous knowledge. Once you download it, it will take you through tutorials where you are learning about all the moves and modifications you can do to a protein structure with a lot of fun along the way. Keep in mind that the terminology that Foldit uses is a bit different than what we are using in Rosetta (even though the code underneath Foldit is Rosetta code), but if you understand the concepts using Foldit, you can easily apply them in Rosetta. Also, the score in Foldit is opposite from Rosetta: in Foldit a higher score is better, in Rosetta, a lower energy is desired.
 
-Download it at http://fold.it/portal/
+Download it at <https://fold.it>
 
 ## Eterna - for RNA (developed by Rhiju Das, Stanford)
-A similar tool to FoldIt is available for RNA. It was developed by Rhiju Das' lab at Stanford (http://www.stanford.edu/~rhiju/). You can play and learn about it here: http://eterna.cmu.edu/web/
+A similar tool to FoldIt is available for RNA. It was developed by Rhiju Das' lab at Stanford (http://www.stanford.edu/~rhiju/). You can play and learn about it here: <https://eternagame.org/>
 
 ## Introduction to Linux
 To know about how to navigate a terminal in Linux, you need to learn some basic commands. Learning some basic tricks with BASH coding often proves useful in expediting your workflow. There are plenty of resources available on the web: 
@@ -56,7 +56,7 @@ Here are some useful links that will help you understand terminology that is use
 * [[Glossary]]
 
 Some concepts are also explained in the PyRosetta tutorials:
-* http://www.pyrosetta.org/tutorials
+* http://www.pyrosetta.org/documentation/tutorials
 
 ## Documentation
 There is considerable documentation available within this wiki. Additional documentation is available here:  https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/index.html. 
@@ -108,7 +108,7 @@ If you want to develop in Rosetta, you need to learn C++. If you have never scri
 	
 * short online videos - Bucky's tutorials: http://www.youtube.com/watch?v=tvC1WCdV1XU&list=PLC6E50B89DA30C77A
 	
-* book: Sam's teach yourself C++ in 21 days: http://www.amazon.com/Sams-Teach-Yourself-Edition-ebook/dp/B0028CK0GW/ref=sr_1_1?ie=UTF8&qid=1375469877&sr=8-1&keywords=c%2B%2B+sams+5th+edition
+* book: Sam's teach yourself C++ in 21 days: https://www.amazon.com/Sams-Teach-Yourself-Days-5th/dp/0672327112
 
 ## ROSIE (set up by Sergey Lyskov, Jeff Gray's lab, Johns Hopkins)
 ROSIE is an abbreviation for "Rosetta Online Server that Includes Everyone". It is a server that runs several Rosetta applications without requiring the knowledge of Python, C++ or anything difficult. Perfect to use for the Newbie, however, only few applications are available and some of them are very specialized - more to come in the future. Check it out at https://rosie.rosettacommons.org/. Also, if you are a RosettaCommons developer and are planning on setting up a server on ROSIE for your own application, contact Sergey Lyskov at sergey.lyskov[at]gmail.com and he will give you instructions on how to do it. It should be pretty quick and easy with about two pages of code or less!
@@ -131,7 +131,6 @@ If you are planning to develop in Rosetta and want to put together your own prot
 Extended information from the above intro is available here: [[GithubWorkflow]] but it is suggested to become intimately familiar with various git commands. Several online resources are available, among them:
 * nicely explained, not too long: http://gitref.org/
 * shorter cheat sheet: https://www.kernel.org/pub/software/scm/git/docs/everyday.html
-* short videos: http://www.youtube.com/GitHubGuides
 	
 ## IDE:
 To write and develop code, it is much easier if you have an IDE (Integrated Development Environment) available. It is basically an editor and compiler, which also links to version control and has tons of nice little features like linking to functions somewhere else in the code, bracket completion, indentation, finding errors, etc. The two IDEs commonly used are 
@@ -183,7 +182,7 @@ There are plenty of useful links available that are connected with Rosetta, in a
 	
 * RosettaDesign server - Kuhlman lab, University of Chapel Hill, NC: http://rosettadesign.med.unc.edu/
 	
-* Rosetta@cloud - pay-per-use service for the experimental community: http://rosetta.insilicos.com/what/
+* Levitate - pay-per-use service for the experimental community: https://levitate.bio/
 	
 * Rosetta@home - donate computer time to solve scientific problems to RosettaCommons when you are not using your computer: http://boinc.bakerlab.org/rosetta/
 	

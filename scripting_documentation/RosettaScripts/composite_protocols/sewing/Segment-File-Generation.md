@@ -14,7 +14,7 @@ The following DSSP codes are allowed: ```H``` (helix), ```L``` (loop), ```E``` (
 ----------------------
 ###Using the segment_file_generator app
 
-The segment_file_generator app requires two command line arguments: ```motif_file```(see above) and ```pdb_list_file```. The ```pdb_list_file``` is a text file listing the paths to pdb files, separated by a newline character. Structure files can be queried from the RCSB protein database, or from sources such as the Richardson Lab's [Top 8000 Database](http://kinemage.biochem.duke.edu/databases/top8000.php) or the Dunbrack Lab's [PISCES Server](http://dunbrack.fccc.edu/PISCES.php).
+The segment_file_generator app requires two command line arguments: ```motif_file```(see above) and ```pdb_list_file```. The ```pdb_list_file``` is a text file listing the paths to pdb files, separated by a newline character. Structure files can be queried from the RCSB protein database, or from sources such as the Richardson Lab's [Top 8000 Database](http://kinemage.biochem.duke.edu/research/top8000/) or the Dunbrack Lab's [PISCES Server](http://dunbrack.fccc.edu/PISCES.php).
 
 The application also takes one optional argument, ```strict_dssp_changes``` (default true). **NOTE 07/26/2018: There is currently a bug in the application that causes it to fail unless this flag is set to false.** When ```strict_dssp_changes``` is true, single-residue secondary structure elements are not recognized, allowing (for example) kinked helices to be treated as a single element rather than multiple elements.
 

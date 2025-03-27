@@ -46,7 +46,7 @@ scores_from_program: 0 1.00
 
 While multiple pairs of template alignment files are accepted, it is generally recommended to run just a single template/alignment with each job.
 
-In addition, a [[fragment file|fragment file]] may also be required, depending on the options selected. Rebuilding of gaps is done by fragment insertion (as in Rosetta ab initio); thus two backbone fragment files (3-mers and 9-mers) must be given. The [[application for building these|app-fragment-picker]] is included with rosetta but requires some external tools/databases. The easiest way to generate fragments is to use the Robetta server ( [http://robetta.bakerlab.org/fragmentsubmit.jsp](http://robetta.bakerlab.org/fragmentsubmit.jsp) ). The fragment files should be built with the full-length sequence; rosetta handles remapping the fragments if not all gaps are rebuilt.
+In addition, a [[fragment file|fragment file]] may also be required, depending on the options selected. Rebuilding of gaps is done by fragment insertion (as in Rosetta ab initio); thus two backbone fragment files (3-mers and 9-mers) must be given. The [[application for building these|app-fragment-picker]] is included with rosetta but requires some external tools/databases. The easiest way to generate fragments is to use the Robetta server ( <http://old.robetta.org/> ). The fragment files should be built with the full-length sequence; rosetta handles remapping the fragments if not all gaps are rebuilt.
 
 Options
 =======

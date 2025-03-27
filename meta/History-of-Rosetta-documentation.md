@@ -13,7 +13,7 @@ Rosetta documentation has usually been focused on the needs of the moment, but n
 
 Early documentation
 ===================
-The only surviving early documentation is that embedded in the literature, particularly in papers of the [[Rosetta Canon]] or others in our [publication list](http://www.rosettacommons.org/about/pubs).
+The only surviving early documentation is that embedded in the literature, particularly in papers of the [[Rosetta Canon]] or others in our publication list.
 
 RosettaWiki
 ===========
@@ -22,7 +22,7 @@ The (private) RosettaWiki was created around 2003. Originally, it held all sorts
 Doxygen days
 ============
 By the [[early days|Rosetta timeline]] of "mini" (Rosetta3) development, Doxygen ([web link](http://www.doxygen.org) ([Wikipedia entry](http://en.wikipedia.org/wiki/Doxygen)) documentation was used to [[granular code documentation|development_documentation/tutorials/doxygen-tips]].
-This documentation has never been very complete but is still otherwise intact and used, and the generated documentation is available [here](http://www.rosettacommons.org/manuals/latest/main/).
+This documentation has never been very complete but is still otherwise intact and used, and the generated documentation is available [here](https://docs.rosettacommons.org/manuals/latest/).
 
 When developers began to get serious about writing application documentation, they stuck with the Doxygen system in place and used it to build formatted webpages of just application documentation.
 

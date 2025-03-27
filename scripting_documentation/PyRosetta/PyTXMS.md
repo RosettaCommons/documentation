@@ -55,7 +55,7 @@ To convert data between different MS versions (RAW to mzML or mzML to mgf), tool
 
 * OpenMS
 
-http://www.openms.de/downloads/
+http://www.openms.de/
 	
 * Dinosaur and Taxlink
 

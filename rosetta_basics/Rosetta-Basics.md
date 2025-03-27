@@ -108,8 +108,9 @@
 - [[Analyzing results]]
 
 ####Help
-- [RosettaCommons Forums](http://rosettacommons.org/forum)
-- [RosettaCommons Bug Tracker](http://bugs.rosettacommons.org)
+- [Rosetta Discussions](https://github.com/RosettaCommons/rosetta/discussions)
+- [Old RosettaCommons Forums (read only)](http://rosettacommons.org/forum)
+- [Rosetta Issue Tracker](https://github.com/RosettaCommons/rosetta/issues)
 
 
 ##See Also

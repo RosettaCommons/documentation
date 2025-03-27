@@ -45,7 +45,7 @@ Here is an example of creating a new mover for carbohydrates:
 
 The README in the directory will help you get started.  This page also has information on adding new src templates for new Rosetta classes.
 
-https://github.com/RosettaCommons/main/blob/master/source/code_templates/README.md
+https://github.com/RosettaCommons/rosetta/blob/main/source/code_templates/README.md
 
 #Etc
 

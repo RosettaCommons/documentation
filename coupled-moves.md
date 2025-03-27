@@ -81,7 +81,7 @@ For each position, look at all side chains modeled by CoupledMoves. Calculate th
 
 ## [5.3] Resfile preparation
 
-This section assumes familiarity with the resfile [documentation](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/resfiles) and [manual](https://www.rosettacommons.org/manuals/archive/rosetta3.4_user_guide/d1/d97/resfiles.html). 
+This section assumes familiarity with the resfile [documentation](https://www.rosettacommons.org/docs/latest/rosetta_basics/file_types/resfiles).
 
 Manually define packable residues: To achieve adequate sampling in a limited number of trials, set all residues to NATRO except target designable residues, e.g. a ligand binding pocket's first shell residues, motif residues, or individual secondary structure elements. Consider setting second-shell residues to NATAA to allow rotamer sampling.
 

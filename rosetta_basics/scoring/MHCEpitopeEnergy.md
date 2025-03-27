@@ -223,7 +223,7 @@ Once you have a PSSM (or other way of determining what sequences to look at), yo
 
 Note that you will probably want to use this in the "constraint" mode to look at the hotspot regions in your protein, as making a database to cover the entire protein sequence is likely prohibitively expensive.  To cover non-hotspot regions, the Propred matrices are probably sufficient to ensure that the immunogenicity stays low.
 
-Assuming you want to use NetMHCII as your predictor, you will first need to download and install NetMHCII (http://www.cbs.dtu.dk/cgi-bin/nph-sw_request?netMHCII), and set the environment variable ```NMHOME``` to the location of the NetMHCII binary.
+Assuming you want to use NetMHCII as your predictor, you will first need to download and install NetMHCII (https://services.healthtech.dtu.dk/services/NetMHCII-2.3/), and set the environment variable ```NMHOME``` to the location of the NetMHCII binary.
 
 Especially when using a PSSM, you need to be very careful to avoid a combinatorial explosion of peptides to process.  Consider the following advice:
 

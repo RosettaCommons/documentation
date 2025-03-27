@@ -26,7 +26,7 @@ PyRosetta Setup:
 
 Optional PyMOL Integration Setup:
 
--   See [http://www.pyrosetta.org/pymol\_mover-tutorial](http://www.pyrosetta.org/pymol_mover-tutorial)
+-   See <http://www.pyrosetta.org/documentation/pymol_mover-tutorial>
 
 Optional SCWRL Integration Setup:
 
@@ -225,7 +225,6 @@ Tips
 -   -Set default Scorefunction through the scorefunction window - Used by all protocols.
 -   -Save and Load GUI Sessions using the file menu
 -   -Advanced Users: To add personal windows and functions to the GUI, see developer html in pyrosetta\_toolkit/documentation directory.
--   Please visit [http://bugs.rosettacommons.org](http://bugs.rosettacommons.org) for any Toolkit-specific bugs
 
 ### Bashrc Setup
 

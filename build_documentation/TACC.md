@@ -1,6 +1,8 @@
 Using Rosetta and PyRosetta on TACC/Stampede
 ============================================
 
+*NOTE: The XSEDE project is no longer running. TACC still exists and may be providing access to Rosetta, but the information below may be out of date.*
+
 TACC/Stampede
 -------------
 

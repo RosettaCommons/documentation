@@ -111,7 +111,7 @@ The low-resolution mode in Rosetta is often dubbed Centroid Mode, since the side
 
 #### Fullatom Model
 
-In the all-atom representation of ROSETA every atom is explicitly represented. What is notable is that proton-names are quite different from what is used in the NMR community (http://www.bmrb.wisc.edu/referenc/nomenclature/). There are two main differences: a) if only 2 protons are present on an sp3 hybridized carbon Rosetta numbers them 1, 2 whereas the NMR community numbers them 2, 3. b) Rosetta puts the number that differentiates between protons bound to the same carbon in front of the atom name whereas the NMR community puts this number at the very end of the atom name. The reminder of the atom name is usually obtained by taking the name of the carbon and replacing C->H. CD1 –> nHD1, whereas n=1,2,3 is the id-number of the proton.
+In the all-atom representation of ROSETA every atom is explicitly represented. What is notable is that proton-names are quite different from what is used in the NMR community (<https://bmrb.io/standards/>). There are two main differences: a) if only 2 protons are present on an sp3 hybridized carbon Rosetta numbers them 1, 2 whereas the NMR community numbers them 2, 3. b) Rosetta puts the number that differentiates between protons bound to the same carbon in front of the atom name whereas the NMR community puts this number at the very end of the atom name. The reminder of the atom name is usually obtained by taking the name of the carbon and replacing C->H. CD1 –> nHD1, whereas n=1,2,3 is the id-number of the proton.
 
 NMR 			Rosetta
 

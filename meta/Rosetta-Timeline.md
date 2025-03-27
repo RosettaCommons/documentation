@@ -33,8 +33,8 @@ As Rosetta grew, the Rosetta development world was no longer confined to just Da
     * Publication of Top7, the first design of a novel topology. [Kuhlman, et al.](http://www.sciencemag.org/content/302/5649/1364) 
 
 * 2004-02 
-    * Publication of an alanine scanning protocol in Rosetta [Kortemme et al.](http://stke.sciencemag.org/cgi/content/full/sigtrans;2004/219/pl2)
-    * The [Robetta alanine scanning server](http://robetta.bakerlab.org/alascansubmit.jsp) goes online.
+    * Publication of an alanine scanning protocol in Rosetta [Kortemme et al.](https://doi.org/10.1126/stke.2192004pl2)
+    * The [Robetta alanine scanning server](http://old.robetta.org/) goes online.
 
 * 2005-06
     * [Rosetta@Home](http://en.wikipedia.org/wiki/Rosetta@home) was launched.

@@ -438,7 +438,7 @@ void fold_protein( std::string const & sequence );
 ####Doxygen Notes (See Doxygen Tips)
 * Doxygen reads in [[configuration parameters|http://www.stack.nl/~dimitri/doxygen/config.html]] from a "Doxyfile". (Called Doxyfile in the Rosetta++ CVS).
 * The index.html page is generated from comments in doxygen.h
-* Graphs are generated with the dot program from the [[graphiz|http://www.graphviz.org/]] package. (The path of which is specified in the Doxyfile.) The line and box colors are described [[here|http://www.stack.nl/~dimitri/doxygen/diagrams.html]].
+* Graphs are generated with the dot program from the [[graphiz|http://www.graphviz.org/]] package. (The path of which is specified in the Doxyfile.) The line and box colors are described [here](https://www.doxygen.nl/manual/diagrams.html).
 
 ###Debugging Output Guidelines
 * Use [[basic::Tracer|tracer]] for your main debug IO. Tracer output is buffered and because of that it is required to explicitly instruct Tracer object to flush output. To do that call Tracer::flush() member function or end your message with std::endl (it will call flush() function after new line symbols is send).

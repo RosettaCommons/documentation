@@ -49,7 +49,7 @@ Input Files
 
 -   Fasta file. Contains the amino acid protein sequence in fasta format.
 
--   Fragment files. Generate structural fragment libraries using either the publicly available webserver ( [http://robetta.bakerlab.org/fragmentsubmit.jsp](http://robetta.bakerlab.org/fragmentsubmit.jsp) ) or a local installation of the rosetta\_fragments package.
+-   Fragment files. Generate structural fragment libraries using either the publicly available webserver ( <http://old.robetta.org/> ) or a local installation of the rosetta\_fragments package.
 
 -   Native structure (optional). The native PDB structure may be used for benchmarking. When used, the RMSD to native is calculated for each model and provided as an extra column in the score line.
 
