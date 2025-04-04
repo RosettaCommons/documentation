@@ -14,9 +14,10 @@ Computes the binding energy for the complex and if it is below the threshold ret
         relax_unbound="(true &bool;)" translate_by="(100 &real;)"
         relax_mover="(&string;)" filter="(&string;)" chain_num="(&string;)"
         extreme_value_removal="(false &bool;)" dump_pdbs="(false &bool;)"
+        enable_caching="(false &bool;)"
         task_operations="(&task_operation_comma_separated_list;)"
         packer_palette="(&named_packer_palette;)" scorefxn="(&string;)"
-        confidence="(1.0 &real;)" />
+        final_scorefxn="(&string;)" confidence="(1.0 &real;)" />
 ```
 
 -   **threshold**: If ddG value is lower than this value, filter returns True (passes).
@@ -36,9 +37,11 @@ Computes the binding energy for the complex and if it is below the threshold ret
 -   **chain_num**: Allows you to specify a list of chain numbers to use to calculate the ddg, rather than a single jump. You cannot move chain 1, moving all the other chains is the same thing as moving chain 1, so do that instead. Use independently of jump.
 -   **extreme_value_removal**: Compute ddg value times, sort and remove the top and bottom evaluation. This should reduce the noise levels in trajectories involving 1000s of evaluations. If set to true, repeats must be set to at least 3.
 -   **dump_pdbs**: Dump debugging PDB files. Dumps 6 pdbs per instance: BOUND_before_repack, BOUND_after_repack, BOUND_after_relax, UNBOUND_before_repack, UNBOUND_after_repack, and UNBOUND_after_relax.
+-   **enable_caching**: Cache DDG calculations to avoid re-computing during reporting. Each time this object is called it will reset the cache when compute() is run, so it can be used on unique poses. Please note that caching requires updating a data member, which means that if this object is shared by multiple threads there will be data racing (i.e., not thread-safe).
 -   **task_operations**: A comma-separated list of TaskOperations to use.
 -   **packer_palette**: A previously-defined PackerPalette to use, which specifies the set of residue types with which to design (to be pruned with TaskOperations).
 -   **scorefxn**: Name of score function to use
+-   **final_scorefxn**: A scoring function to use for final scoring of the docked and undocked poses (to compute the difference).  If not provided, the scoring function provided with the scorefxn option is used.  The option of scoring with a different final scoring function is provided to allow a more accurate, more expensive calculation to be done for this (e.g. using RosettaQM quantum chemistry calculations).
 -   **confidence**: Probability that the pose will be filtered out if it does not pass this Filter
 
 ---
