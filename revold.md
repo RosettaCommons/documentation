@@ -22,6 +22,8 @@ We are using the Enamine REAL space in our paper and in drug discovery campaign 
 
 Enamine Ltd. has outsourced the licensing of their REAL space input data to BioSolveIt. You can contact them here https://www.biosolveit.de/contact/. Based on our experience, if you plan to use the REAL input data exclusively for academic research, the NDA process is straightforward and generally unproblematic. Feel free to mention Leipzig University and your plan to use REvoLd for your academic research.
 
+**UPDATE:** Unfortunately it seems like BioSolveIT is no longer licensing the definition files for free and demand instead a license for 5,000 Eur/year. This is the price tag for pure academic usage.
+
 ### Code
 
 The code is available through github: https://github.com/RosettaCommons/rosetta
