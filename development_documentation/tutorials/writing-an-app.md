@@ -23,5 +23,5 @@ This guide is under construction.  Clearly a "Writing a 'Writing a Rosetta Appli
 * [[RosettaEncyclopedia]]: Detailed descriptions of concepts in Rosetta.
 * [[RosettaScripts]]: Instructions for writing RosettaScripts, the Rosetta XML interface
 * [[PyRosetta]]: Wiki page for PyRosetta, the independent Python interface to Rosetta
-* [[Build Documentation]]: Information on building Rosetta
+* [[Building Rosetta]]: Information on building Rosetta
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables

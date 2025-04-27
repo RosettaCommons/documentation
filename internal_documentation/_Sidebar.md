@@ -1,6 +1,6 @@
 [[Getting Started]]
 
-[[Build Documentation|build_documentation/Build-Documentation]]
+[[Building Rosetta|Building_Rosetta/Building-Rosetta]]
 
 [[Rosetta Tutorials| https://www.rosettacommons.org/demos/latest/Home#tutorials ]]
 

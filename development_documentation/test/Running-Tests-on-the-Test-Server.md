@@ -75,7 +75,7 @@ If you happen to work on a project for which this seems appropriate—for exampl
 
 * [[Testing server]]: Information on the testing server
 * [[Integration tests]]: General information on Rosetta's integration tests
-* [[Build Documentation]]: Find instructions for building Rosetta mpi executables here
+* [[Building Rosetta]]: Find instructions for building Rosetta mpi executables here
 * [[Testing server]]: Server that can be used to run Rosetta integration tests automatically
   * [[Running Tests on the Test Server]]: Instructions for using the testing server
 * [[Testing home page|rosetta-tests]]

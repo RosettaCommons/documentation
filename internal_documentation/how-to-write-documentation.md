@@ -44,7 +44,7 @@ Organization and Navigation
 The directory structure of the documentation repository is given below with a brief description of what belongs in each directory/subdirectory.
 
 * **getting_started**: Pages geared toward people who are completely new to Rosetta. Most of these pages are fairly broad, tutorial-type pages intended to guide new users toward the documentation (or other resources) that is most relevant to their particular problem.
-* **build_documentation**: Pages describing how to build Rosetta (but nothing related to actually using Rosetta). If you want to write about different platforms, compilers, etc., then this is the place to put that information.
+* **Building_Rosetta**: Pages describing how to build Rosetta (but nothing related to actually using Rosetta). If you want to write about different platforms, compilers, etc., then this is the place to put that information.
 * **rosetta_basics**: Pages that are generally relevant to running Rosetta and/or understanding specific Rosetta concepts but that aren't specific to a given application. Some pages fit best in the top level of this directory, but there are several subdirectories that are a better fit for many pages:
    * **file_types**: Descriptions of particular input/output file formats (PDB, silent file, params file, etc.). If, for example, someone wanted to write a brief page describing the format of a blueprint file, this is where it would go.
    * **Glossary**: This page currently only contains the Glossary (It's in its own subdirectory so it can have its own sidebar). The RosettaEncyclopedia could also probably go in here, but you probably won't want to add pages to this directory.

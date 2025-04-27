@@ -1525,9 +1525,9 @@ tools/analysis/apps/sequence_tolerance.R
 
 ## Build scripts
 
-* See [[Build Documentation]] for more information.
+* See [[Building Rosetta]] for more information.
 
-main/source/[[scons.py|Build Documentation]]    
+main/source/[[scons.py|Building Rosetta]]    
 &#8195; - Main script for Rosetta compilation.
 
 main/source/ninja_build.py    

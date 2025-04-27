@@ -120,7 +120,7 @@
 * [[Glossary]]: Brief definitions of Rosetta terms
 * [[RosettaEncyclopedia]]: Detailed descriptions of additional concepts in Rosetta.
 * [[Rosetta overview]]: Overview of major concepts in Rosetta
-* [[Build Documentation]]: Information on setting up Rosetta
+* [[Building Rosetta]]: Information on setting up Rosetta
 * [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
 * [[TACC]]: Information for running Rosetta on the TACC/Stampede cluster.
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta
