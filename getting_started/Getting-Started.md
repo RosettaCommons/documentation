@@ -74,12 +74,12 @@ Commercial Rosetta Servers
 Local installation and use of Rosetta
 --------------------------------------
 
-For academic or commercial users, you can [[request a license|http://c4c.uwc4c.com/express_license_technologies/rosetta]].
-These licenses are free for academic users.
-Once you have a license, you can [[download the code here|https://www.rosettacommons.org/software/license-and-download]].
+Rosetta cam be downloaded from <https://rosettacommons.org/software/download/>.
+Academic and non-commercial users are automatically granted a non-commercial-use-only license with the download.
+Commercial use requires a paid license obtainable from [UW CoMotion](https://els2.comotion.uw.edu/product/rosetta).
+
 Note that the download comes as a [[tar archive|http://en.wikipedia.org/wiki/Tar_(computing)]].
-We don't distribute [[executables/binaries|http://en.wikipedia.org/wiki/Executable]] for most purposes, we distribute [[source code|http://en.wikipedia.org/wiki/Source_code]].
-As a consequence, you will need to [[compile|http://en.wikipedia.org/wiki/Compiler]] the code before use.
+Pre-compiled executables are available for some platforms. [[Source code|http://en.wikipedia.org/wiki/Source_code]] is also availible, such that you can [[compile|http://en.wikipedia.org/wiki/Compiler]] on platforms where pre-compiled executables are not availible.
 
 Introductory Rosetta Tutorials
 ------------------------------
@@ -97,7 +97,7 @@ You may need administrative rights to install [[dependencies|Build-Documentation
 
 * Next, navigate to the `source` directory: `cd main/source`.
 
-* Rosetta uses [[SCons|http://www.scons.org]] as a compile assistant. You will likely need to [[download| http://www.scons.org/download.php]] and install this first.
+* Rosetta uses [[SCons|http://www.scons.org]] as a compile assistant. Rosetta comes with a copy of SCons, which should work for most systems.  
 
 * The basic compilation command is `./scons.py -j<number_of_processors_to_use> mode=release bin`.
 Replace <number_of_processors_to_use> with a number one processor fewer than your computer has.

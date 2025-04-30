@@ -80,7 +80,7 @@ There have been a large number of Rosetta papers, so finding the appropriate one
 
 Generally, you want to cite the paper which presented the protocol which you are using in your paper. Often the relevant publications are listed on the documentation page for the application you used. 
 
-You can also take a look at the [[Rosetta canon]] for major papers, and <https://www.rosettacommons.org/about/pubs> for a somewhat comprehensive list of Rosetta related publications.
+You can also take a look at the [[Rosetta canon]] for major papers.
 
 #### Where is Rosetta software documentation?
 
@@ -116,7 +116,7 @@ Most Rosetta protocols, though, are intrinsically serial for each output structu
 
 #### How can I create a fragment file?
 
-We highly recommend to use the Robetta server to create fragment file. <http://robetta.bakerlab.org/fragmentsubmit.jsp> It is possible to run fragment picking locally, but requires the installation of a number of dependencies and is non-trivial.
+We highly recommend to use the Robetta server to create fragment file. <http://old.robetta.org/> It is possible to run fragment picking locally, but requires the installation of a number of dependencies and is non-trivial.
 
 #### What is an "unrecognized residue"?
 

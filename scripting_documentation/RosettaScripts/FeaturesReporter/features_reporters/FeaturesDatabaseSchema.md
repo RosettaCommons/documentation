@@ -165,7 +165,7 @@ GeometricSolvationFeatures
 HBondFeatures
 -------------
 
-The HBondFeatures (rosetta/main/source/src/protocols/features/HBondFeatures.hh) measures the geometry of hydrogen bonds. The most current reference is [Tanja Kortemme, Alexandre V. Morozov, David Baker, An Orientation-dependent Hydrogen Bonding Potential Improves Prediction of Specificity and Structure for Proteins and Protein-Protein Complexes, (JMB 2003)](http://www.sciencedirect.com/science/article/B6WK7-47WBSCV-T/2/d7c673dd51017848231e7b9e8c05fbca) .
+The HBondFeatures (rosetta/main/source/src/protocols/features/HBondFeatures.hh) measures the geometry of hydrogen bonds. The most current reference is [Tanja Kortemme, Alexandre V. Morozov, David Baker, An Orientation-dependent Hydrogen Bonding Potential Improves Prediction of Specificity and Structure for Proteins and Protein-Protein Complexes, (JMB 2003)](https://doi.org/10.1016/s0022-2836(03)00021-4) .
 
 The features associated with hydrogen bonding include
 
@@ -897,7 +897,7 @@ A protocol is represented as all the information necessary to reproduce the resu
 RadiusOfGyrationFeatures
 ------------------------
 
-Measure the radius of gyration for each structure. The radius of gyration measure of how compact a structure is in O(n). It is the expected displacement of mass from the center of mass. The Wikipedia page is has some [information](http://en.wikipedia.org/wiki/Radius_of_gyration) . Also see, Lobanov MY, Bogatyreva NS, Galzitskaya OV. [Radius of gyration as an indicator of protein structure compactness](http://www.springerlink.com/content/v01q1r143528u261/) . Molecular Biology. 2008;42(4):623-628.
+Measure the radius of gyration for each structure. The radius of gyration measure of how compact a structure is in O(n). It is the expected displacement of mass from the center of mass. The Wikipedia page is has some [information](http://en.wikipedia.org/wiki/Radius_of_gyration) . Also see, Lobanov MY, Bogatyreva NS, Galzitskaya OV. [Radius of gyration as an indicator of protein structure compactness](https://doi.org/10.1134/S0026893308040195) . Molecular Biology. 2008;42(4):623-628.
 
 -   **radius\_of\_gyration** :
     -   *radius\_of\_gyration* : Let *C* be the center of mass and *ri* be the position of residue *i'* th of *n* residues, then the radius of gyration is defined to be *Rg = SQRT{SUM\_{ri}(ri-C)\^2/(n-1)}* . Note: the normalizing factor is *n-1* to be consistent with r++. Atoms with variant type "REPLONLY" are ignored.

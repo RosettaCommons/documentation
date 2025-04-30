@@ -114,7 +114,7 @@ Automatic RosettaLigand Setup (ARLS)
 -Deprecated- (still works, just generally not recommended any longer)
 Most of the steps to set up a RosettaLigand docking run have been automated by the `       arls.py      ` script (`rosetta/main/source/src/apps/public/ligand_docking/`, run with –help for brief instructions). For those who prefer a manual approach, the individual steps are detailed in the following sections.
 
-The inputs to ARLS are *apo* protein structures (.pdb) and cofactor and ligand files (.mol, .sdf, or .mol2). I typically use PyMOL to edit the proteins, [Babel](http://openbabel.org/wiki/Main_Page) to convert PDB ligands to SDF, and [Avogadro](http://avogadro.openmolecules.net/wiki/Main_Page) to fix any mistakes in the SDF (all are free). You also need a file with one line per docking case, listing the protein name, cofactor name(s) if any, and ligand name (without file extensions). This file shows docking several compounds into an apo structure of farnesyl transferase, in most cases including a farnesyl pyrophosphate as a cofactor:
+The inputs to ARLS are *apo* protein structures (.pdb) and cofactor and ligand files (.mol, .sdf, or .mol2). I typically use PyMOL to edit the proteins, [OpenBabel](http://openbabel.org/) to convert PDB ligands to SDF, and [Avogadro](https://avogadro.cc/) to fix any mistakes in the SDF (all are free). You also need a file with one line per docking case, listing the protein name, cofactor name(s) if any, and ligand name (without file extensions). This file shows docking several compounds into an apo structure of farnesyl transferase, in most cases including a farnesyl pyrophosphate as a cofactor:
 
 ```
 1fpp 1mzc_FPP 1o5m
@@ -453,7 +453,7 @@ Program-specific Options:
 Estimating docking confidence (PRELIMINARY)
 ===========================================
 
-A confidence index can be calculated as the correlation between energy score and the distance (RMSD) from the lowest energy pose. This method assumes that there is one low energy binding mode. Further Reading: [Maria I. Zavodszky, Andrew W. Stumpff-Kane, David J. Lee, and Michael Feig. **Scoring confidence index: statistical evaluation of ligand binding mode predictions** , *Journal of computer aided design* 1999, **23** (5):289-299](http://www.springerlink.com/content/nr435h2q15366664)
+A confidence index can be calculated as the correlation between energy score and the distance (RMSD) from the lowest energy pose. This method assumes that there is one low energy binding mode. Further Reading: [Maria I. Zavodszky, Andrew W. Stumpff-Kane, David J. Lee, and Michael Feig. **Scoring confidence index: statistical evaluation of ligand binding mode predictions** , *Journal of computer aided design* 1999, **23** (5):289-299](https://doi.org/10.1007/s10822-008-9258-8)
 
 
 ##See Also

@@ -87,10 +87,10 @@ Rosetta developers creating new PyRosetta applications should place any public a
 More extensive PyRosetta-specific documentation is available:
 * <http://www.pyrosetta.org/documentation> - The main PyRosetta documentation page (thorough, but not too helpful for beginners)
 * <http://www.pyrosetta.org/faq> - Frequently asked questions about PyRosetta
-* <http://www.pyrosetta.org/tutorials> - Tutorials on how to use PyRosetta (**best to dive in here**)
-* <http://www.pyrosetta.org/scripts> - Example scripts using PyRosetta (somewhat useful)
+* <http://www.pyrosetta.org/documentation/tutorials> - Tutorials on how to use PyRosetta (**best to dive in here**)
+* <http://www.pyrosetta.org/documentation/scripts> - Example scripts using PyRosetta (somewhat useful)
 * <http://www.pyrosetta.org/home/what-is-pyrosetta> - Brief, general overview of PyRosetta
-* <http://www.pyrosetta.org/dow> - Link to download PyRosetta, installation instructions at the bottom of page.
+* <http://www.pyrosetta.org/downloads> - Link to download PyRosetta, installation instructions at the bottom of page.
 
 A general overview of the general Rosetta object structure and organization can be found here: http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4083816/
 

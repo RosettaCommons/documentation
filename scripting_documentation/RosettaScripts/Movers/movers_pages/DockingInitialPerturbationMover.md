@@ -7,8 +7,6 @@ This contains the functions that create initial positions for docking.
 You can either randomize partner 1 or partner 2, spin partner 2, or
 perform a simple perturbation.
 
-Most of these options are also described [[here|https://www.rosettacommons.org/manuals/rosetta3.1_user_guide/opt_docking.html]].
-
 ```xml
 <DockingInitialPerturbation randomize1="(bool)" randomize2="(bool)" use_ellipsoidal_randomization="(bool)" dock_pert="(bool,"false")" trans="(real)" rot="(real)" uniform_trans="(real)" spin="(bool)" center_at_interface="(bool)" slide="(bool)" name="(string)"/>
 ```

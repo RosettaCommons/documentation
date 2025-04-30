@@ -2,7 +2,7 @@
 
 Below is a list of the currently released applications containing developer documentation. Click on an application to
 see a more detailed description of the purpose and for detailed examples. If a released application is missing, please
-file a bug in our [issue tracker](http://bugs.rosettacommons.org).
+file a bug in our [issue tracker](https://github.com/RosettaCommons/rosetta/issues).
 
 If you are unsure which application best fits your biological problem, you may want to start [[here|Solving-a-Biological-Problem]].
 

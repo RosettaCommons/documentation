@@ -12,12 +12,8 @@ A PDB file is broken up into records, made up of one line each, and
 identified by a record name in the first six columns.  The different
 kinds of records are described at:
 
-  http://www.pdb.org/pdb/file_formats/pdb/pdbguide2.2/part_11.html
+  https://www.wwpdb.org/documentation/file-format-content/format33/v3.3.html
 
-Each record is made up of fields belonging to one of sixteen different
-types.  The different kinds of fields are described at:
-
-  http://www.pdb.org/pdb/file_formats/pdb/pdbguide2.2/part_13.html
 
 The primary public interface is @c PDBReader, which turns a PDB file
 into a series of records.  It behaves as an iterator through a

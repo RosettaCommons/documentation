@@ -8,7 +8,7 @@ Currently the feature is only supported by the **ddG** mover and filter.
 
 **[ Prerequisites ]**
 
--   Build the customized version of [APBS](http://www.poissonboltzmann.org/apbs) and [iAPBS](http://mccammon.ucsd.edu/iapbs) , according to the instructions found in /path/to/rosetta/rosetta\_source/external/apbs/apbs-1.4-rosetta/README.
+-   Build the customized version of [APBS](http://www.poissonboltzmann.org) and [iAPBS](http://mccammon.ucsd.edu/iapbs) , according to the instructions found in /path/to/rosetta/rosetta\_source/external/apbs/apbs-1.4-rosetta/README.
 
 <!-- -->
 

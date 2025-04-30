@@ -104,7 +104,7 @@ The ProteinBackboneAtomAtomPairFeatures reporter measures all the atom pair dist
 HBondFeatures
 -------------
 
-The HBondFeatures reporter measures the geometry of hydrogen bonds. The most current reference is [Tanja Kortemme, Alexandre V. Morozov, David Baker, An Orientation-dependent Hydrogen Bonding Potential Improves Prediction of Specificity and Structure for Proteins and Protein-Protein Complexes, (JMB 2003)](http://www.sciencedirect.com/science/article/B6WK7-47WBSCV-T/2/d7c673dd51017848231e7b9e8c05fbca) .
+The HBondFeatures reporter measures the geometry of hydrogen bonds. The most current reference is [Tanja Kortemme, Alexandre V. Morozov, David Baker, An Orientation-dependent Hydrogen Bonding Potential Improves Prediction of Specificity and Structure for Proteins and Protein-Protein Complexes, (JMB 2003)](https://doi.org/10.1016/s0022-2836(03)00021-4) .
 
 The HBondFeatures feature reporter takes the following options:
 

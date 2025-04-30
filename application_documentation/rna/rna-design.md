@@ -25,7 +25,7 @@ References
 
 Das, R., Karanicolas, J., and Baker, D. (2010), "Atomic accuracy in predicting and designing noncanonical RNA structure". Nature Methods 7:291-294. [Paper.](http://www.stanford.edu/~rhiju/DasKaranicolasBaker2010ALL.pdf) [Link.](http://www.nature.com/nmeth/journal/v7/n4/abs/nmeth.1433.html)
 
-(Reprint available at [http://daslab.stanford.edu/pubs.html](http://daslab.stanford.edu/pubs.html) ).
+(Reprint available at <https://daslab.stanford.edu/publications/>.)
 
 Purpose
 ===========================================

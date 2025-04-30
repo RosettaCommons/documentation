@@ -898,7 +898,6 @@ Another good troubleshooting tool is to simplify your XML. Try creating a stripp
 
 * [Introductory RosettaScripting Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/scripting_with_rosettascripts/scripting_with_rosettascripts)
 * [Advanced RosettaScripting Tutorial](https://www.rosettacommons.org/demos/latest/tutorials/advanced_scripting_with_rosettascripts/advanced_scripting_with_rosettascripts)
-* [[RosettaDiagrams (external link)|http://www.rosettadiagrams.org/]]: Provides a graphical interactive service to produce RosettaScripts XML files, with some ability to run the scripts as well.
 * [[I want to do x]]: Guide for making specific structural perturbations using RosettaScripts
 * [[Scripting Documentation]]: The Scripting Documentation home page
 * [[Solving a Biological Problem]]: Guide to approaching biological problems using Rosetta

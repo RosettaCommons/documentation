@@ -8,7 +8,7 @@ The [PyMOL Wiki](http://www.pymolwiki.org/index.php/Main_Page) contains
 documentation on the program methods and numerous examples. Beginners
 should start
 [with this tutorial](http://www.pymolwiki.org/index.php/Practical_Pymol_for_Beginners).
-A simple [workshop](http://pyrosetta.org/tutorial.html) is part of the
+A simple [workshop](https://www.pyrosetta.org/documentation/tutorials) is part of the
 [PyRosetta](/index.php/PyRosetta "PyRosetta") tutorials.
 
 If you are building PyMOL from source on Linux (this does not take long

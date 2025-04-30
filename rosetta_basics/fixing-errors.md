@@ -80,7 +80,7 @@ Segmentation faults (segfaults) are one of the hardest errors to debug. They're 
 
 Do check that all your inputs are correct and that there aren't any obvious errors in your configuration. Also, the extra error checking in debug mode (e.g. relax.linuxgccdebug) can often change a segfault into an assertion error. Often though, figuring out the cause of a segfault requires running Rosetta under a debugger and developer attention.
 
-Take heart, though. Ideally, Rosetta should never result in a segfault. At the very least the developer should have done error checking and printed out an interpretable error message. If you encounter a segfault, please submit a bug report to either the Rosetta bug tracker <https://bugs.rosettacommons.org> or to the Rosetta forums <https://www.rosettacommons.org/forum>.
+Take heart, though. Ideally, Rosetta should never result in a segfault. At the very least the developer should have done error checking and printed out an interpretable error message. If you encounter a segfault, please submit a bug report to either the Rosetta issue tracker <https://github.com/RosettaCommons/rosetta/issues> or to the Rosetta disscussion form <https://github.com/RosettaCommons/rosetta/discussions>.
 
 
 ##See Also
