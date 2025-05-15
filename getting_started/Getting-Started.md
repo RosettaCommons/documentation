@@ -130,7 +130,7 @@ See the [[TACC]] page for more details.
 
 How to update these docs
 -------------------------
-Developers can update these doc pages through our [interactive wiki](https://www.rosettacommons.org/docs/wiki/Home) [note: Github login required].
+Developers can update these doc pages through our [interactive wiki](https://www.rosettacommons.org/docs/wiki/Home) [note: Github login required], or anyone can suggest changes through the [Github repository](https://github.com/RosettaCommons/documentation).
 
 ##See Also
 
