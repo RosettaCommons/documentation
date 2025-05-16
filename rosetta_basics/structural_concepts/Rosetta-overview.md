@@ -58,7 +58,7 @@ We have covered most of the "chemical" layer (from Pose to Conformation to Resid
 [[FoldTree|foldtree-overview]] <a name="foldtree" />
 --------
 
-FoldTree is a residue-based description of macromolecular system. For more information, one can refer to two reference papers: [[Bradley et al, Proteins, 2006|http://www.ncbi.nlm.nih.gov/pubmed/17034045]]; [[Wang et al, JMB, 2007|http://www.ncbi.nlm.nih.gov/pubmed/17825317]] or see [[FoldTree Overview and Concepts|foldtree-overview]] . Each residue is connected to another residue in the tree either via a peptide connection or a rigid-body connection, known as a "Jump"). DOFs of the system are backbone and sidechain torsion angles and rigid-body transformations. Changes to these DOFs can be propagated properly in the FoldTree to generate desired structural changes.
+FoldTree is a residue-based description of macromolecular system. For more information, one can refer to two reference papers: [[Bradley et al, Proteins, 2006|http://www.ncbi.nlm.nih.gov/pubmed/17034045]]; [[Wang et al, JMB, 2007|http://www.ncbi.nlm.nih.gov/pubmed/17825317]] or see [[FoldTree Overview and Concepts|foldtree-overview]] . Each residue is connected to another residue in the tree either via a peptide connection or a rigid-body connection, known as a "Jump". DOFs of the system are backbone and sidechain torsion angles and rigid-body transformations. Changes to these DOFs can be propagated properly in the FoldTree to generate desired structural changes.
 
 [[AtomTree|atomtree-overview]] <a name="atomtree"/>
 --------
