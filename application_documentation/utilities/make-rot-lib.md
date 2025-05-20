@@ -96,8 +96,8 @@ TEMPERATURE 1
 
 -   AA\_NAME | three letter code for the amno acid
 -   OMG\_RANGE | omega range for the peptide bond _preceding_ the residue, expressed as STARTVAL ENDVAL INCREMENT
--   PHI\_RANGE | phi value for this bin phi value for this bin, expressed as STARTVAL ENDVAL INCREMENT | 0 : The phi range functionality is not functional. Both values need to be the same and the interval set to 0. **Update 9 Nov 2018: This functionality _is_ now functional.  Ranges can be set, so it is not necessary to generate thousands of input files. --VKM**
--   PSI\_RANGE | psi value for this bin psi value for this bin, expressed as STARTVAL ENDVAL INCREMENT | 0 : The psi range functionality is not functional. Both values need to be the same and the interval set to 0  **Update 9 Nov 2018: This functionality _is_ now functional.  Ranges can be set, so it is not necessary to generate thousands of input files. --VKM**
+-   PHI\_RANGE | phi value for this bin phi value for this bin, expressed as STARTVAL ENDVAL INCREMENT
+-   PSI\_RANGE | psi value for this bin psi value for this bin, expressed as STARTVAL ENDVAL INCREMENT 
 -   EPS\_RANGE | omega range (referred to as "epsilon") for the peptide bond _following_ the residue, expressed as STARTVAL ENDVAL INCREMENT
 -   BB_\_RANGE | optionally used to add additional backbone dihedrals. | Note that NUM_BB must reflect the number of backbone dihedrals not including omega and epsilon.  Backbone dihedral indices are based on the order specified, and PHI\_RANGE, PSI\_RANGE, and BB\_RANGE all have the same effect, under the hood, of setting the range for the next backbone dihedral index. All are expressed as STARTVAL ENDVAL INCREMENT.
 -   NUM\_BB | number of backbone dihedrals _not including_ omega (the preceding inter-residue bond) or epsilon (the following inter-residue bond)
