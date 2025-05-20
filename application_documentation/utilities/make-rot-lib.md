@@ -99,7 +99,7 @@ TEMPERATURE 1
 -   PHI\_RANGE | phi value for this bin phi value for this bin, expressed as STARTVAL ENDVAL INCREMENT
 -   PSI\_RANGE | psi value for this bin psi value for this bin, expressed as STARTVAL ENDVAL INCREMENT 
 -   EPS\_RANGE | omega range (referred to as "epsilon") for the peptide bond _following_ the residue, expressed as STARTVAL ENDVAL INCREMENT
--   BB_\_RANGE | optionally used to add additional backbone dihedrals. | Note that NUM_BB must reflect the number of backbone dihedrals not including omega and epsilon.  Backbone dihedral indices are based on the order specified, and PHI\_RANGE, PSI\_RANGE, and BB\_RANGE all have the same effect, under the hood, of setting the range for the next backbone dihedral index. All are expressed as STARTVAL ENDVAL INCREMENT.
+-   BB_\_RANGE | optionally used to add additional backbone dihedrals. * Note that NUM_BB must reflect the number of backbone dihedrals not including omega and epsilon.*  Backbone dihedral indices are based on the order specified, and PHI\_RANGE, PSI\_RANGE, and BB\_RANGE all have the same effect, under the hood, of setting the range for the next backbone dihedral index. All are expressed as STARTVAL ENDVAL INCREMENT.
 -   NUM\_BB | number of backbone dihedrals _not including_ omega (the preceding inter-residue bond) or epsilon (the following inter-residue bond)
 -   NUM\_CHI | number side chain dihedral angles : This should be the same as in the parameter file.
 -   CHI\_RANGE chi number | starting value | ending value | interval : The number of CHI\_RANGE fields needs to equal the values specified for NUM\_CHI.
