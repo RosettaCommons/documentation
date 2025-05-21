@@ -21,7 +21,7 @@ For having both TensorFlow and Torch support, follow the download and setup inst
     ```
     sudo tar -C /usr/local -xzf libtensorflow-cpu-linux-x86_64-1.15.0.tar.gz
     ```
-    add following environment variables to point to the new `lib` directory that was created when you extracted the file
+3. Add following environment variables to point to the new `lib` directory that was created when you extracted the file:
 
     Linux, Windows: 
     ```
