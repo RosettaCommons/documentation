@@ -8,7 +8,7 @@ For having both TensorFlow and Torch support, follow the download and setup inst
 
 1. Download the Tensorflow 1.15 precompiled libraries for your operating system from one of the following:   
 [Linux/CPU](https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-linux-x86_64-1.15.0.tar.gz) | [Linux/GPU](https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-gpu-linux-x86_64-1.15.0.tar.gz) | [Windows/CPU](https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-windows-x86_64-1.15.0.zip) | [Windows/GPU](https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-gpu-windows-x86_64-1.15.0.zip) | 
-[MacOS/CPU](https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-darwin-x86_64-1.15.0.tar.gz)  
+[MacOS/IntelCPU](https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-cpu-darwin-x86_64-1.15.0.tar.gz)  
 (Note that GPU versions require CUDA drivers; see the [TensorFlow documentation](https://www.tensorflow.org/install/lang_c) for more information.)    
     e.g. for Linux CPU:
     ```
@@ -21,7 +21,7 @@ For having both TensorFlow and Torch support, follow the download and setup inst
     ```
     sudo tar -C /usr/local -xzf libtensorflow-cpu-linux-x86_64-1.15.0.tar.gz
     ```
-    add following environment variables
+    add following environment variables to point to the new `lib` directory that was created when you extracted the file
 
     Linux, Windows: 
     ```
