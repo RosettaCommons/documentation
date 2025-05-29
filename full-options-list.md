@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2023-12-05
+Generated: 2025-05-29
 
 _Note that some application specific options may not be present in this list._
 
@@ -4567,6 +4567,10 @@ _Note that some application specific options may not be present in this list._
 <dd>If a lariat cyclization type is specified (e.g. nterm_isopeptide_lariat, cterm_isopeptide_lariat), then this is the residue that provides the side-chain that connects to the N- or C-terminus of the peptide.  If not specified, the residue of appropriate type closest to the other end is used.<br/>Default: 0<br/></dd>
 <dt><b>-sidechain_isopeptide_indices</b> \<IntegerVector\></dt>
 <dd>If the sidechain_isopeptide cyclization type is specified, these are the indices of the residues that are linked by a sidechain-sidechain isopeptide bond to make the loop.  If not specified, the residues furthest apart of appropriate types are used.  Note that exactly two indices must be given.<br/></dd>
+<dt><b>-lanthionine_positions</b> \<IntegerVector\></dt>
+<dd>If provided, then these positions will be linked by a lanthionine, crosslinker.  2 positions must be specified, and this group of two will be linked.  Unused if not specified.<br/></dd>
+<dt><b>-lariat_sample_cis</b> \<Boolean\></dt>
+<dd>If true(default), then thioether_lariats will sample cis peptide bonds at the N terminus, trans if false.<br/>Default: true<br/></dd>
 <dt><b>-paraBBMB_positions</b> \<IntegerVector\></dt>
 <dd>If provided, then these positions will be linked by a 1,4-bis(bromomethyl)benzene, or para-BBMB, crosslinker.  2N positions must be specified, and every group of two will be linked.  Unused if not specified.<br/></dd>
 <dt><b>-use_paraBBMB_filters</b> \<Boolean\></dt>
@@ -9783,6 +9787,37 @@ _Note that some application specific options may not be present in this list._
 <dd>murphp option group<br/></dd>
 <dt><b>-inv_kin_lig_loop_design_filename</b> \<String\></dt>
 <dd>input filename to be used for inv_kin_lig_loop_design<br/></dd>
+</dl>
++ <h2>-ligand_evolution</h2>
+<dl>
+<dt><b>-ligand_evolution</b> \<Boolean\></dt>
+<dd>ligand_evolution option group<br/></dd>
+<dt><b>-options</b> \<File\></dt>
+<dd>Path to the options file<br/></dd>
+<dt><b>-xyz</b> \<RealVector\></dt>
+<dd><x> <y> <z> position of the initial ligand placement<br/></dd>
+<dt><b>-external_scoring</b> \<Integer\></dt>
+<dd>If set the docking protocol will be applied to a list of smiles and the specified number of results will be saved.<br/></dd>
+<dt><b>-smiles_file</b> \<File\></dt>
+<dd>List of smiles which should be docked. This triggers an alternative runmode of REvoLd.<br/></dd>
+<dt><b>-n_scoring_runs</b> \<Integer\></dt>
+<dd>How often should the scoring protocol be applied to each complex. Defaults to 150.<br/>Default: 150<br/></dd>
+<dt><b>-ligand_chain</b> \<String\></dt>
+<dd>Name of the ligand chain used in the docking protocol. Defaults to X.<br/>Default: "X"<br/></dd>
+<dt><b>-pose_output_directory</b> \<Path\></dt>
+<dd>Directory to which all calculated poses will be written. Defaults to the current directory.<br/>Default: "."<br/></dd>
+<dt><b>-main_scfx</b> \<String\></dt>
+<dd>Name of the scoring function specified in the docking protocol which should be used for scoring compounds.<br/></dd>
+<dt><b>-score_mem_path</b> \<File\></dt>
+<dd>Path to a former results file to load as score memory<br/></dd>
+<dt><b>-reagent_file</b> \<File\></dt>
+<dd>Path to a file defining reagents for reactions<br/></dd>
+<dt><b>-reaction_file</b> \<File\></dt>
+<dd>Path to a file defining reaction used for combinatorial chemical space<br/></dd>
+<dt><b>-main_term</b> \<String\></dt>
+<dd>Name of the main term used as fitness function. Defaults to lid_root2<br/>Default: "lid_root2"<br/></dd>
+<dt><b>-n_generations</b> \<Integer\></dt>
+<dd>For how many generations should REvoLd optimize. Defaults to 30.<br/>Default: 30<br/></dd>
 </dl>
 + <h2>-peptide_deriver</h2>
 <dl>
