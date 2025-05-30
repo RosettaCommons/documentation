@@ -41,12 +41,14 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
         macrocycle_ligand="(&bool;)" shuffle_ligands="(&non_negative_integer;)"
         align_reference_atom_ids="(&string;)" init_dens_weight="(&real;)"
         skeleton_threshold_const="(&real;)"
-        neighborhood_size="(&non_negative_integer;)"
-        print_initial_pool="(&bool;)" rtmutationRate="(&real;)"
-        rotmutWidth="(&real;)" transmutWidth="(&real;)"
-        calculate_native_density="(&bool;)" ngen="(&integer;)"
-        npool="(&non_negative_integer;)" pmut="(&real;)" smoothing="(&real;)"
-        rmsdthreshold="(&real;)" ramp_schedule="(&string;)"
+        neighborhood_size="(&non_negative_integer;)" skeleton_radius="(&real;)"
+        method_for_radius="(&string;)" advanced_map_erosion="(&bool;)"
+        print_initial_pool="(&bool;)" altcrossover="(&bool;)"
+        single_mutation="(&bool;)" local_resolution="(&real;)"
+        rtmutationRate="(&real;)" rotmutWidth="(&real;)"
+        transmutWidth="(&real;)" calculate_native_density="(&bool;)"
+        ngen="(&integer;)" npool="(&non_negative_integer;)" pmut="(&real;)"
+        smoothing="(&real;)" rmsdthreshold="(&real;)" ramp_schedule="(&string;)"
         maxiter="(&non_negative_integer;)"
         pack_cycles="(&non_negative_integer;)" output_ligand_only="(&bool;)" >
     <Stage repeats="(&integer;)" npool="(&non_negative_integer;)"
@@ -129,7 +131,13 @@ This mover runs ligand docking using a GA (with gridded scoring) to optimize lig
 -   **init_dens_weight**: density weight used during initial perturbation scoring
 -   **skeleton_threshold_const**: constant value used to calculate threshold for density skeleton.
 -   **neighborhood_size**: size of a neighborhood for ligand density erosion. Should be 7, 19, or 27. Default: 27
+-   **skeleton_radius**: Radius to search for EM density points for the ligand aligner. Default: 10
+-   **method_for_radius**: Method to find radius for EM density erosion. Options are fixed, pocket, no_padding. Default: fixed
+-   **advanced_map_erosion**: Run an advanced version of EM density map erosion for ligand alignment. Default: false
 -   **print_initial_pool**: Dump pdbs in the initial docking pool. Default: false
+-   **altcrossover**: Use alternate crossover method. Default: false
+-   **single_mutation**: Allow only 1 torsion mutation. Default: false
+-   **local_resolution**: local resolution used to estimate density correlation for ligand identification
 -   **rtmutationRate**: probability of rigid body rotation and translation mutation
 -   **rotmutWidth**: maximum angle of rigid body mutation
 -   **transmutWidth**: maximum translation distance of rigid body mutation

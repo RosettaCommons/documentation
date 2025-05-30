@@ -10,7 +10,7 @@ Sample the membrane energy function landscape using a given energy function
         sfxn_weights="(&string;)" rotation_type="(&string;)"
         interface="(&bool;)" start_z="(&real;)" end_z="(&real;)"
         flag_axis="(&real;)" azimuthal_delta="(&real;)" repack="(&bool;)"
-        pH_mode="(&bool;)" />
+        pH_mode="(&bool;)" dump_structures="(&bool;)" />
 ```
 
 -   **scorefxn**: Name of score function to use
@@ -23,5 +23,6 @@ Sample the membrane energy function landscape using a given energy function
 -   **azimuthal_delta**: select the frequency of azimuthal/rotation angle
 -   **repack**: Should I repack each pose prior to scoring?
 -   **pH_mode**: Should I include protonation variants during packing?
+-   **dump_structures**: Dump intermediate structures?
 
 ---

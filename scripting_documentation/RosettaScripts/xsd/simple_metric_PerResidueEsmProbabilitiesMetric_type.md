@@ -7,6 +7,9 @@ A metric for estimating the probability of an amino acid at a given position, as
 
 References and author information for the PerResidueEsmProbabilitiesMetric simple metric:
 
+ESM Neural Network's citation(s):
+Lin Z, Akin H, Rao R, Hie B, Zhu Z, Lu W, Smetanin N, Verkuil R, Kabeli O, Shmueli Y, DosSantosCosta A, Fazel-Zarandi M, Sercu T, Candido S, and Rives A.  (2023).  Evolutionary-scale prediction of atomic-level protein structure with a language model.  Science 379(6637):1123-1130.  doi: 10.1126/science.ade2574.
+
 PerResidueEsmProbabilitiesMetric SimpleMetric's author(s):
 Moritz Ertelt, University of Leipzig [moritz.ertelt@gmail.com]  (Wrote the PerResidueEsmProbabilitiesMetric.)
 
