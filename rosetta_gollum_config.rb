@@ -19,10 +19,21 @@ WIKI_OPTIONS = {
   :bar_side => :left,
   :mathjax => true,
   :css => true,
+## The main change which alters things into the static site, set by config-public.ru
+## Can also be invoked by passing --no-edit on the gollum command line.
+#  :allow_editing => false,
 }
 
 Precious::App.set(:default_markup, :markdown)
 Precious::App.set(:wiki_options, WIKI_OPTIONS)
+
+## Use the custom template directory.
+
+gollum_path = File.expand_path(File.dirname(__FILE__))
+Precious::App.set(:gollum_path, gollum_path)
+## This will be reset by config-public.ru 
+Precious::App.settings.mustache[:templates] = gollum_path + '/templates'
+
 
 # Define a few useful macros.
 

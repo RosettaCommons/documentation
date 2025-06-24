@@ -107,4 +107,15 @@
       {{/newable}}
     {{/editable}}
   {{/allow_editing}}
+
+  {{^allow_editing}}
+    <div class="TableObject-item">
+      <button class="btn btn-primary btn-sm"
+         onclick="window.location.href='https://rosettacommons.org/contact/';"
+      >
+	Feedback
+      </button>
+    </div>
+  {{/allow_editing}}
+
 </nav>

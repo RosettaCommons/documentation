@@ -19,7 +19,7 @@
 	    </div>
 	    {{/has_header}}
 	    <div class="main-content clearfix container-lg">
-	      <div class="markdown-body {{#header_enum?}}header-enum{{/header_enum?}} {{#has_sidebar}}float-md-{{body_side}} col-md-9{{/has_sidebar}}" {{#header_enum?}}style="--header-enum-style:{{header_enum_style}};"{{/header_enum?}}>
+	      <div class="markdown-body {{#header_enum?}}header-enum{{/header_enum?}} {{#has_sidebar}}float-md-{{body_side}} col-md-9{{/has_sidebar}}" {{#header_enum?}}style="--header-enum-style:{{header_enum_style}};"{{/header_enum?}} {{#has_sidebar}}style="padding-{{bar_side}}: 25px;"{{/has_sidebar}}>
 	        {{{rendered_metadata}}}
 	        {{{content}}}
 	      </div>
@@ -45,10 +45,15 @@
 
 
 	<div id="footer" class="pt-4">
+	<p><i>
+	  Didn't find what you need? Have a suggestion for improvement? 
+	  Please <a href="https://rosettacommons.org/contact/">drop us a note</a> on our Feedback form, 
+          or open <a href="https://github.com/RosettaCommons/documentation/issues">an issue</a> or start <a href="https://github.com/RosettaCommons/rosetta/discussions">a discussion</a> on Github.
+	</i></p>
 	  {{^historical}}
 		{{^preview}}
-		  <p id="last-edit"><div class="dotted-spinner hidden"></div> <a id="page-info-toggle" data-pagepath="{{path}}">{{tt.wiki_content.last_edit}}</a></p>
 		  {{#allow_editing}}
+		    <br/>
 		    <p>
 		      <a id="delete-link" href="{{escaped_url_path}}" data-confirm="{{tt.wiki_content.delete_link.confirm}}"><span>{{tt.wiki_content.delete_link.title}}</span></a>
 		    </p>
@@ -58,6 +63,12 @@
 	  {{#historical}}
 	    <p>This version of the page was edited by <b>{{author}}</b> at <time datetime="{{datetime}}" data-format="{{date_format}}">{{date}}</time>. <a href="{{full_url_path}}">View the most recent version.</a></p>
 	  {{/historical}}
+ 	  {{^allow_editing}}
+		<p><i>
+	 	Rosetta Commons member? <a href="https://docs.rosettacommons.org/docs/wiki/{{page.path}}">Edit this page</a> at the internal wiki site. (Github login needed).
+		</i></p>
+	  {{/allow_editing}}
+
 	</div>
 
 
