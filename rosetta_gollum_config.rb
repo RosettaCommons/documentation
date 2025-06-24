@@ -16,6 +16,7 @@ WIKI_OPTIONS = {
   :live_preview => false,
   :h1_title => true,
   :sidebar => :left,
+  :bar_side => :left,
   :mathjax => true,
   :css => true,
 }
