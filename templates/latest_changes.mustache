@@ -1,0 +1,36 @@
+<div id="wiki-wrapper" class="history">
+  <div id="head">
+    {{>navbar}}
+
+    <h1 class="header-title text-center text-md-left py-4">
+      {{title}}
+    </h1>
+  </div>
+
+{{>pagination}}
+
+<div id="wiki-history">
+
+<ul class="Box flex-auto">
+	{{#versions}}
+		<li class="Box-row Box-row--hover-gray border-top d-flex flex-items-center">
+			<span class="float-left col-2" id="user-icons">{{>author_template}}</span>
+			<time class="flex-auto col-1 color-fg-subtle" datetime="{{datetime}}" data-format="{{date_format}}">{{date}}</time>
+			<span class="flex-auto col-5">{{message}}<br/>
+			{{#files}}
+			  <span class="flex-auto col-2">{{#renamed}}{{renamed}} -> {{/renamed}}<a href="{{link}}">{{file}}</a></span><br/>
+			{{/files}}
+			</span>
+			<span class="pl-4 float-right">
+				<a href="{{href}}" class="btn btn-outline text-mono">{{id7}}</a>
+			</span>
+		</li>
+	{{/versions}}
+</ul>
+
+ 
+</div>
+<div id="footer">
+
+</div>
+</div>

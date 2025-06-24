@@ -1,12 +1,24 @@
 <div id="wiki-wrapper" class="edit">
-<div id="head">
-  <h1>Editing <strong>{{title}}</strong></h1>
-  <ul class="actions">
-    <li class="minibutton"><a href="{{base_url}}/{{escaped_url_path}}"
-       class="action-view-page">View Page</a></li>
-     <li class="minibutton"><a href="{{base_url}}/history/{{escaped_url_path}}"
-       class="action-page-history">Page History</a></li>
-  </ul>
-</div>
-  <div id="wiki-content">{{>editor}}</div>
+  <div id="head">
+    {{>navbar}}
+
+    <h1 class="header-title text-center text-md-left py-4">
+      {{t.title}}
+    </h1>
+  </div>
+
+  <div class="tabnav">
+    <nav class="tabnav-tabs">
+      <button id="edit" class="tabnav-tab selected" aria-current="page">
+        {{t.edit}}
+      </button>
+
+      <button id="preview" class="tabnav-tab">
+        {{t.preview}}
+      </button>
+    </nav>
+  </div>
+
+  <div class="tabnav-div" id="edit-content">{{>editor}}</div>
+	<div class="tabnav-div" id="preview-content"></div>
 </div>

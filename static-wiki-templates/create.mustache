@@ -1,14 +1,26 @@
 <div id="wiki-wrapper" class="create">
-<div id="head">
-  <h1>Create New Page</h1>
-</div>
+  <div id="head">
+    {{>navbar}}
+
+    <h1 class="header-title text-center text-md-left py-4">
+      {{tt.create.title}}
+    </h1>
+  </div>
 <div id="wiki-content" class="create edit">
-  <div class="has-sidebar">
+  <div class="tabnav">
+    <nav class="tabnav-tabs" aria-label="Toggle edit or preview mode">
+      <a href="#" id="edit" class="tabnav-tab selected" aria-current="page">
+        {{tt.create.edit}}
+      </a>
+      <a href="#" id="preview" class="tabnav-tab">{{tt.create.preview}}</a>
+    </nav>
+  </div>
+
+  <div class="has-sidebar tabnav-div" id="edit-content">
     {{>editor}}
   </div>
+	<div class="tabnav-div" id="preview-content">
+	</div>
 </div>
 </div>
-<script type="text/javascript">
-var default_markup = '{{default_markup}}';
-</script>
 {{something}}

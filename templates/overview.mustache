@@ -1,0 +1,55 @@
+<div id="wiki-wrapper" class="results">
+  <div id="head" class="overview">
+    {{>navbar}}
+
+    <h1 class="header-title text-center text-md-left py-4">
+      {{title}}
+    </h1>
+  </div>
+<div id="overview">
+
+{{#has_results}}
+  <div id="file-browser">
+    <div class="breadcrumb pb-4">
+      {{{breadcrumb}}}
+    </div>
+
+		<div class="Box">
+	    <ul>
+				{{#files_folders}}
+					<li class="Box-row">
+						<span class="pr-2">{{{icon}}}</span>
+						<span><a href="{{url}}">{{name}}</a></span>
+						{{#allow_editing}}
+              {{#is_file}}
+                <button
+                  class="btn btn-sm float-right delete-file"
+                  data-confirm="{{t.delete_confirmation}}"
+                  data-file-path="{{file_path}}"
+                >
+                  {{#octicon}}trash{{/octicon}}
+                </button>
+              {{/is_file}}
+            {{/allow_editing}}
+		      </li>
+				{{/files_folders}}
+	    </ul>
+		</div>
+
+
+{{/has_results}}
+
+{{#no_results}}
+  <p id="no-results">
+    {{t.no_pages_in}}
+  </p>
+{{/no_results}}
+
+</div>
+<div class="pt-4" id="footer">
+  <a href="#">
+    {{t.back_to_top}}
+  </a>
+</div>
+</div>
+
