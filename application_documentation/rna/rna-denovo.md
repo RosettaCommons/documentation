@@ -59,7 +59,7 @@ FARNA (rna_denovo) can accept sequence & secondary structure from command line, 
 
 ##Optional additional files:
 
--   The [[fasta file]]: it is a sequence file for your RNA. Its header lines can specify chains and numbering for the output structures, too.
+-   The [[fasta file]]: it is a sequence file for your RNA. Its header lines can specify chains and numbering for the output structures, too. IMPORTANT: The fasta file is read with Rosetta's general fasta file parsing machinery, which assumes protein for uppercase letters. As such, use lower case letters for RNA residues.
 
 -   The [[secondary structure file|rna-secondary-structure-file]]: holds the secondary structure for the RNA in dot-parens notation, if known.
 
@@ -81,7 +81,7 @@ rna_denovo.<exe> -fasta chunk002_1lnt_.fasta -secstruct_file chunk002_1lnt_.secs
 
 The code takes about 1 minute to generate two models.
 
-The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. Example fasta and secstruct files are available in `       demos/public/rna_denovo      ` .
+The fasta file has the RNA name on the first line (after \>), and the sequence on the second line. Valid letters are a,c,g, and u. **Case matters** Use lower case letters to specify RNA residues. Example fasta and secstruct files are available in `demos/public/rna_denovo` .
 
 #Options
 ## Commonly used options
