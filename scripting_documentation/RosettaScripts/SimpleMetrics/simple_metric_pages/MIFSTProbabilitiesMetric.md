@@ -7,6 +7,21 @@
 ### General description
 A metric for estimating the probability of an amino acid at a given position, as predicted by the Masked Inverse Folding with Sequence Transfer (MIF-ST) model from [Yang et al.](https://doi.org/10.1101/2022.05.25.493516). This metric requires to be build with `extras=torch`, see [[Building Rosetta with TensorFlow and Torch]] for the compilation setup.
 
+### Note on processor usage.
+
+By default, the MIFSTProbabilitiesMetric will use multiple processors during prediction. (The number of processors to use is autodetermined by Torch, based on the number of processors on the machine.)
+
+To limit the number of processors being used, set the following environment variables prior to running Rosetta (commands assuming Bash, and assuming one CPU used):
+```
+export OMP_NUM_THREADS=1
+export MKL_NUM_THREADS=1
+export TORCH_NUM_THREADS=1
+export TORCH_INTRAOP_NUM_THREADS=1
+export TORCH_INTEROP_NUM_THREADS=1
+```
+
+This, of course, will increase the runtime, but may be necessary when running on systems where you explicitly need to control CPU usage.
+
 ### Example
 The example predicts the amino acid probabilities for chain A using only the coordinates and sequence of chain A.It does so by running one prediction for each position while masking its residue type. With `multirun=true` & `use_gpu=true` all predictions are batched together and run on the GPU (if available). Lastly it uses these predictions to score the current sequence using the pseudo-perplexity metric.
 ```xml
