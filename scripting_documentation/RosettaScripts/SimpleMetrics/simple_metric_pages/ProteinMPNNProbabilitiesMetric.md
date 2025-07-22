@@ -7,6 +7,21 @@
 ### General description
 A metric for estimating the probability of an amino acid at a given position, as predicted by the ProteinMPNN model. This metric requires to be build with `extras=torch`, see [[Building Rosetta with TensorFlow and Torch]] for the compilation setup.
 
+### Note on processor usage.
+
+By default, the ProteinMPNNProbabilitiesMetric will use multiple processors during prediction. (The number of processors to use is autodetermined by Torch, based on the number of processors on the machine.)
+
+To limit the number of processors being used, set the following environment variables prior to running Rosetta (commands assuming Bash, and assuming one CPU used):
+```
+export OMP_NUM_THREADS=1
+export MKL_NUM_THREADS=1
+export TORCH_NUM_THREADS=1
+export TORCH_INTRAOP_NUM_THREADS=1
+export TORCH_INTEROP_NUM_THREADS=1
+```
+
+This, of course, will increase the runtime, but may be necessary when running on systems where you explicitly need to control CPU usage.
+
 ### Example
 The example predicts the amino acid identities for chain A using only the coordinates of chain A, while masking the sequence of position 25 and uses the predicted probabilities to score the sequence. 
 ```xml
