@@ -3,9 +3,13 @@
 Metadata
 ========
 
-Author: Andrew Leaver-Fay and Elizabeth Kellogg
+Authors: Andrew Leaver-Fay and Elizabeth Kellogg
 
-The documentation was last updated March 26th, 2015, by Shane Ó Conchúir. Questions about this documentation should be directed to David Baker: (dabaker@u.washington.edu).
+Initially released in Rosetta3.3
+
+The documentation was last updated August 13th, 2025, by Rachel Clune. Questions about this documentation should be directed to the Rosetta Commons Slack (how_do_i_do_x, documentation, or debugging depending on the question) or a new [Issue] (https://github.com/RosettaCommons/rosetta/issues) or [Discussion] (https://github.com/RosettaCommons/rosetta/discussions).
+
+_Note_: ThermoMPNN is a machine learning method that can be used to calculate the ddG of mutation, for benchmarking information see this [article](https://www.pnas.org/doi/10.1073/pnas.2314853121) by H. Dieckhaus, et al. It is known within the Commons to perform better than ddg\_monomer in many situations, consider if this is a better tool for your application. 
 
 Code and Demo
 =============
@@ -23,18 +27,20 @@ References
 
 The new algorithm for performing limited relaxation of the backbone was published in:
 
-E. Kellogg, A. Leaver-Fay, and D. Baker, (2011) "Role of conformational sampling in computing mutation-induced changes in protein structure and stability", Proteins: Structure, Function, and Bioinformatics. V 79, pp 830–838.
+E. Kellogg, A. Leaver-Fay, and D. Baker, (2011) "Role of conformational sampling in computing mutation-induced changes in protein structure and stability", Proteins: Structure, Function, and Bioinformatics. V 79, pp 830–838. [Full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC3760476/). 
 
-The older, fixed-backbone, soft-repulsive scorefunction algorithm (analogous to that described in row 4 of [Kellogg 2011] but with weights trained towards recapitulating alanine-scanning mutation experiments. weights are in rosetta/main/database/scoring/weights/ddg\_monomer.wts) was published in:
+The older, fixed-backbone, soft-repulsive scorefunction algorithm (analogous to that described in row 4 of [Kellogg 2011](https://pmc.ncbi.nlm.nih.gov/articles/PMC3760476/) but with weights trained towards recapitulating alanine-scanning mutation experiments. Weights are in [rosetta/main/database/scoring/weights/ddg\_monomer.wts](https://github.com/RosettaCommons/rosetta/blob/main/database/scoring/weights/ddg_monomer.wts)) was published in:
 
-Kortemme et al. (2002) "A simple physical model for binding energy hot spots in protein-protein complexes", PNAS 22, 14116-21
+Kortemme et al. (2002) "A simple physical model for binding energy hot spots in protein-protein complexes", PNAS 22, 14116-21. [Full text](https://www.pnas.org/doi/10.1073/pnas.202485799). 
 
 Purpose
 ===========================================
 
-The purpose of this application is to predict the change in stability (the ddG) of a monomeric protein induced by a point mutation. The application takes as input the crystal structure of the wild-type (which must be first pre-minimized), and generates a structural model of the point-mutant. The ddG is given by the difference in rosetta energy between the wild-type structure and the point mutant structure. More precisely, 50 models each of the wild-type and mutant structures should be generated, and the most accurate ddG is taken as the difference between the mean of the top-3-scoring wild type structures and the top-3-scoring point-mutant structures.
+The purpose of this application is to predict the change in stability (the ddG) of a monomeric protein induced by a point mutation. The application takes as input the crystal structure of the wild-type (which must be first pre-minimized), and generates a structural model of the point-mutant. The ddG is given by the difference in [[rosetta energy|Units in Rosetta]] between the wild-type structure and the point mutant structure. More precisely, 50 models each of the wild-type and mutant structures should be generated, and the most accurate ddG is taken as the difference between the mean of the top-3-scoring wild type structures and the top-3-scoring point-mutant structures.
 
-Rosetta follows the convention that negative ddG values indicate increased stability _i.e._ ddG = mutant energy - wildtype energy.
+Rosetta follows the convention that negative ddG values indicate increased stability _i.e._ ddG = mutant energy - wildtype energy. 
+
+To approximately convert the values output by this method to kcal/mol, a scaling factor of 2.94 is needed. For more information on how this scaling factor was determined, see the end of Section III. in the supporting information in the paper by [Park, et al.](https://pubs.acs.org/doi/10.1021/acs.jctc.6b00819)
 
 Algorithm
 =========
@@ -194,33 +200,27 @@ The following flags are required / recommended to generate the proper behavior o
 -ddg::output_silent true # write output to a silent file
 ```
 
-Tips
-====
-
 Expected Outputs
 ================
 
-The output of the ddg protocol is a 'ddg\_predictions.out' which contains, for each mutation, the total predicted ddg and a breakdown of all the score components which contribute to that total. Furthermore, output structures are dumped either in silent-file or pdb format. If silent-files are output, the following naming convention is used. All wild-type structures are dumped into wt\_\<WT\_AA\>\<RESIDUE\_NUM\>\<MUTANT\_AA\>.out The reason wild-type structures are always dumped is because if local optimization around the site of mutation is being done, the wild-type structures can potentially be different from one another due to different constraint definitions or different packing definitions. Mutant structures follow a similar convention: mut\_\<WT\_AA\>\<RESIDUE\_NUM\>\<MUTANT\_AA\>.out For example, if you made a A to Q mutation at residue 123, you would see two silent-files as output: wt\_A123Q.out and mut\_A123Q.out this is done regardless of the protocol used.
+The output of the ddg protocol is a 'ddg\_predictions.out' which contains, for each mutation, the total predicted ddg in [[Rosetta Energy Units|Units in Rosetta]] and a breakdown of all the score components which contribute to that total. Furthermore, output structures are dumped either in silent-file or pdb format. If silent-files are output, the following naming convention is used. All wild-type structures are dumped into wt\_\<WT\_AA\>\<RESIDUE\_NUM\>\<MUTANT\_AA\>.out The reason wild-type structures are always dumped is because if local optimization around the site of mutation is being done, the wild-type structures can potentially be different from one another due to different constraint definitions or different packing definitions. Mutant structures follow a similar convention: mut\_\<WT\_AA\>\<RESIDUE\_NUM\>\<MUTANT\_AA\>.out For example, if you made a A to Q mutation at residue 123, you would see two silent-files as output: wt\_A123Q.out and mut\_A123Q.out this is done regardless of the protocol used.
 
 Post Processing
 ===============
 
+The energy values calculated by this method are given in [[Rosetta Energy Units|Units in Rosetta]]. To convert these values to kcal/mol a scaling factor of 2.94 is needed based on a study done by [Park, et al.](https://pubs.acs.org/doi/10.1021/acs.jctc.6b00819) (Section III in the Supporting Information.)
+
 Protocol capture
 ================
 
-A protocol capture for the protocol from row 16 of the Kellogg et al. paper can be downloaded from the [[Macromolecular modeling and design benchmarks|https://kortemmelab.ucsf.edu/benchmarks/captures/DDG]] website. The [[ΔΔG  page|https://kortemmelab.ucsf.edu/benchmarks/benchmarks/DDG]] also lists the expected performance for different classes of mutation.
-
-New things since last release
-=============================
-
-This application is being released for the first time with Rosetta3.3
-
+A protocol capture for the protocol from row 16 of the Kellogg et al. paper can be found on [[GitHub|https://github.com/Kortemme-Lab/ddg]]. This benchmarking resource from the Kortemme Lab also lists the expected performance for different classes of mutation.
 
 ##See Also
 
-* [[Analysis applications | analysis-applications]]: other design applications
-* [[Point mutation scan| pmut-scan-parallel ]]: Parallel detection of stabilizing point mutations using design
-* [[Application Documentation]]: Application documentation home page
+* [[Analysis applications | analysis-applications]]: other design applications.
+* [[Point mutation scan| pmut-scan-parallel ]]: Parallel detection of stabilizing point mutations using design.
+* [[Application Documentation]]: Application documentation home page.
 * [[Running Rosetta with options]]: Instructions for running Rosetta executables.
-* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta
-* [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta.
+* [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs.
+* [[Units in Rosetta]]: A description of how Rosetta handles various units.
