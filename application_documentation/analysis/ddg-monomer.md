@@ -9,7 +9,7 @@ Initially released in Rosetta3.3
 
 The documentation was last updated August 13th, 2025, by Rachel Clune. Questions about this documentation should be directed to the Rosetta Commons Slack (how_do_i_do_x, documentation, or debugging depending on the question) or a new [Issue] (https://github.com/RosettaCommons/rosetta/issues) or [Discussion] (https://github.com/RosettaCommons/rosetta/discussions).
 
-_Note_: ThermoMPNN is a machine learning method that can be used to calculate the ddG of mutation, for benchmarking information see this [article](https://www.pnas.org/doi/10.1073/pnas.2314853121) by H. Dieckhaus, et al. It is known within the Commons to perform better than ddg\_monomer in many situations, consider if this is a better tool for your application. 
+_Note_: [ThermoMPNN](https://github.com/Kuhlman-Lab/ThermoMPNN) is a machine learning method that can be used to calculate the ddG of mutation, for benchmarking information see this [article](https://www.pnas.org/doi/10.1073/pnas.2314853121) by H. Dieckhaus, et al. This tool may perform better than ddg\_monomer in some situations, consider if this is a better tool for your application. 
 
 Code and Demo
 =============
