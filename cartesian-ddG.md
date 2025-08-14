@@ -2,23 +2,32 @@
 
 Metadata
 ========
-The documentation was last updated November 2nd, 2016, by Hahnbeom Park and Yuan Liu. Questions about this documentation should be directed to Frank DiMaio: dimaio(@u.washington.edu). The documentation is only for monomeric ddg calculation for now (PPI mode and small molecule mode are not well tested).
+The documentation was last updated August 13th, 20125, by Rachel Clune. Questions about this documentation can be asked in the how\_do\_i\_do\_x, documentation, or debugging channels on the Rosetta Commons slack. Alternatively you can create a new [Issue](https://github.com/RosettaCommons/rosetta/issues), create a new [Discussion](https://github.com/RosettaCommons/rosetta/discussions), or reach out to Frank DiMaio: dimaio(@u.washington.edu). The documentation is only for monomeric ddg calculation, while this tool can be used to study protein-protein and small molecule interactions, other tools (e.g. [[InterfaceAnalyzer|Interface Analyzer]]) are better for these purposes. 
+
+_Note:_ [ThermoMPNN](https://github.com/Kuhlman-Lab/ThermoMPNN) is a machine learning method that can be used to calculate the ddG of mutation, for benchmarking information see this [article](https://www.pnas.org/doi/10.1073/pnas.2314853121) by H. Dieckhaus, et al. It may perform better than cartesian ddG in some situations, consider if this is a better tool for your application. 
 
 
 Reference
 ==========
 
-The algorithm is developed by Phil Bradley and Yuan Liu. Details about the method and benchmark result on monomeric ddg dataset ([[Kellogg et al | ddg-monomer]]) was published in:
+The algorithm is developed by Phil Bradley and Yuan Liu. Details about the method and benchmark result on monomeric ddg dataset ([[Kellogg et al. | ddg-monomer]]) was published in:
 
-Hahnbeom Park, Philip Bradley, Per Greisen Jr., Yuan Liu, Vikram Khipple Mulligan, David E Kim, David Baker, and Frank DiMaio (2016) "Simultaneous optimization of biomolecular energy function on features from small molecules and macromolecules", JCTC.
+Hahnbeom Park, Philip Bradley, Per Greisen Jr., Yuan Liu, Vikram Khipple Mulligan, David E Kim, David Baker, and Frank DiMaio (2016) "Simultaneous optimization of biomolecular energy function on features from small molecules and macromolecules", JCTC. [Full text](https://pubs.acs.org/doi/10.1021/acs.jctc.6b00819).
 
 Additional improvements and benchmarking has been described in:
 
-Frenz, Brandon, Steven M. Lewis, Indigo King, Frank DiMaio, Hahnbeom Park, and Yifan Song. 2020. “Prediction of Protein Mutational Free Energy: Benchmark and Sampling Improvements Increase Classification Accuracy.” Frontiers in Bioengineering and Biotechnology 8 (October): 558247.
+Frenz, Brandon, Steven M. Lewis, Indigo King, Frank DiMaio, Hahnbeom Park, and Yifan Song. 2020. “Prediction of Protein Mutational Free Energy: Benchmark and Sampling Improvements Increase Classification Accuracy.” Frontiers in Bioengineering and Biotechnology 8 (October): 558247. [Full text](https://www.frontiersin.org/journals/bioengineering-and-biotechnology/articles/10.3389/fbioe.2020.558247/full).
+
+Purpose
+=======
+
+The purpose of this application is to predict the change in stability (the ddG) of point mutations in a protein structure. The number of replicas needed to produce the predicted ddG values is greatly reduced compared to [[ddg_monomer|ddg monomer]] due to the use of Cartesian-space refinement which allows small local backbone movement during the refinement procedure. The ddG is calculated in [[Rosetta energy units|Units in Rosetta]] by taking the difference between the initial (wild-type) structure and the relaxed, mutated structure. A scaling factor of 2.94 is needed to then convert these values into kcal/mol, see the Supporting Information in the paper by [Park, et al.](https://pmc.ncbi.nlm.nih.gov/articles/PMC5515585/) for more details. 
 
 Command Line Options
 ====================
-First, input pdb should be properly relaxed in cartesian space with unrestrained backbone and sidechain coordinates. ***note: unrestrainted relax has been found to produce fewer errors in classification. See the Frenz et al. paper for details. This represents a change from previous version***
+First, input pdb should be properly relaxed in cartesian space with unrestrained backbone and sidechain coordinates. 
+
+_Note:_ unrestrainted relax has been found to produce fewer errors in classification. See the Frenz et al. paper for details. This represents a change from previous version.
 
 Please refer to [[here|relax]] for more information; also see an example command line:
 
@@ -71,7 +80,7 @@ For ddg:mut_file format, please refer to [[here | ddg-monomer]]. Note that this 
 
 ### Interface mode
 
-This app can do PPI and Protein small molecule simulation (not well tested).
+This application can do PPI and Protein small molecule simulation. **This has not been thoroughly benchmarked.** Other tools, such as [[InterfaceAnalyzer|Interface Analyzer]] are recommended for these types of studies. 
 
 Optional options:
 ```
@@ -79,7 +88,7 @@ Optional options:
 -interface_ddg -1 #jump number for interface (-1 means the last jump)
 ```
 
-Here the app calculate difference in energy by detaching "the part in pose defined by the last jump" from the rest of pose; the easiest way of doing this is to edit the input pdb so that the ligand (either protein or small molecule)
+Here the application calculates differences in energy by detaching "the part in pose defined by the last jump" from the rest of pose; the easiest way of doing this is to edit the input pdb so that the ligand (either protein or small molecule)
 locates at its end. One can check whether it is working properly by running with an optional flag "-ddg:dump_pdbs", which will output *_bj.pdb (before dissociation) and *_aj.pdb (after dissociation). 
 
 Frenz et. al flags and options (cartddg2020)
@@ -137,8 +146,6 @@ cartesian_ddg\
     -ddg:legacy false
 ```
 
-
-
 Expected Outputs & post-processing
 ===============
 
@@ -170,8 +177,15 @@ ddG_mono = avrg(OPT_APART MUT totalscore) - avrg(OPT_APART WT totalscore)
 
 ```
 
-Simple way of estimating ddG of binding is to use ddG_bind alone. One can also combine ddG_mono to consider monomeric stability change as well; how to combine both values hasn't been well benchmarked within cartesian_ddg application yet.
+Simple way of estimating ddG of binding is to use ddG_bind alone, after converting from [[Rosetta energy units|Units in Rosetta]] to kcal/mol. One can also combine ddG_mono to consider monomeric stability change as well; how to combine both values hasn't been well benchmarked within cartesian_ddg application.
 
 ##See Also
 
-* [[Analysis applications | ddg-monomer]]:
+* [[ddg_monomer application| ddg-monomer]]: An application for predicting the ddG of point mutations in monomeric proteins.
+* [[Analysis applications | analysis-applications]]: other design applications.
+* [[Point mutation scan| pmut-scan-parallel ]]: Parallel detection of stabilizing point mutations using design.
+* [[Application Documentation]]: Application documentation home page.
+* [[Running Rosetta with options]]: Instructions for running Rosetta executables.
+* [[Analyzing Results]]: Tips for analyzing results generated using Rosetta.
+* [[Rosetta on different scales]]: Guidelines for how to scale your Rosetta runs.
+* [[Units in Rosetta]]: A description of how Rosetta handles various units.
