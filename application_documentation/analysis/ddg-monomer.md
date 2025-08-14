@@ -217,6 +217,7 @@ A protocol capture for the protocol from row 16 of the Kellogg et al. paper can 
 
 ##See Also
 
+* [[cartesian ddg]]: An application for predicting the ddG of point mutations while allowing some backbone relaxation. 
 * [[Analysis applications | analysis-applications]]: other design applications.
 * [[Point mutation scan| pmut-scan-parallel ]]: Parallel detection of stabilizing point mutations using design.
 * [[Application Documentation]]: Application documentation home page.
