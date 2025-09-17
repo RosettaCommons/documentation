@@ -1,6 +1,66 @@
 # Release Notes
 
-<!---BEGIN_INTERNAL-->
+## Rosetta 3.15
+
+##### Notable Build System Changes:
+* The version of Scons which ships with Rosetta has been updated to support Python 3.12+. Versions of Python older than 3.5 (including Python 2.7) are no longer supported.
+* The `pytorch` extras build has been renamed to `torch`, which changes both the Scons command line and the built executable names (See [[Building Rosetta with Tensorflow and Torch]])
+
+##### New Protocols:
+* Rosetta Evolutionary Ligand ([[REvoLd]]) <https://arxiv.org/abs/2404.17329>
+* [[RosettaAMRLD]] (Rosetta automated Monte Carlo reaction-based ligand design ) <https://doi.org/10.1021/acs.jcim.5c00497>
+* [[GALigandDock]] can detect unmodeled regions of cryoEM maps and evaluate docked ligands based on their dG and density fit. <https://doi.org/10.1016/j.str.2025.07.002>
+    * [[sim_cryo]] app to simulate cryoEM density
+* Updated Ligand Motifs code
+    * [[determine_real_motifs]] app
+    * [[remove_duplicate_motifs]] app
+* New noncanonical rotamer generation approach: "[[FakeRotLib]]" <https://doi.org/10.1021/acs.jcim.5c01030>
+
+##### New Tools (Movers/Filters/etc.):
+* [[PerResidueBfactorMetric]]
+* Lanthionine support in [[CrosslinkerMover]]
+* Drug Design movers/filters/chemistries
+    * [[DrugDesignMover]]
+    * [[DrugPolishMover]]
+    * [[AtomExists]] Filter
+    * [[NChiFilter]]
+    * [[SAScoreFilter]]
+    * [[RDKitMetricFilter]]
+    * [[HeteroHeteroBondFilter]]
+    * [[LigandLocationFilter]]
+    * [[Reprotonate]] Chemistry
+    * [[RDKitRotamers]] Chemistry
+    * [[BCLFragmentRotamers]] Chemistry
+    * [[RandomFragmentLigand]] Chemistry
+    * [[ReactionGrow]] Chemistry
+    * [[ReactionFragment]] Chemistry
+    * [[ReactionBasedAnalogSampler]] Chemistry
+    * [[ReactionMultitransform]] Chemistry
+    * [[SubsituentReplace]] Chemistry
+    * [[SubstructureReplace]] Chemistry
+
+##### Updates:
+* Switch to a new mmCIF parsing engine - should be more robust, and fix issues where part of mmCIF files weren’t being read.
+* [[RECON]] can now support design with NCAAs.
+* [[BackrubProtcol]] now has `dump_poses` option (default false) which controls outputting *_last.pdb and *_low.pdb files.
+* [[InterfaceScoreCalculator]] adds scores to pose when not running under JD2.
+* [[PerResidueEsmProbabilitiesMetric]] quality of life improvements
+* Add a `deterministic` flag to [[ProteinMPNNProbabilitiesMetric]]
+* Add a `cartesian` option to RosettaLigand [[FinalMinimizer]]
+
+##### Bug Fixes:
+* Fix uninitialized variable in [[InterfaceScoreCalculator]] with non-RosettaScripts usage
+* [[SampleSequenceFromProbabilities]] bugfixes
+* Fix crash in [[homodimer_design]] with -pack_min_runs > 2
+* Fix segfault in [[RosettaCM]] when used with branched glycans
+* Fix typo in [[UnfoldedStateEnergyCalculator]] communication.
+* Fix internal swap of get_script_vars & get_user_options options of [[ProtocolSettingsMetric]]
+* Fix tracer printing in [[CompositeStringMetric]]
+* Fix NaN bug which affected MembraneGeometry calculations
+* Fix compilation of building [[PHENIX]] interface
+* Better support for newer compiler versions
+* Compilation fixes for included [[DalphaBall]]
+* Assorted build and test system adjustments.
 
 ## Rosetta 3.14
 
@@ -191,8 +251,6 @@ Other:
 * Added [[RosettaNMR]] tests to scientific benchmarks
 * Added [[cartesianddG]] for membranes scientific benchmark.
 * Updated [[protein_data_bank_diagnostic]] scientific test for expanded PDB
-
-<!---END_INTERNAL-->
 
 ## Rosetta 3.13
 
@@ -848,21 +906,6 @@ Rosetta's Ramachandran scoring code has been greatly refactored.  The software n
 * [[PeptideCyclizeMover]] bugfixes
 * Glycans:
  * Updates to [[GlycanRelax]], and new methods for handling connectivity of branched glycans (GlycanTreeSet) - use with PyRosetta: `pose.glycan_tree_set()`
-
-<!--- BEGIN_INTERNAL -->
-
-## _Rosetta 3.7 (internal notes)_
-
-_(This section in italics should remain hidden from the public wiki.)_
-
-_3.7 will be Rosetta 2016.32, http://test.rosettacommons.org/revision?id=108&branch=release, https://github.com/RosettaCommons/main/commit/9005cc64587b4189882337bc87783ab96ead263f.  See also [https://wiki.rosettacommons.org/index.php/3.7_release_notes_workspace]_
-
-### Rosetta 3.7 NOT included in release notes
-* _These are items that will be omitted from the release notes as incomplete features, but should be listed once finished for 3.8 or whenever_
-* _XML schema_ --> covered in 3.8 release notes
-* _JD3_ --> covered in 3.8 release notes
-
-<!--- END_INTERNAL -->
 
 ## Rosetta 3.7
 
