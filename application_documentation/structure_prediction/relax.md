@@ -63,7 +63,8 @@ Options specific to relax
 
 ```
    Simple Options:
-   -relax:fast               Do a simple, small cycle number (5)  fast relax (DEFAULT)
+   -relax:quick              Do a simple, small cycle number (5)  fast relax (DEFAULT)
+   -relax:fast               Synonym for -relax:quick
    -relax:thorough           Do a preset, large cycle number (15) fast relax
 
    Advanced Options:
