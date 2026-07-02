@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2025-05-29
+Generated: 2026-07-02
 
 _Note that some application specific options may not be present in this list._
 
@@ -2047,9 +2047,13 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-corrections</b> \<Boolean\></dt>
 <dd>corrections option group<br/></dd>
 <dt><b>-beta</b> \<Boolean\></dt>
-<dd>Use the most-recent (curr Apr 2018) beta score function<br/>Default: false<br/></dd>
+<dd>Use the most-recent (curr Jan 2025) beta score function<br/>Default: false<br/></dd>
 <dt><b>-beta_cart</b> \<Boolean\></dt>
-<dd>Use the most-recent (curr Apr 2018) beta score function for nonideal optimization<br/>Default: false<br/></dd>
+<dd>Use the most-recent (curr Jan 2025) beta score function for nonideal optimization<br/>Default: false<br/></dd>
+<dt><b>-beta_jan25</b> \<Boolean\></dt>
+<dd>Use the January 2025 beta score function<br/>Default: false<br/></dd>
+<dt><b>-beta_jan25_cart</b> \<Boolean\></dt>
+<dd>Use the January 2025 beta score function for nonideal optimization<br/>Default: false<br/></dd>
 <dt><b>-beta_nov16</b> \<Boolean\></dt>
 <dd>Use the November 2015 beta score function<br/>Default: false<br/></dd>
 <dt><b>-beta_nov16_cart</b> \<Boolean\></dt>
@@ -6965,18 +6969,26 @@ _Note that some application specific options may not be present in this list._
 <dd>Custom name of ligand<br/></dd>
 <dt><b>-write_param_to_pdb</b> \<Boolean\></dt>
 <dd>Bool to use in params file generation script to indicate to make a pdb file of the ligand (to compare to original mol2 and confirm successful translation)<br/>Default: false<br/></dd>
-<dt><b>-protein_discovery_locus</b> \<Real\></dt>
-<dd>Value to indicate the index/locus that a user wants to run ligand discovery for on a protein<br/>Default: 0<br/></dd>
+<dt><b>-protein_discovery_locus</b> \<IntegerVector\></dt>
+<dd>Value to indicate the index/locus that a user wants to run ligand discovery for on a protein<br/></dd>
 <dt><b>-fa_rep_cutoff</b> \<Real\></dt>
-<dd>Value for ligand discovery cutoff for fa_rep score<br/>Default: 0<br/></dd>
+<dd>Value for ligand discovery cutoff for fa_rep score<br/>Default: 10000<br/></dd>
 <dt><b>-fa_atr_cutoff</b> \<Real\></dt>
-<dd>Value for ligand discovery cutoff for fa_atr score<br/>Default: 0<br/></dd>
+<dd>Value for ligand discovery cutoff for fa_atr score<br/>Default: 10000<br/></dd>
+<dt><b>-fa_atr_rep_cutoff</b> \<Real\></dt>
+<dd>Value for ligand discovery cutoff for fa_atr_rep score function score<br/>Default: 10000<br/></dd>
+<dt><b>-post_highresdock_fa_atr_rep_score</b> \<Boolean\></dt>
+<dd>Optional flag to check fa_atr_rep after performing highresdock on placed ligand. Can be useful for debugging<br/>Default: false<br/></dd>
+<dt><b>-ligand_wts_fxn_cutoff</b> \<Real\></dt>
+<dd>Value for ligand discovery cutoff for whole ligand.wts score function score<br/>Default: 10000<br/></dd>
+<dt><b>-score_with_ligand_wts_function</b> \<Boolean\></dt>
+<dd>Use in ligand discovery protocol to determine if there is a desire to score the ligand placement with the whole ligand.wts function; this is slower and may not be necessary, which is why it is optional<br/>Default: false<br/></dd>
 <dt><b>-output_ligand_pdb</b> \<Boolean\></dt>
 <dd>Optional flag to choose to output read in ligands back out as pdb files. Useful for debugging as well as getting an original ligand in the original placement location for the RMSD calculations<br/>Default: false<br/></dd>
 <dt><b>-check_new_param_file</b> \<Boolean\></dt>
 <dd>Decide whether to test a generated params file and make sure it was accurately converted (time consumming operation)<br/>Default: false<br/></dd>
 <dt><b>-ddg_cutoff</b> \<Real\></dt>
-<dd>Real value to be used as a cutoff for keeping placed ligands. Optimized placement must be better (smaller) than cutoff. Using very large default value for ease in implementing the filter variable<br/>Default: 1000000<br/></dd>
+<dd>Real value to be used as a cutoff for keeping placed ligands. Optimized placement must be better (smaller) than cutoff. Using very large default value for ease in implementing the filter variable<br/>Default: 10000<br/></dd>
 <dt><b>-best_pdbs_to_keep</b> \<Integer\></dt>
 <dd>Size to determine the number of placed ligands to keep and output as pdbs. Default value of 0 indicates to keep any that make it to ddg evaluation (could be a lot)<br/>Default: 0<br/></dd>
 <dt><b>-resolution_scale_factor</b> \<Integer\></dt>
@@ -7007,6 +7019,46 @@ _Note that some application specific options may not be present in this list._
 <dd>Output generated motifs as pdb files<br/>Default: true<br/></dd>
 <dt><b>-output_motifs</b> \<Boolean\></dt>
 <dd>Output generated motifs as .motifs file and to a MotifLibrary<br/>Default: true<br/></dd>
+<dt><b>-highresdock_with_whole_score_fxn</b> \<Boolean\></dt>
+<dd>Option to toggle between using the simplified fa_atr/rep score function or the whole ligand.wts function for highresdock in liganddiscoverysearch<br/>Default: false<br/></dd>
+<dt><b>-target_residues_sf</b> \<IntegerVector\></dt>
+<dd>A vector of residue indices in the target receptor to use to define the region to evaluate the space filling capacity in the motif based ligand discovery<br/></dd>
+<dt><b>-target_residues_contact</b> \<IntegerVector\></dt>
+<dd>A vector of residue indices in the target receptor to use to test for protein-ligand contacts in the motif based ligand discovery<br/></dd>
+<dt><b>-space_fill_cutoff_score</b> \<Real\></dt>
+<dd>A real value intended to be between 0-1 that represents the minimum passable ratio for occupied cells in the space fill matrix<br/></dd>
+<dt><b>-space_fill_cutoff_score_sub</b> \<Real\></dt>
+<dd>A real value intended to be between 0-1 that represents the minimum passable ratio for occupied cells in the space fill matrix sub-area<br/></dd>
+<dt><b>-space_fill_cutoff_differential_score_sub</b> \<Real\></dt>
+<dd>A real value intended to be between 0-1 that represents the minimum passable difference in ratios for occupied cells in the space fill matrix sub-area for a placement compared to the empty receptor. This value will likely be closer to 0 than 1 (0.1-0.25), especially if the receptor occupied a lot of the sub area.<br/></dd>
+<dt><b>-binding_pocket_center_sf</b> \<IntegerVector\></dt>
+<dd>A vector of xyz coordinates (listed in x,y,z order) that correspond to a desired center point in a binding pocket. This is used for the space fill method as a means to define a cube or sphere about a given point to be used to roughly indicate a binding pocket. Values beyond the first 3 will be ignored and a warning thrown. Using Real (float) data type so that this may more precisely scale with resolution factor. The values will ultimately be case to integers (core::Size) to ultimately reference indices in a 3d matrix after being scaled. Coordinates will be appropriately shifted within the algorithm (user should input raw coordinates that match the input PDB).<br/></dd>
+<dt><b>-binding_pocket_dimensions_sf</b> \<IntegerVector\></dt>
+<dd>A vector of integer values (3 values for x,y,z) that are used to define the binding pocket out from the center, which is defined by binding_pocket_center_sf. This only works if binding_pocket_center_sf flag is used, and can be used instead of/overwrite binding_pocket_radius_sf. If the radius extends beyond the main protein matrix, anything beyond will be cut off. The values here should be half of the dimension of the binding pocket, as it extends +/- from the center<br/></dd>
+<dt><b>-resolution_scale_factor_float</b> \<Real\></dt>
+<dd>Scale for resolution of space fill analysis protocol that uses a protein grid. Notably, this is a float, instead of an int, which can allow to shrink the resolution if below 1. Resolution is defaulted to 1 cubic angstrom. This variable is inversely proportional to the linear magnitude of the resolution. I.e. factor = 1 --> resolution = 1A^3 (cube side length = 1/1); factor = 2 --> resolution = 0.125A^3 (cube side length = 1/2) <br/>Default: 1<br/></dd>
+<dt><b>-output_space_fill_matrix_pdbs</b> \<Boolean\></dt>
+<dd>Output space fill matrix as atoms in a pdb that correspond to cells in matrix. Useful for visualization and debugging, but not necessary for large-scale operations. The sub-area is composed of nitrogen (occupied) and oxygen (unoccupied) atoms. If selected, the rest of the matrix is represented by fluorine (occupied) and carbon (unoccupied). This should only be used in for small diagnostic uses, as it is VERY slow, especially if you export the entire matrix beyond the sub-area.<br/>Default: false<br/></dd>
+<dt><b>-use_whole_matrix_in_space_fill_pdb</b> \<Boolean\></dt>
+<dd>If using output_space_fill_matrix_pdbs flag, this option (when true) allows for visualization of the entire space fill matrix, instead of just the sub-area.<br/>Default: false<br/></dd>
+<dt><b>-use_empty_space_in_space_fill_pdb</b> \<Boolean\></dt>
+<dd>If using output_space_fill_matrix_pdbs flag, this option (when true) allows for visualization of the space fill matrix, including empty space.<br/>Default: false<br/></dd>
+<dt><b>-collect_motifs_from_placed_ligand</b> \<Boolean\></dt>
+<dd>If using liganddiscoverysearch, option to choose whether to investigate if placed ligand forms motifs with residues in binding pocket<br/>Default: false<br/></dd>
+<dt><b>-significant_residues_for_motifs</b> \<IntegerVector\></dt>
+<dd>Indices of residues of interest that user wants to have motifs form against placed ligand. Ligand can survive if not all residues here are hit<br/></dd>
+<dt><b>-mandatory_residues_for_motifs</b> \<IntegerVector\></dt>
+<dd>Indices of residues of interest that user needs to have motifs form against placed ligand. Ligand cannot survive if not all residues here are hit<br/></dd>
+<dt><b>-minimum_motifs_formed_cutoff</b> \<Integer\></dt>
+<dd>Minimum number of motifs from any residue that are required for ligand to survive<br/>Default: 0<br/></dd>
+<dt><b>-minimum_significant_motifs_formed_cutoff</b> \<Integer\></dt>
+<dd>Minimum number of motifs from significant residues (defined by significant_residues_for_motifs) that are required for ligand to survive<br/>Default: 0<br/></dd>
+<dt><b>-check_if_ligand_motifs_match_real</b> \<Boolean\></dt>
+<dd>If collecting motifs from placed ligand, check if motifs are similar to existing ones in starting motif library<br/>Default: false<br/></dd>
+<dt><b>-minimum_ratio_of_real_motifs_from_ligand</b> \<Real\></dt>
+<dd>If checking that motifs from placed ligand match motifs in inputted library, ratio cutoff for how many must match real to keep ligand<br/>Default: 0<br/></dd>
+<dt><b>-clean_pdb_name</b> \<Boolean\></dt>
+<dd>Use a cleaner naming scheme for naming the pdbs that are produced by liganddiscoverysearch<br/>Default: true<br/></dd>
 </dl>
 + <h2>-ms</h2>
 <dl>
@@ -7747,6 +7799,15 @@ _Note that some application specific options may not be present in this list._
 <dd>gzip output files<br/>Default: false<br/></dd>
 <dt><b>-normalize</b> \<Real\></dt>
 <dd>Normalizing factor (usually target sequence length)<br/>Default: 1.0<br/></dd>
+</dl>
++ <h2>-protein_grid</h2>
+<dl>
+<dt><b>-protein_grid</b> \<Boolean\></dt>
+<dd>protein_grid option group<br/></dd>
+<dt><b>-output_whole_matrix</b> \<Boolean\></dt>
+<dd>If using output_space_fill_matrix_pdbs flag, this option (when true) allows for visualization of the entire space fill matrix, instead of just the sub-area.<br/>Default: false<br/></dd>
+<dt><b>-output_empty_space</b> \<Boolean\></dt>
+<dd>If using output_space_fill_matrix_pdbs flag, this option (when true) allows for visualization of the space fill matrix, including empty space.<br/>Default: false<br/></dd>
 </dl>
 + <h2>-qsar</h2>
 <dl>

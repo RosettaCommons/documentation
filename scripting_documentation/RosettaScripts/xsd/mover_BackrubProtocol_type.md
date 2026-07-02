@@ -11,8 +11,8 @@ Performs backrub-style backbone moves
         task_operations="(&task_operation_comma_separated_list;)"
         packer_palette="(&named_packer_palette;)" mc_kt="(&real;)"
         ntrials="(&real;)" trajectory="(&bool;)" trajectory_gz="(&bool;)"
-        recover_low="(&bool;)" pivot_residue_selector="(&string;)"
-        trajectory_apply_mover="(&string;)"
+        recover_low="(&bool;)" dump_poses="(&bool;)"
+        pivot_residue_selector="(&string;)" trajectory_apply_mover="(&string;)"
         trajectory_stride="(&positive_integer;)" />
 ```
 
@@ -25,6 +25,7 @@ Performs backrub-style backbone moves
 -   **trajectory**: Set to true to dump PDBs along the trajectory (how often is controlled by trajectory_stride option)
 -   **trajectory_gz**: Set to true to dump gzipped PDBs along the trajectory (how often is controlled by trajectory_stride option)
 -   **recover_low**: Set the return Pose to be the lowest scoring structure sampled (if false, will be left as last sampled structure)
+-   **dump_poses**: Output the results of the MC trajectory to _low.pdb and _last.pdb files in the working directory
 -   **pivot_residue_selector**: Name of residue selector to use to select pivot residues
 -   **trajectory_apply_mover**: Name of mover to apply during trajectory. Stride (how often to apply) is affected by trajectory_stride
 -   **trajectory_stride**: How often (in steps) to either dump PDBs or call trajectory_apply_mover

@@ -12,11 +12,13 @@ Lemmon G, and Meiler J.  (2012).  Rosetta Ligand docking with flexible XML proto
 
 ```xml
 <FinalMinimizer name="(&string;)" scorefxn="(&string;)"
-        movemap_builder="(&string;)" remove_constraints="(false &bool;)" />
+        movemap_builder="(&string;)" remove_constraints="(false &bool;)"
+        cartesian="(false &bool;)" />
 ```
 
 -   **scorefxn**: (REQUIRED) Used scorefunction. Required.
 -   **movemap_builder**: (REQUIRED) Name of a previously defined MoveMapBuilder. Required.
 -   **remove_constraints**: Remove any added constraints after minimization.
+-   **cartesian**: Use Cartesian minimization.
 
 ---

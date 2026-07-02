@@ -7,10 +7,10 @@ Run a Monte Carlo drug design protocol on a given ligand.
 
 ```xml
 <DrugDesignMover name="(&string;)" trials="(10 &non_negative_integer;)"
-        temperature="(0.1 &real;)" chain="(X &char;)" lig_efficy="(true &bool;)"
-        logfile="(true &bool;)" prefilter="(&string;)"
-        redocker="(null_mover &string;)" postfilter="(&string;)"
-        scorer="(&string;)" debug_prefix="(&string;)" >
+        temperature="(0.1 &real;)" chain="(X &string;)"
+        lig_efficy="(true &bool;)" logfile="(true &bool;)"
+        prefilter="(&string;)" redocker="(null_mover &string;)"
+        postfilter="(&string;)" scorer="(&string;)" debug_prefix="(&string;)" >
     <Add chemistry="(&string;)" weight="(1.0 &real;)" />
     <Before chemistry="(&string;)" />
     <After chemistry="(&string;)" />

@@ -7,7 +7,7 @@ This Mover performs a PCS data driven grid search of the ligand position and ori
 
 ```xml
 <PCSLigandTransformMover name="(&string;)" pcs_input_file="(&string;)"
-        scorefxn="(&string;)" chain="(X &char;)" />
+        scorefxn="(&string;)" chain="(X &string;)" />
 ```
 
 -   **pcs_input_file**: (REQUIRED) PCS data input file

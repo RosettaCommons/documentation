@@ -13,7 +13,8 @@ Moritz Ertelt, University of Leipzig [moritz.ertelt@gmail.com]
 ```xml
 <ProteinMPNNProbabilitiesMetric name="(&string;)" custom_type="(&string;)"
         write_pssm="(&string;)" residue_selector="(&string;)"
-        coord_selector="(&string;)" sequence_mask_selector="(&string;)" >
+        coord_selector="(&string;)" sequence_mask_selector="(&string;)"
+        deterministic_flag="(false &bool;)" >
     <TiedPositions residue_selectors="(&string;)" />
 </ProteinMPNNProbabilitiesMetric>
 ```
@@ -24,6 +25,7 @@ Moritz Ertelt, University of Leipzig [moritz.ertelt@gmail.com]
 -   **residue_selector**: A residue selector specifying which residue or residues to predict on. If none selected, all are passed.
 -   **coord_selector**: Name of a residue selector that selects per-residue coordinates to pass to ProteinMPNN. If none selected, all coordinates are passed.
 -   **sequence_mask_selector**: Name of a residue selector that selects positions to be masked.
+-   **deterministic_flag**: Whether to enable deterministic mode. Defaults to false.
 
 
 Subtag **TiedPositions**:   
