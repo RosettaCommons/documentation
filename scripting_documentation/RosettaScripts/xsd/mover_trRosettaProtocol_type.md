@@ -34,7 +34,7 @@ The trRosettaProtocol mover requires compilation with Tensorflow support.  To co
 
 References and author information for the trRosettaProtocol mover:
 
-trRosetta Neural Network's citation(s):
+trRosetta neural network's citation(s):
 Yang J, Anishchenko I, Park H, Peng Z, Ovchinnikov S, and Baker D.  (2020).  Improved protein structure prediction using predicted interresidue orientations.  Proc Natl Acad Sci USA 117(3):1496-503.  doi: 10.1073/pnas.1914677117.
 
 FastRelax Mover's citation(s):

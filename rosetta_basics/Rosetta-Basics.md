@@ -45,6 +45,7 @@
     *  [[Design-centric guidance terms|design-guidance-terms]]
     *  [[Hydrogen bonding score term|hbonds]]
     *  [[Centroid score terms]]
+    *  [[Quantum mechanical energy calculations in Rosetta | qm-energy-calculations ]]
 - [[Symmetry]]
 - [[Minimization | Minimization Overview]] - Backbone and/or side chain degrees of freedom
 - [[Comparing Structures]]
