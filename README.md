@@ -64,5 +64,6 @@ The actual https://docs.rosettacommons.org/docs sites are served with the `thin`
 
      bundle exec thin -C rcpubdocs-config.yml -l /opt/logs/rcdocs.log start
 
-(This will launch the server in the background -- run the same command with `stop` to stop the server)
+This serves the website at http://localhost:3001/docs/latest/ for rcpubdocs-config.yml and port http://localhost:3001/docs/wiki for rcdocs-config.yml.
+The server will be launched in the background -- run the same command with `stop` to stop the server.
 
