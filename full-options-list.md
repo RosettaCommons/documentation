@@ -1,7 +1,7 @@
 # List of Rosetta command line options.
 
 _(This is an automatically generated file, do not edit!)_
-Generated: 2026-07-02
+Generated: 2026-11-16
 
 _Note that some application specific options may not be present in this list._
 
@@ -943,7 +943,7 @@ _Note that some application specific options may not be present in this list._
 <dt><b>-soft_wts</b> \<String\></dt>
 <dd>Name of the 'soft' weights file, for protocols which use it.<br/>Default: "soft_rep"<br/></dd>
 <dt><b>-docking_interface_score</b> \<Boolean\></dt>
-<dd>the score is computed as difference between bound and unbound pose<br/>Default: false<br/></dd>
+<dd>the default ScoreFunction is computed as difference between bound and unbound pose. Not for use with packing/minimization.<br/>Default: false<br/></dd>
 <dt><b>-min_score_score</b> \<Real\></dt>
 <dd>do not consider scores lower than min-score in monte-carlo criterion<br/>Default: 0.0<br/></dd>
 <dt><b>-custom_atom_pair</b> \<String\></dt>
