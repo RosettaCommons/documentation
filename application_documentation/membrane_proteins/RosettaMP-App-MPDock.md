@@ -52,7 +52,7 @@ Generate at least 1000 models and analyze the data using interface score vs. RMS
 
 ## Tips
 
-If the interface score doesn't show up in the scorefile and you want to add it, you can use the flag ```-score:docking_interface_score 1 ```
+If the interface score doesn't show up in the scorefile and you want to add it, you can use the flag ```-score:docking_interface_score 1 ```, though this is probably best employed on a post-protocol rescoring-only run.
 
 
 ## References
